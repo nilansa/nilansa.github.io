@@ -1,0 +1,62 @@
+<!doctype html><html lang="en"><head><meta name="robots" content="noindex,nofollow,noarchive"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#122d35"><meta name="description" content="An accurate map of the submitted product—what is learned, what is calculated, and what is only assumed."><title>Start here · Lloyds PS2 ST100</title><link rel="stylesheet" href="assets/style.css"></head><body><div class="shell"><aside class="sidebar"><a class="brand" href="index.html"><span class="brand-mark">MEGATHON X · PS2</span><span class="brand-name">GreenHome<br>Judge briefing</span><span class="brand-small">ST100 · Evidence before claims</span></a><nav class="site-nav" aria-label="Chapters"><div class="nav-label">Study route</div><a href="index.html" class="active" aria-current="page"><span class="num">00</span><span>Start here</span></a><a href="01-dataset.html"><span class="num">01</span><span>The dataset</span></a><a href="02-models.html"><span class="num">02</span><span>The trained models</span></a><a href="03-engine.html"><span class="num">03</span><span>Scoring &amp; simulation</span></a><a href="04-llm.html"><span class="num">04</span><span>LLM &amp; query flow</span></a><a href="05-demo.html"><span class="num">05</span><span>4-minute live demo</span></a><a href="06-judges.html"><span class="num">06</span><span>Judge questions</span></a><a href="07-roadmap.html"><span class="num">07</span><span>Next steps &amp; sources</span></a></nav><div class="sidebar-foot">Source: archived main 04fb536<br>Prepared for the live Lloyds review. Offline HTML; no tracking or network requests.</div></aside><div class="main"><header class="top"><div class="crumb">LLOYDS PS2 / Start here</div><span class="state">Audited code · 11 Oct 2026</span></header><div class="progress" aria-hidden="true"><span id="read-progress"></span></div><main class="content"><section class="hero"><div class="eyebrow">Chapter 00 / Start here</div><h1>The winning explanation</h1><p class="deck">An accurate map of the submitted product—what is learned, what is calculated, and what is only assumed.</p><div class="meta"><span class="chip highlight">Based on actual submitted code</span><span class="chip">No invented model capabilities</span><span class="chip">Offline reading</span></div></section>
+<section class="shade" style="margin:20px 0 31px;background:#e0f5eb;border-left:5px solid #0a876e"><h3 style="margin:0 0 6px">New: ST100+ interactive recommendation pipeline</h3><p>Click through every decision from real UK home data to feasibility, simulated energy savings, package ranking, and the bounded Qwen explanation layer.</p><a class="btn" href="08-retrofit-pipeline-st100plus.html">Open step-by-step visual pipeline &#8594;</a></section>
+<section aria-label="Thirty second thesis">
+  <div class="shade"><h3>The thesis, in 30 seconds</h3><p><strong>GreenHome turns incomplete UK home-energy evidence into a cautious retrofit decision.</strong> It distinguishes recorded facts from unknowns, scores seven dimensions, rules out unsuitable improvements, compares interacting upgrades and explains the results. Two trained models estimate electricity or gas use only when readings are missing. A local LLM interprets language; it never invents a score or financial number.</p></div>
+  <p class="quote">“We do not recommend every green upgrade. We show which upgrades this home can actually consider, what must be checked first, and how much the result depends on assumptions.”</p>
+</section>
+
+<h2 id="roles">One system. Five responsibilities.</h2>
+<div class="flow" role="img" aria-label="NEED property data and homeowner answers feed either optional consumption predictions or the deterministic scoring and retrofit engine; calculated facts are then selected by a local language model for a customer-facing explanation">
+  <div class="node dark"><span class="node-label">1. Evidence</span><small>Real anonymised NEED readings + homeowner-confirmed conditions</small></div><div class="arrow">→</div>
+  <div class="node"><span class="node-label">2. Optional ML</span><small>Two regressors fill missing energy readings—not retrofit effects</small></div><div class="arrow">→</div>
+  <div class="node teal"><span class="node-label">3. Deterministic engine</span><small>Score · feasibility · packages · electricity/gas · carbon/bills</small></div><div class="arrow">→</div>
+  <div class="node"><span class="node-label">4. Bounded LLM</span><small>Parse intentions; select approved fact IDs</small></div><div class="arrow">→</div>
+  <div class="node amber"><span class="node-label">5. Customer</span><small>Decision, trade-offs, evidence, checks still needed</small></div>
+</div>
+<div class="shade blue"><strong>Important nuance:</strong> the ML predictor is an <em>optional side branch</em>, not a mandatory stage of every request. With valid meter readings, the numerical engine uses those readings without calling ML. The assistant is also optional; the core calculator runs without Ollama.</div>
+
+<h2 id="inventory">The actual model inventory</h2>
+<div class="table-scroll"><table class="table">
+<thead><tr><th>Question</th><th>What runs</th><th>What must not be claimed</th></tr></thead>
+<tbody>
+<tr><td>How much energy does this house use?</td><td>Recorded 2024 fuel readings; if absent, optional two fitted scikit-learn regressors</td><td>“We trained a retrofit-outcome model.”</td></tr>
+<tr><td>How green is it?</td><td>Seven weighted, monotonic subscore mappings in <span class="mono">src/engine.js</span></td><td>“The score is a new EPC certificate.”</td></tr>
+<tr><td>Which upgrades can be considered?</td><td>Five hard-coded measures with evidence-based prerequisites and blocking rules</td><td>“An ML classifier learned installer suitability.”</td></tr>
+<tr><td>What happens if I choose upgrades?</td><td>Sequential deterministic energy simulator, then emissions and variable-bill arithmetic</td><td>“These are measured causal savings.”</td></tr>
+<tr><td>Will my property value increase?</td><td>Restricted EPC association-based sensitivity from Nationwide, with explicit inputs</td><td>“We predict sale price or guarantee uplift.”</td></tr>
+<tr><td>What does the AI do?</td><td>Local Qwen3:4B or DeepSeek fallback selects structured inputs/fact IDs</td><td>“We use Gemma or an unrestricted numerical LLM.”</td></tr>
+</tbody></table></div>
+<p class="source">Source: <a href="https://github.com/IIIT-ECell/megathon26-ferrum-nova/blob/04fb53606992d56fa3eaaf23bae74dd7fbaff7f1/src/engine.js">engine.js</a>, <a href="https://github.com/IIIT-ECell/megathon26-ferrum-nova/blob/04fb53606992d56fa3eaaf23bae74dd7fbaff7f1/scripts/assistant.mjs">assistant.mjs</a>, and <a href="https://github.com/IIIT-ECell/megathon26-ferrum-nova/blob/04fb53606992d56fa3eaaf23bae74dd7fbaff7f1/scripts/train_need.py">train_need.py</a>.</p>
+
+<h2 id="case">One reproducible case: NH-083</h2>
+<p class="lead">A real, anonymised NEED source row supplies the energy baseline. Extra building-condition values below are a <strong>deliberate what-if assumption</strong>, not facts contained in the dataset.</p>
+<div class="grid four">
+<div class="card"><div class="card-top">Observed 2024 use</div><div class="big-stat">30,400</div><div class="stat-label">kWh/year · 5,700 electricity + 24,700 gas</div></div>
+<div class="card"><div class="card-top">Grouped EPC band</div><div class="big-stat">E</div><div class="stat-label">London · semi-detached · 175 m² band midpoint</div></div>
+<div class="card"><div class="card-top">Before condition review</div><div class="big-stat">50 / 100</div><div class="stat-label">Provisional “Moderate” score with unknown features</div></div>
+<div class="card"><div class="card-top">After example corrections</div><div class="big-stat">43 / 100</div><div class="stat-label">Provisional “Poor”; assumed poor insulation + single glazing</div></div>
+</div>
+<div class="grid">
+<div class="card"><div class="card-top">Example £2,000 cap</div><h3>Loft insulation + smart controls</h3><p>When the homeowner explicitly confirms a safe, suitable loft, a gas boiler and compatible controls, the planner selects two upgrades. <strong>Indicative cost: £1,450.</strong></p></div>
+<div class="card"><div class="card-top">Modelled result</div><h3>4,140 kWh/year saved</h3><p>About <strong>13.6%</strong> less purchased energy, <strong>755 kg CO₂e/year</strong> lower estimated emissions, and <strong>£330/year</strong> lower variable bills. Not measured outcomes or guaranteed savings.</p></div>
+</div>
+<div class="shade amber"><h3>Why this is the right demonstration</h3><p>The original dataset does not tell us whether the roof is sound or whether the loft has adequate insulation. A responsible system asks, rather than silently inferring. The demo should show one unknown becoming a confirmed input; only then does the set of feasible measures change.</p></div>
+
+<h2 id="score">What Lloyds actually evaluates</h2>
+<div class="grid three">
+<div class="card"><div class="card-top">20% · largest single block</div><h3>ML + recommendation quality</h3><p>Data quality, label validity, baseline, held-out results, suitability and ranking.</p></div>
+<div class="card"><div class="card-top">15% + 15% + 15%</div><h3>Score, quantitative impact, LLM</h3><p>Correct subscore weights; fuel-aware arithmetic; grounded what-if answers and evaluation.</p></div>
+<div class="card"><div class="card-top">Remaining 35%</div><h3>Business, architecture, UX, trust, innovation</h3><p>Usefulness, reproducibility, transparent uncertainty, interface quality and originality.</p></div>
+</div>
+<p class="source">Official weights: <a href="https://github.com/IIIT-ECell/megathon26-ferrum-nova/blob/04fb53606992d56fa3eaaf23bae74dd7fbaff7f1/deliverables/final_report.pdf">submitted report</a>; also see the Lloyds PS2 sponsor briefing, Section 12.</p>
+
+<h2 id="study">Study in this order</h2>
+<div class="stack">
+<div class="step"><div class="step-index">1</div><div><h3><a href="01-dataset.html">Explain the evidence</a></h3><p>Know what exists in NEED, what is missing, and why the sample is not nationally representative.</p></div></div>
+<div class="step"><div class="step-index">2</div><div><h3><a href="02-models.html">Explain the actual training</a></h3><p>Two fuel models, five source categories, 60/20/20, absolute-error boosting, baseline and uncertainty.</p></div></div>
+<div class="step"><div class="step-index">3</div><div><h3><a href="03-engine.html">Explain one exact calculation</a></h3><p>Pass from recorded energy to a feasible plan; show why heat pumps can raise electricity.</p></div></div>
+<div class="step"><div class="step-index">4</div><div><h3><a href="04-llm.html">Explain the strict AI boundary</a></h3><p>Natural language → validated JSON → user confirmation → model rerun → selected grounded facts.</p></div></div>
+<div class="step"><div class="step-index">5</div><div><h3><a href="05-demo.html">Rehearse the four-minute story</a></h3><p>One property, one business decision, one reliability check, one memorable closing statement.</p></div></div>
+<div class="step"><div class="step-index">6</div><div><h3><a href="06-judges.html">Defend assumptions and weaknesses</a></h3><p>Answer honestly where the prototype is a screening model rather than a field-validated product.</p></div></div>
+</div>
+<div class="pager"><span></span><a href="01-dataset.html">The dataset →</a></div><footer class="footer">Team 13 · Technical preparation only. This is not a Lloyds Bank product, EPC certificate, home survey or valuation. <a href="07-roadmap.html#references">Review source links</a>. Task megathon-ps2-st100-prep-20261011-001.</footer></main></div></div><script src="assets/app.js" defer></script></body></html>

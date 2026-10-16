@@ -1,0 +1,97 @@
+<!doctype html><html lang="en"><head><meta name="robots" content="noindex,nofollow,noarchive"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#122d35"><meta name="description" content="Two models, five categorical features, a 60/20/20 split and honest held-out results."><title>The trained models · Lloyds PS2 ST100</title><link rel="stylesheet" href="assets/style.css"></head><body><div class="shell"><aside class="sidebar"><a class="brand" href="index.html"><span class="brand-mark">MEGATHON X · PS2</span><span class="brand-name">GreenHome<br>Judge briefing</span><span class="brand-small">ST100 · Evidence before claims</span></a><nav class="site-nav" aria-label="Chapters"><div class="nav-label">Study route</div><a href="index.html"><span class="num">00</span><span>Start here</span></a><a href="01-dataset.html"><span class="num">01</span><span>The dataset</span></a><a href="02-models.html" class="active" aria-current="page"><span class="num">02</span><span>The trained models</span></a><a href="03-engine.html"><span class="num">03</span><span>Scoring &amp; simulation</span></a><a href="04-llm.html"><span class="num">04</span><span>LLM &amp; query flow</span></a><a href="05-demo.html"><span class="num">05</span><span>4-minute live demo</span></a><a href="06-judges.html"><span class="num">06</span><span>Judge questions</span></a><a href="07-roadmap.html"><span class="num">07</span><span>Next steps &amp; sources</span></a></nav><div class="sidebar-foot">Source: archived main 04fb536<br>Prepared for the live Lloyds review. Offline HTML; no tracking or network requests.</div></aside><div class="main"><header class="top"><div class="crumb">LLOYDS PS2 / The trained models</div><span class="state">Audited code · 11 Oct 2026</span></header><div class="progress" aria-hidden="true"><span id="read-progress"></span></div><main class="content"><section class="hero"><div class="eyebrow">Chapter 02 / The trained models</div><h1>What the ML really predicts</h1><p class="deck">Two models, five categorical features, a 60/20/20 split and honest held-out results.</p><div class="meta"><span class="chip highlight">Based on actual submitted code</span><span class="chip">No invented model capabilities</span><span class="chip">Offline reading</span></div></section>
+<div class="shade"><h3>One sentence to memorise</h3><p>“We fit <strong>two separate histogram gradient-boosting regression models</strong> on anonymised NEED records—one to estimate annual electricity, one for annual gas—using five categorical home descriptors. We use them only when observed energy data is missing.”</p></div>
+
+<h2 id="features">Inputs, targets and outputs</h2>
+<div class="flow">
+<div class="node"><span class="node-label">Five raw categories</span><small>Type · age band · floor-area band · region · main heating fuel</small></div><div class="arrow">→</div>
+<div class="node teal"><span class="node-label">Train-only one-hot encoding</span><small>One indicator per seen category; missing values have their own indicator</small></div><div class="arrow">→</div>
+<div class="node dark"><span class="node-label">Two fitted regressors</span><small>One predicts Econs2024; one predicts Gcons2024</small></div><div class="arrow">→</div>
+<div class="node amber"><span class="node-label">kWh/year + intervals</span><small>Nonnegative estimates; validation-residual bands; not retrofit outcomes</small></div>
+</div>
+<div class="table-scroll"><table class="table">
+<thead><tr><th>Feature</th><th>Example value</th><th>What the model can learn</th><th>What it cannot know</th></tr></thead><tbody>
+<tr><td>Property type</td><td>Semi-detached</td><td>Typical consumption differences by dwelling form</td><td>Measured wall or roof heat loss</td></tr>
+<tr><td>Construction-age band</td><td>NEED category 4</td><td>Differences across recorded age groups</td><td>Exact material and insulation specification</td></tr>
+<tr><td>Floor-area band</td><td>151–200 m² (category 4)</td><td>Scale of typical household use</td><td>Precise area without additional measurement</td></tr>
+<tr><td>Government region</td><td>London</td><td>Regional consumption patterns</td><td>Microclimate or current energy tariffs</td></tr>
+<tr><td>Main heating-fuel code</td><td>Gas-main category 1</td><td>Broad fuel-use differences</td><td>Gas boiler model or efficiency</td></tr>
+</tbody></table></div>
+<details class="qblock"><summary>Show what “one-hot encoding” means</summary><div class="answer">
+<p>Suppose the category set learned from <em>training rows</em> contains three types: Flat, Detached and Semi-detached. “Semi-detached” becomes three numerical indicators: Flat=0, Detached=0, Semi-detached=1. This is repeated for the other four features. The model receives these indicators, not the English words.</p>
+<pre class="code">raw:   { PROP_TYPE:"Semi-detached", REGION:"London", ... }
+after: [type_flat=0, type_detached=0, type_semi=1, ...]
+target for electricity model: Econs2024 in kWh/year
+target for gas model:         Gcons2024 in kWh/year</pre>
+<p>Only categories observed in <strong>training</strong> define the feature-column order. A new/unseen category is mapped to the explicit MISSING indicator with a warning—never quietly treated as a new trained category.</p></div></details>
+
+<h2 id="train">Exact training procedure</h2>
+<div class="stack">
+<div class="step"><div class="step-index">1</div><div><h3>Read the 50,000-row official CSV</h3><p>Targets: <span class="mono">Econs2024</span> and <span class="mono">Gcons2024</span>. Retain for each target only rows marked V with a finite, nonnegative annual kWh value. Electricity and gas masks differ.</p></div></div>
+<div class="step"><div class="step-index">2</div><div><h3>Freeze one source-row split</h3><p><strong>60% train, 20% validation, 20% test</strong>; <span class="mono">train_test_split</span>, random seed 42. The same original row split is reused across fuels before each target's validity filter.</p></div></div>
+<div class="step"><div class="step-index">3</div><div><h3>Fit encoders and a simple baseline on training only</h3><p>Baseline = median 2024 consumption by property type and floor-area band. Unseen group → training global median. One-hot categories are also fitted using training rows only.</p></div></div>
+<div class="step"><div class="step-index">4</div><div><h3>Train three candidate methods per fuel</h3><p>The grouped-median baseline, histogram gradient boosting with squared-error loss, and the same booster with <strong>absolute-error loss</strong>.</p></div></div>
+<div class="step"><div class="step-index">5</div><div><h3>Select by validation MAE—not test</h3><p>Choose the smallest validation mean absolute error separately for electricity and gas. The <strong>absolute-error HGB</strong> won for both. A held-out test score is then computed once after selection.</p></div></div>
+<div class="step"><div class="step-index">6</div><div><h3>Calibrate an interval, save two models</h3><p>Use the 80th-percentile validation absolute residual as a symmetric radius. Save the estimator, encoder categories, training schema, baseline, split IDs, source hash and metrics in two compressed <span class="mono">joblib</span> artifacts.</p></div></div>
+</div>
+<div class="grid">
+<div class="card"><div class="card-top">Histogram gradient boosting</div><h3>Actual hyperparameters</h3><pre class="code">loss              = "absolute_error"
+learning_rate     = 0.07
+max_iter          = 120
+max_leaf_nodes    = 20
+max_depth         = 5
+l2_regularization = 1.0
+early_stopping    = False
+random_state      = 42</pre></div>
+<div class="card"><div class="card-top">Plain language</div><h3>What does boosting do?</h3><p>It fits a sequence of small decision trees. Each tree helps improve the combined prediction. A histogram implementation groups continuous encoded feature values for efficient splitting. The loss asks the model to reduce <strong>absolute prediction error</strong>, which aligns with the MAE model-selection metric.</p><p class="small">It is not a neural network, transformer, Gemma model, XGBoost run or custom-trained LLM.</p></div>
+</div>
+
+<h2 id="metrics">Results you can quote without exaggeration</h2>
+<div class="table-scroll"><table class="table">
+<thead><tr><th>Fuel</th><th>Training rows</th><th>Validation rows</th><th>Test rows</th><th>Baseline test MAE</th><th>Chosen test MAE</th><th>MAE change</th></tr></thead>
+<tbody>
+<tr><td>Electricity</td><td class="numtext">27,078</td><td class="numtext">9,052</td><td class="numtext">9,084</td><td class="numtext">1,649 kWh</td><td class="numtext"><strong>1,612 kWh</strong></td><td class="numtext">−2.2%</td></tr>
+<tr><td>Gas</td><td class="numtext">22,326</td><td class="numtext">7,430</td><td class="numtext">7,430</td><td class="numtext">4,312 kWh</td><td class="numtext"><strong>4,053 kWh</strong></td><td class="numtext">−6.0%</td></tr>
+</tbody></table></div>
+<div class="grid">
+<div class="card"><div class="card-top">Validation-selected method</div><h3>Absolute-error boosting won</h3><p>Electricity validation MAE <strong>1,581.30</strong> kWh/year; gas validation MAE <strong>3,931.42</strong> kWh/year. The model was not chosen by repeatedly trying variants on the test set.</p></div>
+<div class="card"><div class="card-top">Uncertainty calibration</div><h3>~80% observed test coverage</h3><p>Electricity: radius ±<strong>2,121.76</strong> kWh, 80.03% test coverage. Gas: radius ±<strong>6,019.58</strong> kWh, 78.83% coverage. Lower bounds are clipped to zero.</p></div>
+</div>
+<div class="shade amber"><h3>Do not call these precise household predictions</h3><p>The absolute errors are large. Dataset fields omit occupancy, appliances, comfort, detailed dwelling fabric and date-verified property attributes. Calibration is descriptive under this split; it is not a guaranteed predictive interval for any future UK household.</p></div>
+<p class="source">Ground truth: <a href="https://github.com/IIIT-ECell/megathon26-ferrum-nova/blob/04fb53606992d56fa3eaaf23bae74dd7fbaff7f1/docs/NEED_MODEL_CARD.md">Model card</a>, <a href="https://github.com/IIIT-ECell/megathon26-ferrum-nova/blob/04fb53606992d56fa3eaaf23bae74dd7fbaff7f1/scripts/train_need.py">trainer</a> and <a href="https://github.com/IIIT-ECell/megathon26-ferrum-nova/blob/04fb53606992d56fa3eaaf23bae74dd7fbaff7f1/results/need_metrics.json">exact split/metrics</a>.</p>
+
+<h2 id="inference">What actually happens at inference?</h2>
+<div class="flow">
+<div class="node"><span class="node-label">Missing meter value?</span><small>If no: use the entered/observed value; never overwrite it</small></div><div class="arrow">→</div>
+<div class="node"><span class="node-label">POST /api/predict</span><small>Node validates request; starts Python predictor child with JSON stdin</small></div><div class="arrow">→</div>
+<div class="node teal"><span class="node-label">Load two joblib files</span><small>Map form fields to NEED category codes; frozen one-hot mapping</small></div><div class="arrow">→</div>
+<div class="node amber"><span class="node-label">Return kWh + bands</span><small>Preserve measured fuels; apply estimates only to missing fuels</small></div>
+</div>
+<p>The Python predictor is launched as a short-lived local process with a ten-second timeout. It loads existing <span class="mono">electricity.joblib</span> and <span class="mono">gas.joblib</span>. It <strong>does not retrain</strong> while serving a request. A confirmed all-electric heating input can set gas to known zero by application rule; this is not a model prediction of zero gas.</p>
+<pre class="code">POST /api/predict
+{ "property": { "propertyType":"Semi detached",
+  "region":"London", "floorAreaBand":"4",
+  "ageBand":"4", "heatingType":"gas_boiler",
+  "electricityKwh":null, "gasKwh":null } }
+
+→ { "status":"estimated",
+    "electricityKwh": ..., "gasKwh": ...,
+    "intervals":{ ... }, "warnings":[ ... ] }</pre>
+<p class="small">Ellipses are placeholders, not fabricated predictions. The actual output depends on the trained artifacts and the exact selected inputs.</p>
+
+<h2 id="retrain">How long to retrain? What if we add features?</h2>
+<div class="grid">
+<div class="card"><div class="card-top">Measured local run</div><div class="big-stat">4.173 sec</div><div class="stat-label">Source CSV load → candidate fits → validation selection → interval calibration → held-out scoring → model serialization. Two-thread CPU limit in one recorded environment; not a universal runtime guarantee.</div></div>
+<div class="card"><div class="card-top">Saved model footprint</div><div class="big-stat">≈ 401 KB</div><div class="stat-label">Electricity 200,213 bytes + gas 200,822 bytes, compressed joblib. Source CSV download and Python environment are separate costs.</div></div>
+</div>
+<pre class="code"># From a local clone of the archived submission
+PYTHONPATH=src python3 scripts/train_need.py \
+  --data data/raw/need_2026_50k.csv \
+  --output results/need_metrics.json \
+  --model-dir results/need_models
+
+# Test one property; reads existing saved models
+echo '{"property":{"propertyType":"Flat",...}}' |
+  python3 scripts/predict_need.py</pre>
+<p><strong>For a new feature</strong>—for example dwelling insulation grade or measured roof area—we would first need that field for real training homes, recorded at the correct time and with appropriate consent. Then modify <span class="mono">FEATURES</span>, update category encoding and request mapping, refit candidates on training rows, select on validation, recalibrate intervals, and compare once on a fresh untouched test set. Merely adding an input box to the UI does not make the trained model understand that feature.</p>
+<div class="shade blue"><h3>Judge question: “Why not use XGBoost, deep learning or a larger model?”</h3><p>“We chose a fast, small, reproducible CPU baseline for structured categorical tabular data. We compared multiple candidate losses and a grouped-median baseline. The improvement is modest, so we would not claim algorithmic superiority; better time-aligned building and occupancy features are likely more important than simply increasing model complexity.”</p></div>
+<div class="pager"><a href="01-dataset.html">← The dataset</a><a href="03-engine.html">Scoring &amp; simulation →</a></div><footer class="footer">Team 13 · Technical preparation only. This is not a Lloyds Bank product, EPC certificate, home survey or valuation. <a href="07-roadmap.html#references">Review source links</a>. Task megathon-ps2-st100-prep-20261011-001.</footer></main></div></div><script src="assets/app.js" defer></script></body></html>

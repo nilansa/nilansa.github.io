@@ -1,0 +1,108 @@
+<!doctype html><html lang="en"><head><meta name="robots" content="noindex,nofollow,noarchive"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#122d35"><meta name="description" content="Weighted score, feasibility, fuel-aware scenario arithmetic and budget-aware plan selection."><title>Scoring &amp; simulation · Lloyds PS2 ST100</title><link rel="stylesheet" href="assets/style.css"></head><body><div class="shell"><aside class="sidebar"><a class="brand" href="index.html"><span class="brand-mark">MEGATHON X · PS2</span><span class="brand-name">GreenHome<br>Judge briefing</span><span class="brand-small">ST100 · Evidence before claims</span></a><nav class="site-nav" aria-label="Chapters"><div class="nav-label">Study route</div><a href="index.html"><span class="num">00</span><span>Start here</span></a><a href="01-dataset.html"><span class="num">01</span><span>The dataset</span></a><a href="02-models.html"><span class="num">02</span><span>The trained models</span></a><a href="03-engine.html" class="active" aria-current="page"><span class="num">03</span><span>Scoring &amp; simulation</span></a><a href="04-llm.html"><span class="num">04</span><span>LLM &amp; query flow</span></a><a href="05-demo.html"><span class="num">05</span><span>4-minute live demo</span></a><a href="06-judges.html"><span class="num">06</span><span>Judge questions</span></a><a href="07-roadmap.html"><span class="num">07</span><span>Next steps &amp; sources</span></a></nav><div class="sidebar-foot">Source: archived main 04fb536<br>Prepared for the live Lloyds review. Offline HTML; no tracking or network requests.</div></aside><div class="main"><header class="top"><div class="crumb">LLOYDS PS2 / Scoring &amp; simulation</div><span class="state">Audited code · 11 Oct 2026</span></header><div class="progress" aria-hidden="true"><span id="read-progress"></span></div><main class="content"><section class="hero"><div class="eyebrow">Chapter 03 / Scoring &amp; simulation</div><h1>The calculation engine</h1><p class="deck">Weighted score, feasibility, fuel-aware scenario arithmetic and budget-aware plan selection.</p><div class="meta"><span class="chip highlight">Based on actual submitted code</span><span class="chip">No invented model capabilities</span><span class="chip">Offline reading</span></div></section>
+<h2 id="score">First: a transparent Green Home Score</h2>
+<p>The score is <strong>not produced by ML</strong>. It is a fixed weighted sum of seven ordered indicators. Each indicator is mapped to 0–100, then multiplied by Lloyds' mandated weight.</p>
+<div class="formula">S = w₁·s₁ + w₂·s₂ + … + w₇·s₇</div>
+<p class="small"><strong>Read it:</strong> S is the reported home score, rounded to an integer. Each s is one component's 0–100 subscore, and each w is its fixed fraction of the total. The weights add up to 1. The mapping must be monotonic: improving one component must not lower that component's score.</p>
+<div class="bar-list">
+<div class="bar-row"><strong>Energy efficiency (EPC)</strong><strong>25%</strong><div class="bar"><span style="width:100%"></span></div></div>
+<div class="bar-row"><strong>Energy intensity (kWh/m²)</strong><strong>20%</strong><div class="bar"><span style="width:80%"></span></div></div>
+<div class="bar-row"><strong>Insulation</strong><strong>15%</strong><div class="bar"><span style="width:60%"></span></div></div>
+<div class="bar-row"><strong>Heating system</strong><strong>15%</strong><div class="bar"><span style="width:60%"></span></div></div>
+<div class="bar-row"><strong>Glazing</strong><strong>10%</strong><div class="bar"><span style="width:40%"></span></div></div>
+<div class="bar-row"><strong>Renewables</strong><strong>10%</strong><div class="bar"><span style="width:40%"></span></div></div>
+<div class="bar-row"><strong>Smart management</strong><strong>5%</strong><div class="bar"><span style="width:20%"></span></div></div>
+</div>
+<p class="small">Bars show relative importance only. Values are fixed in <span class="mono">SCORE_WEIGHTS</span>, not learned from data.</p>
+<div class="formula">Energy-intensity subscore = clamp[100 − ((annual kWh / area m²) − 75) × 100 / 275, 0, 100]</div>
+<p class="small"><strong>Read it:</strong> divide annual purchased electricity-plus-gas by floor area to obtain kWh per square metre; translate that intensity onto a declining 0–100 scale. “Clamp” means values below 0 become 0 and above 100 become 100. The constants 75 and 275 are a documented scoring convention, not fitted physical parameters.</p>
+
+<h2 id="example-score">Work a real source record through the formula</h2>
+<p>NH-083 has EPC E, 5,700 kWh electricity, 24,700 kWh gas and a 175 m² <em>band-midpoint</em> area. Initially several condition components are unknown: the application uses provisional neutral 50s and displays caveats. Now assume a customer separately confirms poor insulation, gas boiler, single glazing, no solar and no smart controls.</p>
+<div class="table-scroll"><table class="table">
+<thead><tr><th>Component</th><th>Subscore</th><th>Weight</th><th>Contribution</th><th>Evidence</th></tr></thead>
+<tbody>
+<tr><td>EPC rating E</td><td class="numtext">38</td><td class="numtext">25%</td><td class="numtext">9.50</td><td>Observed grouped EPC</td></tr>
+<tr><td>Energy intensity 30,400/175 ≈ 174</td><td class="numtext">64.10</td><td class="numtext">20%</td><td class="numtext">12.82</td><td>Observed use; area only midpoint</td></tr>
+<tr><td>Poor insulation</td><td class="numtext">25</td><td class="numtext">15%</td><td class="numtext">3.75</td><td>Illustrative user confirmation</td></tr>
+<tr><td>Gas boiler</td><td class="numtext">60</td><td class="numtext">15%</td><td class="numtext">9.00</td><td>Illustrative user confirmation</td></tr>
+<tr><td>Single glazing</td><td class="numtext">25</td><td class="numtext">10%</td><td class="numtext">2.50</td><td>Illustrative user confirmation</td></tr>
+<tr><td>No solar</td><td class="numtext">40</td><td class="numtext">10%</td><td class="numtext">4.00</td><td>Illustrative user confirmation</td></tr>
+<tr><td>No smart controls</td><td class="numtext">25</td><td class="numtext">5%</td><td class="numtext">1.25</td><td>Illustrative user confirmation</td></tr>
+<tr><td><strong>Final rounded score</strong></td><td></td><td class="numtext"><strong>100%</strong></td><td class="numtext"><strong>43 / 100</strong></td><td><strong>Poor · still provisional</strong></td></tr>
+</tbody></table></div>
+<div class="shade amber"><strong>The score can get worse after learning more.</strong> It moves from provisional 50 (“Moderate”) to provisional 43 (“Poor”) because prior missing components were neutral. This is not a failure of score monotonicity. It is an evidence update; do not represent the first score as verified.</div>
+
+<h2 id="feasibility">Second: reject impossible or unverified upgrades</h2>
+<div class="flow">
+<div class="node"><span class="node-label">Input property</span><small>Known, user-confirmed and unknown features</small></div><div class="arrow">→</div>
+<div class="node"><span class="node-label">Rule screens each of five measures</span><small>Roof, loft, heating, glazing, planning, electric readiness</small></div><div class="arrow">→</div>
+<div class="node teal"><span class="node-label">Feasible</span><small>Required checks passed; screening, not installer approval</small></div>
+<div class="node amber"><span class="node-label">Needs assessment</span><small>Unknown information; simulated only after explicit opt-in</small></div>
+<div class="node"><span class="node-label">Not suitable</span><small>Blocked or duplicate; cannot be forced into a package</small></div>
+</div>
+<div class="table-scroll"><table class="table">
+<thead><tr><th>Upgrade</th><th>Illustrative installed cost</th><th>Example condition that blocks or delays it</th></tr></thead>
+<tbody>
+<tr><td>Loft insulation</td><td class="numtext">£900</td><td>Roof leak; no loft; already recorded installation; unknown roof/heating requires inspection</td></tr>
+<tr><td>Smart heating controls</td><td class="numtext">£550</td><td>Already present or heating system unsupported; compatibility unknown</td></tr>
+<tr><td>Double glazing</td><td class="numtext">£12,000</td><td>Existing double/triple glazing; restricted planning</td></tr>
+<tr><td>Air-source heat pump</td><td class="numtext">£11,000</td><td>Not a gas-boiler replacement; electrical readiness false; planning restricted</td></tr>
+<tr><td>Rooftop solar</td><td class="numtext">£6,100</td><td>Roof leak; unsuitable roof; electrical or planning restrictions</td></tr>
+</tbody></table></div>
+<p class="small">The rule set has specific applicability checks; roof repairs and electrical upgrades are never silently treated as already completed or given invented costs.</p>
+
+<h2 id="simulate">Third: simulate each fuel, in the correct order</h2>
+<div class="flow">
+<div class="node dark"><span class="node-label">Baseline</span><small>Electricity and gas kWh/year are recorded separately</small></div><div class="arrow">→</div>
+<div class="node"><span class="node-label">Reduce heating demand</span><small>Loft ×0.85 · glazing ×0.90 · controls ×0.93 (if selected)</small></div><div class="arrow">→</div>
+<div class="node"><span class="node-label">Convert heating fuel</span><small>Heat pump moves assumed heating energy from gas to electricity</small></div><div class="arrow">→</div>
+<div class="node"><span class="node-label">Apply solar after demand</span><small>Self-used solar offsets grid electricity imports, not physical demand</small></div><div class="arrow">→</div>
+<div class="node teal"><span class="node-label">Calculate effects</span><small>Per-fuel change → carbon → variable bills → simple payback</small></div>
+</div>
+<div class="grid">
+<div class="card"><div class="card-top">Rules baked into the scenario model</div>
+<pre class="code">heating share:      80% of matching fuel
+loft improvement:   15% heating reduction
+glazing:            10% heating reduction
+smart controls:      7% heating reduction
+old boiler:         85% efficiency
+heat-pump COP:      3.0
+solar:              3 kWp × 850 kWh/kWp/yr
+self-consumed solar: 40% of generation</pre>
+<p class="small">These are explicit screening assumptions in source code, not model-estimated effects for this home.</p>
+</div>
+<div class="card"><div class="card-top">Worked interaction: loft + controls</div>
+<div class="formula">Gas saved = (24,700 × 0.80) × [1 − (0.85 × 0.93)] = 4,139.7 kWh/yr</div>
+<p>Read it: assume 80% of the gas was used for space heating. Loft insulation leaves 85% of that heating demand; smart controls then leave 93% of the remaining heating demand. The savings are <strong>not simply 15% + 7% of the whole gas bill.</strong></p>
+</div>
+</div>
+
+<h2 id="fuel-signs">The difficult case: a heat pump can increase electricity</h2>
+<p>For the same example home, compare adding a heat pump after loft insulation and smart controls. The engine assumes 85% old boiler efficiency and a seasonal heat-pump COP of 3.</p>
+<div class="table-scroll"><table class="table">
+<thead><tr><th>Measure package</th><th>Upfront cost</th><th>Electricity change</th><th>Gas saved</th><th>Total purchased saved</th><th>Carbon saved</th></tr></thead>
+<tbody>
+<tr><td>No work</td><td class="numtext">£0</td><td class="numtext">0</td><td class="numtext">0</td><td class="numtext">0</td><td class="numtext">0</td></tr>
+<tr><td>Loft + smart controls</td><td class="numtext">£1,450</td><td class="numtext">0</td><td class="numtext">4,140 kWh</td><td class="numtext">4,140 kWh (13.6%)</td><td class="numtext">755 kg</td></tr>
+<tr><td>Loft + smart + heat pump</td><td class="numtext">£12,450</td><td class="numtext"><strong>+4,426 kWh used</strong></td><td class="numtext">19,760 kWh</td><td class="numtext">15,334 kWh (50.4%)</td><td class="numtext">3,023 kg</td></tr>
+</tbody></table></div>
+<p>All quantities are annual model outputs, not observed installation outcomes. A gas-to-electric conversion can reduce the total kWh purchased while producing much smaller bill savings: electricity and gas have different unit prices. For this example, the three-measure package models only £410/year of variable-bill savings, so the £12,450 / £410 simple payback is around 30.4 years.</p>
+<div class="shade blue"><strong>Judge-ready explanation:</strong> “The total-energy graph alone could be misleading. We show gas and grid electricity separately. With the heat pump, electricity rises while gas drops. We then recompute carbon using each fuel's own factor; we never multiply total saved kWh by a single blanket carbon factor.”</div>
+
+<h2 id="carbon">Carbon and bills: simple formulas, precise scope</h2>
+<div class="formula">ΔCO₂e = (E₀ − E₁) × 0.13096 + (G₀ − G₁) × 0.18231</div>
+<p><strong>Read it:</strong> E₀ and G₀ are baseline annual grid electricity and gas, each in kWh. E₁ and G₁ are the post-scenario fuel values. The differences are savings (negative if a fuel increases). Multiply by the 2026 UK emissions factor for that fuel, in kg CO₂e per kWh, and add. The result is estimated kg CO₂e saved per year.</p>
+<div class="formula">Annual variable-bill saving = (E₀ − E₁) × £0.2632 + (G₀ − G₁) × £0.0797</div>
+<p>Those are published October–December 2026 Ofgem average unit-rate inputs. They are not personalised tariffs. Export revenue, standing charges, price changes, maintenance and financing are excluded.</p>
+
+<h2 id="planning">Fourth: select a package, don't just list improvements</h2>
+<p>With up to five measures, the planner enumerates all possible subsets: at most <strong>2⁵ = 32</strong>, including a no-work baseline. It rejects blocked work, requires opt-in for conditional work, and filters by a user-selected budget if present. Depending on the objective, it ranks by purchased kWh saved, estimated CO₂e saved, variable-bill saving, or kWh reduction per known upfront pound; the UI also surfaces a low-upfront-cost comparison.</p>
+<div class="shade"><strong>Example:</strong> for the NH-083 corrected scenario with a <strong>£2,000 cap</strong> and the objective of reducing bills, loft insulation plus smart controls is the best-ranked feasible package: £1,450, 4,139.7 kWh/year modelled savings and £330/year variable-bill savings. A more expensive option may save more energy but is outside this customer's cap.</div>
+
+<h2 id="value">Property value is a separate, restricted sensitivity—not a prediction</h2>
+<div class="grid">
+<div class="card"><div class="card-top">Runtime method</div><h3>Nationwide published EPC associations</h3><p>For an <strong>owner-occupied home in England</strong>, a user supplies the current price plus explicit before/after EPC groups. The module varies the reported association from zero to its published magnitude. It supports group comparisons involving A/B, D and F/G.</p></div>
+<div class="card"><div class="card-top">What stays unavailable</div><h3>No automatic uplift from a retrofit</h3><p>The app does not predict a new EPC, individual sale price or causal retrofit-value effect. Nationwide did not publish numerical C/E coefficients for this implementation, so C/E transitions are unsupported.</p></div></div>
+<div class="shade amber">The separately fitted linked-sales regression had weak causal interpretation and contradictory EPC associations in its restricted sample; it is documented as a diagnostic and <strong>not used for runtime valuations</strong>.</div>
+<p class="source">Exact source: <a href="https://github.com/IIIT-ECell/megathon26-ferrum-nova/blob/04fb53606992d56fa3eaaf23bae74dd7fbaff7f1/src/engine.js">src/engine.js</a>, <a href="https://github.com/IIIT-ECell/megathon26-ferrum-nova/blob/04fb53606992d56fa3eaaf23bae74dd7fbaff7f1/src/value.js">src/value.js</a>, <a href="https://github.com/IIIT-ECell/megathon26-ferrum-nova/blob/04fb53606992d56fa3eaaf23bae74dd7fbaff7f1/data/factors.json">data/factors.json</a>.</p>
+<div class="pager"><a href="02-models.html">← The trained models</a><a href="04-llm.html">LLM &amp; query flow →</a></div><footer class="footer">Team 13 · Technical preparation only. This is not a Lloyds Bank product, EPC certificate, home survey or valuation. <a href="07-roadmap.html#references">Review source links</a>. Task megathon-ps2-st100-prep-20261011-001.</footer></main></div></div><script src="assets/app.js" defer></script></body></html>

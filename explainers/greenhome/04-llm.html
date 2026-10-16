@@ -1,0 +1,89 @@
+<!doctype html><html lang="en"><head><meta name="robots" content="noindex,nofollow,noarchive"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#122d35"><meta name="description" content="From a natural-language request to verified JSON, homeowner confirmation and grounded answers."><title>LLM &amp; query flow · Lloyds PS2 ST100</title><link rel="stylesheet" href="assets/style.css"></head><body><div class="shell"><aside class="sidebar"><a class="brand" href="index.html"><span class="brand-mark">MEGATHON X · PS2</span><span class="brand-name">GreenHome<br>Judge briefing</span><span class="brand-small">ST100 · Evidence before claims</span></a><nav class="site-nav" aria-label="Chapters"><div class="nav-label">Study route</div><a href="index.html"><span class="num">00</span><span>Start here</span></a><a href="01-dataset.html"><span class="num">01</span><span>The dataset</span></a><a href="02-models.html"><span class="num">02</span><span>The trained models</span></a><a href="03-engine.html"><span class="num">03</span><span>Scoring &amp; simulation</span></a><a href="04-llm.html" class="active" aria-current="page"><span class="num">04</span><span>LLM &amp; query flow</span></a><a href="05-demo.html"><span class="num">05</span><span>4-minute live demo</span></a><a href="06-judges.html"><span class="num">06</span><span>Judge questions</span></a><a href="07-roadmap.html"><span class="num">07</span><span>Next steps &amp; sources</span></a></nav><div class="sidebar-foot">Source: archived main 04fb536<br>Prepared for the live Lloyds review. Offline HTML; no tracking or network requests.</div></aside><div class="main"><header class="top"><div class="crumb">LLOYDS PS2 / LLM &amp; query flow</div><span class="state">Audited code · 11 Oct 2026</span></header><div class="progress" aria-hidden="true"><span id="read-progress"></span></div><main class="content"><section class="hero"><div class="eyebrow">Chapter 04 / LLM &amp; query flow</div><h1>The LLM does not calculate</h1><p class="deck">From a natural-language request to verified JSON, homeowner confirmation and grounded answers.</p><div class="meta"><span class="chip highlight">Based on actual submitted code</span><span class="chip">No invented model capabilities</span><span class="chip">Offline reading</span></div></section>
+<div class="shade"><h3>Correct the model name first</h3><p>There is <strong>no Gemma model</strong> in the frozen main branch. Text processing defaults to <span class="mono">qwen3:4b</span> through local Ollama, with <span class="mono">deepseek-r1:7b</span> as a fallback. An optional, separate vision model defaults to <span class="mono">qwen3-vl:4b</span>; its local inference was reported unavailable in the final verified environment.</p></div>
+
+<h2 id="two-flows">Two different LLM workflows</h2>
+<div class="grid">
+<div class="card"><div class="card-top">Path A: understand homeowner words</div><h3>Parse → check → confirm</h3><p>The text model proposes a <strong>strict JSON object</strong> describing known home facts, requested measure additions/removals, a ranking objective and budget. The server checks that each proposed fact is supported by direct wording. The customer approves changes before numerical recomputation.</p></div>
+<div class="card"><div class="card-top">Path B: answer a question</div><h3>Recompute → select facts → render</h3><p>The server recomputes the score and current retrofit scenario. The text model only selects up to six allowed <strong>fact IDs</strong>. Fixed code templates render the factual explanation using actual engine numbers.</p></div>
+</div>
+<div class="flow" role="img" aria-label="The natural-language request is parsed into validated JSON, user-confirmed, passed into the deterministic engine, then facts are selected by the local language model for a templated explanation">
+<div class="node dark"><span class="node-label">User asks</span><small>“Our loft is poorly insulated. What if we improve it?”</small></div><div class="arrow">→</div>
+<div class="node"><span class="node-label">Ollama JSON proposal</span><small>Fields, requested measures, budget, objective</small></div><div class="arrow">→</div>
+<div class="node amber"><span class="node-label">Ground + confirm</span><small>Check evidence, negation and allowed enums; owner accepts</small></div><div class="arrow">→</div>
+<div class="node teal"><span class="node-label">Run deterministic engine</span><small>Score, eligibility, per-fuel scenarios, carbon, bill</small></div><div class="arrow">→</div>
+<div class="node"><span class="node-label">Answer from fact IDs</span><small>Qwen selects topics; server renders the approved numbers</small></div>
+</div>
+<p class="small">The local language model is a bounded semantic interface, not a free-form agent performing external research, giving eligibility decisions, or generating numerical energy predictions.</p>
+
+<h2 id="parse">Concrete query → concrete structured output</h2>
+<p>Say this into the app's text entry (not speech-to-text):</p>
+<p class="quote">“We have a gas boiler, poor loft insulation, single glazing and no smart controls. Explore loft insulation and smart controls under £2,000 to lower our bills.”</p>
+<pre class="code">Expected <em>type</em> of parsed proposal:
+{
+  "proposedChanges": {
+    "heatingType": "gas_boiler",
+    "insulation": "poor",
+    "glazing": "single",
+    "smartControls": false
+  },
+  "addMeasures": ["loft", "smart"],
+  "removeMeasures": [],
+  "objective": "bill",
+  "budget": 2000,
+  "needsConfirmation": true
+}</pre>
+<p class="small">This is an illustrative supported schema instance, <strong>not a captured response to the exact sentence</strong>. The parser can omit a field if exact wording or grounding checks do not support it. Roof condition, loft presence and electrical readiness remain unknown until separately confirmed.</p>
+<div class="shade blue"><strong>What the server checks:</strong> only allowed field names and values; no negative budget or unsupported retrofit; assertions rather than hypothetical work; negations (“no solar”) versus installed facts (“has solar”); conflicts with direct-rule extraction; direct text evidence for any LLM-added fact. Every parsed proposal requires homeowner confirmation.</div>
+
+<h2 id="runtime">The actual local LLM runtime</h2>
+<div class="table-scroll"><table class="table">
+<thead><tr><th>Setting</th><th>Actual code</th><th>Why it matters</th></tr></thead><tbody>
+<tr><td>Text preference</td><td><span class="mono">qwen3:4b</span></td><td>Local text parsing and fact-ID selection</td></tr>
+<tr><td>Text fallback</td><td><span class="mono">deepseek-r1:7b</span></td><td>Used if configured tag is not installed</td></tr>
+<tr><td>Vision preference</td><td><span class="mono">qwen3-vl:4b</span></td><td>Optional bounded visible-object proposals; other supported tags include qwen3-vl:2b and moondream</td></tr>
+<tr><td>Server and API</td><td><span class="mono">127.0.0.1:11434/api/chat</span></td><td>Local Ollama, no external inference API</td></tr>
+<tr><td>Generation</td><td><span class="mono">stream:false, think:false, temperature:0</span></td><td>Structured non-streaming responses; no chain-of-thought text needed</td></tr>
+<tr><td>Capacity limits</td><td><span class="mono">num_ctx:1024, num_predict:220</span></td><td>Small context/output limits to keep behavior bounded</td></tr>
+<tr><td>Timeout</td><td><span class="mono">60 seconds</span></td><td>Timeout or validation failure falls back to offline rules</td></tr>
+<tr><td>Compact text threshold</td><td><span class="mono">600 characters</span></td><td>Longer inputs do not go to the local LLM; rules are used instead</td></tr>
+<tr><td>Concurrency</td><td>One in-process model-call queue</td><td>Requests are serialized, not a large-scale GPU serving system</td></tr>
+</tbody></table></div>
+<p>These are <strong>inference settings</strong>. The code does not fine-tune Qwen, DeepSeek or the vision models. They are downloaded model dependencies if available. Only the separate NEED fuel regressors are trained by the team.</p>
+
+<h2 id="answers">What the LLM is allowed to produce</h2>
+<div class="grid">
+<div class="card"><div class="card-top">Fact vocabulary</div><h3>11 allowed topics</h3><p><span class="mono">score</span>, <span class="mono">baseline</span>, <span class="mono">energy</span>, <span class="mono">carbon</span>, <span class="mono">bill</span>, <span class="mono">cost</span>, <span class="mono">measures</span>, <span class="mono">assumptions</span>, <span class="mono">evidence</span>, <span class="mono">property_value</span>, <span class="mono">funding</span>.</p></div>
+<div class="card"><div class="card-top">Example answer construction</div><h3>Not invented prose</h3><p>When the model selects <span class="mono">["energy","carbon"]</span>, the server formats the engine's exact electricity/gas changes and sourced carbon calculation. It does not pass through model-generated numbers or unrestricted prose.</p></div>
+</div>
+<pre class="code">Request: "What if we add a heat pump?"
+  parse  → proposed retrofit heatPump
+  review → explicit customer confirmation
+  model  → simulateScenario(property, selectedIds, options)
+  facts  → Qwen chooses ["energy", "carbon", "assumptions"]
+  text   → server renders those engine-backed fields</pre>
+
+<h2 id="supported">Queries to demonstrate — and queries to refuse</h2>
+<div class="table-scroll"><table class="table">
+<thead><tr><th>Question</th><th>Supported behavior</th><th>Honest boundary</th></tr></thead>
+<tbody>
+<tr><td>“We have a gas boiler and single glazing.”</td><td>Propose two current facts for confirmation</td><td>Does not verify a building from text</td></tr>
+<tr><td>“No solar. Consider loft insulation under £2,000.”</td><td>Distinguish current absence from requested action; parse budget</td><td>Unknown roof/loft checks still remain</td></tr>
+<tr><td>“Which plan cuts my annual bills most?”</td><td>Choose bill objective; rerun eligible package ranking</td><td>Rates are illustrative; no finance approval</td></tr>
+<tr><td>“What happens to gas and electricity after a heat pump?”</td><td>Render separate engine fuel deltas</td><td>Actual installation outcome requires site survey</td></tr>
+<tr><td>“Is a grant guaranteed?”</td><td>Link to official sources and state eligibility is unverified</td><td>Cannot decide grant eligibility</td></tr>
+<tr><td>“What will the house sell for?”</td><td>State valuation unavailable; optional separately entered EPC sensitivity</td><td>Cannot predict causal uplift</td></tr>
+<tr><td>“Can you inspect my roof from a photo?”</td><td>Only cautious visible cues if optional vision is installed</td><td>Cannot diagnose hidden damp, structural integrity or EPC</td></tr>
+</tbody></table></div>
+
+<h2 id="vision">Is it actually multimodal?</h2>
+<p><strong>Partially prepared, not validated in the final local run.</strong> The API accepts up to 5 MB of JPEG/PNG/WebP and supports four narrow output labels: possible visible panels, possible roof damage, possible single-pane glazing, or no clear clue. A returned observation becomes a tentative suggestion that the homeowner must confirm. The final checked environment reported <strong>no available installed vision tag</strong>, so photo preview is supported but successful vision inference cannot be claimed for that run.</p>
+<div class="shade amber"><h3>Very important for the live pitch</h3><p>Never show a photo preview and describe that as proof the vision model detected a leak. The code explicitly disallows diagnosing structural condition from an image. If judges ask, say the visible photo workflow is an extension and the core numerical product does not depend on it.</p></div>
+
+<h2 id="eval">What evaluation evidence exists?</h2>
+<div class="grid">
+<div class="card"><div class="card-top">Automated local parsing check</div><div class="big-stat">13 / 13</div><div class="stat-label">Qwen3 4B synthetic authored parse cases matched expected labels and automated groundedness checks; no fallbacks in that recorded run.</div></div>
+<div class="card"><div class="card-top">Recorded model latency</div><div class="big-stat">3.8 sec</div><div class="stat-label">Median for those 13 local Qwen requests; maximum 6.39 seconds in that run.</div></div>
+</div>
+<p><strong>Limit:</strong> this is not a human-reviewed study demonstrating the sponsor's ≥90% groundedness or factual accuracy targets on a representative set of natural customer questions. It is a small synthetic regression suite plus code-level safeguards.</p>
+<p class="source">Code and evidence: <a href="https://github.com/IIIT-ECell/megathon26-ferrum-nova/blob/04fb53606992d56fa3eaaf23bae74dd7fbaff7f1/scripts/assistant.mjs">assistant.mjs</a>, <a href="https://github.com/IIIT-ECell/megathon26-ferrum-nova/blob/04fb53606992d56fa3eaaf23bae74dd7fbaff7f1/scripts/server.mjs">server.mjs</a>, <a href="https://github.com/IIIT-ECell/megathon26-ferrum-nova/blob/04fb53606992d56fa3eaaf23bae74dd7fbaff7f1/docs/LLM_EVALUATION.md">LLM evaluation</a>.</p>
+<div class="pager"><a href="03-engine.html">← Scoring &amp; simulation</a><a href="05-demo.html">4-minute live demo →</a></div><footer class="footer">Team 13 · Technical preparation only. This is not a Lloyds Bank product, EPC certificate, home survey or valuation. <a href="07-roadmap.html#references">Review source links</a>. Task megathon-ps2-st100-prep-20261011-001.</footer></main></div></div><script src="assets/app.js" defer></script></body></html>

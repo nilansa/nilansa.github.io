@@ -1,0 +1,70 @@
+<!doctype html><html lang="en"><head><meta name="robots" content="noindex,nofollow,noarchive"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#122d35"><meta name="description" content="Source fields, dates, missing data and the crucial boundary between an observation and an assumption."><title>The dataset · Lloyds PS2 ST100</title><link rel="stylesheet" href="assets/style.css"></head><body><div class="shell"><aside class="sidebar"><a class="brand" href="index.html"><span class="brand-mark">MEGATHON X · PS2</span><span class="brand-name">GreenHome<br>Judge briefing</span><span class="brand-small">ST100 · Evidence before claims</span></a><nav class="site-nav" aria-label="Chapters"><div class="nav-label">Study route</div><a href="index.html"><span class="num">00</span><span>Start here</span></a><a href="01-dataset.html" class="active" aria-current="page"><span class="num">01</span><span>The dataset</span></a><a href="02-models.html"><span class="num">02</span><span>The trained models</span></a><a href="03-engine.html"><span class="num">03</span><span>Scoring &amp; simulation</span></a><a href="04-llm.html"><span class="num">04</span><span>LLM &amp; query flow</span></a><a href="05-demo.html"><span class="num">05</span><span>4-minute live demo</span></a><a href="06-judges.html"><span class="num">06</span><span>Judge questions</span></a><a href="07-roadmap.html"><span class="num">07</span><span>Next steps &amp; sources</span></a></nav><div class="sidebar-foot">Source: archived main 04fb536<br>Prepared for the live Lloyds review. Offline HTML; no tracking or network requests.</div></aside><div class="main"><header class="top"><div class="crumb">LLOYDS PS2 / The dataset</div><span class="state">Audited code · 11 Oct 2026</span></header><div class="progress" aria-hidden="true"><span id="read-progress"></span></div><main class="content"><section class="hero"><div class="eyebrow">Chapter 01 / The dataset</div><h1>From 50,000 homes to one property</h1><p class="deck">Source fields, dates, missing data and the crucial boundary between an observation and an assumption.</p><div class="meta"><span class="chip highlight">Based on actual submitted code</span><span class="chip">No invented model capabilities</span><span class="chip">Offline reading</span></div></section>
+<h2 id="three-layers">There are three different kinds of input</h2>
+<div class="grid three">
+<div class="card"><div class="card-top">A · Real observed data</div><h3>DESNZ NEED 2026</h3><p>The anonymised public 50,000-property extract supplies building categories and valid annual 2024 gas/electricity observations.</p></div>
+<div class="card"><div class="card-top">B · User-provided facts</div><h3>Property confirmation</h3><p>Is the roof leaking? Is there a loft? Is the heating a gas boiler? None of these should be invented from NEED's broad fuel categories.</p></div>
+<div class="card"><div class="card-top">C · Scenario assumptions</div><h3>Retrofit model inputs</h3><p>Space-heating share, upgrade reduction percentages, heat-pump efficiency, solar generation, costs and tariffs.</p></div>
+</div>
+<div class="shade amber"><strong>Do not merge the three in your explanation.</strong> Observed energy comes from public meters; homeowner-entered conditions are scenario inputs; post-retrofit results are <em>modelled counterfactuals</em>, not observed before-and-after records.</div>
+
+<h2 id="selection">From the 50,000-row CSV to the 100-home interface</h2>
+<div class="flow">
+<div class="node dark"><span class="node-label">Official NEED 2026</span><small>50,000 anonymous property rows · electricity and gas for 2024</small></div><div class="arrow">→</div>
+<div class="node"><span class="node-label">Validity screen</span><small>Both 2024 fuel flags must be V; energy nonnegative; EPC and area groups supported</small></div><div class="arrow">→</div>
+<div class="node teal"><span class="node-label">20 per EPC group</span><small>A/B · C · D · E · F/G; deterministic region round robin, seed 20261010</small></div><div class="arrow">→</div>
+<div class="node amber"><span class="node-label">100 demo homes</span><small>Stable NH-IDs, source-row provenance, editable session-only evidence</small></div>
+</div>
+<p>The 100 displayed homes are <strong>not the model-training dataset</strong>. The models train and test against eligible rows of the broader anonymised 50k extract. The UI is deliberately balanced across EPC groups for demonstration and is not a nationally representative sample.</p>
+<div class="table-scroll"><table class="table">
+<thead><tr><th>Dataset</th><th>Size</th><th>Actual use</th><th>Not used for</th></tr></thead><tbody>
+<tr><td>NEED 2026 anonymised CSV</td><td>50,000 source rows</td><td>Train/validate/test two annual consumption predictors; source for demo subset</td><td>Observed post-retrofit savings</td></tr>
+<tr><td><span class="mono">data/properties.json</span></td><td>100 homes</td><td>Interactive My Home and Portfolio examples</td><td>Independent nationally representative evaluation</td></tr>
+<tr><td>2026 emissions factors, Ofgem rates</td><td>Two fuels</td><td>Convert kWh to kg CO₂e and indicative variable bills</td><td>Training an ML model</td></tr>
+<tr><td>Nationwide EPC-price analysis</td><td>Published associations</td><td>Optional England owner-occupied EPC sensitivity</td><td>Direct prediction of an individual house's uplift</td></tr>
+<tr><td>UCL linked transactions sample</td><td>9,954 usable sampled transactions</td><td>Separate exploratory price regression diagnostic</td><td>Live property-value estimator</td></tr>
+</tbody></table></div>
+
+<h2 id="columns">Exactly which columns matter?</h2>
+<p>The source training code uses <strong>five categorical predictors</strong> and one annual target per fuel. The remaining fields are provenance, score inputs, annotations or filters—not extra inputs to the electricity/gas regressor.</p>
+<div class="table-scroll"><table class="table">
+<thead><tr><th>Source column</th><th>Plain-English meaning</th><th>Where used</th><th>Important limitation</th></tr></thead><tbody>
+<tr><td><span class="mono">PROP_TYPE</span></td><td>Property type, e.g. semi-detached or flat</td><td>Fuel model input</td><td>Category, not measured heat loss</td></tr>
+<tr><td><span class="mono">PROP_AGE_BAND</span></td><td>Construction-age category</td><td>Fuel model input</td><td>Source category identifier; not an exact build year</td></tr>
+<tr><td><span class="mono">FLOOR_AREA_BAND</span></td><td>Floor-area category 1–5</td><td>Fuel model input; band midpoint also feeds score</td><td>Open-ended top band shown with a 225 m² demonstration midpoint</td></tr>
+<tr><td><span class="mono">REGION</span></td><td>Government-region code</td><td>Fuel model input</td><td>No street address, postcode or local weather series</td></tr>
+<tr><td><span class="mono">MAIN_HEAT_FUEL</span></td><td>Main heating-fuel category</td><td>Fuel model input</td><td>Gas-main flag does not prove boiler type</td></tr>
+<tr><td><span class="mono">Econs2024</span>, <span class="mono">Gcons2024</span></td><td>Annual electricity/gas kWh in 2024</td><td>Two separate regression targets and observed app baseline</td><td>Fuel readings rounded to 100 kWh; gas weather-corrected</td></tr>
+<tr><td><span class="mono">ElecValFlag2024</span>, <span class="mono">GasValFlag2024</span></td><td>Validity markers; V means eligible</td><td>Target masking and UI sample selection</td><td>Never train on invalid values as if zero</td></tr>
+<tr><td><span class="mono">EPC</span></td><td>Energy rating group A/B, C, D, E, F/G</td><td>Green Home Score; sample stratification</td><td><strong>Not</strong> a training predictor: rating time relative to 2024 use is uncertain</td></tr>
+<tr><td><span class="mono">LI_DATE</span>, <span class="mono">CWI_DATE</span>, <span class="mono">PV_DATE</span></td><td>Recorded scheme/install-event dates</td><td>Evidence annotation and rules</td><td>No record does not prove absence; post-2024 events cannot become 2024 facts</td></tr>
+</tbody></table></div>
+<p class="source">Code: <a href="https://github.com/IIIT-ECell/megathon26-ferrum-nova/blob/04fb53606992d56fa3eaaf23bae74dd7fbaff7f1/scripts/build_data.py">scripts/build_data.py</a> and <a href="https://github.com/IIIT-ECell/megathon26-ferrum-nova/blob/04fb53606992d56fa3eaaf23bae74dd7fbaff7f1/scripts/train_need.py">scripts/train_need.py</a>.</p>
+
+<h2 id="sample">A single real record, unpacked</h2>
+<p>The demo example <strong>NH-083</strong> corresponds to one anonymised source row. The following values are source-backed; they are not a physical home inspection.</p>
+<div class="grid">
+<div class="card"><div class="card-top">Recorded fields</div>
+<pre class="code">id:             NH-083
+EPC group:      E
+Region:         London
+Type:           Semi detached
+Floor area:     175 m² [band midpoint]
+Electricity:    5,700 kWh/year [2024]
+Gas:            24,700 kWh/year [2024]
+Purchased:      30,400 kWh/year</pre>
+</div><div class="card"><div class="card-top">Not in the NEED record</div>
+<ul><li>Actual roof condition, damp, access or shading</li><li>Exact insulation depth and glazing specification</li><li>Whether electrical capacity supports a heat pump</li><li>House price and comparable sale</li><li>Comfort, occupancy, bill tariff, heating preferences</li><li>Verified EPC change caused by a proposed retrofit</li></ul>
+</div></div>
+<div class="shade"><h3>What happens when a field is absent?</h3><p>A missing fuel reading stays <strong>unavailable</strong> unless the owner deliberately requests a trained-model estimate. An unknown condition stays unknown and makes the retrofit <strong>conditional</strong> or unsupported. A neutral 50-point component is an explicit scoring convention, not evidence the house is average.</p></div>
+
+<h2 id="integrity">Four data-integrity rules judges may probe</h2>
+<div class="stack">
+<div class="step"><div class="step-index">1</div><div><h3>Dates must line up</h3><p>2024 energy targets are not silently joined with later works. The dataset builder retains later scheme dates but does not treat them as observed 2024 conditions.</p></div></div>
+<div class="step"><div class="step-index">2</div><div><h3>Source rows are split once</h3><p>Training makes one seeded 60/20/20 source-row partition. Valid fuel targets are selected within that partition, separately for electricity and gas. The anonymised data has one row per source property, but no address-level linkage to external tables.</p></div></div>
+<div class="step"><div class="step-index">3</div><div><h3>No invented retrofit labels</h3><p>NEED consumption observations are real. Retrofit outcomes are simulated; agreeing with your own simulator would not validate predictive accuracy on real homes.</p></div></div>
+<div class="step"><div class="step-index">4</div><div><h3>Unknown is not zero</h3><p>Missing consumption does not mean free energy; a missing loft scheme record does not prove bare rafters; a missing PV registration does not prove there are no panels.</p></div></div>
+</div>
+
+<h2 id="faq-data">A judge asks: “Why not simply join EPC and house-price records?”</h2>
+<div class="shade blue"><p><strong>Prepared answer:</strong> “The public anonymised NEED extract is deliberately not address-linked. We cannot safely match its rows to individual property sales. We therefore use it for energy modelling and separate published market associations for limited value sensitivity. We do not pretend this establishes a causal property-value uplift.”</p></div>
+<div class="pager"><a href="index.html">← Start here</a><a href="02-models.html">The trained models →</a></div><footer class="footer">Team 13 · Technical preparation only. This is not a Lloyds Bank product, EPC certificate, home survey or valuation. <a href="07-roadmap.html#references">Review source links</a>. Task megathon-ps2-st100-prep-20261011-001.</footer></main></div></div><script src="assets/app.js" defer></script></body></html>

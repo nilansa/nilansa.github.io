@@ -1,0 +1,82 @@
+<!doctype html><html lang="en"><head><meta name="robots" content="noindex,nofollow,noarchive"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#122d35"><meta name="description" content="A practical roadmap, reproducibility commands, known limits and clickable source-of-truth files."><title>Next steps &amp; sources · Lloyds PS2 ST100</title><link rel="stylesheet" href="assets/style.css"></head><body><div class="shell"><aside class="sidebar"><a class="brand" href="index.html"><span class="brand-mark">MEGATHON X · PS2</span><span class="brand-name">GreenHome<br>Judge briefing</span><span class="brand-small">ST100 · Evidence before claims</span></a><nav class="site-nav" aria-label="Chapters"><div class="nav-label">Study route</div><a href="index.html"><span class="num">00</span><span>Start here</span></a><a href="01-dataset.html"><span class="num">01</span><span>The dataset</span></a><a href="02-models.html"><span class="num">02</span><span>The trained models</span></a><a href="03-engine.html"><span class="num">03</span><span>Scoring &amp; simulation</span></a><a href="04-llm.html"><span class="num">04</span><span>LLM &amp; query flow</span></a><a href="05-demo.html"><span class="num">05</span><span>4-minute live demo</span></a><a href="06-judges.html"><span class="num">06</span><span>Judge questions</span></a><a href="07-roadmap.html" class="active" aria-current="page"><span class="num">07</span><span>Next steps &amp; sources</span></a></nav><div class="sidebar-foot">Source: archived main 04fb536<br>Prepared for the live Lloyds review. Offline HTML; no tracking or network requests.</div></aside><div class="main"><header class="top"><div class="crumb">LLOYDS PS2 / Next steps &amp; sources</div><span class="state">Audited code · 11 Oct 2026</span></header><div class="progress" aria-hidden="true"><span id="read-progress"></span></div><main class="content"><section class="hero"><div class="eyebrow">Chapter 07 / Next steps &amp; sources</div><h1>How this becomes real</h1><p class="deck">A practical roadmap, reproducibility commands, known limits and clickable source-of-truth files.</p><div class="meta"><span class="chip highlight">Based on actual submitted code</span><span class="chip">No invented model capabilities</span><span class="chip">Offline reading</span></div></section>
+<h2 id="priority">The highest-value next work is evidence, not a larger LLM</h2>
+<p>The current solution is a good <em>screening prototype</em>. To make it credible for real Lloyds customers, the first milestone is to measure whether its retrofit estimates correspond to actual outcomes in appropriately matched homes.</p>
+<div class="stack">
+<div class="step"><div class="step-index">P1</div><div><h3>Collect a real, consenting before-and-after evaluation set</h3><p>With proper consent and a separate protected identity-linkage system, collect dated home EPCs, meter readings, heating equipment, retrofit completion and quotes. Define time windows and record weather, occupancy and tariff changes. Report per-fuel savings error, bias, uncertainty coverage and the rate of infeasible recommendations. Compare on the same homes with the existing Lloyds Energy Saving Trust tool, without assuming our prototype will outperform it.</p><p class="mini">Acceptance: reproducible matched-household evaluation and honest uncertainty.</p></div></div>
+<div class="step"><div class="step-index">P2</div><div><h3>Replace universal retrofit coefficients with better impact evidence</h3><p>Use NEED impact-of-measures statistics and other defensible empirical estimates, stratified where possible by dwelling type, baseline demand, climate and actual measure specification. For heating transitions, model electricity and gas separately with measured seasonal performance. For solar, add roof orientation, shade, export and usage timing. Show uncertainty and avoid causal claims unless the study design supports them.</p><p class="mini">Acceptance: scenario savings errors checked against real held-out outcomes, not just simulator labels.</p></div></div>
+<div class="step"><div class="step-index">P3</div><div><h3>Enhance the five-feature consumption predictor only with real new features</h3><p>Candidate features: validated floor area, dated EPC characteristics, occupancy patterns with consent, smart-meter time profiles, heating system age, insulation depth, local climate and known installations. Require source dates prior to target consumption, consistent category mappings, privacy checks and a fresh untouched evaluation set. Compare against simple baselines and current HGB before adding model complexity.</p><p class="mini">Acceptance: better held-out per-fuel MAE and calibrated uncertainty by region, property type and EPC group.</p></div></div>
+<div class="step"><div class="step-index">P4</div><div><h3>Expand real-world explanation testing</h3><p>Recruit representative homeowners to assess understanding, actionability and missing-data communication. Evaluate a held-out bank-style query set: contradictory conditions, negation, unaffordable plans, older homes, underheating, photo uncertainty and unsupported value queries. Record unsupported-claim rate, exact numerical fidelity and response time.</p><p class="mini">Acceptance: evaluated groundedness rather than relying only on the 13-case synthetic parser suite.</p></div></div>
+<div class="step"><div class="step-index">P5</div><div><h3>Production integration after model validity</h3><p>Add versioned data pipelines, secure user accounts and consent, audit trails, schema validation, installer follow-ups, hosted model isolation and cost/latency monitoring. Do not turn a provisional home score into a lending, grant or certified building decision.</p><p class="mini">Acceptance: audited and monitored service with human oversight, not a local public demo.</p></div></div>
+</div>
+
+<h2 id="newfeatures">If Lloyds gives us a new feature tomorrow, what changes?</h2>
+<div class="flow">
+<div class="node"><span class="node-label">1. Check evidence</span><small>Is the feature actually observed? When? For which homes?</small></div><div class="arrow">→</div>
+<div class="node"><span class="node-label">2. Add to schema</span><small>Train script FEATURES + category preprocessing + prediction mapping</small></div><div class="arrow">→</div>
+<div class="node teal"><span class="node-label">3. Retrain and select</span><small>Fixed train, validation and new untouched test discipline</small></div><div class="arrow">→</div>
+<div class="node amber"><span class="node-label">4. Calibrate and serve</span><small>Save joblib schema/version, test fallback, recheck fairness/uncertainty</small></div>
+</div>
+<div class="shade amber"><strong>Example:</strong> adding “insulation depth” to the UI does not change the trained model. We would need a trustworthy insulation-depth feature for the training properties at the right point in time. Otherwise we could still use that field as a documented rule input for the deterministic simulator but must not say it improved ML accuracy.</div>
+
+<h2 id="reproduce">Commands a judge can reproduce</h2>
+<div class="grid">
+<div class="card"><div class="card-top">Run the frontend + local API</div>
+<pre class="code">node scripts/server.mjs
+# visit http://127.0.0.1:4173</pre>
+<p>Node.js 22+. The screen and numerical engine work without Ollama. Text models are optional.</p></div>
+<div class="card"><div class="card-top">Full scripted tests</div>
+<pre class="code">node --test tests/*.mjs
+python3 -m pip install -e '.[test]'
+PYTHONPATH=src python3 -m pytest -q</pre>
+<p>Checked-in evidence reports 70 JavaScript and 32 Python passing tests, plus 11 separate browser interaction cases. This guide did not claim those have been rerun on a fresh judge laptop.</p></div>
+<div class="card"><div class="card-top">Train with official source CSV</div>
+<pre class="code">PYTHONPATH=src python3 scripts/train_need.py \
+  --data data/raw/need_2026_50k.csv \
+  --output results/need_metrics.json \
+  --model-dir results/need_models</pre>
+<p>The CSV is an external government source and intentionally excluded from the source ZIP. Download it separately under its terms.</p></div>
+<div class="card"><div class="card-top">Optional text model</div>
+<pre class="code">ollama serve
+ollama pull qwen3:4b
+# then restart the GreenHome server</pre>
+<p>The code checks whether a compatible local Ollama model tag exists. No API key is required; the local model is not bundled with the repository.</p></div>
+</div>
+
+<h2 id="truth">Six lines you must never blur in the pitch</h2>
+<div class="table-scroll"><table class="table">
+<thead><tr><th>Say</th><th>Do not say</th></tr></thead><tbody>
+<tr><td>Real 2024 energy observations from an anonymised sample</td><td>We have live Lloyds customer meter data</td></tr>
+<tr><td>Two trained tabular regressors estimate missing use</td><td>AI predicts all retrofit outcomes</td></tr>
+<tr><td>Provisional score from known and assumed features</td><td>Certified EPC score</td></tr>
+<tr><td>Illustrative per-fuel savings with interaction logic</td><td>Guaranteed real-home savings</td></tr>
+<tr><td>Published EPC price association sensitivity</td><td>Causal sale-price increase from selected upgrades</td></tr>
+<tr><td>Local Qwen parses and selects engine-backed facts</td><td>Gemma invents a complete property plan</td></tr>
+</tbody></table></div>
+
+<h2 id="glossary">Precise words you should be able to define</h2>
+<div class="grid">
+<div class="card"><div class="card-top">MAE · mean absolute error</div><p>The average absolute gap between predicted annual kWh and the held-out observed kWh. Smaller is better; MAE is in the same units as the target.</p></div>
+<div class="card"><div class="card-top">EPC · Energy Performance Certificate</div><p>A building-energy rating system from A (best) to G (worst). The NEED extract groups A/B and F/G, so this app must preserve that imprecision.</p></div>
+<div class="card"><div class="card-top">Counterfactual scenario</div><p>What the calculation says might happen after a selected change, holding other modelling assumptions fixed. It is not an observed outcome.</p></div>
+<div class="card"><div class="card-top">COP · coefficient of performance</div><p>Useful heat output divided by electricity input for a heat pump. The simulator assumes 3; real seasonal COP varies with climate, emitters and operation.</p></div>
+<div class="card"><div class="card-top">Provisional</div><p>Some components lack confirmed evidence or use imprecise proxies. The score can change when real facts are entered.</p></div>
+<div class="card"><div class="card-top">Calibration</div><p>Choosing an uncertainty interval radius using validation errors, then measuring how often held-out observed values fall within the interval.</p></div>
+</div>
+
+<h2 id="references">Source-of-truth files (archived main)</h2>
+<p>Every technical claim in this briefing is anchored to the actual final submission. These links may require access to the private IIIT-ECell repository.</p>
+<div class="table-scroll"><table class="table">
+<thead><tr><th>Need to verify</th><th>Open source</th></tr></thead><tbody>
+<tr><td>Sample selection, provenance, source columns</td><td><a href="https://github.com/IIIT-ECell/megathon26-ferrum-nova/blob/04fb53606992d56fa3eaaf23bae74dd7fbaff7f1/scripts/build_data.py">scripts/build_data.py</a></td></tr>
+<tr><td>Fuel training, features, split, candidate selection, test</td><td><a href="https://github.com/IIIT-ECell/megathon26-ferrum-nova/blob/04fb53606992d56fa3eaaf23bae74dd7fbaff7f1/scripts/train_need.py">scripts/train_need.py</a> · <a href="https://github.com/IIIT-ECell/megathon26-ferrum-nova/blob/04fb53606992d56fa3eaaf23bae74dd7fbaff7f1/docs/NEED_MODEL_CARD.md">model card</a></td></tr>
+<tr><td>Prediction-time schema and known-zero rule</td><td><a href="https://github.com/IIIT-ECell/megathon26-ferrum-nova/blob/04fb53606992d56fa3eaaf23bae74dd7fbaff7f1/scripts/predict_need.py">scripts/predict_need.py</a></td></tr>
+<tr><td>Score, feasibility, simulator, package ranking</td><td><a href="https://github.com/IIIT-ECell/megathon26-ferrum-nova/blob/04fb53606992d56fa3eaaf23bae74dd7fbaff7f1/src/engine.js">src/engine.js</a></td></tr>
+<tr><td>Carbon factors and tariff inputs</td><td><a href="https://github.com/IIIT-ECell/megathon26-ferrum-nova/blob/04fb53606992d56fa3eaaf23bae74dd7fbaff7f1/data/factors.json">data/factors.json</a></td></tr>
+<tr><td>Price evidence scope and unsupported cases</td><td><a href="https://github.com/IIIT-ECell/megathon26-ferrum-nova/blob/04fb53606992d56fa3eaaf23bae74dd7fbaff7f1/src/value.js">src/value.js</a> · <a href="https://github.com/IIIT-ECell/megathon26-ferrum-nova/blob/04fb53606992d56fa3eaaf23bae74dd7fbaff7f1/docs/VALUE_METHOD.md">value method</a></td></tr>
+<tr><td>Ollama runtime, schemas, safeguards, fallbacks</td><td><a href="https://github.com/IIIT-ECell/megathon26-ferrum-nova/blob/04fb53606992d56fa3eaaf23bae74dd7fbaff7f1/scripts/assistant.mjs">scripts/assistant.mjs</a> · <a href="https://github.com/IIIT-ECell/megathon26-ferrum-nova/blob/04fb53606992d56fa3eaaf23bae74dd7fbaff7f1/docs/LLM_EVALUATION.md">LLM check</a></td></tr>
+<tr><td>Browser presentation and UI behavior</td><td><a href="https://github.com/IIIT-ECell/megathon26-ferrum-nova/blob/04fb53606992d56fa3eaaf23bae74dd7fbaff7f1/src/app.js">src/app.js</a> · <a href="https://github.com/IIIT-ECell/megathon26-ferrum-nova/blob/04fb53606992d56fa3eaaf23bae74dd7fbaff7f1/docs/BROWSER_QA.md">browser QA</a></td></tr>
+<tr><td>Final test evidence and known limitations</td><td><a href="https://github.com/IIIT-ECell/megathon26-ferrum-nova/blob/04fb53606992d56fa3eaaf23bae74dd7fbaff7f1/docs/FINAL_EVIDENCE.md">final evidence</a> · <a href="https://github.com/IIIT-ECell/megathon26-ferrum-nova/blob/04fb53606992d56fa3eaaf23bae74dd7fbaff7f1/docs/RESPONSIBLE_AI.md">responsible AI</a></td></tr>
+</tbody></table></div>
+<p class="source">External reference sources: <a href="https://www.gov.uk/government/statistics/national-energy-efficiency-data-framework-need-anonymised-data-2026">DESNZ NEED 2026</a>, <a href="https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2026">UK 2026 emissions factors</a>, <a href="https://www.ofgem.gov.uk/your-energy-supply/your-energy-bill/energy-price-cap-unit-rates-and-standing-charges">Ofgem rates</a>, and <a href="https://www.nationwide.co.uk/media/hpi/reports/energy-efficiency-ratings-have-limited-impact-on-owner-occupied-house-prices-despite-increased-interest-in-going-green">Nationwide EPC price analysis</a>.</p>
+<div class="shade blue"><h3>Final rehearsal question</h3><p>“If the LLM stopped running, what would the homeowner still get?” Answer without hesitation: “The weighted score, feasibility decisions, selected upgrade packages and every numerical comparison, because those are implemented in deterministic code and the recorded data. The LLM is optional.”</p></div>
+<div class="pager"><a href="06-judges.html">← Judge questions</a><span></span></div><footer class="footer">Team 13 · Technical preparation only. This is not a Lloyds Bank product, EPC certificate, home survey or valuation. <a href="07-roadmap.html#references">Review source links</a>. Task megathon-ps2-st100-prep-20261011-001.</footer></main></div></div><script src="assets/app.js" defer></script></body></html>

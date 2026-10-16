@@ -1,0 +1,110 @@
+[
+  {
+    "id": "greenhome-start-here",
+    "title": "Start here: the project at a glance",
+    "description": "An accurate map of the submitted product—what is learned, what is calculated, and what is only assumed.",
+    "project": "GreenHome",
+    "category": "Overview",
+    "tags": ["introduction", "architecture", "evidence", "ST100 Plus"],
+    "url": "./explainers/greenhome/index.html"
+  },
+  {
+    "id": "greenhome-start-here-v1-archive",
+    "title": "Start here · archived ST100 v1",
+    "description": "The earlier ST100 v1 introduction, preserved as an archive alongside the current canonical guide.",
+    "project": "GreenHome",
+    "category": "Overview",
+    "tags": ["archive", "version 1", "introduction", "ST100"],
+    "url": "./explainers/greenhome/index-st100-v1.html"
+  },
+  {
+    "id": "greenhome-dataset",
+    "title": "The dataset",
+    "description": "Source fields, dates, missing data and the crucial boundary between an observation and an assumption.",
+    "project": "GreenHome",
+    "category": "Data & models",
+    "tags": ["NEED", "data quality", "observations", "features"],
+    "url": "./explainers/greenhome/01-dataset.html"
+  },
+  {
+    "id": "greenhome-models",
+    "title": "The trained models",
+    "description": "Two models, five categorical features, a 60/20/20 split and honest held-out results.",
+    "project": "GreenHome",
+    "category": "Data & models",
+    "tags": ["machine learning", "regression", "validation", "energy use"],
+    "url": "./explainers/greenhome/02-models.html"
+  },
+  {
+    "id": "greenhome-scoring-engine",
+    "title": "Scoring & simulation",
+    "description": "Weighted score, feasibility, fuel-aware scenario arithmetic and budget-aware plan selection.",
+    "project": "GreenHome",
+    "category": "Data & models",
+    "tags": ["scoring", "simulation", "retrofit", "budget"],
+    "url": "./explainers/greenhome/03-engine.html"
+  },
+  {
+    "id": "greenhome-llm-query-flow",
+    "title": "LLM & query flow",
+    "description": "From a natural-language request to verified JSON, homeowner confirmation and grounded answers.",
+    "project": "GreenHome",
+    "category": "Product & practice",
+    "tags": ["LLM", "natural language", "validation", "product flow"],
+    "url": "./explainers/greenhome/04-llm.html"
+  },
+  {
+    "id": "greenhome-live-demo",
+    "title": "The 4-minute live demo",
+    "description": "A complete timed script using a concrete, reproducible example from the submitted main branch.",
+    "project": "GreenHome",
+    "category": "Product & practice",
+    "tags": ["demo", "presentation", "walkthrough", "script"],
+    "url": "./explainers/greenhome/05-demo.html"
+  },
+  {
+    "id": "greenhome-judge-questions",
+    "title": "Questions judges may ask",
+    "description": "Precise answers to likely technical, scientific, commercial and trust questions.",
+    "project": "GreenHome",
+    "category": "Product & practice",
+    "tags": ["judges", "FAQ", "trust", "limitations"],
+    "url": "./explainers/greenhome/06-judges.html"
+  },
+  {
+    "id": "greenhome-roadmap-sources",
+    "title": "Next steps & sources",
+    "description": "A practical roadmap, reproducibility commands, known limits and clickable source-of-truth files.",
+    "project": "GreenHome",
+    "category": "Further reading",
+    "tags": ["roadmap", "reproducibility", "sources", "limitations"],
+    "url": "./explainers/greenhome/07-roadmap.html"
+  },
+  {
+    "id": "greenhome-retrofit-pipeline",
+    "title": "From a home to a retrofit recommendation",
+    "description": "Interactive, source-grounded walkthrough of the exact GreenHome retrofit recommendation pipeline, plus a worked fuel-by-fuel example.",
+    "project": "GreenHome",
+    "category": "Product & practice",
+    "tags": ["ST100 Plus", "recommendations", "pipeline", "worked example"],
+    "url": "./explainers/greenhome/08-retrofit-pipeline-st100plus.html"
+  },
+  {
+    "id": "ire-project",
+    "title": "Search-Induced Supervision",
+    "description": "An overview of the IRE project centered on search-induced supervision for information retrieval.",
+    "project": "IRE",
+    "category": "Related research",
+    "tags": ["information retrieval", "extraction", "research", "project"],
+    "url": "https://nilansa.github.io/ire-project-2026/"
+  },
+  {
+    "id": "ire-project-metrics",
+    "title": "Retrieval Metrics & Research Audit",
+    "description": "An audit of the IRE project's retrieval metrics and research evidence.",
+    "project": "IRE",
+    "category": "Related research",
+    "tags": ["information retrieval", "metrics", "evaluation", "research"],
+    "url": "https://nilansa.github.io/ire-project-2026/metrics.html"
+  }
+]
