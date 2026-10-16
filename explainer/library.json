@@ -1,5 +1,54 @@
 [
   {
+    "id": "indoml-2026-postmortem",
+    "title": "IndoML 2026 — What the validation results taught me",
+    "description": "A careful postmortem of local noise-event detection and speech-enhancement results, including split design, rejected experiments and limits on leaderboard claims.",
+    "project": "IndoML Datathon 2026",
+    "category": "Technical postmortem",
+    "tags": [
+      "machine learning",
+      "audio",
+      "validation",
+      "noise event detection",
+      "speech enhancement",
+      "ST100 Plus"
+    ],
+    "url": "./explainers/indoml-2026-postmortem.html",
+    "date": "2026-10-16",
+    "indexed_at": "2026-10-16T20:06:16+05:30"
+  },
+  {
+    "id": "adaptex-mem-research-blueprint",
+    "title": "ADAPTEX-MEM — Research Blueprint",
+    "description": "Source-grounded research plan for adaptive agent memory, retrieval, and controlled experiments.",
+    "url": "https://nilansa.github.io/old.nsbits.github.io/adaptex-mem-research-2026/",
+    "project": "ADAPTEX-MEM",
+    "category": "Research",
+    "tags": [
+      "agent memory",
+      "adaptive retrieval",
+      "ST100 Plus"
+    ],
+    "date": "2026-10-16",
+    "indexed_at": "2026-10-16T13:37:42+05:30"
+  },
+  {
+    "id": "ire-project-metrics",
+    "title": "Retrieval Metrics & Research Audit",
+    "description": "An audit of the IRE project's retrieval metrics and research evidence.",
+    "project": "IRE",
+    "category": "Related research",
+    "tags": [
+      "information retrieval",
+      "metrics",
+      "evaluation",
+      "research"
+    ],
+    "url": "https://nilansa.github.io/ire-project-2026/metrics.html",
+    "date": "2026-10-12",
+    "indexed_at": "2026-10-16T12:42:57+05:30"
+  },
+  {
     "id": "greenhome-start-here",
     "title": "GreenHome — Start here",
     "description": "An accurate map of the submitted product—what is learned, what is calculated, and what is only assumed.",
@@ -174,36 +223,5 @@
     "url": "https://nilansa.github.io/ire-project-2026/",
     "date": "2026-10-11",
     "indexed_at": "2026-10-16T12:42:57+05:30"
-  },
-  {
-    "id": "ire-project-metrics",
-    "title": "Retrieval Metrics & Research Audit",
-    "description": "An audit of the IRE project's retrieval metrics and research evidence.",
-    "project": "IRE",
-    "category": "Related research",
-    "tags": [
-      "information retrieval",
-      "metrics",
-      "evaluation",
-      "research"
-    ],
-    "url": "https://nilansa.github.io/ire-project-2026/metrics.html",
-    "date": "2026-10-12",
-    "indexed_at": "2026-10-16T12:42:57+05:30"
-  },
-  {
-    "id": "adaptex-mem-research-blueprint",
-    "title": "ADAPTEX-MEM — Research Blueprint",
-    "description": "Source-grounded research plan for adaptive agent memory, retrieval, and controlled experiments.",
-    "url": "https://nilansa.github.io/old.nsbits.github.io/adaptex-mem-research-2026/",
-    "project": "ADAPTEX-MEM",
-    "category": "Research",
-    "tags": [
-      "agent memory",
-      "adaptive retrieval",
-      "ST100 Plus"
-    ],
-    "date": "2026-10-16",
-    "indexed_at": "2026-10-16T13:37:42+05:30"
   }
 ]

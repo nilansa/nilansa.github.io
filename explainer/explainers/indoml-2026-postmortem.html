@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="description" content="A careful postmortem of local IndoML 2026 noise-event detection and speech-enhancement validation.">
+  <meta name="theme-color" content="#173b42">
+  <title>IndoML 2026: What the validation results taught me</title>
+  <style>
+    :root { color-scheme: light; --ink:#18272d; --muted:#53656b; --line:#d9e3e2; --teal:#176d66; --pale:#eef6f3; --gold:#73520c; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:#fff; color:var(--ink); font:17px/1.7 Georgia,"Times New Roman",serif; }
+    header { background:#173b42; color:#fff; padding:clamp(30px,7vw,76px) 22px 44px; }
+    header > div, main, footer { max-width:900px; margin:0 auto; }
+    .kicker { color:#bfe6dc; font:700 12px/1.4 ui-sans-serif,system-ui,sans-serif; letter-spacing:.14em; text-transform:uppercase; }
+    h1 { max-width:800px; margin:13px 0 14px; font:650 clamp(2.2rem,6vw,4.3rem)/1.04 ui-sans-serif,system-ui,sans-serif; letter-spacing:-.055em; }
+    .dek { max-width:760px; margin:0; color:#d6e5e2; font-size:clamp(1.1rem,2.6vw,1.35rem); }
+    .date { display:block; margin-top:22px; color:#c0d4d1; font:600 13px ui-sans-serif,system-ui,sans-serif; }
+    main { padding:26px 22px 70px; }
+    h2 { margin:48px 0 12px; font:650 clamp(1.55rem,3vw,2rem)/1.2 ui-sans-serif,system-ui,sans-serif; letter-spacing:-.035em; }
+    h3 { margin:27px 0 8px; font:700 1.16rem/1.35 ui-sans-serif,system-ui,sans-serif; }
+    p { margin:12px 0; }
+    a { color:#075b76; text-underline-offset:3px; }
+    .notice { margin:22px 0; padding:16px 18px; border-left:4px solid var(--teal); background:var(--pale); }
+    .notice strong { color:#124c47; }
+    .flow { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin:22px 0; }
+    .flow div { min-height:106px; padding:13px; border:1px solid var(--line); border-radius:10px; background:#fbfdfc; }
+    .flow b { display:block; color:var(--teal); font:750 13px/1.4 ui-sans-serif,system-ui,sans-serif; }
+    .flow span { display:block; margin-top:7px; color:var(--muted); font-size:14px; line-height:1.45; }
+    .table-wrap { overflow-x:auto; margin:18px 0 22px; }
+    table { width:100%; border-collapse:collapse; font:14px/1.5 ui-sans-serif,system-ui,sans-serif; }
+    caption { padding:0 0 9px; color:var(--muted); text-align:left; font-size:13px; }
+    th,td { padding:10px 11px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    th { background:#f1f6f4; color:#294148; font-weight:750; }
+    td.num { white-space:nowrap; font-variant-numeric:tabular-nums; }
+    .small { color:var(--muted); font-size:15px; }
+    .sources li { margin:8px 0; }
+    footer { padding:0 22px 42px; color:var(--muted); font:13px/1.6 ui-sans-serif,system-ui,sans-serif; }
+    @media (max-width:680px) { body{font-size:16px}.flow{grid-template-columns:1fr 1fr}th,td{padding:8px}.table-wrap{margin-left:-4px;margin-right:-4px} }
+    @media (max-width:420px) { .flow{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <div class="kicker">IndoML Datathon · Technical postmortem</div>
+      <h1>What the validation results taught me</h1>
+      <p class="dek">A record of the choices that held up, the experiments that did not, and the difference between a local score and a competition result.</p>
+      <time class="date" datetime="2026-10-16">16 October 2026</time>
+    </div>
+  </header>
+  <main>
+    <div class="notice"><strong>Scope and score labels.</strong> The numbers below come from local evaluations on released, pinned validation manifests and prior recorded evaluations. They are not Phase 2 leaderboard scores. The private Phase 2 leaderboard was not available for a fresh independent check, so this article gives no current rank or leaderboard claim. The 3,178-clip Phase 2 blind package was not used to choose or score these candidates.</div>
+
+    <p>I worked on two different problems: finding noise events and improving speech audio. Each problem has its own data, metric and failure mode. The main result was not a winning new model. It was a clearer boundary between what the evidence supports and what it does not.</p>
+
+    <h2>Two tasks, two scoring rules</h2>
+    <div class="flow" aria-label="Two local evaluation paths">
+      <div><b>Track 1 · detect</b><span>Predict the start and end of each noise event.</span></div>
+      <div><b>Track 1 · compare</b><span>Check event matches and how much time the labels overlap.</span></div>
+      <div><b>Track 2 · enhance</b><span>Produce a cleaner waveform, then run the fixed speech recognizer.</span></div>
+      <div><b>Track 2 · compare</b><span>Measure signal fidelity and word errors on the same clips.</span></div>
+    </div>
+    <p><strong>Event F1</strong> measures whether predicted events match reference events under the competition’s matching rule. The organizer describes a correct match using overlap within 20% of the reference event duration. A true positive is a matched event; a false positive is an unmatched prediction; a false negative is a missed reference event. Precision is the share of predictions that match. Recall is the share of reference events found. F1 balances precision and recall.</p>
+    <p><strong>Segment Dice</strong> measures agreement between predicted and reference event labels over time. It is twice the overlap divided by the total predicted and reference event time. The two parts can move in opposite directions, so a small Dice increase does not automatically make a detector better. The organizer’s public page describes the official Track 1 overall score as an equal-weight average. The local experiment receipts below call the <em>sum</em> of event F1 and Segment Dice “Combined.” I label those values as local receipt scores; they are not official leaderboard scores.</p>
+    <p><strong>Word error rate (WER)</strong> is the number of word substitutions, deletions and insertions divided by the number of reference words. Lower is better. A WER gain in percentage points is the noisy-audio WER minus the enhanced-audio WER, multiplied by 100. <strong>SI-SDR</strong> measures how closely an enhanced waveform preserves the clean reference signal; it is reported in decibels (dB), and higher is better. Track 2 combines mean SI-SDR with WER gain in percentage points. Track 1 and Track 2 combined scores use different units and must not be compared with each other.</p>
+
+    <h2>The labels have different levels of detail</h2>
+    <p>The challenge uses a timestamped noise-event layer over spontaneous speech. The released training set contains 90,637 segments, about 154.6 hours. Its three tiers describe what is known about event timing:</p>
+    <div class="table-wrap">
+      <table>
+        <caption>Released challenge training tiers, as reported by the dataset card.</caption>
+        <thead><tr><th>Tier</th><th>Segments</th><th>What the annotation supports</th><th>Safe training use</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Gold</strong></td><td class="num">11,111</td><td>Verified event start and end times.</td><td>Supervised event-boundary training and evaluation.</td></tr>
+          <tr><td><strong>Silver</strong></td><td class="num">61,642</td><td>Event times are present, but agreement has not been verified.</td><td>Possible weak supervision; keep it separate and give it less influence.</td></tr>
+          <tr><td><strong>Bronze</strong></td><td class="num">17,884</td><td>Noise tags are present, but event times are absent.</td><td>Clip-level category learning only. Do not invent start and end times.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small">These are quality tiers within the challenge release, not three independent audio collections. The base VAANI speech corpus and the challenge’s noise-event annotations are related but have different schemas.</p>
+
+    <h2>Track 1: keep the stronger event detector</h2>
+    <p>The strongest recorded local full-manifest result remained the acoustic-boundary system. Candidate C, which used frozen ATST audio representations and produced event intervals, had a slightly higher Segment Dice in one evaluation but lower event F1. Its combined score was lower.</p>
+    <div class="table-wrap">
+      <table>
+        <caption>Recorded local evaluation on the same 2,501-clip manifest. These are not private leaderboard scores.</caption>
+        <thead><tr><th>System</th><th>Event F1</th><th>Segment Dice</th><th>Local sum (receipt)</th></tr></thead>
+        <tbody>
+          <tr><td>Acoustic-boundary system</td><td class="num">0.476115</td><td class="num">0.664770</td><td class="num">1.140885</td></tr>
+          <tr><td>Candidate C</td><td class="num">0.412815</td><td class="num">0.666853</td><td class="num">1.079668</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Candidate C’s small Dice increase did not compensate for its lower event F1. The score therefore did not justify replacing the acoustic-boundary system.</p>
+
+    <h3>A simple per-clip selector also failed its promotion check</h3>
+    <p>I screened a fixed rule that selected between the acoustic-boundary system and Candidate C using prediction agreement and boundary-confidence summaries. It used no reference labels to choose a system for an individual clip. The comparison used two separate released validation sets: <strong>REP-V2</strong> has 512 population-matched clips; <strong>HARD-V2</strong> has 256 clips selected as a stress test. A stress-test score is useful for finding weaknesses, but it is not an estimate of ordinary population performance.</p>
+    <div class="table-wrap">
+      <table>
+        <caption>Raw event F1 from the fixed selector screen. Each validation set is reported separately.</caption>
+        <thead><tr><th>Set</th><th>Acoustic-boundary</th><th>Candidate C</th><th>Fixed selector</th></tr></thead>
+        <tbody>
+          <tr><td>REP-V2 · 512 clips</td><td class="num">0.463641</td><td class="num">0.398720</td><td class="num">0.424326</td></tr>
+          <tr><td>HARD-V2 · 256 clips</td><td class="num">0.097598</td><td class="num">0.071179</td><td class="num">0.071179</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>On REP-V2, the selector lost 0.039315 event-F1 points against the acoustic-boundary baseline. Its mean Dice increased by 0.003021, which was not enough to pass the promotion screen. On HARD-V2, the rule mostly fell back to Candidate C and did not improve event F1. I rejected it.</p>
+
+    <h3>Why I did not run another Silver-training experiment</h3>
+    <p>The proposed Gold-plus-Silver acoustic refiner could not be run from the verified task-owned compute staging: the Silver timing manifest and audio were not staged there, and the exact acoustic checkpoint was available only in a prior local result directory. I did not transfer data or start a cluster job. The earlier Gold-only refiner had already reduced the recorded TRAIN-dev combined score by 0.002887, so repeating that recipe was not a sound substitute. This section reports a blocked experiment, not a negative Silver result.</p>
+    <p>Earlier boundary LDA, temporal-convolution proposals, fixed boundary snapping and another refiner also failed their recorded checks or regressed. Those are reasons not to repeat the same variants without a new hypothesis; they are not proof that every boundary method will fail.</p>
+
+    <h2>Track 2: better words, worse signal score</h2>
+    <p>The candidate blended 90% of the existing MP-SENet enhanced waveform with 10% of the original noisy waveform, using the same fixed blend for every clip. The 512-clip comparison reused one pinned validation set and the same local SraVaani speech recognizer. The recognizer was not changed between the noisy and enhanced audio.</p>
+    <div class="table-wrap">
+      <table>
+        <caption>Local results on the same pinned 512-clip validation set.</caption>
+        <thead><tr><th>Setting</th><th>Mean SI-SDR</th><th>Noisy WER</th><th>Enhanced WER</th><th>WER gain</th><th>Combined</th></tr></thead>
+        <tbody>
+          <tr><td>Existing unblended MP-SENet</td><td class="num">15.4371 dB</td><td class="num">53.7659%</td><td class="num">53.6530%</td><td class="num">0.1128 pp</td><td class="num">15.5500</td></tr>
+          <tr><td>90% enhanced + 10% original</td><td class="num">13.3592 dB</td><td class="num">53.7659%</td><td class="num">53.0324%</td><td class="num">0.7334 pp</td><td class="num">14.0926</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>The blend reduced recognition errors from 5,718 to 5,640 on these clips. But its SI-SDR was 2.0780 dB lower, and its combined score fell by 1.4574. Better recognition alone did not make it the better enhancement result under this scoring rule. I stopped the candidate before a larger run and did not submit it.</p>
+    <p>The WER values pool all 512 clips. SI-SDR uses only clips with an available clean reference. These two measurements therefore do not have identical clip coverage. The result is specific to this pinned validation split and recognizer; it does not establish performance on the private Phase 2 test set.</p>
+
+    <h2>Validation controls and limits</h2>
+    <ul>
+      <li>REP-V2 and HARD-V2 were kept separate; the hard set was treated as a stress test.</li>
+      <li>The Track 2 candidate and unblended comparator used the same 512-clip manifest and scorer.</li>
+      <li>The Track 2 blend was fixed across clip types. It did not branch based on labels or audio class.</li>
+      <li>Track 2 output WAVs were reopened and checked before transcription. Their byte hashes were checked again afterward; all 512 matched.</li>
+      <li>The 3,178-clip Phase 2 blind package was not used for model choice or local scoring. No hidden labels or transcripts were inspected.</li>
+      <li>A grouped screen was used to avoid placing clips from the same putative source or speaker group on both sides of a split. Filename-derived groups are proxies, so they cannot prove that every speaker identity is unique.</li>
+      <li>Local manifest scores and the competition’s private Phase 2 leaderboard are separate evidence. The archived leaderboard note was not live-verified and is not reproduced as a current result here.</li>
+    </ul>
+
+    <h2>What I would carry forward</h2>
+    <p>For event detection, I would keep the acoustic-boundary system as the current reference and require a new method to improve event F1 on the representative validation set without failing the hard-set check. For speech enhancement, I would require the signal-fidelity loss and word-error gain to be assessed together on the same frozen manifest before spending time on a larger run.</p>
+    <p>The most useful outcome was a cleaner experimental boundary: name each split, freeze the comparison, preserve the scorer, and label every score as local validation or leaderboard evidence. A number without that context is easy to overstate.</p>
+
+    <h2>Sources</h2>
+    <ul class="sources">
+      <li><a href="https://indoml.in/datathon/">IndoML Datathon</a> — task definitions, scoring description, released training and validation information, and Phase 2 format.</li>
+      <li><a href="https://huggingface.co/datasets/ARTPARK-IISc/Vaani-Noise-Event-Dataset">ARTPARK-IISc Vaani Noise Event Dataset</a> — released counts and annotation fields for verified, unverified and untimed events.</li>
+      <li><a href="https://arxiv.org/abs/2609.02474">VAANI noise-event annotation paper</a> — background on the derived event-annotation layer.</li>
+      <li><a href="https://huggingface.co/ARTPARK-IISc/SraVaani-1.0">SraVaani 1.0 model card</a> — speech-recognition model description.</li>
+    </ul>
+    <p class="small">All evaluation figures in this article are reported from local experiment receipts dated on or before 16 October 2026. They do not represent an independently refreshed competition leaderboard.</p>
+  </main>
+  <footer>Postmortem dated 16 October 2026. The page describes local work and its limits; it does not reproduce contest audio, hidden labels, or private participant information.</footer>
+</body>
+</html>
