@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IRE Viva Add-on — HNSW, Percentiles, Memory, Throughput, and 10× Scaling</title>
+<style>
+:root{
+  --bg:#0b1320; --panel:#132238; --panel2:#17304a; --text:#eef6ff; --muted:#bfd0e2;
+  --line:#33506e; --mint:#68e6c0; --blue:#83c7ff; --amber:#ffd68a; --red:#ffb0b0;
+}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
+main{max-width:1100px;margin:0 auto;padding:22px}
+h1,h2,h3{line-height:1.25}
+h1{font-size:2rem;margin:.2rem 0 1rem}
+h2{margin:1.4rem 0 .6rem;font-size:1.35rem}
+h3{margin:1rem 0 .4rem;font-size:1.05rem}
+p,li{color:var(--muted)}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:14px 0}
+.note{background:#11352f;border-color:#2b7463}
+.warn{background:#3a2417;border-color:#8a5a2b}
+.grid2,.grid3{display:grid;gap:14px}.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:800px){.grid2,.grid3{grid-template-columns:1fr}}
+code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+code{background:#091521;border:1px solid #28425d;padding:1px 5px;border-radius:6px;color:#d7f0ff}
+pre{background:#07111b;border:1px solid #2a425e;padding:12px;border-radius:10px;overflow:auto;color:#d7f0ff}
+.kv{display:grid;grid-template-columns:180px 1fr;gap:8px;margin:.4rem 0}
+.badge{display:inline-block;padding:3px 8px;border:1px solid var(--line);border-radius:999px;font-size:.78rem;color:#d9ecff;margin-right:6px}
+.box{background:var(--panel2);border:1px solid #456585;border-radius:12px;padding:12px}
+.big{font-size:1.25rem;font-weight:700;color:#fff}
+.small{font-size:.92rem;color:var(--muted)}
+.pipeline{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:10px 0}.step{background:#1a3857;border:1px solid #537797;border-radius:10px;padding:10px 12px;min-width:140px}.arrow{font-size:1.35rem;color:var(--mint)}
+.stack{display:flex;flex-direction:column;gap:10px;margin:12px 0}.stack .layer{border:1px solid #52728f;border-radius:12px;padding:12px}.ram{background:#1b3953}.resident{background:#204a46}.index{background:#30304b}.disk{background:#3a2f22}
+table{border-collapse:collapse;width:100%}th,td{border-bottom:1px solid #36536f;padding:9px 10px;text-align:left;vertical-align:top}th{background:#17304a;color:#e8f5ff}
+.callout{border-left:4px solid var(--mint);padding-left:12px;margin:10px 0}
+hr{border:none;border-top:1px solid #334d69;margin:20px 0}
+</style>
+</head>
+<body>
+<main><p><a href="../index.html" style="color:#83c7ff">← Common ST100+ explainer index</a></p>
+  <div class="badge">ASD-STE100 style</div>
+  <div class="badge">Short sentences</div>
+  <div class="badge">Viva add-on</div>
+  <h1>HNSW, percentiles, memory, throughput, cost, and “what breaks at 10×?”</h1>
+  <p>This page explains the parts that were still unclear. It uses simple technical English. It also uses small pictures made with boxes.</p>
+
+  <section class="panel note">
+    <h2>1) HNSW: what are <code>efSearch</code>, <code>nprobe</code>, and “probe”?</h2>
+    <div class="grid2">
+      <div>
+        <h3>First, do not mix two different ANN families</h3>
+        <div class="kv"><div><strong>HNSW</strong></div><div>Graph-based ANN index. Common knob: <code>efSearch</code>.</div></div>
+        <div class="kv"><div><strong>IVF / IVFFlat / IVF-PQ</strong></div><div>Cluster-based ANN index. Common knob: <code>nprobe</code>.</div></div>
+        <p><strong>Important:</strong> <code>efSearch</code> belongs to HNSW. <code>nprobe</code> belongs to IVF. They are not the same parameter.</p>
+      </div>
+      <div>
+        <h3>Generic meaning of “probe”</h3>
+        <p>A <strong>probe</strong> means: “how many candidate places do I inspect at query time?”</p>
+        <p>More probing usually gives <strong>better recall</strong>. But it also gives <strong>higher latency</strong>.</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>HNSW idea</h3>
+      <div class="pipeline">
+        <div class="step">Query vector</div><div class="arrow">→</div>
+        <div class="step">Enter graph</div><div class="arrow">→</div>
+        <div class="step">Walk to better neighbors</div><div class="arrow">→</div>
+        <div class="step">Keep a candidate list</div><div class="arrow">→</div>
+        <div class="step">Return top results</div>
+      </div>
+      <div class="callout">
+        <p><strong><code>efSearch</code></strong> = size of the candidate list during search.</p>
+        <p>If <code>efSearch</code> is small, search is fast, but it may miss good neighbors.</p>
+        <p>If <code>efSearch</code> is large, search explores more, so recall improves, but latency increases.</p>
+      </div>
+      <p><strong>Simple picture:</strong> imagine you are exploring a city map. <code>efSearch</code> is like the number of streets you are willing to examine before you stop.</p>
+    </div>
+
+    <div class="panel">
+      <h3>IVF idea</h3>
+      <div class="pipeline">
+        <div class="step">Query vector</div><div class="arrow">→</div>
+        <div class="step">Find nearest clusters</div><div class="arrow">→</div>
+        <div class="step">Search only some clusters</div><div class="arrow">→</div>
+        <div class="step">Score vectors inside them</div>
+      </div>
+      <div class="callout">
+        <p><strong><code>nprobe</code></strong> = number of clusters to search.</p>
+        <p>If <code>nprobe = 1</code>, you inspect one cluster only.</p>
+        <p>If <code>nprobe = 10</code>, you inspect ten clusters.</p>
+      </div>
+      <p>So, for IVF, “probe more clusters” = higher recall, but more time.</p>
+    </div>
+
+    <div class="grid3">
+      <div class="box"><div class="big">HNSW knob</div><p><code>efSearch</code></p><p class="small">How many candidates the graph search keeps alive.</p></div>
+      <div class="box"><div class="big">IVF knob</div><p><code>nprobe</code></p><p class="small">How many coarse clusters are searched.</p></div>
+      <div class="box"><div class="big">Trade-off</div><p>↑ search breadth</p><p class="small">Better recall, but more latency and CPU work.</p></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>2) What does 98th or 99th percentile mean?</h2>
+    <p>Your current interpretation is close, but one detail is wrong.</p>
+    <div class="callout">
+      <p><strong>p99 latency</strong> means: 99% of requests finished in at most this time.</p>
+      <p>Only the slowest 1% were slower.</p>
+    </div>
+    <p>It does <strong>not</strong> mean “average of 99 requests”. It is not an average. It is a <strong>threshold</strong>.</p>
+    <div class="grid3">
+      <div class="box"><div class="big">p50</div><p>Median</p><p class="small">Half faster, half slower.</p></div>
+      <div class="box"><div class="big">p95</div><p>95% at or below this time</p><p class="small">Worst 5% are slower.</p></div>
+      <div class="box"><div class="big">p99</div><p>99% at or below this time</p><p class="small">Worst 1% are slower.</p></div>
+    </div>
+    <p><strong>Small example:</strong> Suppose you have 100 request latencies, sorted from fast to slow. Then p99 is approximately the latency around the 99th request in that sorted list. It is a boundary, not a mean.</p>
+    <table>
+      <thead><tr><th>Metric</th><th>Question it answers</th></tr></thead>
+      <tbody>
+        <tr><td>Average latency</td><td>What is the mean time across all requests?</td></tr>
+        <tr><td>p50</td><td>What is a typical request time?</td></tr>
+        <tr><td>p99</td><td>How bad do almost-all requests get, ignoring the slowest 1%?</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="panel">
+    <h2>3) Index size, resident memory, and total RAM</h2>
+    <p>This is the most common confusion. Think of three different levels.</p>
+    <div class="stack">
+      <div class="layer ram">
+        <strong>Total RAM of the machine</strong>
+        <p class="small">This is the full physical memory in the computer. Example: 64 GB RAM.</p>
+        <div class="layer resident">
+          <strong>Resident memory of your process</strong>
+          <p class="small">This is the part of RAM that your running Python process is actually holding in memory right now.</p>
+          <div class="layer index">
+            <strong>Objects inside the process</strong>
+            <p class="small">Examples: FAISS index, Python dictionaries, NumPy arrays, model weights, buffers, temporary arrays.</p>
+          </div>
+        </div>
+      </div>
+      <div class="layer disk">
+        <strong>Index size on disk</strong>
+        <p class="small">This is the saved file size if you serialize the index. It lives on storage, not directly in RAM.</p>
+      </div>
+    </div>
+
+    <div class="grid3">
+      <div class="box">
+        <div class="big">Index size</div>
+        <p>Usually a file size.</p>
+        <p class="small">Example: <code>faiss.index</code> is 44 MB on disk.</p>
+      </div>
+      <div class="box">
+        <div class="big">Resident memory (RSS)</div>
+        <p>RAM currently occupied by the process.</p>
+        <p class="small">Example: after loading the index, your process RSS increases by 70 MB.</p>
+      </div>
+      <div class="box">
+        <div class="big">Total RAM</div>
+        <p>Memory capacity of the whole machine.</p>
+        <p class="small">Example: laptop has 64 GB RAM total.</p>
+      </div>
+    </div>
+
+    <h3>Why are index size and resident memory different?</h3>
+    <ul>
+      <li>The index file on disk may be compressed or stored in a compact format.</li>
+      <li>When loaded, extra objects may be created.</li>
+      <li>Python adds overhead for objects and containers.</li>
+      <li>Temporary arrays and buffers also consume RAM.</li>
+      <li>The process also holds code, libraries, and other data, not only the index.</li>
+    </ul>
+
+    <div class="warn panel">
+      <h3>Good viva sentence</h3>
+      <p>“Index size is the stored artifact size. Resident memory is the RAM used by the running process after loading it. Total RAM is the machine capacity. They are related, but they are not equal.”</p>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>4) What is throughput in impressions per second?</h2>
+    <p>An <strong>impression</strong> is one ranking request. It usually means: one user context plus the candidate articles that must be scored and ranked.</p>
+    <div class="pipeline">
+      <div class="step">One impression arrives</div><div class="arrow">→</div>
+      <div class="step">Read user/history</div><div class="arrow">→</div>
+      <div class="step">Retrieve candidates</div><div class="arrow">→</div>
+      <div class="step">Build features</div><div class="arrow">→</div>
+      <div class="step">Score + rank</div>
+    </div>
+    <div class="callout">
+      <p><strong>Throughput</strong> = how many full impressions the system finishes per second.</p>
+    </div>
+    <p>If throughput is <strong>200 impressions/s</strong>, then the system finishes about 200 ranking tasks per second.</p>
+    <p>If the system is purely sequential, a rough time per impression is:</p>
+    <pre><code>time per impression ≈ 1 / throughput</code></pre>
+    <p>So, at 200 impressions/s, average sequential time is about 0.005 s = 5 ms per impression.</p>
+    <p><strong>But note:</strong> in real systems, throughput and latency are not exact inverses, because of batching, concurrency, queues, and cache effects.</p>
+  </section>
+
+  <section class="panel">
+    <h2>5) How do I estimate cost per 1,000 impressions (or “pages”)?</h2>
+    <p>Use the machine cost and the throughput.</p>
+    <pre><code>cost per 1000 impressions = hourly machine cost × 1000 / (throughput × 3600)</code></pre>
+    <h3>Example</h3>
+    <ul>
+      <li>Hourly machine cost = $0.50/hour</li>
+      <li>Throughput = 287.44 impressions/s</li>
+    </ul>
+    <pre><code>impressions per hour = 287.44 × 3600 = 1,034,784
+cost per 1000 impressions = 0.50 × 1000 / 1,034,784
+                           ≈ $0.000483 per 1000 impressions</code></pre>
+    <p>That is about <strong>0.0483 cents per 1,000 impressions</strong>.</p>
+    <p>If your quiz says “pages” instead of “impressions”, be careful. Ask: does “page” mean a web page, a request, or an impression? In your ranking pipeline, the closest unit is usually the <strong>impression</strong>.</p>
+  </section>
+
+  <section class="panel">
+    <h2>6) What will break at 10×?</h2>
+    <p>This depends on what became 10× larger.</p>
+    <div class="grid2">
+      <div class="box">
+        <h3>A) 10× more impressions, same catalog</h3>
+        <ul>
+          <li>CPU time for retrieval and feature building increases about 10×.</li>
+          <li>Queueing delay rises if you do not add parallelism.</li>
+          <li>Output writing and logging also grow.</li>
+          <li>p95/p99 latency can worsen under load.</li>
+        </ul>
+        <p class="small"><strong>Main bottleneck:</strong> online serving throughput.</p>
+      </div>
+      <div class="box">
+        <h3>B) 10× more articles, same request rate</h3>
+        <ul>
+          <li>Index build time increases.</li>
+          <li>Index file size increases.</li>
+          <li>Resident memory increases after load.</li>
+          <li>ANN recall/latency trade-offs become harder.</li>
+        </ul>
+        <p class="small"><strong>Main bottleneck:</strong> memory and retrieval structure size.</p>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>If 10× happens to…</th><th>What likely breaks first?</th><th>Why?</th></tr></thead>
+      <tbody>
+        <tr><td>Request count</td><td>Latency SLOs / queues</td><td>Not enough service capacity</td></tr>
+        <tr><td>Catalog size</td><td>RAM / index size / build time</td><td>More vectors or postings to store and search</td></tr>
+        <tr><td>Feature count</td><td>Prediction and feature latency</td><td>More per-candidate work</td></tr>
+        <tr><td>Candidates per impression</td><td>Scoring time</td><td>More articles per request to evaluate</td></tr>
+        <tr><td>Model complexity</td><td>Inference cost</td><td>More expensive prediction path</td></tr>
+      </tbody>
+    </table>
+
+    <div class="warn panel">
+      <h3>Very good viva answer</h3>
+      <p>“At 10× load, I first ask what is scaling: requests, catalog, or per-request candidate count. If requests scale, the first failure is often queueing and p99 latency. If catalog scales, the first failure is often memory, index build cost, and retrieval latency.”</p>
+    </div>
+  </section>
+
+  <section class="panel note">
+    <h2>7) One clean summary you can say aloud</h2>
+    <p>“In HNSW, <code>efSearch</code> controls how many candidate neighbors the graph search keeps during query time. In IVF, <code>nprobe</code> controls how many clusters are searched. Larger values improve recall, but increase latency. p99 latency is a threshold, not an average: 99% of requests finish within that time. Index size is the stored artifact size; resident memory is the RAM used by the running process; total RAM is the machine capacity. Throughput in impressions per second is the number of full ranking requests the system finishes each second. Cost per 1,000 impressions is computed from hourly machine cost and throughput. At 10× scale, the first failure depends on what scaled: requests usually stress serving latency and queues, while catalog growth stresses memory, index size, and retrieval cost.”</p>
+  </section>
+
+  <section class="panel note"><h2>More practice</h2><p>Return to the <a href="../index.html">common ST100+ index</a>, or continue with the <a href="./ire-a1-a2-code-viva-2026-10-19.html">code walkthrough and viva guide</a>.</p></section>
+</main>
+</body>
+</html>
