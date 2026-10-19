@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive"><meta name="theme-color" content="#101928">
+<title>IRE A1 + A2 — GitHub-First Viva & Quiz 2 Forecast · ST100+</title>
+<style>
+:root{--bg:#0b1422;--panel:#15243a;--panel2:#203451;--fg:#f0f6ff;--muted:#c0cee1;--border:#3a526e;--mint:#67e6c3;--sky:#93cdff;--amber:#ffd58d;--red:#ffb8b8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at top right,#27405e,transparent 36%),var(--bg);color:var(--fg);font:15.5px/1.64 system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Arial,sans-serif}
+main{max-width:1170px;padding:20px 20px 80px;margin:auto}h1{font-size:clamp(1.7rem,3.4vw,2.65rem);line-height:1.21;margin:.4rem 0}h2{font-size:1.45rem;line-height:1.27;margin:0 0 12px}h3{font-size:1.05rem;margin:0 0 7px}p{margin:8px 0 12px;color:var(--muted)}strong{color:#fff}a{color:var(--sky);text-underline-offset:3px}a:hover{color:#c6eaff}
+nav{display:flex;overflow-x:auto;gap:7px;position:sticky;top:0;background:#08121ef5;border-block:1px solid #2c455f;z-index:20;padding:10px 0;margin:17px 0}
+.tab{white-space:nowrap;border:1px solid var(--border);background:#1d2f46;color:#d4e6fb;border-radius:9px;padding:9px 12px;font:700 .87rem inherit;cursor:pointer}.tab.active{background:var(--mint);border-color:var(--mint);color:#08231d}
+.view{display:none}.view.active{display:block}.panel{border:1px solid var(--border);border-radius:15px;padding:19px;background:linear-gradient(130deg,#1c2c46,#121f33);margin:14px 0}.panel.light{background:#143b34;border-color:#367d6c}.panel.warn{background:#3a3022;border-color:#816341}.panel.error{border-left:4px solid var(--red)}
+.grid2,.grid3{display:grid;gap:13px}.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}.box{background:#101f33;border:1px solid #395773;border-radius:11px;padding:14px}
+.eyebrow{color:var(--mint);text-transform:uppercase;letter-spacing:.1em;font-size:.79rem;font-weight:850}.fine{font-size:.82rem;color:#becfe5}.stat{font-size:1.6rem;font-weight:800;color:var(--mint)}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+code{background:#091421;border:1px solid #2b415d;border-radius:5px;padding:2px 5px;color:#d2ecff}pre{background:#081320;border:1px solid #3a5572;border-radius:11px;overflow-x:auto;padding:13px;font-size:.83rem;line-height:1.55;white-space:pre}pre code{border:none;background:none;padding:0;color:#e4f4ff}
+.cmd{position:relative}.copy{position:absolute;top:7px;right:7px;border-radius:8px;border:1px solid #6896ae;background:#29475c;color:#fff;padding:5px 9px;cursor:pointer;font-size:.76rem}
+.linkbtn{display:inline-flex;background:var(--mint);color:#09231e;text-decoration:none;font-weight:800;border-radius:9px;padding:8px 12px;margin:4px 5px 4px 0}.linkbtn:hover{color:#09231e}.linkbtn.alt{background:#2d4868;color:#edf7ff;border:1px solid #6987aa}
+.flow{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap;margin:15px 0}.flow .node{background:#234361;border:1px solid #59829f;border-radius:9px;padding:11px;flex:1;min-width:138px}.flow .arr{align-self:center;font-size:1.5rem;color:var(--mint)}
+table{border-collapse:collapse;width:100%;font-size:.87rem}th,td{border-bottom:1px solid #3b5571;padding:8px 9px;vertical-align:top;text-align:left}th{color:#d9efff;background:#18334f}.scroll{overflow-x:auto}
+details{border:1px solid #3f5c77;border-radius:10px;background:#10243a;padding:10px 14px;margin:10px 0}details[open]{background:#183a3b;border-color:#528d7e}summary{cursor:pointer;font-weight:750}details p{margin:10px 0} .correct{color:var(--mint)}.question{font-weight:750;color:#fff}
+.meter{height:14px;border:1px solid #426482;background:#0b192b;border-radius:20px;overflow:hidden}.meter>div{background:var(--mint);height:100%;width:0%;transition:width .25s}
+label{display:flex;gap:9px;align-items:flex-start;padding:9px;border-bottom:1px solid #344963;cursor:pointer}label input{margin-top:5px;accent-color:var(--mint);width:17px;height:17px}
+.evidence{border-left:4px solid var(--sky);padding-left:11px;margin:12px 0}.guess{border-left:4px solid var(--amber);padding-left:11px;margin:12px 0}.badge{font-size:.73rem;color:#cfe8f8;border:1px solid #4e7291;padding:3px 7px;border-radius:9px;display:inline-block;margin:4px 6px 4px 0}
+.readable{max-width:880px}
+footer{margin-top:48px;padding-top:18px;border-top:1px solid #48627d;color:var(--muted);font-size:.85rem}
+@media(max-width:750px){main{padding:14px 12px 65px}.grid2,.grid3{grid-template-columns:1fr}.panel{padding:14px}.flow .arr{display:none}nav{margin-inline:-12px;padding-inline:12px}}
+</style></head>
+<body><main>
+<p class="fine"><a href="../index.html">← Common ST100+ index</a> · <a href="./ire-a1-a2-code-viva-2026-10-19.html">Deep source walkthrough</a> · <a href="./ire-ann-percentiles-memory-throughput-10x-2026-10-19.html">ANN / latency / memory guide</a></p>
+<div class="eyebrow">ASD-STE100+ · IRE CS4.406 · 19 Oct 2026</div>
+<h1>IRE A1 + A2: the 30-minute GitHub-first viva guide</h1>
+<p class="readable">Simple technical English. Your actual September reports, the real Quiz 1 question paper and both GitHub repositories are the basis. Questions under <strong>Predicted Quiz 2</strong> are practice predictions, <strong>not</strong> an official Quiz 2 paper.</p>
+<div class="panel light">
+<h2>Remember these four facts first</h2>
+<div class="grid2">
+<div class="box"><strong>Assignment 1</strong><p>Get relevant articles from the news corpus using <strong>words (BM25)</strong> and <strong>meaning (embeddings + FAISS-HNSW)</strong>. Evaluate retrieval and ranking separately.</p></div>
+<div class="box"><strong>Assignment 2</strong><p>First retrieve candidates; then use <strong>past click behaviour, category, freshness, and popularity</strong> to reorder candidates with <strong>LightGBM LambdaRank</strong>. Also reproduce and improve NRMS in a controlled ablation.</p></div>
+<div class="box"><strong>A1 best MIND leaderboard</strong><p>Submission <strong>900266</strong> used <strong>SpeedyRec/UniLM + nine-feature LightGBM reranking</strong>, not BM25 alone.</p></div>
+<div class="box"><strong>A2 final MIND leaderboard</strong><p>Submission <strong>944690</strong> used <strong>90/10 FAST15–SpeedyRec plus a candidate-aware history residual</strong>. EB submission <strong>905893</strong> reused the previous <strong>238-feature P1/F LambdaRank</strong> model.</p></div>
+</div></div>
+<nav aria-label="Sections">
+<button class="tab active" data-tab="crash">00 · 30 min</button>
+<button class="tab" data-tab="github">01 · GitHub / Run</button>
+<button class="tab" data-tab="systems">02 · A1 vs A2</button>
+<button class="tab" data-tab="leaderboard">03 · Leaderboards</button>
+<button class="tab" data-tab="quiz1">04 · Quiz 1 actual</button>
+<button class="tab" data-tab="quiz2">05 · Predicted Quiz 2</button>
+<button class="tab" data-tab="numbers">06 · Numbers</button>
+<button class="tab" data-tab="practice">07 · Drill</button>
+</nav>
+<section class="view active" id="crash">
+<div class="panel"><h2>Use these 30 minutes</h2><div class="grid3">
+<div class="box"><div class="stat">0–10 min</div><p><strong>GitHub:</strong> open A1 BM25 and semantic code. Open A2 LambdaRank and metric code. Explain the data flow.</p><a class="linkbtn" href="#github" data-go="github">Open commands</a></div>
+<div class="box"><div class="stat">10–20 min</div><p><strong>Numbers + results:</strong> index sizes, p99, throughput, leaderboard lineage, weak recall, and the NRMS ablations.</p><a class="linkbtn" href="#leaderboard" data-go="leaderboard">See lineage</a></div>
+<div class="box"><div class="stat">20–30 min</div><p><strong>Oral defense:</strong> re-answer Quiz 1 categories and the predicted A2 follow-up questions out loud.</p><a class="linkbtn" href="#quiz2" data-go="quiz2">Practice questions</a></div>
+</div>
+<p><strong>One line you can say:</strong> “A1 built and evaluated lexical and semantic candidate generators. A2 added causal behavioural features and a learned ranker. I separated literal experiments, matched ablations and final leaderboard submissions so their metrics remain comparable only within the right setting.”</p>
+</div>
+</section>
+<section class="view" id="github">
+<div class="panel"><h2>Both repositories exist on GitHub — verified</h2>
+<div class="grid2">
+<div class="box"><strong>A1 · Public submission repo</strong><p><a href="https://github.com/nilansa/ire-assignment1-submission-2026" target="_blank" rel="noopener">github.com/nilansa/ire-assignment1-submission-2026</a></p>
+<a class="linkbtn" target="_blank" rel="noopener" href="https://github.com/nilansa/ire-assignment1-submission-2026/blob/main/src/ire_a1/bm25.py#L25-L58">A1 BM25 code ↗</a><a class="linkbtn alt" target="_blank" rel="noopener" href="https://github.com/nilansa/ire-assignment1-submission-2026/blob/main/src/ire_a1/semantic.py#L70-L143">A1 vector code ↗</a></div>
+<div class="box"><strong>A2 · Private repository</strong><p><a href="https://github.com/nilansa/ire-assignment-2" target="_blank" rel="noopener">github.com/nilansa/ire-assignment-2</a> (log into the authorized GitHub account)</p>
+<a class="linkbtn" target="_blank" rel="noopener" href="https://github.com/nilansa/ire-assignment-2/blob/main/scripts/run_literal_two_stage.py#L280-L310">A2 LambdaRank code ↗</a><a class="linkbtn alt" target="_blank" rel="noopener" href="https://github.com/nilansa/ire-assignment-2/blob/main/src/ire_a2/evaluation.py#L264-L332">A2 metrics ↗</a></div>
+</div></div>
+<div class="panel"><h2>Mac VS Code commands. No ZIPs, no model training.</h2>
+<h3>For A1 (already cloned on your Mac)</h3>
+<div class="cmd"><button class="copy">Copy</button><pre><code>cd ~/Desktop/iiit/IR/ire-assignment1-submission-2026
+git status --short
+ls
+code .</code></pre></div>
+<h3>For A2 (clone from your private GitHub if needed)</h3>
+<div class="cmd"><button class="copy">Copy</button><pre><code>cd ~/Desktop/iiit/IR
+if [ -d ire-assignment-2/.git ]; then
+  cd ire-assignment-2
+else
+  git clone https://github.com/nilansa/ire-assignment-2.git
+  cd ire-assignment-2
+fi
+git status --short
+ls
+code .</code></pre></div>
+<p class="fine">Cloning reads code from GitHub; it does not train a model. This clone does not contain bulk datasets or model checkpoints. If private-repo authentication fails, open the linked repository in your logged-in browser; do not waste prep time debugging credentials.</p>
+</div>
+<div class="panel"><h2>First files to click in VS Code</h2>
+<div class="scroll"><table><thead><tr><th>Why?</th><th>A1 GitHub path</th><th>A2 GitHub path</th></tr></thead><tbody>
+<tr><td>Words → inverted postings</td><td><a href="https://github.com/nilansa/ire-assignment1-submission-2026/blob/main/src/ire_a1/bm25.py#L34-L58">src/ire_a1/bm25.py:34–58</a></td><td><a href="https://github.com/nilansa/ire-assignment-2/blob/main/scripts/run_literal_two_stage.py#L50-L77">scripts/run_literal_two_stage.py:50–77</a> (NumPy-weighted BM25)</td></tr>
+<tr><td>Past clicks → query</td><td><a href="https://github.com/nilansa/ire-assignment1-submission-2026/blob/main/src/ire_a1/data.py#L31-L35">src/ire_a1/data.py:31–35</a></td><td><a href="https://github.com/nilansa/ire-assignment-2/blob/main/scripts/run_literal_two_stage.py#L185-L200">run_literal_two_stage.py:185–200</a></td></tr>
+<tr><td>Vectors / ANN</td><td><a href="https://github.com/nilansa/ire-assignment1-submission-2026/blob/main/src/ire_a1/semantic.py#L70-L143">src/ire_a1/semantic.py:70–143</a></td><td><a href="https://github.com/nilansa/ire-assignment-2/blob/main/scripts/benchmark_ann_serving.py">scripts/benchmark_ann_serving.py</a> (separate measurement, not literal A2 candidate generator)</td></tr>
+<tr><td>Behavioural features</td><td>Not the main A1 retrieval task</td><td><a href="https://github.com/nilansa/ire-assignment-2/blob/main/scripts/run_literal_two_stage.py#L32-L35">15 feature names</a>; <a href="https://github.com/nilansa/ire-assignment-2/blob/main/scripts/run_literal_two_stage.py#L133-L181">feature values</a></td></tr>
+<tr><td>Learn to rank</td><td>A1 leaderboard extension, not BM25 baseline</td><td><a href="https://github.com/nilansa/ire-assignment-2/blob/main/scripts/run_literal_two_stage.py#L280-L310">LightGBM fit + predict</a></td></tr>
+<tr><td>Metric formulas</td><td><a href="https://github.com/nilansa/ire-assignment1-submission-2026/blob/main/src/ire_a1/metrics.py#L13-L124">src/ire_a1/metrics.py</a></td><td><a href="https://github.com/nilansa/ire-assignment-2/blob/main/src/ire_a2/evaluation.py#L264-L332">src/ire_a2/evaluation.py</a></td></tr>
+<tr><td>Actual latency instrumentation</td><td>Index timing in submitted A1 report</td><td><a href="https://github.com/nilansa/ire-assignment-2/blob/main/scripts/benchmark_literal_serving.py#L98-L145">benchmark_literal_serving.py:98–145</a></td></tr>
+<tr><td>What was submitted?</td><td><a href="https://github.com/nilansa/ire-assignment1-submission-2026/blob/main/README.md">A1 README</a></td><td><a href="https://github.com/nilansa/ire-assignment-2/blob/main/release/PREDICTION_LINEAGE_20260926.json">A2 prediction lineage</a></td></tr>
+</tbody></table></div></div>
+<div class="panel light"><h2>Safe sanity demonstrations — no retraining</h2>
+<p><strong>Option A (fastest):</strong> in GitHub, open the source links above and explain one function. Nothing to install or run.</p>
+<p><strong>Option B (A1 actual unit tests):</strong> verified earlier on your Mac: 15 passed.</p>
+<div class="cmd"><button class="copy">Copy</button><pre><code>cd ~/Desktop/iiit/IR/ire-assignment1-submission-2026
+PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
+  .venv/bin/python -m pytest -q -p no:cacheprovider \
+  tests/test_bm25.py tests/test_metrics.py \
+  tests/test_semantic.py tests/test_data.py</code></pre></div>
+<p><strong>Option C (A2 evaluator tests):</strong> run only if your A1 environment exists and the A2 clone is available. Equivalent tests passed 22/22 against the submitted A2 package; do not treat this as a new full-repo verification.</p>
+<div class="cmd"><button class="copy">Copy</button><pre><code>cd ~/Desktop/iiit/IR/ire-assignment-2
+PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
+  ~/Desktop/iiit/IR/ire-assignment1-submission-2026/.venv/bin/python \
+  -m pytest -q -p no:cacheprovider \
+  tests/test_a2_evaluation.py tests/test_q3_matched.py</code></pre></div>
+<p><strong>Don't run:</strong> <code>make reproduce</code>, <code>./release/reproduce_a2.sh</code>, full-test predictions, <code>run_literal_two_stage.py</code> or submission scripts during your final preparation. These rebuild, fit or generate artifacts.</p>
+</div></section>
+<section class="view" id="systems">
+<div class="panel"><h2>Visual story: A1 versus A2</h2>
+<h3>A1 — retrieve by words or meaning</h3>
+<div class="flow"><div class="node"><strong>User's earlier clicks</strong><p class="fine">Five recent titles for BM25; up to ten vectors for semantic</p></div><div class="arr">→</div><div class="node"><strong>BM25 postings</strong><p class="fine">terms → document IDs and term frequency</p></div><div class="arr">or</div><div class="node"><strong>FAISS HNSW</strong><p class="fine">vector → nearby article vectors</p></div><div class="arr">→</div><div class="node"><strong>Relevant articles / scores</strong></div></div>
+<p>These are <strong>two baselines</strong> over MIND and EB-NeRD. They do not automatically predict the best click ordering among all candidate lists.</p>
+<h3>A2 — learn the order of a smaller set</h3>
+<div class="flow"><div class="node"><strong>Earlier clicks</strong></div><div class="arr">→</div><div class="node"><strong>BM25 top-200</strong></div><div class="arr">→</div><div class="node"><strong>15 features per article</strong><p class="fine">category, recency, freshness, popularity, similarity</p></div><div class="arr">→</div><div class="node"><strong>LightGBM LambdaRank</strong></div><div class="arr">→</div><div class="node"><strong>New article order</strong></div></div>
+<p><strong>Simple difference:</strong> Retrieval asks <em>which articles deserve consideration?</em> Ranking asks <em>in what order should we show them?</em></p>
+</div>
+<div class="grid2">
+<div class="panel"><h2>BM25 — the actual mechanism</h2><p>Every document is a news title plus abstract. <code>postings["cricket"] = [(doc7,2),(doc21,1)]</code> means “cricket” appears twice in document 7 and once in document 21.</p><p><strong>k1=1.2</strong>: how quickly repeated terms stop adding much score. <strong>b=0.75</strong>: how much long documents are penalized. <strong>IDF</strong>: rare words count more.</p><p>A1 full-corpus retrieval keeps up to 32 informative terms; the literal A2 source keeps up to eight IDF-weighted terms and precomputes posting weights as NumPy arrays.</p></div>
+<div class="panel"><h2>Semantic — the actual mechanism</h2><p>MIND uses mean-pooled <strong>100-dimensional TransE entity vectors</strong>. EB-NeRD uses cached <strong>384-dimensional multilingual MiniLM embeddings</strong>. User representation is the normalized average of up to ten recent, valid clicked-article vectors.</p><p>FAISS <code>IndexHNSWFlat</code> stores a neighbor graph. Search follows edges rather than comparing everything. <strong>M=32</strong> controls graph connectivity, <strong>efConstruction=160</strong> construction breadth, and <strong>efSearch=128</strong> query-time breadth. <strong>nprobe</strong> is an IVF parameter, <em>not</em> HNSW.</p></div>
+</div>
+<div class="panel"><h2>LightGBM and LambdaRank — don't confuse them</h2><p><strong>LightGBM</strong> is the library that trains gradient-boosted decision trees. <strong>LambdaRank</strong> is the objective for improving the relative order of articles inside each impression. <code>group=[100,200]</code> means the first 100 candidate rows belong to one impression and the next 200 to another.</p>
+<p>Your literal A2 implementation uses <code>40 trees</code>, <code>learning_rate=0.08</code>, <code>num_leaves=15</code>, <code>max_depth=6</code>. The higher-scoring EB-NeRD leaderboard model is a <strong>different 238-feature model</strong>.</p>
+</div>
+</section>
+<section class="view" id="leaderboard">
+<div class="panel"><h2>What exactly produced each leaderboard score?</h2>
+<p>The tables below are from your <strong>submitted A1 report, A2 September 26 report and GitHub prediction lineage</strong>. A rank in a historical screenshot is not necessarily your current live rank. AUC, MRR and nDCG are official hidden-test scores for the listed submission, not results of the small BM25-only baseline.</p>
+<div class="scroll"><table><thead><tr><th>Assignment / dataset</th><th>Submission</th><th>Actual scoring system</th><th>Official AUC</th><th>MRR</th><th>nDCG@5 / @10</th></tr></thead><tbody>
+<tr><td>A1 MIND</td><td><strong>900266</strong> (historical screenshot rank 9)</td><td>SpeedyRec/UniLM base score + <strong>nine-feature LightGBM reranker</strong>; 291 boosting rounds.</td><td>.719720</td><td>.364556</td><td>.402167 / .458179</td></tr>
+<tr><td>A1 EB-NeRD</td><td><strong>905893</strong> (historical screenshot rank 7*)</td><td>Serving-safe P1/F <strong>238-feature LightGBM LambdaRank</strong>; 376 best iterations, multi-window popularity, freshness, exposure and user history.</td><td>.795930</td><td>.588651</td><td>.657686 / .681955</td></tr>
+<tr><td>A2 MIND</td><td><strong>944690</strong></td><td>90/10 <strong>FAST15–SpeedyRec</strong> base + candidate-aware history residual. This is <em>not</em> the literal 15-feature demo.</td><td>.708700</td><td>.362393</td><td>.401376 / .457373</td></tr>
+<tr><td>A2 EB-NeRD</td><td><strong>905893 (reused)</strong></td><td>Same P1/F 238-feature A1 EB artifact reused for A2 leaderboard evidence; <em>not</em> the later EB D ablation.</td><td>.795930</td><td>.588651</td><td>.657686 / .681955</td></tr>
+</tbody></table></div>
+<p class="fine">*Your A1 report recorded displayed EB rank 7. A provenance audit found duplicate stored primary-score rows that can distort displayed leaderboard ordering. Quote the actual AUC <strong>.795930</strong> and submission ID, but do not claim this rank is a clean controlled comparison.</p>
+<div class="panel warn"><h3>Viva answer: “Did your A2 model beat A1 on MIND?”</h3><p><strong>Do not invent an improvement.</strong> The separate A1 and A2 final MIND submissions differ. The listed A1 hidden-test AUC is .71972 and A2 final AUC is .70870. Therefore the later A2 submission did <strong>not</strong> have higher AUC than the historical A1 champion. A2's scientifically supported gains instead come from its <strong>matched, controlled experiments</strong> below.</p></div>
+</div>
+<div class="panel"><h2>Different experiments — different claims</h2>
+<div class="grid2">
+<div class="box"><h3>Literal BM25 → LightGBM (A2 report Table 1)</h3>
+<p>The model uses top-200 BM25 candidates and 15 features. MIND AUC <strong>.64268 → .62647</strong>; its CI includes zero, so no reliable gain. EB conditional AUC <strong>.63317 → .86830</strong> on assessable retrieved candidates. Yet most global requests had <strong>no clicked item retrieved</strong>.</p>
+<p class="fine">MIND 4,904/5,000 zero-hit requests; EB 4,916/5,000. The ranker cannot fix candidate-retrieval misses.</p></div>
+<div class="box"><h3>Matched NRMS + one feature (A2 report Table 3)</h3>
+<p>MIND: add <strong>category-history affinity</strong>. AUC <strong>.58163 → .61740</strong>, difference +.03577, paired 95% CI <strong>[.02717,.04466]</strong>.</p>
+<p>EB: add <strong>7-day publication freshness</strong>. AUC <strong>.68991 → .69697</strong>, difference +.00706, 95% CI <strong>[.00456,.00961]</strong>.</p>
+<p class="fine">Both intervals exclude zero. These are separate fixed-candidate NRMS comparisons, not the final leaderboard models.</p></div>
+</div>
+<h3>Why did the baseline fail to retrieve positives?</h3>
+<p>News interests can involve multiple topics. A query formed from a small history sample may not include terms or meanings related to the next click. A two-stage system cannot rank what stage one never provided. Improve candidate recall or merge lexical and semantic sources before making stage two more complex.</p>
+</div>
+<div class="panel"><h2>What features helped the learned EB model?</h2>
+<p>Not one magic embedding. Its feature families cover <strong>article age/freshness, user history, category and entity overlap, multi-window popularity, time-of-day, session and exposure counts, and within-impression score transforms.</strong> These signals explain why the final learned model is not a fair one-to-one comparison with the A1 content-only baselines.</p>
+<p class="fine">A2 report source: <a href="https://github.com/nilansa/ire-assignment-2/blob/main/report/A2_design_note_20260926.pdf" target="_blank" rel="noopener">submitted final PDF</a>. A1 summary: <a href="https://github.com/nilansa/ire-assignment1-submission-2026/blob/main/README.md" target="_blank" rel="noopener">submitted A1 README</a>. Private repo links need authorization.</p>
+</div>
+</section>
+<section class="view" id="quiz1">
+<div class="panel light"><h2>Actual Quiz 1 paper — verified, not guessed</h2>
+<p>Quiz 1 was <strong>100 marks</strong> in <strong>90 minutes</strong>. It had <strong>Q1 Kart under load (30 marks)</strong> and <strong>Q2 your Assignment 1 implementation (70 marks)</strong>. The paper explicitly said the implementation answers would be cross-checked with the repository and valued accurate mechanisms more than impressive numbers.</p>
+<div class="scroll"><table><thead><tr><th>Actual question</th><th>Marks</th><th>What it tests</th></tr></thead><tbody>
+<tr><td>Q1(a) Four subsystems during a network partition</td><td>12</td><td>CAP: which invariant needs consistency, and when temporary staleness is tolerable</td></tr>
+<tr><td>Q1(b) Little's Law at two boundaries</td><td>8</td><td>Derive <code>R=N/X−Z</code> and compute response time</td></tr>
+<tr><td>Q1(c) B+-tree vs LSM-tree for catalogue and click logs</td><td>10</td><td>Write amplification, device MB/s, system trade-off</td></tr>
+<tr><td>Q2(a) Anatomy of your A1 indexes</td><td>25</td><td>Docs, vocabulary, postings, average length, RAM/disk, index bytes, parameters</td></tr>
+<tr><td>Q2(b) Latency and throughput</td><td>25</td><td>Number of queries, p50/p99, K, indexing build throughput, Little's Law</td></tr>
+<tr><td>Q2(c) Functional evaluation</td><td>20</td><td>Formulas, ground truth, preprocessing, ablations and user slices</td></tr>
+</tbody></table></div>
+</div>
+<div class="panel"><h2>Q1(b) — derive the answer aloud</h2>
+<div class="flow"><div class="node"><strong>1000 shoppers total</strong><p class="fine">Think + wait + receive results</p></div><div class="arr">→</div><div class="node"><strong>200 queries/second</strong><p class="fine">Throughput X</p></div><div class="arr">→</div><div class="node"><strong>4.8 seconds thinking</strong><p class="fine">Z</p></div></div>
+<p>Let <strong>N</strong> be average shoppers in the closed system, <strong>X</strong> be completed queries per second, <strong>Z</strong> be thinking time, and <strong>R</strong> be response time.</p>
+<p>Whole system includes thinking: <code>N=X(R+Z)</code>. Only the server: average in-flight requests <code>N_server=X·R</code>. In the closed system, <code>R=N/X−Z=1000/200−4.8=5−4.8=0.2 seconds</code>.</p>
+<p><strong>Assumption:</strong> steady-state flow balance with a fixed population and average throughput. Do not say “Little's Law is always CPU utilization.” It is about average items, throughput and average time.</p>
+</div>
+<div class="panel"><h2>Q1(a): CAP choices depend on the invariant</h2>
+<div class="scroll"><table><thead><tr><th>Subsystem</th><th>Likely defensible choice during partition</th><th>Why</th></tr></thead><tbody>
+<tr><td>Search index</td><td>A (available)</td><td>Course scenario permits stale sold-out listings during sale.</td></tr>
+<tr><td>Displayed price</td><td>A, if marked indicative</td><td>The sale's displayed price may be stale, but do not treat it as a locked payment price.</td></tr>
+<tr><td>Cart</td><td>C, if it must reflect price of record</td><td>Cart is said to follow the price of record until checkout begins; a partitioned region cannot safely assert an updated cart total.</td></tr>
+<tr><td>Checkout / payment</td><td>C</td><td>15-minute locked price must be honoured. Reject, delay or fail safely if it cannot verify/commit without inconsistent charges.</td></tr>
+</tbody></table></div>
+<p class="fine">These are reasoned answers, not an official answer key. The displayed-price/cart choice requires stating whether tentative stale display is acceptable. The question explicitly demands the invariant for each branch, not merely a slogan about CAP.</p>
+</div>
+<div class="panel"><h2>Q1(c): page rewrites and amplification</h2>
+<p><strong>B+-tree:</strong> 120 bytes logically change, but a whole 4096-byte page is rewritten. Write amplification <code>4096/120 ≈ 34.13×</code>. Device write rate <code>4096×300≈1.23 MB/s</code> (decimal MB).</p>
+<p><strong>LSM:</strong> append whole 1KB record and then roughly another 10× compaction writing (under the question's wording): about <code>(1+10)×1024×300≈3.38 MB/s</code>. If the instructor treats “10× write amplification” as inclusive, explain your interpretation. The LSM may be attractive for large append streams, but compaction can create substantial write amplification.</p>
+<p><strong>Choice:</strong> catalogue has point lookups and updates, so a B+-tree can be defensible in this toy calculation. High-rate append-only click logs favor an append/LSM-oriented design. State read/write workload, memory, disk I/O and compaction costs.</p>
+</div>
+<div class="panel"><h2>Q2(a) exact index anatomy — measured from your existing code</h2>
+<p>Your Quiz 1 question asked for actual vocabulary size, postings count and average document length. Your reports did not list all of these, so I ran a <strong>read-only, in-memory BM25 construction</strong> against the existing processed Parquet article data. No files were changed.</p>
+<div class="scroll"><table><thead><tr><th>Development corpus</th><th>Documents</th><th>Vocabulary terms</th><th>Distinct (term,document) postings</th><th>Average tokens/document</th><th>Measured in-memory build</th></tr></thead><tbody>
+<tr><td>MIND-small</td><td>65,234</td><td><strong>60,983</strong></td><td><strong>2,361,743</strong></td><td>47.23</td><td>1.131 s</td></tr>
+<tr><td>EB-NeRD demo</td><td>11,777</td><td><strong>31,642</strong></td><td><strong>268,891</strong></td><td>25.80</td><td>0.366 s</td></tr>
+</tbody></table></div>
+<p class="fine">Environment and warm-cache state differ from the original A1 submitted report's controlled index benchmark; do not replace that report's 1.18s/0.66s build-time numbers with these unpaired fresh numbers. Vocabulary/postings counts reflect the local clean A1 BM25 implementation and these exact processed datasets.</p>
+<div class="cmd"><button class="copy">Copy</button><pre><code>cd ~/Desktop/iiit/IR/ire-assignment1-submission-2026
+PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 .venv/bin/python - &lt;&lt;'PY'
+import polars as pl
+from pathlib import Path
+from ire_a1.bm25 import BM25Index
+root = Path.home() / "Desktop/iiit/IR/assignment1-lexical-semantic-retrieval/data/processed"
+for name in ("mind","ebnerd"):
+    a = pl.read_parquet(root/name/"articles.parquet", columns=["article_id","text"])
+    index = BM25Index(a["article_id"].to_list(), a["text"].fill_null("").to_list())
+    print(name,"documents",len(index.doc_ids),"vocab",len(index.postings),
+          "postings",sum(len(p) for p in index.postings.values()),"avgdl",index.avgdl)
+PY</code></pre></div>
+<p class="fine">This only builds a temporary index inside Python and prints statistics. It does not train LightGBM, write an index file or submit predictions.</p>
+</div>
+</section>
+<section class="view" id="quiz2">
+<div class="panel warn">
+<h2>Predicted Quiz 2-style questions — inference, not official</h2>
+<p><strong>No official Quiz 2 question paper was supplied here.</strong> I used the actual Quiz 1 structure, Anil's Moodle instruction to justify engineering choices, and your A2 brief and final report. Anil can ask different things; this list gives the highest-value mechanisms to prepare.</p>
+<p><strong>Prediction rule:</strong> Quiz 1 asked index anatomy → runtime and throughput → functional metrics. A similar A2-oriented evaluation could ask <strong>feature/ranker anatomy → serving latency and memory → baseline/ablation correctness</strong>, plus a systems scenario.</p>
+</div>
+<div class="panel">
+<h2>Part A: System / model anatomy</h2>
+<details><summary>Q1. What changed from A1 to A2? Draw it.</summary><p><strong>A1:</strong> BM25 postings or FAISS article vector search retrieves candidates based on content. <strong>A2:</strong> A1 BM25 top-200 → 15 past-behaviour/content features per candidate → LightGBM LambdaRank → final order. We add personalization and news freshness, not a new ground-truth label.</p></details>
+<details><summary>Q2. What is the training row, label and group?</summary><p>Each row represents one <strong>(impression, candidate article)</strong>. The label is 1 if the candidate was clicked, otherwise 0. The <code>group</code> sizes tell LightGBM which candidate rows belong to the same impression, so LambdaRank compares articles <em>within</em> a request.</p></details>
+<details><summary>Q3. Explain five feature families and when they are available.</summary><p>BM25 retrieval score/rank, user history length/category affinity, recency-weighted affinity, historical popularity, and article freshness. The code also uses repeat, earlier-session clicks, dwell-availability and embedding cosine. All behaviour and popularity must be from <strong>before</strong> the scored impression.</p></details>
+<details><summary>Q4. How do you prove no future click leakage?</summary><p>A1 uses a chronological split and explicit history boundary tests. In A2, <code>_causal_history()</code> rejects timestamps at or after the impression. <code>_session_counts()</code> computes same-timestamp features before updating state. Popularity uses an earlier training prefix, not validation or test clicks.</p></details>
+<details><summary>Q5. Explain <code>num_leaves</code>, <code>max_depth</code>, learning rate, and tree count.</summary><p>The literal A2 model has <strong>15 leaves, max depth 6, 40 trees, learning rate .08</strong>. More leaves/depth let the tree model fit more interactions but risk overfitting and cost. More trees add compute; a lower learning rate often needs more boosting rounds. These are <em>not</em> HNSW graph parameters.</p></details>
+<details><summary>Q6. Is the 238-feature EB leaderboard model the literal 15-feature model?</summary><p>No. The literal A2 pedagogical pipeline has 15 features/40 trees. EB hidden-test 905893 reuses the earlier P1/F 238-feature LightGBM LambdaRank with deeper session/popularity/interaction features. Keep model identity separate from baseline experiments.</p></details>
+</div>
+<div class="panel"><h2>Part B: Engineering measurements</h2>
+<details><summary>Q7. If the TA points at FAISS and asks memory size, what do you measure?</summary><p>Raw vectors need <code>N × dimension × bytes-per-coordinate</code>. The serialized <strong>index file</strong> also stores graph links/metadata. <strong>RSS</strong> is resident physical memory of the whole Python process, including other arrays, models and libraries. <strong>Total machine RAM</strong> is system capacity. The A2 report separately measures MIND HNSW serialized size 43,848,922 bytes.</p></details>
+<details><summary>Q8. p99 = average of 99 out of 100 requests, yes?</summary><p><strong>No.</strong> p99 is a <em>latency threshold</em> at which roughly 99% of observed requests are at or below that time. The slowest ~1% exceed it. It is <strong>not</strong> the average of 99 observations. p50 is the median. A2 end-to-end p50/p95/p99: <strong>3.13/6.20/10.13 ms</strong>.</p></details>
+<details><summary>Q9. Why do stage p99s not add up to overall p99?</summary><p>The request with slowest BM25 retrieval need not be the request with slowest feature generation or model scoring. To measure end-to-end p99, record each request's full time, then compute the 99th percentile of <em>those totals</em>.</p></details>
+<details><summary>Q10. Throughput in impressions per second: what does it count?</summary><p>One impression is a user context plus candidates that must be retrieved/scored/ranked. Throughput counts <strong>complete requests finished per second</strong>. A2's measured 287.44 requests/s came from 2,000 sequential warm-cache MIND requests. Do not call it a concurrent production stress test.</p></details>
+<details><summary>Q11. How is your serving time measured in source?</summary><p>A2 <a href="https://github.com/nilansa/ire-assignment-2/blob/main/scripts/benchmark_literal_serving.py#L98-L145" target="_blank" rel="noopener">benchmark_literal_serving.py:98–145</a> uses <code>time.perf_counter_ns()</code> around retrieval, features, prediction and sorting. It computes each stage in milliseconds and p50/p95/p99 with NumPy quantiles.</p></details>
+<details><summary>Q12. What if request traffic goes 10×? What if catalog size goes 10×?</summary><p>10× requests stress per-request CPU, feature build, queues, replica capacity, tail latency and output writing. 10× catalog increases vocabulary/postings or vector/index storage, offline build cost and retrieval search time. At 287.44 req/s current benchmark, 10× requests ≈ 2,874.4 req/s. Ten equivalent replicas is only a rough linear capacity model; not proof of production behaviour.</p></details>
+<details><summary>Q13. Estimate cost per 1,000 impressions.</summary><p>Use <code>(machine dollars/hour × 1000)/(queries/second × 3600)</code>. With illustrative $0.50/hour and 287.44 req/s: <strong>$0.000483 per 1,000 requests</strong>. This excludes many real hosting costs, idle capacity and concurrent bottlenecks; report it as illustrative.</p></details>
+</div>
+<div class="panel"><h2>Part C: Functional results / evaluation</h2>
+<details><summary>Q14. Can the second-stage ranker fix missing clicked articles?</summary><p><strong>No.</strong> The ranker can reorder only retrieved candidates. The literal A2 run missed all clicks on 4,904 of 5,000 MIND validation requests and 4,916 of 5,000 EB requests. Improving candidate sourcing is the first quality priority.</p></details>
+<details><summary>Q15. What is the evidence that your one-feature NRMS change helped?</summary><p>MIND add category affinity: AUC .58163 → .61740, paired difference +.03577 with 95% CI [.02717,.04466]. EB add seven-day freshness: .68991 → .69697, difference +.00706 with CI [.00456,.00961]. Both CIs exclude zero. The comparison uses the same candidates and a held-out evaluation set.</p></details>
+<details><summary>Q16. What if your MIND literal A2 AUC decreases?</summary><p>Say so: .64268 → .62647 with 95% CI for the delta [−.09011,.05259] including zero. It is <strong>not</strong> a statistically supported improvement. Correct measurements and analysis matter more than claiming every model improved.</p></details>
+<details><summary>Q17. How did you compute AUC, MRR, nDCG and diversity?</summary><p>Code implements these with NumPy. AUC averages clicked-vs-unclicked pair ordering (ties get half credit). A1 MRR averages reciprocal ranks over all clicked items; A2 literal MRR uses the <strong>first clicked item</strong>. nDCG discounts lower positions, normalized by ideal ordering. Diversity is the fraction of top-ten category pairs that differ.</p></details>
+<details><summary>Q18. Why a paired, user-clustered bootstrap?</summary><p>To compare two systems fairly, evaluate the <strong>same requests</strong> under both and resample paired units. When users repeat, resample user clusters so a user's impressions stay together. A2 matched NRMS CI uses 10,000 user-clustered resamples.</p></details>
+<details><summary>Q19. Why did you not use candidate source position as a feature?</summary><p>Source order was not a randomized exposure experiment and may reflect logging or earlier ranking biases. Using it could falsely reward data collection artefacts rather than true relevance. The A2 literal report explicitly says it excluded original position from serving features.</p></details>
+<details><summary>Q20. What are cold/warm and head/tail slices in A2?</summary><p><strong>Cold</strong> means user unseen in earlier training data; warm means seen. <strong>Head-history</strong> means at least one historical article had 5+ earlier training-prefix clicks; other histories are tail. These are defined before final evaluation to test where a system behaves differently.</p></details>
+</div>
+<div class="panel"><h2>Possible systems use case: Anil-style extension</h2>
+<p class="guess"><strong>Predicted, not official:</strong> “A recommendation service has a stale popularity cache and 10× peak traffic. Each request scores 200 candidates. A cache refresh and network partition happen together. How will you preserve correct labels/price-like invariants, identify the bottleneck, estimate serving capacity and explain p99?”</p>
+<p><strong>Response order:</strong> (1) state workload and invariant, (2) identify which data may be stale and which cannot, (3) define visits and service times, (4) use <code>D_i=V_i·S_i</code> and <code>U_i=X·D_i</code> to find the highest utilization, (5) use <code>N=X·R</code> for in-flight load, (6) check tail latency and capacity headroom, (7) say what you measured versus estimated.</p>
+</div>
+</section>
+<section class="view" id="numbers">
+<div class="panel"><h2>Numbers worth remembering from your reports</h2>
+<div class="scroll"><table><thead><tr><th>Measure</th><th>MIND</th><th>EB-NeRD</th><th>Interpretation</th></tr></thead><tbody>
+<tr><td>Development catalog</td><td>65,234 articles</td><td>11,777 articles</td><td>Article count, not number of impressions</td></tr>
+<tr><td>Processed impressions</td><td>230,117</td><td>50,080</td><td>Existing normalized records</td></tr>
+<tr><td>BM25 vocab (fresh read-only inspection)</td><td>60,983</td><td>31,642</td><td>Unique indexed tokens</td></tr>
+<tr><td>BM25 postings (fresh read-only inspection)</td><td>2,361,743</td><td>268,891</td><td>Distinct term/document appearances</td></tr>
+<tr><td>Avg article tokens (fresh read-only inspection)</td><td>47.23</td><td>25.80</td><td>Mean indexed title+abstract token count</td></tr>
+<tr><td>A1 BM25 build / query median / p95</td><td>1.18 s / 9.88 ms / 62.98 ms</td><td>0.66 s / 34.50 ms / 80.04 ms</td><td>Submitted A1 report's 500 warm Top-200 query benchmark</td></tr>
+<tr><td>A1 HNSW build / query median / p95</td><td>84.63 s / .79 ms / 4.56 ms</td><td>2.35 s / 1.29 ms / 4.56 ms</td><td>ANN with approximate recall</td></tr>
+<tr><td>A1 BM25 reported stored size</td><td>41.6 MiB</td><td>5.5 MiB</td><td>Do not confuse with full process RAM</td></tr>
+<tr><td>A1 HNSW + associated vector size</td><td>41.8 + 24.9 MiB</td><td>20.3 + 17.3 MiB</td><td>Stored index + vector component in submitted report</td></tr>
+<tr><td>A1 global candidate Recall@200 BM25 / semantic</td><td>.0268 / .0070</td><td>.0227 / .0244</td><td>Corpus retrieval, not impression AUC</td></tr>
+</tbody></table></div>
+</div>
+<div class="panel"><h2>Picture: disk index vs RSS vs total RAM</h2>
+<div class="flow"><div class="node" style="background:#253750"><strong>SSD / disk</strong><p>Serialized <code>.index</code> or other artifact: stored bytes</p></div><div class="arr">→ load</div><div class="node" style="background:#244b43"><strong>Python process RSS</strong><p>Loaded index + embeddings + features + libraries + temporary arrays</p></div><div class="arr">⊂</div><div class="node" style="background:#55412e"><strong>Total host RAM</strong><p>64 GiB machine capacity; other apps also use it</p></div></div>
+<p><strong>RSS is resident set size.</strong> It is the portion of a process's memory resident in physical RAM, not “all free RAM” or “only the index.” The A2 report separately records MIND-small serialized HNSW at <strong>43,848,922 bytes</strong> and a different MIND-large feature store at <strong>5,123,593 serialized bytes / 25,018,368 RSS increase</strong>. These are different measurement scopes. Do not add them as if one experiment.</p>
+</div>
+<div class="panel"><h2>A2 serving latency, throughput and cost</h2>
+<div class="grid3"><div class="box"><div class="stat">3.13 ms</div><p>p50 end-to-end (median)</p></div><div class="box"><div class="stat">6.20 ms</div><p>p95 end-to-end</p></div><div class="box"><div class="stat">10.13 ms</div><p>p99 end-to-end</p></div><div class="box"><div class="stat">287.44/s</div><p>Warm sequential impressions scored/s</p></div><div class="box"><div class="stat">6.52 ms</div><p>Feature-build p99 (different request set)</p></div><div class="box"><div class="stat">$0.000483</div><p>Illustrative dollars per 1,000 impressions at $0.50/host-hour</p></div></div>
+<p><strong>p99 is a threshold, not an average:</strong> 99% of requests were at or below it. Stage p99 numbers are <em>not additive</em> because they may come from different requests.</p>
+</div>
+<div class="panel"><h2>One 10× scaling formula</h2>
+<p>If a single loaded process handles 287.44 impressions/s sequentially, then a 10× traffic rate is <code>2,874.4 impressions/s</code>. Under a simple perfect-scaling assumption, roughly ten equivalent replicas would maintain the old throughput. <strong>This is only a capacity estimate.</strong> Shared disk/cache bottlenecks, burstiness, duplicate state, contention and p99 can invalidate it.</p><p>Different 10×: if you increase <em>article catalog size</em> instead of request rate, RAM for vectors/postings and retrieval latency may become the bottleneck even without more users.</p>
+</div>
+</section>
+<section class="view" id="practice">
+<div class="panel light"><h2>Final 8-minute oral drill</h2><p>Say the answer before opening its explanation. Tick each item only when you can answer from memory. Your progress is saved in this browser when local storage is available.</p>
+<div class="meter"><div id="bar"></div></div><p id="progress">0 completed</p>
+<div id="checkhost"></div></div>
+<div class="panel"><h2>Your final 45-second response</h2>
+<p>“My Assignment 1 built two news candidate-generation approaches: custom BM25 inverted postings and semantic vectors searched by FAISS HNSW. The corpus and click data are split chronologically to avoid future-click leakage. I measured candidate Recall@K and impression-level ranking metrics, as well as index size and retrieval speed.</p>
+<p>Assignment 2 used the A1 BM25 source to retrieve up to 200 articles, added 15 causal behavioural and content features, and trained a LightGBM LambdaRank ranker. I also performed a separate matched NRMS baseline improvement using category affinity on MIND and freshness on EB-NeRD, with paired bootstrap confidence intervals.</p>
+<p>The final leaderboard predictions were stronger learned systems: A1 MIND used SpeedyRec/UniLM plus LightGBM; final A2 MIND used the FAST15–SpeedyRec history-residual ensemble; EB reused a 238-feature P1/F LightGBM model. My main limitation is candidate recovery, and feature construction is a measured serving bottleneck.”</p>
+</div>
+</section>
+<footer>
+<strong>Source hierarchy:</strong> actual <code>IRE_quiz-1-qp.pdf</code> → submitted A1 design note → submitted <a href="https://github.com/nilansa/ire-assignment-2/blob/main/report/A2_design_note_20260926.pdf" target="_blank" rel="noopener">A2 September 26 design note</a> → verified <a href="https://github.com/nilansa/ire-assignment-2/blob/main/release/PREDICTION_LINEAGE_20260926.json">prediction lineage</a> and both GitHub codebases. “Predicted Quiz 2” is inference, not an official exam paper. The new vocabulary/postings counts were computed from your existing processed development data. No retraining, model overwrite, or leaderboard submission was performed to prepare this guide.
+</footer>
+</main>
+<script>
+(function(){
+const tabs=[...document.querySelectorAll("[data-tab]")];
+function show(id){document.querySelectorAll(".view").forEach(s=>s.classList.toggle("active",s.id===id));tabs.forEach(t=>t.classList.toggle("active",t.dataset.tab===id));try{history.replaceState(null,"","#"+id)}catch(e){}window.scrollTo(0,0);}
+tabs.forEach(t=>t.addEventListener("click",()=>show(t.dataset.tab)));
+document.querySelectorAll("[data-go]").forEach(t=>t.addEventListener("click",e=>{e.preventDefault();show(t.dataset.go)}));
+if(location.hash&&document.getElementById(location.hash.slice(1))){const id=location.hash.slice(1);if(tabs.some(t=>t.dataset.tab===id))show(id)}
+document.querySelectorAll(".copy").forEach(b=>b.addEventListener("click",async()=>{
+const txt=b.parentElement.querySelector("pre code")?.innerText||"";try{await navigator.clipboard.writeText(txt);b.textContent="Copied ✓";setTimeout(()=>b.textContent="Copy",1600)}catch(e){b.textContent="Select code manually"}
+}));
+const items=[
+"State A1 goal in one sentence and locate BM25 postings in GitHub.",
+"Explain k1, b, IDF and how five clicked titles become a query.",
+"Explain FAISS-HNSW versus IVF nprobe, and user mean vectors.",
+"State exact MIND/EB docs, vocabulary and postings counts.",
+"Explain what an impression is and candidate Recall@200 versus AUC.",
+"State A2 top-200 → 15 features → LightGBM LambdaRank.",
+"Explain LightGBM group, tree count, learning rate and causal features.",
+"Separate A2 literal pipeline, NRMS matched ablation, and leaderboard models.",
+"Name A1 900266, A2 944690 and EB 905893; do not conflate them.",
+"Explain p99 as a threshold; distinguish disk index, RSS and machine RAM.",
+"State 287.44 impressions/s, 10.13ms p99 and cost per 1,000 formula.",
+"Explain the 10× requests versus 10× articles bottleneck.",
+"Re-derive Little’s Law R=0.2s for Quiz 1’s 1,000 shoppers.",
+"Explain B+-tree write amplification and logs vs catalogue storage.",
+"Open actual metric functions; explain one MRR/nDCG example.",
+"Explain why an A2 ranker cannot recover missing candidates."
+];
+const host=document.getElementById("checkhost");
+let saved=[];try{saved=JSON.parse(localStorage.getItem("ire_viva_30min_20261019")||"[]")}catch(e){}
+items.forEach((x,i)=>{let label=document.createElement("label");let c=document.createElement("input");c.type="checkbox";c.checked=saved.includes(i);c.addEventListener("change",update);let s=document.createElement("span");s.textContent=x;label.append(c,s);host.appendChild(label)});
+function update(){const checked=[...host.querySelectorAll("input")].map((x,i)=>x.checked?i:-1).filter(i=>i>=0);const pct=Math.round(100*checked.length/items.length);document.getElementById("bar").style.width=pct+"%";document.getElementById("progress").textContent=checked.length+" / "+items.length+" completed";try{localStorage.setItem("ire_viva_30min_20261019",JSON.stringify(checked))}catch(e){}}
+update();
+})();
+</script></body></html>

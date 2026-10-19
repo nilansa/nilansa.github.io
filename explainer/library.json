@@ -1,5 +1,43 @@
 [
   {
+    "id": "ire-github-a1-a2-final-viva-20261019",
+    "title": "IRE A1 + A2 — GitHub-First Viva & Predicted Quiz 2",
+    "description": "30-minute ST100+ guide linking both actual GitHub repos, safe tests, submissions 900266/944690/905893, Quiz 1 facts, A2 mechanism and inferred Quiz 2 oral questions.",
+    "project": "IRE Assignments 1 & 2",
+    "category": "GitHub-first viva study",
+    "tags": [
+      "ST100 Plus",
+      "A1",
+      "A2",
+      "GitHub",
+      "Quiz 1",
+      "predicted Quiz 2",
+      "LightGBM"
+    ],
+    "url": "./explainers/ire-a1-a2-github-viva-quiz-prediction-2026-10-19.html",
+    "date": "2026-10-19",
+    "indexed_at": "2026-10-19T21:55:45.627220+05:30"
+  },
+  {
+    "id": "ire-ann-scaling-explainer-20261019",
+    "title": "IRE — HNSW, Percentiles, Memory, Throughput & 10×",
+    "description": "ST100+ visual guide to efSearch versus IVF nprobe, p99 versus mean, disk index versus RSS, QPS, per-1000 cost and 10× scaling.",
+    "project": "IRE Assignments 1 & 2",
+    "category": "Viva concept study",
+    "tags": [
+      "ST100 Plus",
+      "HNSW",
+      "efSearch",
+      "nprobe",
+      "percentiles",
+      "memory",
+      "scaling"
+    ],
+    "url": "./explainers/ire-ann-percentiles-memory-throughput-10x-2026-10-19.html",
+    "date": "2026-10-19",
+    "indexed_at": "2026-10-19T21:55:45.627220+05:30"
+  },
+  {
     "id": "ire-code-viva-guide-20261019",
     "title": "IRE A1 + A2 — Code Walkthrough and Viva",
     "description": "ST100+ hands-on VS Code guide: safe tested commands, exact BM25 postings, FAISS user vectors, LightGBM, metric implementations, latency profiling and viva drills.",
