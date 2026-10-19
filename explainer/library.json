@@ -1,5 +1,23 @@
 [
   {
+    "id": "ire-a3-ann-benchmark-study",
+    "title": "IRE Assignment 3 — Understand ANN Benchmarking",
+    "description": "Plain-English study guide to HNSW, IVF-Flat, IVF-PQ, tie-safe recall@10, fair benchmark design, controlled experiments and the exact A3 deliverables.",
+    "project": "IRE Assignment 3",
+    "category": "Assignment study",
+    "tags": [
+      "information retrieval",
+      "approximate nearest neighbour",
+      "HNSW",
+      "FAISS",
+      "benchmarking",
+      "ST100 Plus"
+    ],
+    "url": "./explainers/ire-assignment-3-ann-benchmark-study.html",
+    "date": "2026-10-19",
+    "indexed_at": "2026-10-19T12:00:59.150+05:30"
+  },
+  {
     "id": "indoml-2026-postmortem",
     "title": "IndoML 2026 — What the validation results taught me",
     "description": "A careful postmortem of local noise-event detection and speech-enhancement results, including split design, rejected experiments and limits on leaderboard claims.",
