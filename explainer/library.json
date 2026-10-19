@@ -1,5 +1,37 @@
 [
   {
+    "id": "agent-memory-communication-track-20261019",
+    "title": "Agent Memory — Storage vs Multi-Agent Communication",
+    "description": "A clear visual contrast between evidence retrieval and agent routing, including example queries, metrics and falsifiable research questions.",
+    "project": "Memory Agents",
+    "category": "Research explainer",
+    "tags": [
+      "multi-agent communication",
+      "agent memory",
+      "routing",
+      "ST100 Plus"
+    ],
+    "url": "./explainers/memory-communication-routing-2026-10-19.html",
+    "date": "2026-10-19",
+    "indexed_at": "2026-10-19T12:55:25+05:30"
+  },
+  {
+    "id": "adaptex-mem-dbms-gap-20261019",
+    "title": "ADAPTEX-MEM — DBMS Research Gap and Experiment Plan",
+    "description": "Which recent SIGMOD results overlap with adaptive memory, where expensive failures might remain, and how to test query-conditioned retrieval before inventing indexes.",
+    "project": "ADAPTEX-MEM",
+    "category": "Research explainer",
+    "tags": [
+      "database systems",
+      "adaptive retrieval",
+      "index selection",
+      "ST100 Plus"
+    ],
+    "url": "./explainers/adaptex-mem-dbms-gap-2026-10-19.html",
+    "date": "2026-10-19",
+    "indexed_at": "2026-10-19T12:55:24+05:30"
+  },
+  {
     "id": "ire-a3-ann-benchmark-study",
     "title": "IRE Assignment 3 — Understand ANN Benchmarking",
     "description": "Plain-English study guide to HNSW, IVF-Flat, IVF-PQ, tie-safe recall@10, fair benchmark design, controlled experiments and the exact A3 deliverables.",
