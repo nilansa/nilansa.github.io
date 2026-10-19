@@ -109,7 +109,7 @@ recall_at_10 = min(len(acceptable), 10) / 10</code></pre>
 <li><strong>Commit hypotheses, then run Parts 3 and 4.</strong> Git commit timestamps must show hypotheses existed before experiment results; do not retroactively invent that history.</li>
 <li><strong>Generate plots and report from the same CSV.</strong> Make <code>bash run_all.sh</code> reconstruct all displayed numbers, figures, and tables; package with an explicit file inventory.</li>
 </ol>
-<div class="card"><h3>Proposed minimal output structure</h3><pre><code>&lt;rollnumber&gt; A3.zip
+<div class="card"><h3>Proposed minimal output structure</h3><pre><code>&lt;rollnumber&gt;_A3.zip
 ├── report.pdf                    (≤ 5 pages)
 ├── code/
 │   ├── .git/                     (keep Git history!)
@@ -124,7 +124,7 @@ recall_at_10 = min(len(acceptable), 10) / 10</code></pre>
 │   └── figures/                 (all figures)
 └── ai_log/
     ├── ai_statement.md          (file-by-file provenance)
-    └── ...                       (prompts and responses)</code></pre><p class="small muted">The PDF uses labels “ai log/” and “ai statement.md” with spaces; preserve the instructor's literal requested names if those are the exact expected paths. The underscore form above is only a readable schematic, not an override of the official brief.</p></div>
+    └── ...                       (prompts and responses)</code></pre><p class="small muted">The PDF explicitly requires <code>ai_log/</code> and <code>ai_statement.md</code>, as shown here. Keep these exact names.</p></div>
 <p><strong>Do not include datasets or serialized index files.</strong> The ZIP should contain exactly the official deliverables, not private scratch logs, temporary caches, download archives or extra explanations.</p>
 </section>
 <section id="deliverables"><div class="minor">10 · Submission and rubric checklist</div><h2>What must be finished by 25 October?</h2>
