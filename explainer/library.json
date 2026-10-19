@@ -1,5 +1,59 @@
 [
   {
+    "id": "ire-code-viva-guide-20261019",
+    "title": "IRE A1 + A2 — Code Walkthrough and Viva",
+    "description": "ST100+ hands-on VS Code guide: safe tested commands, exact BM25 postings, FAISS user vectors, LightGBM, metric implementations, latency profiling and viva drills.",
+    "project": "IRE Assignments 1 & 2",
+    "category": "Code viva study",
+    "tags": [
+      "ST100 Plus",
+      "IR",
+      "A1",
+      "A2",
+      "code",
+      "viva",
+      "BM25",
+      "LightGBM"
+    ],
+    "url": "./explainers/ire-a1-a2-code-viva-2026-10-19.html",
+    "date": "2026-10-19",
+    "indexed_at": "2026-10-19T20:47:06.276143+05:30"
+  },
+  {
+    "id": "ire-code-viva-graphify-a2-20261019",
+    "title": "IRE A2 — Graphify Interactive Code Map",
+    "description": "AST-extracted interactive graph of the submitted A2 source: 233 code nodes and 523 connections.",
+    "project": "IRE Assignments 1 & 2",
+    "category": "Code graph",
+    "tags": [
+      "ST100 Plus",
+      "code walkthrough",
+      "Graphify",
+      "IR",
+      "viva"
+    ],
+    "url": "./explainers/ire-a1-a2-graphify-a2-2026-10-19.html",
+    "date": "2026-10-19",
+    "indexed_at": "2026-10-19T20:47:06.276138+05:30"
+  },
+  {
+    "id": "ire-code-viva-graphify-a1-20261019",
+    "title": "IRE A1 — Graphify Interactive Code Map",
+    "description": "AST-extracted interactive graph of the A1 source: 83 code nodes and 127 connections, with file and function symbols.",
+    "project": "IRE Assignments 1 & 2",
+    "category": "Code graph",
+    "tags": [
+      "ST100 Plus",
+      "code walkthrough",
+      "Graphify",
+      "IR",
+      "viva"
+    ],
+    "url": "./explainers/ire-a1-a2-graphify-a1-2026-10-19.html",
+    "date": "2026-10-19",
+    "indexed_at": "2026-10-19T20:47:06.276014+05:30"
+  },
+  {
     "id": "ire-viva-sprint-asd-ste100-20261019",
     "title": "IRE A1 + A2 — 3-Hour Viva Preparation",
     "description": "Interactive ASD-STE100 study sprint: Anil's likely questions, real profiling and index-size measurements, BM25 parameter simulator, A1/A2 pipelines, formulas, checklist and mock viva.",
