@@ -1,5 +1,25 @@
 [
   {
+    "id": "ire-viva-sprint-asd-ste100-20261019",
+    "title": "IRE A1 + A2 — 3-Hour Viva Preparation",
+    "description": "Interactive ASD-STE100 study sprint: Anil's likely questions, real profiling and index-size measurements, BM25 parameter simulator, A1/A2 pipelines, formulas, checklist and mock viva.",
+    "project": "IRE Assignments 1 & 2",
+    "category": "Assignment viva study",
+    "tags": [
+      "information retrieval",
+      "BM25",
+      "FAISS HNSW",
+      "LightGBM",
+      "latency",
+      "profiling",
+      "viva",
+      "ST100 Plus"
+    ],
+    "url": "./explainers/ire-viva-sprint-asd-ste100-2026-10-19.html",
+    "date": "2026-10-19",
+    "indexed_at": "2026-10-19T14:36:23.936Z"
+  },
+  {
     "id": "agent-memory-communication-track-20261019",
     "title": "Agent Memory — Storage vs Multi-Agent Communication",
     "description": "A clear visual contrast between evidence retrieval and agent routing, including example queries, metrics and falsifiable research questions.",
