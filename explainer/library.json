@@ -385,5 +385,22 @@
     "url": "https://nilansa.github.io/ire-project-2026/",
     "date": "2026-10-11",
     "indexed_at": "2026-10-16T12:42:57+05:30"
+  },
+  {
+    "id": "ire-quiz2-five-pass-20261022",
+    "title": "IRE Quiz 2 — Five-pass ST100+ Exam Sprint",
+    "description": "Scenario-first five-pass guide to Quiz 2: 10-minute primer, deeper principles, formula and exam traps, fresh practice, and slide-page references.",
+    "project": "Information Retrieval and Extraction",
+    "category": "Quiz preparation",
+    "tags": [
+      "ST100 Plus",
+      "ASD-STE100",
+      "IRE",
+      "Quiz 2",
+      "Anil Nelakanti"
+    ],
+    "url": "./explainers/ire-quiz2-five-pass-2026-10-22.html",
+    "date": "2026-10-22",
+    "indexed_at": "2026-10-22T06:33:21.446Z"
   }
 ]
