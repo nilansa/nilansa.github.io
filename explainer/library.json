@@ -402,5 +402,22 @@
     "url": "./explainers/ire-quiz2-five-pass-2026-10-22.html",
     "date": "2026-10-22",
     "indexed_at": "2026-10-22T06:33:21.446Z"
+  },
+  {
+    "id": "ire-quiz2-narrated-visual-20261022",
+    "title": "IRE Quiz 2 — Narrated Visual Sprint",
+    "description": "14 self-contained visual slides covering all eleven official Quiz-2 scenarios, with selectable device voice, captions, and keyboard navigation.",
+    "project": "Information Retrieval and Extraction",
+    "category": "Visual exam revision",
+    "tags": [
+      "ST100 Plus",
+      "IRE",
+      "Quiz 2",
+      "voice narration",
+      "captions"
+    ],
+    "url": "./explainers/ire-quiz2-visual-audio-2026-10-22.html",
+    "date": "2026-10-22",
+    "indexed_at": "2026-10-22T08:36:47.512Z"
   }
 ]
