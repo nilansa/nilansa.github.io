@@ -19,10 +19,10 @@ ul,ol{padding-left:1.3rem}li{margin:5px 0}.checklist label{display:block;padding
 </div></header>
 <nav aria-label="Study passes"><div class="wrap">
 <a class="selected" href="#pass1">✓ Pass 1<small>10-minute primer</small></a>
-<a href="#pass2">2 · Pass 2<small>Clearer + deeper</small></a>
-<a href="#pass3">3 · Pass 3<small>Formula + traps</small></a>
-<a href="#pass4">4 · Pass 4<small>Practice cases</small></a>
-<a class="pending" href="#pass5">5 · Pass 5<small>Source-guided review</small></a>
+<a href="#pass2">✓ Pass 2<small>Clearer + deeper</small></a>
+<a href="#pass3">✓ Pass 3<small>Formula + traps</small></a>
+<a href="#pass4">✓ Pass 4<small>Practice cases</small></a>
+<a href="#pass5">✓ Pass 5<small>Source-guided review</small></a>
 </div></nav>
 <main class="wrap">
 <div class="hero">
@@ -128,7 +128,60 @@ ul,ol{padding-left:1.3rem}li{margin:5px 0}.checklist label{display:block;padding
 <div id="practice-questions" aria-live="polite"></div>
 <p><button type="button" class="smallbtn" id="reset-practice">Reset practice answers</button></p>
 <p class="mini">Coverage: six latency/evaluation cases, CAP/consistency/sharding, storage trade-offs, Bloom filters, Zipf/Heaps, inverted index, compression, deduplication and MapReduce. There are no numeric calculations.</p></section>
-<section id="pass5" class="section"><div class="kicker" style="color:var(--teal)">PASS 5 · BUILDING</div><h2>Exact study references</h2><div class="hidden-phase">This pass will map each concept to the uploaded slide page and original official source link, with a final exam-day checklist.</div></section>
+<section id="pass5" class="section">
+<div class="kicker" style="color:var(--teal)">PASS 5 · READY · SOURCE-GUIDED FINAL REVIEW</div>
+<h2>Read these exact slide pages — skip the rest today</h2>
+<p class="lead">Page numbers are <strong>PDF page numbers (1-based)</strong>. These are the smallest useful selections from the files you provided. The explanations are paraphrases, with the original source links where available.</p>
+<div class="warning"><strong>Priority:</strong> the official one-page Quiz-2 pre-reading comes first, then Module 1 systems slides, then Module 2 indexing slides. Ranking and the new online Learning-to-Rank video are excluded.</div>
+<h3 style="margin-top:21px">Official sources</h3>
+<div class="grid">
+<article class="card"><div class="tag">READ FIRST</div><h3>Quiz-2 pre-reading · PDF page 1</h3><p>Review all eleven scenarios: latency, throughput, fan-out, offline/online metrics, replica consistency, CAP/PACELC, RUM and Bloom filters.</p><p><a target="_blank" rel="noopener" href="https://iiitaphyd-my.sharepoint.com/:b:/g/personal/akn_iiit_ac_in/IQCuGXxQ30EYTLLkYDnIVnqxAe-eOvkk7Ly-olz5HT5y0hQ?e=3swnRC">Open official pre-reading PDF ↗</a></p></article>
+<article class="card"><div class="tag">CONFIRMED SYLLABUS</div><h3>Professor's October notices</h3><p>No ranking, no numerics, very short design scenarios, mostly single-correct MCQs and a few one-line responses. Online lectures distributed after 12 October are outside this quiz.</p><p><a href="https://courses.iiit.ac.in/mod/forum/discuss.php?d=54577" target="_blank" rel="noopener">Quiz-2 pre-reading announcement ↗</a> · <a href="https://courses.iiit.ac.in/mod/forum/discuss.php?d=53984" target="_blank" rel="noopener">12 October syllabus note ↗</a></p></article>
+</div>
+<h3 style="margin-top:22px">Module 1 — Systems Foundations (59-page PDF)</h3>
+<p class="mini">In your uploaded file <strong>module-1-systems-foundations(2).pdf</strong>. Open the PDF locally, or find the lecture deck in the <a href="https://courses.iiit.ac.in/course/view.php?id=5805" target="_blank" rel="noopener">IRE Moodle Lectures section ↗</a>.</p>
+<div class="grid">
+<article class="card"><div class="tag">3 MIN</div><h3>Pages 16–19 · Evaluation</h3><p><strong>Read for:</strong> Offline judgments can measure relevance but cannot establish real user impact or production latency. Compare offline and online measures.</p><p><strong>Likely decision:</strong> A slower snippet writer is not automatically better even if relevance rises.</p></article>
+<article class="card"><div class="tag">4 MIN</div><h3>Pages 26–30 · Replicas, CAP, PACELC</h3><p><strong>Read for:</strong> Replicas may lag; different operations protect different invariants during a partition; remote write coordination adds latency when there is no partition.</p><p><strong>Likely decision:</strong> Stale browsing can be okay; double-booking and unsafe payment should not be.</p></article>
+<article class="card"><div class="tag">6 MIN</div><h3>Pages 32–39 · Operational laws</h3><p><strong>Read for:</strong> D = V × S, Little's law, the utilisation cliff, batch versus real-time operation and fan-out's tail amplification.</p><p><strong>Likely decision:</strong> Locate the busiest stage; add headroom; do not equate low mean CPU with free threads.</p></article>
+<article class="card"><div class="tag">3 MIN</div><h3>Pages 49–56 · Trees and RUM</h3><p><strong>Read for:</strong> B-trees versus LSMs, write amplification, background compaction and the read/update/memory trade.</p><p><strong>Likely decision:</strong> A new store cannot be called universally superior without identifying the workload and trade-off.</p></article>
+</div>
+<h3 style="margin-top:22px">Module 2 — Building a Queryable Index (37-page PDF)</h3>
+<p class="mini">In your uploaded file <strong>module-2-queryable-index.pdf</strong>. Read these selections directly or locate the PDF in the <a href="https://courses.iiit.ac.in/course/view.php?id=5805" target="_blank" rel="noopener">Lectures section ↗</a>.</p>
+<div class="grid">
+<article class="card"><div class="tag">2 MIN</div><h3>Pages 4–5 · Preprocessing</h3><p>Index and query analysers must match. Exact error-code search needs different token processing from a shopping query.</p></article>
+<article class="card"><div class="tag">2 MIN</div><h3>Pages 7–8 · Zipf and Heaps</h3><p>Popular terms dominate postings; uncommon terms are good conjunction filters. New vocabulary keeps appearing as more text arrives.</p></article>
+<article class="card"><div class="tag">2 MIN</div><h3>Page 17 · Bloom filter</h3><p>“Definitely absent” is reliable under standard assumptions; “possibly present” can be a false positive.</p></article>
+<article class="card"><div class="tag">2 MIN</div><h3>Pages 25–26 · Inverted index</h3><p>A term maps to sorted document IDs; term frequencies and positions allow scoring and phrase search at an extra space cost.</p></article>
+<article class="card"><div class="tag">2 MIN</div><h3>Pages 28–29 · MapReduce and postings</h3><p>Map generates key/value data, shuffle groups by key, reduce aggregates. AND intersects postings; phrase search checks positions.</p></article>
+<article class="card"><div class="tag">2 MIN</div><h3>Page 31 · Compression</h3><p>Sorted document IDs give small gaps. Encoding the gaps moves fewer bytes, often improving query latency despite decoding cost.</p></article>
+<article class="card"><div class="tag">OPTIONAL · 3 MIN</div><h3>Pages 10–16 · MinHash and LSH</h3><p>Shingles → Jaccard → MinHash → banding. A pair becomes a candidate if all rows agree in at least one band.</p></article>
+<article class="card"><div class="tag">OPTIONAL · 1 MIN</div><h3>Page 19 · Sketch family</h3><p>Bloom = membership; MinHash = similarity; Count-Min = frequency; HyperLogLog = distinct count.</p></article>
+</div>
+<h3 style="margin-top:22px">Earlier papers: the useful excerpts</h3>
+<div class="grid">
+<article class="card"><div class="tag">QUIZ-1, 2026</div><h3>Focus on pages 1–3</h3><p>Page 1: marketplace search, prices, cart and checkout under partition. Page 2: Little's law at two boundaries. Page 3: B+-tree versus LSM with two update patterns.</p><p><strong>Skip pages 4–7 today:</strong> these asked about each student's own Assignment-1 implementation. That is not indicated by the new Quiz-2 scenario-only instructions.</p><a href="https://courses.iiit.ac.in/pluginfile.php/215385/mod_forum/attachment/122691/IRE_quiz-1-qp.pdf" target="_blank" rel="noopener">Open Quiz-1 question paper PDF ↗</a></article>
+<article class="card"><div class="tag">2025 MIDSEM</div><h3>Skim page 2's concepts only</h3><p>Page 2: MinHash candidate probability and a MapReduce-based deduplication workflow. Page 1 has detailed ranking, which Quiz 2 excludes. Pages 2–4 also contain long numeric tasks that Quiz 2 will not require.</p><a href="https://courses.iiit.ac.in/pluginfile.php/215385/mod_forum/attachment/123008/M25IRE_midsem.pdf" target="_blank" rel="noopener">Open 2025 midsem paper PDF ↗</a></article>
+</div>
+<h3 style="margin-top:22px">Final 7-minute closed-book check</h3>
+<ol>
+<li>p99 increases at 80% utilisation → <strong>queueing cliff and headroom.</strong></li>
+<li>Same throughput, slower response → <strong>more in-flight requests, Little's law.</strong></li>
+<li>One resource has the largest service demand → <strong>that is the bottleneck to scale.</strong></li>
+<li>200 shards delay the dashboard → <strong>fan-out amplifies rare stragglers.</strong></li>
+<li>My update appears stale → <strong>read-your-writes consistency.</strong></li>
+<li>Hotel listings versus final bookings during a partition → <strong>feature-specific CAP choices.</strong></li>
+<li>Master remote from writer → <strong>PACELC/data-locality latency.</strong></li>
+<li>Lower read, update and memory costs for every workload → <strong>challenge under RUM.</strong></li>
+<li>Bloom reports an innocent sender as present → <strong>false positive.</strong></li>
+<li>Popular and rare query terms → <strong>short rare posting first.</strong></li>
+<li>New terms in a larger corpus → <strong>Heaps' law.</strong></li>
+<li>Smaller posting bytes speed up search → <strong>compress gaps; trade decode CPU for I/O bandwidth.</strong></li>
+</ol>
+<div class="warning"><strong>Before leaving:</strong> Quiz on 22 October 2026, 15:40–16:25. Be seated by 15:35; no admission afterward. Odd roll numbers: H-303. Even: H-304. Bring student ID.</div>
+<div class="checklist"><h3>Final checklist</h3><label><input type="checkbox" data-check="f1">I can explain all 11 official cases in one sentence each.</label><label><input type="checkbox" data-check="f2">I know the meanings of every formula symbol.</label><label><input type="checkbox" data-check="f3">I attempted at least 20 questions and reviewed mistakes.</label><label><input type="checkbox" data-check="f4">I can defend each choice against a plausible wrong alternative.</label><label><input type="checkbox" data-check="f5">I know my room and will reach it before 15:35.</label></div>
+<details><summary>Source and hosting note</summary><p>The full course slide PDFs are already available privately in this project's study materials. This public page provides the exact PDF page numbers, topic excerpts in original explanatory wording and links to the professor's original files where available. The slide PDFs themselves have not been republished publicly, and some Moodle links require IIIT credentials. An Otter search did not find a corresponding IRE lecture recording, so no transcript claims were made.</p></details>
+</section>
 <footer>Source hierarchy: Professor's Quiz-2 pre-reading (18 Oct), course announcement (12 Oct), Quiz-2 logistics (21 Oct), Module 1–2 slides, Quiz-1 &amp; 2025 midsem. New practice questions will be labelled as predictions, never presented as official questions. <p><a href="../index.html">Explainer index</a> · ST100+ / ASD-STE100</p></footer>
 </main><script>
 const checks=[...document.querySelectorAll('[data-check]')];try{const saved=JSON.parse(localStorage.getItem('ire-quiz2-five-pass-checks')||'{}');checks.forEach(c=>c.checked=!!saved[c.dataset.check]);}catch{}
