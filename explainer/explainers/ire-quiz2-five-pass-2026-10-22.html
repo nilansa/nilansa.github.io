@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive"><meta name="description" content="IRE CS4.406 Quiz 2 — five-pass scenario-first revision."><title>IRE Quiz 2 · Five-pass sprint · ST100+</title>
+<style>
+:root{color-scheme:light;--ink:#15273b;--muted:#516173;--teal:#08796c;--line:#dce5e9;--bg:#f5f8fb;--paper:#fff;--sun:#fcf4df}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.58 system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:#0968a8}a:focus-visible,button:focus-visible{outline:3px solid #e6a850;outline-offset:3px}.wrap{max-width:1040px;margin:auto;padding:0 19px}
+header{background:linear-gradient(130deg,#102e43,#064f51);color:white;padding:36px 0 31px}header p{max-width:780px;color:#e7f1f2}h1{font-size:clamp(1.9rem,4.8vw,3.1rem);line-height:1.13;letter-spacing:-.035em;margin:.2rem 0 1rem}h2{font-size:1.48rem;letter-spacing:-.015em}h3{font-size:1.05rem;margin:0 0 .5rem}h2,h3{line-height:1.3}
+.kicker{letter-spacing:.09em;text-transform:uppercase;font-size:.74rem;font-weight:750;color:#7af0db}.pills{display:flex;gap:9px;flex-wrap:wrap}.pill{background:#ffffff19;border:1px solid #ffffff36;border-radius:100px;padding:5px 12px;font-size:.8rem}
+nav{background:#fff;position:sticky;top:0;z-index:3;border-bottom:1px solid var(--line);box-shadow:0 2px 14px #102f4010}nav .wrap{display:flex;gap:7px;overflow-x:auto;padding-block:9px}nav a{color:#2f4b61;min-width:134px;text-decoration:none;border:1px solid var(--line);border-radius:10px;padding:9px 12px;white-space:nowrap;font-size:.84rem;font-weight:700;display:flex;flex-direction:column}nav a small{font-size:.72rem;font-weight:500;color:var(--muted)}nav a.selected{background:#e6f5f2;border-color:#83c3bb;color:#075a52}nav a.pending{opacity:.62}
+main{padding-top:23px;padding-bottom:80px}.hero{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.stat,.card,.section{background:var(--paper);border:1px solid var(--line);border-radius:15px;padding:19px}.stat strong{font-size:1.35rem;display:block}.stat span{color:var(--muted);font-size:.84rem}.section{margin-top:18px}.section h2{margin-top:0}.lead{font-size:1.07rem;color:#344e60}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.card{padding:16px}.card p{margin:.3rem 0}.card .tag{font-size:.69rem;color:var(--teal);font-weight:800;text-transform:uppercase;letter-spacing:.07em}.mini{color:var(--muted);font-size:.91rem}.scenario{background:#f0f6f9;border-left:4px solid var(--teal);padding:11px 14px;margin:12px 0;border-radius:0 9px 9px 0}.answer{background:#eef9f3;padding:10px 13px;border-radius:8px}.warning{background:var(--sun);border-left:4px solid #b78830;padding:12px 14px;border-radius:0 8px 8px 0}
+ul,ol{padding-left:1.3rem}li{margin:5px 0}.checklist label{display:block;padding:8px 0;border-bottom:1px solid var(--line);cursor:pointer}.checklist input{margin-right:11px;accent-color:var(--teal);width:17px;height:17px}.checklist label:has(input:checked){color:#537d70}details{border:1px solid var(--line);border-radius:10px;padding:12px 15px;margin:9px 0;background:#fff}summary{font-weight:720;cursor:pointer}.hidden-phase{background:#f2f4f6;border:1px dashed #b9c8cd;color:#5b6b79;border-radius:14px;padding:24px}footer{padding:20px 0;font-size:.8rem;color:var(--muted)}.smallbtn{border:1px solid #a8cfc8;padding:9px 13px;background:#fff;color:#07675a;border-radius:8px;font-weight:650;cursor:pointer}code{font-size:.94em;background:#f0f3f5;border-radius:3px;padding:1px 4px}
+@media(max-width:680px){.grid,.hero{grid-template-columns:1fr}header{padding:26px 0}nav a{min-width:120px}.section{padding:15px}}
+@media print{nav{position:static}header{background:white;color:black}header p{color:black}.section,.card{break-inside:avoid}}
+</style></head><body>
+<header><div class="wrap"><div class="kicker">CS4.406 · 22 October 2026 · ST100+ / ASD-STE100</div><h1>IRE Quiz 2 — Five-pass study sprint</h1>
+<p>Understand the principle. Recognise the failure. Choose the fix. Each pass is deeper than the last. Start with the ten-minute primer; later passes appear in the top row.</p>
+<div class="pills"><span class="pill">Quiz 15:40–16:25 IST</span><span class="pill">Be seated by 15:35</span><span class="pill">Odd: H-303 · Even: H-304</span><span class="pill">Bring student ID</span><span class="pill">Closed-book, formulas provided</span></div>
+</div></header>
+<nav aria-label="Study passes"><div class="wrap">
+<a class="selected" href="#pass1">✓ Pass 1<small>10-minute primer</small></a>
+<a class="pending" href="#pass2">2 · Pass 2<small>Clearer + deeper</small></a>
+<a class="pending" href="#pass3">3 · Pass 3<small>Formula + traps</small></a>
+<a class="pending" href="#pass4">4 · Pass 4<small>Practice cases</small></a>
+<a class="pending" href="#pass5">5 · Pass 5<small>Source-guided review</small></a>
+</div></nav>
+<main class="wrap">
+<div class="hero">
+<div class="stat"><strong>11 core cases</strong><span>Professor's official pre-reading</span></div>
+<div class="stat"><strong>Mostly MCQs</strong><span>One right answer + short responses</span></div>
+<div class="stat"><strong>No ranking</strong><span>No numerics in Quiz 2</span></div>
+</div>
+<section id="pass1" class="section"><div class="kicker" style="color:var(--teal)">PASS 1 · AVAILABLE NOW · 10 MINUTES</div><h2>Your 10-minute survival primer</h2>
+<p class="lead">Read the symptom. Ask what went wrong. Then choose the smallest design change that fixes it. You should be able to explain each line without memorising formulas.</p>
+<div class="warning"><strong>Scope check:</strong> The professor excludes ranking and the new online learning-to-rank lectures. Quiz 2 revisits earlier lectures with broad design scenarios. No numeric calculation is expected.</div>
+<h3 style="margin-top:22px">Six latency and load ideas</h3>
+<div class="grid">
+<article class="card"><div class="tag">01 · Utilisation cliff</div><h3>80% busy is not 20% safe.</h3><p>Bursts form queues as capacity fills. Slowest users suffer first.</p><div class="scenario">Median steady, p99 doubles at 80% CPU.</div><p class="answer"><strong>Do:</strong> Add serving headroom; target roughly ≤70% utilisation.</p></article>
+<article class="card"><div class="tag">02 · Little's law</div><h3>Slower replies mean more requests waiting.</h3><p>At unchanged arrival rate, longer response time means more work in flight.</p><div class="scenario">A pause triples latency; thread pool fills although CPU is low.</div><p class="answer"><strong>Why:</strong> About 3× more requests are in flight.</p></article>
+<article class="card"><div class="tag">03 · Bottleneck</div><h3>Speed up the busiest stage.</h3><p>Replicating an idle front end does not help a saturated compute stage.</p><div class="scenario">Photo processor is slow; preprocessing server is idle.</div><p class="answer"><strong>Do:</strong> Add capacity at the photo processor.</p></article>
+<article class="card"><div class="tag">04 · Tail at scale</div><h3>Parallel calls wait for the slowest one.</h3><p>More partitions mean more chances that one runs slowly.</p><div class="scenario">A dashboard fans out to 300 shards; p99 gets worse.</div><p class="answer"><strong>Why:</strong> One slow shard delays the overall response.</p></article>
+<article class="card"><div class="tag">05 · Batch vs serving</div><h3>Batch wants full use. Serving needs spare room.</h3><p>Background jobs on live nodes can cause long request delays.</p><div class="scenario">Weekly compaction makes the API slow.</div><p class="answer"><strong>Do:</strong> Throttle it or move it to a separate pool.</p></article>
+<article class="card"><div class="tag">06 · Offline vs online</div><h3>A better score can give users a worse product.</h3><p>Offline relevance judges quality; online use includes speed and abandonment.</p><div class="scenario">Better snippets double page-load time.</div><p class="answer"><strong>Do:</strong> Evaluate user impact and latency, not relevance alone.</p></article>
+</div>
+<h3 style="margin-top:23px">Five consistency and storage ideas</h3>
+<div class="grid">
+<article class="card"><div class="tag">07 · Read-your-writes</div><h3>After an edit, show the writer the new value.</h3><p>Other users may temporarily see an older value if that is acceptable.</p><p class="answer"><strong>Fix:</strong> Give the editor a fresh/consistent read after their write.</p></article>
+<article class="card"><div class="tag">08 · CAP during a partition</div><h3>Be strict for money; tolerate stale browsing.</h3><p>If regions cannot communicate, bookings must not silently contradict each other.</p><p class="answer"><strong>Choice:</strong> Reject unsafe writes; stale hotel listings may be acceptable.</p></article>
+<article class="card"><div class="tag">09 · PACELC / locality</div><h3>Put the write leader close to the writer.</h3><p>Remote coordination adds latency even when no network partition exists.</p><p class="answer"><strong>Choice:</strong> Keep each user's primary record near the home region.</p></article>
+<article class="card"><div class="tag">10 · RUM trade-off</div><h3>No free read + update + memory win.</h3><p>Index design improves some costs at the expense of others; workload matters.</p><p class="answer"><strong>Trap:</strong> Reject claims of universal superiority on all three.</p></article>
+<article class="card"><div class="tag">11 · Bloom filter</div><h3>“Not present” is reliable; “present” may be a lie.</h3><p>A probabilistic membership filter can report a false positive.</p><p class="answer"><strong>Trap:</strong> Blocking on a filter alone may block an innocent user.</p></article>
+</div>
+<h3 style="margin-top:23px">Five additional IR ideas to recognise</h3>
+<ul><li><strong>Zipf:</strong> Few terms are very common; most are rare. Posting list sizes are uneven.</li><li><strong>Heaps:</strong> Vocabulary grows as more text is indexed, even very late.</li><li><strong>Inverted index:</strong> Store each term → sorted list of documents containing it.</li><li><strong>Compression:</strong> Store document-ID gaps; read fewer bytes at the cost of decoding.</li><li><strong>MinHash / banding:</strong> Estimate near-duplicate similarity; compare candidate pairs, not every pair.</li></ul>
+<div class="checklist"><h3>Mark when you can explain these without looking</h3><label><input type="checkbox" data-check="p1">I can explain all 11 official scenarios.</label><label><input type="checkbox" data-check="p2">I can identify which bottleneck or trade-off applies.</label><label><input type="checkbox" data-check="p3">I can recognise the five general indexing concepts.</label><label><input type="checkbox" data-check="p4">I know today's room, time and ID requirement.</label></div>
+<details><summary>Quick check: why isn't 80% CPU safe?</summary><p>Average utilisation hides bursts. Queueing grows sharply near full utilisation; p99 often increases before mean latency becomes alarming.</p></details>
+<details><summary>Quick check: why can more shards worsen p99?</summary><p>Each shard may be faster, but a fan-out request waits for all mandatory responses. A single rare straggler delays the user.</p></details>
+<details><summary>Quick check: Bloom filter says “not in set” — can it be wrong?</summary><p>No, for a standard Bloom filter with no deletions and correctly executed inserts. A “present” answer can be a false positive.</p></details>
+<p class="mini">Next step after this pass: try to explain one new scenario for each concept. The official pre-reading is the primary source of these 11 examples.</p>
+</section>
+<section id="pass2" class="section"><div class="kicker" style="color:var(--teal)">PASS 2 · BUILDING</div><h2>Deeper explanations and counterexamples</h2><div class="hidden-phase">This pass will add small diagrams, examples, “why the other fix fails,” and a concept-to-symptom decision map.</div></section>
+<section id="pass3" class="section"><div class="kicker" style="color:var(--teal)">PASS 3 · BUILDING</div><h2>Formulas, Quiz-1 style and possible traps</h2><div class="hidden-phase">This pass will define every important symbol and show the formulas only as explanations for choices. Quiz 2 has no numerics according to the professor.</div></section>
+<section id="pass4" class="section"><div class="kicker" style="color:var(--teal)">PASS 4 · BUILDING</div><h2>Scenario-based practice quiz</h2><div class="hidden-phase">This pass will provide 20–30 original, short, self-contained questions, with answers and explanations revealed after attempting.</div></section>
+<section id="pass5" class="section"><div class="kicker" style="color:var(--teal)">PASS 5 · BUILDING</div><h2>Exact study references</h2><div class="hidden-phase">This pass will map each concept to the uploaded slide page and original official source link, with a final exam-day checklist.</div></section>
+<footer>Source hierarchy: Professor's Quiz-2 pre-reading (18 Oct), course announcement (12 Oct), Quiz-2 logistics (21 Oct), Module 1–2 slides, Quiz-1 &amp; 2025 midsem. New practice questions will be labelled as predictions, never presented as official questions. <p><a href="../index.html">Explainer index</a> · ST100+ / ASD-STE100</p></footer>
+</main><script>
+const checks=[...document.querySelectorAll('[data-check]')];try{const saved=JSON.parse(localStorage.getItem('ire-quiz2-five-pass-checks')||'{}');checks.forEach(c=>c.checked=!!saved[c.dataset.check]);}catch{}
+checks.forEach(c=>c.addEventListener('change',()=>{const vals=Object.fromEntries(checks.map(x=>[x.dataset.check,x.checked]));try{localStorage.setItem('ire-quiz2-five-pass-checks',JSON.stringify(vals));}catch{}}));
+const obs=new IntersectionObserver(entries=>{for(const e of entries){if(e.isIntersecting){document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('selected',a.hash==='#'+e.target.id));}}},{rootMargin:'-15% 0px -75% 0px'});document.querySelectorAll('main section[id]').forEach(s=>obs.observe(s));
+</script></body></html>
