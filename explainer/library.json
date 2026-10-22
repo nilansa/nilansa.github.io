@@ -437,5 +437,24 @@
     "url": "./explainers/ire-quiz2-part-a-b-formula-map-2026-10-22.html",
     "date": "2026-10-22",
     "indexed_at": "2026-10-22T08:54:06.610Z"
+  },
+  {
+    "id": "ire-quiz2-answerkey-style-20261022",
+    "title": "IRE Quiz 2 — Past Answer Keys & Predicted Questions",
+    "description": "Rapid reconstruction of Quiz-1 (3 parts) and midsem (5 parts) with keyed solutions/mark breakdowns, plus 26 new Quiz-2-style MCQs and five short-answer models.",
+    "project": "Information Retrieval and Extraction",
+    "category": "Quiz preparation",
+    "tags": [
+      "ST100 Plus",
+      "IRE",
+      "Quiz 2",
+      "Quiz 1",
+      "Midsem",
+      "answer key",
+      "practice"
+    ],
+    "url": "./explainers/ire-quiz2-answerkey-style-sprint-2026-10-22.html",
+    "date": "2026-10-22",
+    "indexed_at": "2026-10-22T09:45:12.361Z"
   }
 ]
