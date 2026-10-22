@@ -15,7 +15,7 @@
 <p><a href="./ire-quiz2-part-a-b-formula-map-2026-10-22.html">Official 11-case formula map</a> · <a href="./ire-quiz2-five-pass-2026-10-22.html">Full study sprint</a> · <a href="https://courses.iiit.ac.in/mod/forum/discuss.php?d=54577">Professor's Quiz-2 scope note</a></p></div></section>
 <section id="quiz1"><div class="panel"><div class="label">From provided Quiz 1 answer key · pages 1–3</div><h2>Reconstructed Quiz 1 (theory): 30 marks</h2><p class="muted">Restated question prompts + keyed answers + original step-marking. Expand only the part you need.</p><div id="original-quiz"></div></div></section>
 <section id="midsem"><div class="panel"><div class="label">From provided Midsem answer key · pages 1–5</div><h2>Reconstructed Midsem: 50 marks</h2><p class="muted">Same detailed numerical context as the key. These are historical examples, not today's calculation requirements.</p><div id="original-mid"></div></div></section>
-<section id="models"><div class="panel"><div class="label">Original new predictions, not official</div><h2>Quiz-2 style: short scenario MCQs</h2><p class="muted">Read, select an answer, then reveal the model answer and its decisive reason. All are based on the official scope and the professor's marking approach.</p><div class="toolbar"><button id="showall" type="button" class="light">Reveal all answers</button><button id="hideall" type="button" class="light">Hide all answers</button><button id="reset" type="button" class="light">Reset progress</button><span id="score" class="score">0 reviewed</span></div><div class="progress"><div id="bar"></div></div><div id="model-questions"></div></div></section>
+<section id="models"><div class="panel"><div class="label">Original new predictions, not official</div><h2>Quiz-2 style: short scenario MCQs</h2><p class="muted">Read, select an answer, then check it. Questions 1–20 prioritise the official 11-case pre-reading; 21–26 are general IR extensions. You can reveal the answer key without changing your score.</p><div class="toolbar"><button id="showall" type="button" class="light">Reveal all answers</button><button id="hideall" type="button" class="light">Hide all answers</button><button id="reset" type="button" class="light">Reset progress</button><span id="score" class="score">0 reviewed</span></div><div class="progress"><div id="bar"></div></div><div id="model-questions"></div></div></section>
 <section id="shorts"><div class="panel"><div class="label">Possible one-line responses</div><h2>One sentence can earn the mark</h2><div id="short-questions"></div></div></section>
 <footer class="muted">Source: uploaded CS4406 Quiz1 and MidSem answer-key PDFs. Original question statements are restated for fast study. Predicted MCQs are model-authored and not exam leaks. Academic homepage unchanged.</footer>
 </main>
@@ -35,13 +35,13 @@ function renderOrig(){
  document.querySelector(selector).innerHTML=list.map((x,i)=>'<details '+(i===0?'open':'')+'><summary><span class="label">'+esc(x.name)+' · '+x.points+' marks · page '+x.page+'</span><br>'+esc(x.title)+'</summary><p><strong>Restated question:</strong> '+esc(x.question)+'</p>'+((x.data||[]).length?'<p class="muted">'+esc(x.data.join(' · '))+'</p>':'')+'<div class="answer"><strong>Model answer</strong>'+ol(x.answer)+'</div><p class="label">Original marking emphasis</p><div class="mark">'+x.rubric.map(y=>'<span>'+esc(y)+'</span>').join('')+'</div></details>').join('')
  }
 }
-let seen={};try{seen=JSON.parse(localStorage.getItem('ire-2026-answerkey-style-practice')||'{}')}catch(e){}
+let revealAll=false;let seen={};try{seen=JSON.parse(localStorage.getItem('ire-2026-answerkey-style-practice')||'{}')}catch(e){}
 function persist(){try{localStorage.setItem('ire-2026-answerkey-style-practice',JSON.stringify(seen))}catch(e){}}
 function totals(){let n=MODELS.filter(q=>Object.hasOwn(seen,q.id)).length;let right=MODELS.filter(q=>seen[q.id]===q.answer).length;document.getElementById('score').textContent=n+'/'+MODELS.length+' reviewed · '+right+' correct';document.getElementById('bar').style.width=(n/MODELS.length*100)+'%'}
 function renderPred(){
  document.getElementById('model-questions').innerHTML=MODELS.map((x,i)=>{
-const checked=seen[x.id]!==undefined;let opt=x.options.map((t,j)=>'<label class="option"><input type="radio" name="model-'+x.id+'" value="'+j+'" '+(checked?'disabled':'')+' '+(checked&&seen[x.id]===j?'checked':'')+'> '+String.fromCharCode(65+j)+'. '+esc(t)+'</label>').join('');
-let feedback=checked?'<div class="reveal"><strong>'+(seen[x.id]===x.answer?'✓ Correct':'Review')+'</strong> — '+String.fromCharCode(65+x.answer)+'. '+esc(x.options[x.answer])+'<p><strong>Why:</strong> '+esc(x.why)+'</p><p class="muted"><strong>Reject:</strong> '+esc(x.reject)+'</p></div>':'<button type="button" data-grade="'+x.id+'">Check my answer</button>';
+const checked=seen[x.id]!==undefined;const locked=checked||revealAll;let opt=x.options.map((t,j)=>'<label class="option"><input type="radio" name="model-'+x.id+'" value="'+j+'" '+(locked?'disabled':'')+' '+(checked&&seen[x.id]===j?'checked':'')+'> '+String.fromCharCode(65+j)+'. '+esc(t)+'</label>').join('');
+let feedback=(checked||revealAll)?'<div class="reveal"><strong>'+(checked?(seen[x.id]===x.answer?'✓ Correct':'Review'):'Model answer')+'</strong> — '+String.fromCharCode(65+x.answer)+'. '+esc(x.options[x.answer])+'<p><strong>Why:</strong> '+esc(x.why)+'</p><p class="muted"><strong>Reject:</strong> '+esc(x.reject)+'</p></div>':'<button type="button" data-grade="'+x.id+'">Check my answer</button>';
 return '<article class="card" id="q-'+x.id+'"><div class="q-head"><span class="label">Q'+(i+1)+' · '+esc(x.topic)+'</span><small>Scenario</small></div><h3>'+esc(x.question)+'</h3>'+opt+feedback+'</article>'
 }).join('');
 document.querySelectorAll('[data-grade]').forEach(btn=>btn.addEventListener('click',()=>{let id=Number(btn.dataset.grade);let radio=document.querySelector('input[name="model-'+id+'"]:checked');if(!radio){alert('Select an answer first.');return;}seen[id]=Number(radio.value);persist();renderPred();document.getElementById('q-'+id).scrollIntoView({block:'nearest'});}));
@@ -49,8 +49,8 @@ totals()
 }
 function renderShort(){document.getElementById('short-questions').innerHTML=SHORTS.map((x,i)=>'<details><summary>Q'+(i+1)+'. '+esc(x.q)+'</summary><p class="answer"><strong>One-line model answer:</strong> '+esc(x.a)+'</p><p class="muted">'+esc(x.why)+'</p></details>').join('')}
 function allToggle(open){document.querySelectorAll('#quiz1 details,#midsem details,#shorts details').forEach(d=>d.open=open)}
-document.getElementById('showall').onclick=()=>{for(const q of MODELS)if(seen[q.id]===undefined)seen[q.id]=q.answer;persist();renderPred();allToggle(true)};
-document.getElementById('hideall').onclick=()=>{seen={};persist();renderPred();allToggle(false)};
-document.getElementById('reset').onclick=()=>{if(confirm('Clear practice answers on this device?')){seen={};persist();renderPred()}}
+document.getElementById('showall').onclick=()=>{revealAll=true;renderPred();allToggle(true)};
+document.getElementById('hideall').onclick=()=>{revealAll=false;renderPred();allToggle(false)};
+document.getElementById('reset').onclick=()=>{if(confirm('Clear practice answers on this device?')){seen={};revealAll=false;persist();renderPred()}}
 renderOrig();renderPred();renderShort();
 </script></body></html>
