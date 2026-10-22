@@ -419,5 +419,23 @@
     "url": "./explainers/ire-quiz2-visual-audio-2026-10-22.html",
     "date": "2026-10-22",
     "indexed_at": "2026-10-22T08:36:47.512Z"
+  },
+  {
+    "id": "ire-quiz2-part-a-b-formula-map-20261022",
+    "title": "IRE Quiz 2 — Part A & B: Interactive Formula Map",
+    "description": "Concise, interactive explanations of all 11 official pre-reading cases, four formulas, symptom-to-principle map, and Zipf, Heaps, inverted-index and compression basics.",
+    "project": "Information Retrieval and Extraction",
+    "category": "Quiz preparation",
+    "tags": [
+      "ASD-STE100",
+      "IRE",
+      "Quiz 2",
+      "Part A",
+      "Part B",
+      "formulas"
+    ],
+    "url": "./explainers/ire-quiz2-part-a-b-formula-map-2026-10-22.html",
+    "date": "2026-10-22",
+    "indexed_at": "2026-10-22T08:54:06.610Z"
   }
 ]
