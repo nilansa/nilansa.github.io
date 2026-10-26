@@ -3,8 +3,17 @@
   "taskId": "20261026-csconf-research",
   "createdAt": "2026-10-26T13:51:12.349Z",
   "checkedAt": "2026-10-26",
-  "editorialNote": "Public, non-confidential scouting index. All branches are hypotheses, not tested research results. Deadlines without verified organizer evidence are not invented. First prior-art audit pivots CC-01 away from rediscovering PDI-Bench rigidity and flags CC-10 robotics prior art; no tests executed.",
+  "editorialNote": "Public research snapshot (2026-10-26, IST). This revision: official CVPR 2027 LLM policy and reciprocal-reviewer quota checked; ISCA 2027 main/industry deadlines added; CC-02 informative missingness, CC-08 execution-audit, and CC-10 action-ranking regret narrowed against prior art. No GPU experiments conducted; no result or paper acceptance implied.",
   "deadlines": [
+    {
+      "date": "2026-10-30",
+      "venue": "AR-RSI 2026 workshop",
+      "action": "Paper, including short/position formats",
+      "area": "Research agents",
+      "time": "11:59 PM AoE",
+      "source": "https://ar-rsi.github.io/",
+      "status": "confirmed"
+    },
     {
       "date": "2026-10-30",
       "venue": "MLSys 2027",
@@ -15,12 +24,12 @@
       "status": "confirmed"
     },
     {
-      "date": "2026-10-30",
-      "venue": "AR-RSI 2026 workshop",
-      "action": "Paper, including short/position formats",
-      "area": "Research agents",
-      "time": "11:59 PM AoE",
-      "source": "https://ar-rsi.github.io/",
+      "date": "2026-11-09",
+      "venue": "ISCA 2027",
+      "action": "Main-track abstract / final author list",
+      "area": "Systems / architecture",
+      "time": "11:59 PM AoE; no ghost abstracts",
+      "source": "https://iscaconf.org/isca2027/submit/callforpapers.php",
       "status": "confirmed"
     },
     {
@@ -52,6 +61,15 @@
     },
     {
       "date": "2026-11-16",
+      "venue": "ISCA 2027",
+      "action": "Main-track full paper",
+      "area": "Systems / architecture",
+      "time": "11:59 PM AoE",
+      "source": "https://iscaconf.org/isca2027/submit/callforpapers.php",
+      "status": "confirmed"
+    },
+    {
+      "date": "2026-11-16",
       "venue": "The Web Conference 2027",
       "action": "Short paper / demo",
       "area": "Web/data/IR",
@@ -75,6 +93,24 @@
       "area": "Robotics",
       "time": "11:59 PM AoE",
       "source": "https://roboticsconference.org/information/cfp/",
+      "status": "confirmed"
+    },
+    {
+      "date": "2026-12-06",
+      "venue": "ISCA 2027",
+      "action": "Industry-track abstract",
+      "area": "Systems / architecture",
+      "time": "11:59 PM AoE",
+      "source": "https://iscaconf.org/isca2027/submit/callforpapers.php",
+      "status": "confirmed"
+    },
+    {
+      "date": "2026-12-13",
+      "venue": "ISCA 2027",
+      "action": "Industry-track full paper",
+      "area": "Systems / architecture",
+      "time": "11:59 PM AoE; check published industry CFP",
+      "source": "https://iscaconf.org/isca2027/submit/callforpapers.php",
       "status": "confirmed"
     },
     {
@@ -604,11 +640,11 @@
         "COLT"
       ],
       "cost": "low",
-      "stage": "literature audit active; zero-GPU control designed",
+      "stage": "informed-missingness prior art found; SSL-specific novelty unproven; no GPU required",
       "question": "Does an adaptive mask reveal information about hidden tokens, even when the predictor never sees those tokens?",
-      "novelty": "Adaptive masking has established ECCV 2024/TPAMI 2025 work, and masking information leakage is discussed in surveys. Do not claim adaptive masking is itself novel. The narrower possible gap is whether the binary mask is an unintended information channel about the unobserved content, separately from visible-token redundancy; this requires direct prior-art audit.",
-      "pilot": "Generate a toy binary image where the target bit is hidden. Compare target-bit prediction from (A) mask indices only, (B) visible pixels only, (C) both and (D) class-blind shuffled mask indices. Match the number of visible tokens. Estimate conditional mutual information using empirical counts before any neural model.",
-      "stop": "Retire or narrow if the mask predicts nothing beyond visible content, or the exact information-channel mechanism is previously published.",
+      "novelty": "A mask pattern can encode properties of hidden content: 'informative missingness' was already studied by GRU-D (Che et al., Scientific Reports 2018). Teacher/student-guided adaptive masking is also established, e.g. AAAI 2025 CMT-MAE. Thus generic 'mask indices leak label information' is NOT novel. Possible narrower question: does content-conditioned mask selection leak reconstruction information beyond visible patches and thereby inflate MIM pretraining metrics? An actual MIM control is required.",
+      "pilot": "Use a balanced toy target Y and mask M, show that 10% mask-bit flip noise yields 1-H2(0.1)=0.531 bits of information (algebraic sanity check only); then audit one public masked-image model with fixed visible-token count, teacher-based vs independent masks, mask-only, visible-only, visible+mask and label-permuted mask probes. Estimate I(Y;M | visible tokens) with held-out estimates. Match token count, mask histogram, and compute. Zero GPU for toy; modest inference for checkpoint.",
+      "stop": "If held-out conditional leakage is negligible once spatial count and visible information are matched, or existing SSL work already studies identical diagnostics, retire the leak claim; consider negative-result methodology instead.",
       "source": "https://arxiv.org/search/?query=adaptive+masking+information+leakage&searchtype=all",
       "closestPriorArt": [
         {
@@ -622,6 +658,14 @@
         {
           "title": "Masked Image Modeling: A Survey (IJCV 2025)",
           "url": "https://doi.org/10.1007/s11263-025-02524-1"
+        },
+        {
+          "title": "GRU-D: Informative Missingness (Scientific Reports 2018)",
+          "url": "https://www.nature.com/articles/s41598-018-24271-9"
+        },
+        {
+          "title": "CMT-MAE: Collaborative Masking and Targets (AAAI 2025)",
+          "url": "https://ojs.aaai.org/index.php/AAAI/article/view/34145"
         }
       ]
     },
@@ -718,12 +762,22 @@
         "agent workshops"
       ],
       "cost": "low-medium",
-      "stage": "hypothesis only",
+      "stage": "execution-vs-correctness overlap found; test harness defined",
       "question": "Can a constrained research agent make real improvements under withheld tests and a counted human-intervention budget?",
-      "novelty": "Automation itself is no longer novel; study evaluation integrity and experimental reliability.",
-      "pilot": "Replicate a one-GPU autoresearch loop; test each accepted edit against frozen unseen seeds, fixed wall time and automatic rollback.",
-      "stop": "If held-out gains do not persist, publish an audit only if it provides generalizable evidence.",
-      "source": "https://github.com/karpathy/autoresearch"
+      "novelty": "CausalVerify (Sep 2026) already shows that executing end-to-end AI-written scientific workflows does not establish numerical correctness. Autoresearch already automates bounded model training. A new 'agents can write and execute papers' result is NOT novel. Distinct possible result: audit adaptive experiment selection under a frozen wall-clock budget using held-out seeds and independent replication.",
+      "pilot": "One public small-model autoresearch task and a fixed baseline; hold out three pre-registered seeds never used for edit selection. Record every attempted edit, failed run, wall-clock and compute budget, selected winner on development split, and unbiased held-out performance. Compare best-of-N selected updates with fixed random-search updates and an untouched human baseline. This is a protocol only; no runs have occurred.",
+      "stop": "If full accounting removes the apparent improvement or a published agent-audit benchmark already tests the same selection-bias protocol, pivot to a reproducibility report rather than a novelty claim.",
+      "source": "https://github.com/karpathy/autoresearch",
+      "closestPriorArt": [
+        {
+          "title": "CausalVerify: end-to-end execution is not correctness (Sep 2026)",
+          "url": "https://arxiv.org/abs/2609.07944"
+        },
+        {
+          "title": "Karpathy autoresearch",
+          "url": "https://github.com/karpathy/autoresearch"
+        }
+      ]
     },
     {
       "id": "CC-09",
@@ -751,11 +805,11 @@
         "ICRA"
       ],
       "cost": "medium",
-      "stage": "novelty audit active; candidate RSS extended abstract",
+      "stage": "high prior-art overlap; only action-ranking-regret question retained; pilot gate",
       "question": "For a fixed robot planner and task, which kinds and severity of generated-video geometry faults actually change plan feasibility, rather than only visual similarity?",
-      "novelty": "PAIWorld, DepthWorld, RBench and PDI-Bench already connect robotic video consistency, geometry or planning. A simple geometry-versus-success correlation is likely insufficient. Need a distinct controlled intervention where visual quality, task, camera and policy are held fixed.",
-      "pilot": "Simulate two tabletop tasks with one rigid moving object and known ground-truth trajectories; make graded edits to geometry while preserving semantic action labels. Test planning collision/feasibility against a frozen planner and quality-matched unedited controls. First test 2D grid cases before 3D simulation.",
-      "stop": "Retire if the causal experiment duplicates a strong prior paper or the controlled result disappears with identical frozen policy.",
+      "novelty": "What-If World (2026) already benchmarks paired physical interventions in generated driving/manipulation videos, but explicitly leaves downstream utility unmeasured. CausalNav (Aug 2026) reports that structural world-model fidelity need not predict control benefit. ExecutionBridge (Oct 2026) studies a frozen planner under controller-induced execution shift. A general 'causal videos for planning' claim is NOT novel. Candidate: isolate exactly when rigid-object 3D geometry errors flip a frozen planner's action ranking, with matched visual corruption and oracle state controls.",
+      "pilot": "Start with a reproducible 2D tabletop/grid setup: 2 obstacle configurations × 3 distortion strengths × 3 independent seeds (18 paired scenarios), fixed initial scene, camera, goals, planner, scoring and proposals. Geometric edits must not alter task truth. Compare action-ranking flips, collisions, margin to next-best action, PDI/MEt3R-type score, and appearance-matched non-geometric corruptions. Positive evidence must replicate on withheld scenes before any 3D claims. This is a PROPOSED design; zero runs.",
+      "stop": "If 2026 prior work already tests geometry-specific action-ranking regret under frozen policies, or distortion effects disappear after matching appearance and oracle state, retire/pivot. No RSS abstract without a genuinely distinct mechanism and controlled pilot.",
       "source": "https://roboticsconference.org/information/cfp/",
       "closestPriorArt": [
         {
@@ -773,6 +827,18 @@
         {
           "title": "PDI-Bench",
           "url": "https://arxiv.org/abs/2605.15185"
+        },
+        {
+          "title": "What-If World: causal benchmark without tested downstream utility (2026)",
+          "url": "https://arxiv.org/abs/2605.27589"
+        },
+        {
+          "title": "CausalNav: model fidelity versus control benefit (Aug 2026)",
+          "url": "https://arxiv.org/abs/2608.07809"
+        },
+        {
+          "title": "Plans Are Not Executions: frozen planners and execution shift (Oct 2026)",
+          "url": "https://arxiv.org/abs/2610.22041"
         }
       ]
     },
@@ -862,9 +928,15 @@
     },
     {
       "venue": "CVPR 2027",
-      "rule": "LLM use guidance under development; check before submitting. Reviewer reciprocity and author limits apply.",
+      "rule": "LLM assistance is permitted with human responsibility. A mandatory LLM Usage Statement must disclose tools, stages, and extent, including grammar editing. Without an eligible reciprocal reviewer among coauthors, an author may appear on at most one submission; overall 25-paper author cap. OpenReview profiles and author lists must be ready by Nov 10.",
       "source": "https://cvpr.thecvf.com/Conferences/2027/AuthorGuidelines",
-      "flag": "check"
+      "flag": "LLM disclosure mandatory; reciprocal-reviewer quota"
+    },
+    {
+      "venue": "ISCA 2027",
+      "rule": "Substantive LLM-generated technical content must be disclosed; editing, literature search, and code assistance alone do not require disclosure. Eight main-track submissions maximum per author; no placeholder abstract; potential ACM open-access APC.",
+      "source": "https://iscaconf.org/isca2027/submit/callforpapers.php",
+      "flag": "disclose substantive AI; 8-paper cap"
     }
   ],
   "examples": [
@@ -915,6 +987,24 @@
       "kind": "CVPR 2025 baseline",
       "note": "Existing geometry-aware metric, so new 3D/video proposal must test a distinct failure mode.",
       "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Asim_MET3R_Measuring_Multi-View_Consistency_in_Generated_Images_CVPR_2025_paper.html"
+    },
+    {
+      "title": "What-If World: causal physical-intervention benchmark (2026)",
+      "kind": "Robotics/world-model overlap",
+      "note": "Explicitly leaves empirical downstream-planner utility untested; CC-10 must still separate itself from related planner/control studies.",
+      "url": "https://arxiv.org/abs/2605.27589"
+    },
+    {
+      "title": "CausalVerify: End-to-End Verification of Causal Analyses by Language Models (2026)",
+      "kind": "AI-research-agent audit",
+      "note": "Executing agent-written analysis does not guarantee the intended numerical quantity is recovered.",
+      "url": "https://arxiv.org/abs/2609.07944"
+    },
+    {
+      "title": "GRU-D and informative missingness (2018)",
+      "kind": "Foundational masking/missingness precedent",
+      "note": "The pattern of missingness can itself predict the target; generic mask-side-channel novelty is blocked.",
+      "url": "https://www.nature.com/articles/s41598-018-24271-9"
     }
   ],
   "closed": [
