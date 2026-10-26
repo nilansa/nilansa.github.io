@@ -3,7 +3,7 @@
   "taskId": "20261026-csconf-research",
   "createdAt": "2026-10-26T13:51:12.349Z",
   "checkedAt": "2026-10-27",
-  "editorialNote": "Oct 27 eighth audit: NEW hard AI policy MIDL 2027 forbids LLM-origin ideas, studies, analyses, results and substantive text, so CC12 cannot target MIDL through autonomous CS Conf; official XACLE 2027 release date does NOT establish verified accessible dataset/generator IDs; inspected 2026 7500/3000 audio-text dataset schema, no generator label in documented CSV, and prior 2026 SPO-CLAPScore rank6 preference optimization. CC15 clarified different Track I offline Top-1 and Track II online F1/latency protocols. No data/GPU test, competition registration, or submission; direct GitHub edit only.",
+  "editorialNote": "Oct 27 ninth audit: CC08 major novelty correction from peer-reviewed FIRE-Bench (ICML 2026), Artisan (ASE 2026), SEER-Repro and SciRIGOR preprints; narrowed to independent formal/artifact-to-claim trust-boundary tests. Checked pinned M1 41+7 module inventory/root imports and source-level axiom auditor, NOT Lean replay. Official HEARTBEAT homepage GitHub has no externally linked data/scorer despite advertised Oct20 release; no portal inference. Added official PLDI Nov12 and IEEE S&P Nov10/17 deadlines and AI rules. No GPU, real dataset, Lean compile, registration or submission.",
   "deadlines": [
     {
       "date": "2026-10-27",
@@ -96,6 +96,24 @@
       "status": "confirmed"
     },
     {
+      "date": "2026-11-10",
+      "venue": "IEEE S&P 2027 Cycle 2",
+      "action": "Mandatory complete abstract + fixed author/ORCID/COI registration",
+      "area": "Security, privacy, reproducible system measurement",
+      "time": "23:59:59 AoE; title/abstract/author list cannot change; 6-paper per-author cycle cap",
+      "source": "https://www.ieee-security.org/TC/SP2027/cfpapers.html",
+      "status": "confirmed"
+    },
+    {
+      "date": "2026-11-12",
+      "venue": "PLDI 2027",
+      "action": "Full research paper",
+      "area": "Programming languages, compilers, verification, reproducibility",
+      "time": "23:59 AoE; NEW 2027 Data-Availability Statement; disclosure of research-stage AI methodology",
+      "source": "https://pldi27.sigplan.org/track/pldi-2027-papers",
+      "status": "confirmed"
+    },
+    {
       "date": "2026-11-16",
       "venue": "CVPR 2027",
       "action": "Full research paper",
@@ -120,6 +138,15 @@
       "area": "Web/data/IR",
       "time": "11:59 PM AoE",
       "source": "https://www2027.thewebconf.org/important-dates/",
+      "status": "confirmed"
+    },
+    {
+      "date": "2026-11-17",
+      "venue": "IEEE S&P 2027 Cycle 2",
+      "action": "Full research/SoK paper",
+      "area": "Security / privacy",
+      "time": "23:59:59 AoE; AI-use consideration mandatory, anonymized artifacts",
+      "source": "https://www.ieee-security.org/TC/SP2027/cfpapers.html",
       "status": "confirmed"
     },
     {
@@ -962,11 +989,11 @@
         "FAccT (only if responsible AI/accountability dimension is central)"
       ],
       "cost": "low-medium",
-      "stage": "TWO PUBLIC RESEARCH-ARTIFACT AUDITS DONE, limited: M1 and M3 source/verification metadata inspected; exact rational recomputation of M1's 4 published finite table values matched the paper (4/4); M3 published campaign accounting sums consistently to 289. NO Lean kernel replay, independent certificate/data replay, verification of theorem hypotheses, or empirical replication. Separate claimed, present, self-reported verification, independently replayed, scientifically validated states.",
-      "question": "Can a constrained research agent make real improvements under withheld tests and a counted human-intervention budget?",
-      "novelty": "AI Agent Swarms as Researchers (Sep 2026) releases unedited agent output including draft papers, checks, agent reviews and some Lean proofs, but the authors state most claims have NOT undergone independent verification; full drafts are NOT publications. This provides a public audit corpus for claim-verification cost, versus output-volume and independent checking throughput. CausalVerify, PaperBench and selection-bias studies already cover aspects of agent validity; 'many papers generated' is not a novel result. The CC-08 corpus now supports a metadata-level audit of reported proof certificates versus available types of evidence, but publication novelty requires real independent checks; no correctness was validated. Source and manuscript revisions can outrun stored fingerprint manifests; the M1 and M3 authors explicitly document this. Treat proof-level trust and manuscript/evidence binding as separate audit outcomes, but do not mistake a historically labeled manifest for fraud.",
-      "pilot": "Public corpus metadata audit completed from pinned tag paper-v1 README (sha 0c03c238501704b48402a377bcbd49d29ad18fdf). Next: preregister stratified 10-20 claim sample by Full/summary/notes, self-reported Lean Done/Partial/Not applicable, and topic; predefine independent Lean compilation and theorem-assumption inspection for Done, independent script/data/checksum replay for empirical claims, and literature/novelty checking for manuscript-only. Track hours, missing files, compile/test success, claim corrected/retracted, field-specific expert uncertainty; do not count authored drafts or reported Lean status as verified papers. Freeze tag and sampling before checking evidence; distinguish annotation from claim-level validation. Follow with withheld-seed performance experiment only if a testable empirical claim and runnable data/code exist. Public 2026-10-27 two-sample artifact check and math table, including limitations: https://github.com/nilansa/nilansa.github.io/blob/main/cs-conf/audits/cc08-certificate-audit-2026-10-27.md . Not a representative sample and not claim-verification.",
-      "stop": "If full accounting removes the apparent improvement or a published agent-audit benchmark already tests the same selection-bias protocol, pivot to a reproducibility report rather than a novelty claim.",
+      "stage": "PRIOR-ART PIVOT: generic agent scientific rediscovery/reproduction is covered by FIRE-Bench (ICML 2026), Artisan (ASE 2026), SEER-Repro (Oct 2026 preprint), and SciRIGOR (Sep preprint). New narrow trust-boundary protocol identified; pinned M1 48-file import inventory and axiom-audit source checked, but NO Lean compilation, independent proof replay, or scientific claim verification. Earlier M1/M3 arithmetic checks remain non-proof pilots.",
+      "question": "In unedited AI-agent research outputs, how often does self-reported proof or experimental-certificate status agree with independently replayed claims, and how much qualified audit time is required to establish statement fidelity and scientific validity?",
+      "novelty": "Major direct prior art: FIRE-Bench (ICML 2026) tests scientific rediscovery, Artisan (ASE 2026) generates independently executable table reproduction scripts, SEER-Repro Oct 2026 preprint reproduces 2,190 medical claims, SciRIGOR Sep preprint tests claim-evidence paths. Do not present generic research-agent reproduction, atomic claim audit or evidence graphs as novel. Residual hypothesis is about provenance mismatch between self-reported formal/experiment status and independent kernel/source/semantic fidelity in unedited agent-produced corpus, measured with auditor time and frozen artifact revisions. This may still overlap further work. Structural Lean inventory count (41 MultilinearGap + 7 CubicGap imported by Formal.lean) and Verify.lean source inspected; upstream reports 827 audited declarations, not independently reproduced.",
+      "pilot": "First preregister deterministic 12-claim sample by proof-backed, empirical and manuscript-only classes in SECQUOIA paper-v1, excluding previously inspected M1 and M3 from unbiased denominator. Freeze claim criteria and SHA before inspection, record artifact URL/hash, stated assumptions, checker dependencies, exact command, source-manifest integrity, independent toolchain outputs, theorem-to-English statement fidelity, human audit time, and claim outcome. Then run the pinned Lean v4.33.1 toolchain only when available through authorized executable environment; do not equate source audit/author logs with an independent compilation. Prior-art and public static source audit: https://github.com/nilansa/nilansa.github.io/blob/main/cs-conf/audits/cc08-prior-art-boundary-2026-10-27.md",
+      "stop": "If the entire proposed audit reduces to existing artifact reproduction, claim-support graphs or model judged scoring, retire independent-paper novelty. If clean replay is blocked, report artifact accessibility/provenance as a methods note without claiming a correctness or failure rate. Any positive effect must be reproduced on an uninspected sample under frozen audit budget.",
       "source": "https://github.com/karpathy/autoresearch",
       "closestPriorArt": [
         {
@@ -992,6 +1019,22 @@
         {
           "title": "AI Agent Swarms as Researchers: Progress, Challenges, and Open Questions (Sep 2026)",
           "url": "https://arxiv.org/abs/2609.35719"
+        },
+        {
+          "title": "FIRE-Bench (ICML 2026): agent rediscovery",
+          "url": "https://proceedings.mlr.press/v306/wang26d.html"
+        },
+        {
+          "title": "Artisan: executable research-table reproduction (ASE 2026)",
+          "url": "https://arxiv.org/abs/2602.10046"
+        },
+        {
+          "title": "AI-Driven Reproducibility and Analytical Robustness (2026 preprint)",
+          "url": "https://arxiv.org/abs/2610.23845"
+        },
+        {
+          "title": "SciRIGOR: scientific evidence graphs (Sep 2026 preprint)",
+          "url": "https://arxiv.org/abs/2609.06192"
         }
       ]
     },
@@ -1181,10 +1224,10 @@
         "CoRL"
       ],
       "cost": "low-medium for offline decision pilot; medium for real streaming model",
-      "stage": "OFFICIAL TRACK PROTOCOL VERIFIED, but dataset file/baseline access not independently established and no enrollment or benchmark run. Track I Offline is four-way Top-1 classification with NO latency term; Track I/II online use causal streaming with distinct timing and F1 measures. Organizer's Nov4 leaderboard date supersedes master list Oct21.",
+      "stage": "PROTOCOL VERIFIED, PUBLIC LINK AUDIT BLOCKER: official challenge homepage claims Oct 20 data, scoring tools and baselines released, but current public website source contains only internal anchors, registration form, and contact mailto; NO externally linked dataset/baseline/scorer found there. This does NOT prove private participant portal lacks materials. No registration or benchmark.",
       "question": "Can an explicitly calibrated abstain/wait policy reduce incorrect interruptions without reducing correct on-time responses under strictly causal streaming input?",
       "novelty": "HEARTBEAT already benchmarks abstention, response initiation and false triggers. A generic 'agents should wait' finding is not new; only improved controlled performance under the released benchmark and a distinct mechanism is useful.",
-      "pilot": "Do NOT pool scores across tracks. First verify an authorized Track I OFFLINE dataset/scorer; compare one frozen audio encoder four-way classifier to official baseline at exact Top-1 accuracy and group-disjoint holdout. In a separate Track II ONLINE experiment, enforce true chunk-causal access, log every chunk including silence, compare fixed and calibrated trigger/abstention policies for joint F1, false starts and delay at matched compute. Frozen final containers cannot use remote APIs. Team/resource freeze Nov20, final Dec11. Zero experiments performed.",
+      "pilot": "First verify official participant-accessible dataset/scorer/baseline and license before any model run; challenge public-site link audit found no dataset link despite Oct20 advertised release, so contact or permitted registered portal may be necessary (do not silently register). Track I OFFLINE: four-way Top-1 classification with group-disjoint holdout, no latency. Track II ONLINE: chronological-only chunks, silence logs, F1/false triggers/latency. Keep tracks separate and freeze resource/license by Nov20; offline final container must use no network. No experiments or enrollment.",
       "stop": "If no gain in false-trigger versus latency frontier on unseen episodes, or if only future-context leakage helps, stop. Final award-eligible containers cannot call remote services; invited papers are not automatic.",
       "source": "https://heartbeat-challenge.github.io/",
       "closestPriorArt": [
@@ -1293,6 +1336,18 @@
       "rule": "MIDL 2027 official policy: LLM use is limited to language/formatting edits. LLM-generated research ideas, study designs, analyses, results, and substantive content are prohibited; this autonomous research workflow is not eligible for a MIDL 2027 paper.",
       "source": "https://2027.midl.io/author-instructions",
       "flag": "restrictive: no AI-generated research idea, experiment, analysis, or substantive writing"
+    },
+    {
+      "venue": "IEEE S&P 2027",
+      "rule": "Authors must disclose and motivate generative AI use in HotCRP's Generative AI usage considerations field when registering, including research methodology and paper preparation. Any AI-generated idea must be independently developed and validated by authors. Complete author list with ORCID and COIs is fixed at Nov 10 abstract registration; max 6 submissions per author per cycle; artifacts must remain anonymized.",
+      "source": "https://www.ieee-security.org/TC/SP2027/cfpapers.html",
+      "flag": "mandatory AI-use rationale and disclosure; independent validation; fixed Nov 10 abstract; cap 6"
+    },
+    {
+      "venue": "PLDI 2027",
+      "rule": "ACM/PLDI: material AI use in scientific research design, methods, code, experiment and analysis must be described in detail in the methods; writing-only AI assistance need not be disclosed under updated ACM policy. False citations/results are desk-rejectable; 2027 Data-Availability Statement required before references.",
+      "source": "https://pldi27.sigplan.org/track/pldi-2027-papers",
+      "flag": "disclose research-stage AI; writing-only exempt; data availability statement"
     }
   ],
   "examples": [
@@ -1397,6 +1452,30 @@
       "kind": "Published public system report and released code (rank 6, no claim of 2027 success)",
       "note": "Reported 2026 test SRCC 0.6142; already learns human listener preferences with standardized scores. A shallow ranking/calibration head alone is not a novel 2027 generator-generalization paper. Its seen-generator setting differs from the unseen-generator 2027 challenge.",
       "url": "https://arxiv.org/abs/2601.02900"
+    },
+    {
+      "title": "FIRE-Bench (ICML 2026)",
+      "kind": "Peer-reviewed ICML 2026 agent research evaluation",
+      "note": "Agents rediscover known, verifiable ML findings given only high-level questions. Generic full-cycle rediscovery benchmarks already exist.",
+      "url": "https://proceedings.mlr.press/v306/wang26d.html"
+    },
+    {
+      "title": "Artisan / Automated Table Reproduction via Code Generation (ASE 2026)",
+      "kind": "Peer-reviewed ASE 2026 artifact replay work",
+      "note": "Authors report 44/60 runnable reproductions and 20 discovered errors. A generic executable paper-reproduction agent is not a new CC08 method.",
+      "url": "https://arxiv.org/abs/2602.10046"
+    },
+    {
+      "title": "AI-Driven Reproducibility and Analytical Robustness in Scientific Discovery (16 Oct 2026)",
+      "kind": "Research preprint, no acceptance claimed",
+      "note": "Authors report claim-level SEER medical research reproduction (2,190 atomic claims) and alternative analytical robustness tests. Overlaps CC08 generic atomic-claim replay.",
+      "url": "https://arxiv.org/abs/2610.23845"
+    },
+    {
+      "title": "CC08 prior-art and formal-source trust-boundary audit (27 Oct 2026)",
+      "kind": "Public-safe source inventory plus literature review; not independent proof checking",
+      "note": "Reviewed FIRE-Bench, Artisan, SEER-Repro; inspected 41+7 pinned Lean modules by directory listing, root imports and verification source. No Lean compilation, all-proof scan, or scientific correctness verified.",
+      "url": "https://github.com/nilansa/nilansa.github.io/blob/main/cs-conf/audits/cc08-prior-art-boundary-2026-10-27.md"
     }
   ],
   "closed": [
