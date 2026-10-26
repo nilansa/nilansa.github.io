@@ -3,7 +3,7 @@
   "taskId": "20261026-csconf-research",
   "createdAt": "2026-10-26T13:51:12.349Z",
   "checkedAt": "2026-10-26",
-  "editorialNote": "Public, non-confidential scouting index. All branches are hypotheses, not tested research results. Deadlines without verified organizer evidence are not invented.",
+  "editorialNote": "Public, non-confidential scouting index. All branches are hypotheses, not tested research results. Deadlines without verified organizer evidence are not invented. First prior-art audit pivots CC-01 away from rediscovering PDI-Bench rigidity and flags CC-10 robotics prior art; no tests executed.",
   "deadlines": [
     {
       "date": "2026-10-30",
@@ -566,19 +566,33 @@
   "branches": [
     {
       "id": "CC-01",
-      "title": "Rigid-object geometry in generated video",
+      "title": "When does video 3D consistency predict downstream failure?",
       "area": "Vision / world models",
       "venues": [
         "CVPR",
         "RSS"
       ],
       "cost": "medium",
-      "stage": "hypothesis only",
-      "question": "Can a shape-sensitive score detect rigid objects that subtly change geometry while the camera moves?",
-      "novelty": "A detector that mistakes camera motion, occlusion or lighting changes for deformation is not valid.",
-      "pilot": "Render 20 known rigid 3D objects under controlled camera motion; introduce graded deformation; compare to MEt3R, temporal image similarity and human labels.",
-      "stop": "If it cannot distinguish deformation from viewpoint change on controlled scenes, stop.",
-      "source": "https://openaccess.thecvf.com/content/CVPR2025/html/Asim_MET3R_Measuring_Multi-View_Consistency_in_Generated_Images_CVPR_2025_paper.html"
+      "stage": "literature conflict: metric novelty blocked; pivot under audit",
+      "question": "Do geometry-specific failures in generated video predict downstream task errors after matching perceptual quality and camera motion?",
+      "novelty": "MEt3R (CVPR 2025) compares multi-view consistency; PDI-Bench (2026) already measures object rigidity and motion in generated video; PAIWorld (2026) studies robotic multi-view geometry. A generic rigidity metric alone is NOT a new contribution. Seek a causal downstream link or a falsifiable limitation of existing scores.",
+      "pilot": "Use an existing geometry-labeled benchmark or render 20 rigid scenes. Apply controlled object deformation at fixed camera trajectory and quality, then test whether PDI/MEt3R scores and a simple planner change in a monotone way. No video generator training.",
+      "stop": "Stop if the effect is already established by prior downstream planning studies, or if planner failure cannot be attributed to geometry rather than realism.",
+      "source": "https://openaccess.thecvf.com/content/CVPR2025/html/Asim_MET3R_Measuring_Multi-View_Consistency_in_Generated_Images_CVPR_2025_paper.html",
+      "closestPriorArt": [
+        {
+          "title": "MEt3R: Measuring Multi-View Consistency in Generated Images",
+          "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Asim_MET3R_Measuring_Multi-View_Consistency_in_Generated_Images_CVPR_2025_paper.html"
+        },
+        {
+          "title": "PDI-Bench: Quantitative Video World Model Evaluation for Geometric-Consistency",
+          "url": "https://arxiv.org/abs/2605.15185"
+        },
+        {
+          "title": "PAIWorld",
+          "url": "https://arxiv.org/abs/2606.18375"
+        }
+      ]
     },
     {
       "id": "CC-02",
@@ -590,12 +604,26 @@
         "COLT"
       ],
       "cost": "low",
-      "stage": "hypothesis only",
+      "stage": "literature audit active; zero-GPU control designed",
       "question": "Does an adaptive mask reveal information about hidden tokens, even when the predictor never sees those tokens?",
-      "novelty": "Adaptive masking and information leakage already have literature; prove a distinct setting.",
-      "pilot": "Train a mask-only probe on a toy image dataset; compare independent masks, content-dependent masks and shuffled masks at equal ratios.",
-      "stop": "If an independent-mask control predicts equally well or novelty fails, retire or narrow.",
-      "source": "https://arxiv.org/search/?query=adaptive+masking+information+leakage&searchtype=all"
+      "novelty": "Adaptive masking has established ECCV 2024/TPAMI 2025 work, and masking information leakage is discussed in surveys. Do not claim adaptive masking is itself novel. The narrower possible gap is whether the binary mask is an unintended information channel about the unobserved content, separately from visible-token redundancy; this requires direct prior-art audit.",
+      "pilot": "Generate a toy binary image where the target bit is hidden. Compare target-bit prediction from (A) mask indices only, (B) visible pixels only, (C) both and (D) class-blind shuffled mask indices. Match the number of visible tokens. Estimate conditional mutual information using empirical counts before any neural model.",
+      "stop": "Retire or narrow if the mask predicts nothing beyond visible content, or the exact information-channel mechanism is previously published.",
+      "source": "https://arxiv.org/search/?query=adaptive+masking+information+leakage&searchtype=all",
+      "closestPriorArt": [
+        {
+          "title": "Salience-Based Adaptive Masking (ECCV 2024)",
+          "url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/10063.pdf"
+        },
+        {
+          "title": "Evolved Hierarchical Masking (IEEE TPAMI 2025)",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/39495697/"
+        },
+        {
+          "title": "Masked Image Modeling: A Survey (IJCV 2025)",
+          "url": "https://doi.org/10.1007/s11263-025-02524-1"
+        }
+      ]
     },
     {
       "id": "CC-03",
@@ -715,7 +743,7 @@
     },
     {
       "id": "CC-10",
-      "title": "Physical simulator tests for generated video planning",
+      "title": "Causal study of generated-video geometry errors in robot planning",
       "area": "Robotics / world models",
       "venues": [
         "RSS",
@@ -723,12 +751,30 @@
         "ICRA"
       ],
       "cost": "medium",
-      "stage": "hypothesis only",
-      "question": "When does inconsistency in an imagined video produce invalid robot-planning decisions?",
-      "novelty": "Visual realism is not equal to downstream planning success; identify the causal link.",
-      "pilot": "Use a small grid/rigid-object simulator, perturb a generated roll-out while holding goals fixed, and score plan feasibility plus collision rate.",
-      "stop": "If image scores do not predict planning errors, report the counterexample.",
-      "source": "https://roboticsconference.org/information/cfp/"
+      "stage": "novelty audit active; candidate RSS extended abstract",
+      "question": "For a fixed robot planner and task, which kinds and severity of generated-video geometry faults actually change plan feasibility, rather than only visual similarity?",
+      "novelty": "PAIWorld, DepthWorld, RBench and PDI-Bench already connect robotic video consistency, geometry or planning. A simple geometry-versus-success correlation is likely insufficient. Need a distinct controlled intervention where visual quality, task, camera and policy are held fixed.",
+      "pilot": "Simulate two tabletop tasks with one rigid moving object and known ground-truth trajectories; make graded edits to geometry while preserving semantic action labels. Test planning collision/feasibility against a frozen planner and quality-matched unedited controls. First test 2D grid cases before 3D simulation.",
+      "stop": "Retire if the causal experiment duplicates a strong prior paper or the controlled result disappears with identical frozen policy.",
+      "source": "https://roboticsconference.org/information/cfp/",
+      "closestPriorArt": [
+        {
+          "title": "PAIWorld",
+          "url": "https://arxiv.org/abs/2606.18375"
+        },
+        {
+          "title": "DepthWorld",
+          "url": "https://arxiv.org/abs/2610.08780"
+        },
+        {
+          "title": "RBench",
+          "url": "https://arxiv.org/abs/2601.15282"
+        },
+        {
+          "title": "PDI-Bench",
+          "url": "https://arxiv.org/abs/2605.15185"
+        }
+      ]
     },
     {
       "id": "CC-11",
@@ -888,5 +934,6 @@
     "UAI 2027",
     "ISIT 2027",
     "COSYNE 2027"
-  ]
+  ],
+  "lastLiteratureAudit": "2026-10-26"
 }
