@@ -3,8 +3,17 @@
   "taskId": "20261026-csconf-research",
   "createdAt": "2026-10-26T13:51:12.349Z",
   "checkedAt": "2026-10-26",
-  "editorialNote": "Public research snapshot, 2026-10-26 IST: MIDL 2027 full-paper abstract/full deadlines added; CC-02 invalid conditional-information metric corrected; CC-04 fixed-total-budget complete-link retrieval defined; CC-06 generic boundary-selection novelty downgraded; CC-10 planner-margin test refined; CC-12 biomedical intervention re-scoped. All are proposed experiments; no new compute or paper submission.",
+  "editorialNote": "Oct 26 follow-on audit: CC-04 narrowed against QASP, Progressive ER, SPER, BEACON; complete-link global-budget calibration remains unproven. CC-11 elementary formulation separated from publishable theory. CC-08 updated for evidence that adaptive agent search may generalize; scientific idea diversity under audit. CHIIR Oct 29 short paper and AI policy added. ICASSP 2027 main full-paper submission already closed Sep 23 (official). No GPU/CPU tests or submissions.",
   "deadlines": [
+    {
+      "date": "2026-10-29",
+      "venue": "CHIIR 2027",
+      "action": "Short, demo/design, resource and industry paper tracks (check individual CFPs)",
+      "area": "Interactive IR / user studies",
+      "time": "11:59 PM AoE; short paper 4 pages, no abstract preregistration; in-person presentation; verify ACM OA payment",
+      "source": "https://chiir2027.github.io/short-papers.html",
+      "status": "confirmed"
+    },
     {
       "date": "2026-10-30",
       "venue": "AR-RSI 2026 workshop",
@@ -722,11 +731,11 @@
         "PAKDD (human-led only)"
       ],
       "cost": "low-medium",
-      "stage": "known diversity/blocking precedent; fixed-total-budget allocation test specified; no new experiments",
-      "question": "Can uncertainty-aware retrieval increase complete-link recall without inflating candidate lists?",
-      "novelty": "DeepBlocker (PVLDB 2021) already provides learned blocking and candidate retrieval. Entity Resolution in Practice (2026) explicitly recommends diverse retrieval routes to improve recall. A mere ensemble of name, address and transliteration routes is not novel. Candidate contribution is complete-link recall under a global candidate budget, with calibration and per-query adaptive caps; still requires prior-art audit.",
-      "pilot": "Cache candidate rankings from existing blocking routes. On a disjoint development split learn a low-complexity uncertainty score for each query (e.g. score gap, route disagreement, missing address, script). At fixed TOTAL candidate count B, compare uniform K, random K allocation, and uncertainty-allocated K_i, with source partitioning and identical ranking cost. Lock an untouched stratified test set and 3 random seeds; report fraction of queries with every true link retrieved, pair recall, mean and p95/p99 candidates per query, and total CPU latency. Reuse cached ranks first: low CPU cost; do not reuse the already-tuned development subset as an independent test.",
-      "stop": "Retire adaptive-budget advantage if it does not beat uniform/random allocations at identical total candidates and runtime on untouched multi-link cases, or if closest work already evaluates identical complete-link and budget objective.",
+      "stage": "strong 2025-26 budgeted and query-adaptive overlap; all-links global-budget objective proposed; zero runs",
+      "question": "For source entities with multiple true target links, can calibrated estimates of the maximum true-match retrieval rank allocate a fixed global comparison budget to improve complete-link coverage against strong progressive and query-adaptive baselines?",
+      "novelty": "Budget scheduling itself is not new: Progressive Entity Resolution (2025) and CIKM 2026 SPER schedule under finite comparisons; QASP (Jul 2026) learns per-query recall curves to tune search effort. BEACON (SIGMOD 2026) has a different annotation-budget objective. Candidate gap, NOT validated novelty: global budget across many source queries with probability of retrieving ALL true links per source, explicit zero-link handling, robust calibration/fairness and matcher time. A textbook multiple-choice knapsack formulation alone is not publishable.",
+      "pilot": "Define T_i=max rank of all known true targets for positive query i (T_i=infinity if ranking omits a known positive); F_i(k)=Pr(T_i<=k | query features). Choose nonnegative K_i to maximize sum_i F_i(K_i), subject to sum_i K_i<=B, comparing optimal oracle (test upper bound only), uniform K, random allocation, confidence-gap heuristic, QASP-inspired predicted pair-recall curves, progressive-ER scheduler, and calibrated max-rank curve. Lock untouched multi-link test and dev/test split; evaluate complete-link coverage, pair recall, group recall by multiplicity/address/script, matcher and ranking wall time incl prediction overhead, p95/p99 candidate caps. Exclude zero-link queries from positive-query coverage or report separately, since vacuous completion would inflate it. Initial work cached-rank CPU, not a new compute run. Stop if full-link improvement disappears at matched actual CPU time or established method covers the same objective.",
+      "stop": "Retire novelty if calibrated max-rank scheduling fails to beat QASP-style query-adaptive and progressive-ER schedulers on untouched multi-link queries under the same retrieval+prediction+matcher time and total candidate budget, or closest papers already optimize identical complete-link objective.",
       "source": "https://sigir2027.org/pages/submit-full.html",
       "closestPriorArt": [
         {
@@ -740,6 +749,22 @@
         {
           "title": "Heterogeneity in Entity Matching: A Survey (2026)",
           "url": "https://www.sciencedirect.com/science/article/pii/S0169023X26000224"
+        },
+        {
+          "title": "QASP: Query-Adaptive Robust Vector Search Policy (2026)",
+          "url": "https://arxiv.org/abs/2607.29606"
+        },
+        {
+          "title": "Progressive Entity Resolution: A Design Space Exploration (2025)",
+          "url": "https://arxiv.org/abs/2503.08298"
+        },
+        {
+          "title": "SPER: Accelerating Progressive Entity Resolution via Stochastic Bipartite Maximization (CIKM 2026)",
+          "url": "https://doi.org/10.1145/3799682.3840729"
+        },
+        {
+          "title": "BEACON: Budget-Aware Entity Matching Across Domains (SIGMOD 2026; annotation budget)",
+          "url": "https://arxiv.org/abs/2603.11391"
         }
       ]
     },
@@ -820,10 +845,10 @@
         "agent workshops"
       ],
       "cost": "low-medium",
-      "stage": "execution-vs-correctness overlap found; test harness defined",
+      "stage": "agent evaluation overlap widened; replication failure not assumed; no runs",
       "question": "Can a constrained research agent make real improvements under withheld tests and a counted human-intervention budget?",
-      "novelty": "CausalVerify (Sep 2026) already shows that executing end-to-end AI-written scientific workflows does not establish numerical correctness. Autoresearch already automates bounded model training. A new 'agents can write and execute papers' result is NOT novel. Distinct possible result: audit adaptive experiment selection under a frozen wall-clock budget using held-out seeds and independent replication.",
-      "pilot": "One public small-model autoresearch task and a fixed baseline; hold out three pre-registered seeds never used for edit selection. Record every attempted edit, failed run, wall-clock and compute budget, selected winner on development split, and unbiased held-out performance. Compare best-of-N selected updates with fixed random-search updates and an untouched human baseline. This is a protocol only; no runs have occurred.",
+      "novelty": "Autoresearch, CausalVerify, and ICML 2026 DeepAnalyze already cover agentic data research. Bertran/Roth/Wu (2026) finds many agent-found methods generalize despite adaptive search, and deliberate overfitting fails independent reproduction. Tang/Yang (2026) finds AI agents' scientific ideas concentrate near seed literature. The gap must measure WHEN reproducibility and idea diversity break, not assume all agent experiments are invalid or that idea proliferation adds novelty.",
+      "pilot": "Choose a public constrained agent research task; preregister holdout seeds and data before agent search. Compare short description-only reproduction, code-replay reproduction, and unchanged baseline at equal wall-clock/compute/API-call budget. Include deliberate overfit positive control and quantify topic/idea diversity against citation-based nearest-neighbor baselines. Split any exploratory versus confirmatory tests. No task executed.",
       "stop": "If full accounting removes the apparent improvement or a published agent-audit benchmark already tests the same selection-bias protocol, pivot to a reproducibility report rather than a novelty claim.",
       "source": "https://github.com/karpathy/autoresearch",
       "closestPriorArt": [
@@ -834,6 +859,18 @@
         {
           "title": "Karpathy autoresearch",
           "url": "https://github.com/karpathy/autoresearch"
+        },
+        {
+          "title": "What Fits (Into Few Tokens) Doesn't Overfit (2026)",
+          "url": "https://arxiv.org/abs/2606.11045"
+        },
+        {
+          "title": "AI Research Agents Narrow Scientific Exploration (2026)",
+          "url": "https://arxiv.org/abs/2605.27905"
+        },
+        {
+          "title": "DeepAnalyze: Agentic LLMs for Autonomous Data Science (ICML 2026)",
+          "url": "https://proceedings.mlr.press/v306/zhang26aq.html"
         }
       ]
     },
@@ -915,10 +952,10 @@
         "PAKDD (human-led only)"
       ],
       "cost": "low",
-      "stage": "hypothesis only",
-      "question": "Which simple assumptions guarantee a recall-cost bound for multi-route retrieval or adaptive sampling?",
-      "novelty": "A theorem needs nontrivial assumptions, an actual proof and numerical checks.",
-      "pilot": "State a two-route probabilistic model; derive a bound; brute-force check small instances and construct counterexamples.",
+      "stage": "elementary exact formulation defined (not novel); identify nontrivial restricted theorem or abandon theory claim",
+      "question": "Under what realistic constraints on calibration error, fairness or retrieval costs can a complete-link global-budget allocation guarantee robust coverage?",
+      "novelty": "The standard deterministic all-link allocation problem reduces to choosing per-query ranks under a total budget (multiple-choice knapsack or threshold-cost selection); this alone is a known optimization structure, not an original theorem. Seek a genuine robustness or calibration result, and compare established budgeted ranking/scheduling literature.",
+      "pilot": "Derive max-rank completion score F_i(k), show by a six-true-link counterexample that pair recall and complete-link coverage select different allocations: A has positives at ranks 1-4; B and C each have their only positive at rank 2; budget 4 gives A:4/B:0/C:0 => 4/6 pairs, 1/3 complete vs A:0/B:2/C:2 => 2/6 pairs, 2/3 complete. This is an analytic example only. Implement exhaustive small-instance verifier only if a runnable environment is available, then check calibration-error stability and counterexamples.",
       "stop": "If bound is vacuous under realistic distributions, retire.",
       "source": "https://learningtheory.org/colt2027/"
     },
@@ -1013,6 +1050,12 @@
       "rule": "Substantive LLM-generated technical content must be disclosed; editing, literature search, and code assistance alone do not require disclosure. Eight main-track submissions maximum per author; no placeholder abstract; potential ACM open-access APC.",
       "source": "https://iscaconf.org/isca2027/submit/callforpapers.php",
       "flag": "disclose substantive AI; 8-paper cap"
+    },
+    {
+      "venue": "CHIIR 2027",
+      "rule": "AI writing assistance does not require disclosure under venue policy; AI-assisted research does require careful disclosure. Authors must make substantial intellectual contributions and remain accountable. Research-quality, anonymity and ACM OA/APC constraints apply.",
+      "source": "https://chiir2027.github.io/generative-ai-policy.html",
+      "flag": "AI research disclosure; author contribution and APC check"
     }
   ],
   "examples": [
@@ -1101,5 +1144,5 @@
     "UAI 2027",
     "ISIT 2027"
   ],
-  "lastLiteratureAudit": "2026-10-26"
+  "lastLiteratureAudit": "2026-10-26 (QASP/progressive-ER and agent-replication overlap)"
 }
