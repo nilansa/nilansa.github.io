@@ -3,7 +3,7 @@
   "taskId": "20261026-csconf-research",
   "createdAt": "2026-10-26T13:51:12.349Z",
   "checkedAt": "2026-10-26",
-  "editorialNote": "Public research snapshot (2026-10-26, IST). This revision: official CVPR 2027 LLM policy and reciprocal-reviewer quota checked; ISCA 2027 main/industry deadlines added; CC-02 informative missingness, CC-08 execution-audit, and CC-10 action-ranking regret narrowed against prior art. No GPU experiments conducted; no result or paper acceptance implied.",
+  "editorialNote": "Public research snapshot, 2026-10-26 IST: MIDL 2027 full-paper abstract/full deadlines added; CC-02 invalid conditional-information metric corrected; CC-04 fixed-total-budget complete-link retrieval defined; CC-06 generic boundary-selection novelty downgraded; CC-10 planner-margin test refined; CC-12 biomedical intervention re-scoped. All are proposed experiments; no new compute or paper submission.",
   "deadlines": [
     {
       "date": "2026-10-30",
@@ -84,6 +84,24 @@
       "area": "Data mining",
       "time": "11:59 PM AoE; restrictive AI-use policy",
       "source": "https://www.pakdd2027.org/pages/dates",
+      "status": "confirmed"
+    },
+    {
+      "date": "2026-11-30",
+      "venue": "MIDL 2027",
+      "action": "Full-paper abstract registration",
+      "area": "Biomedical imaging",
+      "time": "23:59 AoE; OpenReview author profiles required",
+      "source": "https://2027.midl.io/important-dates",
+      "status": "confirmed"
+    },
+    {
+      "date": "2026-12-04",
+      "venue": "MIDL 2027",
+      "action": "Full paper (main or Clinical Translation & Validation track)",
+      "area": "Biomedical imaging",
+      "time": "23:59 AoE; short-paper date TBD",
+      "source": "https://2027.midl.io/important-dates",
       "status": "confirmed"
     },
     {
@@ -640,11 +658,11 @@
         "COLT"
       ],
       "cost": "low",
-      "stage": "informed-missingness prior art found; SSL-specific novelty unproven; no GPU required",
-      "question": "Does an adaptive mask reveal information about hidden tokens, even when the predictor never sees those tokens?",
-      "novelty": "A mask pattern can encode properties of hidden content: 'informative missingness' was already studied by GRU-D (Che et al., Scientific Reports 2018). Teacher/student-guided adaptive masking is also established, e.g. AAAI 2025 CMT-MAE. Thus generic 'mask indices leak label information' is NOT novel. Possible narrower question: does content-conditioned mask selection leak reconstruction information beyond visible patches and thereby inflate MIM pretraining metrics? An actual MIM control is required.",
-      "pilot": "Use a balanced toy target Y and mask M, show that 10% mask-bit flip noise yields 1-H2(0.1)=0.531 bits of information (algebraic sanity check only); then audit one public masked-image model with fixed visible-token count, teacher-based vs independent masks, mask-only, visible-only, visible+mask and label-permuted mask probes. Estimate I(Y;M | visible tokens) with held-out estimates. Match token count, mask histogram, and compute. Zero GPU for toy; modest inference for checkpoint.",
-      "stop": "If held-out conditional leakage is negligible once spatial count and visible information are matched, or existing SSL work already studies identical diagnostics, retire the leak claim; consider negative-result methodology instead.",
+      "stage": "formal metric error corrected; position-channel pilot designed; zero experimental runs",
+      "question": "Can a content-dependent adaptive sampler encode hidden-image information through selected patch positions, and does this bias masked-image learning?",
+      "novelty": "CORRECTION: the earlier I(Y; M | V) proposal is identically zero when V includes spatial positions of visible patches, since M is the complement of those positions. This is a definitional problem, NOT negative empirical evidence. Informative missingness (GRU-D), adaptive token selection (AdaMAE) and adaptive masking are established. The only plausible new claim concerns mask-policy-induced shortcut learning under carefully controlled sample selection; no novelty claim yet.",
+      "pilot": "Define S=visible position set, B=values of visible patches without their indices, and T=(S,B) as actual encoder input. Compare position-only S probe, content-only B probe, and S+B probe on a balanced synthetic dataset engineered so visible patch values are identical across labels while the adaptive policy uses unseen context to select blank positions. Compare fixed/random masks and a selector with no access to hidden context; hold count, grid, split and compute fixed. Then test whether a public MAE checkpoint's advantage survives masking-policy swaps and held-out inputs. Report I(Y;S|B) ONLY with B explicitly excluding position indices, not the invalid I(Y;M|T). This sanity example is not evidence of publication novelty. Toy CPU; actual pretrained model small GPU if needed.",
+      "stop": "If the position-only control does not carry repeatable information on held-out inputs, or the shortcut has no measurable representation/downstream effect after policy controls, retire the performance-inflation claim. Review direct prior art before submitting.",
       "source": "https://arxiv.org/search/?query=adaptive+masking+information+leakage&searchtype=all",
       "closestPriorArt": [
         {
@@ -666,6 +684,14 @@
         {
           "title": "CMT-MAE: Collaborative Masking and Targets (AAAI 2025)",
           "url": "https://ojs.aaai.org/index.php/AAAI/article/view/34145"
+        },
+        {
+          "title": "AdaMAE: adaptive visible-token sampling",
+          "url": "https://arxiv.org/abs/2211.09120"
+        },
+        {
+          "title": "Masked Autoencoders Are Scalable Vision Learners (CVPR 2022)",
+          "url": "https://arxiv.org/abs/2111.06377"
         }
       ]
     },
@@ -696,12 +722,26 @@
         "PAKDD (human-led only)"
       ],
       "cost": "low-medium",
-      "stage": "hypothesis only",
+      "stage": "known diversity/blocking precedent; fixed-total-budget allocation test specified; no new experiments",
       "question": "Can uncertainty-aware retrieval increase complete-link recall without inflating candidate lists?",
-      "novelty": "Blocking, multi-view retrieval and multilingual embeddings are mature; must show novel cost/recall trade-off.",
-      "pilot": "Use a frozen untouched stratified holdout; compare exact blocks, char n-grams, transliteration, adaptive caps and reverse retrieval at identical average candidate budget.",
-      "stop": "If pair recall improves but complete-link recall and cost do not, downgrade.",
-      "source": "https://sigir2027.org/pages/submit-full.html"
+      "novelty": "DeepBlocker (PVLDB 2021) already provides learned blocking and candidate retrieval. Entity Resolution in Practice (2026) explicitly recommends diverse retrieval routes to improve recall. A mere ensemble of name, address and transliteration routes is not novel. Candidate contribution is complete-link recall under a global candidate budget, with calibration and per-query adaptive caps; still requires prior-art audit.",
+      "pilot": "Cache candidate rankings from existing blocking routes. On a disjoint development split learn a low-complexity uncertainty score for each query (e.g. score gap, route disagreement, missing address, script). At fixed TOTAL candidate count B, compare uniform K, random K allocation, and uncertainty-allocated K_i, with source partitioning and identical ranking cost. Lock an untouched stratified test set and 3 random seeds; report fraction of queries with every true link retrieved, pair recall, mean and p95/p99 candidates per query, and total CPU latency. Reuse cached ranks first: low CPU cost; do not reuse the already-tuned development subset as an independent test.",
+      "stop": "Retire adaptive-budget advantage if it does not beat uniform/random allocations at identical total candidates and runtime on untouched multi-link cases, or if closest work already evaluates identical complete-link and budget objective.",
+      "source": "https://sigir2027.org/pages/submit-full.html",
+      "closestPriorArt": [
+        {
+          "title": "DeepBlocker (PVLDB 2021)",
+          "url": "https://github.com/qcri/DeepBlocker"
+        },
+        {
+          "title": "Entity Resolution in Practice: Lessons from a Self-Serve Pipeline (2026)",
+          "url": "https://arxiv.org/abs/2607.26298"
+        },
+        {
+          "title": "Heterogeneity in Entity Matching: A Survey (2026)",
+          "url": "https://www.sciencedirect.com/science/article/pii/S0169023X26000224"
+        }
+      ]
     },
     {
       "id": "CC-05",
@@ -730,12 +770,30 @@
         "ACL"
       ],
       "cost": "low-medium",
-      "stage": "hypothesis only",
+      "stage": "generic event/boundary sampling heavily covered; downstream marginal-utility audit only; no new runs",
       "question": "Can detected event boundaries improve temporal retrieval or question answering at equal frame budget?",
-      "novelty": "Boundary F1 alone cannot establish downstream usefulness.",
-      "pilot": "Compare ground-truth boundaries, predicted boundaries, uniform frames and random frames with the same total frames and fixed downstream model.",
-      "stop": "If gains disappear under matched budget or on untouched videos, stop.",
-      "source": "https://cvpr.thecvf.com/Conferences/2027/CallForPapers"
+      "novelty": "Boundary-guided frame sampling predates this work (BMVC 2021), and long-video QA methods already curate query/event-relevant frames at fixed token budgets (Ground, Cover, and Refine 2026; MemoryCard 2026). Claiming first boundary-based QA sampling would be false. Narrower question: whether VIDEO-GENERIC GEBD boundaries, without text/query conditioning, have incremental QA value over equally dense semantic-event and query-aware selectors, and at what noise scale.",
+      "pilot": "Fixed 16/32-frame budgets, one frozen video QA model. Compare uniform, random, GEBD oracle, predicted GEBD, semantically selected events, and matched query-aware selector. Lock all question annotations and timestamp window, report temporal-relation vs object-identity QA separately plus frame-selection oracle gap and detector cost. First run a small diagnostic on available annotated clips, then require a disjoint larger public set before a paper claim.",
+      "stop": "Stop generic boundary-as-sampler idea if it offers no gain beyond matched semantic/query-aware selectors on unseen videos or only oracle GT boundaries help.",
+      "source": "https://cvpr.thecvf.com/Conferences/2027/CallForPapers",
+      "closestPriorArt": [
+        {
+          "title": "Temporal Alignment via Event Boundary for Few-shot Action Recognition (BMVC 2021)",
+          "url": "https://www.bmva-archive.org.uk/bmvc/2021/assets/papers/0878.pdf"
+        },
+        {
+          "title": "Ground, Cover, and Refine: Evidence-Centric Frame Selection for Long-Video QA (2026)",
+          "url": "https://arxiv.org/abs/2608.01660"
+        },
+        {
+          "title": "MemoryCard: Topic-Aware Multi-Modal Clue Compression (2026)",
+          "url": "https://arxiv.org/abs/2606.05917"
+        },
+        {
+          "title": "Semantic Event Graphs for Long-Form Video QA (2026)",
+          "url": "https://arxiv.org/abs/2601.06097"
+        }
+      ]
     },
     {
       "id": "CC-07",
@@ -805,10 +863,10 @@
         "ICRA"
       ],
       "cost": "medium",
-      "stage": "high prior-art overlap; only action-ranking-regret question retained; pilot gate",
+      "stage": "geometry-to-action question remains speculative; controller margin now an explicit stratification; zero runs",
       "question": "For a fixed robot planner and task, which kinds and severity of generated-video geometry faults actually change plan feasibility, rather than only visual similarity?",
-      "novelty": "What-If World (2026) already benchmarks paired physical interventions in generated driving/manipulation videos, but explicitly leaves downstream utility unmeasured. CausalNav (Aug 2026) reports that structural world-model fidelity need not predict control benefit. ExecutionBridge (Oct 2026) studies a frozen planner under controller-induced execution shift. A general 'causal videos for planning' claim is NOT novel. Candidate: isolate exactly when rigid-object 3D geometry errors flip a frozen planner's action ranking, with matched visual corruption and oracle state controls.",
-      "pilot": "Start with a reproducible 2D tabletop/grid setup: 2 obstacle configurations × 3 distortion strengths × 3 independent seeds (18 paired scenarios), fixed initial scene, camera, goals, planner, scoring and proposals. Geometric edits must not alter task truth. Compare action-ranking flips, collisions, margin to next-best action, PDI/MEt3R-type score, and appearance-matched non-geometric corruptions. Positive evidence must replicate on withheld scenes before any 3D claims. This is a PROPOSED design; zero runs.",
+      "novelty": "What-If World (2026) already benchmarks paired physical interventions in generated driving/manipulation videos, but explicitly leaves downstream utility unmeasured. CausalNav (Aug 2026) reports that structural world-model fidelity need not predict control benefit. ExecutionBridge (Oct 2026) studies a frozen planner under controller-induced execution shift. A general 'causal videos for planning' claim is NOT novel. Candidate: isolate exactly when rigid-object 3D geometry errors flip a frozen planner's action ranking, with matched visual corruption and oracle state controls. Geometric Action Model (2026) explicitly couples geometry to robotic actions, so geometry/action relevance itself is not a novel claim. Retain a narrowly calibrated geometry-fault intervention and matched planner-margin analysis, not a new generic geometry score.",
+      "pilot": "Start with a reproducible 2D tabletop/grid setup: 2 obstacle configurations × 3 distortion strengths × 3 independent seeds (18 paired scenarios), fixed initial scene, camera, goals, planner, scoring and proposals. Geometric edits must not alter task truth. Compare action-ranking flips, collisions, margin to next-best action, PDI/MEt3R-type score, and appearance-matched non-geometric corruptions. Positive evidence must replicate on withheld scenes before any 3D claims. This is a PROPOSED design; zero runs. Before running, predefine the unperturbed best-vs-second-best planner cost margin delta. Stratify clearance-margin regimes; compare geometry-fault effect to noise with similar image/perceptual change. Report absolute action regret with ground-truth planner costs, not only a flip count. One failure in 18 toy scenarios is illustrative, not publishable; extend to independent 3D scenes if pilot passes.",
       "stop": "If 2026 prior work already tests geometry-specific action-ranking regret under frozen policies, or distortion effects disappear after matching appearance and oracle state, retire/pivot. No RSS abstract without a genuinely distinct mechanism and controlled pilot.",
       "source": "https://roboticsconference.org/information/cfp/",
       "closestPriorArt": [
@@ -839,6 +897,10 @@
         {
           "title": "Plans Are Not Executions: frozen planners and execution shift (Oct 2026)",
           "url": "https://arxiv.org/abs/2610.22041"
+        },
+        {
+          "title": "Geometric Action Model for Robot Policy Learning (2026)",
+          "url": "https://arxiv.org/abs/2606.17046"
         }
       ]
     },
@@ -870,12 +932,26 @@
         "ISBI"
       ],
       "cost": "low-medium",
-      "stage": "hypothesis only",
-      "question": "Do geometry metrics fail in predictable ways on microscopic synthetic sequences with no real paired view?",
-      "novelty": "Biomedical evaluation needs meaningful validated controls, not clinical claims.",
-      "pilot": "Use public synthetic cell-like renderings with controllable deformations and illumination; compare geometric and perceptual consistency metrics.",
-      "stop": "If results do not transfer beyond toy images, retain as a methods note only.",
-      "source": "https://miccai.org/upcoming-conferences/"
+      "stage": "new MIDL 2027 deadline; biologically valid topology/lineage controls required; no pilot run",
+      "question": "Do synthetic microscopy video quality scores predict cell-count, division-lineage, and tracking failures under matched appearance changes?",
+      "novelty": "2025 microscopy video diffusion work already evaluates morphology, proliferation and migration in generated cell videos; Cell Tracking Challenge provides established tracking metrics. A generic 'biological geometry consistency' score would overlap existing evaluations. Need test whether visual/video metrics can miss biologically material lineage/topology errors, with licensed public data and explicit nonclinical scope.",
+      "pilot": "Choose released Cell Tracking Challenge time-lapse sequences with labels. Construct matched editing pairs: one changes only brightness/texture, one inserts a division, disappearance, or impossible identity switch at controlled severity. Blind labels and compare 2-3 published image/video quality scores with cell count, division-timing, lineage and tracking metrics on held-out sequences. First test without training (CPU image edits and existing segmentation/tracking checkpoints). No clinical outcome claims without external validation.",
+      "stop": "Do not target MIDL main/full clinical track if only toy cells, no image-grounded biologically valid intervention, or effects already captured by existing cell-tracking evaluation; use a reproducibility/method note when appropriate.",
+      "source": "https://2027.midl.io/important-dates",
+      "closestPriorArt": [
+        {
+          "title": "Adapting Video Diffusion Models for Time-Lapse Microscopy (2025)",
+          "url": "https://arxiv.org/abs/2503.18583"
+        },
+        {
+          "title": "The Cell Tracking Challenge: 10 years of objective benchmarking (2023)",
+          "url": "https://www.nature.com/articles/s41592-023-01879-y"
+        },
+        {
+          "title": "Cell Behavior Video Classification Challenge (2026)",
+          "url": "https://arxiv.org/abs/2601.10250"
+        }
+      ]
     },
     {
       "id": "CC-13",
@@ -1011,7 +1087,8 @@
     "ICLR 2027 (Sep 18 / Sep 25 2026)",
     "AISTATS 2027 (Sep 29 / Oct 6 2026)",
     "ICRA 2027 (Sep 2026)",
-    "ICASSP 2027 (Sep 23 2026)"
+    "ICASSP 2027 (Sep 23 2026)",
+    "COSYNE 2027 abstract (October 18, 2026)"
   ],
   "watch": [
     "ICML 2027",
@@ -1022,8 +1099,7 @@
     "MIDL 2027",
     "CoRL 2027",
     "UAI 2027",
-    "ISIT 2027",
-    "COSYNE 2027"
+    "ISIT 2027"
   ],
   "lastLiteratureAudit": "2026-10-26"
 }
