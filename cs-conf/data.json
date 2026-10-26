@@ -3,7 +3,7 @@
   "taskId": "20261026-csconf-research",
   "createdAt": "2026-10-26T13:51:12.349Z",
   "checkedAt": "2026-10-27",
-  "editorialNote": "Oct 27 ninth audit: CC08 major novelty correction from peer-reviewed FIRE-Bench (ICML 2026), Artisan (ASE 2026), SEER-Repro and SciRIGOR preprints; narrowed to independent formal/artifact-to-claim trust-boundary tests. Checked pinned M1 41+7 module inventory/root imports and source-level axiom auditor, NOT Lean replay. Official HEARTBEAT homepage GitHub has no externally linked data/scorer despite advertised Oct20 release; no portal inference. Added official PLDI Nov12 and IEEE S&P Nov10/17 deadlines and AI rules. No GPU, real dataset, Lean compile, registration or submission.",
+  "editorialNote": "27 Oct tenth audit: CC08 deterministic 12-ENTRY (not 12-claim) sample locked prospectively by status and SHA256 before selected content inspection; M2 claim/source map and author-reported Lean checks located, source manifest predates documented edits, no independent Lean or theorem correctness check. Beyond Compilation (arxiv:2606.31002) blocks novelty claims about compilation-versus-semantics alone. CC15 When2Speak blocks generic speak/silent novelty. Rechecked MLSys Oct30, CVPR Nov10/16, RSS Dec4; no submission.",
   "deadlines": [
     {
       "date": "2026-10-27",
@@ -989,11 +989,11 @@
         "FAccT (only if responsible AI/accountability dimension is central)"
       ],
       "cost": "low-medium",
-      "stage": "PRIOR-ART PIVOT: generic agent scientific rediscovery/reproduction is covered by FIRE-Bench (ICML 2026), Artisan (ASE 2026), SEER-Repro (Oct 2026 preprint), and SciRIGOR (Sep preprint). New narrow trust-boundary protocol identified; pinned M1 48-file import inventory and axiom-audit source checked, but NO Lean compilation, independent proof replay, or scientific claim verification. Earlier M1/M3 arithmetic checks remain non-proof pilots.",
-      "question": "In unedited AI-agent research outputs, how often does self-reported proof or experimental-certificate status agree with independently replayed claims, and how much qualified audit time is required to establish statement fidelity and scientific validity?",
-      "novelty": "Major direct prior art: FIRE-Bench (ICML 2026) tests scientific rediscovery, Artisan (ASE 2026) generates independently executable table reproduction scripts, SEER-Repro Oct 2026 preprint reproduces 2,190 medical claims, SciRIGOR Sep preprint tests claim-evidence paths. Do not present generic research-agent reproduction, atomic claim audit or evidence graphs as novel. Residual hypothesis is about provenance mismatch between self-reported formal/experiment status and independent kernel/source/semantic fidelity in unedited agent-produced corpus, measured with auditor time and frozen artifact revisions. This may still overlap further work. Structural Lean inventory count (41 MultilinearGap + 7 CubicGap imported by Formal.lean) and Verify.lean source inspected; upstream reports 827 audited declarations, not independently reproduced.",
-      "pilot": "First preregister deterministic 12-claim sample by proof-backed, empirical and manuscript-only classes in SECQUOIA paper-v1, excluding previously inspected M1 and M3 from unbiased denominator. Freeze claim criteria and SHA before inspection, record artifact URL/hash, stated assumptions, checker dependencies, exact command, source-manifest integrity, independent toolchain outputs, theorem-to-English statement fidelity, human audit time, and claim outcome. Then run the pinned Lean v4.33.1 toolchain only when available through authorized executable environment; do not equate source audit/author logs with an independent compilation. Prior-art and public static source audit: https://github.com/nilansa/nilansa.github.io/blob/main/cs-conf/audits/cc08-prior-art-boundary-2026-10-27.md",
-      "stop": "If the entire proposed audit reduces to existing artifact reproduction, claim-support graphs or model judged scoring, retire independent-paper novelty. If clean replay is blocked, report artifact accessibility/provenance as a methods note without claiming a correctness or failure rate. Any positive effect must be reproduced on an uninspected sample under frozen audit budget.",
+      "stage": "PROSPECTIVE 12-ENTRY PILOT LOCKED: deterministic SHA-256 selection across four upstream Lean-status strata from SECQUOIA paper-v1; sample locked in private issue before opening selected M2 manuscript/proof contents. M2 public sources, claim map and author-reported checks inspected, but no independent compilation or semantic correctness verdict. Generic proof/statement faithfulness already studied by Beyond Compilation (2026).",
+      "question": "For a pinned corpus of unedited research-agent outputs, can an auditor reliably connect self-reported verification, exact source revision, reproducible toolchain evidence and the precise natural-language theorem or empirical claim, and what does that independent audit cost?",
+      "novelty": "FIRE-Bench, Artisan, SEER-Repro and SciRIGOR overlap research replication and claim-to-evidence tracing. Beyond Compilation (arXiv:2606.31002) already quantifies compile-success versus semantic-faithfulness gaps, so that distinction alone is NOT novel. Residual test is full claim-to-artifact revision provenance, independent replay, and human audit cost in authentic unedited agent-generated research with mixed formal and empirical claim types. A 12-entry pilot cannot justify a corpus-wide reliability rate.",
+      "pilot": "PRE-REGISTERED in private CS Conf issue: inventory blob 0c03c238..., exclude previous M1/M3 pilots, 3 deterministic SHA-256 sampled research entries per author-provided Lean status (Done: M15,M2,Q11; Partial: Q10,Q2,Q1; Possible: M22,M19,Q4; N/A: M18,CA2,CA5). For each entry, use first explicit central theorem/claim or first testable note assertion; do not substitute inaccessible cases. Freeze exact bytes, compare E0 author claim/E1 artifact present/E2 reported check/E3 independent pinned replay/E4 semantic fidelity/E5 empirical validity, separately measure time. First selected M2 source shows the upstream delivery manifest predates acknowledged edits; not itself an invalid-proof finding. Full public methodology: https://github.com/nilansa/nilansa.github.io/blob/main/cs-conf/audits/cc08-prospective-sample-2026-10-27.md",
+      "stop": "Stop standalone novelty if a comparison with Beyond Compilation and prior scientific-provenance benchmarks shows no distinct question or if the pilot only repeats repository metadata. If Lean/runtime is unavailable, report accessibility only (no independent pass/fail). No pooled error percentages from heterogeneous 12-entry pilot; extend to blinded larger sample only after feasibility.",
       "source": "https://github.com/karpathy/autoresearch",
       "closestPriorArt": [
         {
@@ -1035,6 +1035,10 @@
         {
           "title": "SciRIGOR: scientific evidence graphs (Sep 2026 preprint)",
           "url": "https://arxiv.org/abs/2609.06192"
+        },
+        {
+          "title": "Beyond Compilation: faithful natural-language to Lean statements (2026 preprint)",
+          "url": "https://arxiv.org/abs/2606.31002"
         }
       ]
     },
@@ -1226,7 +1230,7 @@
       "cost": "low-medium for offline decision pilot; medium for real streaming model",
       "stage": "PROTOCOL VERIFIED, PUBLIC LINK AUDIT BLOCKER: official challenge homepage claims Oct 20 data, scoring tools and baselines released, but current public website source contains only internal anchors, registration form, and contact mailto; NO externally linked dataset/baseline/scorer found there. This does NOT prove private participant portal lacks materials. No registration or benchmark.",
       "question": "Can an explicitly calibrated abstain/wait policy reduce incorrect interruptions without reducing correct on-time responses under strictly causal streaming input?",
-      "novelty": "HEARTBEAT already benchmarks abstention, response initiation and false triggers. A generic 'agents should wait' finding is not new; only improved controlled performance under the released benchmark and a distinct mechanism is useful.",
+      "novelty": "When2Speak (2026) already studies transcript-level SPEAK/SILENT decisions in multi-party dialogue; HEARTBEAT already evaluates embodied audio timing/abstention. Neither a generic wait classifier nor transcript-only improvement is novel. Need a strict causal streaming-audio mechanism, official metrics and matched model/latency controls.",
       "pilot": "First verify official participant-accessible dataset/scorer/baseline and license before any model run; challenge public-site link audit found no dataset link despite Oct20 advertised release, so contact or permitted registered portal may be necessary (do not silently register). Track I OFFLINE: four-way Top-1 classification with group-disjoint holdout, no latency. Track II ONLINE: chronological-only chunks, silence logs, F1/false triggers/latency. Keep tracks separate and freeze resource/license by Nov20; offline final container must use no network. No experiments or enrollment.",
       "stop": "If no gain in false-trigger versus latency frontier on unseen episodes, or if only future-context leakage helps, stop. Final award-eligible containers cannot call remote services; invited papers are not automatic.",
       "source": "https://heartbeat-challenge.github.io/",
@@ -1238,6 +1242,10 @@
         {
           "title": "ICASSP 2027 Grand Challenge master schedule",
           "url": "https://2027.ieeeicassp.org/sp-grand-challenges/"
+        },
+        {
+          "title": "When2Speak: synthetic multi-party speak/silent decisions (2026)",
+          "url": "https://arxiv.org/abs/2605.05626"
         }
       ]
     },
@@ -1476,6 +1484,24 @@
       "kind": "Public-safe source inventory plus literature review; not independent proof checking",
       "note": "Reviewed FIRE-Bench, Artisan, SEER-Repro; inspected 41+7 pinned Lean modules by directory listing, root imports and verification source. No Lean compilation, all-proof scan, or scientific correctness verified.",
       "url": "https://github.com/nilansa/nilansa.github.io/blob/main/cs-conf/audits/cc08-prior-art-boundary-2026-10-27.md"
+    },
+    {
+      "title": "Beyond Compilation: evaluating faithful statement autoformalization (2026)",
+      "kind": "Research preprint (NeurIPS 2026 workshop acceptance reported by associated code repository)",
+      "note": "Shows that Lean type-checking and faithful translation of a natural-language theorem are distinct and measures this gap. CC08 cannot claim semantic-fidelity auditing itself as novel.",
+      "url": "https://arxiv.org/abs/2606.31002"
+    },
+    {
+      "title": "When2Speak: learning when an agent should speak (2026)",
+      "kind": "Research preprint / open dataset",
+      "note": "Already studies speaking versus silence in multi-party text conversations; not equivalent to HEARTBEAT causal streaming-audio timing, but prevents a generic novelty claim.",
+      "url": "https://arxiv.org/abs/2605.05626"
+    },
+    {
+      "title": "CC08 prospective entry sample and source-audit protocol (27 Oct 2026)",
+      "kind": "Predeclared 12 research-entry pilot; no independent theorem verification",
+      "note": "Fixed 12-entry SHA256-stratified sample, identified first selected M2 public source/package scope and upstream historical-hash caveat. No compilation or corpus-level accuracy measured.",
+      "url": "https://github.com/nilansa/nilansa.github.io/blob/main/cs-conf/audits/cc08-prospective-sample-2026-10-27.md"
     }
   ],
   "closed": [
@@ -1496,5 +1522,5 @@
     "UAI 2027",
     "ISIT 2027"
   ],
-  "lastLiteratureAudit": "2026-10-27 eighth audit: MIDL 2027 AI authorship restriction (2027.midl.io/author-instructions); XACLE 2027 official overview and IEEE ICASSP GC8 release calendar, missing verified 2027 model grouping/data URL; XACLE 2026 README schema (XACLE-Challenge/the_first_XACLE_challenge_dataset_train_validation blob 9be4755); SPO-CLAPScore arxiv:2601.02900 and released code, rank6 SRCC .6142; HEARTBEAT challenge site per-track metrics and no-network final container."
+  "lastLiteratureAudit": "2026-10-27 tenth audit: Beyond Compilation (arXiv 2606.31002); When2Speak (arXiv 2605.05626); SECQUOIA/agent-swarm-research paper-v1 README 0c03c238; selected M2 cubic-gap paper README 370e5e44, main.tex 9d0e1b5b, formal/COVERAGE 0529463f, formal/VERIFICATION 16342893. Organizer MLSys, CVPR and RSS current CFPs. Source and protocol: cs-conf/audits/cc08-prospective-sample-2026-10-27.md"
 }
