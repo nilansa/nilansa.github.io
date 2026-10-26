@@ -3,7 +3,7 @@
   "taskId": "20261026-csconf-research",
   "createdAt": "2026-10-26T13:51:12.349Z",
   "checkedAt": "2026-10-27",
-  "editorialNote": "Oct 27 sixth audit: newly verified FAccT 2027 and ISBI 2027 deadlines and venue AI/presentation rules. CC-04 evaluation corrected: allocation operates on ALL queries with estimated positive probability; existing E7/E12 tuning holdout is not independent; unverified complete labels and no accessible rank cache block dataset results. No manuscript, experiment or submission. Direct connected GitHub edits only, no Codex/local transfer.",
+  "editorialNote": "Oct 27 seventh audit: found ICASSP 2027 challenge-based, invitation-dependent two-page paper routes; added CC14 XACLE, CC15 HEARTBEAT, CC16 RMS-AQA with zero-leakage pilots and registration limitations. Verified ICASSP 2026 accepted XACLE system papers; feature ensembles/CLAP pseudo-labels already prior art. CC08 independently recomputed four finite M1 table formulas (all match) and arithmetic-only M3 accounting; no theorem or empirical replay. Published public-safe audit. No GPU benchmark, enrollment, or submission; no Codex/local transfer.",
   "deadlines": [
     {
       "date": "2026-10-27",
@@ -40,6 +40,15 @@
       "time": "12:00 PM PDT (not AoE)",
       "source": "https://mlsys.org/Conferences/2027/Dates",
       "status": "confirmed"
+    },
+    {
+      "date": "2026-11-01",
+      "venue": "ICASSP 2027 EEG-sAAD",
+      "action": "Blind-test phase opens (not a registration deadline)",
+      "area": "Neuroscience / EEG / audio",
+      "time": "23:55 UTC per organizer",
+      "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
+      "status": "confirmed organizer listing; platform must be validated"
     },
     {
       "date": "2026-11-02",
@@ -114,6 +123,24 @@
       "status": "confirmed"
     },
     {
+      "date": "2026-11-19",
+      "venue": "ICASSP 2027 XACLE",
+      "action": "Unseen-generator evaluation data released",
+      "area": "Audio / evaluation",
+      "time": "Organizer does not specify hour",
+      "source": "https://xacle.org/2027/index.html",
+      "status": "confirmed"
+    },
+    {
+      "date": "2026-11-20",
+      "venue": "ICASSP 2027 HEARTBEAT",
+      "action": "Team membership and external-resource declarations frozen",
+      "area": "Audio / agents",
+      "time": "23:59 UTC",
+      "source": "https://heartbeat-challenge.github.io/",
+      "status": "confirmed"
+    },
+    {
       "date": "2026-11-20",
       "venue": "PAKDD 2027",
       "action": "Research / applied / survey / agentic AI paper",
@@ -130,6 +157,24 @@
       "time": "23:59 AoE; OpenReview author profiles required",
       "source": "https://2027.midl.io/important-dates",
       "status": "confirmed"
+    },
+    {
+      "date": "2026-12-01",
+      "venue": "ICASSP 2027 EEG-sAAD",
+      "action": "Hidden evaluation submission deadline; top five invited to two-page papers",
+      "area": "Neuroscience / EEG / audio",
+      "time": "23:55 UTC",
+      "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
+      "status": "confirmed organizer listing; platform must be validated"
+    },
+    {
+      "date": "2026-12-03",
+      "venue": "ICASSP 2027 XACLE",
+      "action": "Scores + YAML system + technical report submission; only leading teams invited later",
+      "area": "Audio / evaluation",
+      "time": "Organizer timezone not explicit, verify",
+      "source": "https://xacle.org/2027/index.html",
+      "status": "confirmed date; verify hour"
     },
     {
       "date": "2026-12-04",
@@ -159,6 +204,24 @@
       "status": "confirmed"
     },
     {
+      "date": "2026-12-10",
+      "venue": "ICASSP 2027 RMS-AQA",
+      "action": "Challenge result submission",
+      "area": "Spatial audio / robotics",
+      "time": "Organizer timezone not explicit, verify",
+      "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
+      "status": "confirmed organizer listing; challenge site to verify"
+    },
+    {
+      "date": "2026-12-11",
+      "venue": "ICASSP 2027 HEARTBEAT",
+      "action": "Final offline OCI container submission",
+      "area": "Audio / agents",
+      "time": "23:59 UTC",
+      "source": "https://heartbeat-challenge.github.io/",
+      "status": "confirmed"
+    },
+    {
       "date": "2026-12-13",
       "venue": "ISCA 2027",
       "action": "Industry-track full paper",
@@ -175,6 +238,15 @@
       "time": "11:59 PM AoE",
       "source": "https://2027.aclweb.org/calls/main/",
       "status": "confirmed"
+    },
+    {
+      "date": "2027-01-07",
+      "venue": "ICASSP 2027 Grand Challenges",
+      "action": "Invited two-page paper deadline for XACLE, HEARTBEAT and RMS-AQA (invitation required)",
+      "area": "Speech / multimodal / robotics",
+      "time": "Check each challenge's own timezone",
+      "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
+      "status": "confirmed organizer listing"
     },
     {
       "date": "2027-01-14",
@@ -890,10 +962,10 @@
         "FAccT (only if responsible AI/accountability dimension is central)"
       ],
       "cost": "low-medium",
-      "stage": "INITIAL REPRODUCIBLE CORPUS INVENTORY AUDIT DONE (metadata only, no claim verification): pinned public agent-swarm-research tag paper-v1 README parsed: 53 IDs = 45 paper candidates + 8 catalysis programs; categories 22 full paper, 9 summary document, 18 notes-only, 4 program document; self-reported Lean 5 Done, 13 Partial, 9 Possible, 26 Not applicable. Source is agent-authored self-inventory, not evidence certificates compile or claims are true.",
+      "stage": "TWO PUBLIC RESEARCH-ARTIFACT AUDITS DONE, limited: M1 and M3 source/verification metadata inspected; exact rational recomputation of M1's 4 published finite table values matched the paper (4/4); M3 published campaign accounting sums consistently to 289. NO Lean kernel replay, independent certificate/data replay, verification of theorem hypotheses, or empirical replication. Separate claimed, present, self-reported verification, independently replayed, scientifically validated states.",
       "question": "Can a constrained research agent make real improvements under withheld tests and a counted human-intervention budget?",
-      "novelty": "AI Agent Swarms as Researchers (Sep 2026) releases unedited agent output including draft papers, checks, agent reviews and some Lean proofs, but the authors state most claims have NOT undergone independent verification; full drafts are NOT publications. This provides a public audit corpus for claim-verification cost, versus output-volume and independent checking throughput. CausalVerify, PaperBench and selection-bias studies already cover aspects of agent validity; 'many papers generated' is not a novel result. The CC-08 corpus now supports a metadata-level audit of reported proof certificates versus available types of evidence, but publication novelty requires real independent checks; no correctness was validated.",
-      "pilot": "Public corpus metadata audit completed from pinned tag paper-v1 README (sha 0c03c238501704b48402a377bcbd49d29ad18fdf). Next: preregister stratified 10-20 claim sample by Full/summary/notes, self-reported Lean Done/Partial/Not applicable, and topic; predefine independent Lean compilation and theorem-assumption inspection for Done, independent script/data/checksum replay for empirical claims, and literature/novelty checking for manuscript-only. Track hours, missing files, compile/test success, claim corrected/retracted, field-specific expert uncertainty; do not count authored drafts or reported Lean status as verified papers. Freeze tag and sampling before checking evidence; distinguish annotation from claim-level validation. Follow with withheld-seed performance experiment only if a testable empirical claim and runnable data/code exist.",
+      "novelty": "AI Agent Swarms as Researchers (Sep 2026) releases unedited agent output including draft papers, checks, agent reviews and some Lean proofs, but the authors state most claims have NOT undergone independent verification; full drafts are NOT publications. This provides a public audit corpus for claim-verification cost, versus output-volume and independent checking throughput. CausalVerify, PaperBench and selection-bias studies already cover aspects of agent validity; 'many papers generated' is not a novel result. The CC-08 corpus now supports a metadata-level audit of reported proof certificates versus available types of evidence, but publication novelty requires real independent checks; no correctness was validated. Source and manuscript revisions can outrun stored fingerprint manifests; the M1 and M3 authors explicitly document this. Treat proof-level trust and manuscript/evidence binding as separate audit outcomes, but do not mistake a historically labeled manifest for fraud.",
+      "pilot": "Public corpus metadata audit completed from pinned tag paper-v1 README (sha 0c03c238501704b48402a377bcbd49d29ad18fdf). Next: preregister stratified 10-20 claim sample by Full/summary/notes, self-reported Lean Done/Partial/Not applicable, and topic; predefine independent Lean compilation and theorem-assumption inspection for Done, independent script/data/checksum replay for empirical claims, and literature/novelty checking for manuscript-only. Track hours, missing files, compile/test success, claim corrected/retracted, field-specific expert uncertainty; do not count authored drafts or reported Lean status as verified papers. Freeze tag and sampling before checking evidence; distinguish annotation from claim-level validation. Follow with withheld-seed performance experiment only if a testable empirical claim and runnable data/code exist. Public 2026-10-27 two-sample artifact check and math table, including limitations: https://github.com/nilansa/nilansa.github.io/blob/main/cs-conf/audits/cc08-certificate-audit-2026-10-27.md . Not a representative sample and not claim-verification.",
       "stop": "If full accounting removes the apparent improvement or a published agent-audit benchmark already tests the same selection-bias protocol, pivot to a reproducibility report rather than a novelty claim.",
       "source": "https://github.com/karpathy/autoresearch",
       "closestPriorArt": [
@@ -1063,6 +1135,86 @@
       "pilot": "Run small synthetic services with controlled load and resource contention; measure throughput, latency and variance before/after each agent change.",
       "stop": "If differences are explainable by noise, don't claim an optimization.",
       "source": "https://www.usenix.org/conference/nsdi27/call-for-papers"
+    },
+    {
+      "id": "CC-14",
+      "title": "Audio-text alignment under unseen audio generators",
+      "area": "Speech / audio / representation evaluation",
+      "venues": [
+        "ICASSP 2027 XACLE Grand Challenge (invitation only)",
+        "ICASSP future cycles",
+        "signal-processing workshops"
+      ],
+      "cost": "low (frozen embeddings + small CPU regressor), moderate if many encoders",
+      "stage": "PRIOR ART + OFFICIAL CHALLENGE VERIFIED; no participation or evaluation executed; XACLE submission Dec 3 2026",
+      "question": "Does leave-generator-out calibration improve audio-text human-score rank correlation on entirely unseen audio generators compared with ordinary random-split tuning?",
+      "novelty": "XACLE 2027 explicitly changes the 2026 seen-generator evaluation to unseen-generation systems; this is a domain-shift test, not a new metric by itself. ICASSP 2026 second-place EnsembleSVR-XACLE already uses ensembles of audio-text features and regressors; third-place TMU uses CLAP pseudo-labels. A simple frozen CLAP regressor or feature ensemble is NOT novel. Potential result must show a controlled generalization mechanism.",
+      "pilot": "First inspect official released 2027 labels and generator metadata/permissions. Cache one frozen CLAP audio/text embedding pair on train/dev, train a monotone/calibrated shallow head under leave-generator-out splits versus standard random split. Compare raw CLAP cosine, official XACLE baseline, closest 2026 rank-2 ensemble and rank-3 pseudo-label system if reproducible. Lock unseen-generator held-out evaluation; primary Spearman rho, bootstrap interval by generator; record feature extraction/inference costs and seed variance.",
+      "stop": "If released train metadata cannot define generator-separated dev folds, or improvement vanishes against closest 2026 baselines, do not claim novelty. Invitations go only to top-ranked challenge teams; submitting predictions does not equal an accepted paper.",
+      "source": "https://xacle.org/2027/index.html",
+      "closestPriorArt": [
+        {
+          "title": "XACLE Challenge 2026 official paper",
+          "url": "https://ieeexplore.ieee.org/abstract/document/11464875"
+        },
+        {
+          "title": "Cross-Modal Semantic Alignment Via Ensemble Audio-Text Features (ICASSP 2026, challenge rank 2)",
+          "url": "https://ieeexplore.ieee.org/abstract/document/11461274"
+        },
+        {
+          "title": "TMU System for XACLE: CLAP Pseudo-Labels (ICASSP 2026, challenge rank 3)",
+          "url": "https://arxiv.org/abs/2602.00604"
+        }
+      ]
+    },
+    {
+      "id": "CC-15",
+      "title": "Streaming audio-agent abstention and response timing",
+      "area": "Speech / agents / embodied interaction",
+      "venues": [
+        "ICASSP 2027 HEARTBEAT Grand Challenge (invitation only)",
+        "HRI",
+        "CoRL"
+      ],
+      "cost": "low-medium for offline decision pilot; medium for real streaming model",
+      "stage": "OFFICIAL CHALLENGE VERIFIED; registration open on organizer site as of Oct 27; no registration made",
+      "question": "Can an explicitly calibrated abstain/wait policy reduce incorrect interruptions without reducing correct on-time responses under strictly causal streaming input?",
+      "novelty": "HEARTBEAT already benchmarks abstention, response initiation and false triggers. A generic 'agents should wait' finding is not new; only improved controlled performance under the released benchmark and a distinct mechanism is useful.",
+      "pilot": "Start HEARTBEAT Track I offline four-way choices or Track II causal per-chunk labels with official baseline. Train only a lightweight policy head on frozen embeddings. Compare fixed-threshold, cost-calibrated wait/trigger policy and official baseline at matched inference compute; never use future chunks, enforce speaker/episode-disjoint validation, measure event F1, false activations and time delay. First verify dataset/baseline licenses and challenge enrollment.",
+      "stop": "If no gain in false-trigger versus latency frontier on unseen episodes, or if only future-context leakage helps, stop. Final award-eligible containers cannot call remote services; invited papers are not automatic.",
+      "source": "https://heartbeat-challenge.github.io/",
+      "closestPriorArt": [
+        {
+          "title": "HEARTBEAT official benchmark and rules",
+          "url": "https://heartbeat-challenge.github.io/"
+        },
+        {
+          "title": "ICASSP 2027 Grand Challenge master schedule",
+          "url": "https://2027.ieeeicassp.org/sp-grand-challenges/"
+        }
+      ]
+    },
+    {
+      "id": "CC-16",
+      "title": "Grounded spatial and temporal audio QA",
+      "area": "Speech / robotics / audio",
+      "venues": [
+        "ICASSP 2027 RMS-AQA Grand Challenge (invitation only)",
+        "audio-spatial reasoning workshops"
+      ],
+      "cost": "low-medium with frozen audio encoder and rule-based temporal reasoning",
+      "stage": "ORGANIZER CHALLENGE ANNOUNCEMENT VERIFIED; baseline access/eligibility and challenge site require further verification",
+      "question": "Do event-timing and source-localization features improve grounded second-stage multi-hop spatial audio questions without extra reasoning-model compute?",
+      "novelty": "Generic event detection plus QA is existing; focus on causal contribution of event-time and spatial features to the held-out grounded Stage-2 answer versus a frozen audio-language baseline. Challenge already proposes the benchmark; participation alone is not a new research contribution.",
+      "pilot": "Use only released training/development 10-second multichannel clips and official task controls. Compare frozen audio-language baseline, timing feature augmentation, spatial feature augmentation, and both under identical frozen QA model and inference budget. Freeze questions and seeds; primary grounded Stage-2 accuracy, with temporal-relation, localization and counting slices. Confirm rules and required submission format before accessing hidden test.",
+      "stop": "If feature gains vanish at matched budget, derive from question leakage, or stage-1 grounding increases without stage-2 improvement, retire.",
+      "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
+      "closestPriorArt": [
+        {
+          "title": "RMS-AQA organizer problem definition",
+          "url": "https://2027.ieeeicassp.org/sp-grand-challenges/"
+        }
+      ]
     }
   ],
   "policies": [
@@ -1211,6 +1363,24 @@
       "kind": "Direct GitHub source inspection; inventory counts only",
       "note": "53 listed IDs, of which 45 are paper candidates and 8 proposed catalysis experiments. 22 full paper documents, 9 summaries, 18 notes-only, 4 program documents. Lean status self-reported: 5 Done, 13 Partial, 9 Possible, 26 Not applicable. No Lean kernel checks, scientific replications, or peer review verified.",
       "url": "https://github.com/SECQUOIA/agent-swarm-research/tree/paper-v1"
+    },
+    {
+      "title": "Cross-Modal Semantic Alignment Via Ensemble Audio-Text Features for XACLE Challenge (ICASSP 2026)",
+      "kind": "Accepted, published two-page challenge system paper (rank 2)",
+      "note": "Ensembles of CLAP-family, Whisper and text encoder features combined through regressors already exist. A generic multi-encoder regressor is not a novel XACLE 2027 contribution.",
+      "url": "https://ieeexplore.ieee.org/abstract/document/11461274"
+    },
+    {
+      "title": "The TMU System for the XACLE Challenge: Training Large Audio Language Models with CLAP Pseudo-Labels (ICASSP 2026)",
+      "kind": "Accepted ICASSP 2026 challenge-system paper (rank 3)",
+      "note": "Published rank-3 challenge result reported SRCC 0.632 vs baseline 0.334. Its code is open. Seen-generator setting differs from 2027 challenge unseen-generator shift.",
+      "url": "https://arxiv.org/abs/2602.00604"
+    },
+    {
+      "title": "CC-08 source-certificate audit, Oct 27 (M1 and M3)",
+      "kind": "Direct public artifact inspection plus limited independent exact arithmetic",
+      "note": "M1 four printed examples re-evaluated with exact rational arithmetic (4/4 matched stated formulas); M3 public experimental count arithmetic matches 289. README records historical fingerprint drift, and M3 record explicitly lacks whole-project kernel replay. No Lean build, empirical validation, or manuscript-priority check was performed.",
+      "url": "https://github.com/nilansa/nilansa.github.io/blob/main/cs-conf/audits/cc08-certificate-audit-2026-10-27.md"
     }
   ],
   "closed": [
@@ -1231,5 +1401,5 @@
     "UAI 2027",
     "ISIT 2027"
   ],
-  "lastLiteratureAudit": "2026-10-27: FAccT 2027 AI generated text now allowed if fully disclosed (reverses 2026); Oct27 abstract/Nov3 paper; ISBI Nov2 4pg + Feb1 nonarchival poster; CC04 all-query positivity oracle leak and reused E12 holdout identified; user repo scan found no cached ranks or full labels, thus real pilot blocked; no experiments CC08 pinned corpus README metadata parsed for 53 entries, 5 claim to be Lean Done, unverified."
+  "lastLiteratureAudit": "2026-10-27 seventh audit: ICASSP 2027 XACLE unseen-generator official site; 2026 accepted rank2/rank3 papers; HEARTBEAT causal audio decisions, offline container rules; RMS-AQA grounded spatial audio; EEG-sAAD cross-domain contest; Audio Editing registration Oct8 closed. CC08 M1 exact arithmetic 4/4; M3 campaign sums only, self-reported source SHA drift. All source audit not Lean/empirical validation."
 }
