@@ -3,7 +3,7 @@
   "taskId": "20261026-csconf-research",
   "createdAt": "2026-10-26T13:51:12.349Z",
   "checkedAt": "2026-10-26",
-  "editorialNote": "Oct 26 follow-on audit: CC-04 narrowed against QASP, Progressive ER, SPER, BEACON; complete-link global-budget calibration remains unproven. CC-11 elementary formulation separated from publishable theory. CC-08 updated for evidence that adaptive agent search may generalize; scientific idea diversity under audit. CHIIR Oct 29 short paper and AI policy added. ICASSP 2027 main full-paper submission already closed Sep 23 (official). No GPU/CPU tests or submissions.",
+  "editorialNote": "Oct 26 fifth audit: CC-10 broad action-ranking novelty BLOCKED by stage-wise sensing paper; CC-01 metric-only standalone retired due RGraph-Eval/TriWorldBench overlap. CC-04 QASP ANN-recall vs progressive-ER pair-recall vs multi-link completion explicitly separated; baseline total verification time required. CC-11 deterministic greedy-vs-exact two-query sanity check performed (not real ER evidence). CC-08 added publicly released unedited agent-swarm research corpus with explicit verification caveats. ARRSI Oct 30 updated. Zero GPU research experiments, real ER benchmarks or conference submissions.",
   "deadlines": [
     {
       "date": "2026-10-29",
@@ -16,10 +16,10 @@
     },
     {
       "date": "2026-10-30",
-      "venue": "AR-RSI 2026 workshop",
-      "action": "Paper, including short/position formats",
+      "venue": "ARRSI 2026 workshop (AACL-IJCNLP)",
+      "action": "Short/position/resource (<=4 pages) or long (<=8 pages); work must meet double-blind evidence/reporting rules",
       "area": "Research agents",
-      "time": "11:59 PM AoE",
+      "time": "Oct 30 11:59 PM AoE = Oct 31 4:59 AM PDT; OpenReview; no paper-ready CC-08 claim yet",
       "source": "https://ar-rsi.github.io/",
       "status": "confirmed"
     },
@@ -636,11 +636,11 @@
         "RSS"
       ],
       "cost": "medium",
-      "stage": "literature conflict: metric novelty blocked; pivot under audit",
+      "stage": "RETIRE metric-only standalone proposal: scope overlap; preserve downstream scientific question with CC-10",
       "question": "Do geometry-specific failures in generated video predict downstream task errors after matching perceptual quality and camera motion?",
-      "novelty": "MEt3R (CVPR 2025) compares multi-view consistency; PDI-Bench (2026) already measures object rigidity and motion in generated video; PAIWorld (2026) studies robotic multi-view geometry. A generic rigidity metric alone is NOT a new contribution. Seek a causal downstream link or a falsifiable limitation of existing scores.",
+      "novelty": "Generic 3D rigidity and reference-based robot-video action/3D-path metrics are established: MEt3R (CVPR 2025), PDI-Bench (2026), TriWorldBench (Sep 2026), RGraph-Eval (Oct 22 2026). No new standalone video geometry quality metric is presently justified; only task-grounded diagnostic value could be distinct, and overlaps CC-10.",
       "pilot": "Use an existing geometry-labeled benchmark or render 20 rigid scenes. Apply controlled object deformation at fixed camera trajectory and quality, then test whether PDI/MEt3R scores and a simple planner change in a monotone way. No video generator training.",
-      "stop": "Stop if the effect is already established by prior downstream planning studies, or if planner failure cannot be attributed to geometry rather than realism.",
+      "stop": "Do not pursue an independent metric-only CVPR paper without an empirically falsifiable signal absent from PDI-Bench, TriWorldBench, and RGraph-Eval; merge any downstream task relevance into CC-10.",
       "source": "https://openaccess.thecvf.com/content/CVPR2025/html/Asim_MET3R_Measuring_Multi-View_Consistency_in_Generated_Images_CVPR_2025_paper.html",
       "closestPriorArt": [
         {
@@ -654,6 +654,14 @@
         {
           "title": "PAIWorld",
           "url": "https://arxiv.org/abs/2606.18375"
+        },
+        {
+          "title": "TriWorldBench: A Tri-View Consistency Perspective on Embodied World Models (2026)",
+          "url": "https://arxiv.org/abs/2609.26314"
+        },
+        {
+          "title": "RGraph-Eval: Task-Grounded Scene Graphs for Evaluating Robot Video Generation (Oct 22 2026)",
+          "url": "https://arxiv.org/abs/2610.31121"
         }
       ]
     },
@@ -731,10 +739,10 @@
         "PAKDD (human-led only)"
       ],
       "cost": "low-medium",
-      "stage": "strong 2025-26 budgeted and query-adaptive overlap; all-links global-budget objective proposed; zero runs",
+      "stage": "exact primary-source contrast complete: QASP predicts ANN neighbor recall; Progressive ER optimizes progressive PAIR recall and excludes verification runtime; multi-link completeness and full pipeline cost still untested",
       "question": "For source entities with multiple true target links, can calibrated estimates of the maximum true-match retrieval rank allocate a fixed global comparison budget to improve complete-link coverage against strong progressive and query-adaptive baselines?",
-      "novelty": "Budget scheduling itself is not new: Progressive Entity Resolution (2025) and CIKM 2026 SPER schedule under finite comparisons; QASP (Jul 2026) learns per-query recall curves to tune search effort. BEACON (SIGMOD 2026) has a different annotation-budget objective. Candidate gap, NOT validated novelty: global budget across many source queries with probability of retrieving ALL true links per source, explicit zero-link handling, robust calibration/fairness and matcher time. A textbook multiple-choice knapsack formulation alone is not publishable.",
-      "pilot": "Define T_i=max rank of all known true targets for positive query i (T_i=infinity if ranking omits a known positive); F_i(k)=Pr(T_i<=k | query features). Choose nonnegative K_i to maximize sum_i F_i(K_i), subject to sum_i K_i<=B, comparing optimal oracle (test upper bound only), uniform K, random allocation, confidence-gap heuristic, QASP-inspired predicted pair-recall curves, progressive-ER scheduler, and calibrated max-rank curve. Lock untouched multi-link test and dev/test split; evaluate complete-link coverage, pair recall, group recall by multiplicity/address/script, matcher and ranking wall time incl prediction overhead, p95/p99 candidate caps. Exclude zero-link queries from positive-query coverage or report separately, since vacuous completion would inflate it. Initial work cached-rank CPU, not a new compute run. Stop if full-link improvement disappears at matched actual CPU time or established method covers the same objective.",
+      "novelty": "The PACMMOD/SIGMOD 2025 Progressive ER formal objective maximizes progressive recall@N of verified PAIRS, assumes oracle pair verification and explicitly excludes verification time from reported runtime. QASP (Jul 2026) predicts recall of nearest-neighbor search as probes increase; nearest-neighbor recall is NOT recall of all semantically true entity links. The proposed completion event max_true_match_rank<=K differs from both losses, but this is not proof of novel algorithm. Distinct evaluation must include multi-positive sources (standard clean-clean datasets often assume within-source no duplicates), real full-pipeline runtime, calibrated completion prediction, and equal-budget strong baselines.",
+      "pilot": "PRECHECK data provenance before execution: locate saved per-route ordered rankings and exhaustive positive-link labels; enforce entity-disjoint dev/test and handle duplicates/ties. On dev only estimate query-specific F_i(k)=P(last positive rank<=k), with explicit 'missing from ranking'=infinity and calibrated uncertainty. Compare uniform, random, score-gap, QASP-style ANN neighbor-recall predictor, progressive-ER BFS/EC/hybrid global scheduling, and max-rank completion allocator. Evaluate TWO budgets: exactly matched candidate count and matched true total wall-clock (indexing, route retrieval, score production, policy inference, matcher verification); do not imply candidate count equals CPU cost. Include oracle bound only as post-hoc test ceiling, multi-link slices and incomplete-GT sensitivity. Use CPU on cached ranks first; no real experiment run.",
       "stop": "Retire novelty if calibrated max-rank scheduling fails to beat QASP-style query-adaptive and progressive-ER schedulers on untouched multi-link queries under the same retrieval+prediction+matcher time and total candidate budget, or closest papers already optimize identical complete-link objective.",
       "source": "https://sigir2027.org/pages/submit-full.html",
       "closestPriorArt": [
@@ -845,10 +853,10 @@
         "agent workshops"
       ],
       "cost": "low-medium",
-      "stage": "agent evaluation overlap widened; replication failure not assumed; no runs",
+      "stage": "new verifiable public agent-output corpus located (Gusev & Bernal Neira Sep 2026); independent verification still needed, no new agent runs",
       "question": "Can a constrained research agent make real improvements under withheld tests and a counted human-intervention budget?",
-      "novelty": "Autoresearch, CausalVerify, and ICML 2026 DeepAnalyze already cover agentic data research. Bertran/Roth/Wu (2026) finds many agent-found methods generalize despite adaptive search, and deliberate overfitting fails independent reproduction. Tang/Yang (2026) finds AI agents' scientific ideas concentrate near seed literature. The gap must measure WHEN reproducibility and idea diversity break, not assume all agent experiments are invalid or that idea proliferation adds novelty.",
-      "pilot": "Choose a public constrained agent research task; preregister holdout seeds and data before agent search. Compare short description-only reproduction, code-replay reproduction, and unchanged baseline at equal wall-clock/compute/API-call budget. Include deliberate overfit positive control and quantify topic/idea diversity against citation-based nearest-neighbor baselines. Split any exploratory versus confirmatory tests. No task executed.",
+      "novelty": "AI Agent Swarms as Researchers (Sep 2026) releases unedited agent output including draft papers, checks, agent reviews and some Lean proofs, but the authors state most claims have NOT undergone independent verification; full drafts are NOT publications. This provides a public audit corpus for claim-verification cost, versus output-volume and independent checking throughput. CausalVerify, PaperBench and selection-bias studies already cover aspects of agent validity; 'many papers generated' is not a novel result.",
+      "pilot": "Low-cost static audit before GPU agents: sample a fixed set of 10-20 clearly tagged claims/drafts from the public agent-swarm-research tag paper-v1, assign claim type and certificate (Lean-verified, replayable code, empirical result, manuscript-only, unverified), preserve published vs draft status, measure time to independently substantiate and source/verification failure categories. Check original authors' release-status caveats first. Then compare claim-level validation with compact independent reproductions and a deliberate overfit control, frozen resources and blinded reviewer where possible. No inspection or coding-agent run of this sample has been executed yet.",
       "stop": "If full accounting removes the apparent improvement or a published agent-audit benchmark already tests the same selection-bias protocol, pivot to a reproducibility report rather than a novelty claim.",
       "source": "https://github.com/karpathy/autoresearch",
       "closestPriorArt": [
@@ -871,6 +879,10 @@
         {
           "title": "DeepAnalyze: Agentic LLMs for Autonomous Data Science (ICML 2026)",
           "url": "https://proceedings.mlr.press/v306/zhang26aq.html"
+        },
+        {
+          "title": "AI Agent Swarms as Researchers: Progress, Challenges, and Open Questions (Sep 2026)",
+          "url": "https://arxiv.org/abs/2609.35719"
         }
       ]
     },
@@ -900,11 +912,11 @@
         "ICRA"
       ],
       "cost": "medium",
-      "stage": "geometry-to-action question remains speculative; controller margin now an explicit stratification; zero runs",
+      "stage": "MAJOR PRIOR-ART CONFLICT: a Sep 2026 preprint already measures planner preference under paired sensing degradation; geometry-specific intervention not yet tested; high-risk / no model runs",
       "question": "For a fixed robot planner and task, which kinds and severity of generated-video geometry faults actually change plan feasibility, rather than only visual similarity?",
-      "novelty": "What-If World (2026) already benchmarks paired physical interventions in generated driving/manipulation videos, but explicitly leaves downstream utility unmeasured. CausalNav (Aug 2026) reports that structural world-model fidelity need not predict control benefit. ExecutionBridge (Oct 2026) studies a frozen planner under controller-induced execution shift. A general 'causal videos for planning' claim is NOT novel. Candidate: isolate exactly when rigid-object 3D geometry errors flip a frozen planner's action ranking, with matched visual corruption and oracle state controls. Geometric Action Model (2026) explicitly couples geometry to robotic actions, so geometry/action relevance itself is not a novel claim. Retain a narrowly calibrated geometry-fault intervention and matched planner-margin analysis, not a new generic geometry score.",
-      "pilot": "Start with a reproducible 2D tabletop/grid setup: 2 obstacle configurations × 3 distortion strengths × 3 independent seeds (18 paired scenarios), fixed initial scene, camera, goals, planner, scoring and proposals. Geometric edits must not alter task truth. Compare action-ranking flips, collisions, margin to next-best action, PDI/MEt3R-type score, and appearance-matched non-geometric corruptions. Positive evidence must replicate on withheld scenes before any 3D claims. This is a PROPOSED design; zero runs. Before running, predefine the unperturbed best-vs-second-best planner cost margin delta. Stratify clearance-margin regimes; compare geometry-fault effect to noise with similar image/perceptual change. Report absolute action regret with ground-truth planner costs, not only a flip count. One failure in 18 toy scenarios is illustrative, not publishable; extend to independent 3D scenes if pilot passes.",
-      "stop": "If 2026 prior work already tests geometry-specific action-ranking regret under frozen policies, or distortion effects disappear after matching appearance and oracle state, retire/pivot. No RSS abstract without a genuinely distinct mechanism and controlled pilot.",
+      "novelty": "Beyond Task Success (Sep 2026) explicitly measures fixed-candidate action rankings, prediction shifts and physical outcomes under 10 visual/temporal sensing degradations across 50 tasks. That BLOCKS generic 'first causal link between sensory errors and action decisions' and substantially duplicates the earlier pilot. Geometry-specific reconstructed-object errors (shape, depth, scale) might still differ from its low-light/blur/occlusion/history disturbances. RGraph-Eval (Oct 22 2026) already tests reference-conditioned robot-action, relation and 3D path consistency. Distinct publication novelty remains UNPROVEN.",
+      "pilot": "First reproduce/inspect the reported frozen-candidate planner preference analysis in Beyond Task Success: arxiv 2609.07126. Only if replicable and geometric distortions are demonstrably absent: compare geometry/shape/depth edits (with unchanged true scene and action candidate pool) against photometric/occlusion controls of matched image change, stratifying by true action-cost margin and clearance; measure ground-truth regret, ranking changes and downstream success. A tiny 2D CPU scene can verify test logic only; a robotic/3D conclusion needs unseen real simulation scenes and existing pretrained world-model planner. No runs executed.",
+      "stop": "Stop/pivot if geometry-specific effects vanish relative to matched photometric controls, cannot be produced without modifying ground-truth task physics, are already assessed in stage-wise reliability literature, or fail replication on held-out scenes. Do NOT submit an RSS extended abstract based only on a toy action-ranking flip.",
       "source": "https://roboticsconference.org/information/cfp/",
       "closestPriorArt": [
         {
@@ -938,6 +950,14 @@
         {
           "title": "Geometric Action Model for Robot Policy Learning (2026)",
           "url": "https://arxiv.org/abs/2606.17046"
+        },
+        {
+          "title": "Beyond Task Success: Stage-Wise Reliability of World Model Planning under Sensing Degradation (Sep 2026)",
+          "url": "https://arxiv.org/abs/2609.07126"
+        },
+        {
+          "title": "RGraph-Eval (Oct 22 2026)",
+          "url": "https://arxiv.org/abs/2610.31121"
         }
       ]
     },
@@ -952,10 +972,10 @@
         "PAKDD (human-led only)"
       ],
       "cost": "low",
-      "stage": "elementary exact formulation defined (not novel); identify nontrivial restricted theorem or abandon theory claim",
+      "stage": "elementary formulation plus verified 2-query greedy failure counterexample; no new theory paper result",
       "question": "Under what realistic constraints on calibration error, fairness or retrieval costs can a complete-link global-budget allocation guarantee robust coverage?",
       "novelty": "The standard deterministic all-link allocation problem reduces to choosing per-query ranks under a total budget (multiple-choice knapsack or threshold-cost selection); this alone is a known optimization structure, not an original theorem. Seek a genuine robustness or calibration result, and compare established budgeted ranking/scheduling literature.",
-      "pilot": "Derive max-rank completion score F_i(k), show by a six-true-link counterexample that pair recall and complete-link coverage select different allocations: A has positives at ranks 1-4; B and C each have their only positive at rank 2; budget 4 gives A:4/B:0/C:0 => 4/6 pairs, 1/3 complete vs A:0/B:2/C:2 => 2/6 pairs, 2/3 complete. This is an analytic example only. Implement exhaustive small-instance verifier only if a runnable environment is available, then check calibration-error stability and counterexamples.",
+      "pilot": "Deterministic small-instance enumerator run in this cycle: F_A(0,1,2)=(0,.40,.41); F_B=(0,0,1); total B=2. Sequential one-step marginal greedy allocates (2,0), objective .41; exhaustive exact allocation (0,2) obtains 1.00. This establishes NONCONCAVE cumulative-completion curves can defeat naive greedy, not novelty and not an empirical ER outcome. An allocator must use exact small-budget dynamic programming or a defensible approximation; validate full-runtime and calibration assumptions. Seek nontrivial theorem only after literature review.",
       "stop": "If bound is vacuous under realistic distributions, retire.",
       "source": "https://learningtheory.org/colt2027/"
     },
@@ -1124,6 +1144,12 @@
       "kind": "Foundational masking/missingness precedent",
       "note": "The pattern of missingness can itself predict the target; generic mask-side-channel novelty is blocked.",
       "url": "https://www.nature.com/articles/s41598-018-24271-9"
+    },
+    {
+      "title": "AI Agent Swarms as Researchers (Gusev & Bernal Neira, Sep 2026)",
+      "kind": "Published arXiv preprint with publicly released unedited AI-agent research corpus",
+      "note": "Broad human task prompts led to many draft manuscripts, notes, agent reviews and some Lean proofs. Authors do NOT claim these drafts are accepted papers or fully independently verified; tag paper-v1 captures original untouched snapshot.",
+      "url": "https://arxiv.org/abs/2609.35719"
     }
   ],
   "closed": [
@@ -1144,5 +1170,5 @@
     "UAI 2027",
     "ISIT 2027"
   ],
-  "lastLiteratureAudit": "2026-10-26 (QASP/progressive-ER and agent-replication overlap)"
+  "lastLiteratureAudit": "2026-10-26 (stage-wise world-model-planner conflict; progressive pair-recall objective; agent swarm original corpus)"
 }
