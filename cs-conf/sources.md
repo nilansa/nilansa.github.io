@@ -50,7 +50,8 @@ Check authorship and coauthor consent, licenses, paper anonymization, AI-use dis
 
 ## Near-term priority
 - **MLSys 2027**: 2026-10-30 at noon PDT. The systems contribution must be measured. Greenfield projects are unlikely to be responsibly ready in days.
-- **CVPR 2027**: 2026-11-10 enrollment; 2026-11-16 full. Good for rigid-geometry failures, controlled video benchmarks and interpretability with causal evidence.
+- **CVPR 2027**: 2026-11-10 enrollment; 2026-11-16 full. The [published author guidelines](https://cvpr.thecvf.com/Conferences/2027/AuthorGuidelines) require an LLM Usage Statement even for grammar assistance; the reciprocal-reviewer quota generally permits only **one submission with no eligible reviewer among the coauthors**. Author lists and OpenReview profiles must be complete by Nov 10. Good scientific fit does not override these administrative limits.
+- **ISCA 2027**: 2026-11-09 main-track abstract; 2026-11-16 full paper; 2026-12-06 industry-track abstract; 2026-12-13 industry-track full paper. [Official CFP](https://iscaconf.org/isca2027/submit/callforpapers.php) forbids placeholder abstracts, caps main-track submissions at eight per author, and requires disclosure for AI-generated substantive scientific content.
 - **PAKDD 2027**: 2026-11-20. The applied track explicitly welcomes sound case studies, carefully explained failures and operational lessons; it does not require algorithmic novelty. **Its AI-use restrictions make heavily AI-written submissions ineligible.**
 - **RSS 2027**: 2026-12-04 six-page extended abstract; 2027-04-16 invited final paper. Work can start with a hypothesis and complete method rather than a finished experimental suite.
 - **ACL 2027**: 2027-01-04 last ARR submission cycle. Has main and short-paper options; check mandatory limitations.
@@ -71,6 +72,14 @@ The [PAKDD 2025 organizer's accepted-paper page](https://pakdd2025.org/accepted-
 - "Representing Higher-Order Networks with Spectral Moments"
 
 These establish actual **scope diversity**. They do not establish that any particular new paper is low-effort or likely to be accepted. Each closest paper still requires a full methods and experiments reading before novelty is asserted.
+
+## Second literature audit: October 26, 2026 (public-safe)
+- **CC-10**: [What-If World](https://arxiv.org/abs/2605.27589) already studies counterfactual physical-variable interventions in generated driving and robotic-manipulation videos. Crucially, it explicitly names **downstream utility measurement** as future work. But [CausalNav](https://arxiv.org/abs/2608.07809) also reports that world-model structure can fail to predict control benefit, while [ExecutionBridge](https://arxiv.org/abs/2610.22041) tests a frozen planner under execution shift. The remaining proposed question is narrow: can controlled **rigid geometry errors** induce action-ranking reversals, at fixed planner/camera/appearance quality? The 2D paired pilot is *only designed*, not run.
+- **CC-02**: [GRU-D (2018)](https://www.nature.com/articles/s41598-018-24271-9) already shows that missingness patterns can contain predictive information. [CMT-MAE (AAAI 2025)](https://ojs.aaai.org/index.php/AAAI/article/view/34145) uses learned masking. A generic mask-leakage paper therefore lacks novelty. Test the **extra conditional information in mask indices** beyond visible patches and fixed mask-count/geometry controls, then test whether it affects MIM training conclusions.
+- **CC-08**: [CausalVerify (Sep 2026)](https://arxiv.org/abs/2609.07944) measures failures in end-to-end LLM-made empirical causal analyses even when code executes. A new research-agent paper should measure **experiment-selection bias under frozen wall time and withheld seeds**, not claim execution equals validity.
+- **Conference policy correction**: CVPR 2027 now has a full [LLM author policy](https://cvpr.thecvf.com/Conferences/2027/AuthorGuidelines), replacing the earlier 'policy under development' note. No AI-use statement means desk rejection. ISCA 2027 has a distinct AI disclosure rule; consult each venue.
+
+No new experiments, manuscript, or submission occurred as part of this audit.
 
 ## Research-agent precedents
 - [The AI Scientist (Nature, 2026)](https://www.nature.com/articles/s41586-026-10265-5) and [AI Scientist v2](https://github.com/SakanaAI/AI-Scientist-v2): ideation, coding, running experiments, writing, and automated reviews. One controlled ICLR 2025 workshop submission passed initial peer-review thresholds; this is not evidence of main-track acceptance or unconstrained automated publication.
