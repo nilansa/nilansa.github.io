@@ -890,10 +890,10 @@
         "FAccT (only if responsible AI/accountability dimension is central)"
       ],
       "cost": "low-medium",
-      "stage": "new verifiable public agent-output corpus located (Gusev & Bernal Neira Sep 2026); independent verification still needed, no new agent runs; FAccT 2027 disclosure policy makes AI-aided manuscript possible but Oct 27 abstract deadline lacks evidence; not submission-ready",
+      "stage": "INITIAL REPRODUCIBLE CORPUS INVENTORY AUDIT DONE (metadata only, no claim verification): pinned public agent-swarm-research tag paper-v1 README parsed: 53 IDs = 45 paper candidates + 8 catalysis programs; categories 22 full paper, 9 summary document, 18 notes-only, 4 program document; self-reported Lean 5 Done, 13 Partial, 9 Possible, 26 Not applicable. Source is agent-authored self-inventory, not evidence certificates compile or claims are true.",
       "question": "Can a constrained research agent make real improvements under withheld tests and a counted human-intervention budget?",
-      "novelty": "AI Agent Swarms as Researchers (Sep 2026) releases unedited agent output including draft papers, checks, agent reviews and some Lean proofs, but the authors state most claims have NOT undergone independent verification; full drafts are NOT publications. This provides a public audit corpus for claim-verification cost, versus output-volume and independent checking throughput. CausalVerify, PaperBench and selection-bias studies already cover aspects of agent validity; 'many papers generated' is not a novel result.",
-      "pilot": "Low-cost static audit before GPU agents: sample a fixed set of 10-20 clearly tagged claims/drafts from the public agent-swarm-research tag paper-v1, assign claim type and certificate (Lean-verified, replayable code, empirical result, manuscript-only, unverified), preserve published vs draft status, measure time to independently substantiate and source/verification failure categories. Check original authors' release-status caveats first. Then compare claim-level validation with compact independent reproductions and a deliberate overfit control, frozen resources and blinded reviewer where possible. No inspection or coding-agent run of this sample has been executed yet.",
+      "novelty": "AI Agent Swarms as Researchers (Sep 2026) releases unedited agent output including draft papers, checks, agent reviews and some Lean proofs, but the authors state most claims have NOT undergone independent verification; full drafts are NOT publications. This provides a public audit corpus for claim-verification cost, versus output-volume and independent checking throughput. CausalVerify, PaperBench and selection-bias studies already cover aspects of agent validity; 'many papers generated' is not a novel result. The CC-08 corpus now supports a metadata-level audit of reported proof certificates versus available types of evidence, but publication novelty requires real independent checks; no correctness was validated.",
+      "pilot": "Public corpus metadata audit completed from pinned tag paper-v1 README (sha 0c03c238501704b48402a377bcbd49d29ad18fdf). Next: preregister stratified 10-20 claim sample by Full/summary/notes, self-reported Lean Done/Partial/Not applicable, and topic; predefine independent Lean compilation and theorem-assumption inspection for Done, independent script/data/checksum replay for empirical claims, and literature/novelty checking for manuscript-only. Track hours, missing files, compile/test success, claim corrected/retracted, field-specific expert uncertainty; do not count authored drafts or reported Lean status as verified papers. Freeze tag and sampling before checking evidence; distinguish annotation from claim-level validation. Follow with withheld-seed performance experiment only if a testable empirical claim and runnable data/code exist.",
       "stop": "If full accounting removes the apparent improvement or a published agent-audit benchmark already tests the same selection-bias protocol, pivot to a reproducibility report rather than a novelty claim.",
       "source": "https://github.com/karpathy/autoresearch",
       "closestPriorArt": [
@@ -1205,6 +1205,12 @@
       "kind": "Published arXiv preprint with publicly released unedited AI-agent research corpus",
       "note": "Broad human task prompts led to many draft manuscripts, notes, agent reviews and some Lean proofs. Authors do NOT claim these drafts are accepted papers or fully independently verified; tag paper-v1 captures original untouched snapshot.",
       "url": "https://arxiv.org/abs/2609.35719"
+    },
+    {
+      "title": "Pinned agent-swarm paper-v1 inventory metadata audit (Oct 27 2026)",
+      "kind": "Direct GitHub source inspection; inventory counts only",
+      "note": "53 listed IDs, of which 45 are paper candidates and 8 proposed catalysis experiments. 22 full paper documents, 9 summaries, 18 notes-only, 4 program documents. Lean status self-reported: 5 Done, 13 Partial, 9 Possible, 26 Not applicable. No Lean kernel checks, scientific replications, or peer review verified.",
+      "url": "https://github.com/SECQUOIA/agent-swarm-research/tree/paper-v1"
     }
   ],
   "closed": [
@@ -1225,5 +1231,5 @@
     "UAI 2027",
     "ISIT 2027"
   ],
-  "lastLiteratureAudit": "2026-10-27: FAccT 2027 AI generated text now allowed if fully disclosed (reverses 2026); Oct27 abstract/Nov3 paper; ISBI Nov2 4pg + Feb1 nonarchival poster; CC04 all-query positivity oracle leak and reused E12 holdout identified; user repo scan found no cached ranks or full labels, thus real pilot blocked; no experiments"
+  "lastLiteratureAudit": "2026-10-27: FAccT 2027 AI generated text now allowed if fully disclosed (reverses 2026); Oct27 abstract/Nov3 paper; ISBI Nov2 4pg + Feb1 nonarchival poster; CC04 all-query positivity oracle leak and reused E12 holdout identified; user repo scan found no cached ranks or full labels, thus real pilot blocked; no experiments CC08 pinned corpus README metadata parsed for 53 entries, 5 claim to be Lean Done, unverified."
 }
