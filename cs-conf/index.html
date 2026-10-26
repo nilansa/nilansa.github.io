@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CS Conf: conference deadlines, original research hypotheses, sources, and research decision rules.">
+<title>CS Conf | Research and Conference Index</title>
+<style>
+:root{color-scheme:light}
+*{box-sizing:border-box}
+body{max-width:1050px;margin:20px auto;padding:0 14px 50px;background:white;color:#111;font:14px/1.55 Arial,Verdana,sans-serif}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif}
+h1{font-size:29px;margin:0 0 3px}h2{font-size:21px;margin:29px 0 8px}h3{font-size:16px;margin:17px 0 5px}
+a{color:#0645ad;text-decoration:underline}a:hover{text-decoration:none}
+nav{margin:12px 0 16px;line-height:2}
+nav a{margin-right:9px}
+small,.muted{color:#555;font-size:12px}
+hr{border:0;border-top:1px solid #aaa}
+p{margin:7px 0 11px}
+table{width:100%;border-collapse:collapse;min-width:570px}
+th,td{border-bottom:1px solid #ddd;padding:7px 6px;text-align:left;vertical-align:top}
+th{border-bottom:1px solid #777;background:#f7f7f7}
+.tbl{max-width:100%;overflow-x:auto}
+label{margin-right:13px;display:inline-block;font-size:12px}
+input,select{border:1px solid #999;background:#fff;color:#111;padding:4px;font:inherit;margin:3px 0}
+input[type=search]{width:185px;max-width:100%}
+details{margin:10px 0;border-top:1px solid #ddd;padding-top:6px}
+summary{cursor:pointer;color:#0645ad}
+summary .sub{color:#555;font-size:12px}
+.idea-body{margin:7px 0 12px 14px}
+.idea-body p{margin:5px 0}
+.idea-head{font-weight:600}
+.status{font-size:11px;color:#555}
+.notice{padding:8px 10px;border:1px solid #aaa;margin:12px 0;background:#fafafa}
+.warning{font-weight:600}
+ul,ol{padding-left:24px}li{margin:4px 0}
+#sources-list li{margin:7px 0}
+#venue-groups p{line-height:2}
+footer{border-top:1px solid #aaa;margin-top:40px;padding-top:12px;font-size:12px}
+@media(max-width:650px){body{margin:10px auto}h1{font-size:25px}table{font-size:12px}nav a{margin-right:4px}input[type=search]{width:140px}}
+</style>
+</head>
+<body>
+<header>
+<h1>CS Conf</h1>
+<p>Research opportunities, conference deadlines, and a living hypothesis portfolio.</p>
+<small id="snapshot">Source check: 26 October 2026 (IST) · Organizer links are authoritative · Public index; not a live deadline feed.</small>
+<nav>
+<a href="/tracker/">Main tracker</a> |
+<a href="#deadlines">Deadlines</a> |
+<a href="#ideas">Research ideas</a> |
+<a href="#venues">All CS venues</a> |
+<a href="#process">Research protocol</a> |
+<a href="#policies">AI-use policies</a> |
+<a href="#sources">Sources</a>
+</nav>
+<hr>
+</header>
+<main>
+<section>
+<h2>Purpose</h2>
+<p>Find problems that have a real research gap, can be tested cheaply, and fit a suitable venue. Several ideas may run in parallel, but only claims supported by controlled experiments should become submission-ready papers.</p>
+<p><strong>Loop:</strong> venue → prior work → falsifiable question → simplest controlled test → audit → better test or pivot → abstract → paper → human approval → submission.</p>
+<p class="muted">Each idea has a stable ID, a minimal experiment, and a stopping condition. All entries begin as untested hypotheses. This public page does not contain private datasets, unpublished measurements, credentials, or collaborator transcripts.</p>
+</section>
+<section id="deadlines">
+<h2>Upcoming deadlines</h2>
+<p><small>Verified from organizer websites unless marked proposed. AoE = Anywhere on Earth. MLSys uses Pacific time, so do not interpret all dates as midnight IST. A past abstract/enrollment deadline can prevent later full-paper submission.</small></p>
+<div>
+<label>Window <select id="window"><option value="60">Next 60 days</option><option value="120" selected>Next 120 days</option><option value="365">Next 365 days</option><option value="all">All checked dates</option></select></label>
+<label>Area <select id="deadline-area"><option value="all">All areas</option></select></label>
+<label>Search <input id="deadline-query" type="search" placeholder="CVPR, RSS, paper…"></label>
+</div>
+<p id="deadline-count" class="muted"></p>
+<div class="tbl">
+<table aria-label="Verified submission deadlines">
+<thead><tr><th>Date</th><th>Venue</th><th>Required action</th><th>Time / caveat</th><th>Source</th></tr></thead>
+<tbody id="deadline-rows"><tr><td colspan="5">Loading verified schedule…</td></tr></tbody>
+</table>
+</div>
+<p><small><strong>Already closed:</strong> <span id="closed">ICLR 2027; AISTATS 2027; ICRA 2027; ICASSP 2027.</span> Closed tracks are not near-term targets for new submissions.</small></p>
+</section>
+<section id="ideas">
+<h2>Research idea index</h2>
+<p>A research direction is <strong>not</strong> an accepted or completed paper. Cost is a qualitative estimate for the <em>pilot</em>, not the full publication. Use an idea ID in this conversation to ask for its literature audit, experimental protocol, new branches, or abstract.</p>
+<div><label>Filter <input id="idea-query" type="search" placeholder="mask, video, retrieval…"></label></div>
+<p id="idea-count" class="muted"></p>
+<div id="idea-list">Loading hypothesis portfolio…</div>
+</section>
+<section id="venues">
+<h2>Broad CS venue catalogue</h2>
+<p>Includes ML, data, vision, language, audio, robotics, networks, systems, security, theory, scientific computing, biomedical imaging, neuroscience, and HCI. A venue appearing below does not mean that its current submission is open or that it has a particular ranking.</p>
+<p><small><strong>Priority venue watch:</strong> <span id="watch">COLM 2027, ICML 2027, NeurIPS 2027, KDD later cycle, MICCAI 2027, CoRL 2027.</span></small></p>
+<label>Find venue <input id="venue-query" type="search" placeholder="COLM, SOSP, ISIT…"></label>
+<div id="venue-groups"></div>
+</section>
+<section id="process">
+<h2>Research protocol</h2>
+<ol>
+<li><strong>Observe venue constraints.</strong> Record deadline, scope, required abstract, AI disclosure, page limit, dual-submission rule, reviewer or coauthor quotas, and costs.</li>
+<li><strong>Identify novelty.</strong> Read the closest accepted papers, their methods and benchmarks, not only abstracts. Mark direct overlap and strong baselines.</li>
+<li><strong>Formulate.</strong> Write objects, assumptions, empirical phenomenon, exact question, measurable metric, and one falsifiable claim. Do not confuse a prompt or intuition with a contribution.</li>
+<li><strong>Precheck controls.</strong> Fix datasets, train/test split, seeds, evaluation code, baselines, total GPU-hours or inference tokens, and leak checks before running.</li>
+<li><strong>Run the cheapest decisive pilot.</strong> First use released checkpoints, small models, synthetic controls, or mathematical counterexamples.</li>
+<li><strong>Gate or pivot.</strong> Stop for known prior art, broken controls, data leakage, unstable gains, prohibitive cost, or an unsupported claim. Keep negative results in the ledger.</li>
+<li><strong>Write as research progresses.</strong> Keep figures and tables tied to claims. Define symbols, show averages when discussed, report effect sizes, failures and limits.</li>
+<li><strong>Validate and submit.</strong> Independently inspect code, metrics, citations and proofs; reproduce decisive results; follow venue-specific AI rules; obtain explicit human submission approval.</li>
+</ol>
+<h3>Good abstract skeleton</h3>
+<p><em>Problem:</em> What specific failure matters? <em>Gap:</em> Why do existing methods fail? <em>Method:</em> What is new? <em>Evidence:</em> What verified experiment or theorem supports the claim? <em>Implication:</em> What changes for the field? Never add invented performance numbers.</p>
+<h3>Writing example</h3>
+<p><a href="https://arxiv.org/abs/2609.18823">Using OCR Heads to Verbalize Image Semantics</a> is a useful example of a narrow question expanding into an interpretable mechanism: locate relevant heads, use controlled interventions, build a lens, measure localization, and demonstrate an intervention. The causal evidence matters more than polished prose.</p>
+</section>
+<section id="policies">
+<h2>AI-use and submission integrity</h2>
+<p>Different venues allow very different levels of research or writing automation. Never assume a generic AI-writing policy applies across conferences. No fabricated results, invented citations, salami-sliced duplicate papers, or dual submissions.</p>
+<div class="tbl"><table><thead><tr><th>Venue</th><th>Current reported policy</th><th>Official</th></tr></thead><tbody id="policy-rows"><tr><td colspan="3">Loading policy sources…</td></tr></tbody></table></div>
+</section>
+<section id="sources">
+<h2>Research automation and other core sources</h2>
+<p>The examples below distinguish a generated manuscript, a research assistant, a real experimental discovery, and a paper actually passing a particular review step. A workshop-review experiment is not equivalent to a main-conference acceptance.</p>
+<ul id="sources-list"></ul>
+<p><a href="sources.md">Reading list and research charter (Markdown)</a> · <a href="data.json">Machine-readable deadline and idea index (JSON)</a> · <a href="https://github.com/nilansa/nilansa.github.io/tree/main/cs-conf">Page source on GitHub</a></p>
+</section>
+<section>
+<h2>How to continue in ChatGPT</h2>
+<p>Reference an idea ID, for example <code>CC-02: audit the five closest papers and write the smallest falsifiable test</code>. The hourly research scout can revisit evidence, deadlines and failure conditions. Research discussions and private decisions live outside this public page; GitHub Pages itself cannot run compute, read your private messages, or submit papers.</p>
+<p><strong>Current state:</strong> 13 starter hypotheses. No experiments have been executed for this index, no abstracts are claimed ready, and no papers have been submitted by this page.</p>
+</section>
+</main>
+<footer>Plain HTML and browser JavaScript · No third-party assets or analytics · <a href="/tracker/">Back to tracker</a> · Updated in IST from the linked sources.</footer>
+<script>
+(function(){
+'use strict';
+const $=id=>document.getElementById(id);
+let db=null;
+function el(tag,text,parent){const x=document.createElement(tag);if(text!==undefined)x.textContent=text;if(parent)parent.append(x);return x;}
+function link(text,href,parent){const a=el('a',text,parent);try{const u=new URL(href,location.href);if(u.protocol==='https:'||u.protocol==='http:')a.href=u.href;else a.removeAttribute('href');}catch(e){a.removeAttribute('href');}a.target='_blank';a.rel='noopener noreferrer';return a;}
+function istDay(){return new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Kolkata',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());}
+function afterDays(day,n){const d=new Date(day+'T00:00:00Z');d.setUTCDate(d.getUTCDate()+n);return d.toISOString().slice(0,10);}
+function renderDeadlines(){
+const area=$('deadline-area').value,q=$('deadline-query').value.toLowerCase(),w=$('window').value,start=istDay(),end=w==='all'?'9999-12-31':afterDays(start,Number(w));
+let ds=db.deadlines.filter(d=>(w==='all'||d.date>=start&&d.date<=end)&&(area==='all'||d.area===area)&&[d.venue,d.action,d.area].join(' ').toLowerCase().includes(q)).sort((a,b)=>a.date.localeCompare(b.date));
+const root=$('deadline-rows');root.replaceChildren();
+for(const d of ds){const tr=el('tr',undefined,root);el('td',d.date,tr);el('td',d.venue,tr);el('td',d.action,tr);el('td',(d.time||'')+(d.status==='proposed'?' [proposed, verify]':''),tr);const td=el('td',undefined,tr);link('Organizer ↗',d.source,td);}
+if(!ds.length){const tr=el('tr',undefined,root);const td=el('td','No matching future deadlines in this window.',tr);td.colSpan=5;}
+$('deadline-count').textContent=ds.length+' deadlines displayed · organizer-checked snapshot '+db.checkedAt+'.';
+}
+function renderIdeas(){const root=$('idea-list'),q=$('idea-query').value.toLowerCase();root.replaceChildren();let shown=0;
+for(const d of db.branches){const all=Object.values(d).join(' ').toLowerCase();if(!all.includes(q))continue;shown++;
+const de=el('details',undefined,root);de.id=d.id;const summary=el('summary',undefined,de);el('span',d.id+' · '+d.title,'');summary.textContent=d.id+' · '+d.title+' ';const sm=el('span',d.area+' · pilot '+d.cost+' compute · '+d.stage,summary);sm.className='sub';
+const body=el('div',undefined,de);body.className='idea-body';
+for(const [label,key] of [['Question','question'],['Novelty check','novelty'],['Smallest controlled test','pilot'],['Stop / pivot rule','stop']]){const p=el('p',undefined,body);el('strong',label+': ',p);el('span',d[key],p);}
+const p=el('p',undefined,body);el('strong','Potential venues: ',p);el('span',d.venues.join(', '),p);p.append(' · ');link('Relevant source',d.source,p);
+}
+$('idea-count').textContent=shown+' of '+db.branches.length+' branches. The initial labels are hypotheses; experiments not run.';
+}
+function renderVenues(){const q=$('venue-query').value.toLowerCase();const root=$('venue-groups');root.replaceChildren();let total=0;
+for(const g of db.areas){const filtered=g.venues.filter(v=>v.name.toLowerCase().includes(q));if(!filtered.length)continue;total+=filtered.length;
+const d=el('details',undefined,root);d.open=!!q;const s=el('summary',g.area+' ('+filtered.length+')',d);const p=el('p',undefined,d);
+filtered.forEach((v,i)=>{if(i)p.append(' · ');if(v.url)link(v.name,v.url,p);else el('span',v.name,p);});
+}
+if(!total)el('p','No venues match.',root);
+}
+function renderPolicies(){const root=$('policy-rows');root.replaceChildren();for(const d of db.policies){const tr=el('tr',undefined,root);el('td',d.venue,tr);el('td',d.rule,tr);link('Policy',d.source,el('td',undefined,tr));}}
+function renderSources(){const root=$('sources-list');root.replaceChildren();for(const d of db.examples){const li=el('li',undefined,root);link(d.title,d.url,li);li.append(' — '+d.note);}}
+fetch('./data.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json();}).then(d=>{if(!d||!Array.isArray(d.deadlines)||!Array.isArray(d.branches))throw Error('Invalid index data');db=d;
+$('snapshot').textContent='Organizer-source check: '+db.checkedAt+' · Public research index, not a live deadline feed.';
+$('closed').textContent=db.closed.join(' · ');
+$('watch').textContent=db.watch.join(' · ');
+Array.from(new Set(db.deadlines.map(d=>d.area))).sort().forEach(a=>{const o=el('option',a,$('deadline-area'));o.value=a;});
+['window','deadline-area','deadline-query'].forEach(id=>$(id).addEventListener(id==='deadline-query'?'input':'change',renderDeadlines));
+$('idea-query').addEventListener('input',renderIdeas);
+$('venue-query').addEventListener('input',renderVenues);
+renderDeadlines();renderIdeas();renderVenues();renderPolicies();renderSources();
+}).catch(e=>{console.warn('CS Conf data load:',e);$('deadline-rows').replaceChildren(el('tr'));$('deadline-count').textContent='Could not load data.json. Use the machine-readable index link under Sources or the GitHub source.';$('idea-list').textContent='Data currently unavailable; open the linked data.json file.';$('policy-rows').textContent='Data currently unavailable.';});
+})();
+</script>
+</body></html>
