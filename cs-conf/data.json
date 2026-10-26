@@ -1,0 +1,892 @@
+{
+  "version": 1,
+  "taskId": "20261026-csconf-research",
+  "createdAt": "2026-10-26T13:51:12.349Z",
+  "checkedAt": "2026-10-26",
+  "editorialNote": "Public, non-confidential scouting index. All branches are hypotheses, not tested research results. Deadlines without verified organizer evidence are not invented.",
+  "deadlines": [
+    {
+      "date": "2026-10-30",
+      "venue": "MLSys 2027",
+      "action": "Full research paper",
+      "area": "ML systems",
+      "time": "12:00 PM PDT (not AoE)",
+      "source": "https://mlsys.org/Conferences/2027/Dates",
+      "status": "confirmed"
+    },
+    {
+      "date": "2026-10-30",
+      "venue": "AR-RSI 2026 workshop",
+      "action": "Paper, including short/position formats",
+      "area": "Research agents",
+      "time": "11:59 PM AoE",
+      "source": "https://ar-rsi.github.io/",
+      "status": "confirmed"
+    },
+    {
+      "date": "2026-11-09",
+      "venue": "The Web Conference 2027",
+      "action": "Short-paper abstract",
+      "area": "Web/data/IR",
+      "time": "11:59 PM AoE",
+      "source": "https://www2027.thewebconf.org/important-dates/",
+      "status": "confirmed"
+    },
+    {
+      "date": "2026-11-10",
+      "venue": "CVPR 2027",
+      "action": "Paper enrollment / author list",
+      "area": "Vision",
+      "time": "11:59 PM AoE",
+      "source": "https://cvpr.thecvf.com/Conferences/2027/Dates",
+      "status": "confirmed"
+    },
+    {
+      "date": "2026-11-16",
+      "venue": "CVPR 2027",
+      "action": "Full research paper",
+      "area": "Vision",
+      "time": "11:59 PM AoE",
+      "source": "https://cvpr.thecvf.com/Conferences/2027/Dates",
+      "status": "confirmed"
+    },
+    {
+      "date": "2026-11-16",
+      "venue": "The Web Conference 2027",
+      "action": "Short paper / demo",
+      "area": "Web/data/IR",
+      "time": "11:59 PM AoE",
+      "source": "https://www2027.thewebconf.org/important-dates/",
+      "status": "confirmed"
+    },
+    {
+      "date": "2026-11-20",
+      "venue": "PAKDD 2027",
+      "action": "Research / applied / survey / agentic AI paper",
+      "area": "Data mining",
+      "time": "11:59 PM AoE; restrictive AI-use policy",
+      "source": "https://www.pakdd2027.org/pages/dates",
+      "status": "confirmed"
+    },
+    {
+      "date": "2026-12-04",
+      "venue": "RSS 2027",
+      "action": "Stage 1: six-page extended abstract",
+      "area": "Robotics",
+      "time": "11:59 PM AoE",
+      "source": "https://roboticsconference.org/information/cfp/",
+      "status": "confirmed"
+    },
+    {
+      "date": "2027-01-04",
+      "venue": "ACL 2027",
+      "action": "Last ARR review-cycle paper submission",
+      "area": "NLP",
+      "time": "11:59 PM AoE",
+      "source": "https://2027.aclweb.org/calls/main/",
+      "status": "confirmed"
+    },
+    {
+      "date": "2027-01-14",
+      "venue": "SIGIR 2027",
+      "action": "Full-paper abstract",
+      "area": "Information retrieval",
+      "time": "11:59 PM AoE; official page labels proposed",
+      "source": "https://sigir2027.org/pages/submit-full.html",
+      "status": "proposed"
+    },
+    {
+      "date": "2027-01-21",
+      "venue": "SIGIR 2027",
+      "action": "Full paper",
+      "area": "Information retrieval",
+      "time": "11:59 PM AoE; official page labels proposed",
+      "source": "https://sigir2027.org/pages/submit-full.html",
+      "status": "proposed"
+    },
+    {
+      "date": "2027-02-02",
+      "venue": "SIGCOMM 2027",
+      "action": "Research paper",
+      "area": "Networking",
+      "time": "Hard deadline",
+      "source": "https://conferences.sigcomm.org/sigcomm/2027/submission/",
+      "status": "confirmed"
+    },
+    {
+      "date": "2027-02-09",
+      "venue": "Interspeech 2027",
+      "action": "Research paper",
+      "area": "Speech/audio",
+      "time": "Entirely AI-written or AI-developed papers rejected",
+      "source": "https://interspeech2027.org/calls/call_for_papers/",
+      "status": "confirmed"
+    },
+    {
+      "date": "2027-04-16",
+      "venue": "RSS 2027",
+      "action": "Stage 2 final paper if invited",
+      "area": "Robotics",
+      "time": "11:59 PM AoE",
+      "source": "https://roboticsconference.org/information/cfp/",
+      "status": "confirmed"
+    }
+  ],
+  "areas": [
+    {
+      "area": "AI / machine learning",
+      "venues": [
+        {
+          "name": "NeurIPS",
+          "url": "https://neurips.cc/"
+        },
+        {
+          "name": "ICML",
+          "url": "https://icml.cc/"
+        },
+        {
+          "name": "ICLR",
+          "url": "https://iclr.cc/"
+        },
+        {
+          "name": "AISTATS",
+          "url": "https://aistats.org/"
+        },
+        {
+          "name": "COLT",
+          "url": "https://learningtheory.org/"
+        },
+        {
+          "name": "UAI",
+          "url": "https://www.auai.org/"
+        },
+        {
+          "name": "AAAI",
+          "url": "https://aaai.org/"
+        },
+        {
+          "name": "IJCAI",
+          "url": "https://www.ijcai.org/"
+        },
+        {
+          "name": "MLSys",
+          "url": "https://mlsys.org/"
+        },
+        {
+          "name": "COLM",
+          "url": "https://colm.cc/"
+        },
+        {
+          "name": "ECML PKDD",
+          "url": "https://ecmlpkdd.org/"
+        }
+      ]
+    },
+    {
+      "area": "Data mining / information retrieval / databases / Web",
+      "venues": [
+        {
+          "name": "KDD",
+          "url": "https://kdd.org/"
+        },
+        {
+          "name": "PAKDD",
+          "url": "https://www.pakdd2027.org/"
+        },
+        {
+          "name": "ICDM",
+          "url": "https://www.cs.uvm.edu/~icdm/"
+        },
+        {
+          "name": "CIKM",
+          "url": "https://www.cikm2026.org/"
+        },
+        {
+          "name": "The Web Conference (WWW)",
+          "url": "https://www2027.thewebconf.org/"
+        },
+        {
+          "name": "SIGIR",
+          "url": "https://sigir2027.org/"
+        },
+        {
+          "name": "WSDM",
+          "url": "https://www.wsdm-conference.org/"
+        },
+        {
+          "name": "SIGMOD",
+          "url": "https://sigmod.org/"
+        },
+        {
+          "name": "VLDB",
+          "url": "https://www.vldb.org/"
+        },
+        {
+          "name": "ICDE",
+          "url": "https://www.icde.org/"
+        },
+        {
+          "name": "EDBT",
+          "url": null
+        }
+      ]
+    },
+    {
+      "area": "Computer vision / graphics / multimodal",
+      "venues": [
+        {
+          "name": "CVPR",
+          "url": "https://cvpr.thecvf.com/"
+        },
+        {
+          "name": "ICCV",
+          "url": "https://iccv.thecvf.com/"
+        },
+        {
+          "name": "ECCV",
+          "url": "https://eccv.ecva.net/"
+        },
+        {
+          "name": "WACV",
+          "url": "https://wacv.thecvf.com/"
+        },
+        {
+          "name": "BMVC",
+          "url": "https://bmvc2026.org/"
+        },
+        {
+          "name": "ACCV",
+          "url": "https://accv2026.org/"
+        },
+        {
+          "name": "SIGGRAPH",
+          "url": "https://www.siggraph.org/"
+        },
+        {
+          "name": "SIGGRAPH Asia",
+          "url": "https://sa.siggraph.org/"
+        },
+        {
+          "name": "3DV",
+          "url": "https://3dvconf.github.io/"
+        }
+      ]
+    },
+    {
+      "area": "NLP / speech / audio",
+      "venues": [
+        {
+          "name": "ACL",
+          "url": "https://www.aclweb.org/"
+        },
+        {
+          "name": "EMNLP",
+          "url": "https://2026.emnlp.org/"
+        },
+        {
+          "name": "NAACL",
+          "url": "https://naacl.org/"
+        },
+        {
+          "name": "EACL",
+          "url": "https://eacl.org/"
+        },
+        {
+          "name": "AACL",
+          "url": "https://aacl.org/"
+        },
+        {
+          "name": "COLING",
+          "url": "https://coling.org/"
+        },
+        {
+          "name": "Interspeech",
+          "url": "https://www.isca-speech.org/"
+        },
+        {
+          "name": "ICASSP",
+          "url": "https://signalprocessingsociety.org/"
+        },
+        {
+          "name": "SLT",
+          "url": "https://signalprocessingsociety.org/"
+        }
+      ]
+    },
+    {
+      "area": "Robotics / embodied learning",
+      "venues": [
+        {
+          "name": "ICRA",
+          "url": "https://www.ieee-ras.org/"
+        },
+        {
+          "name": "IROS",
+          "url": "https://www.ieee-ras.org/"
+        },
+        {
+          "name": "RSS",
+          "url": "https://roboticsconference.org/"
+        },
+        {
+          "name": "CoRL",
+          "url": "https://www.corl.org/"
+        },
+        {
+          "name": "Humanoids",
+          "url": null
+        }
+      ]
+    },
+    {
+      "area": "Systems / architecture / networking / security",
+      "venues": [
+        {
+          "name": "NSDI",
+          "url": "https://www.usenix.org/conferences"
+        },
+        {
+          "name": "OSDI",
+          "url": "https://www.usenix.org/conferences"
+        },
+        {
+          "name": "SOSP",
+          "url": "https://www.sigops.org/"
+        },
+        {
+          "name": "EuroSys",
+          "url": "https://www.eurosys.org/"
+        },
+        {
+          "name": "USENIX ATC",
+          "url": "https://www.usenix.org/conferences"
+        },
+        {
+          "name": "SIGCOMM",
+          "url": "https://conferences.sigcomm.org/"
+        },
+        {
+          "name": "MobiCom",
+          "url": "https://www.sigmobile.org/"
+        },
+        {
+          "name": "IMC",
+          "url": "https://www.sigcomm.org/"
+        },
+        {
+          "name": "HotNets",
+          "url": "https://conferences.sigcomm.org/"
+        },
+        {
+          "name": "INFOCOM",
+          "url": "https://infocom2026.ieee-infocom.org/"
+        },
+        {
+          "name": "SIGMETRICS",
+          "url": "https://www.sigmetrics.org/"
+        },
+        {
+          "name": "ASPLOS",
+          "url": "https://www.asplos-conference.org/"
+        },
+        {
+          "name": "ISCA",
+          "url": "https://www.iscaconf.org/"
+        },
+        {
+          "name": "MICRO",
+          "url": "https://www.microarch.org/"
+        },
+        {
+          "name": "HPCA",
+          "url": "https://hpca-conf.org/"
+        },
+        {
+          "name": "USENIX Security",
+          "url": "https://www.usenix.org/conferences"
+        },
+        {
+          "name": "IEEE S&P",
+          "url": "https://www.ieee-security.org/TC/SP-Index.html"
+        },
+        {
+          "name": "ACM CCS",
+          "url": "https://www.sigsac.org/"
+        },
+        {
+          "name": "NDSS",
+          "url": "https://www.ndss-symposium.org/"
+        },
+        {
+          "name": "PETS",
+          "url": "https://petsymposium.org/"
+        },
+        {
+          "name": "FAST",
+          "url": "https://www.usenix.org/conferences"
+        },
+        {
+          "name": "SC",
+          "url": "https://supercomputing.org/"
+        },
+        {
+          "name": "IPDPS",
+          "url": "https://www.ipdps.org/"
+        }
+      ]
+    },
+    {
+      "area": "Theory / information theory / distributed computing",
+      "venues": [
+        {
+          "name": "STOC",
+          "url": "https://sigact.org/"
+        },
+        {
+          "name": "FOCS",
+          "url": "https://sigact.org/"
+        },
+        {
+          "name": "SODA",
+          "url": "https://www.siam.org/"
+        },
+        {
+          "name": "ITCS",
+          "url": "https://itcs-conf.org/"
+        },
+        {
+          "name": "COLT",
+          "url": "https://learningtheory.org/"
+        },
+        {
+          "name": "ISIT",
+          "url": "https://www.itsoc.org/"
+        },
+        {
+          "name": "PODC",
+          "url": "https://www.podc.org/"
+        },
+        {
+          "name": "DISC",
+          "url": "https://www.disc-conference.org/"
+        },
+        {
+          "name": "LICS",
+          "url": "https://lics.siglog.org/"
+        },
+        {
+          "name": "ICALP",
+          "url": "https://www.eatcs.org/"
+        }
+      ]
+    },
+    {
+      "area": "Medical / biological imaging / bioinformatics / neuroscience",
+      "venues": [
+        {
+          "name": "MICCAI",
+          "url": "https://miccai.org/"
+        },
+        {
+          "name": "MIDL",
+          "url": "https://www.midl.io/"
+        },
+        {
+          "name": "ISBI",
+          "url": "https://biomedicalimaging.org/"
+        },
+        {
+          "name": "EMBC",
+          "url": "https://www.embs.org/"
+        },
+        {
+          "name": "ISMB",
+          "url": "https://www.iscb.org/"
+        },
+        {
+          "name": "RECOMB",
+          "url": "https://recomb.org/"
+        },
+        {
+          "name": "COSYNE",
+          "url": "https://www.cosyne.org/"
+        },
+        {
+          "name": "Cognitive Computational Neuroscience (CCN)",
+          "url": "https://ccneuro.org/"
+        }
+      ]
+    },
+    {
+      "area": "HCI / software engineering / education",
+      "venues": [
+        {
+          "name": "CHI",
+          "url": "https://chi.acm.org/"
+        },
+        {
+          "name": "UIST",
+          "url": "https://uist.acm.org/"
+        },
+        {
+          "name": "CSCW",
+          "url": "https://cscw.acm.org/"
+        },
+        {
+          "name": "FSE",
+          "url": "https://conf.researchr.org/series/fse"
+        },
+        {
+          "name": "ICSE",
+          "url": "https://conf.researchr.org/series/icse"
+        },
+        {
+          "name": "ASE",
+          "url": "https://conf.researchr.org/series/ase"
+        },
+        {
+          "name": "PLDI",
+          "url": "https://pldi.acm.org/"
+        },
+        {
+          "name": "POPL",
+          "url": "https://popl.acm.org/"
+        },
+        {
+          "name": "OOPSLA",
+          "url": "https://conf.researchr.org/series/oopsla"
+        },
+        {
+          "name": "SIGCSE",
+          "url": "https://sigcse.org/"
+        }
+      ]
+    }
+  ],
+  "branches": [
+    {
+      "id": "CC-01",
+      "title": "Rigid-object geometry in generated video",
+      "area": "Vision / world models",
+      "venues": [
+        "CVPR",
+        "RSS"
+      ],
+      "cost": "medium",
+      "stage": "hypothesis only",
+      "question": "Can a shape-sensitive score detect rigid objects that subtly change geometry while the camera moves?",
+      "novelty": "A detector that mistakes camera motion, occlusion or lighting changes for deformation is not valid.",
+      "pilot": "Render 20 known rigid 3D objects under controlled camera motion; introduce graded deformation; compare to MEt3R, temporal image similarity and human labels.",
+      "stop": "If it cannot distinguish deformation from viewpoint change on controlled scenes, stop.",
+      "source": "https://openaccess.thecvf.com/content/CVPR2025/html/Asim_MET3R_Measuring_Multi-View_Consistency_in_Generated_Images_CVPR_2025_paper.html"
+    },
+    {
+      "id": "CC-02",
+      "title": "Mask selection as a side channel",
+      "area": "Self-supervised / theory",
+      "venues": [
+        "ICML",
+        "ICLR",
+        "COLT"
+      ],
+      "cost": "low",
+      "stage": "hypothesis only",
+      "question": "Does an adaptive mask reveal information about hidden tokens, even when the predictor never sees those tokens?",
+      "novelty": "Adaptive masking and information leakage already have literature; prove a distinct setting.",
+      "pilot": "Train a mask-only probe on a toy image dataset; compare independent masks, content-dependent masks and shuffled masks at equal ratios.",
+      "stop": "If an independent-mask control predicts equally well or novelty fails, retire or narrow.",
+      "source": "https://arxiv.org/search/?query=adaptive+masking+information+leakage&searchtype=all"
+    },
+    {
+      "id": "CC-03",
+      "title": "Interpretability of layer positions and feature routing",
+      "area": "Mechanistic interpretability",
+      "venues": [
+        "ICLR",
+        "NeurIPS",
+        "ACL"
+      ],
+      "cost": "low-medium",
+      "stage": "hypothesis only",
+      "question": "Do particular attention heads or layer locations carry causal semantic information beyond easy probe correlations?",
+      "novelty": "Prior work already finds OCR heads with a verbalization lens; cannot repeat that claim.",
+      "pilot": "Replicate one released causal intervention on a small vision-language model; compare target-head ablation, layer-matched random heads and input controls.",
+      "stop": "If effects vanish against layer-matched controls, record a negative result.",
+      "source": "https://arxiv.org/abs/2609.18823"
+    },
+    {
+      "id": "CC-04",
+      "title": "Entity linking recall under fixed candidate cost",
+      "area": "Data mining / retrieval",
+      "venues": [
+        "SIGIR",
+        "KDD",
+        "PAKDD (human-led only)"
+      ],
+      "cost": "low-medium",
+      "stage": "hypothesis only",
+      "question": "Can uncertainty-aware retrieval increase complete-link recall without inflating candidate lists?",
+      "novelty": "Blocking, multi-view retrieval and multilingual embeddings are mature; must show novel cost/recall trade-off.",
+      "pilot": "Use a frozen untouched stratified holdout; compare exact blocks, char n-grams, transliteration, adaptive caps and reverse retrieval at identical average candidate budget.",
+      "stop": "If pair recall improves but complete-link recall and cost do not, downgrade.",
+      "source": "https://sigir2027.org/pages/submit-full.html"
+    },
+    {
+      "id": "CC-05",
+      "title": "Budget-matched pretraining data selection",
+      "area": "Training / efficiency",
+      "venues": [
+        "MLSys",
+        "ICML",
+        "NeurIPS"
+      ],
+      "cost": "medium-high",
+      "stage": "hypothesis only",
+      "question": "Can cheap data selection beat uniform sampling at the same tokens, wall-clock time, and selection overhead?",
+      "novelty": "Compare to strong recent data-mixture and data-selection baselines, not only uniform.",
+      "pilot": "Run small-model repeated seeds on fixed corpora, report selection compute plus training compute and held-out perplexity.",
+      "stop": "If total-cost gains disappear, pivot to an analysis of where selection fails.",
+      "source": "https://mlsys.org/Conferences/2027/CallForResearchPapers"
+    },
+    {
+      "id": "CC-06",
+      "title": "Do temporal boundaries help downstream memory?",
+      "area": "Long video / temporal reasoning",
+      "venues": [
+        "CVPR",
+        "ICCV",
+        "ACL"
+      ],
+      "cost": "low-medium",
+      "stage": "hypothesis only",
+      "question": "Can detected event boundaries improve temporal retrieval or question answering at equal frame budget?",
+      "novelty": "Boundary F1 alone cannot establish downstream usefulness.",
+      "pilot": "Compare ground-truth boundaries, predicted boundaries, uniform frames and random frames with the same total frames and fixed downstream model.",
+      "stop": "If gains disappear under matched budget or on untouched videos, stop.",
+      "source": "https://cvpr.thecvf.com/Conferences/2027/CallForPapers"
+    },
+    {
+      "id": "CC-07",
+      "title": "Structured conditions versus captions in action recognition",
+      "area": "Video understanding",
+      "venues": [
+        "CVPR",
+        "ACL"
+      ],
+      "cost": "low-medium",
+      "stage": "hypothesis only",
+      "question": "When does verifying discrete temporal conditions outperform a descriptive video caption?",
+      "novelty": "Simple action benchmarks may make both approaches similar; avoid dataset-specific claims.",
+      "pilot": "Select temporal minimal-pair actions; fix the video encoder and reasoner, match inference tokens, compare condition-based and caption-based evidence.",
+      "stop": "If both are tied on hard temporal shifts, refocus on calibration/failure analysis.",
+      "source": "https://cvpr.thecvf.com/Conferences/2027/CallForPapers"
+    },
+    {
+      "id": "CC-08",
+      "title": "Agent-made experiments that survive audit",
+      "area": "Research agents / systems",
+      "venues": [
+        "MLSys",
+        "agent workshops"
+      ],
+      "cost": "low-medium",
+      "stage": "hypothesis only",
+      "question": "Can a constrained research agent make real improvements under withheld tests and a counted human-intervention budget?",
+      "novelty": "Automation itself is no longer novel; study evaluation integrity and experimental reliability.",
+      "pilot": "Replicate a one-GPU autoresearch loop; test each accepted edit against frozen unseen seeds, fixed wall time and automatic rollback.",
+      "stop": "If held-out gains do not persist, publish an audit only if it provides generalizable evidence.",
+      "source": "https://github.com/karpathy/autoresearch"
+    },
+    {
+      "id": "CC-09",
+      "title": "Audio-event segmentation at matched compute",
+      "area": "Speech / audio",
+      "venues": [
+        "Interspeech (human-led only)",
+        "ICASSP"
+      ],
+      "cost": "low-medium",
+      "stage": "hypothesis only",
+      "question": "Can a simple constrained decoder improve boundaries without a larger speech model?",
+      "novelty": "Event segmentation already has many decoders; inspect benchmark leakage and timing conventions.",
+      "pilot": "Compare fixed thresholds, median filtering, dynamic programming and uncertainty-aware decoders on held-out recordings.",
+      "stop": "If improvement is limited to one dataset or noisy labels, do not claim a general method.",
+      "source": "https://interspeech2027.org/calls/call_for_papers/"
+    },
+    {
+      "id": "CC-10",
+      "title": "Physical simulator tests for generated video planning",
+      "area": "Robotics / world models",
+      "venues": [
+        "RSS",
+        "CoRL",
+        "ICRA"
+      ],
+      "cost": "medium",
+      "stage": "hypothesis only",
+      "question": "When does inconsistency in an imagined video produce invalid robot-planning decisions?",
+      "novelty": "Visual realism is not equal to downstream planning success; identify the causal link.",
+      "pilot": "Use a small grid/rigid-object simulator, perturb a generated roll-out while holding goals fixed, and score plan feasibility plus collision rate.",
+      "stop": "If image scores do not predict planning errors, report the counterexample.",
+      "source": "https://roboticsconference.org/information/cfp/"
+    },
+    {
+      "id": "CC-11",
+      "title": "Small formal proofs for retrieval and selection",
+      "area": "Optimization / theory",
+      "venues": [
+        "COLT",
+        "ISIT",
+        "ITCS",
+        "PAKDD (human-led only)"
+      ],
+      "cost": "low",
+      "stage": "hypothesis only",
+      "question": "Which simple assumptions guarantee a recall-cost bound for multi-route retrieval or adaptive sampling?",
+      "novelty": "A theorem needs nontrivial assumptions, an actual proof and numerical checks.",
+      "pilot": "State a two-route probabilistic model; derive a bound; brute-force check small instances and construct counterexamples.",
+      "stop": "If bound is vacuous under realistic distributions, retire.",
+      "source": "https://learningtheory.org/colt2027/"
+    },
+    {
+      "id": "CC-12",
+      "title": "Transfer of synthetic-image evaluation to biology",
+      "area": "AI for science / biomedical imaging",
+      "venues": [
+        "MICCAI",
+        "MIDL",
+        "ISBI"
+      ],
+      "cost": "low-medium",
+      "stage": "hypothesis only",
+      "question": "Do geometry metrics fail in predictable ways on microscopic synthetic sequences with no real paired view?",
+      "novelty": "Biomedical evaluation needs meaningful validated controls, not clinical claims.",
+      "pilot": "Use public synthetic cell-like renderings with controllable deformations and illumination; compare geometric and perceptual consistency metrics.",
+      "stop": "If results do not transfer beyond toy images, retain as a methods note only.",
+      "source": "https://miccai.org/upcoming-conferences/"
+    },
+    {
+      "id": "CC-13",
+      "title": "Are networked research experiments truly reproducible?",
+      "area": "Systems / networking",
+      "venues": [
+        "NSDI",
+        "SIGCOMM",
+        "MLSys"
+      ],
+      "cost": "medium",
+      "stage": "hypothesis only",
+      "question": "How often do agent-driven optimization claims vanish under controlled placement, contention and seed variance?",
+      "novelty": "A benchmark alone needs a novel reproducibility protocol or generalizable systems finding.",
+      "pilot": "Run small synthetic services with controlled load and resource contention; measure throughput, latency and variance before/after each agent change.",
+      "stop": "If differences are explainable by noise, don't claim an optimization.",
+      "source": "https://www.usenix.org/conference/nsdi27/call-for-papers"
+    }
+  ],
+  "policies": [
+    {
+      "venue": "PAKDD 2027",
+      "rule": "Generative AI may be used only for grammatical correction; disclosure is required.",
+      "source": "https://pakdd2027.org/pages/calls/authors-kit",
+      "flag": "restrictive"
+    },
+    {
+      "venue": "Interspeech 2027",
+      "rule": "Entirely AI-written or AI-developed papers will be desk rejected.",
+      "source": "https://interspeech2027.org/calls/call_for_papers/",
+      "flag": "restrictive"
+    },
+    {
+      "venue": "EACL 2027",
+      "rule": "Entirely AI-generated papers and thinly sliced submissions risk desk rejection or sanctions.",
+      "source": "https://2027.eacl.org/calls/papers/",
+      "flag": "restrictive"
+    },
+    {
+      "venue": "ICLR 2027",
+      "rule": "Mandatory manuscript AI-use disclosure; authors are responsible for all claims and originality.",
+      "source": "https://iclr.cc/Conferences/2027/AIPolicyForAuthors",
+      "flag": "disclose"
+    },
+    {
+      "venue": "RSS 2027",
+      "rule": "LLM use permitted; disclosure encouraged, reproducibility and correct citations mandatory.",
+      "source": "https://roboticsconference.org/information/cfp/",
+      "flag": "permitted with responsibility"
+    },
+    {
+      "venue": "CVPR 2027",
+      "rule": "LLM use guidance under development; check before submitting. Reviewer reciprocity and author limits apply.",
+      "source": "https://cvpr.thecvf.com/Conferences/2027/AuthorGuidelines",
+      "flag": "check"
+    }
+  ],
+  "examples": [
+    {
+      "title": "The AI Scientist: Towards end-to-end automation of AI research",
+      "kind": "Peer-reviewed Nature 2026 paper; workshop peer-review experiment",
+      "note": "Idea → code → experiments → manuscript; workshop paper passed first-round review, not a main-track acceptance claim.",
+      "url": "https://www.nature.com/articles/s41586-026-10265-5"
+    },
+    {
+      "title": "Sakana AI Scientist v2",
+      "kind": "Open code and paper",
+      "note": "Agentic tree search without fixed human paper templates; workshop success was a controlled experiment, not automatic venue acceptance.",
+      "url": "https://github.com/SakanaAI/AI-Scientist-v2"
+    },
+    {
+      "title": "Karpathy autoresearch",
+      "kind": "Autonomous experiment loop",
+      "note": "5-minute single-GPU controlled training trials; good engineering pattern, not proof of publishable novelty.",
+      "url": "https://github.com/karpathy/autoresearch"
+    },
+    {
+      "title": "Agent Laboratory",
+      "kind": "Research-assistant framework",
+      "note": "Human feedback improved outcomes; produces literature, experiment and report artifacts.",
+      "url": "https://arxiv.org/abs/2501.04227"
+    },
+    {
+      "title": "Robin: multi-agent system for scientific discovery",
+      "kind": "Nature 2026 experimental biology",
+      "note": "Iterative hypothesis/analysis loop with experiments performed by humans; not a fully autonomous wet lab.",
+      "url": "https://www.nature.com/articles/s41586-026-10652-y"
+    },
+    {
+      "title": "PaperBench",
+      "kind": "Independent replication benchmark",
+      "note": "Reproducing papers remains hard: separates credible evidence from convincing prose.",
+      "url": "https://openai.com/index/paperbench/"
+    },
+    {
+      "title": "Using OCR Heads to Verbalize Image Semantics",
+      "kind": "Writing and interpretability exemplar",
+      "note": "Narrow testable mechanism → causal head evidence → interpretable lens → localization and editing.",
+      "url": "https://arxiv.org/abs/2609.18823"
+    },
+    {
+      "title": "MEt3R: Measuring Multi-View Consistency in Generated Images",
+      "kind": "CVPR 2025 baseline",
+      "note": "Existing geometry-aware metric, so new 3D/video proposal must test a distinct failure mode.",
+      "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Asim_MET3R_Measuring_Multi-View_Consistency_in_Generated_Images_CVPR_2025_paper.html"
+    }
+  ],
+  "closed": [
+    "ICLR 2027 (Sep 18 / Sep 25 2026)",
+    "AISTATS 2027 (Sep 29 / Oct 6 2026)",
+    "ICRA 2027 (Sep 2026)",
+    "ICASSP 2027 (Sep 23 2026)"
+  ],
+  "watch": [
+    "ICML 2027",
+    "NeurIPS 2027",
+    "COLM 2027",
+    "KDD 2027 later cycle",
+    "MICCAI 2027",
+    "MIDL 2027",
+    "CoRL 2027",
+    "UAI 2027",
+    "ISIT 2027",
+    "COSYNE 2027"
+  ]
+}
