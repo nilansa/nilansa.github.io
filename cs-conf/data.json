@@ -3,7 +3,7 @@
   "taskId": "20261026-csconf-research",
   "createdAt": "2026-10-26T13:51:12.349Z",
   "checkedAt": "2026-10-27",
-  "editorialNote": "Oct 27 seventh audit: found ICASSP 2027 challenge-based, invitation-dependent two-page paper routes; added CC14 XACLE, CC15 HEARTBEAT, CC16 RMS-AQA with zero-leakage pilots and registration limitations. Verified ICASSP 2026 accepted XACLE system papers; feature ensembles/CLAP pseudo-labels already prior art. CC08 independently recomputed four finite M1 table formulas (all match) and arithmetic-only M3 accounting; no theorem or empirical replay. Published public-safe audit. No GPU benchmark, enrollment, or submission; no Codex/local transfer.",
+  "editorialNote": "Oct 27 eighth audit: NEW hard AI policy MIDL 2027 forbids LLM-origin ideas, studies, analyses, results and substantive text, so CC12 cannot target MIDL through autonomous CS Conf; official XACLE 2027 release date does NOT establish verified accessible dataset/generator IDs; inspected 2026 7500/3000 audio-text dataset schema, no generator label in documented CSV, and prior 2026 SPO-CLAPScore rank6 preference optimization. CC15 clarified different Track I offline Top-1 and Track II online F1/latency protocols. No data/GPU test, competition registration, or submission; direct GitHub edit only.",
   "deadlines": [
     {
       "date": "2026-10-27",
@@ -1094,15 +1094,15 @@
       "area": "AI for science / biomedical imaging",
       "venues": [
         "MICCAI",
-        "MIDL",
+        "MIDL (only independently human-originated research; not this autonomous branch)",
         "ISBI"
       ],
       "cost": "low-medium",
-      "stage": "new MIDL 2027 deadline; biologically valid topology/lineage controls required; no pilot run; ISBI 2027 Nov 2 four-page archival deadline verified: likely too soon without real cell-tracking validation, Feb 1 poster abstract is non-archival",
+      "stage": "AI AUTHORSHIP STOP FOR MIDL 2027: policy prohibits LLM-origin research ideas/designs/analysis/results; continue publicly as exploratory biomedical work only; a separate independently human-originated study must comply. No biological pilot run or paper.",
       "question": "Do synthetic microscopy video quality scores predict cell-count, division-lineage, and tracking failures under matched appearance changes?",
       "novelty": "2025 microscopy video diffusion work already evaluates morphology, proliferation and migration in generated cell videos; Cell Tracking Challenge provides established tracking metrics. A generic 'biological geometry consistency' score would overlap existing evaluations. Need test whether visual/video metrics can miss biologically material lineage/topology errors, with licensed public data and explicit nonclinical scope.",
       "pilot": "Choose released Cell Tracking Challenge time-lapse sequences with labels. Construct matched editing pairs: one changes only brightness/texture, one inserts a division, disappearance, or impossible identity switch at controlled severity. Blind labels and compare 2-3 published image/video quality scores with cell count, division-timing, lineage and tracking metrics on held-out sequences. First test without training (CPU image edits and existing segmentation/tracking checkpoints). No clinical outcome claims without external validation. ISBI in-person and first-author cap (<=2) plus IEEE AI disclosure must be checked. Do NOT report poster abstract as a full research paper.",
-      "stop": "Do not target MIDL main/full clinical track if only toy cells, no image-grounded biologically valid intervention, or effects already captured by existing cell-tracking evaluation; use a reproducibility/method note when appropriate.",
+      "stop": "Do not target MIDL main/full clinical track if only toy cells, no image-grounded biologically valid intervention, or effects already captured by existing cell-tracking evaluation; use a reproducibility/method note when appropriate. MIDL 2027 expressly prohibits LLM-generated idea, method design, analysis and substantive text; do not route CS Conf AI-origin contributions to that venue.",
       "source": "https://2027.midl.io/important-dates",
       "closestPriorArt": [
         {
@@ -1146,11 +1146,11 @@
         "signal-processing workshops"
       ],
       "cost": "low (frozen embeddings + small CPU regressor), moderate if many encoders",
-      "stage": "PRIOR ART + OFFICIAL CHALLENGE VERIFIED; no participation or evaluation executed; XACLE submission Dec 3 2026",
+      "stage": "RELEASE/METADATA PRECHECK BLOCKED: ICASSP organizer lists Sep24 2026 2027 dataset/baseline release, but the checked 2027 challenge landing page has no verifiable 2027 generator-id schema or data link. 2026 public README gives wave/text/ratings/listener IDs but no generator IDs. No generator-disjoint experiment or challenge registration executed.",
       "question": "Does leave-generator-out calibration improve audio-text human-score rank correlation on entirely unseen audio generators compared with ordinary random-split tuning?",
       "novelty": "XACLE 2027 explicitly changes the 2026 seen-generator evaluation to unseen-generation systems; this is a domain-shift test, not a new metric by itself. ICASSP 2026 second-place EnsembleSVR-XACLE already uses ensembles of audio-text features and regressors; third-place TMU uses CLAP pseudo-labels. A simple frozen CLAP regressor or feature ensemble is NOT novel. Potential result must show a controlled generalization mechanism.",
-      "pilot": "First inspect official released 2027 labels and generator metadata/permissions. Cache one frozen CLAP audio/text embedding pair on train/dev, train a monotone/calibrated shallow head under leave-generator-out splits versus standard random split. Compare raw CLAP cosine, official XACLE baseline, closest 2026 rank-2 ensemble and rank-3 pseudo-label system if reproducible. Lock unseen-generator held-out evaluation; primary Spearman rho, bootstrap interval by generator; record feature extraction/inference costs and seed variance.",
-      "stop": "If released train metadata cannot define generator-separated dev folds, or improvement vanishes against closest 2026 baselines, do not claim novelty. Invitations go only to top-ranked challenge teams; submitting predictions does not equal an accepted paper.",
+      "pilot": "First locate an authorized official 2027 train/dev download, license, model IDs and metadata schema and freeze generator-grouped splits; 2026 released CSV schema documents audio ID, text, 11-point ratings, listener ID, and averages but NO generator ID, so 2026 random split cannot support unseen-generator claims. When group metadata is verified, cache fixed embeddings and compare official BYOL-A+RoBERTa baseline, simple CLAP, reported 2026 ensemble/CLAP-pseudolabel systems and SPO listener-normalized preference optimization (arxiv 2601.02900) where computationally feasible. Use leave-generator-out validation, grouped bootstrap by generator, Spearman as primary, plus compute cost, and final hidden 2027 test once legitimately available. No predictions/results until release/eligibility verified.",
+      "stop": "Stop or change hypothesis if the 2027 authorized dataset does not expose a valid model identity or legally usable way to construct held-out-generator validation. Random splits of 2026 CSVs are not evidence of unseen-generator generalization. Stop paper novelty claim if differences disappear versus prior preference optimization, CLAP pseudo-labels or official baseline at matched resources.",
       "source": "https://xacle.org/2027/index.html",
       "closestPriorArt": [
         {
@@ -1164,6 +1164,10 @@
         {
           "title": "TMU System for XACLE: CLAP Pseudo-Labels (ICASSP 2026, challenge rank 3)",
           "url": "https://arxiv.org/abs/2602.00604"
+        },
+        {
+          "title": "SPO-CLAPScore: Standardized Preference Optimization for XACLE (2026 rank 6; SRCC .6142)",
+          "url": "https://arxiv.org/abs/2601.02900"
         }
       ]
     },
@@ -1177,10 +1181,10 @@
         "CoRL"
       ],
       "cost": "low-medium for offline decision pilot; medium for real streaming model",
-      "stage": "OFFICIAL CHALLENGE VERIFIED; registration open on organizer site as of Oct 27; no registration made",
+      "stage": "OFFICIAL TRACK PROTOCOL VERIFIED, but dataset file/baseline access not independently established and no enrollment or benchmark run. Track I Offline is four-way Top-1 classification with NO latency term; Track I/II online use causal streaming with distinct timing and F1 measures. Organizer's Nov4 leaderboard date supersedes master list Oct21.",
       "question": "Can an explicitly calibrated abstain/wait policy reduce incorrect interruptions without reducing correct on-time responses under strictly causal streaming input?",
       "novelty": "HEARTBEAT already benchmarks abstention, response initiation and false triggers. A generic 'agents should wait' finding is not new; only improved controlled performance under the released benchmark and a distinct mechanism is useful.",
-      "pilot": "Start HEARTBEAT Track I offline four-way choices or Track II causal per-chunk labels with official baseline. Train only a lightweight policy head on frozen embeddings. Compare fixed-threshold, cost-calibrated wait/trigger policy and official baseline at matched inference compute; never use future chunks, enforce speaker/episode-disjoint validation, measure event F1, false activations and time delay. First verify dataset/baseline licenses and challenge enrollment.",
+      "pilot": "Do NOT pool scores across tracks. First verify an authorized Track I OFFLINE dataset/scorer; compare one frozen audio encoder four-way classifier to official baseline at exact Top-1 accuracy and group-disjoint holdout. In a separate Track II ONLINE experiment, enforce true chunk-causal access, log every chunk including silence, compare fixed and calibrated trigger/abstention policies for joint F1, false starts and delay at matched compute. Frozen final containers cannot use remote APIs. Team/resource freeze Nov20, final Dec11. Zero experiments performed.",
       "stop": "If no gain in false-trigger versus latency frontier on unseen episodes, or if only future-context leakage helps, stop. Final award-eligible containers cannot call remote services; invited papers are not automatic.",
       "source": "https://heartbeat-challenge.github.io/",
       "closestPriorArt": [
@@ -1283,6 +1287,12 @@
       "rule": "IEEE disclosure of AI-generated article content identifying tool, sections and extent; basic grammar editing exempt but disclosure recommended. In-person presentation mandatory; first-author max two submissions; archival full paper restricted to four technical pages, fifth nontechnical page costs USD 200.",
       "source": "https://biomedicalimaging.org/2027/papers/",
       "flag": "IEEE substantive content disclosure; physical attendance; first-author <=2"
+    },
+    {
+      "venue": "MIDL 2027",
+      "rule": "MIDL 2027 official policy: LLM use is limited to language/formatting edits. LLM-generated research ideas, study designs, analyses, results, and substantive content are prohibited; this autonomous research workflow is not eligible for a MIDL 2027 paper.",
+      "source": "https://2027.midl.io/author-instructions",
+      "flag": "restrictive: no AI-generated research idea, experiment, analysis, or substantive writing"
     }
   ],
   "examples": [
@@ -1381,6 +1391,12 @@
       "kind": "Direct public artifact inspection plus limited independent exact arithmetic",
       "note": "M1 four printed examples re-evaluated with exact rational arithmetic (4/4 matched stated formulas); M3 public experimental count arithmetic matches 289. README records historical fingerprint drift, and M3 record explicitly lacks whole-project kernel replay. No Lean build, empirical validation, or manuscript-priority check was performed.",
       "url": "https://github.com/nilansa/nilansa.github.io/blob/main/cs-conf/audits/cc08-certificate-audit-2026-10-27.md"
+    },
+    {
+      "title": "SPO-CLAPScore: Standardized Preference Optimization for Audio–Text Alignment (2026 XACLE)",
+      "kind": "Published public system report and released code (rank 6, no claim of 2027 success)",
+      "note": "Reported 2026 test SRCC 0.6142; already learns human listener preferences with standardized scores. A shallow ranking/calibration head alone is not a novel 2027 generator-generalization paper. Its seen-generator setting differs from the unseen-generator 2027 challenge.",
+      "url": "https://arxiv.org/abs/2601.02900"
     }
   ],
   "closed": [
@@ -1401,5 +1417,5 @@
     "UAI 2027",
     "ISIT 2027"
   ],
-  "lastLiteratureAudit": "2026-10-27 seventh audit: ICASSP 2027 XACLE unseen-generator official site; 2026 accepted rank2/rank3 papers; HEARTBEAT causal audio decisions, offline container rules; RMS-AQA grounded spatial audio; EEG-sAAD cross-domain contest; Audio Editing registration Oct8 closed. CC08 M1 exact arithmetic 4/4; M3 campaign sums only, self-reported source SHA drift. All source audit not Lean/empirical validation."
+  "lastLiteratureAudit": "2026-10-27 eighth audit: MIDL 2027 AI authorship restriction (2027.midl.io/author-instructions); XACLE 2027 official overview and IEEE ICASSP GC8 release calendar, missing verified 2027 model grouping/data URL; XACLE 2026 README schema (XACLE-Challenge/the_first_XACLE_challenge_dataset_train_validation blob 9be4755); SPO-CLAPScore arxiv:2601.02900 and released code, rank6 SRCC .6142; HEARTBEAT challenge site per-track metrics and no-network final container."
 }
