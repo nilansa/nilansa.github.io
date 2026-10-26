@@ -1,264 +1,184 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#174c83">
-  <title>Daybook — task tracker</title>
-  <style>
-    :root { color-scheme: light; font: 14px/1.45 Verdana, Arial, sans-serif; color: #273b50; background: #dce6ee; }
-    * { box-sizing: border-box; }
-    body { min-width: 320px; margin: 0; padding: 34px 18px; background: linear-gradient(#edf3f7, #d9e4ec); }
-    button, input, select { font: inherit; }
-    button { cursor: pointer; }
-    .app { max-width: 960px; margin: 0 auto; overflow: hidden; border: 1px solid #829bb0; border-radius: 8px; background: #fff; box-shadow: 0 5px 18px #35536a2b; }
-    .topbar { display: flex; align-items: center; gap: 12px; padding: 17px 22px; color: #fff; background: linear-gradient(#327bb7, #174c83 55%, #123e70); border-bottom: 1px solid #103b68; }
-    .brand-mark { display: grid; width: 38px; height: 38px; place-items: center; border: 1px solid #a9d2f2; border-radius: 6px; background: linear-gradient(#f5fbff, #c9e2f5); color: #195589; font-size: 24px; font-weight: bold; text-shadow: 0 1px #fff; box-shadow: inset 0 1px #fff; }
-    .brand-copy { flex: 1; }
-    .brand-copy p, .brand-copy h1 { margin: 0; }
-    .brand-copy p { color: #d2e7f8; font-size: 10px; font-weight: bold; letter-spacing: 1.3px; }
-    .brand-copy h1 { font-size: 21px; line-height: 1.3; text-shadow: 0 1px #103b68; }
-    .save-note { display: flex; align-items: center; gap: 7px; color: #e5f3ff; font-size: 11px; }
-    .save-dot { width: 8px; height: 8px; border-radius: 50%; background: #a5df86; box-shadow: 0 0 0 2px #ffffff35; }
-    .layout { display: grid; grid-template-columns: 205px minmax(0, 1fr); min-height: 520px; }
-    .sidebar { padding: 22px 12px; border-right: 1px solid #c5d3df; background: linear-gradient(90deg, #f0f5f8, #e8f0f5); }
-    .side-label, .eyebrow { margin: 0 0 10px; color: #71869a; font-size: 10px; font-weight: bold; letter-spacing: 1px; }
-    .side-label { padding: 0 9px; }
-    .nav-item { display: flex; width: 100%; align-items: center; gap: 10px; margin: 3px 0; padding: 9px 10px; border: 1px solid transparent; border-radius: 5px; background: transparent; color: #40566b; text-align: left; }
-    .nav-item:hover { border-color: #c0d3e2; background: #f8fbfd; }
-    .nav-item[aria-current="page"] { border-color: #9fbdd4; background: linear-gradient(#fff, #d9e9f5); color: #164c7d; font-weight: bold; box-shadow: inset 0 1px #fff; }
-    .nav-icon { width: 18px; color: #527fa4; text-align: center; font-size: 15px; }
-    .badge { min-width: 21px; margin-left: auto; padding: 1px 6px; border: 1px solid #d1dde6; border-radius: 10px; background: #fff; color: #6d8091; font-size: 10px; text-align: center; }
-    .content { min-width: 0; padding: 27px 30px 24px; }
-    .heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 21px; }
-    .eyebrow { margin-bottom: 4px; }
-    h2 { margin: 0; color: #223e58; font-size: 23px; }
-    .view-description { margin: 4px 0 0; color: #73879a; font-size: 12px; }
-    .date-stamp { padding: 8px 10px; border: 1px solid #d4e0e8; border-radius: 5px; background: #f6f9fb; color: #5f778c; font-size: 11px; text-align: right; white-space: nowrap; }
-    .task-form { display: grid; grid-template-columns: minmax(140px, 1fr) 140px 145px auto; gap: 8px; padding: 12px; border: 1px solid #b8cbd9; border-radius: 6px; background: linear-gradient(#f6fafc, #eaf2f7); box-shadow: inset 0 1px #fff; }
-    .task-form input, .task-form select { min-width: 0; height: 36px; padding: 0 9px; border: 1px solid #b8c7d3; border-radius: 4px; background: #fff; color: #30475c; box-shadow: inset 0 1px 2px #263d5012; }
-    .task-form input:focus, .task-form select:focus { outline: 2px solid #77b6e8; outline-offset: 1px; }
-    .add-button { padding: 0 15px; border: 1px solid #246a9e; border-radius: 4px; background: linear-gradient(#6eb3e2, #347fb7 52%, #236497); color: #fff; font-weight: bold; text-shadow: 0 1px #1d5782; box-shadow: inset 0 1px #ffffff75; }
-    .add-button:hover { background: linear-gradient(#86c3ed, #438ec5 52%, #2b70a4); }
-    .form-hint { margin: 7px 2px 18px; color: #8393a1; font-size: 10px; }
-    .notice { margin: 12px 0; padding: 10px 12px; border: 1px solid #e1c67d; border-radius: 4px; background: #fff8df; color: #6d5719; font-size: 12px; }
-    .task-list { display: grid; gap: 7px; margin: 0; padding: 0; list-style: none; }
-    .task-row { display: flex; align-items: flex-start; gap: 11px; padding: 12px 13px; border: 1px solid #d5e0e8; border-radius: 5px; background: linear-gradient(#fff, #fbfcfd); box-shadow: 0 1px 2px #1d3a5010; }
-    .task-row:hover { border-color: #b5cbdc; }
-    .task-check { flex: 0 0 auto; margin-top: 2px; }
-    .task-check input { width: 16px; height: 16px; margin: 0; accent-color: #317eae; cursor: pointer; }
-    .task-copy { min-width: 0; }
-    .task-title { margin: 0; overflow-wrap: anywhere; color: #31475a; }
-    .task-row.completed .task-title { color: #8997a2; text-decoration: line-through; }
-    .task-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
-    .pill, .due-label { padding: 2px 7px; border: 1px solid #d6e2eb; border-radius: 10px; background: #f1f6f9; color: #6a8296; font-size: 10px; }
-    .due-label { border-color: #ecd9a8; background: #fff8e6; color: #8a7135; }
-    .empty-state { padding: 37px 15px; border: 1px dashed #c8d6e0; border-radius: 5px; color: #8091a0; text-align: center; }
-    .empty-icon { margin-bottom: 7px; color: #8aa8bf; font-size: 26px; }
-    .empty-state p { margin: 0; }
-    .privacy { margin: 27px 0 0; padding-top: 13px; border-top: 1px solid #e6edf1; color: #8494a1; font-size: 10px; }
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
-    @media (max-width: 720px) {
-      body { padding: 14px 10px; }
-      .layout { grid-template-columns: 1fr; }
-      .sidebar { display: flex; gap: 3px; overflow-x: auto; padding: 9px; border-right: 0; border-bottom: 1px solid #c5d3df; }
-      .side-label { display: none; }
-      .nav-item { flex: 0 0 auto; width: auto; gap: 6px; padding: 8px; font-size: 12px; }
-      .nav-icon { width: auto; }
-      .badge { min-width: 18px; padding-inline: 4px; }
-      .content { padding: 21px 16px; }
-      .task-form { grid-template-columns: 1fr 1fr; }
-      .task-form input:first-of-type { grid-column: 1 / -1; }
-      .add-button { min-height: 36px; }
-    }
-    @media (max-width: 420px) {
-      .topbar { padding: 14px; }
-      .save-note { max-width: 98px; line-height: 1.3; }
-      .date-stamp { display: none; }
-      .content { padding-inline: 12px; }
-      .task-form { gap: 7px; padding: 9px; }
-      .task-form select, .task-form input[type="date"] { font-size: 12px; }
-    }
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nilanjan's Tracker</title>
+<style>
+:root {color-scheme:light}
+body {max-width:960px;margin:22px auto;padding:0 12px;background:#fff;color:#111;font:14px/1.45 Arial,Verdana,sans-serif}
+h1,h2 {font-family:Georgia,"Times New Roman",serif;margin:12px 0 6px}
+h1{font-size:25px}h2{font-size:19px}a,.link {color:#0645ad;text-decoration:underline}
+nav{margin:13px 0;line-height:2}nav a{margin-right:5px}nav a.active{color:#111;text-decoration:none;font-weight:bold}
+hr{border:0;border-top:1px solid #aaa}
+small,.muted {font-size:12px;color:#555}
+table {border-collapse:collapse;width:100%}th,td{padding:8px 5px;vertical-align:top;border-bottom:1px solid #ddd;text-align:left}th{background:#f8f8f8;border-bottom-color:#888}
+th:first-child,td:first-child{width:22px}td.actions{white-space:nowrap;text-align:right}
+input,select,textarea,button{font:inherit;border:1px solid #999;border-radius:0;background:#fff;color:#111;padding:4px;max-width:100%}
+input[type=checkbox]{accent-color:#333;cursor:pointer}button{cursor:pointer}button:hover{background:#eee}
+button.link{border:0;padding:1px;background:none;cursor:pointer}button.link:hover{text-decoration:none}
+label{display:block;margin:7px 0 4px}
+form input[type=text],form input[type=url],form textarea{width:100%;box-sizing:border-box}
+textarea{min-height:55px;resize:vertical}
+fieldset{border:1px solid #aaa;padding:10px;margin:10px 0}legend{font-weight:bold}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.form-grid input,.form-grid select{width:100%;box-sizing:border-box}
+.row-actions{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+details{margin:15px 0}summary{width:max-content;max-width:100%;cursor:pointer;color:#0645ad;text-decoration:underline}
+.title.done,.title.removed{text-decoration:line-through;color:#777}
+.desc{color:#666;font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere}
+.due.overdue{color:#9c2121}.status.progress{color:#12752e}.status.done{color:#777}
+#sync-message.error{color:#a21b1b}
+.notice{padding:6px 0;border-top:1px solid #ddd;border-bottom:1px solid #ddd;margin:7px 0}
+footer{border-top:1px solid #aaa;margin:30px 0 0;padding:12px 0}
+[hidden]{display:none!important}
+@media(max-width:650px){body{margin:12px auto}td,th{padding:6px 3px;font-size:12px}.category-column{display:none}.form-grid{grid-template-columns:1fr}.status{width:90px}.actions button{display:block;margin-bottom:5px}.actions{white-space:normal!important}h1{font-size:23px}}
+</style>
 </head>
 <body>
-  <div class="app">
-    <header class="topbar">
-      <div class="brand-mark" aria-hidden="true">✓</div>
-      <div class="brand-copy"><p>YOUR EVERYDAY TASK LIST</p><h1>Daybook</h1></div>
-      <div class="save-note"><span class="save-dot" aria-hidden="true"></span><span>Saved in this browser</span></div>
-    </header>
-    <div class="layout">
-      <nav class="sidebar" aria-label="Task views">
-        <p class="side-label">VIEWS</p>
-        <button class="nav-item" type="button" data-view="today"><span class="nav-icon" aria-hidden="true">▣</span><span>Today</span><span class="badge" id="count-today">0</span></button>
-        <button class="nav-item" type="button" data-view="upcoming"><span class="nav-icon" aria-hidden="true">◷</span><span>Upcoming</span><span class="badge" id="count-upcoming">0</span></button>
-        <button class="nav-item" type="button" data-view="conferences"><span class="nav-icon" aria-hidden="true">▤</span><span>Conferences</span><span class="badge" id="count-conferences">0</span></button>
-        <button class="nav-item" type="button" data-view="projects"><span class="nav-icon" aria-hidden="true">▧</span><span>Projects</span><span class="badge" id="count-projects">0</span></button>
-        <button class="nav-item" type="button" data-view="meetings"><span class="nav-icon" aria-hidden="true">▦</span><span>Meetings</span><span class="badge" id="count-meetings">0</span></button>
-        <button class="nav-item" type="button" data-view="archive"><span class="nav-icon" aria-hidden="true">▣</span><span>Archive</span><span class="badge" id="count-archive">0</span></button>
-      </nav>
-      <main class="content">
-        <section class="heading" aria-labelledby="view-title">
-          <div><p class="eyebrow" id="view-kicker">YOUR TASKS</p><h2 id="view-title">Today</h2><p class="view-description" id="view-description">A fresh start, one task at a time.</p></div>
-          <div class="date-stamp" id="date-stamp"></div>
-        </section>
-        <form class="task-form" id="task-form">
-          <label class="sr-only" for="task-title-input">Task name</label>
-          <input id="task-title-input" name="title" type="text" maxlength="160" placeholder="Add a task…" autocomplete="off" required>
-          <label class="sr-only" for="task-category">Category</label>
-          <select id="task-category" name="category">
-            <option value="today">Today</option><option value="conferences">Conferences</option><option value="projects">Projects</option><option value="meetings">Meetings</option>
-          </select>
-          <label class="sr-only" for="task-due">Due date</label>
-          <input id="task-due" name="due" type="date" aria-label="Due date">
-          <button class="add-button" type="submit">Add task</button>
-        </form>
-        <p class="form-hint" id="form-hint">A date is optional. Check a task to move it to Archive.</p>
-        <p class="notice" id="storage-notice" role="status" hidden></p>
-        <ul class="task-list" id="task-list" aria-label="Tasks"></ul>
-        <div class="empty-state" id="empty-state" hidden><div class="empty-icon" aria-hidden="true">☀</div><p id="empty-message">No tasks here yet.</p></div>
-        <p class="privacy">No account, analytics, or network sync. Tasks stay in this browser profile.</p>
-      </main>
-    </div>
-  </div>
-  <script>
-    (() => {
-      "use strict";
-      const KEY = "daybook-tasks-v1";
-      const categories = { today: "Today", conferences: "Conferences", projects: "Projects", meetings: "Meetings" };
-      const views = {
-        today: ["Today", "A fresh start, one task at a time."],
-        upcoming: ["Upcoming", "Coming up after today."],
-        conferences: ["Conferences", "Keep conference tasks together."],
-        projects: ["Projects", "Small steps add up."],
-        meetings: ["Meetings", "Notes and follow-ups to remember."],
-        archive: ["Archive", "Finished tasks. Check one to bring it back."]
-      };
-      const list = document.querySelector("#task-list");
-      const form = document.querySelector("#task-form");
-      const titleInput = document.querySelector("#task-title-input");
-      const categoryInput = document.querySelector("#task-category");
-      const dueInput = document.querySelector("#task-due");
-      const notice = document.querySelector("#storage-notice");
-      const empty = document.querySelector("#empty-state");
-      let activeView = "today";
-      let tasks = [];
-      let readError = false;
-
-      const todayKey = () => {
-        const d = new Date();
-        return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
-      };
-      const validTask = task => task && typeof task.id === "string" && typeof task.title === "string" && Object.hasOwn(categories, task.category) && typeof task.completed === "boolean" && (task.due === "" || /^\d{4}-\d{2}-\d{2}$/.test(task.due));
-      try {
-        const saved = localStorage.getItem(KEY);
-        if (saved) {
-          const parsed = JSON.parse(saved);
-          if (!Array.isArray(parsed) || !parsed.every(validTask)) throw new Error("Invalid saved tasks");
-          tasks = parsed;
-        }
-      } catch {
-        readError = true;
-        notice.textContent = "Saved tasks could not be read. The stored browser data has been left untouched.";
-        notice.hidden = false;
-        form.querySelector("button").disabled = true;
-      }
-      const save = () => {
-        try {
-          localStorage.setItem(KEY, JSON.stringify(tasks));
-          notice.hidden = true;
-        } catch {
-          notice.textContent = "This browser could not save the change. Check available storage and try again.";
-          notice.hidden = false;
-        }
-      };
-      const matchesView = (task, view, today) => {
-        if (view === "archive") return task.completed;
-        if (task.completed) return false;
-        if (view === "today") return !task.due || task.due <= today;
-        if (view === "upcoming") return Boolean(task.due && task.due > today);
-        return task.category === view;
-      };
-      const dateLabel = value => new Intl.DateTimeFormat(undefined, { month: "short", day: "numeric", year: "numeric" }).format(new Date(`${value}T12:00:00`));
-      const addTaskRow = task => {
-        const row = document.createElement("li");
-        row.className = `task-row${task.completed ? " completed" : ""}`;
-        const label = document.createElement("label");
-        label.className = "task-check";
-        const checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.checked = task.completed;
-        checkbox.setAttribute("aria-label", `${task.completed ? "Restore" : "Complete"}: ${task.title}`);
-        checkbox.addEventListener("change", () => {
-          task.completed = checkbox.checked;
-          save();
-          render();
-        });
-        label.append(checkbox);
-        const copy = document.createElement("div");
-        copy.className = "task-copy";
-        const title = document.createElement("p");
-        title.className = "task-title";
-        title.textContent = task.title;
-        const meta = document.createElement("div");
-        meta.className = "task-meta";
-        const category = document.createElement("span");
-        category.className = "pill";
-        category.textContent = categories[task.category];
-        meta.append(category);
-        if (task.due) {
-          const due = document.createElement("span");
-          due.className = "due-label";
-          due.textContent = `Due ${dateLabel(task.due)}`;
-          meta.append(due);
-        }
-        copy.append(title, meta);
-        row.append(label, copy);
-        list.append(row);
-      };
-      function render() {
-        const today = todayKey();
-        const [heading, description] = views[activeView];
-        document.querySelector("#view-title").textContent = heading;
-        document.querySelector("#view-description").textContent = description;
-        document.querySelector("#view-kicker").textContent = activeView === "today" ? "YOUR TASKS" : "TASK LIST";
-        document.querySelector("#date-stamp").textContent = new Intl.DateTimeFormat(undefined, { weekday: "long", month: "short", day: "numeric" }).format(new Date());
-        document.querySelectorAll(".nav-item").forEach(button => {
-          const selected = button.dataset.view === activeView;
-          if (selected) button.setAttribute("aria-current", "page"); else button.removeAttribute("aria-current");
-          const count = tasks.filter(task => matchesView(task, button.dataset.view, today)).length;
-          button.querySelector(".badge").textContent = count;
-        });
-        const shown = tasks.filter(task => matchesView(task, activeView, today));
-        shown.sort((a, b) => (a.due || "9999").localeCompare(b.due || "9999") || a.title.localeCompare(b.title));
-        list.replaceChildren();
-        shown.forEach(addTaskRow);
-        empty.hidden = shown.length > 0;
-        document.querySelector("#empty-message").textContent = activeView === "archive" ? "Completed tasks will appear here." : "No tasks here yet. Add one above when you're ready.";
-        dueInput.required = activeView === "upcoming";
-        document.querySelector("#form-hint").textContent = activeView === "upcoming" ? "Choose a future date to add a task to Upcoming." : "A date is optional. Check a task to move it to Archive.";
-        categoryInput.value = Object.hasOwn(categories, activeView) ? activeView : "today";
-      }
-      document.querySelectorAll(".nav-item").forEach(button => button.addEventListener("click", () => {
-        activeView = button.dataset.view;
-        render();
-        titleInput.focus();
-      }));
-      form.addEventListener("submit", event => {
-        event.preventDefault();
-        if (readError) return;
-        const title = titleInput.value.trim();
-        const due = dueInput.value;
-        if (!title || (activeView === "upcoming" && (!due || due <= todayKey()))) return;
-        tasks.push({ id: crypto.randomUUID(), title, category: categoryInput.value, due, completed: false });
-        save();
-        form.reset();
-        render();
-        titleInput.focus();
-      });
-      render();
-    })();
-  </script>
+<header>
+<h1>Nilanjan's Tracker</h1>
+<small id="date-header"></small>
+<nav aria-label="Tracker sections">
+<a href="#today" data-view="today">Today</a> |
+<a href="#upcoming" data-view="upcoming">Upcoming</a> |
+<a href="#conferences" data-view="conferences">Conferences</a> |
+<a href="#projects" data-view="projects">Projects</a> |
+<a href="#meetings" data-view="meetings">Meetings</a> |
+<a href="#all" data-view="all">All</a> |
+<a href="#archive" data-view="archive">Archive</a>
+</nav><hr>
+</header>
+<main>
+<h2 id="heading">Things to do today</h2>
+<small id="counts"></small>
+<p id="sample-notice" class="notice" hidden><small>These are example tasks in this browser only. Real tasks are in your separate private GitHub repository; connect below to view them.</small></p>
+<table aria-label="Task list">
+<thead><tr><th>✓</th><th>Task</th><th>Due (IST)</th><th class="category-column">Category</th><th>Status</th><th></th></tr></thead>
+<tbody id="task-rows"></tbody>
+</table>
+<p id="empty" hidden>Nothing here.</p>
+<details id="editor"><summary id="editor-summary">+ Add task</summary>
+<form id="task-form"><fieldset><legend id="editor-heading">New task</legend>
+<label for="t-title">Task *</label><input id="t-title" type="text" maxlength="300" required placeholder="What needs to be done?">
+<div class="form-grid">
+<div><label for="t-date">Due date (IST)</label><input id="t-date" type="date"></div>
+<div><label for="t-time">Time (optional, IST)</label><input id="t-time" type="time"></div>
+<div><label for="t-category">Category</label><select id="t-category">
+<option value="personal">Personal</option><option value="assignment">Assignment</option><option value="project">Project</option><option value="research">Research</option><option value="conference">Conference</option><option value="meeting">Meeting</option><option value="other">Other</option>
+</select></div>
+<div><label for="t-status">Status</label><select id="t-status">
+<option value="todo">Not started</option><option value="progress">In progress</option><option value="done">Done</option><option value="removed">Removed</option>
+</select></div>
+</div>
+<label for="t-notes">Notes</label><textarea id="t-notes" maxlength="4000"></textarea>
+<label for="t-url">Reference URL (optional)</label><input id="t-url" type="url" placeholder="https://..." maxlength="1500">
+<label><input id="t-pin" type="checkbox"> Show in Today even without a deadline</label>
+<div class="row-actions"><button type="submit" id="save-task">Add task</button><button type="button" id="cancel-edit">Cancel</button></div>
+</fieldset></form></details>
+<details id="private-sync"><summary>Private sync &amp; backups</summary>
+<p>Local tasks work offline. To exchange tasks with ChatGPT and your other devices, connect to your <strong>private</strong> GitHub task repository. Your public site contains only the interface.</p>
+<p><small>Private storage: <code>nilansa/nilanjan-tracker-data</code> / <code>tasks.json</code>. <a target="_blank" rel="noopener noreferrer" href="https://github.com/settings/personal-access-tokens/new">Create a fine-grained GitHub token</a>, select <em>only</em> that repository and grant <strong>Contents: Read and write</strong>. Do not paste tokens into ChatGPT. A token is a secret; the entire nilansa.github.io browser origin can access stored browser credentials.</small></p>
+<label for="token-input">GitHub token</label><input id="token-input" type="password" autocomplete="off" placeholder="github_pat_…" style="width:100%;box-sizing:border-box">
+<label><input id="remember" type="checkbox"> Remember token on this device (less secure). Otherwise only remember it for this tab.</label>
+<div class="row-actions"><button id="connect" type="button">Connect / Sync now</button><button id="disconnect" type="button">Disconnect &amp; forget token</button></div>
+<p><small id="sync-message" aria-live="polite">Not connected. This browser's edits are not visible to ChatGPT yet.</small></p>
+<hr>
+<div class="row-actions"><button type="button" id="export">Export tasks JSON</button><label for="import">Import JSON: <input id="import" type="file" accept=".json,application/json"></label></div>
+<p><small>Exports exclude credentials. Imports merge records by ID and update time. Private GitHub sync checks again every three minutes while this page is open. Email/calendar scanning is a separate scheduled task.</small></p>
+</details>
+</main>
+<footer><small>Plain HTML · No analytics · No external JavaScript · <a href="https://github.com/nilansa/nilansa.github.io/tree/main/tracker">Source</a></small></footer>
+<script>
+(function(){
+"use strict";
+var $=function(id){return document.getElementById(id);};
+var KEY="nilanjan-tracker-v2",SESSION="tracker-auth-session",LOCAL_TOKEN="tracker-auth-optin";
+var API="https://api.github.com/repos/nilansa/nilanjan-tracker-data/contents/tasks.json";
+var TABS={today:"Things to do today",upcoming:"Upcoming deadlines",conferences:"Conferences",projects:"Projects and research",meetings:"Meetings",all:"All tasks",archive:"Completed and removed"};
+var CATS={personal:"Personal",assignment:"Assignment",project:"Project",research:"Research",conference:"Conference",meeting:"Meeting",other:"Other"};
+var STATUS={todo:"Not started",progress:"In progress",done:"Done",removed:"Removed"};
+var state={version:1,tasks:[],updatedAt:""},view=TABS[location.hash.slice(1)]?location.hash.slice(1):"today";
+var editId=null,token=sessionStorage.getItem(SESSION)||localStorage.getItem(LOCAL_TOKEN)||"",busy=false,again=false,syncDelay=null;
+function stamp(){return new Date().toISOString();}
+function today(){var p=new Intl.DateTimeFormat("en-GB",{timeZone:"Asia/Kolkata",year:"numeric",month:"2-digit",day:"2-digit"}).formatToParts(new Date()),o={};p.forEach(function(x){o[x.type]=x.value;});return o.year+"-"+o.month+"-"+o.day;}
+function safeURL(s){try{var u=new URL(s);return u.protocol==="https:"||u.protocol==="http:"?u.href:"";}catch(e){return "";}}
+function normalizeTask(x){if(!x||typeof x!=="object"||typeof x.id!=="string"||typeof x.title!=="string"||!x.id||!x.title.trim())return null;
+return {id:x.id.slice(0,250),title:x.title.slice(0,300),category:CATS[x.category]?x.category:"other",status:STATUS[x.status]?x.status:"todo",due:typeof x.due==="string"&&/^\d{4}-\d\d-\d\d(T\d\d:\d\d)?$/.test(x.due)?x.due:"",notes:typeof x.notes==="string"?x.notes.slice(0,4000):"",sourceUrl:safeURL(x.sourceUrl||""),pin:x.pin===true,source:typeof x.source==="string"?x.source:"manual",createdAt:typeof x.createdAt==="string"?x.createdAt:stamp(),updatedAt:typeof x.updatedAt==="string"?x.updatedAt:stamp(),demo:x.demo===true};}
+function normalized(doc){var m=new Map();if(doc&&Array.isArray(doc.tasks))doc.tasks.slice(0,10000).forEach(function(x){var y=normalizeTask(x);if(y&&(!m.has(y.id)||y.updatedAt>m.get(y.id).updatedAt))m.set(y.id,y);});return {version:1,tasks:Array.from(m.values()),updatedAt:stamp()};}
+function join(a,b){var m=new Map();[a,b].forEach(function(d){(d.tasks||[]).forEach(function(x){var y=normalizeTask(x);if(!y||y.demo)return;var p=m.get(y.id);if(!p||y.updatedAt>p.updatedAt)m.set(y.id,y);});});return {version:1,tasks:Array.from(m.values()),updatedAt:stamp()};}
+function load(){try{var s=localStorage.getItem(KEY);if(s){state=normalized(JSON.parse(s));return;}}catch(e){}
+var n=stamp(),d=today();state={version:1,updatedAt:n,tasks:[
+{id:"demo-one",title:"Example: review today's priorities",category:"personal",status:"todo",due:d,notes:"Example only — not a real deadline.",sourceUrl:"",pin:false,source:"example",createdAt:n,updatedAt:n,demo:true},
+{id:"demo-two",title:"Example: read a paper",category:"research",status:"progress",due:"",notes:"Example only.",sourceUrl:"",pin:true,source:"example",createdAt:n,updatedAt:n,demo:true}
+]};persist(false);}
+function persist(doSync){state.updatedAt=stamp();try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){syncMessage("Browser storage failed: "+e.message,true);}
+render();if(token&&doSync){if(busy)again=true;clearTimeout(syncDelay);syncDelay=setTimeout(sync,850);}}
+function element(tag,text,cl){var e=document.createElement(tag);if(text!=null)e.textContent=text;if(cl)e.className=cl;return e;}
+function btn(text,fn){var b=element("button",text,"link");b.type="button";b.addEventListener("click",fn);return b;}
+function visible(x,d){if(view==="archive")return x.status==="done"||x.status==="removed";
+if(x.status==="removed")return false;
+if(view==="today")return !!(x.pin||(x.due&&x.due.slice(0,10)<=d));
+if(view==="upcoming")return !!(x.due&&x.due.slice(0,10)>d&&x.status!=="done");
+if(view==="conferences")return x.category==="conference";
+if(view==="projects")return ["project","research","assignment"].includes(x.category);
+if(view==="meetings")return x.category==="meeting";return true;}
+function formatDue(v){if(!v)return "—";var p=v.slice(0,10).split("-"),dt=new Date(+p[0],+p[1]-1,+p[2]);var text=new Intl.DateTimeFormat("en-GB",{day:"numeric",month:"short"}).format(dt);
+if(v.length>10){var h=+v.slice(11,13),m=v.slice(14,16);text+=" "+(h%12||12)+":"+m+(h>=12?" PM":" AM");}return text;}
+function updateTask(id,delta){state.tasks=state.tasks.map(function(x){return x.id===id?Object.assign({},x,delta,{updatedAt:stamp()}):x;});persist(true);}
+function render(){var d=today(),dt=new Date(d+"T12:00:00");
+$("date-header").textContent=new Intl.DateTimeFormat("en-GB",{weekday:"long",year:"numeric",month:"long",day:"numeric"}).format(dt)+" · Asia/Kolkata (IST)";
+$("heading").textContent=TABS[view];document.querySelectorAll("nav a[data-view]").forEach(function(a){a.classList.toggle("active",a.dataset.view===view);});
+var shown=state.tasks.filter(function(x){return visible(x,d);}).sort(function(a,b){return (a.due||"9999").localeCompare(b.due||"9999")||a.title.localeCompare(b.title);});
+$("counts").textContent=shown.length+" shown · "+state.tasks.filter(function(x){return !x.demo&&["todo","progress"].includes(x.status);}).length+" open · "+state.tasks.filter(function(x){return !x.demo&&x.status==="done";}).length+" completed";
+$("sample-notice").hidden=!state.tasks.some(function(x){return x.demo;});
+var body=$("task-rows");body.replaceChildren();$("empty").hidden=shown.length>0;
+shown.forEach(function(x){var tr=element("tr"),checktd=element("td"),check=element("input");
+check.type="checkbox";check.checked=x.status==="done";check.setAttribute("aria-label","Complete "+x.title);check.addEventListener("change",function(){updateTask(x.id,{status:check.checked?"done":"todo"});});checktd.append(check);tr.append(checktd);
+var name=element("td"),title=element("span",x.title,"title "+x.status);name.append(title);
+if(x.notes)name.append(element("div",x.notes,"desc"));
+if(x.sourceUrl){name.append(document.createTextNode(" "));var a=element("a","[source]");a.href=x.sourceUrl;a.target="_blank";a.rel="noopener noreferrer";name.append(a);}
+tr.append(name);var due=element("td",formatDue(x.due),"due");if(x.due&&x.due.slice(0,10)<d&&x.status!=="done")due.classList.add("overdue");tr.append(due);
+tr.append(element("td",CATS[x.category],"category-column"));
+var stcell=element("td"),sel=element("select",null,"status "+x.status);sel.setAttribute("aria-label","Status "+x.title);Object.keys(STATUS).forEach(function(k){var opt=element("option",STATUS[k]);opt.value=k;sel.append(opt);});sel.value=x.status;sel.addEventListener("change",function(){updateTask(x.id,{status:sel.value});});stcell.append(sel);tr.append(stcell);
+var aCell=element("td",null,"actions");aCell.append(btn("edit",function(){startEdit(x);}),document.createTextNode(" "),btn(x.status==="removed"?"restore":"remove",function(){updateTask(x.id,{status:x.status==="removed"?"todo":"removed"});if(x.status!=="removed")location.hash="archive";}));tr.append(aCell);body.append(tr);});
+}
+function startEdit(x){editId=x.id;$("t-title").value=x.title;$("t-date").value=x.due.slice(0,10);$("t-time").value=x.due.slice(11)||"";$("t-category").value=x.category;$("t-status").value=x.status;$("t-notes").value=x.notes;$("t-url").value=x.sourceUrl;$("t-pin").checked=x.pin;
+$("editor-summary").textContent="Edit task";$("editor-heading").textContent="Edit task";$("save-task").textContent="Save changes";$("editor").open=true;$("t-title").focus();}
+function cancel(){editId=null;$("task-form").reset();$("editor-summary").textContent="+ Add task";$("editor-heading").textContent="New task";$("save-task").textContent="Add task";$("editor").open=false;}
+$("task-form").addEventListener("submit",function(e){e.preventDefault();var title=$("t-title").value.trim(),date=$("t-date").value,time=$("t-time").value;if(!title)return;if(time&&!date){alert("Select a date before entering a time.");return;}
+var url=$("t-url").value.trim();if(url&&!safeURL(url)){alert("Use a valid http(s) URL.");return;}
+var p={title:title,category:$("t-category").value,status:$("t-status").value,due:date+(time&&date?"T"+time:""),notes:$("t-notes").value.trim(),sourceUrl:url,pin:$("t-pin").checked};
+if(editId){updateTask(editId,Object.assign({},p,{demo:false,source:"manual"}));}else{var n=stamp();state.tasks.push(Object.assign({id:crypto.randomUUID?crypto.randomUUID():"user-"+Date.now(),source:"manual",createdAt:n,updatedAt:n,demo:false},p));persist(true);}
+cancel();});
+$("cancel-edit").addEventListener("click",cancel);
+window.addEventListener("hashchange",function(){if(TABS[location.hash.slice(1)])view=location.hash.slice(1);render();});
+document.querySelectorAll("nav a").forEach(function(a){a.addEventListener("click",function(){view=a.dataset.view;render();});});
+function syncMessage(s,err){$("sync-message").textContent=s;$("sync-message").className=err?"error":"";}
+function encode(s){var a=new TextEncoder().encode(s),v="";for(var i=0;i<a.length;i+=8000)v+=String.fromCharCode.apply(null,a.slice(i,i+8000));return btoa(v);}
+function decode(s){var x=atob(s.replace(/\s/g,"")),a=new Uint8Array(x.length);for(var i=0;i<x.length;i++)a[i]=x.charCodeAt(i);return new TextDecoder().decode(a);}
+async function request(method,payload){var headers={Accept:"application/vnd.github+json",Authorization:"Bearer "+token,"X-GitHub-Api-Version":"2022-11-28"};if(payload)headers["Content-Type"]="application/json";
+var r=await fetch(API,{method:method,headers:headers,body:payload?JSON.stringify(payload):undefined,cache:"no-store"});if(r.status===404&&method==="GET")return {sha:null,tasks:[]};
+if(!r.ok){var msg="";try{msg=(await r.json()).message||"";}catch(e){}var er=new Error("GitHub "+r.status+(msg?": "+msg:""));er.status=r.status;throw er;}
+var json=await r.json();if(method==="GET"){var data=normalized(JSON.parse(decode(json.content)));return {sha:json.sha,tasks:data.tasks};}return json;}
+function stable(arr){return JSON.stringify(arr.slice().sort(function(a,b){return a.id.localeCompare(b.id);}));}
+async function sync(){if(!token)return;if(busy){again=true;return;}busy=true;syncMessage("Syncing private tasks…",false);
+try{var ok=false;for(var retry=0;retry<4;retry++){var remote=await request("GET"),local={tasks:state.tasks.filter(function(x){return !x.demo;})},merged=join(local,remote);
+state=merged;persist(false);
+if(stable(join({tasks:[]},remote).tasks)===stable(merged.tasks)){ok=true;break;}
+try{var payload={message:"Sync private task tracker",content:encode(JSON.stringify(merged,null,2)+"\n")};if(remote.sha)payload.sha=remote.sha;await request("PUT",payload);ok=true;break;}
+catch(err){if((err.status===409||err.status===422)&&retry<3)continue;throw err;}}
+if(!ok)throw new Error("Conflict persists after retries.");
+syncMessage("Synced · "+new Date().toLocaleString("en-GB",{timeZone:"Asia/Kolkata"})+" IST",false);
+}catch(e){syncMessage("Sync failed: "+e.message+" (local edits retained)",true);}
+finally{busy=false;if(again){again=false;setTimeout(sync,100);}}}
+$("token-input").value=token;$("remember").checked=!!localStorage.getItem(LOCAL_TOKEN);
+$("connect").addEventListener("click",function(){var t=$("token-input").value.trim();if(!t){syncMessage("Enter a GitHub token first.",true);return;}
+token=t;sessionStorage.setItem(SESSION,t);if($("remember").checked)localStorage.setItem(LOCAL_TOKEN,t);else localStorage.removeItem(LOCAL_TOKEN);sync();});
+$("disconnect").addEventListener("click",function(){token="";sessionStorage.removeItem(SESSION);localStorage.removeItem(LOCAL_TOKEN);$("token-input").value="";$("remember").checked=false;syncMessage("Disconnected. Edits remain in this browser.",false);});
+$("export").addEventListener("click",function(){var file=new Blob([JSON.stringify(join({tasks:[]},state),null,2)+"\n"],{type:"application/json"}),url=URL.createObjectURL(file),a=document.createElement("a");a.href=url;a.download="nilanjan-tracker-"+today()+".json";a.click();setTimeout(function(){URL.revokeObjectURL(url);},1000);});
+$("import").addEventListener("change",async function(){var f=this.files&&this.files[0];if(!f)return;try{if(f.size>2000000)throw new Error("2 MB limit");var doc=JSON.parse(await f.text());if(!Array.isArray(doc.tasks))throw new Error("Invalid task document");state=join(state,normalized(doc));persist(true);syncMessage("Import merged by ID and update timestamp.",false);}catch(e){syncMessage("Import failed: "+e.message,true);}this.value="";});
+load();render();if(token)sync();setInterval(function(){if(token)sync();},180000);
+})();
+</script>
 </body>
 </html>
