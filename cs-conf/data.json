@@ -3,7 +3,7 @@
   "taskId": "20261026-csconf-research",
   "createdAt": "2026-10-26T13:51:12.349Z",
   "checkedAt": "2026-10-27",
-  "editorialNote": "27 Oct tenth audit: CC08 deterministic 12-ENTRY (not 12-claim) sample locked prospectively by status and SHA256 before selected content inspection; M2 claim/source map and author-reported Lean checks located, source manifest predates documented edits, no independent Lean or theorem correctness check. Beyond Compilation (arxiv:2606.31002) blocks novelty claims about compilation-versus-semantics alone. CC15 When2Speak blocks generic speak/silent novelty. Rechecked MLSys Oct30, CVPR Nov10/16, RSS Dec4; no submission.",
+  "editorialNote": "27 Oct eleventh cycle: authorized Mac read-only CC04 precheck found later archived candidate-score data; one retrospective CPU-only diagnostic was performed with leakage/previous-evaluation limitations. Numerical results remain private; no untouched benchmark and no original E12 per-route rank cache. CC08 additional prior-art conflict ScientistOne and From Fluent to Verifiable; M2 proof source/toolchain reviewed E1/E2 only, no Lean replay. No submissions.",
   "deadlines": [
     {
       "date": "2026-10-27",
@@ -874,10 +874,10 @@
         "PAKDD (human-led only)"
       ],
       "cost": "low-medium",
-      "stage": "EVALUATION LEAKAGE FIXED ON PAPER: reused E7/E12 tuning holdout is development only; all-query allocation must estimate probability query has any true link, not use oracle positive labels; repository inspection located only a minimal README, not saved rankings/complete labels. No real ER benchmark run.",
+      "stage": "RETROSPECTIVE REAL CACHED-DATA CPU DIAGNOSTIC executed privately on a previously evaluated, preprocessing-leaky competition score table; original E12 route-rank caches and a genuinely untouched test remain unavailable. Different later pipeline; not an independent research result.",
       "question": "Without knowing which sources have matches at inference time, can an allocation policy learn both match-existence probability and last-positive-rank completion curves to improve complete-link retrieval among all source queries under fixed candidate count AND end-to-end wall time, versus QASP-style and progressive-ER baselines?",
       "novelty": "The PACMMOD/SIGMOD 2025 Progressive ER formal objective maximizes progressive recall@N of verified PAIRS, assumes oracle pair verification and explicitly excludes verification time from reported runtime. QASP (Jul 2026) predicts recall of nearest-neighbor search as probes increase; nearest-neighbor recall is NOT recall of all semantically true entity links. The proposed completion event max_true_match_rank<=K differs from both losses, but this is not proof of novel algorithm. Distinct evaluation must include multi-positive sources (standard clean-clean datasets often assume within-source no duplicates), real full-pipeline runtime, calibrated completion prediction, and equal-budget strong baselines. Critical new gate (Oct 27): allocation over positive queries only is oracle information leakage unless positivity is inferable at inference. Estimate p_i*F_i(k) over all S1, assess null-query opportunity cost and incomplete ground truth. No new algorithm claimed.",
-      "pilot": "Artifact PRECHECK: GitHub nilansa/business-entity-resolution currently exposes a README but connected code search did not locate E12 rank caches, source TSVs or an untouched test; do not imply datasets available. Existing E7/E12 1,000-S1 holdout informed model selection and MUST be dev/audit-only. Acquire a truly held-out, entity-disjoint and stratified test set via authorized compute access with verified exhaustive labels. Train on dev: p_i=Pr(|G_i|>0|x_i), F_i(k)=Pr(T_i<=k||G_i|>0,x_i), use predicted p_i*F_i(k), NEVER oracle positive labels at decision time. Allocate K_i across ALL queries (including zero-link) with sum K_i=B and separately measure positive-source all-links recall, all-query utility, pair recall, null-source wasted budget, calibration and p95/p99 costs. Handle incomplete GT with a separately audited subset or sensitivity bounds. Compare at equal candidate count AND measured full indexing/retrieval/verification runtime; oracle allocation ceiling only post-hoc. CPU pilot uses cached per-query rankings; blocked until artifacts verified.",
+      "pilot": "Artifact PRECHECK UPDATED (Oct 27): connected read-only Mac inspection located competition train TSVs, a code archive and cached later LightGBM candidate-score parquet tables; this is not the original E12 per-route ranking cache. Performed a retrospective CPU-only comparison of uniform per-query top-K with global-score allocation at matched candidate counts; unpublished diagnostics and exact paths remain in PRIVATE issue #1. The cache documents supervised preprocessing leakage, prior inspection and absent ownership enforcement, so it is development-only and CANNOT support a paper claim. Original E12 rank caches and an untouched leakage-free test remain unverified. Existing E7/E12 1,000-S1 holdout informed model selection and MUST be dev/audit-only. Acquire a truly held-out, entity-disjoint and stratified test set via authorized compute access with verified exhaustive labels. Train on dev: p_i=Pr(|G_i|>0|x_i), F_i(k)=Pr(T_i<=k||G_i|>0,x_i), use predicted p_i*F_i(k), NEVER oracle positive labels at decision time. Allocate K_i across ALL queries (including zero-link) with sum K_i=B and separately measure positive-source all-links recall, all-query utility, pair recall, null-source wasted budget, calibration and p95/p99 costs. Handle incomplete GT with a separately audited subset or sensitivity bounds. Compare at equal candidate count AND measured full indexing/retrieval/verification runtime; oracle allocation ceiling only post-hoc. CPU pilot uses cached per-query rankings; blocked until artifacts verified.",
       "stop": "Retire novelty if calibrated max-rank scheduling fails to beat QASP-style query-adaptive and progressive-ER schedulers on untouched multi-link queries under the same retrieval+prediction+matcher time and total candidate budget, or closest papers already optimize identical complete-link objective. Also stop claims if the advantage only appears when allocating to known-positive queries, or only on the previously used E7/E12 holdout.",
       "source": "https://sigir2027.org/pages/submit-full.html",
       "closestPriorArt": [
@@ -989,11 +989,11 @@
         "FAccT (only if responsible AI/accountability dimension is central)"
       ],
       "cost": "low-medium",
-      "stage": "PROSPECTIVE 12-ENTRY PILOT LOCKED: deterministic SHA-256 selection across four upstream Lean-status strata from SECQUOIA paper-v1; sample locked in private issue before opening selected M2 manuscript/proof contents. M2 public sources, claim map and author-reported checks inspected, but no independent compilation or semantic correctness verdict. Generic proof/statement faithfulness already studied by Beyond Compilation (2026).",
+      "stage": "LOCKED 12-ENTRY AUDIT; first sampled M2 pinned Lean/Mathlib toolchain manifest and author check records inspected read-only, E1/E2 only (NO independent E3 compile). New major novelty collisions: ScientistOne (May 2026) claims chain-of-evidence/audits and AAR (Feb 2026) specifies provenance and audit effort. Standalone novelty downgraded.",
       "question": "For a pinned corpus of unedited research-agent outputs, can an auditor reliably connect self-reported verification, exact source revision, reproducible toolchain evidence and the precise natural-language theorem or empirical claim, and what does that independent audit cost?",
-      "novelty": "FIRE-Bench, Artisan, SEER-Repro and SciRIGOR overlap research replication and claim-to-evidence tracing. Beyond Compilation (arXiv:2606.31002) already quantifies compile-success versus semantic-faithfulness gaps, so that distinction alone is NOT novel. Residual test is full claim-to-artifact revision provenance, independent replay, and human audit cost in authentic unedited agent-generated research with mixed formal and empirical claim types. A 12-entry pilot cannot justify a corpus-wide reliability rate.",
+      "novelty": "FIRE-Bench, Artisan, SEER-Repro and SciRIGOR overlap research replication and claim-to-evidence tracing. Beyond Compilation (arXiv:2606.31002) already quantifies compile-success versus semantic-faithfulness gaps, so that distinction alone is NOT novel. Residual test is full claim-to-artifact revision provenance, independent replay, and human audit cost in authentic unedited agent-generated research with mixed formal and empirical claim types. A 12-entry pilot cannot justify a corpus-wide reliability rate. ADDITIONAL PRIOR ART (reviewed Oct 27): ScientistOne (arXiv 2605.26340) already defines chain-of-evidence and post-hoc checks for scores, references, specifications and method-code alignment across research-agent outputs; From Fluent to Verifiable (arXiv 2602.13855) already proposes provenance coverage/soundness and audit effort as measurement criteria. Therefore basic agent-paper provenance, claim tracing, or auditor effort is NOT a novel method. Only a controlled, revision-sensitive formal proof/manuscript replay result demonstrably beyond those frameworks could justify new research.",
       "pilot": "PRE-REGISTERED in private CS Conf issue: inventory blob 0c03c238..., exclude previous M1/M3 pilots, 3 deterministic SHA-256 sampled research entries per author-provided Lean status (Done: M15,M2,Q11; Partial: Q10,Q2,Q1; Possible: M22,M19,Q4; N/A: M18,CA2,CA5). For each entry, use first explicit central theorem/claim or first testable note assertion; do not substitute inaccessible cases. Freeze exact bytes, compare E0 author claim/E1 artifact present/E2 reported check/E3 independent pinned replay/E4 semantic fidelity/E5 empirical validity, separately measure time. First selected M2 source shows the upstream delivery manifest predates acknowledged edits; not itself an invalid-proof finding. Full public methodology: https://github.com/nilansa/nilansa.github.io/blob/main/cs-conf/audits/cc08-prospective-sample-2026-10-27.md",
-      "stop": "Stop standalone novelty if a comparison with Beyond Compilation and prior scientific-provenance benchmarks shows no distinct question or if the pilot only repeats repository metadata. If Lean/runtime is unavailable, report accessibility only (no independent pass/fail). No pooled error percentages from heterogeneous 12-entry pilot; extend to blinded larger sample only after feasibility.",
+      "stop": "Stop standalone novelty if a comparison with Beyond Compilation and prior scientific-provenance benchmarks shows no distinct question or if the pilot only repeats repository metadata. If Lean/runtime is unavailable, report accessibility only (no independent pass/fail). No pooled error percentages from heterogeneous 12-entry pilot; extend to blinded larger sample only after feasibility. Added Oct 27: if the pinned-replay analysis yields only a taxonomy already in ScientistOne/AAR/SciRIGOR, retire standalone CC08 manuscript and use audit protocol internally.",
       "source": "https://github.com/karpathy/autoresearch",
       "closestPriorArt": [
         {
@@ -1039,6 +1039,14 @@
         {
           "title": "Beyond Compilation: faithful natural-language to Lean statements (2026 preprint)",
           "url": "https://arxiv.org/abs/2606.31002"
+        },
+        {
+          "title": "ScientistOne: Towards Human-Level Autonomous Research via Chain-of-Evidence (May 2026 preprint)",
+          "url": "https://arxiv.org/abs/2605.26340"
+        },
+        {
+          "title": "From Fluent to Verifiable: Claim-Level Auditability for Deep Research Agents (Feb 2026 preprint)",
+          "url": "https://arxiv.org/abs/2602.13855"
         }
       ]
     },
@@ -1502,6 +1510,18 @@
       "kind": "Predeclared 12 research-entry pilot; no independent theorem verification",
       "note": "Fixed 12-entry SHA256-stratified sample, identified first selected M2 public source/package scope and upstream historical-hash caveat. No compilation or corpus-level accuracy measured.",
       "url": "https://github.com/nilansa/nilansa.github.io/blob/main/cs-conf/audits/cc08-prospective-sample-2026-10-27.md"
+    },
+    {
+      "title": "ScientistOne: chain-of-evidence and CoE Audit for automated research (May 2026)",
+      "kind": "Research preprint; not verified accepted main-track paper",
+      "note": "Proposes evidence tracing across agent-produced research and checks score, references, specifications, and method-code alignment. Prior art against generic CC08 verification-chain claims; reported success rates belong to its authors.",
+      "url": "https://arxiv.org/abs/2605.26340"
+    },
+    {
+      "title": "From Fluent to Verifiable: claim-level auditability and review effort (Feb 2026)",
+      "kind": "Research perspective preprint",
+      "note": "Introduces audit-effort, evidence provenance coverage and soundness criteria for deep-research agents. Prior art against CC08 treating audit effort or claim-evidence tracing as a new objective.",
+      "url": "https://arxiv.org/abs/2602.13855"
     }
   ],
   "closed": [
@@ -1522,5 +1542,5 @@
     "UAI 2027",
     "ISIT 2027"
   ],
-  "lastLiteratureAudit": "2026-10-27 tenth audit: Beyond Compilation (arXiv 2606.31002); When2Speak (arXiv 2605.05626); SECQUOIA/agent-swarm-research paper-v1 README 0c03c238; selected M2 cubic-gap paper README 370e5e44, main.tex 9d0e1b5b, formal/COVERAGE 0529463f, formal/VERIFICATION 16342893. Organizer MLSys, CVPR and RSS current CFPs. Source and protocol: cs-conf/audits/cc08-prospective-sample-2026-10-27.md"
+  "lastLiteratureAudit": "2026-10-27 eleventh audit: ScientistOne (arXiv 2605.26340), From Fluent to Verifiable (arXiv 2602.13855), QASP (2607.29606), Progressive ER (2503.08298); SECQUOIA paper-v1 M2 Lean v4.33.1 and Mathlib source manifest read-only. Confirmed CHIIR Oct29, MLSys/ARRSI Oct30, ISBI Nov2, CVPR Nov10/16, ACL Jan4. Private source/data pilot recorded exclusively in issue #1; no GPU/Lean replay or submission."
 }
