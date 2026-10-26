@@ -2,9 +2,18 @@
   "version": 1,
   "taskId": "20261026-csconf-research",
   "createdAt": "2026-10-26T13:51:12.349Z",
-  "checkedAt": "2026-10-26",
-  "editorialNote": "Oct 26 fifth audit: CC-10 broad action-ranking novelty BLOCKED by stage-wise sensing paper; CC-01 metric-only standalone retired due RGraph-Eval/TriWorldBench overlap. CC-04 QASP ANN-recall vs progressive-ER pair-recall vs multi-link completion explicitly separated; baseline total verification time required. CC-11 deterministic greedy-vs-exact two-query sanity check performed (not real ER evidence). CC-08 added publicly released unedited agent-swarm research corpus with explicit verification caveats. ARRSI Oct 30 updated. Zero GPU research experiments, real ER benchmarks or conference submissions. MLSys 2027 policy primary CFP verified: mandatory ideation-to-writing AI Usage Disclosure, prohibit AI-only generated papers and generalized harmonic submission quota.",
+  "checkedAt": "2026-10-27",
+  "editorialNote": "Oct 27 sixth audit: newly verified FAccT 2027 and ISBI 2027 deadlines and venue AI/presentation rules. CC-04 evaluation corrected: allocation operates on ALL queries with estimated positive probability; existing E7/E12 tuning holdout is not independent; unverified complete labels and no accessible rank cache block dataset results. No manuscript, experiment or submission. Direct connected GitHub edits only, no Codex/local transfer.",
   "deadlines": [
+    {
+      "date": "2026-10-27",
+      "venue": "FAccT 2027",
+      "action": "Mandatory main-paper abstract registration",
+      "area": "Responsible AI / accountability / interdisciplinary CS",
+      "time": "11:59 PM AoE; must register abstract before full-paper submission",
+      "source": "https://facctconference.org/2027/cfp.html",
+      "status": "confirmed"
+    },
     {
       "date": "2026-10-29",
       "venue": "CHIIR 2027",
@@ -30,6 +39,24 @@
       "area": "ML systems",
       "time": "12:00 PM PDT (not AoE)",
       "source": "https://mlsys.org/Conferences/2027/Dates",
+      "status": "confirmed"
+    },
+    {
+      "date": "2026-11-02",
+      "venue": "ISBI 2027",
+      "action": "Archival four-page biomedical imaging paper",
+      "area": "Biomedical imaging",
+      "time": "11:59 PM USA (EDT) per organizers; 4 technical pages; in-person presentation mandatory",
+      "source": "https://biomedicalimaging.org/2027/papers/",
+      "status": "confirmed"
+    },
+    {
+      "date": "2026-11-03",
+      "venue": "FAccT 2027",
+      "action": "Full paper, contingent on Oct 27 abstract registration",
+      "area": "Responsible AI / accountability / interdisciplinary CS",
+      "time": "11:59 PM AoE; 2027 author guide has mandatory generative-AI statement",
+      "source": "https://facctconference.org/2027/cfp.html",
       "status": "confirmed"
     },
     {
@@ -166,6 +193,15 @@
       "time": "11:59 PM AoE; official page labels proposed",
       "source": "https://sigir2027.org/pages/submit-full.html",
       "status": "proposed"
+    },
+    {
+      "date": "2027-02-01",
+      "venue": "ISBI 2027",
+      "action": "One-page non-archival poster abstract",
+      "area": "Biomedical imaging",
+      "time": "11:59 PM USA (EDT) per organizer; NOT proceedings publication",
+      "source": "https://biomedicalimaging.org/2027/",
+      "status": "confirmed"
     },
     {
       "date": "2027-02-02",
@@ -739,11 +775,11 @@
         "PAKDD (human-led only)"
       ],
       "cost": "low-medium",
-      "stage": "exact primary-source contrast complete: QASP predicts ANN neighbor recall; Progressive ER optimizes progressive PAIR recall and excludes verification runtime; multi-link completeness and full pipeline cost still untested",
-      "question": "For source entities with multiple true target links, can calibrated estimates of the maximum true-match retrieval rank allocate a fixed global comparison budget to improve complete-link coverage against strong progressive and query-adaptive baselines?",
-      "novelty": "The PACMMOD/SIGMOD 2025 Progressive ER formal objective maximizes progressive recall@N of verified PAIRS, assumes oracle pair verification and explicitly excludes verification time from reported runtime. QASP (Jul 2026) predicts recall of nearest-neighbor search as probes increase; nearest-neighbor recall is NOT recall of all semantically true entity links. The proposed completion event max_true_match_rank<=K differs from both losses, but this is not proof of novel algorithm. Distinct evaluation must include multi-positive sources (standard clean-clean datasets often assume within-source no duplicates), real full-pipeline runtime, calibrated completion prediction, and equal-budget strong baselines.",
-      "pilot": "PRECHECK data provenance before execution: locate saved per-route ordered rankings and exhaustive positive-link labels; enforce entity-disjoint dev/test and handle duplicates/ties. On dev only estimate query-specific F_i(k)=P(last positive rank<=k), with explicit 'missing from ranking'=infinity and calibrated uncertainty. Compare uniform, random, score-gap, QASP-style ANN neighbor-recall predictor, progressive-ER BFS/EC/hybrid global scheduling, and max-rank completion allocator. Evaluate TWO budgets: exactly matched candidate count and matched true total wall-clock (indexing, route retrieval, score production, policy inference, matcher verification); do not imply candidate count equals CPU cost. Include oracle bound only as post-hoc test ceiling, multi-link slices and incomplete-GT sensitivity. Use CPU on cached ranks first; no real experiment run.",
-      "stop": "Retire novelty if calibrated max-rank scheduling fails to beat QASP-style query-adaptive and progressive-ER schedulers on untouched multi-link queries under the same retrieval+prediction+matcher time and total candidate budget, or closest papers already optimize identical complete-link objective.",
+      "stage": "EVALUATION LEAKAGE FIXED ON PAPER: reused E7/E12 tuning holdout is development only; all-query allocation must estimate probability query has any true link, not use oracle positive labels; repository inspection located only a minimal README, not saved rankings/complete labels. No real ER benchmark run.",
+      "question": "Without knowing which sources have matches at inference time, can an allocation policy learn both match-existence probability and last-positive-rank completion curves to improve complete-link retrieval among all source queries under fixed candidate count AND end-to-end wall time, versus QASP-style and progressive-ER baselines?",
+      "novelty": "The PACMMOD/SIGMOD 2025 Progressive ER formal objective maximizes progressive recall@N of verified PAIRS, assumes oracle pair verification and explicitly excludes verification time from reported runtime. QASP (Jul 2026) predicts recall of nearest-neighbor search as probes increase; nearest-neighbor recall is NOT recall of all semantically true entity links. The proposed completion event max_true_match_rank<=K differs from both losses, but this is not proof of novel algorithm. Distinct evaluation must include multi-positive sources (standard clean-clean datasets often assume within-source no duplicates), real full-pipeline runtime, calibrated completion prediction, and equal-budget strong baselines. Critical new gate (Oct 27): allocation over positive queries only is oracle information leakage unless positivity is inferable at inference. Estimate p_i*F_i(k) over all S1, assess null-query opportunity cost and incomplete ground truth. No new algorithm claimed.",
+      "pilot": "Artifact PRECHECK: GitHub nilansa/business-entity-resolution currently exposes a README but connected code search did not locate E12 rank caches, source TSVs or an untouched test; do not imply datasets available. Existing E7/E12 1,000-S1 holdout informed model selection and MUST be dev/audit-only. Acquire a truly held-out, entity-disjoint and stratified test set via authorized compute access with verified exhaustive labels. Train on dev: p_i=Pr(|G_i|>0|x_i), F_i(k)=Pr(T_i<=k||G_i|>0,x_i), use predicted p_i*F_i(k), NEVER oracle positive labels at decision time. Allocate K_i across ALL queries (including zero-link) with sum K_i=B and separately measure positive-source all-links recall, all-query utility, pair recall, null-source wasted budget, calibration and p95/p99 costs. Handle incomplete GT with a separately audited subset or sensitivity bounds. Compare at equal candidate count AND measured full indexing/retrieval/verification runtime; oracle allocation ceiling only post-hoc. CPU pilot uses cached per-query rankings; blocked until artifacts verified.",
+      "stop": "Retire novelty if calibrated max-rank scheduling fails to beat QASP-style query-adaptive and progressive-ER schedulers on untouched multi-link queries under the same retrieval+prediction+matcher time and total candidate budget, or closest papers already optimize identical complete-link objective. Also stop claims if the advantage only appears when allocating to known-positive queries, or only on the previously used E7/E12 holdout.",
       "source": "https://sigir2027.org/pages/submit-full.html",
       "closestPriorArt": [
         {
@@ -850,10 +886,11 @@
       "area": "Research agents / systems",
       "venues": [
         "MLSys",
-        "agent workshops"
+        "agent workshops",
+        "FAccT (only if responsible AI/accountability dimension is central)"
       ],
       "cost": "low-medium",
-      "stage": "new verifiable public agent-output corpus located (Gusev & Bernal Neira Sep 2026); independent verification still needed, no new agent runs",
+      "stage": "new verifiable public agent-output corpus located (Gusev & Bernal Neira Sep 2026); independent verification still needed, no new agent runs; FAccT 2027 disclosure policy makes AI-aided manuscript possible but Oct 27 abstract deadline lacks evidence; not submission-ready",
       "question": "Can a constrained research agent make real improvements under withheld tests and a counted human-intervention budget?",
       "novelty": "AI Agent Swarms as Researchers (Sep 2026) releases unedited agent output including draft papers, checks, agent reviews and some Lean proofs, but the authors state most claims have NOT undergone independent verification; full drafts are NOT publications. This provides a public audit corpus for claim-verification cost, versus output-volume and independent checking throughput. CausalVerify, PaperBench and selection-bias studies already cover aspects of agent validity; 'many papers generated' is not a novel result.",
       "pilot": "Low-cost static audit before GPU agents: sample a fixed set of 10-20 clearly tagged claims/drafts from the public agent-swarm-research tag paper-v1, assign claim type and certificate (Lean-verified, replayable code, empirical result, manuscript-only, unverified), preserve published vs draft status, measure time to independently substantiate and source/verification failure categories. Check original authors' release-status caveats first. Then compare claim-level validation with compact independent reproductions and a deliberate overfit control, frozen resources and blinded reviewer where possible. No inspection or coding-agent run of this sample has been executed yet.",
@@ -989,10 +1026,10 @@
         "ISBI"
       ],
       "cost": "low-medium",
-      "stage": "new MIDL 2027 deadline; biologically valid topology/lineage controls required; no pilot run",
+      "stage": "new MIDL 2027 deadline; biologically valid topology/lineage controls required; no pilot run; ISBI 2027 Nov 2 four-page archival deadline verified: likely too soon without real cell-tracking validation, Feb 1 poster abstract is non-archival",
       "question": "Do synthetic microscopy video quality scores predict cell-count, division-lineage, and tracking failures under matched appearance changes?",
       "novelty": "2025 microscopy video diffusion work already evaluates morphology, proliferation and migration in generated cell videos; Cell Tracking Challenge provides established tracking metrics. A generic 'biological geometry consistency' score would overlap existing evaluations. Need test whether visual/video metrics can miss biologically material lineage/topology errors, with licensed public data and explicit nonclinical scope.",
-      "pilot": "Choose released Cell Tracking Challenge time-lapse sequences with labels. Construct matched editing pairs: one changes only brightness/texture, one inserts a division, disappearance, or impossible identity switch at controlled severity. Blind labels and compare 2-3 published image/video quality scores with cell count, division-timing, lineage and tracking metrics on held-out sequences. First test without training (CPU image edits and existing segmentation/tracking checkpoints). No clinical outcome claims without external validation.",
+      "pilot": "Choose released Cell Tracking Challenge time-lapse sequences with labels. Construct matched editing pairs: one changes only brightness/texture, one inserts a division, disappearance, or impossible identity switch at controlled severity. Blind labels and compare 2-3 published image/video quality scores with cell count, division-timing, lineage and tracking metrics on held-out sequences. First test without training (CPU image edits and existing segmentation/tracking checkpoints). No clinical outcome claims without external validation. ISBI in-person and first-author cap (<=2) plus IEEE AI disclosure must be checked. Do NOT report poster abstract as a full research paper.",
       "stop": "Do not target MIDL main/full clinical track if only toy cells, no image-grounded biologically valid intervention, or effects already captured by existing cell-tracking evaluation; use a reproducibility/method note when appropriate.",
       "source": "https://2027.midl.io/important-dates",
       "closestPriorArt": [
@@ -1082,6 +1119,18 @@
       "rule": "Mandatory AI Usage Disclosure after references for ALL submissions: disclose ideation, literature, experimental design, code, data, writing, tools and extent. Solely LLM-generated paper content is prohibited outside illustrative/experimental uses. Generalized harmonic author quota: max 2 papers if all single-author, max 20 if all 10-author; other mixes vary; desk rejection for violations.",
       "source": "https://mlsys.org/Conferences/2027/CallForResearchPapers",
       "flag": "mandatory end-to-end AI disclosure; prohibit AI-only manuscripts; harmonic per-author submission quota"
+    },
+    {
+      "venue": "FAccT 2027",
+      "rule": "Unlike FAccT 2026, substantive AI-generated content is allowed with full author responsibility and mandatory generative-AI usage statement in anonymous endmatter; disclose research ideation, analysis, methods and generated writing and human review. Human authors alone assume responsibility; no AI author.",
+      "source": "https://facctconference.org/2027/authorguide.html",
+      "flag": "mandatory generative AI usage statement; 2027 reverses 2026 text-generation ban"
+    },
+    {
+      "venue": "ISBI 2027",
+      "rule": "IEEE disclosure of AI-generated article content identifying tool, sections and extent; basic grammar editing exempt but disclosure recommended. In-person presentation mandatory; first-author max two submissions; archival full paper restricted to four technical pages, fifth nontechnical page costs USD 200.",
+      "source": "https://biomedicalimaging.org/2027/papers/",
+      "flag": "IEEE substantive content disclosure; physical attendance; first-author <=2"
     }
   ],
   "examples": [
@@ -1176,5 +1225,5 @@
     "UAI 2027",
     "ISIT 2027"
   ],
-  "lastLiteratureAudit": "2026-10-26 (stage-wise world-model-planner conflict; progressive pair-recall objective; agent swarm original corpus)"
+  "lastLiteratureAudit": "2026-10-27: FAccT 2027 AI generated text now allowed if fully disclosed (reverses 2026); Oct27 abstract/Nov3 paper; ISBI Nov2 4pg + Feb1 nonarchival poster; CC04 all-query positivity oracle leak and reused E12 holdout identified; user repo scan found no cached ranks or full labels, thus real pilot blocked; no experiments"
 }
