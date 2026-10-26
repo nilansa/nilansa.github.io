@@ -3,7 +3,7 @@
   "taskId": "20261026-csconf-research",
   "createdAt": "2026-10-26T13:51:12.349Z",
   "checkedAt": "2026-10-26",
-  "editorialNote": "Oct 26 fifth audit: CC-10 broad action-ranking novelty BLOCKED by stage-wise sensing paper; CC-01 metric-only standalone retired due RGraph-Eval/TriWorldBench overlap. CC-04 QASP ANN-recall vs progressive-ER pair-recall vs multi-link completion explicitly separated; baseline total verification time required. CC-11 deterministic greedy-vs-exact two-query sanity check performed (not real ER evidence). CC-08 added publicly released unedited agent-swarm research corpus with explicit verification caveats. ARRSI Oct 30 updated. Zero GPU research experiments, real ER benchmarks or conference submissions.",
+  "editorialNote": "Oct 26 fifth audit: CC-10 broad action-ranking novelty BLOCKED by stage-wise sensing paper; CC-01 metric-only standalone retired due RGraph-Eval/TriWorldBench overlap. CC-04 QASP ANN-recall vs progressive-ER pair-recall vs multi-link completion explicitly separated; baseline total verification time required. CC-11 deterministic greedy-vs-exact two-query sanity check performed (not real ER evidence). CC-08 added publicly released unedited agent-swarm research corpus with explicit verification caveats. ARRSI Oct 30 updated. Zero GPU research experiments, real ER benchmarks or conference submissions. MLSys 2027 policy primary CFP verified: mandatory ideation-to-writing AI Usage Disclosure, prohibit AI-only generated papers and generalized harmonic submission quota.",
   "deadlines": [
     {
       "date": "2026-10-29",
@@ -1076,6 +1076,12 @@
       "rule": "AI writing assistance does not require disclosure under venue policy; AI-assisted research does require careful disclosure. Authors must make substantial intellectual contributions and remain accountable. Research-quality, anonymity and ACM OA/APC constraints apply.",
       "source": "https://chiir2027.github.io/generative-ai-policy.html",
       "flag": "AI research disclosure; author contribution and APC check"
+    },
+    {
+      "venue": "MLSys 2027",
+      "rule": "Mandatory AI Usage Disclosure after references for ALL submissions: disclose ideation, literature, experimental design, code, data, writing, tools and extent. Solely LLM-generated paper content is prohibited outside illustrative/experimental uses. Generalized harmonic author quota: max 2 papers if all single-author, max 20 if all 10-author; other mixes vary; desk rejection for violations.",
+      "source": "https://mlsys.org/Conferences/2027/CallForResearchPapers",
+      "flag": "mandatory end-to-end AI disclosure; prohibit AI-only manuscripts; harmonic per-author submission quota"
     }
   ],
   "examples": [
