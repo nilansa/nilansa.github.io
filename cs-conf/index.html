@@ -152,6 +152,7 @@ const de=el('details',undefined,root);de.id=d.id;const summary=el('summary',unde
 const body=el('div',undefined,de);body.className='idea-body';
 for(const [label,key] of [['Question','question'],['Novelty check','novelty'],['Smallest controlled test','pilot'],['Stop / pivot rule','stop']]){const p=el('p',undefined,body);el('strong',label+': ',p);el('span',d[key],p);}
 const p=el('p',undefined,body);el('strong','Potential venues: ',p);el('span',d.venues.join(', '),p);p.append(' · ');link('Relevant source',d.source,p);
+if(Array.isArray(d.closestPriorArt)&&d.closestPriorArt.length){const p2=el('p',undefined,body);el('strong','Closest prior work (verify novelty): ',p2);d.closestPriorArt.forEach((s,i)=>{if(i)p2.append(' · ');link(s.title,s.url,p2);});}
 }
 $('idea-count').textContent=shown+' of '+db.branches.length+' branches. The initial labels are hypotheses; experiments not run.';
 }
