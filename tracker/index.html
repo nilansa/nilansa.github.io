@@ -30,6 +30,15 @@ details{margin:15px 0}summary{width:max-content;max-width:100%;cursor:pointer;co
 #sync-message.error{color:#a21b1b}
 .notice{padding:6px 0;border-top:1px solid #ddd;border-bottom:1px solid #ddd;margin:7px 0}
 footer{border-top:1px solid #aaa;margin:30px 0 0;padding:12px 0}
+
+#conference-calendar{border-top:1px solid #aaa;padding-top:10px;margin-top:24px}
+.conf-controls{display:flex;flex-wrap:wrap;gap:10px;align-items:end;margin:10px 0}
+.conf-controls label{font-size:12px;margin:0}.conf-controls select,.conf-controls input{display:block;margin-top:3px}
+#conference-list th:first-child,#conference-list td:first-child{width:97px;white-space:nowrap}
+#conference-list th,#conference-list td{font-size:12px}#venue-list{line-height:1.8}
+.conf-group{margin:8px 0}.conf-group strong{display:inline-block;min-width:100px}
+@media(max-width:650px){#conference-list th:first-child,#conference-list td:first-child{width:63px;white-space:normal}.conf-controls label{flex:1 1 110px}}
+
 [hidden]{display:none!important}
 @media(max-width:650px){body{margin:12px auto}td,th{padding:6px 3px;font-size:12px}.category-column{display:none}.form-grid{grid-template-columns:1fr}.status{width:90px}.actions button{display:block;margin-bottom:5px}.actions{white-space:normal!important}h1{font-size:23px}}
 </style>
@@ -86,6 +95,28 @@ footer{border-top:1px solid #aaa;margin:30px 0 0;padding:12px 0}
 <div class="row-actions"><button type="button" id="export">Export tasks JSON</button><label for="import">Import JSON: <input id="import" type="file" accept=".json,application/json"></label></div>
 <p><small>Exports exclude credentials. Imports merge records by ID and update time. Private GitHub sync checks again every three minutes while this page is open. Email/calendar scanning is a separate scheduled task.</small></p>
 </details>
+
+<section id="conference-calendar" aria-labelledby="conference-title">
+<h2 id="conference-title">Conference tracker</h2>
+<p><small>Upcoming submission deadlines, event dates and workshops. Rolling monthly/two-monthly view across AI, NLP, vision, systems, security, databases, theory and developer events. Verified organizer-source snapshot: <strong>26 October 2026</strong>; manual updates, not a live feed.</small></p>
+<p class="notice"><small><strong><a href="https://colm.cc/" target="_blank" rel="noopener noreferrer">COLM — Conference on Language Modeling</a></strong> is permanently tracked. Its 2026 event was 6–9 October; <strong>COLM 2027 conference, CFP and workshop deadlines are not yet officially announced (TBA)</strong>. No speculative date is shown.</small></p>
+<div class="conf-controls">
+<label>Type<select id="conf-type"><option value="deadline">Submission deadlines</option><option value="event">Event dates</option><option value="workshop">Workshops</option></select></label>
+<label>Window<select id="conf-window"><option value="30">30 days</option><option value="60" selected>60 days</option></select></label>
+<label>Area<select id="conf-area"><option value="all">All CS</option><option>AI/ML</option><option>NLP</option><option>Vision</option><option>Systems</option><option>Security</option><option>Data/IR</option><option>Theory/PL</option><option>Graphics/HCI</option><option>Industry</option></select></label>
+<label>Search<input type="search" id="conf-search" placeholder="e.g. CVPR or workshop"></label>
+</div>
+<p id="conf-result-summary" class="muted" aria-live="polite"></p>
+<table id="conference-list"><thead><tr><th>Date</th><th>Conference / workshop</th><th>Detail / action</th><th>Area</th></tr></thead><tbody id="conf-rows"></tbody></table>
+<p id="conf-empty" hidden>No matching verified entries in this time window. Search the venue catalogue below for events with dates still TBA.</p>
+<details id="conf-venues"><summary>Full conference catalogue (including COLM, KDD, and systems venues)</summary>
+<p><small>Academic and industry venues are included. A name in this catalogue does not imply a particular rank; unannounced dates are not guessed.</small></p>
+<label for="venue-search">Search venues</label><input type="search" id="venue-search" placeholder="COLM, KDD, SOSP…" style="width:240px">
+<div id="venue-list"></div>
+</details>
+<p><small>Organizer links are authoritative for last-minute changes. AoE means 23:59 Anywhere on Earth; some deadlines use fixed Pacific or UTC time. This public calendar does not contain personal tasks.</small></p>
+</section>
+
 </main>
 <footer><small>Plain HTML · No analytics · No external JavaScript · <a href="https://github.com/nilansa/nilansa.github.io/tree/main/tracker">Source</a></small></footer>
 <script>
@@ -177,6 +208,82 @@ token=t;sessionStorage.setItem(SESSION,t);if($("remember").checked)localStorage.
 $("disconnect").addEventListener("click",function(){token="";sessionStorage.removeItem(SESSION);localStorage.removeItem(LOCAL_TOKEN);$("token-input").value="";$("remember").checked=false;syncMessage("Disconnected. Edits remain in this browser.",false);});
 $("export").addEventListener("click",function(){var file=new Blob([JSON.stringify(join({tasks:[]},state),null,2)+"\n"],{type:"application/json"}),url=URL.createObjectURL(file),a=document.createElement("a");a.href=url;a.download="nilanjan-tracker-"+today()+".json";a.click();setTimeout(function(){URL.revokeObjectURL(url);},1000);});
 $("import").addEventListener("change",async function(){var f=this.files&&this.files[0];if(!f)return;try{if(f.size>2000000)throw new Error("2 MB limit");var doc=JSON.parse(await f.text());if(!Array.isArray(doc.tasks))throw new Error("Invalid task document");state=join(state,normalized(doc));persist(true);syncMessage("Import merged by ID and update timestamp.",false);}catch(e){syncMessage("Import failed: "+e.message,true);}this.value="";});
+
+/* Snapshot verified against conference sites 2026-10-26.
+   date | last day | kind | title | detail | area | source URL | deadline timezone */
+var CONF_DATA=`
+2026-10-27|2026-10-27|deadline|FAccT 2027|Abstract registration|AI/ML|https://facctconference.org/2027/cfp.html|AoE
+2026-10-30|2026-10-30|deadline|MLSys 2027|Research / industry paper|Systems|https://mlsys.org/Conferences/2027/CallForResearchPapers|20:00 UTC
+2026-11-01|2026-11-01|deadline|VLDB 2027 (PVLDB)|November paper cycle; required abstract due Oct 25|Data/IR|https://www.vldb.org/2027/important-dates.html|17:00 Pacific
+2026-11-02|2026-11-02|deadline|STOC 2027|Research paper|Theory/PL|https://acm-stoc.org/stoc2027/|AoE
+2026-11-03|2026-11-03|deadline|FAccT 2027|Full paper|AI/ML|https://facctconference.org/2027/cfp.html|AoE
+2026-11-04|2026-11-04|deadline|CVPR 2027|Workshop organizer proposal (not workshop paper)|Vision|https://cvpr.thecvf.com/Conferences/2027/Dates|AoE
+2026-11-09|2026-11-09|deadline|ISCA 2027|Research abstract|Systems|https://iscaconf.org/isca2027/|AoE
+2026-11-10|2026-11-10|deadline|CVPR 2027|Paper registration|Vision|https://cvpr.thecvf.com/Conferences/2027/Dates|AoE
+2026-11-10|2026-11-10|deadline|IEEE S&P 2027|Second-cycle abstract|Security|https://www.ieee-security.org/TC/SP2027/cfpapers.html|AoE
+2026-11-11|2026-11-11|deadline|DAC 2027|Research abstract/coauthor registration|Systems|https://dac.com/2027/program/research-manuscript-submissions|17:00 Pacific
+2026-11-12|2026-11-12|deadline|PLDI 2027|Research paper|Theory/PL|https://pldi27.sigplan.org/track/pldi-2027-papers|AoE
+2026-11-16|2026-11-16|deadline|CVPR 2027|Full paper|Vision|https://cvpr.thecvf.com/Conferences/2027/Dates|AoE
+2026-11-16|2026-11-16|deadline|ISCA 2027|Main research paper|Systems|https://iscaconf.org/isca2027/|AoE
+2026-11-16|2026-11-16|deadline|FOSDEM 2027|Main-track talk proposal (industry event)|Industry|https://fosdem.org/2027/news/call-for-main-track/|
+2026-11-17|2026-11-17|deadline|IEEE S&P 2027|Second-cycle full paper|Security|https://www.ieee-security.org/TC/SP2027/cfpapers.html|AoE
+2026-11-18|2026-11-18|deadline|DAC 2027|Research manuscript|Systems|https://dac.com/2027/program/research-manuscript-submissions|17:00 Pacific
+2026-11-19|2026-11-19|deadline|ECOOP 2027|Technical papers, first cycle|Theory/PL|https://2027.ecoop.org/dates|
+2026-11-20|2026-11-20|deadline|AAAI 2027 workshops|Workshop paper submissions; verify each workshop|AI/ML|https://aaai.org/conference/aaai/aaai-27/aaai-27-workshop-program/|AoE
+2026-11-23|2026-11-23|deadline|CVPR 2027|Supplementary materials|Vision|https://cvpr.thecvf.com/Conferences/2027/Dates|AoE
+2026-11-24|2026-11-24|deadline|SIGMOD 2027|Industrial track, not research track|Data/IR|https://2027.sigmod.org/calls_papers_important_dates.shtml|
+2026-11-25|2026-11-25|deadline|VLDB 2027 (PVLDB)|December cycle abstract registration|Data/IR|https://www.vldb.org/2027/important-dates.html|17:00 Pacific
+2026-12-01|2026-12-01|deadline|VLDB 2027 (PVLDB)|December cycle paper|Data/IR|https://www.vldb.org/2027/important-dates.html|17:00 Pacific
+2026-12-03|2026-12-03|deadline|PODS 2027|Second-cycle abstract|Data/IR|https://2027.sigmod.org/calls_papers_important_dates.shtml|AoE
+2026-12-06|2026-12-06|deadline|ISCA 2027|Industry track abstract|Systems|https://iscaconf.org/isca2027/|AoE
+2026-12-10|2026-12-10|deadline|PODS 2027|Second-cycle paper|Data/IR|https://2027.sigmod.org/calls_papers_important_dates.shtml|AoE
+2026-12-13|2026-12-13|deadline|ISCA 2027|Industry track paper|Systems|https://iscaconf.org/isca2027/|AoE
+2026-10-24|2026-10-29|event|EMNLP 2026|Budapest, Hungary — underway|NLP|https://2026.emnlp.org/|
+2026-10-26|2026-10-30|event|MobiCom 2026|Austin, USA|Systems|https://sigmobile.org/mobicom/2026/|
+2026-11-03|2026-11-06|event|ACM SIGSPATIAL 2026|Riverside, USA|Data/IR|https://sigspatial2026.sigspatial.org/|
+2026-11-07|2026-11-11|event|CIKM 2026|Rome, Italy|Data/IR|https://cikm2026.diag.uniroma1.it/|
+2026-11-08|2026-11-12|event|ICCAD 2026|San Jose, USA|Systems|https://iccad.com/2026|
+2026-11-09|2026-11-12|event|KubeCon + CloudNativeCon 2026|Salt Lake City, USA (industry)|Industry|https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/|
+2026-11-09|2026-11-13|event|IEEE VIS 2026|Boston, USA|Graphics/HCI|https://ieeevis.org/|
+2026-11-10|2026-11-14|event|ACM Multimedia 2026|Rio de Janeiro, Brazil|Graphics/HCI|https://www.acmmm.org/2026/|
+2026-11-15|2026-11-20|event|SC26|Chicago, USA (supercomputing)|Systems|https://sc26.supercomputing.org/|
+2026-11-15|2026-11-19|event|ACM CCS 2026|The Hague, Netherlands|Security|https://www.sigsac.org/ccs/CCS2026/program/outline.html|
+2026-11-23|2026-11-26|event|BMVC 2026|Lancaster, UK|Vision|https://bmvc2026.bmva.org/|
+2026-12-06|2026-12-13|event|NeurIPS 2026|Sydney, Atlanta and Paris; schedules vary by city|AI/ML|https://neurips.cc/Conferences/2026/Dates|
+2026-10-29|2026-10-29|workshop|BabyLM and BlackboxNLP|EMNLP workshops: efficient LMs and interpretability|NLP|https://2026.emnlp.org/program/workshops/|
+2026-11-03|2026-11-03|workshop|GeoAI / UrbanAI / GeoSearch|SIGSPATIAL workshops|Data/IR|https://sigspatial2026.sigspatial.org/workshops.html|
+2026-11-08|2026-11-08|workshop|CIKM workshops|Knowledge graphs, IR, data mining|Data/IR|https://cikm2026.diag.uniroma1.it/|
+2026-11-09|2026-11-09|workshop|KubeCon co-located events|Cloud native AI, inference, agentic systems|Industry|https://events.linuxfoundation.org/kubecon-cloudnativecon-north-america/|
+2026-11-09|2026-11-09|workshop|VISxAI|IEEE VIS visualization and AI|Graphics/HCI|https://ieeevis.org/|
+2026-11-10|2026-11-14|workshop|ACM Multimedia workshops|Specialized workshops (dates vary)|Graphics/HCI|https://www.acmmm.org/2026/|
+2026-11-15|2026-11-15|workshop|AGENT-SEC and AISec|ACM CCS workshops: agent and AI security|Security|https://www.sigsac.org/ccs/CCS2026/workshops/workshops.html|
+2026-11-15|2026-11-20|workshop|SC26 workshops|HPC workshops on selected conference days|Systems|https://sc26.supercomputing.org/|
+2026-12-11|2026-12-12|workshop|NeurIPS 2026 Sydney workshops|Workshop program, Sydney|AI/ML|https://neurips.cc/Conferences/2026/CallForWorkshops|
+2026-12-12|2026-12-13|workshop|NeurIPS 2026 Atlanta / Paris workshops|Workshop programs in Atlanta and Paris|AI/ML|https://neurips.cc/Conferences/2026/CallForWorkshops|
+`.trim().split("\n").map(function(r){var f=r.split("|");return {first:f[0],last:f[1],type:f[2],title:f[3],detail:f[4],area:f[5],url:f[6],zone:f[7]||""};});
+var CONF_GROUPS={
+"NLP":"COLM, ACL, EMNLP, NAACL, EACL, COLING, CoNLL, LREC",
+"AI/ML":"NeurIPS, ICML, ICLR, AAAI, IJCAI, AISTATS, UAI, COLT, MLSys, FAccT, KDD, ICDM, ECML PKDD, PAKDD, ACML",
+"Vision":"CVPR, ICCV, ECCV, WACV, BMVC, 3DV, ACCV, ICRA, IROS, RSS",
+"Systems":"SOSP, OSDI, EuroSys, ASPLOS, NSDI, FAST, SIGCOMM, MobiCom, MobiSys, SenSys, USENIX ATC, SC, ISCA, MICRO, HPCA, PPoPP, SIGMETRICS, DAC, ICCAD",
+"Security":"IEEE S&P, USENIX Security, ACM CCS, NDSS, PETS, RAID, ACSAC",
+"Data/IR":"SIGMOD, VLDB, ICDE, SIGIR, WWW, WSDM, CIKM, SIGSPATIAL, PODS",
+"Theory/PL":"POPL, PLDI, OOPSLA, ICFP, ECOOP, ICSE, FSE, ASE, ISSTA, STOC, FOCS, SODA, LICS, CAV, CRYPTO, EUROCRYPT",
+"Graphics/HCI":"SIGGRAPH, SIGGRAPH Asia, ACM Multimedia, IEEE VIS, CHI, UIST, CSCW, UbiComp",
+"Industry":"KubeCon, FOSDEM, PyCon, Open Source Summit, DEF CON, Black Hat, NVIDIA GTC, PyTorch Conference, LLVM Developers Meeting"
+};
+var CONF_LINKS={"COLM":"https://colm.cc/","KDD":"https://kdd.org/","NeurIPS":"https://neurips.cc/","MLSys":"https://mlsys.org/","ICML":"https://icml.cc/","ICLR":"https://iclr.cc/","CVPR":"https://cvpr.thecvf.com/","EMNLP":"https://2026.emnlp.org/","ACM CCS":"https://www.sigsac.org/","ISCA":"https://iscaconf.org/","FAccT":"https://facctconference.org/","AAAI":"https://aaai.org/","SC":"https://supercomputing.org/","FOSDEM":"https://fosdem.org/","KubeCon":"https://events.linuxfoundation.org/","SIGMOD":"https://sigmod.org/","VLDB":"https://www.vldb.org/","PLDI":"https://pldi27.sigplan.org/","STOC":"https://acm-stoc.org/","ACM Multimedia":"https://www.acmmm.org/","IEEE VIS":"https://ieeevis.org/"};
+function renderConfCalendar(){var kind=$("conf-type").value,days=Number($("conf-window").value),area=$("conf-area").value,q=$("conf-search").value.toLowerCase().trim(),now=today();
+var until=new Date(now+"T00:00:00Z");until.setUTCDate(until.getUTCDate()+days-1);var last=until.toISOString().slice(0,10);
+var rows=CONF_DATA.filter(function(x){return x.type===kind&&x.last>=now&&x.first<=last&&(area==="all"||x.area===area)&&(!q||(x.title+" "+x.detail+" "+x.area).toLowerCase().includes(q));}).sort(function(a,b){return a.first.localeCompare(b.first)||a.title.localeCompare(b.title);});
+$("conf-result-summary").textContent=rows.length+" entries · "+formatDue(now)+" to "+formatDue(last)+" · organizer-local deadline times";
+var b=$("conf-rows");b.replaceChildren();$("conf-empty").hidden=rows.length>0;
+rows.forEach(function(x){var r=element("tr"),a=element("a",x.title),cell=element("td");a.href=x.url;a.target="_blank";a.rel="noopener noreferrer";cell.append(a);
+r.append(element("td",formatDue(x.first)+(x.first!==x.last?"–"+formatDue(x.last):"")));r.append(cell,element("td",x.detail+(x.zone?" · "+x.zone:"")),element("td",x.area));b.append(r);});}
+function renderConfVenues(){var q=$("venue-search").value.toLowerCase().trim(),target=$("venue-list");target.replaceChildren();Object.keys(CONF_GROUPS).forEach(function(area){var names=CONF_GROUPS[area].split(", ").filter(function(n){return !q||(n+" "+area).toLowerCase().includes(q);});if(!names.length)return;var wrap=element("div",null,"conf-group");wrap.append(element("strong",area+":"));names.forEach(function(n,i){if(i)wrap.append(document.createTextNode(" · "));if(CONF_LINKS[n]){var a=element("a",n);a.href=CONF_LINKS[n];a.target="_blank";a.rel="noopener noreferrer";wrap.append(a);}else wrap.append(document.createTextNode(n));});target.append(wrap);});}
+["conf-type","conf-window","conf-area"].forEach(function(id){$(id).addEventListener("change",renderConfCalendar);});$("conf-search").addEventListener("input",renderConfCalendar);$("venue-search").addEventListener("input",renderConfVenues);
+renderConfCalendar();renderConfVenues();
+
 load();render();if(token)sync();setInterval(function(){if(token)sync();},180000);
 })();
 </script>
