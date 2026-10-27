@@ -1,5 +1,25 @@
 [
   {
+    "id": "ire-research-survey-tutorial-map-20261027",
+    "title": "IRE Research Survey — Topic Map & Tutorial Finder",
+    "description": "ST100+ topic checklist combining professor examples, AIN themes and course boundaries, with verified conference tutorials, slides, videos and survey leads.",
+    "project": "IRE Optional Research Survey",
+    "category": "Research topic and tutorial map",
+    "tags": [
+      "ST100 Plus",
+      "IRE",
+      "DPP",
+      "unbiased learning-to-rank",
+      "bandits",
+      "active learning",
+      "conference tutorials",
+      "research survey"
+    ],
+    "url": "./explainers/ire-research-survey-tutorial-map-2026-10-27.html",
+    "date": "2026-10-27",
+    "indexed_at": "2026-10-27T11:16:53.724Z"
+  },
+  {
     "id": "ire-github-a1-a2-final-viva-20261019",
     "title": "IRE A1 + A2 — GitHub-First Viva & Predicted Quiz 2",
     "description": "30-minute ST100+ guide linking both actual GitHub repos, safe tests, submissions 900266/944690/905893, Quiz 1 facts, A2 mechanism and inferred Quiz 2 oral questions.",
