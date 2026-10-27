@@ -3,7 +3,7 @@
   "taskId": "20261026-csconf-research",
   "createdAt": "2026-10-26T13:51:12.349Z",
   "checkedAt": "2026-10-27",
-  "editorialNote": "27 Oct thirteenth cycle: a PRELOCKED, read-only CPU source-score comparability stress test was completed on previously inspected historical CC04 development caches; public index records only methodology and added null controls, never private numerical findings. A random source-specific monotone score shift preserves each source's candidate order yet changes cross-source budget allocation. Add randomized source-offset control before any learned completion-budget novelty claim. Original E12 artifact and untouched tests still unavailable; no GPU/training/full-pipeline benchmark. New official deadlines: NAACL 2027 Industry Oct 31 (deployed systems only, restrictive paper-integrity rules); DESIRES 2027 early-stage IR abstract Dec 17. EACL 2027 paper-integrity policy sharpened. No conference submission or cross-surface file transfer.",
+  "editorialNote": "27 Oct fourteenth cycle: an independent public multi-source ER dataset has been verified for CC-04 pilot feasibility; the official WDC Products test split cannot evaluate multi-positive source completion by itself. Source-cluster-disjoint development protocol is prelocked, with sealed test held back. No learned allocator or new retrieval performance has been established. All private measurements stay in the private research inbox.",
   "deadlines": [
     {
       "date": "2026-10-27",
@@ -893,11 +893,11 @@
         "DESIRES 2027 (early-stage abstract; human-reviewed)"
       ],
       "cost": "low-medium",
-      "stage": "NEW PROTOCOL CONTROL (Oct 27): previously inspected historical repaired candidate-score caches were tested read-only under a preregistered within-source-rank-preserving, random source-specific score-offset stress test. This probes cross-query comparability and budget concentration. All numerical results remain private, historical/dev-only and do not establish unseen-test improvement. No learned allocator, retraining, full blocker or downstream runtime measured. Original E12 per-route retrieval remains separate/unrecovered.",
+      "stage": "NEW PUBLIC BENCHMARK PRECHECK (Oct 27): Leipzig Music Brainz 20K is a low-cost five-source cluster-labeled entity-resolution dataset suitable for an initial multi-positive/all-links retrieval pilot, unlike the official WDC Products EDBT 2024 validation/test configurations with just two offers per product. Public labels for generated corruptions are not proof of real-world match completeness. An in-memory schema and duplicate-source audit completed; development retrieval policy was preregistered but the baseline retrieval computation has NOT run. A deterministic CID-disjoint fit/dev/sealed split is proposed; final set stays sealed. No new algorithm or performance claim.",
       "question": "Without knowing which sources have matches at inference time, can an allocation policy learn both match-existence probability and last-positive-rank completion curves to improve complete-link retrieval among all source queries under fixed candidate count AND end-to-end wall time, versus QASP-style and progressive-ER baselines?",
-      "novelty": "The PACMMOD/SIGMOD 2025 Progressive ER formal objective maximizes progressive recall@N of verified PAIRS, assumes oracle pair verification and explicitly excludes verification time from reported runtime. QASP (Jul 2026) predicts recall of nearest-neighbor search as probes increase; nearest-neighbor recall is NOT recall of all semantically true entity links. The proposed completion event max_true_match_rank<=K differs from both losses, but this is not proof of novel algorithm. Distinct evaluation must include multi-positive sources (standard clean-clean datasets often assume within-source no duplicates), real full-pipeline runtime, calibrated completion prediction, and equal-budget strong baselines. Critical new gate (Oct 27): allocation over positive queries only is oracle information leakage unless positivity is inferable at inference. Estimate p_i*F_i(k) over all S1, assess null-query opportunity cost and incomplete ground truth. No new algorithm claimed. A new necessary CONTROL is randomized source-level monotone score offsets: a policy can redistribute budget across sources without changing their local candidate ranks or using any label. Neither stochastic prioritization (SPER) nor generic budgeted success curves are intrinsically novel. A learned all-link allocator must show more than what random budget concentration achieves at equal B.",
-      "pilot": "Before training any new allocator, create a genuinely new test with S1/entity-cluster disjointness and fit-only preprocessing. Calibrate P(positive AND all ground-truth links recovered at K | query features) on training/calibration only, optimize total candidate budget, compare fixed top-K, global highest score, QASP-style recall-curve allocation, and Progressive ER at equal candidate budget and full CPU/wall time. Report candidate-oracle ceiling, zero-match queries and label incompleteness; historical repaired cached diagnostics are development checks only. **New mandatory calibration-free null control:** apply source-specific random log-odds offsets at fixed deterministic seeds to frozen pair probabilities, preserving within-source rankings and exact global B. Evaluate both tight and moderate B; do not assume a monotonic effect. This historical sensitivity diagnostic is development-only, not the locked final test. Validate score comparability on new calibration-only groups; avoid contamination of test from exploratory analysis.",
-      "stop": "If no reliable gain over strong global-score AND QASP/progressive baselines on a new sealed cluster-disjoint test, or if gain is due to incomplete annotations/model-selection leakage, retire standalone adaptive-allocation claim. Candidate-universe missing links cannot be repaired by reallocation. Also stop novel learned-allocation claim if it cannot beat an uninformed rank-preserving source-offset baseline on the prospectively sealed test. No novel algorithm inferred from artificial score perturbations.",
+      "novelty": "The PACMMOD/SIGMOD 2025 Progressive ER formal objective maximizes progressive recall@N of verified PAIRS, assumes oracle pair verification and explicitly excludes verification time from reported runtime. QASP (Jul 2026) predicts recall of nearest-neighbor search as probes increase; nearest-neighbor recall is NOT recall of all semantically true entity links. The proposed completion event max_true_match_rank<=K differs from both losses, but this is not proof of novel algorithm. Distinct evaluation must include multi-positive sources (standard clean-clean datasets often assume within-source no duplicates), real full-pipeline runtime, calibrated completion prediction, and equal-budget strong baselines. Critical new gate (Oct 27): allocation over positive queries only is oracle information leakage unless positivity is inferable at inference. Estimate p_i*F_i(k) over all S1, assess null-query opportunity cost and incomplete ground truth. No new algorithm claimed. A new necessary CONTROL is randomized source-level monotone score offsets: a policy can redistribute budget across sources without changing their local candidate ranks or using any label. Neither stochastic prioritization (SPER) nor generic budgeted success curves are intrinsically novel. A learned all-link allocator must show more than what random budget concentration achieves at equal B. DATASET GATE: WDC Products EDBT 2024's official val/test subsets assign two offers per product, so its isolated test does not provide multi-positive complete-link recall; do not treat pairwise evaluation as a multi-link retrieval benchmark. Leipzig Music Brainz 20K offers CID-labeled multi-source groups but has synthetic perturbations and source-specific duplication assumptions. Novelty must generalize beyond generated duplicate examples, under sealed cluster-disjoint testing.",
+      "pilot": "On Leipzig Music Brainz 20K, keep records sharing CID in the same deterministic fit/development/sealed partition; use SourceID=1 as queries, SourceID=2..5 as targets. Confirm any train-only fitted TF-IDF token weighting, rank candidates by frozen cosine similarity; evaluate development only (no sealed outcomes), including multi-positive and zero-match queries. Compare uniform top-K, global top-B and 16 predeclared rank-preserving randomized source-offset controls at identical candidate B, then a calibrated completion allocator and QASP/Progressive ER/SPER baselines. Publish results only when independently validated; include full blocker/scorer/runtime, candidate-universe ceiling, label semantics, and source-level completion. **Feasibility audit completed, retrieval evaluation not executed.**",
+      "stop": "If no reliable gain over strong global-score AND QASP/progressive baselines on a new sealed cluster-disjoint test, or if gain is due to incomplete annotations/model-selection leakage, retire standalone adaptive-allocation claim. Candidate-universe missing links cannot be repaired by reallocation. Also stop novel learned-allocation claim if it cannot beat an uninformed rank-preserving source-offset baseline on the prospectively sealed test. No novel algorithm inferred from artificial score perturbations. Do not interpret a single-positive-only official benchmark as evidence for multi-positive all-links completion. Stop any new-data claim if controls differ in candidate universe, annotation coverage, or information available at inference.",
       "source": "https://sigir2027.org/pages/submit-full.html",
       "closestPriorArt": [
         {
@@ -931,6 +931,14 @@
         {
           "title": "SPER: stochastic progressive ER pair scheduling (CIKM 2026; existing prior art)",
           "url": "https://arxiv.org/abs/2512.23491"
+        },
+        {
+          "title": "WDC Products: A Multi-Dimensional Entity Matching Benchmark (EDBT 2024; official val/test pair configuration)",
+          "url": "https://webdatacommons.org/largescaleproductcorpus/wdc-products/"
+        },
+        {
+          "title": "Music Brainz 20K, five-source entity resolution benchmark (Leipzig University)",
+          "url": "https://dbs.uni-leipzig.de/research/projects/benchmark-datasets-for-entity-resolution"
         }
       ]
     },
@@ -1563,6 +1571,18 @@
       "kind": "Theory preprint, submitted 2025; revised 4 Feb 2026",
       "note": "General monotone success-probability budget curves and regret under censored semi-bandit feedback. Prior art against claiming a generic adaptive success-budget optimization formulation as an original CC11 theory contribution.",
       "url": "https://arxiv.org/abs/2508.05844"
+    },
+    {
+      "title": "WDC Products (EDBT 2024): test-split multi-positive limit",
+      "kind": "accepted benchmark / evaluation caution",
+      "note": "The official val/test construction assigns only two offers per product. An isolated test pair cannot establish added value for retrieving every match when one entity has multiple matching offers.",
+      "url": "https://webdatacommons.org/largescaleproductcorpus/wdc-products/"
+    },
+    {
+      "title": "Leipzig Music Brainz 20K five-source entity-resolution corpus",
+      "kind": "public data / low-cost pilot",
+      "note": "Five duplicate-free data sources with CID cluster identifiers permit a CPU-first multi-positive and null-query retrieval protocol. Records are generated corruptions; use CID-disjoint fit/dev/sealed evaluation, and validate later on independent real-world ER.",
+      "url": "https://dbs.uni-leipzig.de/research/projects/benchmark-datasets-for-entity-resolution"
     }
   ],
   "closed": [
@@ -1583,5 +1603,5 @@
     "UAI 2027",
     "ISIT 2027"
   ],
-  "lastLiteratureAudit": "2026-10-27 thirteenth source audit: checked organizer CFP/policies NAACL industry Oct 31, DESIRES Dec 17, EACL integrity, CHIIR Oct 29, MLSys Oct 30, ACL ARR Jan 4; prior art QASP 2607.29606, Progressive ER 2503.08298, SPER 2512.23491, budgeted censored semi-bandits 2508.05844. Private-only historical score-offset stress test; no public metrics or held-out claims, no submissions."
+  "lastLiteratureAudit": "2026-10-27: Revisited WDC Products EDBT 2024 official test construction (two offers per product, unsuitable as the primary multi-positive CC04 test) and Leipzig University Music Brainz 20K (five source CID-labeled synthetic corruptions). CC04 dataset feasibility checked read-only; retrieval experiment and independent sealed test still pending. Follow original organizer requirements for CHIIR, MLSys, CVPR, ISCA, and other tracked venues; no submission."
 }
