@@ -3,7 +3,7 @@
   "taskId": "20261026-csconf-research",
   "createdAt": "2026-10-26T13:51:12.349Z",
   "checkedAt": "2026-10-27",
-  "editorialNote": "27 Oct fourteenth cycle: the independent Leipzig Music Brainz 20K public multi-source feasibility audit and preregistered development-only CPU retrieval controls were completed. This synthetic corpus is useful as a sanity check but too close to a simple global-score ceiling for a new allocator claim; fixed-K completion is structurally limited for multi-match queries. No sealed-test performance or trained allocator. All unpublished numbers remain private. WDC Products official val/test is unsuitable as a multi-positive completion test by itself.",
+  "editorialNote": "27 Oct fifteenth cycle: public Cora real-citation dataset and upstream gold-pair versus derived-class provenance were reviewed; the official per-record-label generator needs validation against raw pair links before it can support complete-link retrieval. No real-Cora retrieval experiment, learned allocator or sealed-test evaluation. Novelty boundary tightened against EDBT 2025 GraLMatch, 2026 batched-ER and 2026 retrieval-to-clustering studies. CVPR 2027 reciprocal-reviewer and AI-usage policies rechecked. All newly computed dataset audit figures remain private.",
   "deadlines": [
     {
       "date": "2026-10-27",
@@ -893,10 +893,10 @@
         "DESIRES 2027 (early-stage abstract; human-reviewed)"
       ],
       "cost": "low-medium",
-      "stage": "INDEPENDENT MULTI-SOURCE DEVELOPMENT PILOT COMPLETE (Oct 27): Leipzig University's Music Brainz 20K public cluster-labeled synthetic data was audited and evaluated in memory with deterministic CID-disjoint fit/dev/sealed partitions. Fit-only TF-IDF weighting and frozen cosine ranking compared uniform top-K, global top-B and 16 preregistered rank-preserving randomized source-offset controls at matched budgets. This is development data only; all numerical results are kept private. The strongest global-score baseline approaches its candidate-oracle ceiling, and the large fixed-K discrepancy at tight budgets is confounded by known multi-positive query degrees. Dataset is a useful control, not a main novelty evaluation. Sealed test unexamined for retrieval outcomes. No learned allocator or full production pipeline runtime established.",
+      "stage": "INDEPENDENT MULTI-SOURCE DEVELOPMENT PILOT COMPLETE (Oct 27): Leipzig University's Music Brainz 20K public cluster-labeled synthetic data was audited and evaluated in memory with deterministic CID-disjoint fit/dev/sealed partitions. Fit-only TF-IDF weighting and frozen cosine ranking compared uniform top-K, global top-B and 16 preregistered rank-preserving randomized source-offset controls at matched budgets. This is development data only; all numerical results are kept private. The strongest global-score baseline approaches its candidate-oracle ceiling, and the large fixed-K discrepancy at tight budgets is confounded by known multi-positive query degrees. Dataset is a useful control, not a main novelty evaluation. Sealed test unexamined for retrieval outcomes. No learned allocator or full production pipeline runtime established. SOURCE-ELIGIBILITY GATE (27 Oct): an independent source-level inspection of a real Cora citation benchmark is complete; per-record cluster IDs derived by an upstream heuristic are NOT assumed correct. A valid test must reconstruct cluster memberships from the raw gold-pair list and independently audit label omissions. The dataset is one-source dirty deduplication, not natural S1-to-S2/S3 matching. No Cora retrieval benchmark or sealed test run; numerical audit findings private.",
       "question": "Without knowing which sources have matches at inference time, can an allocation policy learn both match-existence probability and last-positive-rank completion curves to improve complete-link retrieval among all source queries under fixed candidate count AND end-to-end wall time, versus QASP-style and progressive-ER baselines?",
-      "novelty": "The PACMMOD/SIGMOD 2025 Progressive ER formal objective maximizes progressive recall@N of verified PAIRS, assumes oracle pair verification and explicitly excludes verification time from reported runtime. QASP (Jul 2026) predicts recall of nearest-neighbor search as probes increase; nearest-neighbor recall is NOT recall of all semantically true entity links. The proposed completion event max_true_match_rank<=K differs from both losses, but this is not proof of novel algorithm. Distinct evaluation must include multi-positive sources (standard clean-clean datasets often assume within-source no duplicates), real full-pipeline runtime, calibrated completion prediction, and equal-budget strong baselines. Critical new gate (Oct 27): allocation over positive queries only is oracle information leakage unless positivity is inferable at inference. Estimate p_i*F_i(k) over all S1, assess null-query opportunity cost and incomplete ground truth. No new algorithm claimed. A new necessary CONTROL is randomized source-level monotone score offsets: a policy can redistribute budget across sources without changing their local candidate ranks or using any label. Neither stochastic prioritization (SPER) nor generic budgeted success curves are intrinsically novel. A learned all-link allocator must show more than what random budget concentration achieves at equal B. DATASET GATE: WDC Products EDBT 2024's official val/test subsets assign two offers per product, so its isolated test does not provide multi-positive complete-link recall; do not treat pairwise evaluation as a multi-link retrieval benchmark. Leipzig Music Brainz 20K offers CID-labeled multi-source groups but has synthetic perturbations and source-specific duplication assumptions. Novelty must generalize beyond generated duplicate examples, under sealed cluster-disjoint testing.",
-      "pilot": "NEXT: Audit and freeze a harder REAL-WORLD multi-positive entity dataset, with complete-link label assumptions explicitly tested. Preserve deterministic cluster-disjoint fit/calibration/test and include all zero-match queries in budget. Use Leipzig Music Brainz 20K only as a documented synthetic control: train-only IDF, frozen cosine scoring, matched candidate B, uniform, global-score, 16 predetermined source-offset seeds; add a degree-capacity upper bound showing that fixed-K cannot complete queries with more than K true links. On harder data evaluate fitted probability-of-completion versus strong global/top-B, randomized concentration, QASP/Progressive ER/SPER variants under full CPU cost and inference-available signals. Do not open the sealed Leipzig split or claim paper novelty during development.",
+      "novelty": "The PACMMOD/SIGMOD 2025 Progressive ER formal objective maximizes progressive recall@N of verified PAIRS, assumes oracle pair verification and explicitly excludes verification time from reported runtime. QASP (Jul 2026) predicts recall of nearest-neighbor search as probes increase; nearest-neighbor recall is NOT recall of all semantically true entity links. The proposed completion event max_true_match_rank<=K differs from both losses, but this is not proof of novel algorithm. Distinct evaluation must include multi-positive sources (standard clean-clean datasets often assume within-source no duplicates), real full-pipeline runtime, calibrated completion prediction, and equal-budget strong baselines. Critical new gate (Oct 27): allocation over positive queries only is oracle information leakage unless positivity is inferable at inference. Estimate p_i*F_i(k) over all S1, assess null-query opportunity cost and incomplete ground truth. No new algorithm claimed. A new necessary CONTROL is randomized source-level monotone score offsets: a policy can redistribute budget across sources without changing their local candidate ranks or using any label. Neither stochastic prioritization (SPER) nor generic budgeted success curves are intrinsically novel. A learned all-link allocator must show more than what random budget concentration achieves at equal B. DATASET GATE: WDC Products EDBT 2024's official val/test subsets assign two offers per product, so its isolated test does not provide multi-positive complete-link recall; do not treat pairwise evaluation as a multi-link retrieval benchmark. Leipzig Music Brainz 20K offers CID-labeled multi-source groups but has synthetic perturbations and source-specific duplication assumptions. Novelty must generalize beyond generated duplicate examples, under sealed cluster-disjoint testing. Additional prior art: EDBT 2025 GraLMatch already evaluates group-level multi-source ER; a June 2026 batched-oracle preprint studies progressive cost-controlled group recovery; an October 2026 multilingual-company preprint distinguishes retrieval from final clustering. Claim novelty only for verified completion-aware allocation under a different cost model and end-to-end controlled evidence.",
+      "pilot": "NEXT: Audit and freeze a harder REAL-WORLD multi-positive entity dataset, with complete-link label assumptions explicitly tested. Preserve deterministic cluster-disjoint fit/calibration/test and include all zero-match queries in budget. Use Leipzig Music Brainz 20K only as a documented synthetic control: train-only IDF, frozen cosine scoring, matched candidate B, uniform, global-score, 16 predetermined source-offset seeds; add a degree-capacity upper bound showing that fixed-K cannot complete queries with more than K true links. On harder data evaluate fitted probability-of-completion versus strong global/top-B, randomized concentration, QASP/Progressive ER/SPER variants under full CPU cost and inference-available signals. Do not open the sealed Leipzig split or claim paper novelty during development. For real Cora citations (package by Steorts et al.), use original citation records and raw public pairwise gold, NOT unverified generated cora_gold_update labels. Audit clique closure, isolate singletons, independently inspect likely false negatives, freeze a cluster-disjoint split before models, include size-skew controls and cluster bootstrap. Classify Cora as a small real dirty-ER sanity/stress test, not an independent real multi-source benchmark. Require candidate-to-matcher-to-cluster outcome measurements, and stop if labels remain incomplete or a learned policy cannot improve over global-score and random allocation at equal end-to-end costs.",
       "stop": "If no reliable gain over strong global-score AND QASP/progressive baselines on a new sealed cluster-disjoint test, or if gain is due to incomplete annotations/model-selection leakage, retire standalone adaptive-allocation claim. Candidate-universe missing links cannot be repaired by reallocation. Also stop novel learned-allocation claim if it cannot beat an uninformed rank-preserving source-offset baseline on the prospectively sealed test. No novel algorithm inferred from artificial score perturbations. Do not interpret a single-positive-only official benchmark as evidence for multi-positive all-links completion. Stop any new-data claim if controls differ in candidate universe, annotation coverage, or information available at inference. New finding: When a simple global-score allocation already approaches candidate-oracle completion on synthetic duplicates, retire that dataset as primary method-novelty evidence and seek harder real-world independent annotations. Do not advertise the mathematically predetermined failure of K<true-link-count uniform retrieval as algorithmic discovery.",
       "source": "https://sigir2027.org/pages/submit-full.html",
       "closestPriorArt": [
@@ -939,6 +939,18 @@
         {
           "title": "Music Brainz 20K, five-source entity resolution benchmark (Leipzig University)",
           "url": "https://dbs.uni-leipzig.de/research/projects/benchmark-datasets-for-entity-resolution"
+        },
+        {
+          "title": "GraLMatch: Matching Groups of Entities with Graphs and Language Models (EDBT 2025)",
+          "url": "https://doi.org/10.48786/edbt.2025.01"
+        },
+        {
+          "title": "Entity Resolution via Batched Oracle Queries (June 2026 preprint)",
+          "url": "https://arxiv.org/abs/2606.24407"
+        },
+        {
+          "title": "Better Retrieval, Limited Clustering Gains (October 2026 preprint)",
+          "url": "https://arxiv.org/abs/2610.05573"
         }
       ]
     },
@@ -1169,7 +1181,7 @@
       "cost": "low",
       "stage": "elementary formulation plus verified 2-query greedy failure counterexample; no new theory paper result",
       "question": "Under what realistic constraints on calibration error, fairness or retrieval costs can a complete-link global-budget allocation guarantee robust coverage?",
-      "novelty": "The standard deterministic all-link allocation problem reduces to choosing per-query ranks under a total budget (multiple-choice knapsack or threshold-cost selection); this alone is a known optimization structure, not an original theorem. Seek a genuine robustness or calibration result, and compare established budgeted ranking/scheduling literature. Closely related general theory already studies monotone task-success probability vs budget with censored feedback (Bachoc et al., arXiv:2508.05844, revised Feb 2026); reuse of this structure is not a new theorem.",
+      "novelty": "The standard deterministic all-link allocation problem reduces to choosing per-query ranks under a total budget (multiple-choice knapsack or threshold-cost selection); this alone is a known optimization structure, not an original theorem. Seek a genuine robustness or calibration result, and compare established budgeted ranking/scheduling literature. Closely related general theory already studies monotone task-success probability vs budget with censored feedback (Bachoc et al., arXiv:2508.05844, revised Feb 2026); reuse of this structure is not a new theorem. Batched-oracle cost control and group recall are also prior art (Balzotti et al., 2026 preprint), although a fixed candidate-ranking budget is not the same batch-query cost model.",
       "pilot": "Deterministic small-instance enumerator run in this cycle: F_A(0,1,2)=(0,.40,.41); F_B=(0,0,1); total B=2. Sequential one-step marginal greedy allocates (2,0), objective .41; exhaustive exact allocation (0,2) obtains 1.00. This establishes NONCONCAVE cumulative-completion curves can defeat naive greedy, not novelty and not an empirical ER outcome. An allocator must use exact small-budget dynamic programming or a defensible approximation; validate full-runtime and calibration assumptions. Seek nontrivial theorem only after literature review.",
       "stop": "If bound is vacuous under realistic distributions, retire.",
       "source": "https://learningtheory.org/colt2027/",
@@ -1177,6 +1189,10 @@
         {
           "title": "Online Budget Allocation with Censored Semi-Bandit Feedback (2025, revised 2026 preprint)",
           "url": "https://arxiv.org/abs/2508.05844"
+        },
+        {
+          "title": "Entity Resolution via Batched Oracle Queries (June 2026 preprint)",
+          "url": "https://arxiv.org/abs/2606.24407"
         }
       ]
     },
@@ -1350,9 +1366,9 @@
     },
     {
       "venue": "CVPR 2027",
-      "rule": "LLM assistance is permitted with human responsibility. A mandatory LLM Usage Statement must disclose tools, stages, and extent, including grammar editing. Without an eligible reciprocal reviewer among coauthors, an author may appear on at most one submission; overall 25-paper author cap. OpenReview profiles and author lists must be ready by Nov 10.",
+      "rule": "LLMs are permitted with full author accountability and a mandatory LLM Usage Statement for ideation, experiments, code and editing. NEW 2027 reciprocal-reviewer restriction: an author without an eligible reciprocal reviewer among coauthors can appear on at most one paper; the overall author limit is 25 papers. Eligibility requires a qualifying accepted paper recorded in OpenReview by the Nov 10 paper-registration deadline; coauthor qualification must not be presumed. Incomplete author profiles, missing statements and quota violations can cause desk rejection.",
       "source": "https://cvpr.thecvf.com/Conferences/2027/AuthorGuidelines",
-      "flag": "LLM disclosure mandatory; reciprocal-reviewer quota"
+      "flag": "mandatory detailed LLM disclosure; one-paper limit unless reciprocal-reviewer eligibility met"
     },
     {
       "venue": "ISCA 2027",
@@ -1583,6 +1599,30 @@
       "kind": "public data / low-cost pilot",
       "note": "Five duplicate-free data sources with CID cluster identifiers permit a CPU-first multi-positive and null-query retrieval protocol. Records are generated corruptions; use CID-disjoint fit/dev/sealed evaluation, and validate later on independent real-world ER.",
       "url": "https://dbs.uni-leipzig.de/research/projects/benchmark-datasets-for-entity-resolution"
+    },
+    {
+      "title": "Cora real citation deduplication benchmark (source versus gold-label mapping caveat)",
+      "kind": "Public citation dataset and label-provenance audit target",
+      "note": "Real noisy bibliographic records with official pairwise gold links. Before evaluation, derive and verify cluster groups from the raw gold pairs; the upstream heuristic per-record label generator contains an explicit data-integrity warning. This is single-source dirty ER, not the original multi-source business task. No new retrieval benchmark claimed.",
+      "url": "https://github.com/cleanzr/cora"
+    },
+    {
+      "title": "GraLMatch (EDBT 2025 accepted research paper)",
+      "kind": "Peer-reviewed multi-source entity group matching",
+      "note": "Already studies multi-source record grouping and transitive matching. Original financial vendor datasets are licensed, while released benchmark counterparts are synthetic; not a new group-matching hypothesis.",
+      "url": "https://doi.org/10.48786/edbt.2025.01"
+    },
+    {
+      "title": "Entity Resolution via Batched Oracle Queries (June 2026)",
+      "kind": "Research preprint; publication acceptance unverified",
+      "note": "Budgeted progressive cluster recovery through batched oracle calls; not identical to selecting individual retrieval pairs, but prior art against a broad budgeted-ER-first claim.",
+      "url": "https://arxiv.org/abs/2606.24407"
+    },
+    {
+      "title": "Better Retrieval, Limited Clustering Gains (October 2026)",
+      "kind": "Controlled multilingual company ER preprint; acceptance unverified",
+      "note": "Shows higher candidate recall may not improve downstream company clusters under a fixed matcher, with silver labels. End-to-end matching and clustering outcomes are necessary controls for candidate-budget work.",
+      "url": "https://arxiv.org/abs/2610.05573"
     }
   ],
   "closed": [
