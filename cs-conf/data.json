@@ -3,7 +3,7 @@
   "taskId": "20261026-csconf-research",
   "createdAt": "2026-10-26T13:51:12.349Z",
   "checkedAt": "2026-10-27",
-  "editorialNote": "27 Oct scope correction: IndoML 2026 VAANI is Indic speech noise-event detection/removal, not entity record linking. CC-04 retained only as independent exploratory IR research, no implicit ICDE submission. CC-09 speech-boundary method narrowed after Interspeech 2025 HSMM and official IndoML baseline prior art. Proposed CC-17 speech-preserving event-gated enhancement added. Public organizer vs released baseline Event-F1 50 ms floor needs scorer reconciliation; no official scoring defect claimed. No new audio experiment, sealed test, paid work, submission or ChatGPT/local transfer.",
+  "editorialNote": "27 Oct additional source-level CC-09 scorer gate: v1 baseline greedy event assignment can depend on overlapping-reference order; private organizer grader not verified, no real VAANI scorer defect or model score claimed. Added accepted Interspeech 2024 SEBBs and 2026 EFS preprint novelty controls; CC-17 event-processing constraints, CC-06 prior art, CC-08 auto-review caution. Verified CVPR 2027 workshop-organizer and Interspeech 2027 Show and Tell deadlines; added PLDI reserve-reviewer rule. No new audio/video/GPU experiments, test unsealing, paid work, submission or cross-surface transfer.",
   "deadlines": [
     {
       "date": "2026-10-27",
@@ -42,6 +42,15 @@
       "status": "confirmed"
     },
     {
+      "date": "2026-10-30",
+      "venue": "AISTATS 2027 Workshops",
+      "action": "Workshop ORGANIZER proposal (3 pages), not contributed research paper",
+      "area": "ML / statistics / interdisciplinary CS",
+      "time": "Friday 22:59 CET = 21:59 UTC, NOT AoE; dedicated workshop CFP updated Oct 22 overrides parent CFP's generic workshop listing",
+      "source": "https://virtual.aistats.org/Conferences/2027/CallForWorkshops",
+      "status": "confirmed dedicated CFP; not an archival paper deadline"
+    },
+    {
       "date": "2026-10-31",
       "venue": "NAACL 2027 Industry Track",
       "action": "Six-page industry paper (real-world deployed or planned NLP/speech system, no ARR)",
@@ -76,6 +85,15 @@
       "time": "11:59 PM AoE; 2027 author guide has mandatory generative-AI statement",
       "source": "https://facctconference.org/2027/cfp.html",
       "status": "confirmed"
+    },
+    {
+      "date": "2026-11-04",
+      "venue": "CVPR 2027 Workshops",
+      "action": "Workshop ORGANIZER proposal, not a research paper",
+      "area": "Computer vision / interdisciplinary workshops",
+      "time": "11:59 PM AoE; in-person workshop, accepted papers may be archival only under separate later workshop CFP",
+      "source": "https://cvpr.thecvf.com/Conferences/2027/CallForWorkshops",
+      "status": "confirmed organizer; NOT main conference paper"
     },
     {
       "date": "2026-11-09",
@@ -114,6 +132,15 @@
       "status": "confirmed"
     },
     {
+      "date": "2026-11-11",
+      "venue": "ICDE 2027 Research/EAB (round 2)",
+      "action": "Full research or Experimental/Analysis/Benchmark paper",
+      "area": "Data engineering / database / integration",
+      "time": "5:00 PM Pacific (PST on November 11); NOT AoE; EAB requires every artifact needed to reproduce results",
+      "source": "https://icde2027.github.io/cf-research-papers",
+      "status": "confirmed organizer; no CS Conf paper ready"
+    },
+    {
       "date": "2026-11-12",
       "venue": "PLDI 2027",
       "action": "Full research paper",
@@ -121,6 +148,15 @@
       "time": "23:59 AoE; NEW 2027 Data-Availability Statement; disclosure of research-stage AI methodology",
       "source": "https://pldi27.sigplan.org/track/pldi-2027-papers",
       "status": "confirmed"
+    },
+    {
+      "date": "2026-11-15",
+      "venue": "ICDE 2027 DEFT",
+      "action": "MANDATORY vision/position-paper abstract registration (not full paper)",
+      "area": "Future data engineering / databases / interdisciplinary CS",
+      "time": "11:59 PM AoE; full paper barred without timely abstract",
+      "source": "https://icde2027.github.io/cf-future.html",
+      "status": "confirmed organizer; no abstract authorized"
     },
     {
       "date": "2026-11-16",
@@ -168,6 +204,15 @@
       "status": "confirmed"
     },
     {
+      "date": "2026-11-19",
+      "venue": "SREcon27 Americas",
+      "action": "Technical talk proposal (NOT a research-paper submission)",
+      "area": "Site reliability engineering / systems operations / networking",
+      "time": "11:59 PM Pacific Time; talk, not archival paper",
+      "source": "https://www.usenix.org/conference/srecon27americas/call-for-participation",
+      "status": "confirmed"
+    },
+    {
       "date": "2026-11-20",
       "venue": "ICASSP 2027 HEARTBEAT",
       "action": "Team membership and external-resource declarations frozen",
@@ -184,6 +229,33 @@
       "time": "11:59 PM AoE; restrictive AI-use policy",
       "source": "https://www.pakdd2027.org/pages/dates",
       "status": "confirmed"
+    },
+    {
+      "date": "2026-11-20",
+      "venue": "ICDE 2027 Tutorials",
+      "action": "Tutorial proposal (not research paper)",
+      "area": "Data engineering / databases / IR",
+      "time": "AoE; at most four pages excluding references; organizer tutorial chairs",
+      "source": "https://icde2027.github.io/cf-tutorials.html",
+      "status": "confirmed organizer; proposal only"
+    },
+    {
+      "date": "2026-11-22",
+      "venue": "ICDE 2027 DEFT",
+      "action": "Vision/position full paper, requires Nov 15 abstract",
+      "area": "Future data engineering / databases / interdisciplinary CS",
+      "time": "11:59 PM AoE; max one DEFT submission per author, 6–12 pages, vision focus",
+      "source": "https://icde2027.github.io/cf-future.html",
+      "status": "confirmed organizer; human-originated, science-grounded paper required"
+    },
+    {
+      "date": "2026-11-23",
+      "venue": "ICDE 2027 Demonstrations",
+      "action": "Four-page demonstration paper",
+      "area": "Data systems / integration / interactive technology",
+      "time": "11:59 PM AoE; working interactive demonstration required",
+      "source": "https://icde2027.github.io/cf-demonstrations.html",
+      "status": "confirmed organizer; no working demo ready"
     },
     {
       "date": "2026-11-30",
@@ -211,6 +283,24 @@
       "time": "23:55 UTC",
       "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
       "status": "confirmed organizer listing; platform must be validated"
+    },
+    {
+      "date": "2026-12-01",
+      "venue": "OSDI 2027",
+      "action": "Mandatory abstract registration",
+      "area": "Systems / operating systems / networking",
+      "time": "5:59 PM EST = 22:59 UTC; not AoE; AI-written papers ineligible",
+      "source": "https://www.usenix.org/conference/osdi27/call-for-papers",
+      "status": "confirmed"
+    },
+    {
+      "date": "2026-12-01",
+      "venue": "ICDE 2027 Industry and Applications",
+      "action": "Industrial application short/long paper",
+      "area": "Databases / real deployments / industrial systems",
+      "time": "11:59 PM Pacific; requires at least one non-academic coauthor and genuine industrial contribution",
+      "source": "https://icde2027.github.io/cf-industry-track.html",
+      "status": "confirmed organizer; eligibility gate"
     },
     {
       "date": "2026-12-03",
@@ -246,6 +336,15 @@
       "area": "Systems / architecture",
       "time": "11:59 PM AoE",
       "source": "https://iscaconf.org/isca2027/submit/callforpapers.php",
+      "status": "confirmed"
+    },
+    {
+      "date": "2026-12-08",
+      "venue": "OSDI 2027",
+      "action": "Full research paper (requires Dec 1 abstract)",
+      "area": "Systems / operating systems / networking",
+      "time": "5:59 PM EST = 22:59 UTC; not AoE; AI-written papers ineligible",
+      "source": "https://www.usenix.org/conference/osdi27/call-for-papers",
       "status": "confirmed"
     },
     {
@@ -366,6 +465,15 @@
       "status": "confirmed"
     },
     {
+      "date": "2027-03-09",
+      "venue": "Interspeech 2027 Show and Tell",
+      "action": "Demonstration and 2-page description, NOT a regular 4-page or long 8-page research paper",
+      "area": "Speech / audio / deployed demo",
+      "time": "11:59 PM AoE; up to 2 pages excluding references plus a maximum 5-minute video; demonstration must exist",
+      "source": "https://interspeech2027.org/calls/call_show_and_tell/",
+      "status": "confirmed official; speculative CS Conf demo not ready"
+    },
+    {
       "date": "2027-04-16",
       "venue": "RSS 2027",
       "action": "Stage 2 final paper if invited",
@@ -373,96 +481,6 @@
       "time": "11:59 PM AoE",
       "source": "https://roboticsconference.org/information/cfp/",
       "status": "confirmed"
-    },
-    {
-      "date": "2026-11-19",
-      "venue": "SREcon27 Americas",
-      "action": "Technical talk proposal (NOT a research-paper submission)",
-      "area": "Site reliability engineering / systems operations / networking",
-      "time": "11:59 PM Pacific Time; talk, not archival paper",
-      "source": "https://www.usenix.org/conference/srecon27americas/call-for-participation",
-      "status": "confirmed"
-    },
-    {
-      "date": "2026-12-01",
-      "venue": "OSDI 2027",
-      "action": "Mandatory abstract registration",
-      "area": "Systems / operating systems / networking",
-      "time": "5:59 PM EST = 22:59 UTC; not AoE; AI-written papers ineligible",
-      "source": "https://www.usenix.org/conference/osdi27/call-for-papers",
-      "status": "confirmed"
-    },
-    {
-      "date": "2026-12-08",
-      "venue": "OSDI 2027",
-      "action": "Full research paper (requires Dec 1 abstract)",
-      "area": "Systems / operating systems / networking",
-      "time": "5:59 PM EST = 22:59 UTC; not AoE; AI-written papers ineligible",
-      "source": "https://www.usenix.org/conference/osdi27/call-for-papers",
-      "status": "confirmed"
-    },
-    {
-      "date": "2026-10-30",
-      "venue": "AISTATS 2027 Workshops",
-      "action": "Workshop ORGANIZER proposal (3 pages), not contributed research paper",
-      "area": "ML / statistics / interdisciplinary CS",
-      "time": "Friday 22:59 CET = 21:59 UTC, NOT AoE; dedicated workshop CFP updated Oct 22 overrides parent CFP's generic workshop listing",
-      "source": "https://virtual.aistats.org/Conferences/2027/CallForWorkshops",
-      "status": "confirmed dedicated CFP; not an archival paper deadline"
-    },
-    {
-      "date": "2026-11-11",
-      "venue": "ICDE 2027 Research/EAB (round 2)",
-      "action": "Full research or Experimental/Analysis/Benchmark paper",
-      "area": "Data engineering / database / integration",
-      "time": "5:00 PM Pacific (PST on November 11); NOT AoE; EAB requires every artifact needed to reproduce results",
-      "source": "https://icde2027.github.io/cf-research-papers",
-      "status": "confirmed organizer; no CS Conf paper ready"
-    },
-    {
-      "date": "2026-11-15",
-      "venue": "ICDE 2027 DEFT",
-      "action": "MANDATORY vision/position-paper abstract registration (not full paper)",
-      "area": "Future data engineering / databases / interdisciplinary CS",
-      "time": "11:59 PM AoE; full paper barred without timely abstract",
-      "source": "https://icde2027.github.io/cf-future.html",
-      "status": "confirmed organizer; no abstract authorized"
-    },
-    {
-      "date": "2026-11-20",
-      "venue": "ICDE 2027 Tutorials",
-      "action": "Tutorial proposal (not research paper)",
-      "area": "Data engineering / databases / IR",
-      "time": "AoE; at most four pages excluding references; organizer tutorial chairs",
-      "source": "https://icde2027.github.io/cf-tutorials.html",
-      "status": "confirmed organizer; proposal only"
-    },
-    {
-      "date": "2026-11-22",
-      "venue": "ICDE 2027 DEFT",
-      "action": "Vision/position full paper, requires Nov 15 abstract",
-      "area": "Future data engineering / databases / interdisciplinary CS",
-      "time": "11:59 PM AoE; max one DEFT submission per author, 6–12 pages, vision focus",
-      "source": "https://icde2027.github.io/cf-future.html",
-      "status": "confirmed organizer; human-originated, science-grounded paper required"
-    },
-    {
-      "date": "2026-11-23",
-      "venue": "ICDE 2027 Demonstrations",
-      "action": "Four-page demonstration paper",
-      "area": "Data systems / integration / interactive technology",
-      "time": "11:59 PM AoE; working interactive demonstration required",
-      "source": "https://icde2027.github.io/cf-demonstrations.html",
-      "status": "confirmed organizer; no working demo ready"
-    },
-    {
-      "date": "2026-12-01",
-      "venue": "ICDE 2027 Industry and Applications",
-      "action": "Industrial application short/long paper",
-      "area": "Databases / real deployments / industrial systems",
-      "time": "11:59 PM Pacific; requires at least one non-academic coauthor and genuine industrial contribution",
-      "source": "https://icde2027.github.io/cf-industry-track.html",
-      "status": "confirmed organizer; eligibility gate"
     }
   ],
   "areas": [
@@ -1118,7 +1136,7 @@
         "ACL"
       ],
       "cost": "low-medium",
-      "stage": "NARROW / no new run: EMNLP 2026 accepted RIDGE already uses query-score derivatives and phase/region selection at a matched frame budget; a 2026 phase-allocation preprint further overlaps generic event/boundary frame sampling. Test only incremental signal from query-agnostic GEBD against faithful query-aware RIDGE and phase selectors, with scorer and frame/token budget frozen.",
+      "stage": "NARROW / no new run: EMNLP 2026 accepted RIDGE already uses query-score derivatives and phase/region selection at a matched frame budget; a 2026 phase-allocation preprint further overlaps generic event/boundary frame sampling. Test only incremental signal from query-agnostic GEBD against faithful query-aware RIDGE and phase selectors, with scorer and frame/token budget frozen. ADDITIONAL PREPRINT PRIOR ART (27 Oct): Event-Anchored Frame Selection (Mar 2026 arXiv, acceptance unverified) already segments frames by self-supervised visual features and selects query-aware anchors. In addition to accepted Findings EMNLP 2026 RIDGE, this makes basic event-anchor sampling unoriginal. Only proceed with independently measured incremental query-agnostic boundaries at equal total preprocessing and frame-query costs.",
       "question": "Can detected event boundaries improve temporal retrieval or question answering at equal frame budget?",
       "novelty": "Boundary-guided frame sampling predates this work (BMVC 2021), and long-video QA methods already curate query/event-relevant frames at fixed token budgets (Ground, Cover, and Refine 2026; MemoryCard 2026). Claiming first boundary-based QA sampling would be false. Narrower question: whether VIDEO-GENERIC GEBD boundaries, without text/query conditioning, have incremental QA value over equally dense semantic-event and query-aware selectors, and at what noise scale. NEW: RIDGE (Findings EMNLP 2026, 2026.findings-emnlp.1813) is accepted and directly studies derivative-informed region/boundary frame selection at fixed budgets without training. dKFD (arXiv:2609.33083) studies supervised pre/event/post allocation (preprint only). Neither generic temporal phase preservation nor query-score turning points are novel; isolate truly query-agnostic event boundaries and detector overhead.",
       "pilot": "Fixed 16/32-frame budgets, one frozen video QA model. Compare uniform, random, GEBD oracle, predicted GEBD, semantically selected events, and matched query-aware selector. Lock all question annotations and timestamp window, report temporal-relation vs object-identity QA separately plus frame-selection oracle gap and detector cost. First run a small diagnostic on available annotated clips, then require a disjoint larger public set before a paper claim.",
@@ -1177,7 +1195,7 @@
         "FAccT (only if responsible AI/accountability dimension is central)"
       ],
       "cost": "low-medium",
-      "stage": "LOCKED 12-ENTRY PROSPECTIVE AUDIT: M2 Lean source/toolchain mapped only E1/E2; M15 archived Notes-only inventory actually links a dedicated many-leaf-reciprocal formal package (E1 source located, E2 upstream claimed checks), M18 Notes-only has a first explicit numbered NP-completeness theorem (E1 source). No independent Lean kernel replay or theorem validation. Strong ScientistOne, Beyond Compilation, FIRE-Bench, Artisan, SEER-Repro, SciRIGOR prior-art constraints remain. CONFERENCE FACTUAL-REVIEW OVERLAP: AISTATS 2027 official author CFP announces conference-operated LLM checks of unsupported claims, proof gaps, tables/figures and setup discrepancies. This is a venue reviewing POLICY, NOT a verified research publication or independent replay result; do not claim generic automated factual screening as new. Continue only narrow revision-sensitive audit, otherwise internal protocol. NOVELTY GATE (Oct 27): DISCERN Sep 2026 preprint independently covers data integrity, analytic verification, and novelty-aware research claims; no direct replay completed here.",
+      "stage": "LOCKED 12-ENTRY PROSPECTIVE AUDIT: M2 Lean source/toolchain mapped only E1/E2; M15 archived Notes-only inventory actually links a dedicated many-leaf-reciprocal formal package (E1 source located, E2 upstream claimed checks), M18 Notes-only has a first explicit numbered NP-completeness theorem (E1 source). No independent Lean kernel replay or theorem validation. Strong ScientistOne, Beyond Compilation, FIRE-Bench, Artisan, SEER-Repro, SciRIGOR prior-art constraints remain. CONFERENCE FACTUAL-REVIEW OVERLAP: AISTATS 2027 official author CFP announces conference-operated LLM checks of unsupported claims, proof gaps, tables/figures and setup discrepancies. This is a venue reviewing POLICY, NOT a verified research publication or independent replay result; do not claim generic automated factual screening as new. Continue only narrow revision-sensitive audit, otherwise internal protocol. NOVELTY GATE (Oct 27): DISCERN Sep 2026 preprint independently covers data integrity, analytic verification, and novelty-aware research claims; no direct replay completed here. AUTOMATED-RESEARCH VALIDITY NOTE (27 Oct): The AI Scientist 2024 preprint claims automated experiments and paper generation, but its simulated reviewer threshold is not a conference-acceptance measurement. Require real external acceptance proof and independent replay; no validation experiment run.",
       "question": "For a pinned corpus of unedited research-agent outputs, can an auditor reliably connect self-reported verification, exact source revision, reproducible toolchain evidence and the precise natural-language theorem or empirical claim, and what does that independent audit cost?",
       "novelty": "FIRE-Bench, Artisan, SEER-Repro and SciRIGOR overlap research replication and claim-to-evidence tracing. Beyond Compilation (arXiv:2606.31002) already quantifies compile-success versus semantic-faithfulness gaps, so that distinction alone is NOT novel. Residual test is full claim-to-artifact revision provenance, independent replay, and human audit cost in authentic unedited agent-generated research with mixed formal and empirical claim types. A 12-entry pilot cannot justify a corpus-wide reliability rate. ADDITIONAL PRIOR ART (reviewed Oct 27): ScientistOne (arXiv 2605.26340) already defines chain-of-evidence and post-hoc checks for scores, references, specifications and method-code alignment across research-agent outputs; From Fluent to Verifiable (arXiv 2602.13855) already proposes provenance coverage/soundness and audit effort as measurement criteria. Therefore basic agent-paper provenance, claim tracing, or auditor effort is NOT a novel method. Only a controlled, revision-sensitive formal proof/manuscript replay result demonstrably beyond those frameworks could justify new research. DISCERN (arXiv 2609.33357) also covers clean/corrupted controls and hypothesis evaluation in scientific agents. A generic three-stage research-agent reliability benchmark is therefore existing prior art.",
       "pilot": "Honor locked first-claim rule on all sampled entries. For M15 compare exact archived English hull statement, Lean declaration ManyResults.mem_hull_iff_bounds, and claimed source revision; for M18 treat exact theorem/reduction audit as mathematical evidence rather than penalizing absence of Lean. Clean independent pinned Lean replay (E3) only if permitted toolchain is actually executed; source inspection or small sanity examples do not establish theorem correctness. Estimate reviewer effort separately. If general claim audit still overlaps prior work, keep this branch as internal integrity protocol.",
@@ -1255,7 +1273,7 @@
         "ICASSP"
       ],
       "cost": "low-medium",
-      "stage": "NARROW / NO AUDIO RUN (Oct 27): IndoML 2026 is timestamped noise-event detection/removal, not entity resolution. The dataset introduction is already a September 2026 VAANI PREPRINT. Interspeech 2025 Yoshinaga et al. already use an HSMM for onset/offset SED with heterogeneous weak and unlabeled supervision; do not claim HSMM or mixed-label onset/offset modeling first. The public IndoML baseline already includes tier weighting, boundary loss, median/merge/valley split and decoder tuning, so a threshold tweak is not enough. Public organizer page describes ±20%-duration collar while the baseline evaluation code uses max(20% duration, 50 ms); a deterministic 100-ms event example yields different outcomes under the two interpretations. This is a scorer-specification uncertainty, NOT a confirmed official scorer bug. No real-audio inference or benchmark run.",
+      "stage": "NARROW / NO AUDIO RUN (Oct 27): IndoML 2026 is timestamped noise-event detection/removal, not entity resolution. The dataset introduction is already a September 2026 VAANI PREPRINT. Interspeech 2025 Yoshinaga et al. already use an HSMM for onset/offset SED with heterogeneous weak and unlabeled supervision; do not claim HSMM or mixed-label onset/offset modeling first. The public IndoML baseline already includes tier weighting, boundary loss, median/merge/valley split and decoder tuning, so a threshold tweak is not enough. Public organizer page describes ±20%-duration collar while the baseline evaluation code uses max(20% duration, 50 ms); a deterministic 100-ms event example yields different outcomes under the two interpretations. This is a scorer-specification uncertainty, NOT a confirmed official scorer bug. No real-audio inference or benchmark run. SOURCE-LEVEL GREEDY-MATCHING GATE (27 Oct): The organizer-linked v1 baseline scorer uses a 50-ms minimum for both onset and offset, then greedy reference-order matching rather than explicitly maximizing one-to-one event cardinality. A deterministic synthetic overlap control establishes that match order CAN change counted events; it does not show a real VAANI defect or identify the private Codabench grader. Obtain official scorer and verify overlap prevalence on train/development only, including event-union semantics and empty clips, BEFORE optimizing decoder or reporting Event F1. Published Interspeech 2024 SEBBs already separates confidence from event extent using change detection; do not claim this basic idea as new.",
       "question": "At equal frozen SED frame posteriors and equal encoder cost, can calibration that models onset/offset uncertainty for verified vs unverified timestamps improve held-out micro Event F1 AND per-clip macro temporal Dice on real multilingual Indic speech over both the organizer's full postprocessing baseline and an HSMM decoder?",
       "novelty": "VAANI noise-event timestamp corpus preprint (Sep 2026) already introduces dataset; Yoshinaga et al. Interspeech 2025 derives probabilistic HSMM learning with clip labels and unlabeled SED data; DCASE 2024 Task 4 already studies heterogeneous/potentially missing labels. Public IndoML ATST baseline already includes Gold/Silver quality weights, focal/edge loss, threshold/median filtering, valley splitting and decode-parameter sweeps. A claimed contribution must be specifically stronger, calibrated uncertain boundaries under in-situ overlapping multilingual speech, with independent holdout and full cost; calibration itself is not novel without demonstrated mechanism and benefit. Organizer Event-F1 rule and baseline decoder-scoring exact code differ in the 50-ms floor specification for short events; reconcile with organizer's actual grader before any result claim.",
       "pilot": "SOURCE GATE FIRST: secure official Event-F1/Dice evaluator; test collar, 1:1 matching, empty clips and macro/micro aggregation against baseline. Then cache frozen ATST (20 ms frames) predictions on a recording-disjoint Gold TRAIN/DEV partition only; no leaderboard/test tuning. Compare A fixed threshold, B baseline threshold+median+merge+valley split with equal search budget, C onset/offset-aware HSMM, D proposed Gold-calibrated uncertainty-aware decoder. Track Gold/Silver/Bronze labels separately, with no Bronze pseudo-timestamps. Once controls and code are frozen, evaluate on one independent held-out Gold cohort not previously released as public competition test. Report micro Event F1, per-clip macro Dice, duration and class/language slices, paired bootstrap confidence intervals, total CPU decoding time and encoder time. INITIAL CAP: up to 200 Gold train/dev clips and 1 CPU-hour for cached decoding; no large GPU training until a credible CPU signal. Toy 100 ms arithmetic collar example is a specification sanity check, not a dataset result.",
@@ -1517,7 +1535,7 @@
         "speech enhancement workshops"
       ],
       "cost": "low-medium (CPU scoring and fixed public checkpoint; GPU only with evidence)",
-      "stage": "PROPOSED / NO EXPERIMENT (Oct 27): Separate from CC-09 detection, motivated by IndoML 2026 Track-2 event-aware denoising. Existing public MaskNet baseline already performs SI-SDR training, global clean/mix blending and RMS restoration; ICASSP 2025 LiSenNet already uses a detector for adaptive denoising. Generic noise gating and blending are not novel. Need measure boundary-specific speech preservation at matched enhancement runtime and noise reduction.",
+      "stage": "PROPOSED / NO EXPERIMENT (Oct 27): Separate from CC-09 detection, motivated by IndoML 2026 Track-2 event-aware denoising. Existing public MaskNet baseline already performs SI-SDR training, global clean/mix blending and RMS restoration; ICASSP 2025 LiSenNet already uses a detector for adaptive denoising. Generic noise gating and blending are not novel. Need measure boundary-specific speech preservation at matched enhancement runtime and noise reduction. SOURCE-BASED GENERALIZATION GATE (27 Oct): IndoML organizer says every clip contains a noise event and every clip must be processed by one general enhancement approach; validation-event lookup dictionaries or skipping selected clips are not acceptable competition methods. Evaluate offline hard/soft time-gating only with fully processed waveforms and fair always-on/global-blend controls. Compare speech distortion, SI-SDR, ΔWER by speaker/language, and full detector-plus-enhancer runtime. No waveform study run.",
       "question": "For a fixed frozen speech enhancer and noise detector, can uncertainty-aware soft gating around predicted noise-event boundaries reduce ASR word errors on overlapping multilingual speech at fixed SI-SDR and full runtime relative to always-on enhancement, public global blend, and hard predicted-event gating?",
       "novelty": "Very tentative. LiSenNet (ICASSP 2025) already uses a noise detector for adaptive speech enhancement; TQ-SED (ICASSP 2025) already couples audio separation and sound event detection in overlapping events. IndoML 2026 organizer explicitly defines selective noise suppression preserving speech. Distinct claim must be boundary-uncertainty tradeoff under spontaneous multilingual speech with fixed models and prospective independent evaluation; no first-to-combine event detection and enhancement claims.",
       "pilot": "Pin released frozen baseline checkpoint and authorized original recordings. Separate collection-source/recording groups between tune and test; forbid clip-level leakage and lookup of validation noise. Compare same enhancer and ASR with (A) always-on enhancement, (B) baseline global blend, (C) hard event gating, (D) calibrated soft onset/offset transitions; (E) oracle timestamp as explicitly non-deployable upper bound only. Hold total encoder/enhancer/decoder cost, clip set, predicted event inputs and tuning budget constant. On synthetic paired clean/noisy speech report SI-SDR and pooled delta-WER; on genuine field recordings use pooled ASR delta-WER and speech fidelity proxy only, not SI-SDR without clean references. Slice by event overlap/speech, language and unseen noise category. A small CPU-only cached-output development pilot precedes any audio model run.",
@@ -1548,7 +1566,7 @@
     },
     {
       "venue": "Interspeech 2027",
-      "rule": "Entirely AI-written or AI-developed papers will be desk rejected.",
+      "rule": "Entirely AI-written or AI-developed papers will be desk rejected. Regular: four content pages plus up to two references/acknowledgments; Long Paper: eight content pages plus two references/acknowledgments. Do not submit the same work to regular and Long Paper tracks. Each person may first-author at most two papers. Accepted papers require in-person presentation. Separate Show and Tell demo call March 9, 2027 requires a 2-page paper and up to 5-minute video.",
       "source": "https://interspeech2027.org/calls/call_for_papers/",
       "flag": "restrictive"
     },
@@ -1620,7 +1638,7 @@
     },
     {
       "venue": "PLDI 2027",
-      "rule": "ACM/PLDI: material AI use in scientific research design, methods, code, experiment and analysis must be described in detail in the methods; writing-only AI assistance need not be disclosed under updated ACM policy. False citations/results are desk-rejectable; 2027 Data-Availability Statement required before references.",
+      "rule": "ACM/PLDI: material AI use in scientific research design, methods, code, experiment and analysis must be described in detail in the methods; writing-only AI assistance need not be disclosed under updated ACM policy. False citations/results are desk-rejectable; 2027 Data-Availability Statement required before references. At least one author must register as Reserve Reviewer; mechanized main-result proof scripts must accompany anonymized initial submission.",
       "source": "https://pldi27.sigplan.org/track/pldi-2027-papers",
       "flag": "disclose research-stage AI; writing-only exempt; data availability statement"
     },
@@ -1943,6 +1961,18 @@
       "kind": "Public organizer-provided baseline implementation, NOT an accepted paper",
       "note": "Already supports tier weighting, onset/offset boundary loss, post-processing sweeps and separation/blending; baseline scorer has a 50 ms minimum collar not explicit in general organizer website text. Verify actual official grader rather than claim discrepancy as measured bug.",
       "url": "https://github.com/nagshubhadip/noise-event-detection-and-removal"
+    },
+    {
+      "title": "Sound Event Bounding Boxes (SEBBs) — Interspeech 2024",
+      "kind": "Accepted Interspeech 2024 method; released SEBBs implementation",
+      "note": "Already separates predicted event extents from presence confidence and builds event candidates from changes in frame-level predictions. CC-09 must compare with this and Yoshinaga HSMM; generic postprocessing/threshold decoupling is not novel. Evaluation on VAANI has NOT been run.",
+      "url": "https://www.isca-archive.org/interspeech_2024/ebbers24_interspeech.html"
+    },
+    {
+      "title": "Event-Anchored Frame Selection for Effective Long-Video Understanding (Mar 2026)",
+      "kind": "March 2026 arXiv preprint; acceptance NOT independently verified",
+      "note": "Already uses self-supervised visual temporal partitioning, per-event query-aware anchors and MMR for budgeted frames. CC-06 should not claim generic event-anchor selection first; require matched frame and total-compute comparisons against accepted RIDGE.",
+      "url": "https://arxiv.org/abs/2603.00983"
     }
   ],
   "closed": [
@@ -1962,7 +1992,8 @@
     "MIDL 2027",
     "CoRL 2027",
     "UAI 2027",
-    "ISIT 2027"
+    "ISIT 2027",
+    "COLT 2027 — submission date TBD (official organizer)"
   ],
   "lastLiteratureAudit": "2026-10-27"
 }
