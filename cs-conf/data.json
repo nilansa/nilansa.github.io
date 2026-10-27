@@ -3,7 +3,7 @@
   "taskId": "20261026-csconf-research",
   "createdAt": "2026-10-26T13:51:12.349Z",
   "checkedAt": "2026-10-28",
-  "editorialNote": "28 Oct 2026 public-safe corrections: CC18 stable-denominator blocker and documented Oct10/Oct17 changes; RECOMB-Seq Proceedings/Overlay Jan25/Jan30; ISBI 2027 non-archival poster vs four-page paper, code/ethics policy. No published private pilot measurements. 27 Oct late cycle: added MLSys 2027 Industrial author eligibility to dedicated industry tracker; IMC 2025 LACeS/PyTNT accepted source audit; new CC18 method-change sensitivity PROPOSAL, private exploratory counts withheld; no matched-cohort result or new network probing. 27 Oct 2026: industry-track academic/student eligibility verified via official CFPs (NAACL, COLING, EACL, SIGMOD, ICDE, ISCA, CHIIR, PAKDD and historical examples); 17 track-specific evidence records and eligibility/affiliation filters. 27 Oct primary IMC 2027 Cycle 1+Replicability venue/AI policy; accepted SIGCOMM 2026 RepLLM/TianYan and IMC 2025 replication precedents; no new network or model experiment. 27 Oct 2026 speech/industry visibility correction: dedicated speech section and explicit Industry Track routes; new official ASLI 2027, COLING 2027 Industry, EUSIPCO, IWSLT, ITG Speech, DCASE, IEEE SSP organizer deadlines; separate ASLI from discontinued ASRU/SLT cycle. 27 Oct 2026 accepted KDD 2026 ReplicatorBench and ICML 2026 BioAgent Bench narrow generic research-agent and bioinformatics-agent novelty; CC08 internal-audit-first stop gate sharpened; separate ISIT 2027 workshop Nov15 and paper Jan10 added; SIGCOMM Feb2 source reconfirmed, CC13 paired control fixed. Prior VAANI class-agnostic correction preserved. No new model/agent benchmark, GPU, paid API, sealed data, paper submission or ChatGPT↔Codex/local transfer.",
+  "editorialNote": "28 Oct deadline-time correction: official ISBI 2027 uses US Eastern; November 2 2026 and Jan–Feb 2027 are EST (UTC−5), not EDT. 28 Oct 2026 public-safe corrections: CC18 stable-denominator blocker and documented Oct10/Oct17 changes; RECOMB-Seq Proceedings/Overlay Jan25/Jan30; ISBI 2027 non-archival poster vs four-page paper, code/ethics policy. No published private pilot measurements. 27 Oct late cycle: added MLSys 2027 Industrial author eligibility to dedicated industry tracker; IMC 2025 LACeS/PyTNT accepted source audit; new CC18 method-change sensitivity PROPOSAL, private exploratory counts withheld; no matched-cohort result or new network probing. 27 Oct 2026: industry-track academic/student eligibility verified via official CFPs (NAACL, COLING, EACL, SIGMOD, ICDE, ISCA, CHIIR, PAKDD and historical examples); 17 track-specific evidence records and eligibility/affiliation filters. 27 Oct primary IMC 2027 Cycle 1+Replicability venue/AI policy; accepted SIGCOMM 2026 RepLLM/TianYan and IMC 2025 replication precedents; no new network or model experiment. 27 Oct 2026 speech/industry visibility correction: dedicated speech section and explicit Industry Track routes; new official ASLI 2027, COLING 2027 Industry, EUSIPCO, IWSLT, ITG Speech, DCASE, IEEE SSP organizer deadlines; separate ASLI from discontinued ASRU/SLT cycle. 27 Oct 2026 accepted KDD 2026 ReplicatorBench and ICML 2026 BioAgent Bench narrow generic research-agent and bioinformatics-agent novelty; CC08 internal-audit-first stop gate sharpened; separate ISIT 2027 workshop Nov15 and paper Jan10 added; SIGCOMM Feb2 source reconfirmed, CC13 paired control fixed. Prior VAANI class-agnostic correction preserved. No new model/agent benchmark, GPU, paid API, sealed data, paper submission or ChatGPT↔Codex/local transfer.",
   "deadlines": [
     {
       "date": "2026-10-27",
@@ -141,7 +141,7 @@
       "venue": "ISBI 2027",
       "action": "Archival four-page biomedical imaging paper",
       "area": "Biomedical imaging",
-      "time": "11:59 PM USA (EDT) per organizers; 4 technical pages; in-person presentation mandatory",
+      "time": "11:59 PM US Eastern Standard Time (EST; UTC−5 on this date) per organizers; 4 technical pages; in-person presentation mandatory",
       "source": "https://biomedicalimaging.org/2027/papers/",
       "status": "confirmed",
       "domain": "Biomedical imaging / health AI",
@@ -891,7 +891,7 @@
       "venue": "ISBI 2027 One-Page Abstracts",
       "action": "One-page biomedical imaging ABSTRACT route, NOT the November archival four-page paper",
       "area": "Biomedical imaging / interdisciplinary",
-      "time": "11:59 PM US Eastern per official event site; verify daylight offset near submission",
+      "time": "11:59 PM US Eastern Standard Time (EST; UTC−5 on this date) per official event site; verify daylight offset near submission",
       "source": "https://biomedicalimaging.org/2027/",
       "status": "confirmed official, abstract route distinct",
       "domain": "Biomedical imaging / health AI",
@@ -979,7 +979,7 @@
       "venue": "ISBI 2027 Challenges",
       "action": "Challenge PAPER submission; separate from one-page abstract and main four-page track",
       "area": "Medical / biomedical challenge",
-      "time": "11:59 PM US Eastern per official event site",
+      "time": "11:59 PM US Eastern Standard Time (EST; UTC−5 on this date) per official event site",
       "source": "https://biomedicalimaging.org/2027/",
       "status": "confirmed official, requires appropriate challenge work",
       "domain": "Biomedical imaging / health AI",
@@ -1202,7 +1202,7 @@
       "venue": "ISBI 2027 Workshop Papers",
       "action": "Workshop paper submission (separate from Nov 2 archival main paper and Feb 1 poster abstract)",
       "area": "Biomedical imaging / specialized workshop",
-      "time": "11:59 PM USA Eastern; publication status must be verified for the specific workshop",
+      "time": "11:59 PM US Eastern Standard Time (EST; UTC−5 on this date); publication status must be verified for the specific workshop",
       "source": "https://biomedicalimaging.org/2027/",
       "status": "confirmed date on organizer homepage; archival status workshop-dependent",
       "type": "paper",
@@ -3473,7 +3473,7 @@
     },
     {
       "venue": "ISBI 2027",
-      "rule": "IEEE disclosure of AI-generated article content identifying tool, sections and extent; basic grammar editing exempt but disclosure recommended. In-person presentation mandatory; first-author max two submissions; archival full paper restricted to four technical pages, fifth nontechnical page costs USD 200. Authors must include an ethics-compliance statement, even when the paper is simulation only or no ethics approval applies. One-page February poster abstracts are non-archival; workshops use separate calls; IEEE substantive AI-generated article content must be disclosed in acknowledgments.",
+      "rule": "IEEE disclosure of AI-generated article content identifying tool, sections and extent; basic grammar editing exempt but disclosure recommended. In-person presentation mandatory; first-author max two submissions; archival full paper restricted to four technical pages, fifth nontechnical page costs USD 200. Authors must include an ethics-compliance statement, even when the paper is simulation only or no ethics approval applies. One-page February poster abstracts are non-archival; workshops use separate calls; IEEE substantive AI-generated article content must be disclosed in acknowledgments. For Nov 2 2026 and Jan–Feb 2027 submission dates the organizer's 11:59pm US Eastern deadline falls in EST (UTC−5), not EDT; check local conversion.",
       "source": "https://biomedicalimaging.org/2027/papers/",
       "flag": "IEEE substantive content disclosure; physical attendance; first-author <=2"
     },
