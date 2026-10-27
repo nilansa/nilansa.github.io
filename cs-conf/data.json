@@ -3,7 +3,7 @@
   "taskId": "20261026-csconf-research",
   "createdAt": "2026-10-26T13:51:12.349Z",
   "checkedAt": "2026-10-27",
-  "editorialNote": "27 Oct 2026 accepted KDD 2026 ReplicatorBench and ICML 2026 BioAgent Bench narrow generic research-agent and bioinformatics-agent novelty; CC08 internal-audit-first stop gate sharpened; separate ISIT 2027 workshop Nov15 and paper Jan10 added; SIGCOMM Feb2 source reconfirmed, CC13 paired control fixed. Prior VAANI class-agnostic correction preserved. No new model/agent benchmark, GPU, paid API, sealed data, paper submission or ChatGPT↔Codex/local transfer.",
+  "editorialNote": "27 Oct 2026 speech/industry visibility correction: dedicated speech section and explicit Industry Track routes; new official ASLI 2027, COLING 2027 Industry, EUSIPCO, IWSLT, ITG Speech, DCASE, IEEE SSP organizer deadlines; separate ASLI from discontinued ASRU/SLT cycle. 27 Oct 2026 accepted KDD 2026 ReplicatorBench and ICML 2026 BioAgent Bench narrow generic research-agent and bioinformatics-agent novelty; CC08 internal-audit-first stop gate sharpened; separate ISIT 2027 workshop Nov15 and paper Jan10 added; SIGCOMM Feb2 source reconfirmed, CC13 paired control fixed. Prior VAANI class-agnostic correction preserved. No new model/agent benchmark, GPU, paid API, sealed data, paper submission or ChatGPT↔Codex/local transfer.",
   "deadlines": [
     {
       "date": "2026-10-27",
@@ -434,6 +434,17 @@
     },
     {
       "date": "2026-11-30",
+      "venue": "COLING 2027 Industry Track",
+      "action": "Six-page industry PAPER on deployed / expected-to-deploy NLP or speech systems (separate review track, not main ARR)",
+      "area": "Speech/NLP deployment; case studies; system evaluation",
+      "time": "11:59 PM AoE; double-blind; independent industry submission; students eligible; credible real-world setting required",
+      "source": "https://2027.coling-iccl.org/calls/industry_track/",
+      "status": "confirmed official; verify exact cutoff when unspecified",
+      "domain": "NLP / language / agents",
+      "type": "paper"
+    },
+    {
+      "date": "2026-11-30",
       "venue": "ICASSP 2027 CONVERGE 6G Grand Challenge",
       "action": "Challenge registration (not a research-paper submission)",
       "area": "Networking / wireless / multimodal sensing",
@@ -464,6 +475,17 @@
       "status": "confirmed organizer",
       "type": "proposal",
       "domain": "Data / IR / databases"
+    },
+    {
+      "date": "2026-12-01",
+      "venue": "EUSIPCO 2027 Special Sessions",
+      "action": "Special-session ORGANIZER proposal, not an individual research-paper submission",
+      "area": "Signal processing, speech and acoustic AI",
+      "time": "Organizer date; no cutoff hour confirmed on accessed page",
+      "source": "https://eusipco2027.de/calls/",
+      "status": "confirmed official; verify exact cutoff when unspecified",
+      "domain": "Speech / audio",
+      "type": "proposal"
     },
     {
       "date": "2026-12-01",
@@ -521,6 +543,17 @@
       "type": "other"
     },
     {
+      "date": "2026-12-03",
+      "venue": "IEEE ASLI 2027 Challenges",
+      "action": "Scientific challenge ORGANIZER proposal, not the ASLI regular research-paper deadline",
+      "area": "Audio/speech/multimodal challenge design",
+      "time": "Organizer date; verify proposal submission instructions; ASLI joins ASRU and SLT communities",
+      "source": "https://2027.ieeeasli.org/call-for-challenge-proposals/",
+      "status": "confirmed official; verify exact cutoff when unspecified",
+      "domain": "Speech / audio",
+      "type": "proposal"
+    },
+    {
       "date": "2026-12-04",
       "venue": "MIDL 2027",
       "action": "Full paper (main or Clinical Translation & Validation track)",
@@ -565,6 +598,17 @@
       "type": "abstract"
     },
     {
+      "date": "2026-12-07",
+      "venue": "IEEE SSP 2027 Sessions & Tutorials",
+      "action": "Special-session or tutorial ORGANIZER proposal, not a research paper",
+      "area": "Signal processing / statistics",
+      "time": "Deadline shown by organizer; specific time not verified",
+      "source": "https://ssp27.ieeesps.org/",
+      "status": "confirmed official; verify exact cutoff when unspecified",
+      "domain": "Speech / audio",
+      "type": "proposal"
+    },
+    {
       "date": "2026-12-08",
       "venue": "OSDI 2027",
       "action": "Full research paper (requires Dec 1 abstract)",
@@ -574,6 +618,17 @@
       "status": "confirmed",
       "domain": "Networking / operations",
       "type": "paper"
+    },
+    {
+      "date": "2026-12-10",
+      "venue": "DCASE 2027",
+      "action": "MANDATORY declaration of intent to propose a DCASE 2027 challenge TASK (organizers only)",
+      "area": "Acoustic scenes/events; benchmark and challenge design",
+      "time": "Email coordinators by this date; without intent, December 15 proposal is ineligible",
+      "source": "https://dcase.community/articles/call-for-task-proposals-for-dcase2027",
+      "status": "confirmed official; verify exact cutoff when unspecified",
+      "domain": "Speech / audio",
+      "type": "proposal"
     },
     {
       "date": "2026-12-10",
@@ -618,6 +673,17 @@
       "source": "https://w.humanbrainmapping.org/2027CallforContent/",
       "status": "confirmed organizer date; time unspecified",
       "type": "abstract"
+    },
+    {
+      "date": "2026-12-15",
+      "venue": "DCASE 2027",
+      "action": "Full two-page DCASE challenge TASK organizer proposal (only after Dec 10 intent)",
+      "area": "Acoustic scene / sound event evaluation",
+      "time": "Organizer proposal, not a workshop-paper deadline; cite data, metric, baselines and team",
+      "source": "https://dcase.community/articles/call-for-task-proposals-for-dcase2027",
+      "status": "confirmed official; verify exact cutoff when unspecified",
+      "domain": "Speech / audio",
+      "type": "proposal"
     },
     {
       "date": "2026-12-15",
@@ -695,6 +761,17 @@
       "status": "confirmed",
       "domain": "NLP / language / agents",
       "type": "paper"
+    },
+    {
+      "date": "2027-01-06",
+      "venue": "ICASSP 2027 Published Journal Papers",
+      "action": "Journal paper/letter presentation-route deadline, NOT new regular conference research-paper submission",
+      "area": "Speech / signal processing",
+      "time": "2027 ICASSP main conference full-paper deadline already closed September 23, 2026",
+      "source": "https://2027.ieeeicassp.org/call-for-papers/",
+      "status": "confirmed official; verify exact cutoff when unspecified",
+      "domain": "Speech / audio",
+      "type": "other"
     },
     {
       "date": "2027-01-07",
@@ -816,6 +893,39 @@
       "type": "paper"
     },
     {
+      "date": "2027-02-05",
+      "venue": "Interspeech 2027 Tutorials",
+      "action": "Tutorial ORGANIZER proposal deadline, not contributed research paper",
+      "area": "Speech tutorials / education",
+      "time": "Organizer website deadline; cutoff hour not confirmed",
+      "source": "https://interspeech2027.org/",
+      "status": "confirmed official; verify exact cutoff when unspecified",
+      "domain": "Speech / audio",
+      "type": "proposal"
+    },
+    {
+      "date": "2027-02-06",
+      "venue": "EUSIPCO 2027",
+      "action": "Five-page technical RESEARCH paper; includes Acoustic, Speech and Music Signal Processing",
+      "area": "Signal processing; speech; acoustics",
+      "time": "Organizer lists February 6; check submission portal for final cutoff and formatting",
+      "source": "https://eusipco2027.de/conference-papers/",
+      "status": "confirmed official; verify exact cutoff when unspecified",
+      "domain": "Speech / audio",
+      "type": "paper"
+    },
+    {
+      "date": "2027-02-07",
+      "venue": "IEEE SSP 2027",
+      "action": "Full research paper on statistical signal processing (some audio/acoustic overlap)",
+      "area": "Statistical signal processing / learning",
+      "time": "Organizer key-date schedule; cutoff hour not confirmed",
+      "source": "https://ssp27.ieeesps.org/",
+      "status": "confirmed official; verify exact cutoff when unspecified",
+      "domain": "Speech / audio",
+      "type": "paper"
+    },
+    {
       "date": "2027-02-09",
       "venue": "Interspeech 2027",
       "action": "Research paper",
@@ -860,6 +970,17 @@
       "domain": "AI / ML / statistics"
     },
     {
+      "date": "2027-03-01",
+      "venue": "EUSIPCO 2027 Tutorials",
+      "action": "Tutorial ORGANIZER proposal, not conference research paper",
+      "area": "Signal processing; speech; audio",
+      "time": "Organizer date; cutoff hour not confirmed",
+      "source": "https://eusipco2027.de/calls/",
+      "status": "confirmed official; verify exact cutoff when unspecified",
+      "domain": "Speech / audio",
+      "type": "proposal"
+    },
+    {
       "date": "2027-03-09",
       "venue": "Interspeech 2027 Show and Tell",
       "action": "Demonstration and 2-page description, NOT a regular 4-page or long 8-page research paper",
@@ -880,6 +1001,17 @@
       "status": "confirmed organizer",
       "type": "paper",
       "domain": "AI / ML / statistics"
+    },
+    {
+      "date": "2027-03-15",
+      "venue": "IWSLT 2027",
+      "action": "Original scientific RESEARCH paper (spoken language translation), distinct from system report",
+      "area": "Speech translation; multimodal and multilingual speech",
+      "time": "Preliminary official schedule subject to change; 11:59 PM AoE",
+      "source": "https://iwslt.org/2027/",
+      "status": "confirmed official; verify exact cutoff when unspecified",
+      "domain": "Speech / audio",
+      "type": "paper"
     },
     {
       "date": "2027-03-18",
@@ -912,6 +1044,61 @@
       "source": "https://roboticsconference.org/information/cfp/",
       "status": "confirmed",
       "domain": "Robotics / embodied",
+      "type": "paper"
+    },
+    {
+      "date": "2027-04-21",
+      "venue": "IEEE ASLI 2027",
+      "action": "Six-page regular RESEARCH paper; new flagship merging ASRU and SLT communities; main and Findings routes",
+      "area": "Speech recognition, spoken language, audio and multimodal foundation models",
+      "time": "11:59 PM AoE per official Important Dates; review latest submission policies",
+      "source": "https://2027.ieeeasli.org/important-dates/",
+      "status": "confirmed official; verify exact cutoff when unspecified",
+      "domain": "Speech / audio",
+      "type": "paper"
+    },
+    {
+      "date": "2027-05-07",
+      "venue": "IWSLT 2027 Shared-Task System Papers",
+      "action": "Shared-task SYSTEM DESCRIPTION paper, not IWSLT original scientific-paper deadline",
+      "area": "Spoken language translation; evaluation campaign",
+      "time": "Preliminary schedule subject to change; 11:59 PM AoE",
+      "source": "https://iwslt.org/2027/",
+      "status": "confirmed official; verify exact cutoff when unspecified",
+      "domain": "Speech / audio",
+      "type": "paper"
+    },
+    {
+      "date": "2027-06-02",
+      "venue": "ITG Speech Communication 2027",
+      "action": "MANDATORY research-paper abstract deadline (before June 9 full paper)",
+      "area": "Speech; audio; dialogue; multilingual spoken language",
+      "time": "Organizer-listed June 2; no timezone on accessed page",
+      "source": "https://www.inf.uni-hamburg.de/en/inst/ab/sp/itg-2027/for-authors.html",
+      "status": "confirmed official; verify exact cutoff when unspecified",
+      "domain": "Speech / audio",
+      "type": "abstract"
+    },
+    {
+      "date": "2027-06-09",
+      "venue": "ITG Speech Communication 2027",
+      "action": "Full four-page research paper (plus one references page)",
+      "area": "Speech, audio, spoken-language processing",
+      "time": "June 9 full paper; abstract June 2 must be completed first",
+      "source": "https://www.inf.uni-hamburg.de/en/inst/ab/sp/itg-2027/for-authors.html",
+      "status": "confirmed official; verify exact cutoff when unspecified",
+      "domain": "Speech / audio",
+      "type": "paper"
+    },
+    {
+      "date": "2027-06-17",
+      "venue": "IEEE ASLI 2027 Challenge Papers",
+      "action": "Challenge paper from approved ASLI 2027 challenge (not open regular-paper submission)",
+      "area": "Speech/audio datasets and benchmarks",
+      "time": "Challenge organizer route; follow challenge CFP eligibility; not a substitute for Apr 21 regular paper",
+      "source": "https://2027.ieeeasli.org/call-for-challenge-proposals/",
+      "status": "confirmed official; verify exact cutoff when unspecified",
+      "domain": "Speech / audio",
       "type": "paper"
     },
     {
@@ -1787,7 +1974,7 @@
       ]
     },
     {
-      "area": "NLP / speech / audio",
+      "area": "NLP / computational linguistics",
       "venues": [
         {
           "name": "AACL",
@@ -1832,6 +2019,11 @@
           "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/coling.yml"
         },
         {
+          "name": "COLING Industry Track",
+          "url": "https://2027.coling-iccl.org/calls/industry_track/",
+          "fullName": "COLING 2027 standalone industry papers, deployed speech and NLP systems"
+        },
+        {
           "name": "CONLL",
           "url": "https://conll.org/",
           "hfSlug": "conll",
@@ -1849,6 +2041,11 @@
         {
           "name": "EACL",
           "url": "https://eacl.org/"
+        },
+        {
+          "name": "EACL Industry Track",
+          "url": "https://2027.eacl.org/calls/industry/",
+          "fullName": "EACL 2027 Industry Track; September 2026 paper deadline already closed"
         },
         {
           "name": "EMNLP",
@@ -1895,18 +2092,6 @@
           "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/emnlp_system_demonstrations_track.yml"
         },
         {
-          "name": "ICASSP",
-          "url": "https://signalprocessingsociety.org/",
-          "hfSlug": "icassp",
-          "hfYear": 2026,
-          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/icassp.yml",
-          "fullName": "International Conference on Acoustics, Speech and Signal Processing",
-          "rankings": {
-            "ERA": "A"
-          },
-          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/icassp.yml"
-        },
-        {
           "name": "INLG",
           "url": "https://2026.inlgmeeting.org/",
           "hfSlug": "inlg",
@@ -1917,18 +2102,6 @@
             "ERA": "B"
           },
           "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/inlg.yml"
-        },
-        {
-          "name": "Interspeech",
-          "url": "https://www.isca-speech.org/",
-          "hfSlug": "interspeech",
-          "hfYear": 2026,
-          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/interspeech.yml",
-          "fullName": "Interspeech",
-          "rankings": {
-            "ERA": "A"
-          },
-          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/interspeech.yml"
         },
         {
           "name": "LREC",
@@ -1958,8 +2131,113 @@
           "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/naacl.yml"
         },
         {
+          "name": "NAACL Industry Track",
+          "url": "https://2027.naacl.org/calls/industry_track/",
+          "fullName": "NAACL 2027 separate Industry Track: real-world NLP/speech systems; no independent CORE grade"
+        },
+        {
+          "name": "NAACL System Demonstrations",
+          "url": "https://2027.naacl.org/calls/system_demonstration/",
+          "fullName": "NAACL 2027 system demonstration track (evaluated software + demo video)"
+        }
+      ]
+    },
+    {
+      "area": "Speech / audio / spoken language",
+      "venues": [
+        {
+          "name": "ASRU (historical → ASLI)",
+          "url": "https://2027.ieeeasli.org/call-for-papers/",
+          "fullName": "IEEE Automatic Speech Recognition and Understanding; community continues at ASLI from 2027"
+        },
+        {
+          "name": "DCASE",
+          "url": "https://dcase.community/",
+          "fullName": "Detection and Classification of Acoustic Scenes and Events challenge and workshop"
+        },
+        {
+          "name": "EUSIPCO",
+          "url": "https://eusipco2027.de/",
+          "fullName": "European Signal Processing Conference, including Acoustic, Speech and Music Signal Processing"
+        },
+        {
+          "name": "ICASSP",
+          "url": "https://2027.ieeeicassp.org/",
+          "hfSlug": "icassp",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/icassp.yml",
+          "fullName": "International Conference on Acoustics, Speech and Signal Processing",
+          "rankings": {
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/icassp.yml"
+        },
+        {
+          "name": "ICASSP 2028 (deadline TBA)",
+          "url": "https://signalprocessingsociety.org/events/2028-ieee-international-conference-acoustics-speech-and-signal-processing-icassp",
+          "fullName": "Next ICASSP cycle; 2028 regular-paper deadline not announced"
+        },
+        {
+          "name": "IEEE ASLI",
+          "url": "https://2027.ieeeasli.org/call-for-papers/",
+          "fullName": "IEEE Audio, Speech and Language Intelligence; 2027 merger of ASRU and SLT communities"
+        },
+        {
+          "name": "IEEE MLSP",
+          "url": "https://signalprocessingsociety.org/events/2027-ieee-international-workshop-machine-learning-signal-processing-mlsp",
+          "fullName": "IEEE Workshop on Machine Learning for Signal Processing; 2027 paper date TBD"
+        },
+        {
+          "name": "IEEE SSP",
+          "url": "https://ssp27.ieeesps.org/",
+          "fullName": "IEEE Statistical Signal Processing Workshop; speech and learning overlap"
+        },
+        {
+          "name": "Interspeech",
+          "url": "https://interspeech2027.org/",
+          "hfSlug": "interspeech",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/interspeech.yml",
+          "fullName": "Interspeech",
+          "rankings": {
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/interspeech.yml"
+        },
+        {
+          "name": "ISCSLP",
+          "url": "https://iscslp.org/2026/",
+          "fullName": "International Symposium on Chinese Spoken Language Processing; 2026 paper deadline closed, biennial"
+        },
+        {
+          "name": "ITG Speech Communication",
+          "url": "https://www.inf.uni-hamburg.de/en/inst/ab/sp/itg-2027/for-authors.html",
+          "fullName": "ITG 2027 Speech Communication"
+        },
+        {
+          "name": "IWSLT",
+          "url": "https://iwslt.org/2027/",
+          "fullName": "International Conference on Spoken Language Translation; scientific & system tracks"
+        },
+        {
+          "name": "Odyssey",
+          "url": "https://www.isca-speech.org/",
+          "fullName": "ISCA Odyssey Speaker and Language Recognition Workshop; 2026 edition closed"
+        },
+        {
+          "name": "SIGDIAL",
+          "url": "https://www.sigdial.org/",
+          "fullName": "Special Interest Group on Discourse and Dialogue (ACL/ISCA); 2027 paper CFP not confirmed"
+        },
+        {
           "name": "SLT",
-          "url": "https://signalprocessingsociety.org/"
+          "url": "https://signalprocessingsociety.org/events/2026-ieee-spoken-language-technology-workshop-slt",
+          "fullName": "IEEE Spoken Language Technology Workshop; final standalone 2026 edition, continues via ASLI in 2027"
+        },
+        {
+          "name": "Speech Prosody",
+          "url": "https://www.isca-speech.org/",
+          "fullName": "Speech prosody research series; 2026 edition closed"
         }
       ]
     },
@@ -3417,7 +3695,9 @@
     "ICRA 2027 (Sep 2026)",
     "ICASSP 2027 (Sep 23 2026)",
     "COSYNE 2027 abstract (October 18, 2026)",
-    "IndoML Datathon 2026 final (October 17, 2026)"
+    "IndoML Datathon 2026 final (October 17, 2026)",
+    "COLING 2027 main ARR (October 12, 2026; industry paper still open to Nov 30)",
+    "EACL 2027 Industry Track (September 11, 2026)"
   ],
   "watch": [
     "ICML 2027",
@@ -3439,7 +3719,16 @@
     "CHIL 2027 — date TBD",
     "CCN 2027 — Feb 1 abstract, Feb 4 proceedings paper",
     "OHBM 2027 — Dec 14 poster/meeting content",
-    "Bernstein Conference 2027 — paper/abstract CFP not yet announced"
+    "Bernstein Conference 2027 — paper/abstract CFP not yet announced",
+    "IEEE ASLI 2027 — Apr 21 paper; Dec 3 challenge organizer proposal",
+    "Interspeech 2027 — Feb 9 regular / long papers",
+    "COLING 2027 Industry Track — Nov 30, 2026",
+    "NAACL 2027 Industry Track — Oct 31, 2026",
+    "EUSIPCO 2027 — Feb 6 paper",
+    "IWSLT 2027 — Mar 15 scientific paper, May 7 system reports",
+    "DCASE 2027 — challenge organizer intent Dec 10; regular papers TBA",
+    "IEEE MLSP 2027 — paper CFP TBA",
+    "ICASSP 2028 — paper deadline TBA"
   ],
   "lastLiteratureAudit": "2026-10-27",
   "integrations": {
@@ -3457,6 +3746,18 @@
       "sourceURL": "https://conferences.databio.org/",
       "datasetRecords": 75,
       "reviewedAt": "2026-10-27"
+    },
+    "speech": {
+      "sourceURLs": [
+        "https://2027.ieeeasli.org/important-dates/",
+        "https://interspeech2027.org/calls/call_for_papers/",
+        "https://2027.naacl.org/calls/industry_track/",
+        "https://2027.coling-iccl.org/calls/industry_track/",
+        "https://iwslt.org/2027/",
+        "https://eusipco2027.de/"
+      ],
+      "reviewedAt": "2026-10-27",
+      "note": "Separate NLP and speech catalogues, prominent standalone industry/demo tables. ASRU+SLT merged into IEEE ASLI from 2027. Unannounced deadlines never inferred."
     }
   }
 }
