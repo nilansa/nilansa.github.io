@@ -744,15 +744,14 @@
       "id": "m3",
       "cluster": "retrieval",
       "agent": [
-        "hipporag",
-        "assomem"
+        "hipporag"
       ],
       "prior": [
         "ppr"
       ],
       "match": "direct",
       "shared": "Personalized graph traversal/relevance propagation is a reused primitive.",
-      "different": "Graph nodes and edges are extracted from LLM memories and may be wrong.",
+      "different": "HippoRAG directly reuses Personalized PageRank but its graph is populated from LLM-extracted entities, which can be incomplete or wrong. AssoMem is related graph retrieval but is not asserted to run PPR.",
       "experiment": "Graph enabled vs disabled; hold graph construction constant when comparing PPR variants."
     },
     {
