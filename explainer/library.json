@@ -512,5 +512,25 @@
     "url": "./explainers/ire-a3-sanity-first-plan-2026-10-27.html",
     "date": "2026-10-27",
     "indexed_at": "2026-10-27T06:30:59.640Z"
+  },
+  {
+    "id": "ire-survey-critical-proposal-audit-20261027",
+    "title": "IRE Research Survey — Critical Audit of 18 Topic Proposals",
+    "description": "Decision-first ST100+ audit of all 18 research directions against Anil's theory, literature, industry and viva criteria, with reasons, verified paper chain and an initial proposal.",
+    "project": "IRE Optional Research Survey",
+    "category": "Research proposal decision audit",
+    "tags": [
+      "ST100 Plus",
+      "IRE",
+      "research survey",
+      "evaluation",
+      "DPP",
+      "unbiased ranking",
+      "industry",
+      "topics"
+    ],
+    "url": "./explainers/ire-survey-critical-proposal-audit-2026-10-27.html",
+    "date": "2026-10-27",
+    "indexed_at": "2026-10-27T17:00:21.057Z"
   }
 ]
