@@ -3,7 +3,7 @@
   "taskId": "20261026-csconf-research",
   "createdAt": "2026-10-26T13:51:12.349Z",
   "checkedAt": "2026-10-27",
-  "editorialNote": "27 Oct twelfth cycle: authorized read-only CPU diagnostic on pre-existing supervised-leakage-repaired historical CC04 controls; all numerical measurements remain PRIVATE and do not qualify as untouched evidence. CC04 must now compare against global-score allocation and accepted adaptive/progressive ER methods, not only fixed per-source caps. CC08 prospective sample source mapping extended to M15 (formal package despite Notes-only inventory) and M18 (Theorem 1 in notes), without independent Lean replay. ICASSP aggregator and HEARTBEAT website disagree about release and leaderboard dates. No submission, GPU training, external file transfer, or publication of private measurements.",
+  "editorialNote": "27 Oct thirteenth cycle: a PRELOCKED, read-only CPU source-score comparability stress test was completed on previously inspected historical CC04 development caches; public index records only methodology and added null controls, never private numerical findings. A random source-specific monotone score shift preserves each source's candidate order yet changes cross-source budget allocation. Add randomized source-offset control before any learned completion-budget novelty claim. Original E12 artifact and untouched tests still unavailable; no GPU/training/full-pipeline benchmark. New official deadlines: NAACL 2027 Industry Oct 31 (deployed systems only, restrictive paper-integrity rules); DESIRES 2027 early-stage IR abstract Dec 17. EACL 2027 paper-integrity policy sharpened. No conference submission or cross-surface file transfer.",
   "deadlines": [
     {
       "date": "2026-10-27",
@@ -40,6 +40,15 @@
       "time": "12:00 PM PDT (not AoE)",
       "source": "https://mlsys.org/Conferences/2027/Dates",
       "status": "confirmed"
+    },
+    {
+      "date": "2026-10-31",
+      "venue": "NAACL 2027 Industry Track",
+      "action": "Six-page industry paper (real-world deployed or planned NLP/speech system, no ARR)",
+      "area": "NLP / speech / deployed systems",
+      "time": "11:59 PM AoE; standalone industry track, mandatory Limitations section, do not submit generic exploration or entirely AI-generated papers",
+      "source": "https://2027.naacl.org/calls/industry_track/",
+      "status": "confirmed official; no submission-ready CS Conf branch"
     },
     {
       "date": "2026-11-01",
@@ -256,6 +265,15 @@
       "time": "11:59 PM AoE; check published industry CFP",
       "source": "https://iscaconf.org/isca2027/submit/callforpapers.php",
       "status": "confirmed"
+    },
+    {
+      "date": "2026-12-17",
+      "venue": "DESIRES 2027",
+      "action": "Early-stage search/IR abstract (NOT an archival full-paper submission)",
+      "area": "Information retrieval / experimental search",
+      "time": "11:59 PM AoE; ideas, prototypes, metric critiques welcomed; optional later IRRJ paper on May 31, 2027; verify applicable AI policy before submission",
+      "source": "https://desires-conf.github.io/2027/",
+      "status": "confirmed official"
     },
     {
       "date": "2027-01-04",
@@ -871,14 +889,15 @@
       "venues": [
         "SIGIR",
         "KDD",
-        "PAKDD (human-led only)"
+        "PAKDD (human-led only)",
+        "DESIRES 2027 (early-stage abstract; human-reviewed)"
       ],
       "cost": "low-medium",
-      "stage": "EXPLORATORY READ-ONLY CPU DIAGNOSTIC ON HISTORICAL SUPERVISED-LEAKAGE-REPAIRED CONTROL CACHES: performed under frozen simple-policy protocol. Measurements remain PRIVATE; both source sets already analyzed in past project, thus NO prospectively untouched generalization evidence. No model retraining, GPU or end-to-end CPU cost measurement. Mandatory next baseline is global-score selection as well as query-adaptive QASP and Progressive ER; original E12 per-route rankings remain separate/unrecovered.",
+      "stage": "NEW PROTOCOL CONTROL (Oct 27): previously inspected historical repaired candidate-score caches were tested read-only under a preregistered within-source-rank-preserving, random source-specific score-offset stress test. This probes cross-query comparability and budget concentration. All numerical results remain private, historical/dev-only and do not establish unseen-test improvement. No learned allocator, retraining, full blocker or downstream runtime measured. Original E12 per-route retrieval remains separate/unrecovered.",
       "question": "Without knowing which sources have matches at inference time, can an allocation policy learn both match-existence probability and last-positive-rank completion curves to improve complete-link retrieval among all source queries under fixed candidate count AND end-to-end wall time, versus QASP-style and progressive-ER baselines?",
-      "novelty": "The PACMMOD/SIGMOD 2025 Progressive ER formal objective maximizes progressive recall@N of verified PAIRS, assumes oracle pair verification and explicitly excludes verification time from reported runtime. QASP (Jul 2026) predicts recall of nearest-neighbor search as probes increase; nearest-neighbor recall is NOT recall of all semantically true entity links. The proposed completion event max_true_match_rank<=K differs from both losses, but this is not proof of novel algorithm. Distinct evaluation must include multi-positive sources (standard clean-clean datasets often assume within-source no duplicates), real full-pipeline runtime, calibrated completion prediction, and equal-budget strong baselines. Critical new gate (Oct 27): allocation over positive queries only is oracle information leakage unless positivity is inferable at inference. Estimate p_i*F_i(k) over all S1, assess null-query opportunity cost and incomplete ground truth. No new algorithm claimed.",
-      "pilot": "Before training any new allocator, create a genuinely new test with S1/entity-cluster disjointness and fit-only preprocessing. Calibrate P(positive AND all ground-truth links recovered at K | query features) on training/calibration only, optimize total candidate budget, compare fixed top-K, global highest score, QASP-style recall-curve allocation, and Progressive ER at equal candidate budget and full CPU/wall time. Report candidate-oracle ceiling, zero-match queries and label incompleteness; historical repaired cached diagnostics are development checks only.",
-      "stop": "If no reliable gain over strong global-score AND QASP/progressive baselines on a new sealed cluster-disjoint test, or if gain is due to incomplete annotations/model-selection leakage, retire standalone adaptive-allocation claim. Candidate-universe missing links cannot be repaired by reallocation.",
+      "novelty": "The PACMMOD/SIGMOD 2025 Progressive ER formal objective maximizes progressive recall@N of verified PAIRS, assumes oracle pair verification and explicitly excludes verification time from reported runtime. QASP (Jul 2026) predicts recall of nearest-neighbor search as probes increase; nearest-neighbor recall is NOT recall of all semantically true entity links. The proposed completion event max_true_match_rank<=K differs from both losses, but this is not proof of novel algorithm. Distinct evaluation must include multi-positive sources (standard clean-clean datasets often assume within-source no duplicates), real full-pipeline runtime, calibrated completion prediction, and equal-budget strong baselines. Critical new gate (Oct 27): allocation over positive queries only is oracle information leakage unless positivity is inferable at inference. Estimate p_i*F_i(k) over all S1, assess null-query opportunity cost and incomplete ground truth. No new algorithm claimed. A new necessary CONTROL is randomized source-level monotone score offsets: a policy can redistribute budget across sources without changing their local candidate ranks or using any label. Neither stochastic prioritization (SPER) nor generic budgeted success curves are intrinsically novel. A learned all-link allocator must show more than what random budget concentration achieves at equal B.",
+      "pilot": "Before training any new allocator, create a genuinely new test with S1/entity-cluster disjointness and fit-only preprocessing. Calibrate P(positive AND all ground-truth links recovered at K | query features) on training/calibration only, optimize total candidate budget, compare fixed top-K, global highest score, QASP-style recall-curve allocation, and Progressive ER at equal candidate budget and full CPU/wall time. Report candidate-oracle ceiling, zero-match queries and label incompleteness; historical repaired cached diagnostics are development checks only. **New mandatory calibration-free null control:** apply source-specific random log-odds offsets at fixed deterministic seeds to frozen pair probabilities, preserving within-source rankings and exact global B. Evaluate both tight and moderate B; do not assume a monotonic effect. This historical sensitivity diagnostic is development-only, not the locked final test. Validate score comparability on new calibration-only groups; avoid contamination of test from exploratory analysis.",
+      "stop": "If no reliable gain over strong global-score AND QASP/progressive baselines on a new sealed cluster-disjoint test, or if gain is due to incomplete annotations/model-selection leakage, retire standalone adaptive-allocation claim. Candidate-universe missing links cannot be repaired by reallocation. Also stop novel learned-allocation claim if it cannot beat an uninformed rank-preserving source-offset baseline on the prospectively sealed test. No novel algorithm inferred from artificial score perturbations.",
       "source": "https://sigir2027.org/pages/submit-full.html",
       "closestPriorArt": [
         {
@@ -908,6 +927,10 @@
         {
           "title": "BEACON: Budget-Aware Entity Matching Across Domains (SIGMOD 2026; annotation budget)",
           "url": "https://arxiv.org/abs/2603.11391"
+        },
+        {
+          "title": "SPER: stochastic progressive ER pair scheduling (CIKM 2026; existing prior art)",
+          "url": "https://arxiv.org/abs/2512.23491"
         }
       ]
     },
@@ -1138,10 +1161,16 @@
       "cost": "low",
       "stage": "elementary formulation plus verified 2-query greedy failure counterexample; no new theory paper result",
       "question": "Under what realistic constraints on calibration error, fairness or retrieval costs can a complete-link global-budget allocation guarantee robust coverage?",
-      "novelty": "The standard deterministic all-link allocation problem reduces to choosing per-query ranks under a total budget (multiple-choice knapsack or threshold-cost selection); this alone is a known optimization structure, not an original theorem. Seek a genuine robustness or calibration result, and compare established budgeted ranking/scheduling literature.",
+      "novelty": "The standard deterministic all-link allocation problem reduces to choosing per-query ranks under a total budget (multiple-choice knapsack or threshold-cost selection); this alone is a known optimization structure, not an original theorem. Seek a genuine robustness or calibration result, and compare established budgeted ranking/scheduling literature. Closely related general theory already studies monotone task-success probability vs budget with censored feedback (Bachoc et al., arXiv:2508.05844, revised Feb 2026); reuse of this structure is not a new theorem.",
       "pilot": "Deterministic small-instance enumerator run in this cycle: F_A(0,1,2)=(0,.40,.41); F_B=(0,0,1); total B=2. Sequential one-step marginal greedy allocates (2,0), objective .41; exhaustive exact allocation (0,2) obtains 1.00. This establishes NONCONCAVE cumulative-completion curves can defeat naive greedy, not novelty and not an empirical ER outcome. An allocator must use exact small-budget dynamic programming or a defensible approximation; validate full-runtime and calibration assumptions. Seek nontrivial theorem only after literature review.",
       "stop": "If bound is vacuous under realistic distributions, retire.",
-      "source": "https://learningtheory.org/colt2027/"
+      "source": "https://learningtheory.org/colt2027/",
+      "closestPriorArt": [
+        {
+          "title": "Online Budget Allocation with Censored Semi-Bandit Feedback (2025, revised 2026 preprint)",
+          "url": "https://arxiv.org/abs/2508.05844"
+        }
+      ]
     },
     {
       "id": "CC-12",
@@ -1295,9 +1324,9 @@
     },
     {
       "venue": "EACL 2027",
-      "rule": "Entirely AI-generated papers and thinly sliced submissions risk desk rejection or sanctions.",
-      "source": "https://2027.eacl.org/calls/papers/",
-      "flag": "restrictive"
+      "rule": "EACL 2027 explicitly rejects unethical AI-generated or thinly sliced submissions, requires disclosure in line with ACL's AI-authorship guidance, and permits desk rejection or future-commit restrictions for unverifiable references and overlapping contributions. Policy is relevant to all high-volume automated-paper strategies, even though EACL 2027's 2026 submission/commitment windows have closed.",
+      "source": "https://2027.eacl.org/calls/paper-integrity-policy/",
+      "flag": "restrictive; desk-rejection risk for fabricated references, thinly sliced or entirely AI-generated papers"
     },
     {
       "venue": "ICLR 2027",
@@ -1364,6 +1393,12 @@
       "rule": "ACM/PLDI: material AI use in scientific research design, methods, code, experiment and analysis must be described in detail in the methods; writing-only AI assistance need not be disclosed under updated ACM policy. False citations/results are desk-rejectable; 2027 Data-Availability Statement required before references.",
       "source": "https://pldi27.sigplan.org/track/pldi-2027-papers",
       "flag": "disclose research-stage AI; writing-only exempt; data availability statement"
+    },
+    {
+      "venue": "NAACL 2027 Industry Track",
+      "rule": "Oct 31, 2026 AoE; six-page independent submission (not ARR), double-blind, real-world deployed/expected-to-deploy NLP or speech system, mandatory Limitations, no non-anonymized code link. Completely AI-generated papers, hallucinated references and thinly sliced overlapping submissions risk desk rejection and sanctions. Writing assistants permitted under ACL policy but authors remain responsible.",
+      "source": "https://2027.naacl.org/calls/industry_track/",
+      "flag": "requires deployed system and substantive human research; disallow fully AI-made papers or sliced duplicates"
     }
   ],
   "examples": [
@@ -1522,6 +1557,12 @@
       "kind": "Research perspective preprint",
       "note": "Introduces audit-effort, evidence provenance coverage and soundness criteria for deep-research agents. Prior art against CC08 treating audit effort or claim-evidence tracing as a new objective.",
       "url": "https://arxiv.org/abs/2602.13855"
+    },
+    {
+      "title": "Online Budget Allocation with Censored Semi-Bandit Feedback (Bachoc et al.)",
+      "kind": "Theory preprint, submitted 2025; revised 4 Feb 2026",
+      "note": "General monotone success-probability budget curves and regret under censored semi-bandit feedback. Prior art against claiming a generic adaptive success-budget optimization formulation as an original CC11 theory contribution.",
+      "url": "https://arxiv.org/abs/2508.05844"
     }
   ],
   "closed": [
@@ -1542,5 +1583,5 @@
     "UAI 2027",
     "ISIT 2027"
   ],
-  "lastLiteratureAudit": "2026-10-27 twelfth audit: QASP 2607.29606 and Progressive ER 2503.08298 retained as strong budget baselines. Repaired historical CC04 private-scored validation diagnostic (NOT independent held-out evidence; no private metrics publicly reported). SECQUOIA paper-v1 M15 source note and formal topic 13 mapped; M18 explicit first theorem in result note mapped, no independent Lean check. ICASSP 2027 master schedule vs HEARTBEAT site discrepancy; CVPR 2027 policy and CHIIR, MLSys, ISCA, PLDI deadlines rechecked. Zero submissions or GPU runs."
+  "lastLiteratureAudit": "2026-10-27 thirteenth source audit: checked organizer CFP/policies NAACL industry Oct 31, DESIRES Dec 17, EACL integrity, CHIIR Oct 29, MLSys Oct 30, ACL ARR Jan 4; prior art QASP 2607.29606, Progressive ER 2503.08298, SPER 2512.23491, budgeted censored semi-bandits 2508.05844. Private-only historical score-offset stress test; no public metrics or held-out claims, no submissions."
 }
