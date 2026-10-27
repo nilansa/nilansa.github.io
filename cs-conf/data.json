@@ -651,16 +651,77 @@
           "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/cec.yml"
         },
         {
+          "name": "CoLLAs",
+          "url": "https://lifelong-ml.cc",
+          "hfSlug": "collas",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/collas.yml",
+          "fullName": "Fifth Conference on Lifelong Learning Agents",
+          "rankings": {
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/collas.yml"
+        },
+        {
           "name": "COLM",
-          "url": "https://colm.cc/"
+          "url": "https://colm.cc/",
+          "hfSlug": "colm",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/colm.yml",
+          "fullName": "Conference on Language Modeling",
+          "rankings": {
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/colm.yml"
         },
         {
           "name": "COLT",
-          "url": "https://learningtheory.org/"
+          "url": "https://learningtheory.org/",
+          "hfSlug": "colt",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/colt.yml",
+          "fullName": "Annual Conference on Learning Theory",
+          "rankings": {
+            "CCF": "B",
+            "CORE": "A*",
+            "THCPL": "A",
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/colt.yml"
+        },
+        {
+          "name": "CPAL",
+          "url": "https://cpal.cc/",
+          "hfSlug": "cpal",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/cpal.yml",
+          "fullName": "The Conference on Parsimony and Learning"
+        },
+        {
+          "name": "ECAI",
+          "url": "https://2026.ijcai.org/",
+          "hfSlug": "ecai",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/ecai.yml",
+          "fullName": "European Conference on Artificial Intelligence",
+          "rankings": {
+            "CCF": "B",
+            "CORE": "A",
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/ecai.yml"
         },
         {
           "name": "ECML PKDD",
-          "url": "https://ecmlpkdd.org/"
+          "url": "https://ecmlpkdd.org/",
+          "hfSlug": "ecml_pkdd",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/ecml_pkdd.yml",
+          "fullName": "European Conference on Machine Learning and Principles and Practice of",
+          "rankings": {
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/ecml_pkdd.yml"
         },
         {
           "name": "ICLR",
@@ -810,11 +871,30 @@
         },
         {
           "name": "CVPR",
-          "url": "https://cvpr.thecvf.com/"
+          "url": "https://cvpr.thecvf.com/",
+          "hfSlug": "cvpr",
+          "hfYear": 2027,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/cvpr.yml",
+          "fullName": "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+          "rankings": {
+            "CCF": "A",
+            "CORE": "A*",
+            "THCPL": "A",
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/cvpr.yml"
         },
         {
           "name": "ECCV",
-          "url": "https://eccv.ecva.net/"
+          "url": "https://eccv.ecva.net/",
+          "hfSlug": "eccv",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/eccv.yml",
+          "fullName": "European Conference on Computer Vision",
+          "rankings": {
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/eccv.yml"
         },
         {
           "name": "ICCV",
@@ -851,7 +931,27 @@
         },
         {
           "name": "CIKM",
-          "url": "https://www.cikm2026.org/"
+          "url": "https://www.cikm2026.org/",
+          "hfSlug": "cikm",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/cikm.yml",
+          "fullName": "Conference on Information and Knowledge Management",
+          "rankings": {
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/cikm.yml"
+        },
+        {
+          "name": "ECIR",
+          "url": "https://www.ecir2027.co.uk/",
+          "hfSlug": "ecir",
+          "hfYear": 2027,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/ecir.yml",
+          "fullName": "European Conference on Information Retrieval",
+          "rankings": {
+            "ERA": "B"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/ecir.yml"
         },
         {
           "name": "EDBT",
@@ -1009,7 +1109,33 @@
         },
         {
           "name": "COLING",
-          "url": "https://coling.org/"
+          "url": "https://coling.org/",
+          "hfSlug": "coling",
+          "hfYear": 2025,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/coling.yml",
+          "fullName": "International Conference on Computational Linguistics",
+          "rankings": {
+            "CCF": "B",
+            "CORE": "B",
+            "THCPL": "B",
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/coling.yml"
+        },
+        {
+          "name": "CONLL",
+          "url": "https://conll.org/",
+          "hfSlug": "conll",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/conll.yml",
+          "fullName": "The SIGNLL Conference on Computational Natural Language Learning",
+          "rankings": {
+            "CCF": "B",
+            "CORE": "A",
+            "THCPL": "B",
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/conll.yml"
         },
         {
           "name": "EACL",
@@ -1017,7 +1143,33 @@
         },
         {
           "name": "EMNLP",
-          "url": "https://2026.emnlp.org/"
+          "url": "https://2026.emnlp.org/",
+          "hfSlug": "emnlp",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/emnlp.yml",
+          "fullName": "The annual Conference on Empirical Methods in Natural Language Processing",
+          "rankings": {
+            "CCF": "B",
+            "CORE": "A*",
+            "THCPL": "A",
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/emnlp.yml"
+        },
+        {
+          "name": "EMNLP Industry Track",
+          "url": "https://2026.emnlp.org/",
+          "hfSlug": "emnlp_industry_track",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/emnlp_industry_track.yml",
+          "fullName": "The annual Conference on Empirical Methods in Natural Language Processing",
+          "rankings": {
+            "CCF": "B",
+            "CORE": "A*",
+            "THCPL": "A",
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/emnlp_industry_track.yml"
         },
         {
           "name": "ICASSP",
@@ -1057,7 +1209,15 @@
         },
         {
           "name": "CoRL",
-          "url": "https://www.corl.org/"
+          "url": "https://www.corl.org/",
+          "hfSlug": "corl",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/corl.yml",
+          "fullName": "The Conference on Robot Learning",
+          "rankings": {
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/corl.yml"
         },
         {
           "name": "Humanoids",
@@ -2408,7 +2568,7 @@
       "repository": "huggingface/ai-deadlines",
       "source": "https://github.com/huggingface/ai-deadlines/tree/main/src/data/conferences",
       "totalFiles": 68,
-      "matchedFiles": 11,
+      "matchedFiles": 26,
       "reviewedAt": "2026-10-27",
       "deadlinePolicy": "Official sources override HF metadata; HF dates are secondary and not automatically authoritative."
     },
