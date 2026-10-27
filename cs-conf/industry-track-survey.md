@@ -60,6 +60,27 @@ The table includes industry papers, adjacent applied-paper routes, a research-tr
 - **CHIIR 2027 Industry Papers, 29 Oct 2026 AoE:** student internships are welcomed, but the proposed industrial-paper format asks for company/product context and company description. For a university-only paper, obtain chair clarification rather than assuming acceptance.
 - **The Web Conference 2027 Industry:** closed 25 Oct 2026; requires demonstrated industrial-environment deployment/release duration. Its call does not clearly establish company-affiliation eligibility, so academic-only teams should ask organizers in a future cycle.
 
+## What past accepted NAACL Industry papers actually look like
+
+The [NAACL 2025 Industry proceedings](https://aclanthology.org/volumes/2025.naacl-industry/) are **peer-reviewed accepted-paper evidence**, not a prediction of 2027 acceptance. Representative contributions include:
+
+- **Understanding LLM Development Through Longitudinal Study: Insights from the Open Ko-LLM Leaderboard** — studies **11 months** of public model-leaderboard evolution. Lesson: a careful applied evaluation of a real operational ecosystem can be a contribution; it does not automatically exempt a 2027 author from the current deployment-grounding CFP.
+- **Finding-Centric Structuring of Japanese Radiology Reports and Analysis of Performance Gaps for Multiple Facilities** — evaluates cross-facility robustness with **8,428 clinical reports from seven facilities**. Lesson: real stakeholder data and documented domain-specific generalization failures are stronger than a generic new architecture claim.
+- **RTSM: Knowledge Distillation with Diverse Signals for Efficient Real-Time Semantic Matching in E-Commerce** — addresses latency and quality of real-time semantic retrieval. Lesson: show measured operating constraints and deployment relevance, not merely accuracy.
+- **How LLMs React to Industrial Spatio-Temporal Data? Assessing Hallucination with a Novel Traffic Incident Benchmark Dataset** — builds an application-grounded evaluation from real incident data and provides a public dataset. Lesson: useful industry evidence need not be private corporate data.
+
+These are historical examples **under NAACL 2025's evaluation**; track topics, restrictions, policy and quality threshold must be rechecked for 2027. The official NAACL 2027 FAQ remains the authority for author eligibility.
+
+## Matching existing CS Conf research branches to these tracks
+
+- **CC-04 entity-resolution completion budgets:** the [VLDB 2027 Scalable Data Science](https://vldb.org/2027/call-for-research-track.html) research category is particularly relevant because its official CFP explicitly cites reusable entity-linkage infrastructure. A future **NAACL/COLING Industry** claim would require a genuine speech/text business application and actual practical evaluation; matched candidate-count toy experiments alone are not enough. **ICDE/SIGMOD industrial** would require an eligible non-academic coauthor even if CC-04 had a good systems contribution.
+- **CC-08 research-agent verification:** NAACL Industry might fit only if an actual NLP-agent system is deployed/used beyond a controlled research setting and yields operationally valuable evidence. Existing prior-art overlap and lack of external deployment do not support immediate submission.
+- **CC-02 adaptive masking and CC-05 pretraining:** general methodological work usually belongs in a research track; calling it industrial because it improves speed is insufficient without meaningful real-world application, lifecycle cost and operational constraints.
+- **CC-09/CC-17 speech and audio experiments:** practical speech systems can fit some NLP Industry Tracks, but academic benchmark-only analysis and missing authorized evaluation datasets are not substitutes for field validation.
+- **CC-13 network systems:** the IMC/SIGCOMM measurement/experience routes are different from Industry Track affiliation-gated product tracks; choose according to original evidence requirements, not conference prestige.
+
+**Submissions are not ready by virtue of being eligible.** No new abstract, verified deployed system, independent evaluation or conference submission is claimed from this policy audit.
+
 ## Future hourly CS Conf rules
 
 1. **Do not filter out an Industry Track just because the user is a research student.** Check every paper track against its actual CFP/FAQ and record **author eligibility independently from paper fit**.
