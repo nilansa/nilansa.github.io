@@ -34,7 +34,13 @@ The labels in this audit apply to **a university-only student author team**:
 | [ECIR 2027 — Industry Day submission](https://www.ecir2027.co.uk/calls) | ? Academic-only eligibility not confirmed | 2026-11-02 | Event/program route; not shown as a general archival Industry Paper Track. Individual call may impose presenter requirements. | Industry Day contribution; do not treat as an archival research-paper acceptance without checking its own CFP. |
 | [NAACL 2027 — System Demonstrations (alternative)](https://2027.naacl.org/calls/system_demonstration/) | ✓ Academic-only author team allowed | 2026-12-04 | No corporate-author requirement in system-demo CFP; accepted working systems can come from academic researchers. | Accessible running demo/installable software, <=2.5-minute video, independent evaluation; pure UI/API wrapper insufficient. |
 
+| [MLSys 2027 — Industrial Track](https://mlsys.org/Conferences/2027/CallForResearchPapers) | ✕ Industry authors mandatory | 2026-10-30, 20:00 UTC | 2027 CFP: **first author and majority of authors from industry**; university-only student team ineligible | Real deployed, scheduled roadmap or canceled large-scale ML system with design/operational lessons and detailed benchmarks; not speculative small research; AI Usage Disclosure required |
+
 The table includes industry papers, adjacent applied-paper routes, a research-track application alternative, a system-demonstration alternative, and an Industry Day **event**. Their publication formats are not interchangeable.
+
+### MLSys 2027 — separate industrial and research tracks
+
+The [official MLSys 2027 research and industrial CFP](https://mlsys.org/Conferences/2027/CallForResearchPapers) places Industrial Track eligibility directly in the same page as the research track. It **requires the first and majority of authors to work in industry**, excludes speculative small experiments, and requires real deployed/roadmap/canceled large-scale ML systems with lessons; new algorithmic novelty is *not* mandatory. The deadline for both tracks is **30 October 2026, 20:00 UTC (noon PDT)**; after submitting, authors cannot switch tracks. All papers require detailed **AI Usage Disclosure**. The **research** track remains the route for academically authored original ML-systems research, but it still needs credible evidence; same institutional permissions cannot be assumed for Industrial Track. No CS Conf submission is ready. Source: https://mlsys.org/Conferences/2027/CallForResearchPapers
 
 ## NAACL 2027 — detailed decision
 
