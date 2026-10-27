@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="CS Conf: conference deadlines, original research hypotheses, sources, and research decision rules.">
+<meta name="description" content="CS Conf: conference deadlines across all AI, CS, computational biology, biomedical imaging, and neuroscience, with CORE/CCF ranking filters.">
 <title>CS Conf | Research and Conference Index</title>
 <style>
 :root{color-scheme:light}
@@ -37,6 +37,11 @@ ul,ol{padding-left:24px}li{margin:4px 0}
 #sources-list li{margin:7px 0}
 #venue-groups p{line-height:2}
 footer{border-top:1px solid #aaa;margin-top:40px;padding-top:12px;font-size:12px}
+#coverage-count,#bio-count{font-size:12px;color:#555}
+#venue-count{margin:6px 0}
+.venue-rank{font-size:11px;color:#555;white-space:nowrap}
+.bio-row td:first-child{white-space:nowrap}
+@media(max-width:650px){.venue-rank{white-space:normal}}
 @media(max-width:650px){body{margin:10px auto}h1{font-size:25px}table{font-size:12px}nav a{margin-right:4px}input[type=search]{width:140px}}
 </style>
 </head>
@@ -48,8 +53,9 @@ footer{border-top:1px solid #aaa;margin-top:40px;padding-top:12px;font-size:12px
 <nav>
 <a href="/tracker/">Main tracker</a> |
 <a href="#deadlines">Deadlines</a> |
+<a href="#biology">Biology / neuroscience</a> |
+<a href="#venues">All venues + rankings</a> |
 <a href="#ideas">Research ideas</a> |
-<a href="#venues">All CS venues</a> |
 <a href="#process">Research protocol</a> |
 <a href="#policies">AI-use policies</a> |
 <a href="#sources">Sources</a>
@@ -65,11 +71,12 @@ footer{border-top:1px solid #aaa;margin-top:40px;padding-top:12px;font-size:12px
 </section>
 <section id="deadlines">
 <h2>Upcoming deadlines</h2>
-<p><small>Verified from organizer websites unless marked proposed. AoE = Anywhere on Earth. MLSys uses Pacific time, so do not interpret all dates as midnight IST. A past abstract/enrollment deadline can prevent later full-paper submission.</small></p>
+<p><small>Official organizer deadlines are primary; rankings from Hugging Face are separate, unverified metadata. AoE = Anywhere on Earth. A mandatory abstract deadline may bar later full-paper submission. Organizer proposals, talks and registration dates are explicitly distinguished from research papers.</small></p>
 <div>
 <label>Window <select id="window"><option value="60">Next 60 days</option><option value="120" selected>Next 120 days</option><option value="365">Next 365 days</option><option value="all">All checked dates</option></select></label>
-<label>Area <select id="deadline-area"><option value="all">All areas</option></select></label>
-<label>Search <input id="deadline-query" type="search" placeholder="CVPR, RSS, paper…"></label>
+<label>Area <select id="deadline-area"><option value="all">All subjects</option></select></label>
+<label>Track <select id="deadline-kind"><option value="all">All types</option><option value="paper">Research paper</option><option value="abstract">Abstract / enrollment</option><option value="proposal">Organizer proposal / talk</option><option value="demo">Demo</option><option value="registration">Registration / application</option><option value="other">Challenge / other</option></select></label>
+<label>Search <input id="deadline-query" type="search" placeholder="ISMB, RECOMB, MICCAI…"></label>
 </div>
 <p id="deadline-count" class="muted"></p>
 <div class="tbl">
@@ -80,6 +87,16 @@ footer{border-top:1px solid #aaa;margin-top:40px;padding-top:12px;font-size:12px
 </div>
 <p><small><strong>Already closed:</strong> <span id="closed">ICLR 2027; AISTATS 2027; ICRA 2027; ICASSP 2027.</span> Closed tracks are not near-term targets for new submissions.</small></p>
 </section>
+<section id="biology">
+<h2>Computational biology, biomedical AI &amp; neuroscience</h2>
+<p>Prominent upcoming deadlines for RECOMB, ISMB/ECCB, BIOINFORMATICS, MICCAI, MIDL, ISBI, COSYNE and related events. Many 2027 conferences have not yet announced a paper deadline: an absent date means <strong>unannounced or unverified</strong>, not that a submission is open.</p>
+<p id="bio-count" class="muted">Loading biology dates…</p>
+<div class="tbl"><table aria-label="Biology, neuroscience and biomedical AI conference deadlines">
+<thead><tr><th>Date</th><th>Venue</th><th>Action / track</th><th>Official details</th></tr></thead>
+<tbody id="bio-rows"><tr><td colspan="4">Loading organizer-checked dates…</td></tr></tbody>
+</table></div>
+<p><a href="#venues">View the full computational biology conference catalogue below</a> · <a href="https://conferences.databio.org/">Databio biology conference list</a></p>
+</section>
 <section id="ideas">
 <h2>Research idea index</h2>
 <p>A research direction is <strong>not</strong> an accepted or completed paper. Cost is a qualitative estimate for the <em>pilot</em>, not the full publication. Use an idea ID in this conversation to ask for its literature audit, experimental protocol, new branches, or abstract.</p>
@@ -88,10 +105,17 @@ footer{border-top:1px solid #aaa;margin-top:40px;padding-top:12px;font-size:12px
 <div id="idea-list">Loading hypothesis portfolio…</div>
 </section>
 <section id="venues">
-<h2>Broad CS venue catalogue</h2>
-<p>Includes ML, data, vision, language, audio, robotics, networks, systems, security, theory, scientific computing, biomedical imaging, neuroscience, and HCI. A venue appearing below does not mean that its current submission is open or that it has a particular ranking.</p>
+<h2>All CS and scientific venue catalogue</h2>
+<p>Broad CS plus computational biology, genome informatics, biomedical imaging, health AI and neuroscience. <strong>CORE / CCF / ERA labels are reproduced from the Hugging Face source when available, not independently verified current rankings.</strong> Blank ratings mean unavailable data, not a low ranking. Listing does not mean the submission is open.</p>
+<p id="coverage-count" class="muted">Loading source coverage…</p>
 <p><small><strong>Priority venue watch:</strong> <span id="watch">COLM 2027, ICML 2027, NeurIPS 2027, KDD later cycle, MICCAI 2027, CoRL 2027.</span></small></p>
-<label>Find venue <input id="venue-query" type="search" placeholder="COLM, SOSP, ISIT…"></label>
+<div>
+<label>Find venue <input id="venue-query" type="search" placeholder="RECOMB, ISMB, COLM…"></label>
+<label>CORE <select id="venue-core"><option value="all">All</option><option value="A*">A*</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="unknown">Not recorded</option></select></label>
+<label>CCF <select id="venue-ccf"><option value="all">All</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="unknown">Not recorded</option></select></label>
+<label>ERA <select id="venue-era"><option value="all">All</option><option value="A*">A*</option><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="unknown">Not recorded</option></select></label>
+</div>
+<p id="venue-count" class="muted"></p>
 <div id="venue-groups"></div>
 </section>
 <section id="process">
@@ -139,12 +163,19 @@ function link(text,href,parent){const a=el('a',text,parent);try{const u=new URL(
 function istDay(){const v={};new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Kolkata',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date()).forEach(p=>v[p.type]=p.value);return v.year+'-'+v.month+'-'+v.day;}
 function afterDays(day,n){const d=new Date(day+'T00:00:00Z');d.setUTCDate(d.getUTCDate()+n);return d.toISOString().slice(0,10);}
 function renderDeadlines(){
-const area=$('deadline-area').value,q=$('deadline-query').value.toLowerCase(),w=$('window').value,start=istDay(),end=w==='all'?'9999-12-31':afterDays(start,Number(w));
-let ds=db.deadlines.filter(d=>(w==='all'||d.date>=start&&d.date<=end)&&(area==='all'||d.area===area)&&[d.venue,d.action,d.area].join(' ').toLowerCase().includes(q)).sort((a,b)=>a.date.localeCompare(b.date));
+const area=$('deadline-area').value,kind=$('deadline-kind').value,q=$('deadline-query').value.toLowerCase(),w=$('window').value,start=istDay(),end=w==='all'?'9999-12-31':afterDays(start,Number(w));
+let ds=db.deadlines.filter(d=>(w==='all'||d.date>=start&&d.date<=end)&&(area==='all'||d.domain===area)&&(kind==='all'||d.type===kind)&&[d.venue,d.action,d.area,d.domain,d.type].join(' ').toLowerCase().includes(q)).sort((a,b)=>a.date.localeCompare(b.date));
 const root=$('deadline-rows');root.replaceChildren();
-for(const d of ds){const tr=el('tr',undefined,root);el('td',d.date,tr);el('td',d.venue,tr);el('td',d.action,tr);el('td',(d.time||'')+(d.status==='proposed'?' [proposed, verify]':''),tr);const td=el('td',undefined,tr);link('Organizer ↗',d.source,td);}
-if(!ds.length){const tr=el('tr',undefined,root);const td=el('td','No matching future deadlines in this window.',tr);td.colSpan=5;}
-$('deadline-count').textContent=ds.length+' deadlines displayed · organizer-checked snapshot '+db.checkedAt+'.';
+for(const d of ds){const tr=el('tr',undefined,root);el('td',d.date,tr);el('td',d.venue,tr);el('td',d.action,tr);let note=d.time||'';if(String(d.status||'').includes('proposed'))note+=' [PROPOSED — verify]';el('td',note,tr);const td=el('td',undefined,tr);link('Official source',d.source,td);}
+if(!ds.length){const tr=el('tr',undefined,root);const td=el('td','No matching recorded deadlines. Check the venue website for updates.',tr);td.colSpan=5;}
+$('deadline-count').textContent=ds.length+' of '+db.deadlines.length+' dated actions displayed · organizer-reviewed snapshot '+db.checkedAt+'.';
+}
+function renderBiology(){
+const root=$('bio-rows');root.replaceChildren();const today=istDay();
+const ds=db.deadlines.filter(d=>d.date>=today&&['Computational biology / bioinformatics','Biomedical imaging / health AI','Neuroscience'].includes(d.domain)).sort((a,b)=>a.date.localeCompare(b.date));
+for(const d of ds){const tr=el('tr',undefined,root);tr.className='bio-row';el('td',d.date,tr);el('td',d.venue,tr);const cell=el('td',d.action,tr);const sub=el('div',d.type==='paper'?'Paper':d.type==='proposal'?'Proposal, NOT paper':d.type==='abstract'?'Abstract / preregistration':d.type==='registration'?'Registration, NOT paper':d.type||'Other',cell);sub.className='status';const td=el('td',undefined,tr);link('Organizer',d.source,td);}
+if(!ds.length){const tr=el('tr',undefined,root);const td=el('td','No upcoming organizer-checked biological dates yet; check catalogue and organizer sources.',tr);td.colSpan=4;}
+$('bio-count').textContent=ds.length+' upcoming dated actions · main research papers, abstracts, workshop proposals and meeting applications are differentiated.';
 }
 function renderIdeas(){const root=$('idea-list'),q=$('idea-query').value.toLowerCase();root.replaceChildren();let shown=0;
 for(const d of db.branches){const all=Object.values(d).join(' ').toLowerCase();if(!all.includes(q))continue;shown++;
@@ -156,12 +187,17 @@ if(Array.isArray(d.closestPriorArt)&&d.closestPriorArt.length){const p2=el('p',u
 }
 $('idea-count').textContent=shown+' of '+db.branches.length+' branches. The initial labels are hypotheses; experiments not run.';
 }
-function renderVenues(){const q=$('venue-query').value.toLowerCase();const root=$('venue-groups');root.replaceChildren();let total=0;
-for(const g of db.areas){const filtered=g.venues.filter(v=>v.name.toLowerCase().includes(q));if(!filtered.length)continue;total+=filtered.length;
-const d=el('details',undefined,root);d.open=!!q;const s=el('summary',g.area+' ('+filtered.length+')',d);const p=el('p',undefined,d);
-filtered.forEach((v,i)=>{if(i)p.append(' · ');if(v.url)link(v.name,v.url,p);else el('span',v.name,p);});
+function renderVenues(){
+const q=$('venue-query').value.toLowerCase(),core=$('venue-core').value,ccf=$('venue-ccf').value,era=$('venue-era').value,root=$('venue-groups');root.replaceChildren();let total=0;
+const matchRank=(v,k,value)=>value==='all'||(value==='unknown'?!v.rankings||!v.rankings[k]:v.rankings&&v.rankings[k]===value);
+for(const g of db.areas){
+const filtered=g.venues.filter(v=>(v.name+' '+(v.fullName||'')).toLowerCase().includes(q)&&matchRank(v,'CORE',core)&&matchRank(v,'CCF',ccf)&&matchRank(v,'ERA',era));
+if(!filtered.length)continue;total+=filtered.length;
+const d=el('details',undefined,root);d.open=!!q||g.area.includes('Computational biology');const s=el('summary',g.area+' ('+filtered.length+')',d);const p=el('p',undefined,d);
+filtered.forEach((v,i)=>{if(i)p.append(' · ');if(v.url)link(v.name,v.url,p);else el('span',v.name,p);const r=v.rankings||{};const scores=['CORE','CCF','ERA'].filter(k=>r[k]).map(k=>k+' '+r[k]);if(scores.length){const label=el('span',' ['+scores.join(' / ')+']',p);label.className='venue-rank';label.title=v.rankingsSource?'Reported by Hugging Face AI Deadlines; verify current ranking':'Ranking metadata; independently verify';}});
 }
-if(!total)el('p','No venues match.',root);
+if(!total)el('p','No venues match these filters. Try All or Not recorded for rankings.',root);
+$('venue-count').textContent=total+' catalogue entries displayed · '+db.areas.length+' subject groups.';
 }
 function renderPolicies(){const root=$('policy-rows');root.replaceChildren();for(const d of db.policies){const tr=el('tr',undefined,root);el('td',d.venue,tr);el('td',d.rule,tr);link('Policy',d.source,el('td',undefined,tr));}}
 function renderSources(){const root=$('sources-list');root.replaceChildren();for(const d of db.examples){const li=el('li',undefined,root);link(d.title,d.url,li);li.append(' — '+d.note);}}
@@ -169,11 +205,13 @@ fetch('./data.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('HTTP '+r.
 $('snapshot').textContent='Organizer-source check: '+db.checkedAt+' · Public research index, not a live deadline feed.';
 $('closed').textContent=db.closed.join(' · ');
 $('watch').textContent=db.watch.join(' · ');
-Array.from(new Set(db.deadlines.map(d=>d.area))).sort().forEach(a=>{const o=el('option',a,$('deadline-area'));o.value=a;});
-['window','deadline-area','deadline-query'].forEach(id=>$(id).addEventListener(id==='deadline-query'?'input':'change',renderDeadlines));
+Array.from(new Set(db.deadlines.map(d=>d.domain))).sort().forEach(a=>{const o=el('option',a,$('deadline-area'));o.value=a;});
+const coverage=db.integrations&&db.integrations.huggingFace;const bio=db.areas.find(a=>a.area==='Computational biology / bioinformatics / genomics');
+$('coverage-count').textContent='Total '+db.areas.reduce((n,a)=>n+a.venues.length,0)+' venue entries · Hugging Face '+(coverage?coverage.matchedFiles+' of '+coverage.totalFiles:'source pending')+' conference definitions · '+(bio?bio.venues.length:0)+' biology venues · '+db.deadlines.length+' dated actions.';
+['window','deadline-area','deadline-kind','deadline-query'].forEach(id=>$(id).addEventListener(id==='deadline-query'?'input':'change',renderDeadlines));
 $('idea-query').addEventListener('input',renderIdeas);
-$('venue-query').addEventListener('input',renderVenues);
-renderDeadlines();renderIdeas();renderVenues();renderPolicies();renderSources();
+['venue-query','venue-core','venue-ccf','venue-era'].forEach(id=>$(id).addEventListener(id==='venue-query'?'input':'change',renderVenues));
+renderDeadlines();renderBiology();renderIdeas();renderVenues();renderPolicies();renderSources();
 }).catch(e=>{console.warn('CS Conf data load:',e);$('deadline-rows').replaceChildren(el('tr'));$('deadline-count').textContent='Could not load data.json. Use the machine-readable index link under Sources or the GitHub source.';$('idea-list').textContent='Data currently unavailable; open the linked data.json file.';$('policy-rows').textContent='Data currently unavailable.';});
 })();
 </script>
