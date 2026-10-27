@@ -2,8 +2,8 @@
   "version": 1,
   "taskId": "20261026-csconf-research",
   "createdAt": "2026-10-26T13:51:12.349Z",
-  "checkedAt": "2026-10-27",
-  "editorialNote": "27 Oct late cycle: added MLSys 2027 Industrial author eligibility to dedicated industry tracker; IMC 2025 LACeS/PyTNT accepted source audit; new CC18 method-change sensitivity PROPOSAL, private exploratory counts withheld; no matched-cohort result or new network probing. 27 Oct 2026: industry-track academic/student eligibility verified via official CFPs (NAACL, COLING, EACL, SIGMOD, ICDE, ISCA, CHIIR, PAKDD and historical examples); 17 track-specific evidence records and eligibility/affiliation filters. 27 Oct primary IMC 2027 Cycle 1+Replicability venue/AI policy; accepted SIGCOMM 2026 RepLLM/TianYan and IMC 2025 replication precedents; no new network or model experiment. 27 Oct 2026 speech/industry visibility correction: dedicated speech section and explicit Industry Track routes; new official ASLI 2027, COLING 2027 Industry, EUSIPCO, IWSLT, ITG Speech, DCASE, IEEE SSP organizer deadlines; separate ASLI from discontinued ASRU/SLT cycle. 27 Oct 2026 accepted KDD 2026 ReplicatorBench and ICML 2026 BioAgent Bench narrow generic research-agent and bioinformatics-agent novelty; CC08 internal-audit-first stop gate sharpened; separate ISIT 2027 workshop Nov15 and paper Jan10 added; SIGCOMM Feb2 source reconfirmed, CC13 paired control fixed. Prior VAANI class-agnostic correction preserved. No new model/agent benchmark, GPU, paid API, sealed data, paper submission or ChatGPT↔Codex/local transfer.",
+  "checkedAt": "2026-10-28",
+  "editorialNote": "28 Oct 2026 public-safe corrections: CC18 stable-denominator blocker and documented Oct10/Oct17 changes; RECOMB-Seq Proceedings/Overlay Jan25/Jan30; ISBI 2027 non-archival poster vs four-page paper, code/ethics policy. No published private pilot measurements. 27 Oct late cycle: added MLSys 2027 Industrial author eligibility to dedicated industry tracker; IMC 2025 LACeS/PyTNT accepted source audit; new CC18 method-change sensitivity PROPOSAL, private exploratory counts withheld; no matched-cohort result or new network probing. 27 Oct 2026: industry-track academic/student eligibility verified via official CFPs (NAACL, COLING, EACL, SIGMOD, ICDE, ISCA, CHIIR, PAKDD and historical examples); 17 track-specific evidence records and eligibility/affiliation filters. 27 Oct primary IMC 2027 Cycle 1+Replicability venue/AI policy; accepted SIGCOMM 2026 RepLLM/TianYan and IMC 2025 replication precedents; no new network or model experiment. 27 Oct 2026 speech/industry visibility correction: dedicated speech section and explicit Industry Track routes; new official ASLI 2027, COLING 2027 Industry, EUSIPCO, IWSLT, ITG Speech, DCASE, IEEE SSP organizer deadlines; separate ASLI from discontinued ASRU/SLT cycle. 27 Oct 2026 accepted KDD 2026 ReplicatorBench and ICML 2026 BioAgent Bench narrow generic research-agent and bioinformatics-agent novelty; CC08 internal-audit-first stop gate sharpened; separate ISIT 2027 workshop Nov15 and paper Jan10 added; SIGCOMM Feb2 source reconfirmed, CC13 paired control fixed. Prior VAANI class-agnostic correction preserved. No new model/agent benchmark, GPU, paid API, sealed data, paper submission or ChatGPT↔Codex/local transfer.",
   "deadlines": [
     {
       "date": "2026-10-27",
@@ -888,17 +888,6 @@
     },
     {
       "date": "2027-02-01",
-      "venue": "ISBI 2027",
-      "action": "One-page non-archival poster abstract",
-      "area": "Biomedical imaging",
-      "time": "11:59 PM USA (EDT) per organizer; NOT proceedings publication",
-      "source": "https://biomedicalimaging.org/2027/",
-      "status": "confirmed",
-      "domain": "Biomedical imaging / health AI",
-      "type": "abstract"
-    },
-    {
-      "date": "2027-02-01",
       "venue": "ISBI 2027 One-Page Abstracts",
       "action": "One-page biomedical imaging ABSTRACT route, NOT the November archival four-page paper",
       "area": "Biomedical imaging / interdisciplinary",
@@ -1185,6 +1174,39 @@
       "domain": "Systems / ML systems",
       "type": "paper",
       "trackCategory": "industry"
+    },
+    {
+      "date": "2027-01-25",
+      "venue": "RECOMB-Seq 2027",
+      "action": "MANDATORY abstract for Proceedings OR Overlay paper; no placeholder titles/abstracts",
+      "area": "Computational genomics / biological sequence algorithms",
+      "time": "23:59 AoE; Jan 30 full paper only for registered submissions; poster/short talk separate TBA",
+      "source": "https://recomb-seq.github.io/seq2027/keydates_and_deadlines",
+      "status": "confirmed organizer; conference date line contains a separate 2026 typo",
+      "type": "abstract",
+      "domain": "Computational biology / bioinformatics"
+    },
+    {
+      "date": "2027-01-30",
+      "venue": "RECOMB-Seq 2027",
+      "action": "Full Proceedings/Overlay paper; prior Jan 25 abstract required",
+      "area": "Genomics / sequencing algorithms / computational biology",
+      "time": "23:59 AoE; Proceedings cannot be under review elsewhere; Overlay needs public preprint and permits concurrent submission subject to CFP. Short poster abstract date TBA",
+      "source": "https://recomb-seq.github.io/seq2027/call_for_papers.html",
+      "status": "confirmed organizer; proceedings / overlay publication conditions differ",
+      "type": "paper",
+      "domain": "Computational biology / bioinformatics"
+    },
+    {
+      "date": "2027-01-26",
+      "venue": "ISBI 2027 Workshop Papers",
+      "action": "Workshop paper submission (separate from Nov 2 archival main paper and Feb 1 poster abstract)",
+      "area": "Biomedical imaging / specialized workshop",
+      "time": "11:59 PM USA Eastern; publication status must be verified for the specific workshop",
+      "source": "https://biomedicalimaging.org/2027/",
+      "status": "confirmed date on organizer homepage; archival status workshop-dependent",
+      "type": "paper",
+      "domain": "Biomedical imaging / health AI"
     }
   ],
   "areas": [
@@ -1551,6 +1573,11 @@
         {
           "name": "WABI",
           "url": "https://www.wabi-conference.org/"
+        },
+        {
+          "name": "RECOMB-Seq 2027",
+          "url": "https://recomb-seq.github.io/seq2027/call_for_papers.html",
+          "fullName": "RECOMB Satellite on Biological Sequence Analysis — Proceedings, Overlay and short talk/poster routes; mandatory advance abstract"
         }
       ]
     },
@@ -3158,7 +3185,20 @@
           "title": "Cell Behavior Video Classification Challenge (2026)",
           "url": "https://arxiv.org/abs/2601.10250"
         }
-      ]
+      ],
+      "venueAudit": {
+        "checkedAt": "2026-10-28",
+        "venue": "ISBI 2027",
+        "submissions": [
+          "2026-11-02 archival four technical page paper",
+          "2027-01-26 separate workshop paper call",
+          "2027-02-01 non-archival one-page poster abstract"
+        ],
+        "aiPolicy": "IEEE substantive AI-generated content must be disclosed in acknowledgments, including sections and extent; minor editing exemption generally applies.",
+        "ethics": "Authors must include statement of ethical compliance, including when no ethics approval was needed; no clinical conclusion without suitable evaluation.",
+        "decision": "No submission-ready independent cell-lineage/visual-texture validation; keep source-only protocol.",
+        "source": "https://biomedicalimaging.org/2027/papers/"
+      }
     },
     {
       "id": "CC-13",
@@ -3314,7 +3354,7 @@
         "SIGCOMM measurement/experience (only with strong novel evidence)"
       ],
       "cost": "low CPU, public archival data only",
-      "stage": "PROVISIONAL PUBLIC-SOURCE PROTOCOL (27 Oct 2026); LACeS 2025 accepted IMC paper and dataset docs already disclose 3 Oct 2026 airport-to-city metadata change and 17 Oct 2026 IPv6 alias-prefix sampling/granularity change. A read-only exploratory daily-aggregate diagnostic was completed but all numerical research findings are PRIVATE. Original authors disclosed the change: not a novel measurement method or established paper result. Matched-prefix analysis, independent network measurement and causal identification remain undone.",
+      "stage": "SOURCE-OBSERVABILITY BLOCKER / STANDALONE PAPER DOWNGRADED (28 Oct 2026). Exact protocol hitlists not in published census; author lists available by permission only; source already documents 3 Oct geo-ID, 10 Oct DNS/ICMPv4 hitlist, and 17 Oct v6 alias-/40 changes. A matched positive-only prefix set is survivor-biased; publication novelty unresolved. Prior exploratory aggregate work remains PRIVATE. PROVISIONAL PUBLIC-SOURCE PROTOCOL (27 Oct 2026); LACeS 2025 accepted IMC paper and dataset docs already disclose 3 Oct 2026 airport-to-city metadata change and 17 Oct 2026 IPv6 alias-prefix sampling/granularity change. A read-only exploratory daily-aggregate diagnostic was completed but all numerical research findings are PRIVATE. Original authors disclosed the change: not a novel measurement method or established paper result. Matched-prefix analysis, independent network measurement and causal identification remain undone.",
       "question": "At fixed /48 prefix, protocol, population and measurement-source scope, how much of an observed daily IPv6 anycast-detection trend survives adjustment for documented scan-granularity and geolocation-ID changes?",
       "novelty": "LACeS (IMC 2025) already measures longitudinal IPv4/IPv6 anycast, publishes daily data, explicitly flags its alias /40 scan change from 2026-10-17 and airport-to-city geolocation representation from 2026-10-03. Therefore discovery of a raw aggregate jump or a plot around those dates alone cannot be claimed novel. A defensible result needs previously unreported unit-level sensitivity/validation or an independently observed measurement bias not already explained by the source documentation.",
       "pilot": "Using only released public historical Parquet daily snapshots, pin four dates spanning each documented policy change plus 7-day windows and unchanged v4 controls. Predefine one stable /48 prefix cohort, AB/GCD protocol, denominator, alias /40 strata, inclusion/exclusion rules, and compare same-prefix detections versus raw changing-coverage totals. Use checksums and source metadata, never send active network probes without separate ethics and permissions. First source data read feasibility <= 1 CPU core-hour; 0 GPU, 0 paid API; current workspace binary snapshot fetch remains blocked, so no matched-cohort result. Treat summary stats as exploratory only.",
@@ -3337,7 +3377,37 @@
           "title": "IMC 2027 replicability EoI eligibility and dates",
           "url": "https://conferences.sigcomm.org/imc/2027/cfp/"
         }
-      ]
+      ],
+      "lastSourceAudit": {
+        "checkedAt": "2026-10-28",
+        "sourceOnly": true,
+        "finding": "Official README and CHANGELOG describe 10 Oct DNS target-list growth and ICMPv4 priority update in addition to 17 Oct IPv6 /40 alias scan transition; weekly target lists are not in published rows.",
+        "criticalMissingInput": "Licensed full per-protocol target/IP scan frame by date and alias mask, not merely positive IPv6 /48 records",
+        "prospectiveHypothesis": "Reported IPv6 census change should shrink when comparing identical scanned /48 + IP target + protocol cohorts and normalized aliased ranges; not tested.",
+        "lockedDates": [
+          "2026-10-11",
+          "2026-10-16",
+          "2026-10-18",
+          "2026-10-24"
+        ],
+        "controls": [
+          "non-aliased IPv6 /48 at same target IP",
+          "IPv4 ICMP and TCP with explicit Oct10 hitlist caveat",
+          "AB and GCD separately with high-confidence threshold",
+          "measure missing/added scans and weekly target turnover"
+        ],
+        "maxCost": "<=2 CPU core-hours, <=10 MB targeted binary snapshots, no GPU, API charge or active scans",
+        "status": "blocked; target lists/access needed before attribution; no binary downloaded and no matched-prefix run",
+        "decision": "downgrade to internal source-quality/reproducibility protocol until a novel, independently validated cohort-level result exists",
+        "stop": "retire standalone paper route if scan frame cannot be audited, change is explained by already documented pipeline updates, or target-mix effect duplicates accepted IMC 2025/past work",
+        "report": "https://github.com/nilansa/nilansa.github.io/blob/main/cs-conf/audits/cc18-census-observability-gate-2026-10-28.md",
+        "sources": [
+          "https://github.com/ut-dacs/anycast-census/blob/main/CHANGELOG.md",
+          "https://github.com/ut-dacs/anycast-census/blob/main/ATTRIBUTION.md",
+          "https://github.com/ut-dacs/anycast-census/blob/main/README.md",
+          "https://arxiv.org/abs/2610.27318"
+        ]
+      }
     }
   ],
   "policies": [
@@ -3403,7 +3473,7 @@
     },
     {
       "venue": "ISBI 2027",
-      "rule": "IEEE disclosure of AI-generated article content identifying tool, sections and extent; basic grammar editing exempt but disclosure recommended. In-person presentation mandatory; first-author max two submissions; archival full paper restricted to four technical pages, fifth nontechnical page costs USD 200.",
+      "rule": "IEEE disclosure of AI-generated article content identifying tool, sections and extent; basic grammar editing exempt but disclosure recommended. In-person presentation mandatory; first-author max two submissions; archival full paper restricted to four technical pages, fifth nontechnical page costs USD 200. Authors must include an ethics-compliance statement, even when the paper is simulation only or no ethics approval applies. One-page February poster abstracts are non-archival; workshops use separate calls; IEEE substantive AI-generated article content must be disclosed in acknowledgments.",
       "source": "https://biomedicalimaging.org/2027/papers/",
       "flag": "IEEE substantive content disclosure; physical attendance; first-author <=2"
     },
@@ -3490,6 +3560,18 @@
       "rule": "Mandatory double-blind manuscript. Cycle 1 abstract registration Nov 10 AoE, full Nov 17 AoE. Replicability Track Jan 13 AoE one-page EoI must name a prior published NETWORK MEASUREMENT finding and independent method; invitation is required for March 31 Cycle-2 registration/April 7 full. Up to 13 technical pages for full, 6 for short. NEW 2027: three mandatory appendix sections titled Ethics, Open Science, Generative AI; disclose all material AI-assisted research/writing and versions; submit plain-text references / BBL. ACM 2027 OA charges may apply unless institutional coverage/waiver; subsidized $500 ACM/SIG member or $750 non-member where applicable. Human authors responsible, independent results required; no automatic submission.",
       "source": "https://conferences.sigcomm.org/imc/2027/submission-instructions/",
       "flag": "new mandatory appendix trio and BBL; replication track invitation gate; 2027 OA APC may apply"
+    },
+    {
+      "venue": "RECOMB-Seq 2027",
+      "rule": "Jan 25 mandatory meaningful abstract (23:59 AoE); Jan 30 full paper. DISTINCT tracks: Proceedings cannot be simultaneously under review by another peer-reviewed venue and is considered for Journal of Computational Biology special issue; Overlay requires existing public preprint and permits concurrent submissions under its CFP while not yet published/in press; short talk/poster abstract deadline TBA, not automatically archival. Method/code papers must provide public documented source and minimal test data. Organizer call has a 'May 2026' date typo under its 2027 page; event intro says May 15–16 2027. The reviewed CFP does not establish a separate generative-AI-use policy; verify with organizers before a manuscript.",
+      "source": "https://recomb-seq.github.io/seq2027/call_for_papers.html",
+      "flag": "abstract prereg; proceedings vs overlay dual-review differences; AI policy not verified"
+    },
+    {
+      "venue": "RECOMB 2027",
+      "rule": "Mandatory substantive abstract Oct 28 2026 23:59 AoE before Nov 4 full paper. Must contain original computational/methodological advance; applications alone and resource-only pipelines are insufficient. Single-blind, max 4 full papers per author, 10-page main text, public source code by submission for methods papers. Accepted papers are indexed in DBLP and appear on organizer site and bioRxiv/arXiv, but organizer states NO separate proceedings volume. Special AI research/writing policy not specified by reviewed CFP; never infer absence of restriction equals authorization for wholly AI-written paper.",
+      "source": "https://recomb.org/recomb2027/call_for_papers",
+      "flag": "mandatory real abstract/novel algorithm, publication route differs from standard proceedings; AI policy unverified"
     }
   ],
   "examples": [
@@ -3936,6 +4018,18 @@
       "kind": "ACCEPTED IMC 2025 paper; primary public data source",
       "note": "Open longitudinal anycast census, public IPv4/IPv6 daily Parquet and daily protocol-stat text; author README documents Oct 3 and Oct 17 2026 methodology/schema revisions. Aggregate trends are not independently validated adoption rates. No replay or active probing here.",
       "url": "https://github.com/ut-dacs/Anycast-Census"
+    },
+    {
+      "title": "MAnycast²: Using Anycast to Measure Anycast (IMC 2020)",
+      "kind": "ACCEPTED IMC 2020 network-measurement research; author technical account",
+      "note": "Author explanation of active anycast measurement with operator validation and false-positive limits; generic AB errors and measurement validation are not new CC18 claims.",
+      "url": "https://blog.apnic.net/2020/12/15/manycast2-using-anycast-to-measure-anycast/"
+    },
+    {
+      "title": "RIPE Atlas Measurements and Geolocation Providers: A Longitudinal Consistency Evaluation (19 Oct 2026)",
+      "kind": "ARXIV PREPRINT, acceptance NOT verified",
+      "note": "The study notes that daily target-mix changes can affect apparent longitudinal IP geolocation consistency; relevant prior-art warning for CC18, NOT an accepted conference paper.",
+      "url": "https://arxiv.org/abs/2610.27318"
     }
   ],
   "closed": [
@@ -3979,7 +4073,7 @@
     "IEEE MLSP 2027 — paper CFP TBA",
     "ICASSP 2028 — paper deadline TBA"
   ],
-  "lastLiteratureAudit": "27 Oct 2026 late cycle: source-audited IMC 2025 LACeS/PyTNT, documented anycast census schema/sampling changes, public-snapshot feasibility; source-only CC-18 protocol (quantitative exploratory findings private); separately verified MLSys 2027 Industrial Track first/majority author affiliation restriction.",
+  "lastLiteratureAudit": "28 Oct 2026 source-only: LACeS primary changelog/attribution reveals Oct10 hitlist update and unpublished target frame, blocking causal attribution of Oct17 v6 counts; accepted IMC 2020 MAnycast and unreviewed Oct19 RIPE Atlas consistency preprint narrow CC18. Official RECOMB-Seq 2027 Proceedings vs Overlay CFP and deadlines Jan25/Jan30, ISBI 2027 ethics/AI/workshop tracks audited. No new test.",
   "integrations": {
     "huggingFace": {
       "repository": "huggingface/ai-deadlines",
