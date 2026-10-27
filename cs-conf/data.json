@@ -36,7 +36,7 @@
       "source": "https://chiir2027.github.io/short-papers.html",
       "status": "confirmed",
       "domain": "Data / IR / databases",
-      "type": "demo"
+      "type": "other"
     },
     {
       "date": "2026-10-29",
@@ -69,7 +69,7 @@
       "source": "https://ar-rsi.github.io/",
       "status": "confirmed",
       "domain": "NLP / language / agents",
-      "type": "other"
+      "type": "paper"
     },
     {
       "date": "2026-10-30",
@@ -102,7 +102,7 @@
       "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
       "status": "confirmed organizer listing; platform must be validated",
       "domain": "Neuroscience",
-      "type": "registration"
+      "type": "other"
     },
     {
       "date": "2026-11-01",
@@ -146,7 +146,7 @@
       "source": "https://facctconference.org/2027/cfp.html",
       "status": "confirmed",
       "domain": "AI / ML / statistics",
-      "type": "abstract"
+      "type": "paper"
     },
     {
       "date": "2026-11-03",
@@ -399,7 +399,7 @@
       "source": "https://icde2027.github.io/cf-future.html",
       "status": "confirmed organizer; human-originated, science-grounded paper required",
       "domain": "Data / IR / databases",
-      "type": "abstract"
+      "type": "paper"
     },
     {
       "date": "2026-11-23",
@@ -454,7 +454,7 @@
       "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
       "status": "confirmed organizer listing; platform must be validated",
       "domain": "Neuroscience",
-      "type": "paper"
+      "type": "other"
     },
     {
       "date": "2026-12-01",
@@ -465,7 +465,7 @@
       "source": "https://icde2027.github.io/cf-industry-track.html",
       "status": "confirmed organizer; eligibility gate",
       "domain": "Systems / ML systems",
-      "type": "registration"
+      "type": "paper"
     },
     {
       "date": "2026-12-01",
@@ -553,7 +553,7 @@
       "source": "https://www.usenix.org/conference/osdi27/call-for-papers",
       "status": "confirmed",
       "domain": "Networking / operations",
-      "type": "abstract"
+      "type": "paper"
     },
     {
       "date": "2026-12-10",
@@ -641,7 +641,7 @@
       "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
       "status": "confirmed organizer schedule; platform and resource eligibility still require inspection",
       "domain": "Speech / audio",
-      "type": "paper"
+      "type": "other"
     },
     {
       "date": "2026-12-22",
@@ -773,7 +773,7 @@
       "source": "https://biomedicalimaging.org/2027/",
       "status": "confirmed official, requires appropriate challenge work",
       "domain": "Biomedical imaging / health AI",
-      "type": "abstract"
+      "type": "paper"
     },
     {
       "date": "2027-02-28",
