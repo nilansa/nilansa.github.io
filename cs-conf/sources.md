@@ -449,3 +449,14 @@ Task ID: `20261026-csconf-research`. This is a public-safe source audit and dire
 **UI repairs.** The webpage now features a visible biology/neuroscience deadline section, broad subject selector instead of over-fine area values, track-type selector, full-text search, and catalogue CORE/CCF/ERA filters. Every displayed ranking is HF-provided and should be rechecked against the current ranking authority before an important decision. Unknown ranking is not equivalent to a poor ranking. All dated events keep an official source link, status and track type; source snapshot is `2026-10-27` IST, **not a live API**.
 
 **Maintenance:** Refresh organizer sources before deadlines; periodically compare fresh [HF YAML](https://github.com/huggingface/ai-deadlines/tree/main/src/data/conferences) and [Databio JSON](https://github.com/databio/conferences/blob/main/data/conferences.json). Preserve user edits and ranking provenance; never synthesize unannounced future deadlines from prior years. Paper submissions require independent review and explicit human approval.
+
+
+### Additional neuroscience source gap closed (October 27, 2026)
+
+The initial HF/DataBio merge missed official 2027 neuroscience dates because HF does not cover all neural and brain-imaging societies. Added distinct *Neuroscience / computational neuroscience* venue group (COSYNE, CCN, OHBM, Bernstein Conference, CNS*, INCF Assembly), while retaining a separate *Medical imaging / health AI* catalogue. Official 2027 event details:
+- [Cognitive Computational Neuroscience (CCN 2027)](https://www.ccneuro.org/): **February 1** eight-page proceedings abstract; **February 4** eight-page proceedings full paper; **March 18** community-event proposals; **April 1** two-page extended abstracts. All end of day AoE. These tracks are distinct.
+- [Organization for Human Brain Mapping (OHBM 2027)](https://w.humanbrainmapping.org/2027CallforContent/): meeting-content and poster-abstract submissions open November 2, 2026; **December 14, 2026** deadline for poster abstracts and other content. This is not an archival conference full-paper deadline.
+- [Bernstein Conference 2027](https://bernstein-network.de/en/bernstein-conference/bernstein-conference-2027/): confirmed conference September 15–18, 2027; **no verified 2027 paper/abstract submission date yet**; do not extrapolate from 2026.
+- [INCF Assembly](https://www.incf.org/activities/incf-assembly) and [CNS*](https://www.cnsorg.org/): listed as neuroscience-watch venues; do not manufacture 2027 deadlines without organizer confirmation.
+
+These five newly recorded *dated actions* bring the deadline table to 80 entries; the catalogue has 153 area entries (some venues may appear in more than one subject). The primary website uses the 2026-10-27 organizer-check snapshot and should be checked against organizers again close to submission.
