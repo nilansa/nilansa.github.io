@@ -3,7 +3,7 @@
   "taskId": "20261026-csconf-research",
   "createdAt": "2026-10-26T13:51:12.349Z",
   "checkedAt": "2026-10-27",
-  "editorialNote": "27 Oct 19:11 IST source-verified independent VAANI-trained 54-class speech-event preprint (Oct 9), resulting CC-09 contamination/novelty gate and missing warm-start caveat; AdaMAE v1 actual release has two ~1.23-GB checkpoints (no binary read); MLSys author quota and mandatory AI disclosure; official NAACL demo Dec 4 and ISBI Feb 1/Feb 26 tracks. Private findings recorded in the decision inbox. No model run, gated download, sealed test, GPU, submission or ChatGPT↔Codex/local handoff.",
+  "editorialNote": "27 Oct 19:11 IST source-verified independent VAANI-trained 54-class speech-event preprint (Oct 9), resulting CC-09 contamination/novelty gate and missing warm-start caveat; AdaMAE v1 actual release has two ~1.23-GB checkpoints (no binary read); MLSys author quota and mandatory AI disclosure; official NAACL demo Dec 4 and ISBI Feb 1/Feb 26 tracks. Private findings recorded in the decision inbox. No model run, gated download, sealed test, GPU, submission or ChatGPT↔Codex/local handoff. Coverage audit 2026-10-27: all 68 HF YAML definitions incorporated into venue catalogue; 2027 computational biology and specialist tracks included; official dates preferred.",
   "deadlines": [
     {
       "date": "2026-10-27",
@@ -12,520 +12,9 @@
       "area": "Responsible AI / accountability / interdisciplinary CS",
       "time": "11:59 PM AoE; must register abstract before full-paper submission",
       "source": "https://facctconference.org/2027/cfp.html",
-      "status": "confirmed"
-    },
-    {
-      "date": "2026-10-29",
-      "venue": "CHIIR 2027",
-      "action": "Short, demo/design, resource and industry paper tracks (check individual CFPs)",
-      "area": "Interactive IR / user studies",
-      "time": "11:59 PM AoE; short paper 4 pages, no abstract preregistration; in-person presentation; verify ACM OA payment",
-      "source": "https://chiir2027.github.io/short-papers.html",
-      "status": "confirmed"
-    },
-    {
-      "date": "2026-10-30",
-      "venue": "AISTATS 2027 Workshops",
-      "action": "Workshop ORGANIZER proposal (3 pages), not contributed research paper",
-      "area": "ML / statistics / interdisciplinary CS",
-      "time": "Friday 22:59 CET = 21:59 UTC, NOT AoE; dedicated workshop CFP updated Oct 22 overrides parent CFP's generic workshop listing",
-      "source": "https://virtual.aistats.org/Conferences/2027/CallForWorkshops",
-      "status": "confirmed dedicated CFP; not an archival paper deadline"
-    },
-    {
-      "date": "2026-10-30",
-      "venue": "ARRSI 2026 workshop (AACL-IJCNLP)",
-      "action": "Short/position/resource (<=4 pages) or long (<=8 pages); work must meet double-blind evidence/reporting rules",
-      "area": "Research agents",
-      "time": "Oct 30 11:59 PM AoE = Oct 31 4:59 AM PDT; OpenReview; no paper-ready CC-08 claim yet",
-      "source": "https://ar-rsi.github.io/",
-      "status": "confirmed"
-    },
-    {
-      "date": "2026-10-30",
-      "venue": "MLSys 2027",
-      "action": "Full research paper",
-      "area": "ML systems",
-      "time": "12:00 PM PDT (not AoE)",
-      "source": "https://mlsys.org/Conferences/2027/Dates",
-      "status": "confirmed"
-    },
-    {
-      "date": "2026-10-31",
-      "venue": "NAACL 2027 Industry Track",
-      "action": "Six-page industry paper (real-world deployed or planned NLP/speech system, no ARR)",
-      "area": "NLP / speech / deployed systems",
-      "time": "11:59 PM AoE; standalone industry track, mandatory Limitations section, do not submit generic exploration or entirely AI-generated papers",
-      "source": "https://2027.naacl.org/calls/industry_track/",
-      "status": "confirmed official; no submission-ready CS Conf branch"
-    },
-    {
-      "date": "2026-11-01",
-      "venue": "ICASSP 2027 EEG-sAAD",
-      "action": "Blind-test phase opens (not a registration deadline)",
-      "area": "Neuroscience / EEG / audio",
-      "time": "23:55 UTC per organizer",
-      "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
-      "status": "confirmed organizer listing; platform must be validated"
-    },
-    {
-      "date": "2026-11-02",
-      "venue": "ISBI 2027",
-      "action": "Archival four-page biomedical imaging paper",
-      "area": "Biomedical imaging",
-      "time": "11:59 PM USA (EDT) per organizers; 4 technical pages; in-person presentation mandatory",
-      "source": "https://biomedicalimaging.org/2027/papers/",
-      "status": "confirmed"
-    },
-    {
-      "date": "2026-11-03",
-      "venue": "FAccT 2027",
-      "action": "Full paper, contingent on Oct 27 abstract registration",
-      "area": "Responsible AI / accountability / interdisciplinary CS",
-      "time": "11:59 PM AoE; 2027 author guide has mandatory generative-AI statement",
-      "source": "https://facctconference.org/2027/cfp.html",
-      "status": "confirmed"
-    },
-    {
-      "date": "2026-11-03",
-      "venue": "Interspeech 2027 Challenges",
-      "action": "Challenge ORGANIZER proposal, NOT a research-paper deadline",
-      "area": "Speech / resources / scientific benchmark organization",
-      "time": "Organizer's page gives date but no cutoff hour/timezone; requires named organizers, judging criteria, dataset access and ethics/IRB details; future challenge papers still undergo regular paper review",
-      "source": "https://interspeech2027.org/calls/call_for_challenges/",
-      "status": "confirmed organizer date; time unspecified; no submission-ready proposal"
-    },
-    {
-      "date": "2026-11-04",
-      "venue": "CVPR 2027 Workshops",
-      "action": "Workshop ORGANIZER proposal, not a research paper",
-      "area": "Computer vision / interdisciplinary workshops",
-      "time": "11:59 PM AoE; in-person workshop, accepted papers may be archival only under separate later workshop CFP",
-      "source": "https://cvpr.thecvf.com/Conferences/2027/CallForWorkshops",
-      "status": "confirmed organizer; NOT main conference paper"
-    },
-    {
-      "date": "2026-11-09",
-      "venue": "ISCA 2027",
-      "action": "Main-track abstract / final author list",
-      "area": "Systems / architecture",
-      "time": "11:59 PM AoE; no ghost abstracts",
-      "source": "https://iscaconf.org/isca2027/submit/callforpapers.php",
-      "status": "confirmed"
-    },
-    {
-      "date": "2026-11-09",
-      "venue": "The Web Conference 2027",
-      "action": "Short-paper abstract",
-      "area": "Web/data/IR",
-      "time": "11:59 PM AoE",
-      "source": "https://www2027.thewebconf.org/important-dates/",
-      "status": "confirmed"
-    },
-    {
-      "date": "2026-11-10",
-      "venue": "CVPR 2027",
-      "action": "Paper enrollment / author list",
-      "area": "Vision",
-      "time": "11:59 PM AoE",
-      "source": "https://cvpr.thecvf.com/Conferences/2027/Dates",
-      "status": "confirmed"
-    },
-    {
-      "date": "2026-11-10",
-      "venue": "IEEE S&P 2027 Cycle 2",
-      "action": "Mandatory complete abstract + fixed author/ORCID/COI registration",
-      "area": "Security, privacy, reproducible system measurement",
-      "time": "23:59:59 AoE; title/abstract/author list cannot change; 6-paper per-author cycle cap",
-      "source": "https://www.ieee-security.org/TC/SP2027/cfpapers.html",
-      "status": "confirmed"
-    },
-    {
-      "date": "2026-11-10",
-      "venue": "Interspeech 2027 Special Sessions",
-      "action": "Special-session ORGANIZER proposal, NOT a research-paper deadline",
-      "area": "Speech / interdisciplinary",
-      "time": "Organizer's page gives date but no cutoff hour/timezone; requires convening team and tentative authors (typically at least 12 expected paper submissions)",
-      "source": "https://interspeech2027.org/calls/call_for_special_sessions/",
-      "status": "confirmed organizer date; time unspecified; no submission-ready proposal"
-    },
-    {
-      "date": "2026-11-11",
-      "venue": "ICDE 2027 Research/EAB (round 2)",
-      "action": "Full research or Experimental/Analysis/Benchmark paper",
-      "area": "Data engineering / database / integration",
-      "time": "5:00 PM Pacific (PST on November 11); NOT AoE; EAB requires every artifact needed to reproduce results",
-      "source": "https://icde2027.github.io/cf-research-papers",
-      "status": "confirmed organizer; no CS Conf paper ready"
-    },
-    {
-      "date": "2026-11-12",
-      "venue": "PLDI 2027",
-      "action": "Full research paper",
-      "area": "Programming languages, compilers, verification, reproducibility",
-      "time": "23:59 AoE; NEW 2027 Data-Availability Statement; disclosure of research-stage AI methodology",
-      "source": "https://pldi27.sigplan.org/track/pldi-2027-papers",
-      "status": "confirmed"
-    },
-    {
-      "date": "2026-11-15",
-      "venue": "ICDE 2027 DEFT",
-      "action": "MANDATORY vision/position-paper abstract registration (not full paper)",
-      "area": "Future data engineering / databases / interdisciplinary CS",
-      "time": "11:59 PM AoE; full paper barred without timely abstract",
-      "source": "https://icde2027.github.io/cf-future.html",
-      "status": "confirmed organizer; no abstract authorized"
-    },
-    {
-      "date": "2026-11-16",
-      "venue": "CVPR 2027",
-      "action": "Full research paper",
-      "area": "Vision",
-      "time": "11:59 PM AoE",
-      "source": "https://cvpr.thecvf.com/Conferences/2027/Dates",
-      "status": "confirmed"
-    },
-    {
-      "date": "2026-11-16",
-      "venue": "ISCA 2027",
-      "action": "Main-track full paper",
-      "area": "Systems / architecture",
-      "time": "11:59 PM AoE",
-      "source": "https://iscaconf.org/isca2027/submit/callforpapers.php",
-      "status": "confirmed"
-    },
-    {
-      "date": "2026-11-16",
-      "venue": "The Web Conference 2027",
-      "action": "Short paper / demo",
-      "area": "Web/data/IR",
-      "time": "11:59 PM AoE",
-      "source": "https://www2027.thewebconf.org/important-dates/",
-      "status": "confirmed"
-    },
-    {
-      "date": "2026-11-17",
-      "venue": "IEEE S&P 2027 Cycle 2",
-      "action": "Full research/SoK paper",
-      "area": "Security / privacy",
-      "time": "23:59:59 AoE; AI-use consideration mandatory, anonymized artifacts",
-      "source": "https://www.ieee-security.org/TC/SP2027/cfpapers.html",
-      "status": "confirmed"
-    },
-    {
-      "date": "2026-11-19",
-      "venue": "ICASSP 2027 XACLE",
-      "action": "Unseen-generator evaluation data released",
-      "area": "Audio / evaluation",
-      "time": "Organizer does not specify hour",
-      "source": "https://xacle.org/2027/index.html",
-      "status": "confirmed"
-    },
-    {
-      "date": "2026-11-19",
-      "venue": "SREcon27 Americas",
-      "action": "Technical talk proposal (NOT a research-paper submission)",
-      "area": "Site reliability engineering / systems operations / networking",
-      "time": "11:59 PM Pacific Time; talk, not archival paper",
-      "source": "https://www.usenix.org/conference/srecon27americas/call-for-participation",
-      "status": "confirmed"
-    },
-    {
-      "date": "2026-11-20",
-      "venue": "ICASSP 2027 HEARTBEAT",
-      "action": "Team membership and external-resource declarations frozen",
-      "area": "Audio / agents",
-      "time": "23:59 UTC",
-      "source": "https://heartbeat-challenge.github.io/",
-      "status": "confirmed"
-    },
-    {
-      "date": "2026-11-20",
-      "venue": "ICDE 2027 Tutorials",
-      "action": "Tutorial proposal (not research paper)",
-      "area": "Data engineering / databases / IR",
-      "time": "AoE; at most four pages excluding references; organizer tutorial chairs",
-      "source": "https://icde2027.github.io/cf-tutorials.html",
-      "status": "confirmed organizer; proposal only"
-    },
-    {
-      "date": "2026-11-20",
-      "venue": "PAKDD 2027",
-      "action": "Research / applied / survey / agentic AI paper",
-      "area": "Data mining",
-      "time": "11:59 PM AoE; restrictive AI-use policy",
-      "source": "https://www.pakdd2027.org/pages/dates",
-      "status": "confirmed"
-    },
-    {
-      "date": "2026-11-22",
-      "venue": "ICDE 2027 DEFT",
-      "action": "Vision/position full paper, requires Nov 15 abstract",
-      "area": "Future data engineering / databases / interdisciplinary CS",
-      "time": "11:59 PM AoE; max one DEFT submission per author, 6–12 pages, vision focus",
-      "source": "https://icde2027.github.io/cf-future.html",
-      "status": "confirmed organizer; human-originated, science-grounded paper required"
-    },
-    {
-      "date": "2026-11-23",
-      "venue": "ICDE 2027 Demonstrations",
-      "action": "Four-page demonstration paper",
-      "area": "Data systems / integration / interactive technology",
-      "time": "11:59 PM AoE; working interactive demonstration required",
-      "source": "https://icde2027.github.io/cf-demonstrations.html",
-      "status": "confirmed organizer; no working demo ready"
-    },
-    {
-      "date": "2026-11-30",
-      "venue": "ICASSP 2027 CONVERGE 6G Grand Challenge",
-      "action": "Challenge registration (not a research-paper submission)",
-      "area": "Networking / wireless / multimodal sensing",
-      "time": "Organizer specifies date but not hour; challenge site currently marked pending; verify eligibility, dataset and scorer before any enrollment",
-      "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
-      "status": "confirmed date by IEEE organizer; website/platform not independently verified"
-    },
-    {
-      "date": "2026-11-30",
-      "venue": "MIDL 2027",
-      "action": "Full-paper abstract registration",
-      "area": "Biomedical imaging",
-      "time": "23:59 AoE; OpenReview author profiles required",
-      "source": "https://2027.midl.io/important-dates",
-      "status": "confirmed"
-    },
-    {
-      "date": "2026-12-01",
-      "venue": "ICASSP 2027 EEG-sAAD",
-      "action": "Hidden evaluation submission deadline; top five invited to two-page papers",
-      "area": "Neuroscience / EEG / audio",
-      "time": "23:55 UTC",
-      "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
-      "status": "confirmed organizer listing; platform must be validated"
-    },
-    {
-      "date": "2026-12-01",
-      "venue": "ICDE 2027 Industry and Applications",
-      "action": "Industrial application short/long paper",
-      "area": "Databases / real deployments / industrial systems",
-      "time": "11:59 PM Pacific; requires at least one non-academic coauthor and genuine industrial contribution",
-      "source": "https://icde2027.github.io/cf-industry-track.html",
-      "status": "confirmed organizer; eligibility gate"
-    },
-    {
-      "date": "2026-12-01",
-      "venue": "OSDI 2027",
-      "action": "Mandatory abstract registration",
-      "area": "Systems / operating systems / networking",
-      "time": "5:59 PM EST = 22:59 UTC; not AoE; AI-written papers ineligible",
-      "source": "https://www.usenix.org/conference/osdi27/call-for-papers",
-      "status": "confirmed"
-    },
-    {
-      "date": "2026-12-03",
-      "venue": "ICASSP 2027 XACLE",
-      "action": "Scores + YAML system + technical report submission; only leading teams invited later",
-      "area": "Audio / evaluation",
-      "time": "Organizer timezone not explicit, verify",
-      "source": "https://xacle.org/2027/index.html",
-      "status": "confirmed date; verify hour"
-    },
-    {
-      "date": "2026-12-04",
-      "venue": "MIDL 2027",
-      "action": "Full paper (main or Clinical Translation & Validation track)",
-      "area": "Biomedical imaging",
-      "time": "23:59 AoE; short-paper date TBD",
-      "source": "https://2027.midl.io/important-dates",
-      "status": "confirmed"
-    },
-    {
-      "date": "2026-12-04",
-      "venue": "NAACL 2027 System Demonstrations",
-      "action": "Archival six-page evaluated system demonstration PAPER plus <=2.5-min video and live demo/installable package",
-      "area": "NLP / speech / research tools / human evaluation",
-      "time": "11:59 PM AoE; single-blind; disclosure of AI use in acknowledgments; working UI alone or off-the-shelf API wrapper is insufficient; rejected if no evaluation",
-      "source": "https://2027.naacl.org/calls/system_demonstration/",
-      "status": "confirmed official; no evaluated CS Conf demo exists"
-    },
-    {
-      "date": "2026-12-04",
-      "venue": "RSS 2027",
-      "action": "Stage 1: six-page extended abstract",
-      "area": "Robotics",
-      "time": "11:59 PM AoE",
-      "source": "https://roboticsconference.org/information/cfp/",
-      "status": "confirmed"
-    },
-    {
-      "date": "2026-12-06",
-      "venue": "ISCA 2027",
-      "action": "Industry-track abstract",
-      "area": "Systems / architecture",
-      "time": "11:59 PM AoE",
-      "source": "https://iscaconf.org/isca2027/submit/callforpapers.php",
-      "status": "confirmed"
-    },
-    {
-      "date": "2026-12-08",
-      "venue": "OSDI 2027",
-      "action": "Full research paper (requires Dec 1 abstract)",
-      "area": "Systems / operating systems / networking",
-      "time": "5:59 PM EST = 22:59 UTC; not AoE; AI-written papers ineligible",
-      "source": "https://www.usenix.org/conference/osdi27/call-for-papers",
-      "status": "confirmed"
-    },
-    {
-      "date": "2026-12-10",
-      "venue": "ICASSP 2027 RMS-AQA",
-      "action": "Challenge result submission",
-      "area": "Spatial audio / robotics",
-      "time": "Organizer timezone not explicit, verify",
-      "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
-      "status": "confirmed organizer listing; challenge site to verify"
-    },
-    {
-      "date": "2026-12-11",
-      "venue": "ICASSP 2027 HEARTBEAT",
-      "action": "Final offline OCI container submission",
-      "area": "Audio / agents",
-      "time": "23:59 UTC",
-      "source": "https://heartbeat-challenge.github.io/",
-      "status": "confirmed"
-    },
-    {
-      "date": "2026-12-13",
-      "venue": "ISCA 2027",
-      "action": "Industry-track full paper",
-      "area": "Systems / architecture",
-      "time": "11:59 PM AoE; check published industry CFP",
-      "source": "https://iscaconf.org/isca2027/submit/callforpapers.php",
-      "status": "confirmed"
-    },
-    {
-      "date": "2026-12-15",
-      "venue": "ICASSP 2027 CONVERGE 6G Grand Challenge",
-      "action": "Challenge result submission; invited papers conditional on rank",
-      "area": "Networking / wireless / multimodal sensing",
-      "time": "Organizer date; hour not specified; cross-site France/Portugal deployment transfer needs a leakage-free holdout",
-      "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
-      "status": "confirmed organizer schedule; dataset/platform access unverified"
-    },
-    {
-      "date": "2026-12-17",
-      "venue": "DESIRES 2027",
-      "action": "Early-stage search/IR abstract (NOT an archival full-paper submission)",
-      "area": "Information retrieval / experimental search",
-      "time": "11:59 PM AoE; ideas, prototypes, metric critiques welcomed; optional later IRRJ paper on May 31, 2027; verify applicable AI policy before submission",
-      "source": "https://desires-conf.github.io/2027/",
-      "status": "confirmed official"
-    },
-    {
-      "date": "2026-12-20",
-      "venue": "ICASSP 2027 Lunar Pathloss Radio Map Challenge",
-      "action": "Final trained models, test code and radio-map estimates due; not an automatic paper acceptance",
-      "area": "Networking / radio propagation / systems",
-      "time": "Organizer does not state hour; evaluation maps release Dec 16",
-      "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
-      "status": "confirmed organizer schedule; platform and resource eligibility still require inspection"
-    },
-    {
-      "date": "2027-01-04",
-      "venue": "ACL 2027",
-      "action": "Last ARR review-cycle paper submission",
-      "area": "NLP",
-      "time": "11:59 PM AoE",
-      "source": "https://2027.aclweb.org/calls/main/",
-      "status": "confirmed"
-    },
-    {
-      "date": "2027-01-07",
-      "venue": "ICASSP 2027 Grand Challenges",
-      "action": "Invited two-page paper deadline for XACLE, HEARTBEAT and RMS-AQA (invitation required)",
-      "area": "Speech / multimodal / robotics",
-      "time": "Check each challenge's own timezone",
-      "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
-      "status": "confirmed organizer listing"
-    },
-    {
-      "date": "2027-01-14",
-      "venue": "SIGIR 2027",
-      "action": "Full-paper abstract",
-      "area": "Information retrieval",
-      "time": "11:59 PM AoE; official page labels proposed",
-      "source": "https://sigir2027.org/pages/submit-full.html",
-      "status": "proposed"
-    },
-    {
-      "date": "2027-01-21",
-      "venue": "SIGIR 2027",
-      "action": "Full paper",
-      "area": "Information retrieval",
-      "time": "11:59 PM AoE; official page labels proposed",
-      "source": "https://sigir2027.org/pages/submit-full.html",
-      "status": "proposed"
-    },
-    {
-      "date": "2027-02-01",
-      "venue": "ISBI 2027",
-      "action": "One-page non-archival poster abstract",
-      "area": "Biomedical imaging",
-      "time": "11:59 PM USA (EDT) per organizer; NOT proceedings publication",
-      "source": "https://biomedicalimaging.org/2027/",
-      "status": "confirmed"
-    },
-    {
-      "date": "2027-02-01",
-      "venue": "ISBI 2027 One-Page Abstracts",
-      "action": "One-page biomedical imaging ABSTRACT route, NOT the November archival four-page paper",
-      "area": "Biomedical imaging / interdisciplinary",
-      "time": "11:59 PM US Eastern per official event site; verify daylight offset near submission",
-      "source": "https://biomedicalimaging.org/2027/",
-      "status": "confirmed official, abstract route distinct"
-    },
-    {
-      "date": "2027-02-02",
-      "venue": "SIGCOMM 2027",
-      "action": "Research paper",
-      "area": "Networking",
-      "time": "Hard deadline",
-      "source": "https://conferences.sigcomm.org/sigcomm/2027/submission/",
-      "status": "confirmed"
-    },
-    {
-      "date": "2027-02-09",
-      "venue": "Interspeech 2027",
-      "action": "Research paper",
-      "area": "Speech/audio",
-      "time": "Entirely AI-written or AI-developed papers rejected",
-      "source": "https://interspeech2027.org/calls/call_for_papers/",
-      "status": "confirmed"
-    },
-    {
-      "date": "2027-02-26",
-      "venue": "ISBI 2027 Challenges",
-      "action": "Challenge PAPER submission; separate from one-page abstract and main four-page track",
-      "area": "Medical / biomedical challenge",
-      "time": "11:59 PM US Eastern per official event site",
-      "source": "https://biomedicalimaging.org/2027/",
-      "status": "confirmed official, requires appropriate challenge work"
-    },
-    {
-      "date": "2027-03-09",
-      "venue": "Interspeech 2027 Show and Tell",
-      "action": "Demonstration and 2-page description, NOT a regular 4-page or long 8-page research paper",
-      "area": "Speech / audio / deployed demo",
-      "time": "11:59 PM AoE; up to 2 pages excluding references plus a maximum 5-minute video; demonstration must exist",
-      "source": "https://interspeech2027.org/calls/call_show_and_tell/",
-      "status": "confirmed official; speculative CS Conf demo not ready"
-    },
-    {
-      "date": "2027-04-16",
-      "venue": "RSS 2027",
-      "action": "Stage 2 final paper if invited",
-      "area": "Robotics",
-      "time": "11:59 PM AoE",
-      "source": "https://roboticsconference.org/information/cfp/",
-      "status": "confirmed"
+      "status": "confirmed",
+      "domain": "AI / ML / statistics",
+      "type": "abstract"
     },
     {
       "date": "2026-10-28",
@@ -535,7 +24,151 @@
       "time": "23:59 AoE; without this registration, Nov 4 full-paper submission is not permitted",
       "source": "https://recomb.org/recomb2027/keydates_and_deadlines.html",
       "status": "confirmed",
+      "type": "abstract",
+      "domain": "Computational biology / bioinformatics"
+    },
+    {
+      "date": "2026-10-29",
+      "venue": "CHIIR 2027",
+      "action": "Short, demo/design, resource and industry paper tracks (check individual CFPs)",
+      "area": "Interactive IR / user studies",
+      "time": "11:59 PM AoE; short paper 4 pages, no abstract preregistration; in-person presentation; verify ACM OA payment",
+      "source": "https://chiir2027.github.io/short-papers.html",
+      "status": "confirmed",
+      "domain": "Data / IR / databases",
+      "type": "demo"
+    },
+    {
+      "date": "2026-10-29",
+      "venue": "BIOINFORMATICS 2027 (BIOSTEC)",
+      "action": "Extended second-stage regular/position research paper submission",
+      "area": "Computational biology / bioinformatics / genomics",
+      "time": "11:59 PM AoE; position or regular paper second stage; lower-tier specialist venue, distinct from ISMB/RECOMB",
+      "source": "https://bioinformatics.scitevents.org/ImportantDates.aspx",
+      "status": "confirmed organizer",
+      "type": "paper",
+      "domain": "Computational biology / bioinformatics"
+    },
+    {
+      "date": "2026-10-30",
+      "venue": "AISTATS 2027 Workshops",
+      "action": "Workshop ORGANIZER proposal (3 pages), not contributed research paper",
+      "area": "ML / statistics / interdisciplinary CS",
+      "time": "Friday 22:59 CET = 21:59 UTC, NOT AoE; dedicated workshop CFP updated Oct 22 overrides parent CFP's generic workshop listing",
+      "source": "https://virtual.aistats.org/Conferences/2027/CallForWorkshops",
+      "status": "confirmed dedicated CFP; not an archival paper deadline",
+      "domain": "AI / ML / statistics",
+      "type": "proposal"
+    },
+    {
+      "date": "2026-10-30",
+      "venue": "ARRSI 2026 workshop (AACL-IJCNLP)",
+      "action": "Short/position/resource (<=4 pages) or long (<=8 pages); work must meet double-blind evidence/reporting rules",
+      "area": "Research agents",
+      "time": "Oct 30 11:59 PM AoE = Oct 31 4:59 AM PDT; OpenReview; no paper-ready CC-08 claim yet",
+      "source": "https://ar-rsi.github.io/",
+      "status": "confirmed",
+      "domain": "NLP / language / agents",
+      "type": "other"
+    },
+    {
+      "date": "2026-10-30",
+      "venue": "MLSys 2027",
+      "action": "Full research paper",
+      "area": "ML systems",
+      "time": "12:00 PM PDT (not AoE)",
+      "source": "https://mlsys.org/Conferences/2027/Dates",
+      "status": "confirmed",
+      "domain": "Systems / ML systems",
+      "type": "paper"
+    },
+    {
+      "date": "2026-10-31",
+      "venue": "NAACL 2027 Industry Track",
+      "action": "Six-page industry paper (real-world deployed or planned NLP/speech system, no ARR)",
+      "area": "NLP / speech / deployed systems",
+      "time": "11:59 PM AoE; standalone industry track, mandatory Limitations section, do not submit generic exploration or entirely AI-generated papers",
+      "source": "https://2027.naacl.org/calls/industry_track/",
+      "status": "confirmed official; no submission-ready CS Conf branch",
+      "domain": "Speech / audio",
+      "type": "paper"
+    },
+    {
+      "date": "2026-11-01",
+      "venue": "ICASSP 2027 EEG-sAAD",
+      "action": "Blind-test phase opens (not a registration deadline)",
+      "area": "Neuroscience / EEG / audio",
+      "time": "23:55 UTC per organizer",
+      "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
+      "status": "confirmed organizer listing; platform must be validated",
+      "domain": "Neuroscience",
+      "type": "registration"
+    },
+    {
+      "date": "2026-11-01",
+      "venue": "COSYNE 2027 Workshops",
+      "action": "Workshop ORGANIZER proposal (main-conference abstract submission is already closed)",
+      "area": "Neuroscience / computational neuroscience",
+      "time": "Organizer lists date but no cutoff time; not main research paper",
+      "source": "https://www.cosyne.org/workshops-call",
+      "status": "confirmed organizer date; hour not specified",
+      "type": "proposal",
+      "domain": "Neuroscience"
+    },
+    {
+      "date": "2026-11-02",
+      "venue": "ISBI 2027",
+      "action": "Archival four-page biomedical imaging paper",
+      "area": "Biomedical imaging",
+      "time": "11:59 PM USA (EDT) per organizers; 4 technical pages; in-person presentation mandatory",
+      "source": "https://biomedicalimaging.org/2027/papers/",
+      "status": "confirmed",
+      "domain": "Biomedical imaging / health AI",
+      "type": "paper"
+    },
+    {
+      "date": "2026-11-02",
+      "venue": "ECIR 2027",
+      "action": "Demo, resource, doctoral consortium, Industry Day or tutorial submission; main/full and short tracks already closed",
+      "area": "Data mining / information retrieval / databases / Web",
+      "time": "11:59 PM AoE; 2027 organizer calls dates PROPOSED, track-specific eligibility and formats",
+      "source": "https://www.ecir2027.co.uk/calls",
+      "status": "proposed organizer",
+      "type": "demo",
+      "domain": "Data / IR / databases"
+    },
+    {
+      "date": "2026-11-03",
+      "venue": "FAccT 2027",
+      "action": "Full paper, contingent on Oct 27 abstract registration",
+      "area": "Responsible AI / accountability / interdisciplinary CS",
+      "time": "11:59 PM AoE; 2027 author guide has mandatory generative-AI statement",
+      "source": "https://facctconference.org/2027/cfp.html",
+      "status": "confirmed",
+      "domain": "AI / ML / statistics",
       "type": "abstract"
+    },
+    {
+      "date": "2026-11-03",
+      "venue": "Interspeech 2027 Challenges",
+      "action": "Challenge ORGANIZER proposal, NOT a research-paper deadline",
+      "area": "Speech / resources / scientific benchmark organization",
+      "time": "Organizer's page gives date but no cutoff hour/timezone; requires named organizers, judging criteria, dataset access and ethics/IRB details; future challenge papers still undergo regular paper review",
+      "source": "https://interspeech2027.org/calls/call_for_challenges/",
+      "status": "confirmed organizer date; time unspecified; no submission-ready proposal",
+      "domain": "Speech / audio",
+      "type": "proposal"
+    },
+    {
+      "date": "2026-11-04",
+      "venue": "CVPR 2027 Workshops",
+      "action": "Workshop ORGANIZER proposal, not a research paper",
+      "area": "Computer vision / interdisciplinary workshops",
+      "time": "11:59 PM AoE; in-person workshop, accepted papers may be archival only under separate later workshop CFP",
+      "source": "https://cvpr.thecvf.com/Conferences/2027/CallForWorkshops",
+      "status": "confirmed organizer; NOT main conference paper",
+      "domain": "Vision / multimodal",
+      "type": "proposal"
     },
     {
       "date": "2026-11-04",
@@ -545,7 +178,448 @@
       "time": "23:59 AoE; must have registered by Oct 28; maximum 4 full-paper submissions per author; computational/methodological novelty expected",
       "source": "https://recomb.org/recomb2027/call_for_papers",
       "status": "confirmed",
+      "type": "paper",
+      "domain": "Computational biology / bioinformatics"
+    },
+    {
+      "date": "2026-11-09",
+      "venue": "ISCA 2027",
+      "action": "Main-track abstract / final author list",
+      "area": "Systems / architecture",
+      "time": "11:59 PM AoE; no ghost abstracts",
+      "source": "https://iscaconf.org/isca2027/submit/callforpapers.php",
+      "status": "confirmed",
+      "domain": "Systems / ML systems",
+      "type": "abstract"
+    },
+    {
+      "date": "2026-11-09",
+      "venue": "The Web Conference 2027",
+      "action": "Short-paper abstract",
+      "area": "Web/data/IR",
+      "time": "11:59 PM AoE",
+      "source": "https://www2027.thewebconf.org/important-dates/",
+      "status": "confirmed",
+      "domain": "Data / IR / databases",
+      "type": "abstract"
+    },
+    {
+      "date": "2026-11-10",
+      "venue": "CVPR 2027",
+      "action": "Paper enrollment / author list",
+      "area": "Vision",
+      "time": "11:59 PM AoE",
+      "source": "https://cvpr.thecvf.com/Conferences/2027/Dates",
+      "status": "confirmed",
+      "domain": "Vision / multimodal",
+      "type": "abstract"
+    },
+    {
+      "date": "2026-11-10",
+      "venue": "IEEE S&P 2027 Cycle 2",
+      "action": "Mandatory complete abstract + fixed author/ORCID/COI registration",
+      "area": "Security, privacy, reproducible system measurement",
+      "time": "23:59:59 AoE; title/abstract/author list cannot change; 6-paper per-author cycle cap",
+      "source": "https://www.ieee-security.org/TC/SP2027/cfpapers.html",
+      "status": "confirmed",
+      "domain": "Security / privacy",
+      "type": "abstract"
+    },
+    {
+      "date": "2026-11-10",
+      "venue": "Interspeech 2027 Special Sessions",
+      "action": "Special-session ORGANIZER proposal, NOT a research-paper deadline",
+      "area": "Speech / interdisciplinary",
+      "time": "Organizer's page gives date but no cutoff hour/timezone; requires convening team and tentative authors (typically at least 12 expected paper submissions)",
+      "source": "https://interspeech2027.org/calls/call_for_special_sessions/",
+      "status": "confirmed organizer date; time unspecified; no submission-ready proposal",
+      "domain": "Speech / audio",
+      "type": "proposal"
+    },
+    {
+      "date": "2026-11-11",
+      "venue": "ICDE 2027 Research/EAB (round 2)",
+      "action": "Full research or Experimental/Analysis/Benchmark paper",
+      "area": "Data engineering / database / integration",
+      "time": "5:00 PM Pacific (PST on November 11); NOT AoE; EAB requires every artifact needed to reproduce results",
+      "source": "https://icde2027.github.io/cf-research-papers",
+      "status": "confirmed organizer; no CS Conf paper ready",
+      "domain": "Data / IR / databases",
       "type": "paper"
+    },
+    {
+      "date": "2026-11-12",
+      "venue": "PLDI 2027",
+      "action": "Full research paper",
+      "area": "Programming languages, compilers, verification, reproducibility",
+      "time": "23:59 AoE; NEW 2027 Data-Availability Statement; disclosure of research-stage AI methodology",
+      "source": "https://pldi27.sigplan.org/track/pldi-2027-papers",
+      "status": "confirmed",
+      "domain": "Programming languages",
+      "type": "paper"
+    },
+    {
+      "date": "2026-11-15",
+      "venue": "ICDE 2027 DEFT",
+      "action": "MANDATORY vision/position-paper abstract registration (not full paper)",
+      "area": "Future data engineering / databases / interdisciplinary CS",
+      "time": "11:59 PM AoE; full paper barred without timely abstract",
+      "source": "https://icde2027.github.io/cf-future.html",
+      "status": "confirmed organizer; no abstract authorized",
+      "domain": "Data / IR / databases",
+      "type": "abstract"
+    },
+    {
+      "date": "2026-11-15",
+      "venue": "IEEE CEC 2027",
+      "action": "Special-session or workshop ORGANIZER proposal",
+      "area": "AI / evolutionary computation",
+      "time": "Organizer date; cutoff hour not stated; not research paper",
+      "source": "https://ieeecec.org/2027/authors/call-for-papers",
+      "status": "confirmed organizer date; time unspecified",
+      "type": "proposal",
+      "domain": "AI / ML / statistics"
+    },
+    {
+      "date": "2026-11-16",
+      "venue": "CVPR 2027",
+      "action": "Full research paper",
+      "area": "Vision",
+      "time": "11:59 PM AoE",
+      "source": "https://cvpr.thecvf.com/Conferences/2027/Dates",
+      "status": "confirmed",
+      "domain": "Vision / multimodal",
+      "type": "paper"
+    },
+    {
+      "date": "2026-11-16",
+      "venue": "ISCA 2027",
+      "action": "Main-track full paper",
+      "area": "Systems / architecture",
+      "time": "11:59 PM AoE",
+      "source": "https://iscaconf.org/isca2027/submit/callforpapers.php",
+      "status": "confirmed",
+      "domain": "Systems / ML systems",
+      "type": "paper"
+    },
+    {
+      "date": "2026-11-16",
+      "venue": "The Web Conference 2027",
+      "action": "Short paper / demo",
+      "area": "Web/data/IR",
+      "time": "11:59 PM AoE",
+      "source": "https://www2027.thewebconf.org/important-dates/",
+      "status": "confirmed",
+      "domain": "Data / IR / databases",
+      "type": "demo"
+    },
+    {
+      "date": "2026-11-17",
+      "venue": "IEEE S&P 2027 Cycle 2",
+      "action": "Full research/SoK paper",
+      "area": "Security / privacy",
+      "time": "23:59:59 AoE; AI-use consideration mandatory, anonymized artifacts",
+      "source": "https://www.ieee-security.org/TC/SP2027/cfpapers.html",
+      "status": "confirmed",
+      "domain": "Security / privacy",
+      "type": "paper"
+    },
+    {
+      "date": "2026-11-17",
+      "venue": "WSDM 2027",
+      "action": "Short research paper (4 content pages excluding references and ethics)",
+      "area": "Data mining / information retrieval / databases / Web",
+      "time": "11:59 PM AoE; FULL research track is closed; up to 10 short papers per author, in-person presentation",
+      "source": "https://www.wsdm-conference.org/2027/cfsp.html",
+      "status": "confirmed organizer",
+      "type": "paper",
+      "domain": "Data / IR / databases"
+    },
+    {
+      "date": "2026-11-19",
+      "venue": "ICASSP 2027 XACLE",
+      "action": "Unseen-generator evaluation data released",
+      "area": "Audio / evaluation",
+      "time": "Organizer does not specify hour",
+      "source": "https://xacle.org/2027/index.html",
+      "status": "confirmed",
+      "domain": "Speech / audio",
+      "type": "other"
+    },
+    {
+      "date": "2026-11-19",
+      "venue": "SREcon27 Americas",
+      "action": "Technical talk proposal (NOT a research-paper submission)",
+      "area": "Site reliability engineering / systems operations / networking",
+      "time": "11:59 PM Pacific Time; talk, not archival paper",
+      "source": "https://www.usenix.org/conference/srecon27americas/call-for-participation",
+      "status": "confirmed",
+      "domain": "Networking / operations",
+      "type": "proposal"
+    },
+    {
+      "date": "2026-11-20",
+      "venue": "ICASSP 2027 HEARTBEAT",
+      "action": "Team membership and external-resource declarations frozen",
+      "area": "Audio / agents",
+      "time": "23:59 UTC",
+      "source": "https://heartbeat-challenge.github.io/",
+      "status": "confirmed",
+      "domain": "Speech / audio",
+      "type": "other"
+    },
+    {
+      "date": "2026-11-20",
+      "venue": "ICDE 2027 Tutorials",
+      "action": "Tutorial proposal (not research paper)",
+      "area": "Data engineering / databases / IR",
+      "time": "AoE; at most four pages excluding references; organizer tutorial chairs",
+      "source": "https://icde2027.github.io/cf-tutorials.html",
+      "status": "confirmed organizer; proposal only",
+      "domain": "Data / IR / databases",
+      "type": "proposal"
+    },
+    {
+      "date": "2026-11-20",
+      "venue": "PAKDD 2027",
+      "action": "Research / applied / survey / agentic AI paper",
+      "area": "Data mining",
+      "time": "11:59 PM AoE; restrictive AI-use policy",
+      "source": "https://www.pakdd2027.org/pages/dates",
+      "status": "confirmed",
+      "domain": "Data / IR / databases",
+      "type": "paper"
+    },
+    {
+      "date": "2026-11-22",
+      "venue": "ICDE 2027 DEFT",
+      "action": "Vision/position full paper, requires Nov 15 abstract",
+      "area": "Future data engineering / databases / interdisciplinary CS",
+      "time": "11:59 PM AoE; max one DEFT submission per author, 6–12 pages, vision focus",
+      "source": "https://icde2027.github.io/cf-future.html",
+      "status": "confirmed organizer; human-originated, science-grounded paper required",
+      "domain": "Data / IR / databases",
+      "type": "abstract"
+    },
+    {
+      "date": "2026-11-23",
+      "venue": "ICDE 2027 Demonstrations",
+      "action": "Four-page demonstration paper",
+      "area": "Data systems / integration / interactive technology",
+      "time": "11:59 PM AoE; working interactive demonstration required",
+      "source": "https://icde2027.github.io/cf-demonstrations.html",
+      "status": "confirmed organizer; no working demo ready",
+      "domain": "Systems / ML systems",
+      "type": "demo"
+    },
+    {
+      "date": "2026-11-30",
+      "venue": "ICASSP 2027 CONVERGE 6G Grand Challenge",
+      "action": "Challenge registration (not a research-paper submission)",
+      "area": "Networking / wireless / multimodal sensing",
+      "time": "Organizer specifies date but not hour; challenge site currently marked pending; verify eligibility, dataset and scorer before any enrollment",
+      "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
+      "status": "confirmed date by IEEE organizer; website/platform not independently verified",
+      "domain": "Speech / audio",
+      "type": "registration"
+    },
+    {
+      "date": "2026-11-30",
+      "venue": "MIDL 2027",
+      "action": "Full-paper abstract registration",
+      "area": "Biomedical imaging",
+      "time": "23:59 AoE; OpenReview author profiles required",
+      "source": "https://2027.midl.io/important-dates",
+      "status": "confirmed",
+      "domain": "Biomedical imaging / health AI",
+      "type": "abstract"
+    },
+    {
+      "date": "2026-11-30",
+      "venue": "WSDM 2027",
+      "action": "WSDM Day presentation submission (talk, NOT proceedings research paper)",
+      "area": "Data mining / information retrieval / databases / Web",
+      "time": "11:59 PM AoE; WSDM Day presentation rather than full/short archival paper",
+      "source": "https://wsdm-conference.org/2027/",
+      "status": "confirmed organizer",
+      "type": "proposal",
+      "domain": "Data / IR / databases"
+    },
+    {
+      "date": "2026-12-01",
+      "venue": "ICASSP 2027 EEG-sAAD",
+      "action": "Hidden evaluation submission deadline; top five invited to two-page papers",
+      "area": "Neuroscience / EEG / audio",
+      "time": "23:55 UTC",
+      "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
+      "status": "confirmed organizer listing; platform must be validated",
+      "domain": "Neuroscience",
+      "type": "paper"
+    },
+    {
+      "date": "2026-12-01",
+      "venue": "ICDE 2027 Industry and Applications",
+      "action": "Industrial application short/long paper",
+      "area": "Databases / real deployments / industrial systems",
+      "time": "11:59 PM Pacific; requires at least one non-academic coauthor and genuine industrial contribution",
+      "source": "https://icde2027.github.io/cf-industry-track.html",
+      "status": "confirmed organizer; eligibility gate",
+      "domain": "Systems / ML systems",
+      "type": "registration"
+    },
+    {
+      "date": "2026-12-01",
+      "venue": "OSDI 2027",
+      "action": "Mandatory abstract registration",
+      "area": "Systems / operating systems / networking",
+      "time": "5:59 PM EST = 22:59 UTC; not AoE; AI-written papers ineligible",
+      "source": "https://www.usenix.org/conference/osdi27/call-for-papers",
+      "status": "confirmed",
+      "domain": "Networking / operations",
+      "type": "abstract"
+    },
+    {
+      "date": "2026-12-03",
+      "venue": "ICASSP 2027 XACLE",
+      "action": "Scores + YAML system + technical report submission; only leading teams invited later",
+      "area": "Audio / evaluation",
+      "time": "Organizer timezone not explicit, verify",
+      "source": "https://xacle.org/2027/index.html",
+      "status": "confirmed date; verify hour",
+      "domain": "Speech / audio",
+      "type": "other"
+    },
+    {
+      "date": "2026-12-03",
+      "venue": "BIOINFORMATICS 2027 (BIOSTEC)",
+      "action": "Abstracts Track submission (not a full research paper)",
+      "area": "Computational biology / bioinformatics / genomics",
+      "time": "11:59 PM AoE; separate abstracts track",
+      "source": "https://bioinformatics.scitevents.org/ImportantDates.aspx",
+      "status": "confirmed organizer",
+      "type": "abstract",
+      "domain": "Computational biology / bioinformatics"
+    },
+    {
+      "date": "2026-12-04",
+      "venue": "MIDL 2027",
+      "action": "Full paper (main or Clinical Translation & Validation track)",
+      "area": "Biomedical imaging",
+      "time": "23:59 AoE; short-paper date TBD",
+      "source": "https://2027.midl.io/important-dates",
+      "status": "confirmed",
+      "domain": "Biomedical imaging / health AI",
+      "type": "paper"
+    },
+    {
+      "date": "2026-12-04",
+      "venue": "NAACL 2027 System Demonstrations",
+      "action": "Archival six-page evaluated system demonstration PAPER plus <=2.5-min video and live demo/installable package",
+      "area": "NLP / speech / research tools / human evaluation",
+      "time": "11:59 PM AoE; single-blind; disclosure of AI use in acknowledgments; working UI alone or off-the-shelf API wrapper is insufficient; rejected if no evaluation",
+      "source": "https://2027.naacl.org/calls/system_demonstration/",
+      "status": "confirmed official; no evaluated CS Conf demo exists",
+      "domain": "Speech / audio",
+      "type": "demo"
+    },
+    {
+      "date": "2026-12-04",
+      "venue": "RSS 2027",
+      "action": "Stage 1: six-page extended abstract",
+      "area": "Robotics",
+      "time": "11:59 PM AoE",
+      "source": "https://roboticsconference.org/information/cfp/",
+      "status": "confirmed",
+      "domain": "Robotics / embodied",
+      "type": "abstract"
+    },
+    {
+      "date": "2026-12-06",
+      "venue": "ISCA 2027",
+      "action": "Industry-track abstract",
+      "area": "Systems / architecture",
+      "time": "11:59 PM AoE",
+      "source": "https://iscaconf.org/isca2027/submit/callforpapers.php",
+      "status": "confirmed",
+      "domain": "Systems / ML systems",
+      "type": "abstract"
+    },
+    {
+      "date": "2026-12-08",
+      "venue": "OSDI 2027",
+      "action": "Full research paper (requires Dec 1 abstract)",
+      "area": "Systems / operating systems / networking",
+      "time": "5:59 PM EST = 22:59 UTC; not AoE; AI-written papers ineligible",
+      "source": "https://www.usenix.org/conference/osdi27/call-for-papers",
+      "status": "confirmed",
+      "domain": "Networking / operations",
+      "type": "abstract"
+    },
+    {
+      "date": "2026-12-10",
+      "venue": "ICASSP 2027 RMS-AQA",
+      "action": "Challenge result submission",
+      "area": "Spatial audio / robotics",
+      "time": "Organizer timezone not explicit, verify",
+      "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
+      "status": "confirmed organizer listing; challenge site to verify",
+      "domain": "Speech / audio",
+      "type": "other"
+    },
+    {
+      "date": "2026-12-11",
+      "venue": "ICASSP 2027 HEARTBEAT",
+      "action": "Final offline OCI container submission",
+      "area": "Audio / agents",
+      "time": "23:59 UTC",
+      "source": "https://heartbeat-challenge.github.io/",
+      "status": "confirmed",
+      "domain": "Speech / audio",
+      "type": "other"
+    },
+    {
+      "date": "2026-12-13",
+      "venue": "ISCA 2027",
+      "action": "Industry-track full paper",
+      "area": "Systems / architecture",
+      "time": "11:59 PM AoE; check published industry CFP",
+      "source": "https://iscaconf.org/isca2027/submit/callforpapers.php",
+      "status": "confirmed",
+      "domain": "Systems / ML systems",
+      "type": "paper"
+    },
+    {
+      "date": "2026-12-15",
+      "venue": "ICASSP 2027 CONVERGE 6G Grand Challenge",
+      "action": "Challenge result submission; invited papers conditional on rank",
+      "area": "Networking / wireless / multimodal sensing",
+      "time": "Organizer date; hour not specified; cross-site France/Portugal deployment transfer needs a leakage-free holdout",
+      "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
+      "status": "confirmed organizer schedule; dataset/platform access unverified",
+      "domain": "Speech / audio",
+      "type": "other"
+    },
+    {
+      "date": "2026-12-15",
+      "venue": "IEEE CEC 2027",
+      "action": "Competition/tutorial ORGANIZER proposal",
+      "area": "AI / evolutionary computation",
+      "time": "Organizer date; cutoff time not stated; not research paper",
+      "source": "https://ieeecec.org/2027/authors/call-for-papers",
+      "status": "confirmed organizer date; time unspecified",
+      "type": "proposal",
+      "domain": "AI / ML / statistics"
+    },
+    {
+      "date": "2026-12-17",
+      "venue": "DESIRES 2027",
+      "action": "Early-stage search/IR abstract (NOT an archival full-paper submission)",
+      "area": "Information retrieval / experimental search",
+      "time": "11:59 PM AoE; ideas, prototypes, metric critiques welcomed; optional later IRRJ paper on May 31, 2027; verify applicable AI policy before submission",
+      "source": "https://desires-conf.github.io/2027/",
+      "status": "confirmed official",
+      "domain": "Data / IR / databases",
+      "type": "abstract"
     },
     {
       "date": "2026-12-17",
@@ -555,7 +629,63 @@
       "time": "Organizer-announced date; verify submission cutoff time; 4-page proposal, hands-on component",
       "source": "https://www.iscb.org/ismbeccb2027/call-for-submissions/tutorials",
       "status": "confirmed date; hour not specified",
-      "type": "proposal"
+      "type": "proposal",
+      "domain": "Computational biology / bioinformatics"
+    },
+    {
+      "date": "2026-12-20",
+      "venue": "ICASSP 2027 Lunar Pathloss Radio Map Challenge",
+      "action": "Final trained models, test code and radio-map estimates due; not an automatic paper acceptance",
+      "area": "Networking / radio propagation / systems",
+      "time": "Organizer does not state hour; evaluation maps release Dec 16",
+      "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
+      "status": "confirmed organizer schedule; platform and resource eligibility still require inspection",
+      "domain": "Speech / audio",
+      "type": "paper"
+    },
+    {
+      "date": "2026-12-22",
+      "venue": "BIOINFORMATICS 2027 (BIOSTEC)",
+      "action": "Doctoral Consortium paper submission",
+      "area": "Computational biology / bioinformatics / genomics",
+      "time": "11:59 PM AoE; doctoral track, NOT full main research paper",
+      "source": "https://bioinformatics.scitevents.org/ImportantDates.aspx",
+      "status": "confirmed organizer",
+      "type": "paper",
+      "domain": "Computational biology / bioinformatics"
+    },
+    {
+      "date": "2027-01-04",
+      "venue": "ACL 2027",
+      "action": "Last ARR review-cycle paper submission",
+      "area": "NLP",
+      "time": "11:59 PM AoE",
+      "source": "https://2027.aclweb.org/calls/main/",
+      "status": "confirmed",
+      "domain": "NLP / language / agents",
+      "type": "paper"
+    },
+    {
+      "date": "2027-01-07",
+      "venue": "ICASSP 2027 Grand Challenges",
+      "action": "Invited two-page paper deadline for XACLE, HEARTBEAT and RMS-AQA (invitation required)",
+      "area": "Speech / multimodal / robotics",
+      "time": "Check each challenge's own timezone",
+      "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
+      "status": "confirmed organizer listing",
+      "domain": "Speech / audio",
+      "type": "paper"
+    },
+    {
+      "date": "2027-01-14",
+      "venue": "SIGIR 2027",
+      "action": "Full-paper abstract",
+      "area": "Information retrieval",
+      "time": "11:59 PM AoE; official page labels proposed",
+      "source": "https://sigir2027.org/pages/submit-full.html",
+      "status": "proposed",
+      "domain": "Data / IR / databases",
+      "type": "abstract"
     },
     {
       "date": "2027-01-14",
@@ -565,6 +695,62 @@
       "time": "11:59 PM in time zone of your choice per organizer; OUP Bioinformatics format; max 9 pages incl. references; public reproducible code required if applicable",
       "source": "https://www.iscb.org/ismbeccb2027/call-for-submissions/proceedings",
       "status": "confirmed",
+      "type": "paper",
+      "domain": "Computational biology / bioinformatics"
+    },
+    {
+      "date": "2027-01-21",
+      "venue": "SIGIR 2027",
+      "action": "Full paper",
+      "area": "Information retrieval",
+      "time": "11:59 PM AoE; official page labels proposed",
+      "source": "https://sigir2027.org/pages/submit-full.html",
+      "status": "proposed",
+      "domain": "Data / IR / databases",
+      "type": "paper"
+    },
+    {
+      "date": "2027-02-01",
+      "venue": "ISBI 2027",
+      "action": "One-page non-archival poster abstract",
+      "area": "Biomedical imaging",
+      "time": "11:59 PM USA (EDT) per organizer; NOT proceedings publication",
+      "source": "https://biomedicalimaging.org/2027/",
+      "status": "confirmed",
+      "domain": "Biomedical imaging / health AI",
+      "type": "abstract"
+    },
+    {
+      "date": "2027-02-01",
+      "venue": "ISBI 2027 One-Page Abstracts",
+      "action": "One-page biomedical imaging ABSTRACT route, NOT the November archival four-page paper",
+      "area": "Biomedical imaging / interdisciplinary",
+      "time": "11:59 PM US Eastern per official event site; verify daylight offset near submission",
+      "source": "https://biomedicalimaging.org/2027/",
+      "status": "confirmed official, abstract route distinct",
+      "domain": "Biomedical imaging / health AI",
+      "type": "abstract"
+    },
+    {
+      "date": "2027-02-02",
+      "venue": "SIGCOMM 2027",
+      "action": "Research paper",
+      "area": "Networking",
+      "time": "Hard deadline",
+      "source": "https://conferences.sigcomm.org/sigcomm/2027/submission/",
+      "status": "confirmed",
+      "domain": "Networking / operations",
+      "type": "paper"
+    },
+    {
+      "date": "2027-02-09",
+      "venue": "Interspeech 2027",
+      "action": "Research paper",
+      "area": "Speech/audio",
+      "time": "Entirely AI-written or AI-developed papers rejected",
+      "source": "https://interspeech2027.org/calls/call_for_papers/",
+      "status": "confirmed",
+      "domain": "Speech / audio",
       "type": "paper"
     },
     {
@@ -575,7 +761,63 @@
       "time": "Organizer specifies date, not hour; conference May 11–15, 2027",
       "source": "https://meetings.cshl.edu/meetings.aspx?meet=GENOME",
       "status": "confirmed date; hour not specified",
+      "type": "abstract",
+      "domain": "Computational biology / bioinformatics"
+    },
+    {
+      "date": "2027-02-26",
+      "venue": "ISBI 2027 Challenges",
+      "action": "Challenge PAPER submission; separate from one-page abstract and main four-page track",
+      "area": "Medical / biomedical challenge",
+      "time": "11:59 PM US Eastern per official event site",
+      "source": "https://biomedicalimaging.org/2027/",
+      "status": "confirmed official, requires appropriate challenge work",
+      "domain": "Biomedical imaging / health AI",
       "type": "abstract"
+    },
+    {
+      "date": "2027-02-28",
+      "venue": "IEEE CEC 2027",
+      "action": "Full research paper; evolutionary computation including bioinformatics applications",
+      "area": "AI / evolutionary computation",
+      "time": "Organizer lists date; cutoff time not stated; NO extension; HF YAML's Jan 15 date is inconsistent and should NOT be used",
+      "source": "https://ieeecec.org/2027/authors/call-for-papers",
+      "status": "confirmed organizer",
+      "type": "paper",
+      "domain": "AI / ML / statistics"
+    },
+    {
+      "date": "2027-03-09",
+      "venue": "Interspeech 2027 Show and Tell",
+      "action": "Demonstration and 2-page description, NOT a regular 4-page or long 8-page research paper",
+      "area": "Speech / audio / deployed demo",
+      "time": "11:59 PM AoE; up to 2 pages excluding references plus a maximum 5-minute video; demonstration must exist",
+      "source": "https://interspeech2027.org/calls/call_show_and_tell/",
+      "status": "confirmed official; speculative CS Conf demo not ready",
+      "domain": "Speech / audio",
+      "type": "demo"
+    },
+    {
+      "date": "2027-03-15",
+      "venue": "IEEE CEC 2027",
+      "action": "Short research paper",
+      "area": "AI / evolutionary computation",
+      "time": "Organizer lists date; cutoff time not stated; no extension",
+      "source": "https://ieeecec.org/2027/authors/call-for-papers",
+      "status": "confirmed organizer",
+      "type": "paper",
+      "domain": "AI / ML / statistics"
+    },
+    {
+      "date": "2027-04-16",
+      "venue": "RSS 2027",
+      "action": "Stage 2 final paper if invited",
+      "area": "Robotics",
+      "time": "11:59 PM AoE",
+      "source": "https://roboticsconference.org/information/cfp/",
+      "status": "confirmed",
+      "domain": "Robotics / embodied",
+      "type": "paper"
     },
     {
       "date": "2027-07-04",
@@ -585,7 +827,8 @@
       "time": "Meeting Aug 1–6, 2027; admissions may close earlier when full",
       "source": "https://www.grc.org/epigenetics-conference/2027/",
       "status": "confirmed",
-      "type": "registration"
+      "type": "registration",
+      "domain": "Computational biology / bioinformatics"
     }
   ],
   "areas": [
@@ -874,6 +1117,10 @@
         {
           "name": "BioC (Bioconductor)",
           "url": "https://bioconductor.org/"
+        },
+        {
+          "name": "BIOINFORMATICS (BIOSTEC)",
+          "url": "https://bioinformatics.scitevents.org/"
         },
         {
           "name": "BMES Annual Meeting",
@@ -3013,7 +3260,8 @@
       "totalFiles": 68,
       "matchedFiles": 68,
       "reviewedAt": "2026-10-27",
-      "deadlinePolicy": "Official sources override HF metadata; HF dates are secondary and not automatically authoritative."
+      "deadlinePolicy": "Official sources override HF metadata; HF dates are secondary and not automatically authoritative.",
+      "note": "Imported 68/68 venue definitions, titles, tags/rankings when provided; only independently organizer-checked dates become deadlines. HF CEC 2027 Jan 15 entry contradicted by IEEE organizer Feb 28."
     },
     "computationalBiology": {
       "source": "https://github.com/databio/conferences",
