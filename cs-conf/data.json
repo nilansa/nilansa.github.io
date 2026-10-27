@@ -526,6 +526,66 @@
       "time": "11:59 PM AoE",
       "source": "https://roboticsconference.org/information/cfp/",
       "status": "confirmed"
+    },
+    {
+      "date": "2026-10-28",
+      "venue": "RECOMB 2027",
+      "action": "MANDATORY full-paper abstract registration",
+      "area": "Computational biology / bioinformatics / genomics",
+      "time": "23:59 AoE; without this registration, Nov 4 full-paper submission is not permitted",
+      "source": "https://recomb.org/recomb2027/keydates_and_deadlines.html",
+      "status": "confirmed",
+      "type": "abstract"
+    },
+    {
+      "date": "2026-11-04",
+      "venue": "RECOMB 2027",
+      "action": "Full research paper (registered abstracts only)",
+      "area": "Computational biology / bioinformatics / genomics",
+      "time": "23:59 AoE; must have registered by Oct 28; maximum 4 full-paper submissions per author; computational/methodological novelty expected",
+      "source": "https://recomb.org/recomb2027/call_for_papers",
+      "status": "confirmed",
+      "type": "paper"
+    },
+    {
+      "date": "2026-12-17",
+      "venue": "ISMB/ECCB 2027 Tutorials",
+      "action": "Hands-on tutorial ORGANIZER proposal (not proceedings paper)",
+      "area": "Computational biology / bioinformatics / genomics",
+      "time": "Organizer-announced date; verify submission cutoff time; 4-page proposal, hands-on component",
+      "source": "https://www.iscb.org/ismbeccb2027/call-for-submissions/tutorials",
+      "status": "confirmed date; hour not specified",
+      "type": "proposal"
+    },
+    {
+      "date": "2027-01-14",
+      "venue": "ISMB/ECCB 2027",
+      "action": "Proceedings full research paper",
+      "area": "Computational biology / bioinformatics / genomics",
+      "time": "11:59 PM in time zone of your choice per organizer; OUP Bioinformatics format; max 9 pages incl. references; public reproducible code required if applicable",
+      "source": "https://www.iscb.org/ismbeccb2027/call-for-submissions/proceedings",
+      "status": "confirmed",
+      "type": "paper"
+    },
+    {
+      "date": "2027-02-19",
+      "venue": "CSH Biology of Genomes 2027",
+      "action": "Talk / poster abstract (not archival full paper)",
+      "area": "Computational biology / bioinformatics / genomics",
+      "time": "Organizer specifies date, not hour; conference May 11–15, 2027",
+      "source": "https://meetings.cshl.edu/meetings.aspx?meet=GENOME",
+      "status": "confirmed date; hour not specified",
+      "type": "abstract"
+    },
+    {
+      "date": "2027-07-04",
+      "venue": "GRC Epigenetics 2027",
+      "action": "Attendance / poster participation application (not a paper)",
+      "area": "Computational biology / bioinformatics / genomics",
+      "time": "Meeting Aug 1–6, 2027; admissions may close earlier when full",
+      "source": "https://www.grc.org/epigenetics-conference/2027/",
+      "status": "confirmed",
+      "type": "registration"
     }
   ],
   "areas": [
@@ -579,6 +639,132 @@
       ]
     },
     {
+      "area": "Computational biology / bioinformatics / genomics",
+      "venues": [
+        {
+          "name": "ACM BCB",
+          "url": "https://acm-bcb.org/"
+        },
+        {
+          "name": "ASHG",
+          "url": "https://www.ashg.org/"
+        },
+        {
+          "name": "BioC (Bioconductor)",
+          "url": "https://bioconductor.org/"
+        },
+        {
+          "name": "BMES Annual Meeting",
+          "url": "https://www.bmes.org/events"
+        },
+        {
+          "name": "BOSC",
+          "url": "https://www.open-bio.org/events/bosc/"
+        },
+        {
+          "name": "CSH Biological Data Science",
+          "url": "https://meetings.cshl.edu/meetings.aspx?meet=DATA"
+        },
+        {
+          "name": "CSH Biology of Genomes",
+          "url": "https://meetings.cshl.edu/meetings.aspx?meet=GENOME"
+        },
+        {
+          "name": "CSH Genome Informatics",
+          "url": "https://meetings.cshl.edu/"
+        },
+        {
+          "name": "CSH Single Cell Analyses",
+          "url": "https://meetings.cshl.edu/"
+        },
+        {
+          "name": "EuroBioC",
+          "url": "https://eurobioc2027.bioconductor.org/"
+        },
+        {
+          "name": "GA4GH Connect",
+          "url": "https://www.ga4gh.org/"
+        },
+        {
+          "name": "GA4GH Plenary",
+          "url": "https://www.ga4gh.org/"
+        },
+        {
+          "name": "Galaxy Community Conference (GCC)",
+          "url": "https://galaxyproject.org/events/"
+        },
+        {
+          "name": "GRC Epigenetics",
+          "url": "https://www.grc.org/epigenetics-conference/2027/"
+        },
+        {
+          "name": "IEEE BIBM",
+          "url": "https://ieeebibm.org/"
+        },
+        {
+          "name": "ISMB/ECCB",
+          "url": "https://www.iscb.org/ismbeccb2027/home"
+        },
+        {
+          "name": "MLCB",
+          "url": "https://www.mlcb.org/"
+        },
+        {
+          "name": "Pacific Symposium on Biocomputing (PSB)",
+          "url": "https://psb.stanford.edu/"
+        },
+        {
+          "name": "RECOMB",
+          "url": "https://recomb.org/recomb2027/"
+        },
+        {
+          "name": "WABI",
+          "url": "https://www.wabi-conference.org/"
+        }
+      ]
+    },
+    {
+      "area": "Computer vision / graphics / multimodal",
+      "venues": [
+        {
+          "name": "CVPR",
+          "url": "https://cvpr.thecvf.com/"
+        },
+        {
+          "name": "ICCV",
+          "url": "https://iccv.thecvf.com/"
+        },
+        {
+          "name": "ECCV",
+          "url": "https://eccv.ecva.net/"
+        },
+        {
+          "name": "WACV",
+          "url": "https://wacv.thecvf.com/"
+        },
+        {
+          "name": "BMVC",
+          "url": "https://bmvc2026.org/"
+        },
+        {
+          "name": "ACCV",
+          "url": "https://accv2026.org/"
+        },
+        {
+          "name": "SIGGRAPH",
+          "url": "https://www.siggraph.org/"
+        },
+        {
+          "name": "SIGGRAPH Asia",
+          "url": "https://sa.siggraph.org/"
+        },
+        {
+          "name": "3DV",
+          "url": "https://3dvconf.github.io/"
+        }
+      ]
+    },
+    {
       "area": "Data mining / information retrieval / databases / Web",
       "venues": [
         {
@@ -628,43 +814,84 @@
       ]
     },
     {
-      "area": "Computer vision / graphics / multimodal",
+      "area": "HCI / software engineering / education",
       "venues": [
         {
-          "name": "CVPR",
-          "url": "https://cvpr.thecvf.com/"
+          "name": "CHI",
+          "url": "https://chi.acm.org/"
         },
         {
-          "name": "ICCV",
-          "url": "https://iccv.thecvf.com/"
+          "name": "UIST",
+          "url": "https://uist.acm.org/"
         },
         {
-          "name": "ECCV",
-          "url": "https://eccv.ecva.net/"
+          "name": "CSCW",
+          "url": "https://cscw.acm.org/"
         },
         {
-          "name": "WACV",
-          "url": "https://wacv.thecvf.com/"
+          "name": "FSE",
+          "url": "https://conf.researchr.org/series/fse"
         },
         {
-          "name": "BMVC",
-          "url": "https://bmvc2026.org/"
+          "name": "ICSE",
+          "url": "https://conf.researchr.org/series/icse"
         },
         {
-          "name": "ACCV",
-          "url": "https://accv2026.org/"
+          "name": "ASE",
+          "url": "https://conf.researchr.org/series/ase"
         },
         {
-          "name": "SIGGRAPH",
-          "url": "https://www.siggraph.org/"
+          "name": "PLDI",
+          "url": "https://pldi.acm.org/"
         },
         {
-          "name": "SIGGRAPH Asia",
-          "url": "https://sa.siggraph.org/"
+          "name": "POPL",
+          "url": "https://popl.acm.org/"
         },
         {
-          "name": "3DV",
-          "url": "https://3dvconf.github.io/"
+          "name": "OOPSLA",
+          "url": "https://conf.researchr.org/series/oopsla"
+        },
+        {
+          "name": "SIGCSE",
+          "url": "https://sigcse.org/"
+        }
+      ]
+    },
+    {
+      "area": "Medical imaging / health AI / neuroscience",
+      "venues": [
+        {
+          "name": "MICCAI",
+          "url": "https://miccai.org/"
+        },
+        {
+          "name": "MIDL",
+          "url": "https://www.midl.io/"
+        },
+        {
+          "name": "ISBI",
+          "url": "https://biomedicalimaging.org/"
+        },
+        {
+          "name": "EMBC",
+          "url": "https://www.embs.org/"
+        },
+        {
+          "name": "COSYNE",
+          "url": "https://www.cosyne.org/"
+        },
+        {
+          "name": "Cognitive Computational Neuroscience (CCN)",
+          "url": "https://ccneuro.org/"
+        },
+        {
+          "name": "CHIL",
+          "url": "https://chil.ahli.cc/"
+        },
+        {
+          "name": "OHBM",
+          "url": "https://www.humanbrainmapping.org/"
         }
       ]
     },
@@ -873,88 +1100,6 @@
         {
           "name": "ICALP",
           "url": "https://www.eatcs.org/"
-        }
-      ]
-    },
-    {
-      "area": "Medical / biological imaging / bioinformatics / neuroscience",
-      "venues": [
-        {
-          "name": "MICCAI",
-          "url": "https://miccai.org/"
-        },
-        {
-          "name": "MIDL",
-          "url": "https://www.midl.io/"
-        },
-        {
-          "name": "ISBI",
-          "url": "https://biomedicalimaging.org/"
-        },
-        {
-          "name": "EMBC",
-          "url": "https://www.embs.org/"
-        },
-        {
-          "name": "ISMB",
-          "url": "https://www.iscb.org/"
-        },
-        {
-          "name": "RECOMB",
-          "url": "https://recomb.org/"
-        },
-        {
-          "name": "COSYNE",
-          "url": "https://www.cosyne.org/"
-        },
-        {
-          "name": "Cognitive Computational Neuroscience (CCN)",
-          "url": "https://ccneuro.org/"
-        }
-      ]
-    },
-    {
-      "area": "HCI / software engineering / education",
-      "venues": [
-        {
-          "name": "CHI",
-          "url": "https://chi.acm.org/"
-        },
-        {
-          "name": "UIST",
-          "url": "https://uist.acm.org/"
-        },
-        {
-          "name": "CSCW",
-          "url": "https://cscw.acm.org/"
-        },
-        {
-          "name": "FSE",
-          "url": "https://conf.researchr.org/series/fse"
-        },
-        {
-          "name": "ICSE",
-          "url": "https://conf.researchr.org/series/icse"
-        },
-        {
-          "name": "ASE",
-          "url": "https://conf.researchr.org/series/ase"
-        },
-        {
-          "name": "PLDI",
-          "url": "https://pldi.acm.org/"
-        },
-        {
-          "name": "POPL",
-          "url": "https://popl.acm.org/"
-        },
-        {
-          "name": "OOPSLA",
-          "url": "https://conf.researchr.org/series/oopsla"
-        },
-        {
-          "name": "SIGCSE",
-          "url": "https://sigcse.org/"
         }
       ]
     }
@@ -2132,7 +2277,14 @@
     "CoRL 2027",
     "UAI 2027",
     "ISIT 2027",
-    "COLT 2027 — submission date TBD (official organizer)"
+    "COLT 2027 — submission date TBD (official organizer)",
+    "RECOMB 2027",
+    "ISMB/ECCB 2027",
+    "MLCB 2027 — date TBD",
+    "WABI 2027 — date TBD",
+    "BOSC 2027 — date TBD",
+    "ACM BCB 2027 — date TBD",
+    "CHIL 2027 — date TBD"
   ],
   "lastLiteratureAudit": "2026-10-27"
 }
