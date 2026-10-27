@@ -86,8 +86,9 @@ footer{margin-top:45px;padding-top:12px;border-top:1px solid #d0d6dd;font-size:1
 <p>Measured example: on SIFT at recall target 0.90, tune-based HNSW selection gives about 13,377 held-out QPS; retrospective held-out selection gives about 18,216 QPS. Do not report the latter as if selected without looking at final results.</p>
 </div>
 <div class="panel">
-<h3>P1 — Metric tests</h3>
-<p>The existing “tied item at boundary” test replaces a true boundary neighbour with a <em>closer</em> point. Add a genuine boundary-tie swap test. Also add explicit duplicate-ID and invalid-ID tests. Re-run the full test suite in isolation.</p>
+<h3>P0 — Correct the cutoff-tie recall logic</h3>
+<p>Passing eight tests does not prove correct tie handling. The current function counts every returned ID at or below the boundary distance. It can award full recall while omitting a strictly closer neighbour. For example, with query 0 and stored points A=0, B=1, C=-1, the true top-2 contains A plus one of B/C. Returning B and C must score 0.50, not 1.00.</p>
+<p>Count strictly closer true neighbours separately; allow substitutions only for the remaining boundary-tied slots. Add genuine tie-swap, missed-strict-neighbour, duplicate-ID, invalid-ID and numerical-tolerance tests before trusting the metric.</p>
 <h3>P1 — Canonical report and archive</h3>
 <p>Two ZIPs have identical report and CSV payload bytes but different Git-directory metadata and different overall ZIP hashes. Separate local PDFs also differ in bytes. Check report text and figures, current Git HEAD, file inventory and archive checksums before choosing the canonical submission.</p>
 <h3>P1 — AI usage record</h3>
