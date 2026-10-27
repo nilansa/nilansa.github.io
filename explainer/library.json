@@ -456,5 +456,25 @@
     "url": "./explainers/ire-quiz2-answerkey-style-sprint-2026-10-22.html",
     "date": "2026-10-22",
     "indexed_at": "2026-10-22T09:45:12.361Z"
+  },
+  {
+    "id": "ire-a3-sanity-first-plan-20261027",
+    "title": "IRE Assignment 3 — Sanity-First Execution Plan",
+    "description": "ASD-STE100-style checklist for A3: data and exact-search sanity tests, benchmark fairness, pre-registered experiments and submission inventory. No benchmark results claimed.",
+    "project": "IRE Assignment 3",
+    "category": "Assignment workflow",
+    "tags": [
+      "ASD-STE100",
+      "ST100 Plus",
+      "IRE",
+      "Assignment 3",
+      "HNSW",
+      "IVF-Flat",
+      "IVF-PQ",
+      "reproducibility"
+    ],
+    "url": "./explainers/ire-a3-sanity-first-plan-2026-10-27.html",
+    "date": "2026-10-27",
+    "indexed_at": "2026-10-27T06:30:59.640Z"
   }
 ]
