@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="ASD-STE100-style sanity-first execution plan for IRE Assignment 3 ANN benchmarking.">
+<meta name="date" content="2026-10-27">
+<title>IRE Assignment 3 — Sanity-First Execution Plan</title>
+<style>
+body{max-width:940px;margin:0 auto;padding:24px;color:#17212d;background:#fff;font:16px/1.65 Arial,Helvetica,sans-serif}a{color:#0645ad}h1{font-size:clamp(30px,5vw,44px);line-height:1.15}h2{margin-top:32px;font-size:24px}h3{font-size:18px}.muted{color:#596675;font-size:14px}.box{border:1px solid #d9e0e7;border-radius:7px;padding:14px;margin:12px 0}.warn{background:#fff8e8;border-color:#e7d39b}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}.grid .box{margin:0}li{margin:7px 0}code,pre{font-family:ui-monospace,Menlo,monospace}pre{white-space:pre-wrap;background:#f5f7fa;padding:12px;overflow-wrap:anywhere}.checks label{display:block;padding:8px 0;border-bottom:1px solid #edf0f3}button{padding:8px 12px;background:white;border:1px solid #cbd3dc;border-radius:4px;cursor:pointer}footer{border-top:1px solid #d9e0e7;margin-top:32px;padding-top:16px;color:#596675;font-size:13px}
+</style></head>
+<body>
+<p class="muted"><a href="../index.html">Technical page index</a> / IRE Assignment 3</p>
+<p class="muted">CS4.406 · Information Retrieval &amp; Extraction · Plan dated 27 October 2026</p>
+<h1>Assignment 3: sanity-first execution plan</h1>
+<p>The goal is a correct and reproducible benchmark. Test the harness on small data first. Repair errors before you run the full benchmark.</p>
+<div class="box warn"><strong>Deadline check:</strong> The supplied brief lists 25 October 2026, 23:59 IST. That date has passed. Check the latest Moodle announcement or instructor message before you assume that late submission is accepted.</div>
+<h2>1. Required work</h2>
+<div class="grid">
+<div class="box"><h3>Data</h3><p>SIFT-1M: 128 dimensions and Euclidean distance. GloVe-100: about 1.18M vectors and 100 dimensions. Normalize GloVe base and query vectors, then use L2 distance.</p></div>
+<div class="box"><h3>Indexes</h3><p>Build an exact FAISS baseline. Compare HNSW, IVF-Flat and IVF-PQ on both datasets.</p></div>
+<div class="box"><h3>Query split</h3><p>Use the first 5,000 queries to tune. Freeze the settings before you report results on the last 5,000 queries.</p></div>
+<div class="box"><h3>Deliverable</h3><p>Report of at most five pages. Submit one ZIP with the exact required files. Do not include datasets or index files.</p></div>
+</div>
+<h2>2. Workflow gates</h2>
+<ol>
+<li><strong>Requirements:</strong> Read the brief. Confirm the current deadline, allowed libraries, file names and page limit.</li>
+<li><strong>Data sanity:</strong> Read a small HDF5 slice. Check shapes, data types, finite values, IDs, stored neighbours and GloVe normalization.</li>
+<li><strong>Exact baseline:</strong> Run FAISS IndexFlatL2. Compare its neighbours with the stored ground truth. Implement tie-aware Recall@10 and test ties at rank 10, duplicate IDs and invalid IDs.</li>
+<li><strong>Small index tests:</strong> Build HNSW, IVF-Flat and IVF-PQ on a small subset. Test training, adding vectors, querying, saving and loading. Fix failures before you expand.</li>
+<li><strong>Timing sanity:</strong> Warm up. Run one query at a time on one thread. Repeat each timing and use the median. Time index construction separately. Time exact search one query at a time and in a batch.</li>
+<li><strong>Full benchmark:</strong> Only after the earlier gates pass, tune on the first 5,000 queries. Freeze the selected settings. Measure the final 5,000 queries once.</li>
+<li><strong>Experiments:</strong> Write and commit each hypothesis before you run the experiment. Change one factor at a time. Record random seeds and settings.</li>
+<li><strong>Package audit:</strong> Regenerate report figures and tables from results.csv. Run full and quick commands. Check the ZIP contents and AI-use record.</li>
+</ol>
+<h2>3. Proposed Part 3 experiment: scaling on SIFT</h2>
+<div class="box"><p><strong>Test:</strong> Repeat the benchmark at 100K, 300K and 1M vectors. Compare exact search, HNSW and IVF-Flat at recall 0.95.</p><p><strong>Hypothesis to commit first:</strong> “As the SIFT database grows from 100K to 1M vectors, exact search will require more query work. HNSW and IVF-Flat should reduce query work, but the cost of reaching recall 0.95 will depend on their settings and the data size.”</p><p class="muted">This is a proposed hypothesis, not a measured result. Keep the final query set held out.</p></div>
+<h2>4. Proposed Part 4 experiment: synthetic cluster overlap</h2>
+<div class="box"><p><strong>Question:</strong> How does increasing overlap between synthetic clusters affect ANN recall and query speed?</p><p><strong>Design:</strong> Generate seeded 128-dimensional vectors. Keep the vector count, cluster count, noise level and query method fixed. Change only cluster separation. Use one control and at least three treatment settings. Compare at least HNSW and IVF-Flat.</p><p><strong>Hypothesis to commit first:</strong> “As clusters overlap more, nearest-neighbour boundaries will become harder to distinguish. Recall at a fixed search budget may decrease, and the effect may differ between graph and cluster-based indexes.”</p><p class="muted">Use no more than 500,000 synthetic vectors. The hypothesis can be wrong. Explain what the measurements support.</p></div>
+<h2>5. Fair benchmark rules</h2>
+<ul><li>Use one machine and record its CPU, RAM, operating system and library versions.</li><li>Use the same data representation and distance definition for comparable runs.</li><li>Measure single-query QPS on one thread. Repeat timings and report the median.</li><li>Measure build time separately. Measure serialized index size and bytes per vector.</li><li>Save every run in results/results.csv with parameters, recall, QPS, build time, index size and software version.</li><li>Produce one recall@10 versus QPS plot per dataset. Report QPS at recall 0.90 and 0.95. Say “not reached” if an index does not reach a target.</li><li>Do not use the ann-benchmarks framework to run your experiments. Do not copy published benchmark numbers.</li></ul>
+<h2>6. Required ZIP inventory</h2>
+<pre>&lt;rollnumber&gt;_A3.zip
+├── report.pdf                    # at most 5 pages
+├── code/
+│   ├── .git/                     # keep hypothesis commit history
+│   ├── README.md
+│   ├── requirements.txt
+│   ├── hypothesis.md
+│   ├── run_all.sh                # full and --quick modes
+│   └── source files and generator
+├── results/
+│   ├── results.csv
+│   └── figures/
+└── ai_log/
+    ├── ai_statement.md
+    └── prompts and responses</pre>
+<p>The full command must regenerate every number, figure and table. The quick command must use a small subset and finish in under 15 minutes on a laptop.</p>
+<h2>7. Review checklist</h2>
+<p class="muted">Tick items while reviewing the plan. These ticks are stored in this browser only. They do not launch jobs or approve benchmark execution.</p>
+<div class="box checks" id="checks">
+<label><input type="checkbox"> I approve SIFT scaling for Part 3.</label>
+<label><input type="checkbox"> I approve synthetic cluster overlap for Part 4.</label>
+<label><input type="checkbox"> I approve the sanity gates before the full benchmark.</label>
+<label><input type="checkbox"> I checked the latest course deadline and submission status.</label>
+</div>
+<button id="reset" type="button">Clear checklist</button>
+<h2>8. Source evidence</h2>
+<ul><li><a href="https://otter.ai/u/k1mRm7bqG_7r1NBCXp4qMn7-_is">Otter: “Assignment 3”, IR 2026, 26 October 2026</a>. Automatic transcript; verify ambiguous terms against the PDF.</li><li>The supplied official Assignment 3 PDF controls the requirements for the benchmark, experiments, report and ZIP.</li></ul>
+<p><strong>Status:</strong> This page is a plan. No full benchmark has been run. It contains no claimed SIFT or GloVe results.</p>
+<footer>Prepared in simple technical English. The public page is separate from the academic homepage.</footer>
+<script>
+(function(){var boxes=Array.from(document.querySelectorAll('#checks input'));var key='ire-a3-plan-checks-v1';try{var saved=JSON.parse(localStorage.getItem(key)||'[]');boxes.forEach(function(b,i){b.checked=!!saved[i];});}catch(e){}boxes.forEach(function(b){b.addEventListener('change',function(){try{localStorage.setItem(key,JSON.stringify(boxes.map(function(x){return x.checked;})));}catch(e){}});});document.getElementById('reset').addEventListener('click',function(){boxes.forEach(function(b){b.checked=false;});try{localStorage.removeItem(key);}catch(e){}});})();
+</script>
+</body></html>
