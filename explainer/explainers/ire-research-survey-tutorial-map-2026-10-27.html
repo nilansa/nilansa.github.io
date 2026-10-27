@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="description" content="Topic checklist and verified tutorial map for the CS4.406 IRE research survey.">
+<title>IRE Research Survey — Topic Map and Tutorial Finder</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#fff;color:#171717;font:16px/1.55 Georgia,"Times New Roman",serif}main{max-width:1000px;margin:auto;padding:28px 20px 70px}h1{font-size:clamp(2rem,4vw,3rem);font-weight:500;line-height:1.12;margin:8px 0 14px}h2{font-size:1.5rem;font-weight:500;margin:34px 0 10px;border-bottom:1px solid #bbb;padding-bottom:6px}h3{font-size:1.1rem;margin:20px 0 6px}p{margin:8px 0 13px}a{color:#0645ad}a:visited{color:#551a8b}.muted{color:#555}.eyebrow{font:.85rem/1.4 system-ui,sans-serif;color:#555;text-transform:uppercase;letter-spacing:.04em}.lead{font-size:1.12rem;max-width:850px}.box{border:1px solid #aaa;padding:13px 15px;margin:15px 0}.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px}.card{border:1px solid #ccc;padding:12px 14px}.card h3{margin-top:0}.pill{display:inline-block;border:1px solid #aaa;border-radius:3px;padding:1px 6px;margin:2px 4px 2px 0;font:.76rem/1.5 system-ui,sans-serif}table{width:100%;border-collapse:collapse;margin:12px 0 20px;font-size:.95rem}th,td{text-align:left;vertical-align:top;border-bottom:1px solid #ddd;padding:8px}th{border-bottom:2px solid #888;font-weight:600}.check{display:flex;gap:8px;align-items:flex-start;margin:8px 0}.check input{margin-top:5px}.resource{padding:0 0 12px;margin:0 0 12px;border-bottom:1px solid #ddd}.resource h3{margin-bottom:2px}.meta{font:.82rem/1.45 system-ui,sans-serif;color:#555}.links a{margin-right:12px}li{margin:5px 0}footer{border-top:1px solid #bbb;margin-top:36px;padding-top:12px;color:#555;font-size:.9rem}@media(max-width:650px){main{padding:18px 12px 50px}table{display:block;overflow-x:auto}}
+</style></head><body><main>
+<p class="eyebrow">CS4.406 · Information Retrieval and Extraction · 27 October 2026</p>
+<h1>Research survey: topic checklist and tutorial finder</h1>
+<p class="lead">This map combines the professor’s examples, themes found in the AIN Otter recordings, the published course outline, and public conference tutorials or lecture materials. The goal is to choose one hard research area and explain how its mathematics, algorithms and papers fit together.</p>
+<p class="muted">Working research map, not instructor approval. Public links were checked during preparation. Older theory notes are marked as foundations, not as recent tutorials.</p>
+<div class="box"><h3 style="margin-top:0">Initial recommendation</h3>
+<p><strong>First choice to investigate: diversity-aware recommendation using Determinantal Point Processes (DPPs), compared with submodular diversification.</strong> DPPs are an explicit example from the professor, have a clear mathematical core, and appear less directly covered than basic ranking and retrieval topics.</p>
+<p><strong>Backup: unbiased learning-to-rank from biased feedback.</strong> It has the strongest verified tutorial package: a WSDM 2024 tutorial, slides and a recording. To go beyond the course, focus on propensity estimation, confounding, counterfactual risk, estimator variance, robustness and fairness—not only basic position bias.</p>
+<p>The professor must approve the scope. These recommendations are screening judgments, not a promise of marks.</p></div>
+<h2>1. What the professor expects</h2>
+<ul><li>One non-trivial topic related to the course, but beyond the lecture material.</li><li>About 10–15 connected research papers, including a couple of seminal papers that shaped the field.</li><li>Mathematics, theory, algorithms, assumptions, limitations and published empirical results.</li><li>A short report and presentation, followed by an oral viva. Do not plan new experiments or a systems implementation; compare published results instead.</li></ul>
+<p>The announcement gave Tuesday, 27 October 2026 as the initial proposal deadline and 20–21 November 2026 for evaluations. The task is to build a mental map of how papers relate, not to produce separate summaries.</p>
+<h2>2. Course boundary: avoid repeating lectures</h2>
+<p>The public outline is <a href="https://github.com/sy3na/cs4406.m26/blob/main/README.md">CS4.406 Monsoon 2026</a>. It documents the scope below. Later topics are partly tentative, so confirm what was actually taught before deciding that a topic is outside the syllabus.</p>
+<table><thead><tr><th>Already documented or likely overlap</th><th>How to go beyond it</th></tr></thead><tbody>
+<tr><td>Systems, storage, replication, latency, B-trees and LSM-trees</td><td>Choose a theory question, not a system build or blog summary.</td></tr>
+<tr><td>Text processing, deduplication, Zipf/Heaps, MinHash, LSH, Bloom filters and sketches</td><td>Study a new theoretical use, such as streaming diversity selection, rather than re-teaching LSH.</td></tr>
+<tr><td>Inverted indexes, compression, query processing, BM25, PageRank/HITS and learning-to-rank basics</td><td>Move beyond definitions to propensity estimation, confounding, counterfactual risk, robustness or fairness.</td></tr>
+<tr><td>Click models, position bias, CTR, semantic retrieval, embeddings, hybrid retrieval, ANN, evaluation and A/B testing</td><td>A survey of these alone risks repeating lectures or Assignment 2.</td></tr>
+<tr><td>Later or tentative topics: recommender foundations, sequential/graph recommendation, logged bandit feedback, responsible retrieval and LLMs for recommendation</td><td>Check actual lecture notes. These may have been taught or may be planned.</td></tr></tbody></table>
+<h2>3. Master topic checklist</h2><p>Use these checkboxes to shortlist candidates. The tags show where the idea came from; they do not mean the professor has approved it.</p>
+<div id="topic-checklist"></div>
+<h2>4. Best candidates, ranked</h2><div id="ranking"></div>
+<h2>5. Verified tutorial, lecture and survey resources</h2>
+<p>Start with resources that provide a coherent roadmap. Where only a page or abstract was found, this is stated explicitly; do not assume slides or recordings exist.</p>
+<div id="resources"></div>
+<h2>6. A practical way to finish the survey</h2>
+<ol><li>Choose one topic and write a one-paragraph research question.</li><li>Use a tutorial to create a taxonomy. Identify two seminal papers and a timeline of 10–15 connected papers.</li><li>Read the papers, compare assumptions and mathematical objectives, and record where each method improves or fails.</li><li>Prepare the report and viva around the connections between papers, not around isolated summaries.</li></ol>
+<p><strong>Search rule:</strong> prefer official conference, university or research-lab pages. A paper mentioning a topic is not evidence that a tutorial or course exists. Mark material as “not verified” if no direct slides or recording can be found.</p>
+<footer>Prepared 27 October 2026. Sources are linked next to each item. The course outline can change; confirm actual lecture coverage before submitting a final proposal.</footer>
+</main></body></html>
