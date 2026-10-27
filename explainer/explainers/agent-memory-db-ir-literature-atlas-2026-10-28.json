@@ -185,7 +185,7 @@
     },
     {
       "id": "agentprune",
-      "title": "AgentPrune: An Economical Communication Pipeline for LLM Multi-Agent Systems",
+      "title": "Cut the Crap: An Economical Communication Pipeline for LLM-based Multi-Agent Systems",
       "venue": "ICLR",
       "year": 2025,
       "cluster": "communication",
@@ -196,7 +196,7 @@
     },
     {
       "id": "agentdropout",
-      "title": "AgentDropout: Dynamic Agent Elimination for Multi-Agent Collaboration",
+      "title": "AgentDropout: Dynamic Agent Elimination for Token-Efficient and High-Performance LLM-Based Multi-Agent Collaboration",
       "venue": "ACL",
       "year": 2025,
       "cluster": "communication",
@@ -207,7 +207,7 @@
     },
     {
       "id": "memoryos",
-      "title": "MemoryOS: A Memory Operating System for AI Agents",
+      "title": "Memory OS of AI Agent",
       "venue": "EMNLP",
       "year": 2025,
       "cluster": "hierarchy",
@@ -240,7 +240,7 @@
     },
     {
       "id": "lightmem",
-      "title": "LightMem: Lightweight and Efficient Agent Memory",
+      "title": "LightMem: Lightweight and Efficient Memory-Augmented Generation",
       "venue": "ICLR",
       "year": 2026,
       "cluster": "hierarchy",
@@ -251,7 +251,7 @@
     },
     {
       "id": "assomem",
-      "title": "AssoMem: Scalable Memory for Language Agents via Associative Retrieval",
+      "title": "AssoMem: Scalable Memory QA with Multi-Signal Associative Retrieval",
       "venue": "ICLR",
       "year": 2026,
       "cluster": "retrieval",
@@ -273,7 +273,7 @@
     },
     {
       "id": "memoryr1",
-      "title": "Memory-R1: Enhancing Large Language Model Agents to Actively Manage and Utilize External Memory",
+      "title": "Memory-R1: Enhancing Large Language Model Agents to Manage and Utilize Memories via Reinforcement Learning",
       "venue": "ACL",
       "year": 2026,
       "cluster": "adaptive",
@@ -284,7 +284,7 @@
     },
     {
       "id": "agemem",
-      "title": "AgeMem: Unified Short- and Long-Term Memory for LLM Agents",
+      "title": "Agentic Memory: Learning Unified Long-Term and Short-Term Memory Management for Large Language Model Agents",
       "venue": "ACL",
       "year": 2026,
       "cluster": "adaptive",
@@ -295,7 +295,7 @@
     },
     {
       "id": "memora",
-      "title": "Memora: Improving Agent Memory with Cue-Based Retrieval",
+      "title": "Memora: A Harmonic Memory Representation Balancing Abstraction and Specificity",
       "venue": "ICML",
       "year": 2026,
       "cluster": "retrieval",
@@ -306,18 +306,18 @@
     },
     {
       "id": "apdmem",
-      "title": "APDMem: Adaptive Progressive Distillation for Agent Memory",
+      "title": "APDMem: Agent-Controlled Progressive Disclosure for Query-Adaptive Long-Term Memory",
       "venue": "EMNLP Industry",
       "year": 2026,
       "cluster": "hierarchy",
-      "mechanism": "Progressive hierarchical memory distilled to reduce cost and improve retrieval.",
+      "mechanism": "Maintain thematic summaries, key facts, turn-level evidence and raw messages; progressively disclose deeper evidence when needed.",
       "limit": "Industry deployment metrics and task datasets determine novelty.",
       "url": "https://aclanthology.org/2026.emnlp-industry.81/",
       "status": "peer-reviewed"
     },
     {
       "id": "atommemfacts",
-      "title": "AtomMem: Structured Atomic Memory for Long-Term Conversations",
+      "title": "AtomMem: Building Simple and Effective Memory System for LLM Agents via Atomic Facts",
       "venue": "EMNLP",
       "year": 2026,
       "cluster": "retrieval",
@@ -328,7 +328,7 @@
     },
     {
       "id": "atommemrl",
-      "title": "AtomMem: Learnable Memory Operations for Agents",
+      "title": "AtomMem: Learnable Dynamic Agentic Memory with Atomic Memory Operation",
       "venue": "EMNLP",
       "year": 2026,
       "cluster": "adaptive",
@@ -339,7 +339,7 @@
     },
     {
       "id": "memma",
-      "title": "MemMA: Memory-Centric Multi-Agent Reasoning",
+      "title": "MemMA: Coordinating the Memory Cycle through Multi-Agent Reasoning and In-Situ Self-Evolution",
       "venue": "EMNLP",
       "year": 2026,
       "cluster": "communication",
@@ -350,29 +350,29 @@
     },
     {
       "id": "collabmem",
-      "title": "COLLABMEM: Collaborative Memory for Multi-Agent Systems",
+      "title": "COLLABMEM: A Diagnostic Benchmark for Collaborative Memory Operations in Multi-Agent LLM Systems",
       "venue": "EMNLP",
       "year": 2026,
       "cluster": "communication",
-      "mechanism": "Share and route memory between agents, including cooperation and conflicts.",
-      "limit": "Agent-level access and ownership constraints go beyond distributed document selection.",
+      "mechanism": "Diagnostic multi-agent memory benchmark for sharing, permissions, routing, provenance, authority, retention; includes a TMS-GRAPH++ baseline.",
+      "limit": "The benchmark is not itself a routing algorithm; it adds agent-specific constraints and baseline evidence.",
       "url": "https://aclanthology.org/2026.emnlp-main.1194/",
       "status": "peer-reviewed"
     },
     {
       "id": "cimemories",
-      "title": "CIMemories: Role-Aware Private Memories for Multi-Agent Systems",
+      "title": "CIMemories: A Compositional Benchmark For Contextual Integrity In LLMs",
       "venue": "ICLR",
       "year": 2026,
       "cluster": "governance",
-      "mechanism": "Partition and use memory according to agent roles and privacy constraints.",
-      "limit": "Hard authorization must precede relevance ranking.",
+      "mechanism": "Benchmark inappropriate memory information disclosure across user-task contexts with compositional profile attributes.",
+      "limit": "A privacy failure benchmark, not an implemented role-based access-control database.",
       "url": "https://proceedings.iclr.cc/paper_files/paper/2026/hash/9a2bcfaf383638e166162a25b6dff125-Abstract-Conference.html",
       "status": "peer-reviewed"
     },
     {
       "id": "helm",
-      "title": "HELM: Grounded and Controlled Memory for Language Agents",
+      "title": "HELM: Steering Long-Horizon Agents with Learned Hierarchical Memory and Epistemic Governance",
       "venue": "EMNLP",
       "year": 2026,
       "cluster": "governance",
@@ -394,7 +394,7 @@
     },
     {
       "id": "vikingmem",
-      "title": "VikingMem: A Memory Base Management System for Stateful LLM Applications",
+      "title": "VikingMem: A Memory Base Management System for Stateful LLM-based Applications",
       "venue": "VLDB",
       "year": 2026,
       "cluster": "write",
@@ -416,7 +416,7 @@
     },
     {
       "id": "memoryarena",
-      "title": "MemoryArena: Benchmarking Agent Memory in Interdependent Multi-Session Tasks",
+      "title": "Benchmarking Agent Memory in Interdependent Multi-Session Agentic Tasks",
       "venue": "ICML",
       "year": 2026,
       "cluster": "benchmark",
@@ -438,29 +438,29 @@
     },
     {
       "id": "memoryagentbench",
-      "title": "MemoryAgentBench: Evaluating Memory in LLM Agents via Incremental Multi-Turn Interactions",
+      "title": "Evaluating Memory in LLM Agents via Incremental Multi-Turn Interactions",
       "venue": "ICLR",
       "year": 2026,
       "cluster": "benchmark",
-      "mechanism": "Test retrieval, test-time learning, long-range recall and selective forgetting.",
+      "mechanism": "MemoryAgentBench evaluates accurate retrieval, test-time learning, long-range understanding and selective forgetting.",
       "limit": "Probes skills, not a specific memory index.",
       "url": "https://openreview.net/forum?id=DT7JyQC3MR",
       "status": "peer-reviewed"
     },
     {
       "id": "amabench",
-      "title": "AMA-Bench: Evaluating Active Memory Agents",
+      "title": "AMA-Bench: Evaluating Long-Horizon Memory for Agentic Applications",
       "venue": "ICML",
       "year": 2026,
       "cluster": "benchmark",
-      "mechanism": "Benchmark active/strategic agent memory use.",
-      "limit": "Measure interactive decision quality beyond rank-position recall.",
+      "mechanism": "Benchmark real and synthetic agent-environment trajectories; tests causal information, long-horizon memory and introduces AMA-Agent.",
+      "limit": "The benchmark and proposed causality-graph agent go beyond simple dialogue factual recall.",
       "url": "https://proceedings.mlr.press/v306/zhao26bs.html",
       "status": "peer-reviewed"
     },
     {
       "id": "locomoplus",
-      "title": "LoCoMo-Plus: Long-Term Memory with Latent Constraints",
+      "title": "Locomo-Plus: Beyond-Factual Cognitive Memory Evaluation Framework for LLM Agents",
       "venue": "ACL",
       "year": 2026,
       "cluster": "benchmark",
@@ -856,7 +856,6 @@
       "id": "m10",
       "cluster": "governance",
       "agent": [
-        "cimemories",
         "shardmemo"
       ],
       "prior": [
@@ -866,7 +865,7 @@
       "match": "strong",
       "shared": "Hard role/scope filters constrain vector retrieval before ranking.",
       "different": "LLM agents add delegated authority and implicit information leakage.",
-      "experiment": "Filter-before-route vs filter-after-retrieve; test unauthorized recall and allowed Recall@10."
+      "experiment": "Filter-before-route vs filter-after-retrieve; use CIMemories privacy tasks to test forbidden disclosures and permissible Recall@10."
     },
     {
       "id": "m11",
@@ -958,7 +957,8 @@
         "longmemeval",
         "memoryarena",
         "memoryagentbench",
-        "locomo"
+        "locomo",
+        "collabmem"
       ],
       "prior": [
         "systemr",
