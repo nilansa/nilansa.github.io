@@ -1,5 +1,25 @@
 [
   {
+    "id": "agent-memory-db-ir-literature-atlas-20261028",
+    "title": "Agent Memory × DB/IR — Literature Atlas and One-to-One Crosswalk",
+    "description": "ST100 Plus pictorial study: 7 topic clusters, 41 memory/agent papers, 21 database/IR/systems precedents, 18 audited comparisons, experiment pipelines, and offline bibliography importer.",
+    "project": "Memory Agents / ADAPTEX",
+    "category": "Literature atlas & research gap validation",
+    "tags": [
+      "ST100 Plus",
+      "agent memory",
+      "SIGMOD",
+      "VLDB",
+      "SIGIR",
+      "multi-agent communication",
+      "database prior art",
+      "research checklist"
+    ],
+    "url": "./explainers/agent-memory-db-ir-literature-atlas-2026-10-28.html",
+    "date": "2026-10-28",
+    "indexed_at": "2026-10-28T00:55:00+05:30"
+  },
+  {
     "id": "task-explainer-public-index-20261027",
     "title": "Task explainer — public status index",
     "description": "A minimal, dated public snapshot of selected long-running task milestones. Private agent logs, local paths and research outputs are excluded.",
