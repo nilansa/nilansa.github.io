@@ -93,13 +93,26 @@ footer{border-top:1px solid #aaa;margin-top:40px;padding-top:12px;font-size:12px
 
 <section id="industry">
 <h2>Industry, applied systems &amp; demonstrations</h2>
-<p><strong>Separate from regular research papers.</strong> NAACL and COLING Industry Tracks accept academics and students when the work involves real-world speech/NLP applications. An untested prototype is not equivalent to a deployed or deployment-grounded system. Organizer proposals and challenge participation are not regular paper submissions.</p>
-<p id="industry-count" class="muted">Loading industry-track dates…</p>
+<p><strong>Industry track does not always mean an industry job.</strong> NAACL 2027, COLING 2027, EACL 2027 and prior ACL/EMNLP industry calls explicitly allow students and academic-only authors. Other venues require an industry coauthor: ICDE and SIGMOD 2027 do; ISCA 2027 requires the first and most authors to work in industry. Check <strong>both author eligibility and practical-work requirements</strong> before choosing a paper route. A parent conference CORE/CCF ranking is not an independent track ranking.</p>
+<p><strong>Eligibility symbols:</strong> ✓ = an academic-only team is allowed by the cited call; ✕ = an explicit non-academic coauthor or industry-majority rule prevents a student-only team; ? = not specified clearly or contingent on industry/product evidence. A ✓ does <em>not</em> mean an untested prototype satisfies the paper requirements.</p>
+<div>
+<label>Academic team <select id="industry-eligibility"><option value="all">All eligibility types</option><option value="yes">✓ Academic team allowed</option><option value="requires">✕ Company author required</option><option value="conditional">? Unclear / conditional</option></select></label>
+<label>Call status <select id="industry-cycle"><option value="all">All (including historical calls)</option><option value="upcoming">Open / upcoming dated</option><option value="closed">Past deadlines</option><option value="undated">No verified deadline</option></select></label>
+<label>Find a track <input id="industry-query" type="search" placeholder="NAACL, SIGMOD, robotics…"></label>
+</div>
+<p id="industry-catalogue-count" class="muted">Loading verified author-affiliation requirements…</p>
+<div class="tbl"><table aria-label="Industry and applied research tracks with verified academic student eligibility">
+<thead><tr><th>Venue and paper track</th><th>Academic-only students?</th><th>Affiliation rule</th><th>Research/deployment evidence needed</th><th>Deadline / status</th><th>Official CFP</th></tr></thead>
+<tbody id="industry-catalogue-rows"><tr><td colspan="6">Loading official CFP and FAQ comparisons…</td></tr></tbody>
+</table></div>
+<h3>Upcoming industry papers and system demos</h3>
+<p><small>Submission milestones are shown separately from author eligibility. Demonstration papers and Industry Day talks are <strong>not automatically</strong> Industry Track archival papers; the full CFP controls publication and evaluation rules.</small></p>
+<p id="industry-count" class="muted">Loading industry-track deadlines…</p>
 <div class="tbl"><table aria-label="Upcoming industry and system demonstration submission deadlines">
 <thead><tr><th>Date</th><th>Days left</th><th>Track</th><th>Kind</th><th>Requirements / limits</th><th>Source</th></tr></thead>
 <tbody id="industry-rows"><tr><td colspan="6">Loading official industry and demo dates…</td></tr></tbody>
 </table></div>
-<p><small>For closed industry calls (e.g., EACL 2027) and undated future tracks (e.g., EMNLP), use the <a href="#venues">venue catalogue</a>. A parent conference's CORE/CCF ranking is not an independent industry-track ranking.</small></p>
+<p><small>Sources include official 2026 historical calls when 2027 policies are not published; past rules are <strong>not carried forward automatically</strong>. For future tracks without a call, the deadline is TBA. <a href="#venues">Browse all venues and parent conference rankings</a> · <a href="industry-track-survey.md">Full eligibility survey and decision rules</a>.</small></p>
 </section>
 <section id="speech">
 <h2>Speech, audio &amp; spoken language conferences</h2>
@@ -210,7 +223,7 @@ $('deadline-count').textContent=ds.length+' dated actions shown '+(w==='all'?'(a
 
 function deadlineFocus(d){
 const n=String(d.venue||'');
-if(/industry track/i.test(n))return 'industry';
+if(d.trackCategory==='industry'||/industry track|industrial track|industry and applications|industry papers/i.test(n))return 'industry';
 if(/system demonstrations?|show and tell|system papers?|system demo/i.test(n)||d.type==='demo')return 'system';
 if(d.type==='proposal')return 'proposal';
 if(/challenge|DCASE|XACLE|HEARTBEAT|EEG-sAAD|RMS-AQA|CONVERGE/i.test(n)&&['paper','other','registration'].includes(d.type))return 'challenge';
@@ -228,7 +241,28 @@ for(const d of entries){const tr=el('tr',undefined,root);el('td',formatDeadlineD
 if(!entries.length){const tr=el('tr',undefined,root);const td=el('td',empty,tr);td.colSpan=6;}
 $(countId).textContent=entries.length+' upcoming dated actions shown · source check '+formatDeadlineDate(db.checkedAt)+' · unknown dates not guessed.';
 }
+function renderIndustryCatalogue(){
+const root=$('industry-catalogue-rows');root.replaceChildren();
+const elig=$('industry-eligibility').value,cycle=$('industry-cycle').value,q=$('industry-query').value.toLowerCase(),today=istDay();
+const group=t=>t.studentEligibility.startsWith('yes-')?'yes':t.studentEligibility.startsWith('requires-')?'requires':'conditional';
+const state=t=>!t.deadline?'undated':t.deadline<today?'closed':'upcoming';
+const filtered=(db.industryTracks||[]).filter(t=>(elig==='all'||group(t)===elig)&&(cycle==='all'||state(t)===cycle)&&[t.venue,t.track,t.field,t.requirement,t.affiliation].join(' ').toLowerCase().includes(q))
+.sort((a,b)=>(state(a)==='upcoming'?0:state(a)==='undated'?1:2)-(state(b)==='upcoming'?0:state(b)==='undated'?1:2)||(a.deadline||'9999').localeCompare(b.deadline||'9999'));
+for(const t of filtered){
+const tr=el('tr',undefined,root);const title=el('td',t.venue+' — '+t.track,tr);const sub=el('div',t.field+' · '+(t.archival==='yes'?'Archival paper':t.archival==='unverified'?'Archival status not verified':'Not archival'),title);sub.className='status';
+const label=group(t)==='yes'?'✓ Yes':group(t)==='requires'?'✕ Not without industry authors':'? Verify with chairs';
+const chk=el('td',label,tr);chk.title=t.evidence||'Official source required';
+el('td',t.affiliation,tr);el('td',t.requirement,tr);
+const cell=el('td',undefined,tr);
+el('span',t.deadline?formatDeadlineDate(t.deadline)+' · '+daysLeftText(daysUntil(t.deadline,today)):'TBA / rolling',cell);
+const d=el('div',t.deadlineNote||'',cell);d.className='status';
+link('CFP / FAQ',t.source,el('td',undefined,tr));
+}
+if(!filtered.length){const tr=el('tr',undefined,root);const td=el('td','No matching tracks. Clear eligibility and date filters.',tr);td.colSpan=6;}
+$('industry-catalogue-count').textContent=filtered.length+' of '+(db.industryTracks||[]).length+' organizer-source eligibility records; checked '+formatDeadlineDate(db.checkedAt)+'. Explicit students ✓, corporate-author requirement ✕, ambiguous ?.';
+}
 function renderIndustry(){
+renderIndustryCatalogue();
 populateCurated('industry-rows','industry-count',d=>['industry','system'].includes(deadlineFocus(d)),'No recorded upcoming industry or demo submissions; check official CFPs.');
 }
 function renderSpeech(){
@@ -274,11 +308,12 @@ db.areas.forEach(g=>{const o=el('option',g.area,$('venue-area'));o.value=g.area;
 const coverage=db.integrations&&db.integrations.huggingFace;const bio=db.areas.find(a=>a.area==='Computational biology / bioinformatics / genomics');
 $('coverage-count').textContent='Total '+db.areas.reduce((n,a)=>n+a.venues.length,0)+' venue entries · Hugging Face '+(coverage?coverage.matchedFiles+' of '+coverage.totalFiles:'source pending')+' conference definitions · '+(bio?bio.venues.length:0)+' biology venues · '+db.deadlines.length+' dated actions.';
 ['deadline-window','deadline-area','deadline-kind','deadline-focus','deadline-query'].forEach(id=>$(id).addEventListener(id==='deadline-query'?'input':'change',renderDeadlines));
+['industry-eligibility','industry-cycle','industry-query'].forEach(id=>$(id).addEventListener(id==='industry-query'?'input':'change',renderIndustryCatalogue));
 $('idea-query').addEventListener('input',renderIdeas);
 ['venue-area','venue-query','venue-core','venue-ccf','venue-era'].forEach(id=>$(id).addEventListener(id==='venue-query'?'input':'change',renderVenues));
 renderDeadlines();renderIndustry();renderSpeech();renderBiology();renderIdeas();renderVenues();renderPolicies();renderSources();
 let lastIstDate=istDay();setInterval(()=>{const now=istDay();if(now!==lastIstDate){lastIstDate=now;renderDeadlines();renderIndustry();renderSpeech();renderBiology();}},60000);
-}).catch(e=>{console.warn('CS Conf data load:',e);$('deadline-rows').replaceChildren(el('tr'));$('deadline-count').textContent='Could not load data.json. Use the machine-readable index link under Sources or the GitHub source.';$('idea-list').textContent='Data currently unavailable; open the linked data.json file.';$('speech-count').textContent='Speech deadlines unavailable; see official sources.';$('industry-count').textContent='Industry-track deadlines unavailable; see official sources.';$('policy-rows').textContent='Data currently unavailable.';});
+}).catch(e=>{console.warn('CS Conf data load:',e);$('deadline-rows').replaceChildren(el('tr'));$('deadline-count').textContent='Could not load data.json. Use the machine-readable index link under Sources or the GitHub source.';$('idea-list').textContent='Data currently unavailable; open the linked data.json file.';$('speech-count').textContent='Speech deadlines unavailable; see official sources.';$('industry-count').textContent='Industry-track deadlines unavailable; see official sources.';$('industry-catalogue-count').textContent='Author eligibility data unavailable; use the linked industry-track survey.';$('policy-rows').textContent='Data currently unavailable.';});
 })();
 </script>
 </body></html>
