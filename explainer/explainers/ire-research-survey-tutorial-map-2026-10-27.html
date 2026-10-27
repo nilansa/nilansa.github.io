@@ -27,8 +27,39 @@
 <tr><td>Click models, position bias, CTR, semantic retrieval, embeddings, hybrid retrieval, ANN, evaluation and A/B testing</td><td>A survey of these alone risks repeating lectures or Assignment 2.</td></tr>
 <tr><td>Later or tentative topics: recommender foundations, sequential/graph recommendation, logged bandit feedback, responsible retrieval and LLMs for recommendation</td><td>Check actual lecture notes. These may have been taught or may be planned.</td></tr></tbody></table>
 <h2>3. Master topic checklist</h2><p>Use these checkboxes to shortlist candidates. The tags show where the idea came from; they do not mean the professor has approved it.</p>
-<div id="topic-checklist"></div>
-<h2>4. Best candidates, ranked</h2><div id="ranking"></div>
+<div class="cols">
+<div class="card"><h3>Professor’s explicit examples</h3>
+<label class="check"><input type="checkbox"> <span><strong>DPPs for diverse recommendations</strong> — kernels, relevance/diversity, sampling and guarantees.</span></label>
+<label class="check"><input type="checkbox"> <span><strong>Unbiased learning-to-rank</strong> — click bias, propensity estimation, counterfactual risk and robustness.</span></label>
+<label class="check"><input type="checkbox"> <span><strong>Bandits for recommendations</strong> — contextual bandits, exploration, feedback and regret.</span></label>
+</div>
+<div class="card"><h3>AIN Otter themes</h3>
+<label class="check"><input type="checkbox"> <span>Active learning and active testing; label budgets, uncertainty and evaluation.</span></label>
+<label class="check"><input type="checkbox"> <span>Adaptive sampling beyond IID; effects on gradient estimates and learning rates.</span></label>
+<label class="check"><input type="checkbox"> <span>Streaming DPPs, coresets and diversity-preserving subset selection.</span></label>
+<label class="check"><input type="checkbox"> <span>Importance/gradient sampling, validation-guided selection and data valuation.</span></label>
+<label class="check"><input type="checkbox"> <span>Curriculum learning, hard-example selection and variance reduction.</span></label>
+<label class="check"><input type="checkbox"> <span>LSH, MinHash, SimHash, Bloom/Count-Min sketches for similarity-aware selection.</span></label>
+<label class="check"><input type="checkbox"> <span>Proxy models, data cartography, regret bounds and optimization of sampling policies.</span></label>
+<label class="check"><input type="checkbox"> <span>Subquery decomposition, retrieval coverage and learnable indexing.</span></label>
+</div>
+<div class="card"><h3>Strong additions to investigate</h3>
+<label class="check"><input type="checkbox"> <span>Counterfactual/off-policy evaluation: IPS, self-normalized IPS and doubly robust estimators.</span></label>
+<label class="check"><input type="checkbox"> <span>Propensity estimation, confounding and identifiability in click data.</span></label>
+<label class="check"><input type="checkbox"> <span>Slate bandits and offline reinforcement learning for long-term recommendation.</span></label>
+<label class="check"><input type="checkbox"> <span>Submodular diversification, fairness/exposure constraints and multi-stakeholder objectives.</span></label>
+<label class="check"><input type="checkbox"> <span>Feedback loops, popularity bias and causal effects of ranking.</span></label>
+<label class="check"><input type="checkbox"> <span>Active construction of relevance test collections and label-efficient evaluation.</span></label>
+<label class="check"><input type="checkbox"> <span>Sequential/graph recommendation, conversational search, interpretability and calibration.</span></label>
+<label class="check"><input type="checkbox"> <span>Hybrid sparse-dense retrieval and ANN trade-offs — lower priority because the course covers them.</span></label>
+</div></div>
+<h2>4. Best candidates, ranked</h2><table><thead><tr><th>Rank</th><th>Topic</th><th>Why it fits</th><th>Main caution</th></tr></thead><tbody>
+<tr><td>1</td><td><strong>DPPs and diversity-aware recommendation</strong></td><td>Explicit professor example; strong probability/linear-algebra core; a 2024 survey gives a literature roadmap.</td><td>No recent DPP-specific top-conference tutorial was verified. Combine theory notes with the survey and primary papers.</td></tr>
+<tr><td>2</td><td><strong>Advanced unbiased learning-to-rank</strong></td><td>Explicit example; excellent tutorial, slides and video; deep estimation theory.</td><td>Click and position bias are already in the course. Scope beyond basics to confounding, propensity estimation and robustness.</td></tr>
+<tr><td>3</td><td><strong>Contextual bandits for recommendation</strong></td><td>Explicit example; multiple 2024–2025 conference tutorials and lecture slides.</td><td>Logged bandit feedback may be part of later lectures; confirm what was covered.</td></tr>
+<tr><td>4</td><td><strong>Active learning/testing for IR evaluation</strong></td><td>Appears in AIN and connects to retrieval evaluation; a relevant SIGIR talk is listed by a researcher.</td><td>Direct slides or recording for the specific active-evaluation talk were not confirmed.</td></tr>
+<tr><td>5</td><td><strong>Streaming DPPs, coresets and principled data selection</strong></td><td>Strong AIN connection; NeurIPS 2024 tutorial covers principled data selection and diversity.</td><td>Keep a clear IR/recommendation connection. General LLM training-data selection may be too far from the course.</td></tr>
+</tbody></table>
 <h2>5. Verified tutorial, lecture and survey resources</h2>
 <p>Start with resources that provide a coherent roadmap. Where only a page or abstract was found, this is stated explicitly; do not assume slides or recordings exist.</p>
 <div id="resources"></div>
