@@ -3,7 +3,7 @@
   "taskId": "20261026-csconf-research",
   "createdAt": "2026-10-26T13:51:12.349Z",
   "checkedAt": "2026-10-27",
-  "editorialNote": "27 Oct primary IMC 2027 Cycle 1+Replicability venue/AI policy; accepted SIGCOMM 2026 RepLLM/TianYan and IMC 2025 replication precedents; no new network or model experiment. 27 Oct 2026 speech/industry visibility correction: dedicated speech section and explicit Industry Track routes; new official ASLI 2027, COLING 2027 Industry, EUSIPCO, IWSLT, ITG Speech, DCASE, IEEE SSP organizer deadlines; separate ASLI from discontinued ASRU/SLT cycle. 27 Oct 2026 accepted KDD 2026 ReplicatorBench and ICML 2026 BioAgent Bench narrow generic research-agent and bioinformatics-agent novelty; CC08 internal-audit-first stop gate sharpened; separate ISIT 2027 workshop Nov15 and paper Jan10 added; SIGCOMM Feb2 source reconfirmed, CC13 paired control fixed. Prior VAANI class-agnostic correction preserved. No new model/agent benchmark, GPU, paid API, sealed data, paper submission or ChatGPT↔Codex/local transfer.",
+  "editorialNote": "27 Oct 2026: industry-track academic/student eligibility verified via official CFPs (NAACL, COLING, EACL, SIGMOD, ICDE, ISCA, CHIIR, PAKDD and historical examples); 17 track-specific evidence records and eligibility/affiliation filters. 27 Oct primary IMC 2027 Cycle 1+Replicability venue/AI policy; accepted SIGCOMM 2026 RepLLM/TianYan and IMC 2025 replication precedents; no new network or model experiment. 27 Oct 2026 speech/industry visibility correction: dedicated speech section and explicit Industry Track routes; new official ASLI 2027, COLING 2027 Industry, EUSIPCO, IWSLT, ITG Speech, DCASE, IEEE SSP organizer deadlines; separate ASLI from discontinued ASRU/SLT cycle. 27 Oct 2026 accepted KDD 2026 ReplicatorBench and ICML 2026 BioAgent Bench narrow generic research-agent and bioinformatics-agent novelty; CC08 internal-audit-first stop gate sharpened; separate ISIT 2027 workshop Nov15 and paper Jan10 added; SIGCOMM Feb2 source reconfirmed, CC13 paired control fixed. Prior VAANI class-agnostic correction preserved. No new model/agent benchmark, GPU, paid API, sealed data, paper submission or ChatGPT↔Codex/local transfer.",
   "deadlines": [
     {
       "date": "2026-10-27",
@@ -94,13 +94,14 @@
     {
       "date": "2026-10-31",
       "venue": "NAACL 2027 Industry Track",
-      "action": "Six-page industry paper (real-world deployed or planned NLP/speech system, no ARR)",
+      "action": "Six-page Industry Track paper; students and academic-only teams EXPLICITLY eligible if real-world NLP/speech evidence",
       "area": "NLP / speech / deployed systems",
-      "time": "11:59 PM AoE; standalone industry track, mandatory Limitations section, do not submit generic exploration or entirely AI-generated papers",
+      "time": "11:59 PM AoE; author eligibility YES (FAQ). Real-world deployed/expected-to-deploy evidence needed; not ARR, AI-only manuscripts barred",
       "source": "https://2027.naacl.org/calls/industry_track/",
       "status": "confirmed official; no submission-ready CS Conf branch",
       "domain": "Speech / audio",
-      "type": "paper"
+      "type": "paper",
+      "trackCategory": "industry"
     },
     {
       "date": "2026-11-01",
@@ -424,7 +425,7 @@
     {
       "date": "2026-11-20",
       "venue": "PAKDD 2027",
-      "action": "Research / applied / survey / agentic AI paper",
+      "action": "Research / Applied Data Science (ACADEMIC AUTHORS eligible) / survey / agentic AI papers",
       "area": "Data mining",
       "time": "11:59 PM AoE; restrictive AI-use policy",
       "source": "https://www.pakdd2027.org/pages/dates",
@@ -457,13 +458,14 @@
     {
       "date": "2026-11-30",
       "venue": "COLING 2027 Industry Track",
-      "action": "Six-page industry PAPER on deployed / expected-to-deploy NLP or speech systems (separate review track, not main ARR)",
+      "action": "Six-page Industry Track paper; students and academic-only teams EXPLICITLY eligible with real-world NLP/speech system",
       "area": "Speech/NLP deployment; case studies; system evaluation",
       "time": "11:59 PM AoE; double-blind; independent industry submission; students eligible; credible real-world setting required",
       "source": "https://2027.coling-iccl.org/calls/industry_track/",
       "status": "confirmed official; verify exact cutoff when unspecified",
       "domain": "NLP / language / agents",
-      "type": "paper"
+      "type": "paper",
+      "trackCategory": "industry"
     },
     {
       "date": "2026-11-30",
@@ -523,13 +525,14 @@
     {
       "date": "2026-12-01",
       "venue": "ICDE 2027 Industry and Applications",
-      "action": "Industrial application short/long paper",
+      "action": "Industry/application paper; at least one NON-ACADEMIC author mandatory",
       "area": "Databases / real deployments / industrial systems",
-      "time": "11:59 PM Pacific; requires at least one non-academic coauthor and genuine industrial contribution",
+      "time": "11:59 PM Pacific Time, NOT AoE; short 6pp or long 12pp; student-only university team cannot submit",
       "source": "https://icde2027.github.io/cf-industry-track.html",
       "status": "confirmed organizer; eligibility gate",
       "domain": "Systems / ML systems",
-      "type": "paper"
+      "type": "paper",
+      "trackCategory": "industry"
     },
     {
       "date": "2026-12-01",
@@ -613,11 +616,12 @@
       "venue": "ISCA 2027",
       "action": "Industry-track abstract",
       "area": "Systems / architecture",
-      "time": "11:59 PM AoE",
+      "time": "11:59 PM AoE; first AND most authors must work in industry; student internship projects excluded",
       "source": "https://iscaconf.org/isca2027/submit/callforpapers.php",
       "status": "confirmed",
       "domain": "Systems / ML systems",
-      "type": "abstract"
+      "type": "abstract",
+      "trackCategory": "industry"
     },
     {
       "date": "2026-12-07",
@@ -679,11 +683,12 @@
       "venue": "ISCA 2027",
       "action": "Industry-track full paper",
       "area": "Systems / architecture",
-      "time": "11:59 PM AoE; check published industry CFP",
+      "time": "11:59 PM AoE; check published industry CFP; first AND most authors must work in industry; student internship projects excluded",
       "source": "https://iscaconf.org/isca2027/submit/callforpapers.php",
       "status": "confirmed",
       "domain": "Systems / ML systems",
-      "type": "paper"
+      "type": "paper",
+      "trackCategory": "industry"
     },
     {
       "date": "2026-12-14",
@@ -1144,6 +1149,30 @@
       "status": "confirmed",
       "type": "registration",
       "domain": "Computational biology / bioinformatics"
+    },
+    {
+      "date": "2026-10-29",
+      "venue": "CHIIR 2027 Industry Papers",
+      "action": "Four-page peer-reviewed Industry Paper; product/business context + presenter CV and company description",
+      "area": "Interactive IR / applied human-centered search",
+      "time": "23:59 AoE; industry/student internships encouraged; academic-only fit requires chair clarification",
+      "source": "https://chiir2027.github.io/industry-papers.html",
+      "status": "confirmed official",
+      "type": "paper",
+      "domain": "Data mining / information retrieval",
+      "trackCategory": "industry"
+    },
+    {
+      "date": "2026-11-24",
+      "venue": "SIGMOD 2027 Industrial Track",
+      "action": "Industrial systems paper: requires at least one non-academic coauthor",
+      "area": "Database systems / applied data engineering",
+      "time": "23:59 AoE; student-only academic team NOT eligible; 12 pages + refs",
+      "source": "https://2027.sigmod.org/calls_industrial_track_papers.shtml",
+      "status": "confirmed official",
+      "type": "paper",
+      "domain": "Systems / networking / security",
+      "trackCategory": "industry"
     }
   ],
   "areas": [
@@ -1829,6 +1858,56 @@
             "ERA": "B"
           },
           "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/wsdm.yml"
+        },
+        {
+          "name": "CHIIR 2027 Industry Papers",
+          "url": "https://chiir2027.github.io/industry-papers.html",
+          "fullName": "CHIIR 2027 Industry Papers; eligibility conditional; parent conference ranking is not a separate track ranking"
+        },
+        {
+          "name": "SIGMOD 2027 Industrial Track",
+          "url": "https://2027.sigmod.org/calls_industrial_track_papers.shtml",
+          "fullName": "SIGMOD 2027 Industrial Track; eligibility requires-nonacademic; parent conference ranking is not a separate track ranking"
+        },
+        {
+          "name": "ICDE 2027 Industry and Applications",
+          "url": "https://icde2027.github.io/cf-industry-track.html",
+          "fullName": "ICDE 2027 Industry and Applications Track; eligibility requires-nonacademic; parent conference ranking is not a separate track ranking"
+        },
+        {
+          "name": "PAKDD 2027 Applied Data Science",
+          "url": "https://www.pakdd2027.org/pages/calls/applied",
+          "fullName": "PAKDD 2027 Applied Data Science Track; eligibility yes-open; parent conference ranking is not a separate track ranking"
+        },
+        {
+          "name": "The Web Conference 2027 Industry Track",
+          "url": "https://www2027.thewebconf.org/call-for-industry-submissions/",
+          "fullName": "The Web Conference 2027 Industry Track; eligibility conditional; parent conference ranking is not a separate track ranking"
+        },
+        {
+          "name": "CIKM Applied Research 2026",
+          "url": "https://cikm2026.diag.uniroma1.it/applied-research-papers/",
+          "fullName": "CIKM 2026 Applied Research Track (historical); eligibility yes-explicit; parent conference ranking is not a separate track ranking"
+        },
+        {
+          "name": "VLDB 2027 Scalable Data Science",
+          "url": "https://vldb.org/2027/call-for-research-track.html",
+          "fullName": "VLDB 2027 / PVLDB Scalable Data Science (research-track alternative); eligibility yes-open; parent conference ranking is not a separate track ranking"
+        },
+        {
+          "name": "VLDB 2026 Industrial Track (historical)",
+          "url": "https://vldb.org/2026/call-for-industrial-track.html",
+          "fullName": "VLDB 2026 Industrial Track (historical); eligibility requires-nonacademic; parent conference ranking is not a separate track ranking"
+        },
+        {
+          "name": "RecSys 2026 Industry Track (historical)",
+          "url": "https://recsys.acm.org/recsys26/call/",
+          "fullName": "RecSys 2026 Industry Track (historical); eligibility conditional; parent conference ranking is not a separate track ranking"
+        },
+        {
+          "name": "ECIR 2027 Industry Day",
+          "url": "https://www.ecir2027.co.uk/calls",
+          "fullName": "ECIR 2027 Industry Day submission; eligibility conditional; parent conference ranking is not a separate track ranking"
         }
       ]
     },
@@ -2172,6 +2251,11 @@
           "name": "NAACL System Demonstrations",
           "url": "https://2027.naacl.org/calls/system_demonstration/",
           "fullName": "NAACL 2027 system demonstration track (evaluated software + demo video)"
+        },
+        {
+          "name": "ACL 2026 Industry Track (historical)",
+          "url": "https://2026.aclweb.org/calls/industry_track/",
+          "fullName": "ACL 2026 Industry Track (historical rule); eligibility yes-explicit; parent conference ranking is not a separate track ranking"
         }
       ]
     },
@@ -2448,6 +2532,11 @@
         {
           "name": "USENIX Security",
           "url": "https://www.usenix.org/conferences"
+        },
+        {
+          "name": "ISCA 2027 Industry Track",
+          "url": "https://iscaconf.org/isca2027/submit/industry.php",
+          "fullName": "ISCA 2027 Industry Track; eligibility requires-industry-majority; parent conference ranking is not a separate track ranking"
         }
       ]
     },
@@ -3844,6 +3933,276 @@
       ],
       "reviewedAt": "2026-10-27",
       "note": "Separate NLP and speech catalogues, prominent standalone industry/demo tables. ASRU+SLT merged into IEEE ASLI from 2027. Unannounced deadlines never inferred."
+    },
+    "industryEligibility": {
+      "reviewedAt": "2026-10-27",
+      "records": 17,
+      "sourcePolicy": "Individual official CFP + FAQ, distinguish explicit academic eligibility / mandatory corporate affiliation / not stated; preserve historical-year caveats.",
+      "categories": [
+        "yes-explicit",
+        "yes-open",
+        "requires-nonacademic",
+        "requires-industry-majority",
+        "conditional"
+      ],
+      "note": "Industry/applied/alternative paper types are distinct; verified does not imply an eligible or mature paper. Parent CORE/CCF rank does not certify track rank."
     }
-  }
+  },
+  "industryTracks": [
+    {
+      "id": "naacl27-industry",
+      "venue": "NAACL 2027",
+      "track": "Industry Track",
+      "field": "NLP / speech",
+      "kind": "industry",
+      "studentEligibility": "yes-explicit",
+      "affiliation": "No industry coauthor required. Official FAQ explicitly says students and academics may submit.",
+      "requirement": "Deployed or credibly expected-to-deploy NLP/speech application outside lab/classroom; actual users, constraints and convincing evaluation. Not simply a lab-only prototype.",
+      "deadline": "2026-10-31",
+      "deadlineNote": "6 pages; 23:59 AoE; direct OpenReview, not ARR; fully AI-generated papers barred; separate proceedings volume.",
+      "source": "https://2027.naacl.org/calls/industry_track/",
+      "evidence": "2027 official student FAQ",
+      "archival": "yes"
+    },
+    {
+      "id": "chiir27-industry",
+      "venue": "CHIIR 2027",
+      "track": "Industry Papers",
+      "field": "Interactive IR / UX",
+      "kind": "industry",
+      "studentEligibility": "conditional",
+      "affiliation": "Student internships are encouraged, but call asks for a company description and product/business setting; student-only academic proposal not explicitly authorized.",
+      "requirement": "User research or real product context in information access; practical lessons, presenter CV and company description.",
+      "deadline": "2026-10-29",
+      "deadlineNote": "4 pages + references; 23:59 AoE; selected submissions published in proceedings.",
+      "source": "https://chiir2027.github.io/industry-papers.html",
+      "evidence": "2027 official call; ambiguity requires chair clarification",
+      "archival": "yes"
+    },
+    {
+      "id": "coling27-industry",
+      "venue": "COLING 2027",
+      "track": "Industry Track",
+      "field": "NLP / speech",
+      "kind": "industry",
+      "studentEligibility": "yes-explicit",
+      "affiliation": "No company author required. Official FAQ explicitly welcomes students.",
+      "requirement": "Operational NLP/speech systems beyond the lab; real-world users, case studies, failures or practical constraints.",
+      "deadline": "2026-11-30",
+      "deadlineNote": "6 pages; 23:59 AoE; double-blind; separate proceedings volume.",
+      "source": "https://2027.coling-iccl.org/calls/industry_track/",
+      "evidence": "2027 official student FAQ",
+      "archival": "yes"
+    },
+    {
+      "id": "pakdd27-applied",
+      "venue": "PAKDD 2027",
+      "track": "Applied Data Science Track",
+      "field": "Data mining / applied ML / science",
+      "kind": "applied",
+      "studentEligibility": "yes-open",
+      "affiliation": "No company-affiliation requirement; open call for field pilots and scientifically credible realistic lab evaluations (at least TRL 4).",
+      "requirement": "Operationally grounded impact/lessons and sound controls; applying an off-the-shelf algorithm to a dataset alone is insufficient. Methodological novelty not required.",
+      "deadline": "2026-11-20",
+      "deadlineNote": "12 pages incl. references; 23:59 AoE; strict author-kit generative AI grammar-only rule.",
+      "source": "https://www.pakdd2027.org/pages/calls/applied",
+      "evidence": "2027 applied CFP has no industry-author condition",
+      "archival": "yes"
+    },
+    {
+      "id": "sigmod27-industrial",
+      "venue": "SIGMOD 2027",
+      "track": "Industrial Track",
+      "field": "Databases / data systems",
+      "kind": "industry",
+      "studentEligibility": "requires-nonacademic",
+      "affiliation": "At least one author MUST have a non-academic affiliation. Student-only university team does not qualify.",
+      "requirement": "Real industrial-strength data systems and practical implementation/evaluation; open source may qualify with appropriate team.",
+      "deadline": "2026-11-24",
+      "deadlineNote": "12 pages + references; 23:59 AoE; single-blind.",
+      "source": "https://2027.sigmod.org/calls_industrial_track_papers.shtml",
+      "evidence": "2027 CFP explicit non-academic coauthor clause",
+      "archival": "yes"
+    },
+    {
+      "id": "icde27-industrial",
+      "venue": "ICDE 2027",
+      "track": "Industry and Applications Track",
+      "field": "Data engineering / IR / ML systems",
+      "kind": "industry",
+      "studentEligibility": "requires-nonacademic",
+      "affiliation": "At least one author MUST have a non-academic affiliation, even for open-source work.",
+      "requirement": "Innovative application/product or industrial-strength systems; pure research proposals discouraged.",
+      "deadline": "2026-12-01",
+      "deadlineNote": "6-page short or 12-page long + references; 23:59 Pacific Time (NOT AoE).",
+      "source": "https://icde2027.github.io/cf-industry-track.html",
+      "evidence": "2027 CFP explicit non-academic coauthor clause",
+      "archival": "yes"
+    },
+    {
+      "id": "isca27-industry",
+      "venue": "ISCA 2027",
+      "track": "Industry Track",
+      "field": "Computer architecture / HW/SW systems",
+      "kind": "industry",
+      "studentEligibility": "requires-industry-majority",
+      "affiliation": "First author AND most authors MUST work in industry; excludes student short-term internship projects.",
+      "requirement": "Real production hardware/system product: shipped, on roadmap, or canceled/deferred with lessons; speculative design not eligible.",
+      "deadline": "2026-12-06",
+      "deadlineNote": "Mandatory industry abstract Dec 6; full paper Dec 13, both 23:59 AoE.",
+      "source": "https://iscaconf.org/isca2027/submit/industry.php",
+      "evidence": "2027 CFP first-and-most-authors industry clause",
+      "archival": "yes"
+    },
+    {
+      "id": "web27-industry",
+      "venue": "The Web Conference 2027",
+      "track": "Industry Track",
+      "field": "Web search / recommendation / deployed LLM systems",
+      "kind": "industry",
+      "studentEligibility": "conditional",
+      "affiliation": "CFP does not explicitly mandate an industry-affiliated author; it calls for results obtained in industrial environments. Seek chair confirmation for purely academic teams.",
+      "requirement": "Must specify how system was deployed or released AND for how long; industrial-setting impact and practical outcomes.",
+      "deadline": "2026-10-25",
+      "deadlineNote": "Closed. Abstract was Oct 18, full paper Oct 25 (AoE); equal standing in main proceedings.",
+      "source": "https://www2027.thewebconf.org/call-for-industry-submissions/",
+      "evidence": "2027 CFP; author-affiliation eligibility not explicit",
+      "archival": "yes"
+    },
+    {
+      "id": "eacl27-industry",
+      "venue": "EACL 2027",
+      "track": "Industry Track",
+      "field": "NLP / speech",
+      "kind": "industry",
+      "studentEligibility": "yes-explicit",
+      "affiliation": "Official FAQ explicitly welcomes academic and student authors; no company coauthor requirement.",
+      "requirement": "Genuine real-world NLP application; operational maturity, evaluation and governance.",
+      "deadline": "2026-09-11",
+      "deadlineNote": "Closed Sep 11, 2026; 6-page paper; 23:59 AoE.",
+      "source": "https://2027.eacl.org/calls/industry/",
+      "evidence": "2027 official student FAQ",
+      "archival": "yes"
+    },
+    {
+      "id": "emnlp26-industry",
+      "venue": "EMNLP 2026",
+      "track": "Industry Track (historical rule)",
+      "field": "NLP / speech",
+      "kind": "industry",
+      "studentEligibility": "yes-explicit",
+      "affiliation": "Official 2026 FAQ explicitly welcomes student and academic authors; 2027 CFP must be rechecked.",
+      "requirement": "Real-world deployed or planned NLP/speech applications; not laboratory-only.",
+      "deadline": "2026-06-16",
+      "deadlineNote": "Closed; historical precedent only. EMNLP 2027 dates and rules TBA.",
+      "source": "https://2026.emnlp.org/calls/industry_track/",
+      "evidence": "2026 official student FAQ (not verified for 2027)",
+      "archival": "yes"
+    },
+    {
+      "id": "acl26-industry",
+      "venue": "ACL 2026",
+      "track": "Industry Track (historical rule)",
+      "field": "NLP / speech",
+      "kind": "industry",
+      "studentEligibility": "yes-explicit",
+      "affiliation": "2026 official FAQ explicitly welcomes academic and student authors; do not assume future policy without new CFP.",
+      "requirement": "Real-world NLP systems and lessons from deployment.",
+      "deadline": null,
+      "deadlineNote": "Historical example; no 2027 industry deadline verified here.",
+      "source": "https://2026.aclweb.org/calls/industry_track/",
+      "evidence": "2026 official student FAQ",
+      "archival": "yes"
+    },
+    {
+      "id": "cikm26-applied",
+      "venue": "CIKM 2026",
+      "track": "Applied Research Track (historical)",
+      "field": "IR / NLP / data / ML",
+      "kind": "applied",
+      "studentEligibility": "yes-explicit",
+      "affiliation": "Official CFP explicitly invites BOTH academia and industry.",
+      "requirement": "Real-world deployment or applied ML/IR system, quantifiable benefits and operational evidence.",
+      "deadline": null,
+      "deadlineNote": "2026 track historical; 2027 CFP not yet verified.",
+      "source": "https://cikm2026.diag.uniroma1.it/applied-research-papers/",
+      "evidence": "2026 official academia-and-industry call",
+      "archival": "yes"
+    },
+    {
+      "id": "recsys26-industry",
+      "venue": "RecSys 2026",
+      "track": "Industry Track (historical)",
+      "field": "Recommendation",
+      "kind": "industry",
+      "studentEligibility": "conditional",
+      "affiliation": "Call addresses industry practitioners, with no explicit student-only permission or prohibition; need chair guidance for academic-only proposals.",
+      "requirement": "Evidence on actual deployed commercial recommendation systems; no sales pitches.",
+      "deadline": "2026-05-21",
+      "deadlineNote": "Closed; historical precedent only. 2027 CFP TBA.",
+      "source": "https://recsys.acm.org/recsys26/call/",
+      "evidence": "2026 official call; affiliation not explicit",
+      "archival": "yes"
+    },
+    {
+      "id": "vldb26-industrial",
+      "venue": "VLDB 2026",
+      "track": "Industrial Track (historical)",
+      "field": "Databases / data engineering",
+      "kind": "industry",
+      "studentEligibility": "requires-nonacademic",
+      "affiliation": "2026 Industrial CFP required at least one non-academic author. DO NOT assume 2027 track rule without 2027 CFP.",
+      "requirement": "Industrial-strength database and data-management systems, including serious open-source deployments.",
+      "deadline": "2026-03-02",
+      "deadlineNote": "Closed; 2027 Industrial Track call not verified here.",
+      "source": "https://vldb.org/2026/call-for-industrial-track.html",
+      "evidence": "2026 explicit non-academic clause",
+      "archival": "yes"
+    },
+    {
+      "id": "vldb27-sds",
+      "venue": "VLDB 2027 / PVLDB",
+      "track": "Scalable Data Science (research-track alternative)",
+      "field": "Data systems / applied ML / entity linkage",
+      "kind": "research-applied",
+      "studentEligibility": "yes-open",
+      "affiliation": "Research track open to academic authors; no industry-author restriction in SDS CFP.",
+      "requirement": "Real-world scalable data/ML systems, including scientific, educational, nonprofit and open-source tools. Explicitly mentions open-source entity-linkage infrastructure as an example.",
+      "deadline": null,
+      "deadlineNote": "PVLDB rolling monthly; mandatory abstract by 25th of prior month; confirm appropriate cycle, not an industry-track paper.",
+      "source": "https://vldb.org/2027/call-for-research-track.html",
+      "evidence": "2027 research-track Scalable Data Science CFP",
+      "archival": "yes"
+    },
+    {
+      "id": "ecir27-industry",
+      "venue": "ECIR 2027",
+      "track": "Industry Day submission",
+      "field": "Information retrieval",
+      "kind": "industry-event",
+      "studentEligibility": "conditional",
+      "affiliation": "Event/program route; not shown as a general archival Industry Paper Track. Individual call may impose presenter requirements.",
+      "requirement": "Industry Day contribution; do not treat as an archival research-paper acceptance without checking its own CFP.",
+      "deadline": "2026-11-02",
+      "deadlineNote": "Organizer lists Nov 2 as proposed; Industry Day is NOT equivalent to archival paper.",
+      "source": "https://www.ecir2027.co.uk/calls",
+      "evidence": "2027 organizer calls index; submission category not paper-confirmed",
+      "archival": "unverified"
+    },
+    {
+      "id": "naacl27-demo",
+      "venue": "NAACL 2027",
+      "track": "System Demonstrations (alternative)",
+      "field": "NLP / speech / tools",
+      "kind": "demo",
+      "studentEligibility": "yes-open",
+      "affiliation": "No corporate-author requirement in system-demo CFP; accepted working systems can come from academic researchers.",
+      "requirement": "Accessible running demo/installable software, <=2.5-minute video, independent evaluation; pure UI/API wrapper insufficient.",
+      "deadline": "2026-12-04",
+      "deadlineNote": "6-page evaluated archival demo paper; 23:59 AoE, different from Industry Track.",
+      "source": "https://2027.naacl.org/calls/system_demonstration/",
+      "evidence": "2027 system demo call; no company-affiliation condition",
+      "archival": "yes"
+    }
+  ]
 }
