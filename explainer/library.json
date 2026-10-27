@@ -1,5 +1,21 @@
 [
   {
+    "id": "task-explainer-public-index-20261027",
+    "title": "Task explainer — public status index",
+    "description": "A minimal, dated public snapshot of selected long-running task milestones. Private agent logs, local paths and research outputs are excluded.",
+    "project": "Task Explainer",
+    "category": "Status index",
+    "tags": [
+      "ST100 Plus",
+      "task progress",
+      "detached agents",
+      "public snapshot"
+    ],
+    "url": "./tasks/index.html",
+    "date": "2026-10-27",
+    "indexed_at": "2026-10-27T14:00:03.235Z"
+  },
+  {
     "id": "ire-research-survey-tutorial-map-20261027",
     "title": "IRE Research Survey — Topic Map & Tutorial Finder",
     "description": "ST100+ guide: professor/AIN topic checklist; full CMU, Stanford, UCSD and ETH courses; SIGIR, WSDM, KDD, RecSys and ICML tutorials, slides, recordings, evolution timelines and initial-proposal text.",
