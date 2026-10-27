@@ -3,7 +3,7 @@
   "taskId": "20261026-csconf-research",
   "createdAt": "2026-10-26T13:51:12.349Z",
   "checkedAt": "2026-10-27",
-  "editorialNote": "27 Oct additional source-level CC-09 scorer gate: v1 baseline greedy event assignment can depend on overlapping-reference order; private organizer grader not verified, no real VAANI scorer defect or model score claimed. Added accepted Interspeech 2024 SEBBs and 2026 EFS preprint novelty controls; CC-17 event-processing constraints, CC-06 prior art, CC-08 auto-review caution. Verified CVPR 2027 workshop-organizer and Interspeech 2027 Show and Tell deadlines; added PLDI reserve-reviewer rule. No new audio/video/GPU experiments, test unsealing, paid work, submission or cross-surface transfer.",
+  "editorialNote": "27 Oct CVPR-accepted AdaMAE source-level adaptive-mask information-path audit; Interspeech 2025 URGENT/DeepFilterGAN and NeurIPS 2025 self-reflective-agent prior art; official Interspeech 2027 challenge/special-session PROPOSAL dates (not paper deadlines), MLSys AI and industry eligibility. CC-09 official grader remains unverified. No new real-data experiment, GPU, sealed test, paid work, submission or cross-surface transfer.",
   "deadlines": [
     {
       "date": "2026-10-27",
@@ -25,6 +25,15 @@
     },
     {
       "date": "2026-10-30",
+      "venue": "AISTATS 2027 Workshops",
+      "action": "Workshop ORGANIZER proposal (3 pages), not contributed research paper",
+      "area": "ML / statistics / interdisciplinary CS",
+      "time": "Friday 22:59 CET = 21:59 UTC, NOT AoE; dedicated workshop CFP updated Oct 22 overrides parent CFP's generic workshop listing",
+      "source": "https://virtual.aistats.org/Conferences/2027/CallForWorkshops",
+      "status": "confirmed dedicated CFP; not an archival paper deadline"
+    },
+    {
+      "date": "2026-10-30",
       "venue": "ARRSI 2026 workshop (AACL-IJCNLP)",
       "action": "Short/position/resource (<=4 pages) or long (<=8 pages); work must meet double-blind evidence/reporting rules",
       "area": "Research agents",
@@ -40,15 +49,6 @@
       "time": "12:00 PM PDT (not AoE)",
       "source": "https://mlsys.org/Conferences/2027/Dates",
       "status": "confirmed"
-    },
-    {
-      "date": "2026-10-30",
-      "venue": "AISTATS 2027 Workshops",
-      "action": "Workshop ORGANIZER proposal (3 pages), not contributed research paper",
-      "area": "ML / statistics / interdisciplinary CS",
-      "time": "Friday 22:59 CET = 21:59 UTC, NOT AoE; dedicated workshop CFP updated Oct 22 overrides parent CFP's generic workshop listing",
-      "source": "https://virtual.aistats.org/Conferences/2027/CallForWorkshops",
-      "status": "confirmed dedicated CFP; not an archival paper deadline"
     },
     {
       "date": "2026-10-31",
@@ -85,6 +85,15 @@
       "time": "11:59 PM AoE; 2027 author guide has mandatory generative-AI statement",
       "source": "https://facctconference.org/2027/cfp.html",
       "status": "confirmed"
+    },
+    {
+      "date": "2026-11-03",
+      "venue": "Interspeech 2027 Challenges",
+      "action": "Challenge ORGANIZER proposal, NOT a research-paper deadline",
+      "area": "Speech / resources / scientific benchmark organization",
+      "time": "Organizer's page gives date but no cutoff hour/timezone; requires named organizers, judging criteria, dataset access and ethics/IRB details; future challenge papers still undergo regular paper review",
+      "source": "https://interspeech2027.org/calls/call_for_challenges/",
+      "status": "confirmed organizer date; time unspecified; no submission-ready proposal"
     },
     {
       "date": "2026-11-04",
@@ -130,6 +139,15 @@
       "time": "23:59:59 AoE; title/abstract/author list cannot change; 6-paper per-author cycle cap",
       "source": "https://www.ieee-security.org/TC/SP2027/cfpapers.html",
       "status": "confirmed"
+    },
+    {
+      "date": "2026-11-10",
+      "venue": "Interspeech 2027 Special Sessions",
+      "action": "Special-session ORGANIZER proposal, NOT a research-paper deadline",
+      "area": "Speech / interdisciplinary",
+      "time": "Organizer's page gives date but no cutoff hour/timezone; requires convening team and tentative authors (typically at least 12 expected paper submissions)",
+      "source": "https://interspeech2027.org/calls/call_for_special_sessions/",
+      "status": "confirmed organizer date; time unspecified; no submission-ready proposal"
     },
     {
       "date": "2026-11-11",
@@ -223,21 +241,21 @@
     },
     {
       "date": "2026-11-20",
-      "venue": "PAKDD 2027",
-      "action": "Research / applied / survey / agentic AI paper",
-      "area": "Data mining",
-      "time": "11:59 PM AoE; restrictive AI-use policy",
-      "source": "https://www.pakdd2027.org/pages/dates",
-      "status": "confirmed"
-    },
-    {
-      "date": "2026-11-20",
       "venue": "ICDE 2027 Tutorials",
       "action": "Tutorial proposal (not research paper)",
       "area": "Data engineering / databases / IR",
       "time": "AoE; at most four pages excluding references; organizer tutorial chairs",
       "source": "https://icde2027.github.io/cf-tutorials.html",
       "status": "confirmed organizer; proposal only"
+    },
+    {
+      "date": "2026-11-20",
+      "venue": "PAKDD 2027",
+      "action": "Research / applied / survey / agentic AI paper",
+      "area": "Data mining",
+      "time": "11:59 PM AoE; restrictive AI-use policy",
+      "source": "https://www.pakdd2027.org/pages/dates",
+      "status": "confirmed"
     },
     {
       "date": "2026-11-22",
@@ -286,21 +304,21 @@
     },
     {
       "date": "2026-12-01",
-      "venue": "OSDI 2027",
-      "action": "Mandatory abstract registration",
-      "area": "Systems / operating systems / networking",
-      "time": "5:59 PM EST = 22:59 UTC; not AoE; AI-written papers ineligible",
-      "source": "https://www.usenix.org/conference/osdi27/call-for-papers",
-      "status": "confirmed"
-    },
-    {
-      "date": "2026-12-01",
       "venue": "ICDE 2027 Industry and Applications",
       "action": "Industrial application short/long paper",
       "area": "Databases / real deployments / industrial systems",
       "time": "11:59 PM Pacific; requires at least one non-academic coauthor and genuine industrial contribution",
       "source": "https://icde2027.github.io/cf-industry-track.html",
       "status": "confirmed organizer; eligibility gate"
+    },
+    {
+      "date": "2026-12-01",
+      "venue": "OSDI 2027",
+      "action": "Mandatory abstract registration",
+      "area": "Systems / operating systems / networking",
+      "time": "5:59 PM EST = 22:59 UTC; not AoE; AI-written papers ineligible",
+      "source": "https://www.usenix.org/conference/osdi27/call-for-papers",
+      "status": "confirmed"
     },
     {
       "date": "2026-12-03",
@@ -963,11 +981,11 @@
         "COLT"
       ],
       "cost": "low",
-      "stage": "CPU POSITION-PROBE implementation sanity check completed (Oct 27; balanced constructed samples, train/test separated): policy permitted to inspect hidden slot encoded labels in selected positions; position-only probe detects the intentionally designed channel, whereas content-only and blind/random selectors do not. NO masked-image encoder trained, no real image data, no novelty or paper result. Previous mutual-information definitional correction remains in force.",
+      "stage": "CPU POSITION-PROBE implementation sanity check completed (Oct 27; balanced constructed samples, train/test separated): policy permitted to inspect hidden slot encoded labels in selected positions; position-only probe detects the intentionally designed channel, whereas content-only and blind/random selectors do not. NO masked-image encoder trained, no real image data, no novelty or paper result. Previous mutual-information definitional correction remains in force. PRIMARY SOURCE + CODE AUDIT (Oct 27): Accepted CVPR 2023 AdaMAE already learns full-video-informed visible-token selection. Its released pretraining code embeds ALL input tokens and calls get_mask(x) before restricting the encoder to x[~mask] with positional embeddings. This establishes a possible position-information path but neither leakage in the pretrained model nor a test-time classifier effect. The previous intentional toy example cannot demonstrate novelty. Narrow to source/policy-specific conditional measurements with matched patch count and robust position-only/content-only/joint probes; do not call adaptive masking itself novel.",
       "question": "Can a content-dependent adaptive sampler encode hidden-image information through selected patch positions, and does this bias masked-image learning?",
-      "novelty": "CORRECTION: the earlier I(Y; M | V) proposal is identically zero when V includes spatial positions of visible patches, since M is the complement of those positions. This is a definitional problem, NOT negative empirical evidence. Informative missingness (GRU-D), adaptive token selection (AdaMAE) and adaptive masking are established. The only plausible new claim concerns mask-policy-induced shortcut learning under carefully controlled sample selection; no novelty claim yet.",
-      "pilot": "Define S=visible position set, B=values of visible patches without their indices, and T=(S,B) as actual encoder input. Compare position-only S probe, content-only B probe, and S+B probe on a balanced synthetic dataset engineered so visible patch values are identical across labels while the adaptive policy uses unseen context to select blank positions. Compare fixed/random masks and a selector with no access to hidden context; hold count, grid, split and compute fixed. Then test whether a public MAE checkpoint's advantage survives masking-policy swaps and held-out inputs. Report I(Y;S|B) ONLY with B explicitly excluding position indices, not the invalid I(Y;M|T). This sanity example is not evidence of publication novelty. Toy CPU; actual pretrained model small GPU if needed. ACTUAL SCIENTIFIC NEXT STEP: on an independently held-out public image sample, keep count and identity of encoder/decoder fixed and compare a public pretrained MAE checkpoint under masking-policy swaps, including a selector without hidden-context access and a position-only probe. This CPU sanity control is not enough.",
-      "stop": "If the position-only control does not carry repeatable information on held-out inputs, or the shortcut has no measurable representation/downstream effect after policy controls, retire the performance-inflation claim. Review direct prior art before submitting.",
+      "novelty": "CORRECTION: the earlier I(Y; M | V) proposal is identically zero when V includes spatial positions of visible patches, since M is the complement of those positions. This is a definitional problem, NOT negative empirical evidence. Informative missingness (GRU-D), adaptive token selection (AdaMAE) and adaptive masking are established. The only plausible new claim concerns mask-policy-induced shortcut learning under carefully controlled sample selection; no novelty claim yet. CLOSEST ACCEPTED PRIOR ART: Bandara et al., AdaMAE (CVPR 2023) already trains a full-video-informed adaptive token sampler (https://openaccess.thecvf.com/content/CVPR2023/html/Bandara_AdaMAE_Adaptive_Masking_for_Efficient_Spatiotemporal_Learning_With_Masked_Autoencoders_CVPR_2023_paper.html). The reviewed open-source pretrainer (https://github.com/wgcban/adamae/blob/main/models/pretrain/vit.py) gets a full input embedding before sampling positions; this is architectural information flow, NOT observed semantic leakage or a novel masking policy. Avoid claiming general leakage or that downstream inference is affected.",
+      "pilot": "Define S=visible position set, B=values of visible patches without their indices, and T=(S,B) as actual encoder input. Compare position-only S probe, content-only B probe, and S+B probe on a balanced synthetic dataset engineered so visible patch values are identical across labels while the adaptive policy uses unseen context to select blank positions. Compare fixed/random masks and a selector with no access to hidden context; hold count, grid, split and compute fixed. Then test whether a public MAE checkpoint's advantage survives masking-policy swaps and held-out inputs. Report I(Y;S|B) ONLY with B explicitly excluding position indices, not the invalid I(Y;M|T). This sanity example is not evidence of publication novelty. Toy CPU; actual pretrained model small GPU if needed. ACTUAL SCIENTIFIC NEXT STEP: on an independently held-out public image sample, keep count and identity of encoder/decoder fixed and compare a public pretrained MAE checkpoint under masking-policy swaps, including a selector without hidden-context access and a position-only probe. This CPU sanity control is not enough. SOURCE-PINNED NEXT GATE: Audit release/model weight access and freeze AdaMAE sampler and token embedder; separate video-source train, development and sealed test. Probe selected indices without content, position-stripped selected values, and joint values at identical visible count; negative controls random independent indices and index-permuted sampler output. Use a constructed held-fixed-visible-candidates hidden-region perturbation to test whether unseen content causally changes sampled positions; distinguish index-label correlation from additional information after accounting for sampled content. Screen <=2 CPU core-hours, zero GPU; no pretrained-model result yet.",
+      "stop": "If the position-only control does not carry repeatable information on held-out inputs, or the shortcut has no measurable representation/downstream effect after policy controls, retire the performance-inflation claim. Review direct prior art before submitting. Stop if the apparent index-label effect disappears after matching visible content, random/index-permutation controls, or if the frozen released sampler cannot be run within the authorized cost; a source-level possible path alone is not a conference contribution.",
       "source": "https://arxiv.org/search/?query=adaptive+masking+information+leakage&searchtype=all",
       "closestPriorArt": [
         {
@@ -1195,9 +1213,9 @@
         "FAccT (only if responsible AI/accountability dimension is central)"
       ],
       "cost": "low-medium",
-      "stage": "LOCKED 12-ENTRY PROSPECTIVE AUDIT: M2 Lean source/toolchain mapped only E1/E2; M15 archived Notes-only inventory actually links a dedicated many-leaf-reciprocal formal package (E1 source located, E2 upstream claimed checks), M18 Notes-only has a first explicit numbered NP-completeness theorem (E1 source). No independent Lean kernel replay or theorem validation. Strong ScientistOne, Beyond Compilation, FIRE-Bench, Artisan, SEER-Repro, SciRIGOR prior-art constraints remain. CONFERENCE FACTUAL-REVIEW OVERLAP: AISTATS 2027 official author CFP announces conference-operated LLM checks of unsupported claims, proof gaps, tables/figures and setup discrepancies. This is a venue reviewing POLICY, NOT a verified research publication or independent replay result; do not claim generic automated factual screening as new. Continue only narrow revision-sensitive audit, otherwise internal protocol. NOVELTY GATE (Oct 27): DISCERN Sep 2026 preprint independently covers data integrity, analytic verification, and novelty-aware research claims; no direct replay completed here. AUTOMATED-RESEARCH VALIDITY NOTE (27 Oct): The AI Scientist 2024 preprint claims automated experiments and paper generation, but its simulated reviewer threshold is not a conference-acceptance measurement. Require real external acceptance proof and independent replay; no validation experiment run.",
+      "stage": "LOCKED 12-ENTRY PROSPECTIVE AUDIT: M2 Lean source/toolchain mapped only E1/E2; M15 archived Notes-only inventory actually links a dedicated many-leaf-reciprocal formal package (E1 source located, E2 upstream claimed checks), M18 Notes-only has a first explicit numbered NP-completeness theorem (E1 source). No independent Lean kernel replay or theorem validation. Strong ScientistOne, Beyond Compilation, FIRE-Bench, Artisan, SEER-Repro, SciRIGOR prior-art constraints remain. CONFERENCE FACTUAL-REVIEW OVERLAP: AISTATS 2027 official author CFP announces conference-operated LLM checks of unsupported claims, proof gaps, tables/figures and setup discrepancies. This is a venue reviewing POLICY, NOT a verified research publication or independent replay result; do not claim generic automated factual screening as new. Continue only narrow revision-sensitive audit, otherwise internal protocol. NOVELTY GATE (Oct 27): DISCERN Sep 2026 preprint independently covers data integrity, analytic verification, and novelty-aware research claims; no direct replay completed here. AUTOMATED-RESEARCH VALIDITY NOTE (27 Oct): The AI Scientist 2024 preprint claims automated experiments and paper generation, but its simulated reviewer threshold is not a conference-acceptance measurement. Require real external acceptance proof and independent replay; no validation experiment run. ACCEPTED NEURIPS 2025 PRIOR ART (27 Oct): Automated Detection of Visual Attribute Reliance with a Self-Reflective Agent already iterates hypothesis generation, experiments and self-evaluation on 130 models. Do not claim agent self-reflection or automated hypothesis-testing as first contribution; focus only exact artifact revision/toolchain replay not established by this search. No independent re-execution.",
       "question": "For a pinned corpus of unedited research-agent outputs, can an auditor reliably connect self-reported verification, exact source revision, reproducible toolchain evidence and the precise natural-language theorem or empirical claim, and what does that independent audit cost?",
-      "novelty": "FIRE-Bench, Artisan, SEER-Repro and SciRIGOR overlap research replication and claim-to-evidence tracing. Beyond Compilation (arXiv:2606.31002) already quantifies compile-success versus semantic-faithfulness gaps, so that distinction alone is NOT novel. Residual test is full claim-to-artifact revision provenance, independent replay, and human audit cost in authentic unedited agent-generated research with mixed formal and empirical claim types. A 12-entry pilot cannot justify a corpus-wide reliability rate. ADDITIONAL PRIOR ART (reviewed Oct 27): ScientistOne (arXiv 2605.26340) already defines chain-of-evidence and post-hoc checks for scores, references, specifications and method-code alignment across research-agent outputs; From Fluent to Verifiable (arXiv 2602.13855) already proposes provenance coverage/soundness and audit effort as measurement criteria. Therefore basic agent-paper provenance, claim tracing, or auditor effort is NOT a novel method. Only a controlled, revision-sensitive formal proof/manuscript replay result demonstrably beyond those frameworks could justify new research. DISCERN (arXiv 2609.33357) also covers clean/corrupted controls and hypothesis evaluation in scientific agents. A generic three-stage research-agent reliability benchmark is therefore existing prior art.",
+      "novelty": "FIRE-Bench, Artisan, SEER-Repro and SciRIGOR overlap research replication and claim-to-evidence tracing. Beyond Compilation (arXiv:2606.31002) already quantifies compile-success versus semantic-faithfulness gaps, so that distinction alone is NOT novel. Residual test is full claim-to-artifact revision provenance, independent replay, and human audit cost in authentic unedited agent-generated research with mixed formal and empirical claim types. A 12-entry pilot cannot justify a corpus-wide reliability rate. ADDITIONAL PRIOR ART (reviewed Oct 27): ScientistOne (arXiv 2605.26340) already defines chain-of-evidence and post-hoc checks for scores, references, specifications and method-code alignment across research-agent outputs; From Fluent to Verifiable (arXiv 2602.13855) already proposes provenance coverage/soundness and audit effort as measurement criteria. Therefore basic agent-paper provenance, claim tracing, or auditor effort is NOT a novel method. Only a controlled, revision-sensitive formal proof/manuscript replay result demonstrably beyond those frameworks could justify new research. DISCERN (arXiv 2609.33357) also covers clean/corrupted controls and hypothesis evaluation in scientific agents. A generic three-stage research-agent reliability benchmark is therefore existing prior art. NeurIPS 2025 accepted Li et al., Automated Detection of Visual Attribute Reliance with a Self-Reflective Agent. It precludes generic automated self-reflective hypothesis testing as new. An independent exact-revision replay chain would need separate controlled evidence.",
       "pilot": "Honor locked first-claim rule on all sampled entries. For M15 compare exact archived English hull statement, Lean declaration ManyResults.mem_hull_iff_bounds, and claimed source revision; for M18 treat exact theorem/reduction audit as mathematical evidence rather than penalizing absence of Lean. Clean independent pinned Lean replay (E3) only if permitted toolchain is actually executed; source inspection or small sanity examples do not establish theorem correctness. Estimate reviewer effort separately. If general claim audit still overlaps prior work, keep this branch as internal integrity protocol.",
       "stop": "Stop standalone novelty if a comparison with Beyond Compilation and prior scientific-provenance benchmarks shows no distinct question or if the pilot only repeats repository metadata. If Lean/runtime is unavailable, report accessibility only (no independent pass/fail). No pooled error percentages from heterogeneous 12-entry pilot; extend to blinded larger sample only after feasibility. Added Oct 27: if the pinned-replay analysis yields only a taxonomy already in ScientistOne/AAR/SciRIGOR, retire standalone CC08 manuscript and use audit protocol internally.",
       "source": "https://github.com/karpathy/autoresearch",
@@ -1261,6 +1279,10 @@
         {
           "title": "DISCERN: Can AI Agents Work Like Scientists and Guide Discovery? (Sep 2026 preprint)",
           "url": "https://arxiv.org/abs/2609.33357"
+        },
+        {
+          "title": "Automated Detection of Visual Attribute Reliance with a Self-Reflective Agent (NeurIPS 2025, accepted)",
+          "url": "https://papers.nips.cc/paper_files/paper/2025/hash/cf38eb1549024cce4b3d2c1bb87a6c27-Abstract-Conference.html"
         }
       ]
     },
@@ -1535,10 +1557,10 @@
         "speech enhancement workshops"
       ],
       "cost": "low-medium (CPU scoring and fixed public checkpoint; GPU only with evidence)",
-      "stage": "PROPOSED / NO EXPERIMENT (Oct 27): Separate from CC-09 detection, motivated by IndoML 2026 Track-2 event-aware denoising. Existing public MaskNet baseline already performs SI-SDR training, global clean/mix blending and RMS restoration; ICASSP 2025 LiSenNet already uses a detector for adaptive denoising. Generic noise gating and blending are not novel. Need measure boundary-specific speech preservation at matched enhancement runtime and noise reduction. SOURCE-BASED GENERALIZATION GATE (27 Oct): IndoML organizer says every clip contains a noise event and every clip must be processed by one general enhancement approach; validation-event lookup dictionaries or skipping selected clips are not acceptable competition methods. Evaluate offline hard/soft time-gating only with fully processed waveforms and fair always-on/global-blend controls. Compare speech distortion, SI-SDR, ΔWER by speaker/language, and full detector-plus-enhancer runtime. No waveform study run.",
+      "stage": "PROPOSED / NO EXPERIMENT (Oct 27): Separate from CC-09 detection, motivated by IndoML 2026 Track-2 event-aware denoising. Existing public MaskNet baseline already performs SI-SDR training, global clean/mix blending and RMS restoration; ICASSP 2025 LiSenNet already uses a detector for adaptive denoising. Generic noise gating and blending are not novel. Need measure boundary-specific speech preservation at matched enhancement runtime and noise reduction. SOURCE-BASED GENERALIZATION GATE (27 Oct): IndoML organizer says every clip contains a noise event and every clip must be processed by one general enhancement approach; validation-event lookup dictionaries or skipping selected clips are not acceptable competition methods. Evaluate offline hard/soft time-gating only with fully processed waveforms and fair always-on/global-blend controls. Compare speech distortion, SI-SDR, ΔWER by speaker/language, and full detector-plus-enhancer runtime. No waveform study run. ACCEPTED-PRIOR-ART GATE (27 Oct): Interspeech 2025 URGENT challenge already evaluated multilingual speech enhancement and reports language dependence for some generative models. Accepted DeepFilterGAN addresses over-suppression. Do not claim multilingual speech preservation or generic soft gating as a new objective. Compare fixed enhancement outputs with language-stratified WER/damage and hard-gate/global-blend controls. No waveform model test yet.",
       "question": "For a fixed frozen speech enhancer and noise detector, can uncertainty-aware soft gating around predicted noise-event boundaries reduce ASR word errors on overlapping multilingual speech at fixed SI-SDR and full runtime relative to always-on enhancement, public global blend, and hard predicted-event gating?",
-      "novelty": "Very tentative. LiSenNet (ICASSP 2025) already uses a noise detector for adaptive speech enhancement; TQ-SED (ICASSP 2025) already couples audio separation and sound event detection in overlapping events. IndoML 2026 organizer explicitly defines selective noise suppression preserving speech. Distinct claim must be boundary-uncertainty tradeoff under spontaneous multilingual speech with fixed models and prospective independent evaluation; no first-to-combine event detection and enhancement claims.",
-      "pilot": "Pin released frozen baseline checkpoint and authorized original recordings. Separate collection-source/recording groups between tune and test; forbid clip-level leakage and lookup of validation noise. Compare same enhancer and ASR with (A) always-on enhancement, (B) baseline global blend, (C) hard event gating, (D) calibrated soft onset/offset transitions; (E) oracle timestamp as explicitly non-deployable upper bound only. Hold total encoder/enhancer/decoder cost, clip set, predicted event inputs and tuning budget constant. On synthetic paired clean/noisy speech report SI-SDR and pooled delta-WER; on genuine field recordings use pooled ASR delta-WER and speech fidelity proxy only, not SI-SDR without clean references. Slice by event overlap/speech, language and unseen noise category. A small CPU-only cached-output development pilot precedes any audio model run.",
+      "novelty": "Very tentative. LiSenNet (ICASSP 2025) already uses a noise detector for adaptive speech enhancement; TQ-SED (ICASSP 2025) already couples audio separation and sound event detection in overlapping events. IndoML 2026 organizer explicitly defines selective noise suppression preserving speech. Distinct claim must be boundary-uncertainty tradeoff under spontaneous multilingual speech with fixed models and prospective independent evaluation; no first-to-combine event detection and enhancement claims. Already-known tradeoffs: Interspeech 2025 URGENT reports multilingual dependence and subjective/discriminative method differences; DeepFilterGAN (Interspeech 2025) studies over-suppression. Only a controlled *event-uncertainty-aware* intervention under frozen enhancer/ASR and matched cost could add new evidence.",
+      "pilot": "Pin released frozen baseline checkpoint and authorized original recordings. Separate collection-source/recording groups between tune and test; forbid clip-level leakage and lookup of validation noise. Compare same enhancer and ASR with (A) always-on enhancement, (B) baseline global blend, (C) hard event gating, (D) calibrated soft onset/offset transitions; (E) oracle timestamp as explicitly non-deployable upper bound only. Hold total encoder/enhancer/decoder cost, clip set, predicted event inputs and tuning budget constant. On synthetic paired clean/noisy speech report SI-SDR and pooled delta-WER; on genuine field recordings use pooled ASR delta-WER and speech fidelity proxy only, not SI-SDR without clean references. Slice by event overlap/speech, language and unseen noise category. A small CPU-only cached-output development pilot precedes any audio model run. Predeclare multilingual and event-density strata before seeing outcomes. Evaluate always-on, global-blend, hard event-gate, soft uncertainty-gate with identical frozen denoiser output and inference inputs, event boundary uncertainty, matched signal processing + detector runtime. Report SI-SDR, ΔWER, clean-speech distortion and bootstrap intervals by held-out speaker/language. Require a prospectively frozen noninferiority margin for WER in each stratum. No experiment yet.",
       "stop": "Stop standalone publication claim if uncertainty-aware gating fails to beat full blended/hard-gate baselines under matched suppression, speech WER, and cost; if gains require oracle test labels, copy/memorize validation noise, or repeat LiSenNet-type adaptive gating without a distinct mechanism; or if no independent clean reference/ASR labels exist for the claimed metrics.",
       "source": "https://indoml.in/datathon/",
       "closestPriorArt": [
@@ -1553,6 +1575,14 @@
         {
           "title": "IndoML 2026 Track-2 released MaskNet baseline and scoring implementation",
           "url": "https://github.com/nagshubhadip/noise-event-detection-and-removal"
+        },
+        {
+          "title": "Interspeech 2025 URGENT Speech Enhancement Challenge (accepted, language dependency and multi-metric tradeoffs)",
+          "url": "https://doi.org/10.21437/Interspeech.2025-1363"
+        },
+        {
+          "title": "DeepFilterGAN: A Full-band Real-time Speech Enhancement System with GAN-based Stochastic Regeneration (Interspeech 2025)",
+          "url": "https://www.isca-archive.org/interspeech_2025/serbest25_interspeech.html"
         }
       ]
     }
@@ -1608,7 +1638,7 @@
     },
     {
       "venue": "MLSys 2027",
-      "rule": "Mandatory AI Usage Disclosure after references for ALL submissions: disclose ideation, literature, experimental design, code, data, writing, tools and extent. Solely LLM-generated paper content is prohibited outside illustrative/experimental uses. Generalized harmonic author quota: max 2 papers if all single-author, max 20 if all 10-author; other mixes vary; desk rejection for violations.",
+      "rule": "Mandatory AI Usage Disclosure after references for ALL submissions: disclose ideation, literature, experimental design, code, data, writing, tools and extent. Solely LLM-generated paper content is prohibited outside illustrative/experimental uses. Generalized harmonic author quota: max 2 papers if all single-author, max 20 if all 10-author; other mixes vary; desk rejection for violations. INDUSTRY track requires first author and majority of authors from industry and a real built/deployed or planned system; speculative academic ideas do not qualify.",
       "source": "https://mlsys.org/Conferences/2027/CallForResearchPapers",
       "flag": "mandatory end-to-end AI disclosure; prohibit AI-only manuscripts; harmonic per-author submission quota"
     },
@@ -1973,6 +2003,30 @@
       "kind": "March 2026 arXiv preprint; acceptance NOT independently verified",
       "note": "Already uses self-supervised visual temporal partitioning, per-event query-aware anchors and MMR for budgeted frames. CC-06 should not claim generic event-anchor selection first; require matched frame and total-compute comparisons against accepted RIDGE.",
       "url": "https://arxiv.org/abs/2603.00983"
+    },
+    {
+      "title": "AdaMAE: Adaptive Masking for Efficient Spatiotemporal Learning With Masked Autoencoders (CVPR 2023)",
+      "kind": "Accepted CVPR 2023, source and method audited; full-video-informed sampler",
+      "note": "Adaptive learnable visible-token selection is established prior art. Released pretraining code embeds all patches, samples positions from an all-token-conditioned distribution, then passes selected tokens to encoder. Possible mask-index information channel, not a measured failure. Closest accepted baseline for CC-02.",
+      "url": "https://openaccess.thecvf.com/content/CVPR2023/html/Bandara_AdaMAE_Adaptive_Masking_for_Efficient_Spatiotemporal_Learning_With_Masked_Autoencoders_CVPR_2023_paper.html"
+    },
+    {
+      "title": "Interspeech 2025 URGENT Speech Enhancement Challenge",
+      "kind": "Accepted/published Interspeech 2025 challenge summary",
+      "note": "Thirty-two challenge submissions; tests language dependency and speech quality tradeoffs. Generative approaches may be language dependent. CC-17 cannot claim first multilingual speech-preserving enhancement evaluation.",
+      "url": "https://doi.org/10.21437/Interspeech.2025-1363"
+    },
+    {
+      "title": "DeepFilterGAN: A Full-band Real-time Speech Enhancement System with GAN-based Stochastic Regeneration",
+      "kind": "Accepted Interspeech 2025 research paper",
+      "note": "Studies speech over-suppression and low-latency hybrid enhancement. Controls CC-17 claims about speech preservation and adaptive suppression; not a direct event-gating identical-cost test.",
+      "url": "https://www.isca-archive.org/interspeech_2025/serbest25_interspeech.html"
+    },
+    {
+      "title": "Automated Detection of Visual Attribute Reliance with a Self-Reflective Agent",
+      "kind": "Accepted NeurIPS 2025 main-conference paper",
+      "note": "Already generates/tests hypotheses and uses iterative self-reflection across 130 models and 18 attribute categories. CC-08 must not claim generic automated self-reflective research verification as novel; version-locked evidence replay remains separate and unverified.",
+      "url": "https://papers.nips.cc/paper_files/paper/2025/hash/cf38eb1549024cce4b3d2c1bb87a6c27-Abstract-Conference.html"
     }
   ],
   "closed": [
