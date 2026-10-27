@@ -151,7 +151,11 @@ footer{margin-top:45px;padding-top:12px;border-top:1px solid #d0d6dd;font-size:1
 <progress id="progress" value="0" max="9"></progress>
 <div class="controls"><button type="button" id="copy">Copy checklist</button><button type="button" id="clear">Clear local checks</button></div>
 <p class="small"><strong>Green flag:</strong> Reply in ChatGPT with <code>GREEN_FLAG_A3</code> after reviewing the workflow. The flag authorizes the controlled finalization phase, not blind retries, unverified model substitution, or an unapproved Moodle upload.</p>
-<h2>7. Evidence sources and transparency</h2>
+<h2>7. Agent and benchmark isolation</h2>
+<p>Use a bounded verifier workflow rather than hundreds of concurrent coding agents. Keep one code writer per worktree. Require the exact requested Luna model and thinking level to be confirmed before starting a detached worker; do not substitute a different model silently. Record a task ID, command, PID/session, logs, output checksum, exit code and approval gate.</p>
+<p><strong>Benchmark fairness:</strong> The actual SIFT/GloVe QPS measurements must run alone on the one declared machine, with FAISS constrained to one thread. Running many agents or other CPU workloads on that same machine during timing would add contention and make results harder to compare.</p>
+<p>The <a href="https://courses.iiit.ac.in/mod/forum/discuss.php?d=54440">24 October course notice</a> also asks students to learn while implementing rather than submit a one-shot coding-assistant result. Preserve your own ability to explain the metric, index knobs, plots and failures.</p>
+<h2>8. Evidence sources and transparency</h2>
 <ul>
 <li><strong>Official assignment:</strong> CS4.406 Assignment 3 PDF, three pages. It controls datasets, evaluation, hypotheses, report and ZIP.</li>
 <li><strong>Extension:</strong> <a href="https://courses.iiit.ac.in/mod/forum/discuss.php?d=54440">Moodle notice dated 24 October 2026</a> specifies 31 October.</li>
