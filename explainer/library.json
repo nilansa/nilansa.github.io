@@ -459,8 +459,8 @@
   },
   {
     "id": "ire-a3-sanity-first-plan-20261027",
-    "title": "IRE Assignment 3 — Sanity-First Execution Plan",
-    "description": "ASD-STE100-style A3 checklist and audit of the existing 282-row benchmark, measured experiments, sanity re-run, and submission inventory.",
+    "title": "IRE Assignment 3 — Evidence-Based Execution Review",
+    "description": "Revised 31 October deadline; audited 282-row benchmark, recovered sanity tests, tuning/held-out selection defect, and safe finalization gates.",
     "project": "IRE Assignment 3",
     "category": "Assignment workflow",
     "tags": [
