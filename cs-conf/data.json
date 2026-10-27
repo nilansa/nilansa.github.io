@@ -3271,6 +3271,24 @@
       "rule": "Official research paper due Jan 10, 2027 23:59 AoE; for IEEE Xplore publication an accepted paper needs one full-rate registration and in-person author presentation. Nov 15, 2026 is separate workshop-organizer proposal deadline with cutoff hour not stated in cited CFP. Exact venue-specific generative-AI authorship/disclosure instructions were NOT established by this CFP; check official IEEE/submission policy before action.",
       "source": "https://2027.ieee-isit.org/call-papers",
       "flag": "paper versus organizer-proposal distinction; full-rate/in-person condition; check AI-use policy"
+    },
+    {
+      "venue": "COLING 2027 Industry Track",
+      "rule": "Standalone industry paper due Nov 30, 2026 at 11:59 PM AoE; six pages excluding references, double-blind, real-world NLP or speech use, academic/student submissions allowed; duplicate/parallel substantially overlapping (>25%) work or dual submission to regular track prohibited. This is not the closed Oct 12 COLING main ARR route.",
+      "source": "https://2027.coling-iccl.org/calls/industry_track/",
+      "flag": "real-world system required; no duplicate research/industry submissions"
+    },
+    {
+      "venue": "IEEE ASLI 2027",
+      "rule": "New IEEE flagship merging ASRU/SLT communities. Regular paper deadline Apr 21, 2027 at 23:59 AoE; main text maximum six pages, references/appendix unlimited but paper self-contained; original unpublished research, with Main and Findings publication routes and author registration/presentation required. No generic AI-writing permission was established from this CFP.",
+      "source": "https://2027.ieeeasli.org/call-for-papers/",
+      "flag": "new 2027 conference: do not invent ASRU 2027/SLT 2027 separate CFPs"
+    },
+    {
+      "venue": "IWSLT 2027",
+      "rule": "Official timetable is preliminary; scientific papers Mar 15, 2027 and shared-task system description papers May 7, 2027 are separate channels. Both currently list 11:59 PM UTC−12 (AoE); verify changes on official page. The year-round evaluation leaderboard is not itself a paper acceptance.",
+      "source": "https://iwslt.org/2027/",
+      "flag": "preliminary; scientific vs shared-task routes not interchangeable"
     }
   ],
   "examples": [
