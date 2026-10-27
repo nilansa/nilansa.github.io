@@ -1,75 +1,181 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="ASD-STE100-style sanity-first execution plan for IRE Assignment 3 ANN benchmarking.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="description" content="IRE CS4.406 Assignment 3: verified artifacts, benchmark audit, reproducibility gates and pre-approval execution workflow.">
 <meta name="date" content="2026-10-27">
-<title>IRE Assignment 3 — Sanity-First Execution Plan</title>
+<title>IRE Assignment 3 — Evidence-Based Execution Review</title>
 <style>
-body{max-width:940px;margin:0 auto;padding:24px;color:#17212d;background:#fff;font:16px/1.65 Arial,Helvetica,sans-serif}a{color:#0645ad}h1{font-size:clamp(30px,5vw,44px);line-height:1.15}h2{margin-top:32px;font-size:24px}h3{font-size:18px}.muted{color:#596675;font-size:14px}.box{border:1px solid #d9e0e7;border-radius:7px;padding:14px;margin:12px 0}.warn{background:#fff8e8;border-color:#e7d39b}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}.grid .box{margin:0}li{margin:7px 0}code,pre{font-family:ui-monospace,Menlo,monospace}pre{white-space:pre-wrap;background:#f5f7fa;padding:12px;overflow-wrap:anywhere}.checks label{display:block;padding:8px 0;border-bottom:1px solid #edf0f3}button{padding:8px 12px;background:white;border:1px solid #cbd3dc;border-radius:4px;cursor:pointer}footer{border-top:1px solid #d9e0e7;margin-top:32px;padding-top:16px;color:#596675;font-size:13px}
-</style></head>
+:root{color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0 auto;padding:24px 22px 70px;max-width:960px;background:white;color:#17202b;font:16px/1.62 Arial,Helvetica,sans-serif}
+a{color:#0645ad;text-decoration:underline;text-underline-offset:2px}
+a:visited{color:#551a8b}
+h1{font-size:clamp(30px,4.5vw,43px);font-weight:650;line-height:1.14;letter-spacing:-.025em;margin:10px 0 12px}
+h2{font-size:24px;margin:34px 0 9px;line-height:1.22}
+h3{font-size:18px;margin:17px 0 7px}
+p{margin:8px 0 12px}
+header{padding-bottom:18px;border-bottom:1px solid #cdd3db}
+main{margin-top:20px}
+nav{font-size:13px}
+.lead{max-width:810px;font-size:19px}
+.muted{color:#526170}
+.small{font-size:13px}
+table{border-collapse:collapse;width:100%;font-size:14px;margin:11px 0 18px}
+th,td{border-bottom:1px solid #d9dee4;vertical-align:top;text-align:left;padding:8px 9px}
+th{background:#f4f6f8;font-weight:bold}
+caption{caption-side:top;text-align:left;font-size:13px;color:#536170;padding:4px 0}
+.panel{border:1px solid #d0d6dd;border-radius:4px;margin:15px 0;padding:12px 15px}
+.panel h3:first-child{margin-top:0}
+.summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:1px solid #d0d6dd}
+.summary>div{padding:14px;border-right:1px solid #d0d6dd}
+.summary>div:last-child{border-right:0}
+.summary strong{font-size:26px;display:block}
+.summary span{font-size:13px;color:#536170}
+.flag{border-left:4px solid #565e6c;padding:7px 0 8px 14px;margin:18px 0}
+ol,ul{padding-left:23px}
+li{margin:6px 0}
+code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.91em}
+code{background:#f3f5f7;padding:1px 3px}
+pre{background:#f3f5f7;padding:12px;white-space:pre-wrap;overflow-wrap:anywhere}
+.task{display:flex;gap:9px;align-items:flex-start;border-bottom:1px solid #e7ebef;padding:8px 0}
+.task input{margin-top:6px;flex:none}
+progress{width:100%;height:11px}
+button{background:white;color:#17202b;border:1px solid #b6bec7;border-radius:4px;padding:7px 11px;font:inherit;cursor:pointer}
+button:focus,a:focus,input:focus{outline:2px solid #0645ad;outline-offset:2px}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+footer{margin-top:45px;padding-top:12px;border-top:1px solid #d0d6dd;font-size:13px;color:#536170}
+@media(max-width:650px){.summary{grid-template-columns:1fr}.summary>div{border-right:0;border-bottom:1px solid #d0d6dd}.summary>div:last-child{border-bottom:0}body{padding:16px}}
+@media print{button,.controls{display:none}body{max-width:none}}
+</style>
+</head>
 <body>
-<p class="muted"><a href="../index.html">Technical page index</a> / IRE Assignment 3</p>
-<p class="muted">CS4.406 · Information Retrieval &amp; Extraction · Plan dated 27 October 2026</p>
-<h1>Assignment 3: sanity-first execution plan</h1>
-<p>The goal is a correct and reproducible benchmark. Test the harness on small data first. Repair errors before you run the full benchmark.</p>
-<div class="box warn"><strong>Deadline check:</strong> The supplied brief lists 25 October 2026, 23:59 IST. That date has passed. Check the latest Moodle announcement or instructor message before you assume that late submission is accepted.</div>
-<h2>1. Required work</h2>
-<div class="grid">
-<div class="box"><h3>Data</h3><p>SIFT-1M: 128 dimensions and Euclidean distance. GloVe-100: about 1.18M vectors and 100 dimensions. Normalize GloVe base and query vectors, then use L2 distance.</p></div>
-<div class="box"><h3>Indexes</h3><p>Build an exact FAISS baseline. Compare HNSW, IVF-Flat and IVF-PQ on both datasets.</p></div>
-<div class="box"><h3>Query split</h3><p>Use the first 5,000 queries to tune. Freeze the settings before you report results on the last 5,000 queries.</p></div>
-<div class="box"><h3>Deliverable</h3><p>Report of at most five pages. Submit one ZIP with the exact required files. Do not include datasets or index files.</p></div>
+<header>
+<nav><a href="../index.html">Dated HTML index</a> · <a href="./ire-assignment-3-ann-benchmark-study.html">Introductory ANN guide</a></nav>
+<p class="small muted">CS4.406 Information Retrieval &amp; Extraction · Audit v2 · 27 October 2026 (IST)</p>
+<h1>Assignment 3: evidence-based execution review</h1>
+<p class="lead">Review the real benchmark first. Fix measurement and reporting defects with small sanity tests. Preserve evidence. Run the final submission workflow only after approval.</p>
+<p><strong>Official deadline: 31 October 2026 (extended).</strong> The 24 October <a href="https://courses.iiit.ac.in/mod/forum/discuss.php?d=54440">Moodle announcement</a> supersedes the older date in the PDF. The notice gives no exact cutoff time; confirm it on Moodle.</p>
+</header>
+<main>
+<h2>1. What is already complete?</h2>
+<div class="summary">
+<div><strong>282</strong><span>measured rows from the existing full benchmark</span></div>
+<div><strong>8 / 8</strong><span>unit tests passed on 27 October</span></div>
+<div><strong>111</strong><span>rows from the recovered isolated quick run</span></div>
 </div>
-<h2>2. Workflow gates</h2>
+<p>The original full run is dated 22 October. The 27 October quick run finished and generated a report in an isolated directory. The full CSV and two existing submission ZIPs were not overwritten during that run.</p>
+<table>
+<caption>Source-evidence audit (not a claim that Moodle submission is complete)</caption>
+<thead><tr><th>Requirement</th><th>Verified evidence</th><th>Current status</th></tr></thead>
+<tbody>
+<tr><td>Datasets and distance</td><td>SIFT: 1M × 128; GloVe: about 1.18M × 100; GloVe normalized for L2</td><td>Recorded in full-run audit</td></tr>
+<tr><td>Index benchmark</td><td>Exact FAISS, HNSW, IVF-Flat and IVF-PQ; tuning and evaluation records</td><td>Full CSV present</td></tr>
+<tr><td>Timing</td><td>One thread; one-query-at-a-time search; three repeated held-out trials</td><td>Verified in source code</td></tr>
+<tr><td>Part 3 hypothesis</td><td>SIFT scaling 100K / 300K / 1M; hypothesis committed before results</td><td>Measured</td></tr>
+<tr><td>Part 4 hypothesis</td><td>Seeded synthetic geometry: 32 / 64 / 128 / 256 dimensions; 128D control</td><td>Measured</td></tr>
+<tr><td>Report and package</td><td>Five-page report; PDF and results CSV in both existing ZIP variants</td><td>Final canonical archive needs selection</td></tr>
+<tr><td>Moodle submission</td><td>No confirmed submission receipt</td><td>Pending approval and portal check</td></tr>
+</tbody></table>
+<h2>2. Priority fixes before final acceptance</h2>
+<div class="flag">
+<strong>P0 — Held-out operating-point selection.</strong>
+<p>The report currently selects the fastest qualifying point using held-out recall and QPS. Parameters should be selected using the first 5,000 queries, then reported unchanged on the final 5,000.</p>
+<p>Measured example: on SIFT at recall target 0.90, tune-based HNSW selection gives about 13,377 held-out QPS; retrospective held-out selection gives about 18,216 QPS. Do not report the latter as if selected without looking at final results.</p>
+</div>
+<div class="panel">
+<h3>P1 — Metric tests</h3>
+<p>The existing “tied item at boundary” test replaces a true boundary neighbour with a <em>closer</em> point. Add a genuine boundary-tie swap test. Also add explicit duplicate-ID and invalid-ID tests. Re-run the full test suite in isolation.</p>
+<h3>P1 — Canonical report and archive</h3>
+<p>Two ZIPs have identical report and CSV payload bytes but different Git-directory metadata and different overall ZIP hashes. Separate local PDFs also differ in bytes. Check report text and figures, current Git HEAD, file inventory and archive checksums before choosing the canonical submission.</p>
+<h3>P1 — AI usage record</h3>
+<p>The existing AI log contains available prompt/response summaries. Its own checkpoint says a complete verbatim chat export is unavailable. Do not claim the log is complete unless every required prompt and response can be accounted for.</p>
+<h3>P2 — Scientific explanation</h3>
+<p>The synthetic experiment attributes lower recall partly to reduced distance contrast in higher dimensions. The measurements support falling recall at fixed search effort; a separate contrast statistic would strengthen the proposed mechanism. Avoid claiming this mechanism was measured when it was not.</p>
+</div>
+<h2>3. Final workflow, with stop gates</h2>
 <ol>
-<li><strong>Requirements:</strong> Read the brief. Confirm the current deadline, allowed libraries, file names and page limit.</li>
-<li><strong>Data sanity:</strong> Read a small HDF5 slice. Check shapes, data types, finite values, IDs, stored neighbours and GloVe normalization.</li>
-<li><strong>Exact baseline:</strong> Run FAISS IndexFlatL2. Compare its neighbours with the stored ground truth. Implement tie-aware Recall@10 and test ties at rank 10, duplicate IDs and invalid IDs.</li>
-<li><strong>Small index tests:</strong> Build HNSW, IVF-Flat and IVF-PQ on a small subset. Test training, adding vectors, querying, saving and loading. Fix failures before you expand.</li>
-<li><strong>Timing sanity:</strong> Warm up. Run one query at a time on one thread. Repeat each timing and use the median. Time index construction separately. Time exact search one query at a time and in a batch.</li>
-<li><strong>Full benchmark:</strong> Only after the earlier gates pass, tune on the first 5,000 queries. Freeze the selected settings. Measure the final 5,000 queries once.</li>
-<li><strong>Experiments:</strong> Write and commit each hypothesis before you run the experiment. Change one factor at a time. Record random seeds and settings.</li>
-<li><strong>Package audit:</strong> Regenerate report figures and tables from results.csv. Run full and quick commands. Check the ZIP contents and AI-use record.</li>
+<li><strong>Reconcile:</strong> Verify the existing Mac task, run IDs, cached datasets, Git history, two ZIPs, PDF text and CSV hashes. Choose a canonical baseline without discarding earlier versions.</li>
+<li><strong>Repair in an isolated copy:</strong> Write failing tests for actual boundary ties, repeated IDs and invalid IDs. Make selection of recall 0.90 / 0.95 configurations depend on tuning rows only. Preserve the full raw results.</li>
+<li><strong>Sanity proof:</strong> Run Python unit tests, shell syntax, an isolated quick reproduction, and source-to-report checks. Verify that existing CSV rows are enough to compute corrected tables; only run missing configurations if needed.</li>
+<li><strong>Research interpretation:</strong> Explain why HNSW wins on the tested SIFT settings, IVF-Flat on GloVe at 0.95, and why tested IVF-PQ settings fail recall targets. Keep inference separate from measured evidence.</li>
+<li><strong>Rebuild and audit the report:</strong> Regenerate the five-page PDF and figures from a traceable results CSV. Check readable fonts, legends, tables, numerical agreement, and all five required report questions.</li>
+<li><strong>Package only approved artifacts:</strong> Verify Git hypothesis chronology; full and quick commands; required filenames; no dataset/index/model files; available AI usage history; ZIP CRC and extractability.</li>
+<li><strong>Final gate:</strong> With your green flag, confirm the Moodle cutoff time and the academic roll number, then submit the audited archive and save the receipt.</li>
 </ol>
-<h2>3. Part 3 experiment: SIFT scaling</h2>
-<div class="box"><p><strong>Existing committed hypothesis:</strong> As the SIFT corpus grows from 100K to 300K to 1M vectors, exact-search query cost should grow approximately linearly. HNSW should preserve high recall with less query work than exact search, while build time and memory increase. IVF-Flat search cost should depend strongly on the fraction of lists probed.</p><p>The prior full run reports exact single-query throughput of 1,037.4 / 343.6 / 103.2 QPS for 100K / 300K / 1M vectors. These are existing measured results, not a prediction. Re-check the current CSV and report before changing any values.</p><p>Preserve the pre-experiment hypothesis commit. Do not rewrite the hypothesis after seeing results.</p></div>
-<h2>4. Part 4 experiment: synthetic dimensionality</h2>
-<div class="box"><p><strong>Existing committed hypothesis:</strong> For seeded isotropic Gaussian vectors, increasing dimension while keeping corpus size fixed makes nearest-neighbour distances less contrasted. HNSW and IVF-Flat will need more search effort to preserve Recall@10; IVF-PQ may lose additional recall due to quantization.</p><p>The existing full run used 100K synthetic vectors at 32, 64, 128 and 256 dimensions, with 128D as the unchanged control. At fixed settings, measured recall fell as dimension increased. The report must retain the caveat that one seed and one Gaussian family do not establish a universal law.</p><p>Preserve the original hypothesis commit and its measured verdict. Do not substitute the separate cluster-imbalance pilot for this official Part 4 experiment.</p></div>
-<h2>5. Fair benchmark rules</h2>
-<ul><li>Use one machine and record its CPU, RAM, operating system and library versions.</li><li>Use the same data representation and distance definition for comparable runs.</li><li>Measure single-query QPS on one thread. Repeat timings and report the median.</li><li>Measure build time separately. Measure serialized index size and bytes per vector.</li><li>Save every run in results/results.csv with parameters, recall, QPS, build time, index size and software version.</li><li>Produce one recall@10 versus QPS plot per dataset. Report QPS at recall 0.90 and 0.95. Say “not reached” if an index does not reach a target.</li><li>Do not use the ann-benchmarks framework to run your experiments. Do not copy published benchmark numbers.</li></ul>
-<h2>6. Required ZIP inventory</h2>
+<h2>4. Measured conclusions, with limits</h2>
+<table><thead><tr><th>Finding</th><th>Recorded observation</th><th>Interpretation boundary</th></tr></thead><tbody>
+<tr><td>SIFT scaling</td><td>Exact QPS: 1,037.4 at 100K, 343.6 at 300K, 103.2 at 1M vectors</td><td>One machine and corpus; scaling beyond 1M was not measured</td></tr>
+<tr><td>SIFT at recall 0.95</td><td>HNSW: about 10,302 QPS</td><td>A measured selected configuration, not universal superiority</td></tr>
+<tr><td>GloVe at recall 0.95</td><td>IVF-Flat: about 638 QPS</td><td>GloVe data are normalized; target achieved in tested settings</td></tr>
+<tr><td>IVF-PQ</td><td>Tested parameter sweeps did not reach recall 0.95</td><td>Does not prove IVF-PQ can never reach the target</td></tr>
+<tr><td>Synthetic dimension test</td><td>Recall declined with increasing dimension at fixed effort</td><td>One seeded Gaussian family; causal mechanism not isolated</td></tr>
+</tbody></table>
+<p>These numbers come from the existing 22 October run. They have not been independently reproduced by a fresh full run on 27 October. The final report must apply tuning-only selection to all threshold tables.</p>
+<h2>5. Exact submission contract</h2>
 <pre>&lt;rollnumber&gt; A3.zip
-├── report.pdf                    # at most 5 pages
+├── report.pdf                  # at most 5 pages
 ├── code/
-│   ├── .git/                     # keep hypothesis commit history
+│   ├── .git/                   # include prior hypothesis commits
 │   ├── README.md
 │   ├── requirements.txt
 │   ├── hypothesis.md
-│   ├── run_all.sh                # full and --quick modes
-│   └── source files and generator
+│   ├── run_all.sh              # full and --quick
+│   └── code and seeded generator
 ├── results/
 │   ├── results.csv
 │   └── figures/
 └── ai log/
-    ├── ai_statement.md
+    ├── ai statement.md
     └── prompts and responses</pre>
-<p>The full command must regenerate every number, figure and table. The quick command must use a small subset and finish in under 15 minutes on a laptop.</p>
-<h2>7. Review checklist</h2>
-<p class="muted">Tick items while reviewing the plan. These ticks are stored in this browser only. They do not launch jobs or approve benchmark execution.</p>
-<div class="box checks" id="checks">
-<label><input type="checkbox"> I approve SIFT scaling for Part 3.</label>
-<label><input type="checkbox"> I approve synthetic dimensionality for Part 4.</label>
-<label><input type="checkbox"> I approve the sanity gates before the full benchmark.</label>
-<label><input type="checkbox"> I checked the latest course deadline and submission status.</label>
-<label><input type="checkbox"> I confirmed the roll number and exact ZIP filename.</label>
+<p><code>bash run_all.sh --quick</code> must reproduce a small representative run within 15 minutes on a laptop. The full command must regenerate the report's numbers, tables and figures from the input data. Do not include raw datasets or serialized indexes.</p>
+<h2>6. Approval checklist</h2>
+<p class="small muted">This checklist records your review in this browser only. Selecting a box does not start an agent, change the benchmark, or submit anything.</p>
+<div id="checklist">
+<h3>Correctness gates</h3>
+<label class="task"><input type="checkbox" data-key="data">Dataset shapes, GloVe normalization and exact ground truth checked.</label>
+<label class="task"><input type="checkbox" data-key="metric">Tie, duplicate and invalid-ID metric tests passed.</label>
+<label class="task"><input type="checkbox" data-key="split">All 0.90 / 0.95 selections use the tuning split only.</label>
+<label class="task"><input type="checkbox" data-key="quick">Fresh isolated quick run and report reconstruction passed.</label>
+<h3>Submission gates</h3>
+<label class="task"><input type="checkbox" data-key="hyp">Hypotheses and Git chronology verified.</label>
+<label class="task"><input type="checkbox" data-key="report">Five-page PDF and plots match the corrected results.</label>
+<label class="task"><input type="checkbox" data-key="zip">One canonical ZIP and its integrity verified.</label>
+<label class="task"><input type="checkbox" data-key="ai">AI usage log is accurate about available and unavailable exports.</label>
+<label class="task"><input type="checkbox" data-key="deadline">Moodle cutoff time and correct roll number confirmed.</label>
 </div>
-<button id="reset" type="button">Clear checklist</button>
-<h2>8. Source evidence</h2>
-<ul><li><a href="https://otter.ai/u/k1mRm7bqG_7r1NBCXp4qMn7-_is">Otter: “Assignment 3”, IR 2026, 26 October 2026</a>. Automatic transcript; verify ambiguous terms against the PDF.</li><li>The supplied official Assignment 3 PDF controls the requirements for the benchmark, experiments, report and ZIP.</li></ul>
-<p><strong>Status as of 27 October:</strong> A previous full benchmark produced 282 rows, an existing five-page report, figures, eight passing unit tests, and candidate ZIPs. The latest task checkpoint says Moodle submission was not confirmed. A fresh isolated quick sanity re-run was launched, but the remote Mac endpoint timed out before I could verify completion. Check its existing log and process before retrying. Do not start a duplicate run. No submission has been made by this page.</p>
-<footer>Prepared in simple technical English. The public page is separate from the academic homepage.</footer>
+<p id="progress-label" class="small" aria-live="polite">0 of 9 gates reviewed</p>
+<progress id="progress" value="0" max="9"></progress>
+<div class="controls"><button type="button" id="copy">Copy checklist</button><button type="button" id="clear">Clear local checks</button></div>
+<p class="small"><strong>Green flag:</strong> Reply in ChatGPT with <code>GREEN_FLAG_A3</code> after reviewing the workflow. The flag authorizes the controlled finalization phase, not blind retries, unverified model substitution, or an unapproved Moodle upload.</p>
+<h2>7. Evidence sources and transparency</h2>
+<ul>
+<li><strong>Official assignment:</strong> CS4.406 Assignment 3 PDF, three pages. It controls datasets, evaluation, hypotheses, report and ZIP.</li>
+<li><strong>Extension:</strong> <a href="https://courses.iiit.ac.in/mod/forum/discuss.php?d=54440">Moodle notice dated 24 October 2026</a> specifies 31 October.</li>
+<li><strong>Instructor/TAs:</strong> <a href="https://otter.ai/u/k1mRm7bqG_7r1NBCXp4qMn7-_is">IR 2026 Otter “Assignment 3” discussion, 26 October</a>. Automatic transcription may contain errors.</li>
+<li><strong>Implementation reference:</strong> <a href="https://github.com/facebookresearch/faiss/wiki/FAQ">FAISS FAQ</a> for nprobe, efSearch and missing neighbours.</li>
+</ul>
+<p class="small muted">The full benchmark, ZIP contents and source code were inspected through authorized read-only or bounded local checks. This public page contains only a summary; private datasets, raw files, account credentials and scratch indexes are not published. As of this review, Moodle submission is not confirmed.</p>
+</main>
+<footer>Audit v2 · 27 October 2026 · Plain HTML, no analytics, no external scripts · Your checklist stays in this browser.</footer>
 <script>
-(function(){var boxes=Array.from(document.querySelectorAll('#checks input'));var key='ire-a3-plan-checks-v1';try{var saved=JSON.parse(localStorage.getItem(key)||'[]');boxes.forEach(function(b,i){b.checked=!!saved[i];});}catch(e){}boxes.forEach(function(b){b.addEventListener('change',function(){try{localStorage.setItem(key,JSON.stringify(boxes.map(function(x){return x.checked;})));}catch(e){}});});document.getElementById('reset').addEventListener('click',function(){boxes.forEach(function(b){b.checked=false;});try{localStorage.removeItem(key);}catch(e){}});})();
+(function(){
+'use strict';
+var items=Array.from(document.querySelectorAll('#checklist input[type="checkbox"]'));
+var store='ire-a3-audit-v2-checks';
+try{var saved=JSON.parse(localStorage.getItem(store)||'{}');items.forEach(function(x){x.checked=!!saved[x.dataset.key];});}catch(e){}
+function render(){var done=items.filter(function(x){return x.checked;}).length;document.getElementById('progress').value=done;document.getElementById('progress-label').textContent=done+' of '+items.length+' gates reviewed';}
+items.forEach(function(x){x.addEventListener('change',function(){var v={};items.forEach(function(y){v[y.dataset.key]=y.checked;});try{localStorage.setItem(store,JSON.stringify(v));}catch(e){}render();});});
+document.getElementById('clear').addEventListener('click',function(){items.forEach(function(x){x.checked=false;});try{localStorage.removeItem(store);}catch(e){}render();});
+document.getElementById('copy').addEventListener('click',function(){
+var t=items.map(function(x){return (x.checked?'[x] ':'[ ] ')+x.parentNode.textContent.trim();}).join('\n');
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){document.getElementById('copy').textContent='Copied';},function(){window.prompt('Copy checklist',t);});}
+else{window.prompt('Copy checklist',t);}
+});
+render();
+})();
 </script>
-</body></html>
+</body>
+</html>
