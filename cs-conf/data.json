@@ -593,32 +593,82 @@
       "area": "AI / machine learning",
       "venues": [
         {
-          "name": "NeurIPS",
-          "url": "https://neurips.cc/"
-        },
-        {
-          "name": "ICML",
-          "url": "https://icml.cc/"
-        },
-        {
-          "name": "ICLR",
-          "url": "https://iclr.cc/"
+          "name": "AAAI",
+          "url": "https://aaai.org/",
+          "hfSlug": "aaai",
+          "hfYear": 2027,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/aaai.yml",
+          "fullName": "AAAI Conference on Artificial Intelligence",
+          "rankings": {
+            "CCF": "A",
+            "CORE": "A*",
+            "THCPL": "A",
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/aaai.yml"
         },
         {
           "name": "AISTATS",
-          "url": "https://aistats.org/"
+          "url": "https://aistats.org/",
+          "hfSlug": "aistats",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/aistats.yml",
+          "fullName": "International Conference on Artificial Intelligence and Statistics",
+          "rankings": {
+            "CCF": "C",
+            "CORE": "A",
+            "THCPL": "B",
+            "ERA": "B"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/aistats.yml"
+        },
+        {
+          "name": "ALT",
+          "url": "https://algorithmiclearningtheory.org/alt2026/",
+          "hfSlug": "alt",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/alt.yml",
+          "fullName": "International Conference on Algorithmic Learning Theory",
+          "rankings": {
+            "CCF": "C",
+            "CORE": "B",
+            "THCPL": "B",
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/alt.yml"
+        },
+        {
+          "name": "CEC",
+          "url": "http://ieeecec.org",
+          "hfSlug": "cec",
+          "hfYear": 2027,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/cec.yml",
+          "fullName": "IEEE Congress on Evolutionary Computation",
+          "rankings": {
+            "CORE": "B",
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/cec.yml"
+        },
+        {
+          "name": "COLM",
+          "url": "https://colm.cc/"
         },
         {
           "name": "COLT",
           "url": "https://learningtheory.org/"
         },
         {
-          "name": "UAI",
-          "url": "https://www.auai.org/"
+          "name": "ECML PKDD",
+          "url": "https://ecmlpkdd.org/"
         },
         {
-          "name": "AAAI",
-          "url": "https://aaai.org/"
+          "name": "ICLR",
+          "url": "https://iclr.cc/"
+        },
+        {
+          "name": "ICML",
+          "url": "https://icml.cc/"
         },
         {
           "name": "IJCAI",
@@ -629,12 +679,12 @@
           "url": "https://mlsys.org/"
         },
         {
-          "name": "COLM",
-          "url": "https://colm.cc/"
+          "name": "NeurIPS",
+          "url": "https://neurips.cc/"
         },
         {
-          "name": "ECML PKDD",
-          "url": "https://ecmlpkdd.org/"
+          "name": "UAI",
+          "url": "https://www.auai.org/"
         }
       ]
     },
@@ -727,28 +777,48 @@
       "area": "Computer vision / graphics / multimodal",
       "venues": [
         {
-          "name": "CVPR",
-          "url": "https://cvpr.thecvf.com/"
+          "name": "3DV",
+          "url": "https://3dvconf.github.io/",
+          "hfSlug": "3dv",
+          "hfYear": 2027,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/3dv.yml",
+          "fullName": "International Conference on 3D Vision",
+          "rankings": {
+            "CCF": "C"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/3dv.yml"
         },
         {
-          "name": "ICCV",
-          "url": "https://iccv.thecvf.com/"
+          "name": "ACCV",
+          "url": "https://accv2026.org/"
         },
         {
-          "name": "ECCV",
-          "url": "https://eccv.ecva.net/"
-        },
-        {
-          "name": "WACV",
-          "url": "https://wacv.thecvf.com/"
+          "name": "ACM MM",
+          "url": "https://2026.acmmm.org/",
+          "hfSlug": "acm_mm",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/acm_mm.yml",
+          "fullName": "ACM Multimedia",
+          "rankings": {
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/acm_mm.yml"
         },
         {
           "name": "BMVC",
           "url": "https://bmvc2026.org/"
         },
         {
-          "name": "ACCV",
-          "url": "https://accv2026.org/"
+          "name": "CVPR",
+          "url": "https://cvpr.thecvf.com/"
+        },
+        {
+          "name": "ECCV",
+          "url": "https://eccv.ecva.net/"
+        },
+        {
+          "name": "ICCV",
+          "url": "https://iccv.thecvf.com/"
         },
         {
           "name": "SIGGRAPH",
@@ -759,14 +829,42 @@
           "url": "https://sa.siggraph.org/"
         },
         {
-          "name": "3DV",
-          "url": "https://3dvconf.github.io/"
+          "name": "WACV",
+          "url": "https://wacv.thecvf.com/"
         }
       ]
     },
     {
       "area": "Data mining / information retrieval / databases / Web",
       "venues": [
+        {
+          "name": "BIS",
+          "url": "https://bisconf.org/2026",
+          "hfSlug": "bis",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/bis.yml",
+          "fullName": "International Conference on Business Information Systems",
+          "rankings": {
+            "ERA": "B"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/bis.yml"
+        },
+        {
+          "name": "CIKM",
+          "url": "https://www.cikm2026.org/"
+        },
+        {
+          "name": "EDBT",
+          "url": null
+        },
+        {
+          "name": "ICDE",
+          "url": "https://www.icde.org/"
+        },
+        {
+          "name": "ICDM",
+          "url": "https://www.cs.uvm.edu/~icdm/"
+        },
         {
           "name": "KDD",
           "url": "https://kdd.org/"
@@ -776,40 +874,24 @@
           "url": "https://www.pakdd2027.org/"
         },
         {
-          "name": "ICDM",
-          "url": "https://www.cs.uvm.edu/~icdm/"
-        },
-        {
-          "name": "CIKM",
-          "url": "https://www.cikm2026.org/"
-        },
-        {
-          "name": "The Web Conference (WWW)",
-          "url": "https://www2027.thewebconf.org/"
-        },
-        {
           "name": "SIGIR",
           "url": "https://sigir2027.org/"
-        },
-        {
-          "name": "WSDM",
-          "url": "https://www.wsdm-conference.org/"
         },
         {
           "name": "SIGMOD",
           "url": "https://sigmod.org/"
         },
         {
+          "name": "The Web Conference (WWW)",
+          "url": "https://www2027.thewebconf.org/"
+        },
+        {
           "name": "VLDB",
           "url": "https://www.vldb.org/"
         },
         {
-          "name": "ICDE",
-          "url": "https://www.icde.org/"
-        },
-        {
-          "name": "EDBT",
-          "url": null
+          "name": "WSDM",
+          "url": "https://www.wsdm-conference.org/"
         }
       ]
     },
@@ -817,12 +899,16 @@
       "area": "HCI / software engineering / education",
       "venues": [
         {
-          "name": "CHI",
-          "url": "https://chi.acm.org/"
+          "name": "ASE",
+          "url": "https://conf.researchr.org/series/ase"
         },
         {
-          "name": "UIST",
-          "url": "https://uist.acm.org/"
+          "name": "CHI",
+          "url": "https://chi.acm.org/",
+          "hfSlug": "chi",
+          "hfYear": 2027,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/chi.yml",
+          "fullName": "The ACM Conference on Human Factors in Computing Systems"
         },
         {
           "name": "CSCW",
@@ -837,8 +923,8 @@
           "url": "https://conf.researchr.org/series/icse"
         },
         {
-          "name": "ASE",
-          "url": "https://conf.researchr.org/series/ase"
+          "name": "OOPSLA",
+          "url": "https://conf.researchr.org/series/oopsla"
         },
         {
           "name": "PLDI",
@@ -849,12 +935,12 @@
           "url": "https://popl.acm.org/"
         },
         {
-          "name": "OOPSLA",
-          "url": "https://conf.researchr.org/series/oopsla"
-        },
-        {
           "name": "SIGCSE",
           "url": "https://sigcse.org/"
+        },
+        {
+          "name": "UIST",
+          "url": "https://uist.acm.org/"
         }
       ]
     },
@@ -862,32 +948,36 @@
       "area": "Medical imaging / health AI / neuroscience",
       "venues": [
         {
-          "name": "MICCAI",
-          "url": "https://miccai.org/"
-        },
-        {
-          "name": "MIDL",
-          "url": "https://www.midl.io/"
-        },
-        {
-          "name": "ISBI",
-          "url": "https://biomedicalimaging.org/"
-        },
-        {
-          "name": "EMBC",
-          "url": "https://www.embs.org/"
-        },
-        {
-          "name": "COSYNE",
-          "url": "https://www.cosyne.org/"
+          "name": "CHIL",
+          "url": "https://chil.ahli.cc/",
+          "hfSlug": "chil",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/chil.yml",
+          "fullName": "AHLI Conference on Health, Inference, and Learning"
         },
         {
           "name": "Cognitive Computational Neuroscience (CCN)",
           "url": "https://ccneuro.org/"
         },
         {
-          "name": "CHIL",
-          "url": "https://chil.ahli.cc/"
+          "name": "COSYNE",
+          "url": "https://www.cosyne.org/"
+        },
+        {
+          "name": "EMBC",
+          "url": "https://www.embs.org/"
+        },
+        {
+          "name": "ISBI",
+          "url": "https://biomedicalimaging.org/"
+        },
+        {
+          "name": "MICCAI",
+          "url": "https://miccai.org/"
+        },
+        {
+          "name": "MIDL",
+          "url": "https://www.midl.io/"
         },
         {
           "name": "OHBM",
@@ -899,36 +989,47 @@
       "area": "NLP / speech / audio",
       "venues": [
         {
-          "name": "ACL",
-          "url": "https://www.aclweb.org/"
-        },
-        {
-          "name": "EMNLP",
-          "url": "https://2026.emnlp.org/"
-        },
-        {
-          "name": "NAACL",
-          "url": "https://naacl.org/"
-        },
-        {
-          "name": "EACL",
-          "url": "https://eacl.org/"
-        },
-        {
           "name": "AACL",
           "url": "https://aacl.org/"
+        },
+        {
+          "name": "ACL",
+          "url": "https://www.aclweb.org/",
+          "hfSlug": "acl",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/acl.yml",
+          "fullName": "Annual Meeting of the Association for Computational Linguistics",
+          "rankings": {
+            "CCF": "A",
+            "CORE": "A*",
+            "THCPL": "A",
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/acl.yml"
         },
         {
           "name": "COLING",
           "url": "https://coling.org/"
         },
         {
-          "name": "Interspeech",
-          "url": "https://www.isca-speech.org/"
+          "name": "EACL",
+          "url": "https://eacl.org/"
+        },
+        {
+          "name": "EMNLP",
+          "url": "https://2026.emnlp.org/"
         },
         {
           "name": "ICASSP",
           "url": "https://signalprocessingsociety.org/"
+        },
+        {
+          "name": "Interspeech",
+          "url": "https://www.isca-speech.org/"
+        },
+        {
+          "name": "NAACL",
+          "url": "https://naacl.org/"
         },
         {
           "name": "SLT",
@@ -940,6 +1041,29 @@
       "area": "Robotics / embodied learning",
       "venues": [
         {
+          "name": "AAMAS",
+          "url": "https://warwick.ac.uk/fac/sci/dcs/aamas2027/",
+          "hfSlug": "aamas",
+          "hfYear": 2027,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/aamas.yml",
+          "fullName": "International Conference on Autonomous Agents and Multiagent Systems",
+          "rankings": {
+            "CCF": "B",
+            "CORE": "A*",
+            "THCPL": "B",
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/aamas.yml"
+        },
+        {
+          "name": "CoRL",
+          "url": "https://www.corl.org/"
+        },
+        {
+          "name": "Humanoids",
+          "url": null
+        },
+        {
           "name": "ICRA",
           "url": "https://www.ieee-ras.org/"
         },
@@ -950,14 +1074,6 @@
         {
           "name": "RSS",
           "url": "https://roboticsconference.org/"
-        },
-        {
-          "name": "CoRL",
-          "url": "https://www.corl.org/"
-        },
-        {
-          "name": "Humanoids",
-          "url": null
         }
       ]
     },
@@ -965,52 +1081,44 @@
       "area": "Systems / architecture / networking / security",
       "venues": [
         {
-          "name": "NSDI",
-          "url": "https://www.usenix.org/conferences"
+          "name": "ACM CCS",
+          "url": "https://www.sigsac.org/"
         },
         {
-          "name": "OSDI",
-          "url": "https://www.usenix.org/conferences"
-        },
-        {
-          "name": "SOSP",
-          "url": "https://www.sigops.org/"
+          "name": "ASPLOS",
+          "url": "https://www.asplos-conference.org/"
         },
         {
           "name": "EuroSys",
           "url": "https://www.eurosys.org/"
         },
         {
-          "name": "USENIX ATC",
+          "name": "FAST",
           "url": "https://www.usenix.org/conferences"
-        },
-        {
-          "name": "SIGCOMM",
-          "url": "https://conferences.sigcomm.org/"
-        },
-        {
-          "name": "MobiCom",
-          "url": "https://www.sigmobile.org/"
-        },
-        {
-          "name": "IMC",
-          "url": "https://www.sigcomm.org/"
         },
         {
           "name": "HotNets",
           "url": "https://conferences.sigcomm.org/"
         },
         {
+          "name": "HPCA",
+          "url": "https://hpca-conf.org/"
+        },
+        {
+          "name": "IEEE S&P",
+          "url": "https://www.ieee-security.org/TC/SP-Index.html"
+        },
+        {
+          "name": "IMC",
+          "url": "https://www.sigcomm.org/"
+        },
+        {
           "name": "INFOCOM",
           "url": "https://infocom2026.ieee-infocom.org/"
         },
         {
-          "name": "SIGMETRICS",
-          "url": "https://www.sigmetrics.org/"
-        },
-        {
-          "name": "ASPLOS",
-          "url": "https://www.asplos-conference.org/"
+          "name": "IPDPS",
+          "url": "https://www.ipdps.org/"
         },
         {
           "name": "ISCA",
@@ -1021,40 +1129,48 @@
           "url": "https://www.microarch.org/"
         },
         {
-          "name": "HPCA",
-          "url": "https://hpca-conf.org/"
-        },
-        {
-          "name": "USENIX Security",
-          "url": "https://www.usenix.org/conferences"
-        },
-        {
-          "name": "IEEE S&P",
-          "url": "https://www.ieee-security.org/TC/SP-Index.html"
-        },
-        {
-          "name": "ACM CCS",
-          "url": "https://www.sigsac.org/"
+          "name": "MobiCom",
+          "url": "https://www.sigmobile.org/"
         },
         {
           "name": "NDSS",
           "url": "https://www.ndss-symposium.org/"
         },
         {
-          "name": "PETS",
-          "url": "https://petsymposium.org/"
+          "name": "NSDI",
+          "url": "https://www.usenix.org/conferences"
         },
         {
-          "name": "FAST",
+          "name": "OSDI",
           "url": "https://www.usenix.org/conferences"
+        },
+        {
+          "name": "PETS",
+          "url": "https://petsymposium.org/"
         },
         {
           "name": "SC",
           "url": "https://supercomputing.org/"
         },
         {
-          "name": "IPDPS",
-          "url": "https://www.ipdps.org/"
+          "name": "SIGCOMM",
+          "url": "https://conferences.sigcomm.org/"
+        },
+        {
+          "name": "SIGMETRICS",
+          "url": "https://www.sigmetrics.org/"
+        },
+        {
+          "name": "SOSP",
+          "url": "https://www.sigops.org/"
+        },
+        {
+          "name": "USENIX ATC",
+          "url": "https://www.usenix.org/conferences"
+        },
+        {
+          "name": "USENIX Security",
+          "url": "https://www.usenix.org/conferences"
         }
       ]
     },
@@ -1062,44 +1178,44 @@
       "area": "Theory / information theory / distributed computing",
       "venues": [
         {
-          "name": "STOC",
-          "url": "https://sigact.org/"
-        },
-        {
-          "name": "FOCS",
-          "url": "https://sigact.org/"
-        },
-        {
-          "name": "SODA",
-          "url": "https://www.siam.org/"
-        },
-        {
-          "name": "ITCS",
-          "url": "https://itcs-conf.org/"
-        },
-        {
           "name": "COLT",
           "url": "https://learningtheory.org/"
-        },
-        {
-          "name": "ISIT",
-          "url": "https://www.itsoc.org/"
-        },
-        {
-          "name": "PODC",
-          "url": "https://www.podc.org/"
         },
         {
           "name": "DISC",
           "url": "https://www.disc-conference.org/"
         },
         {
-          "name": "LICS",
-          "url": "https://lics.siglog.org/"
+          "name": "FOCS",
+          "url": "https://sigact.org/"
         },
         {
           "name": "ICALP",
           "url": "https://www.eatcs.org/"
+        },
+        {
+          "name": "ISIT",
+          "url": "https://www.itsoc.org/"
+        },
+        {
+          "name": "ITCS",
+          "url": "https://itcs-conf.org/"
+        },
+        {
+          "name": "LICS",
+          "url": "https://lics.siglog.org/"
+        },
+        {
+          "name": "PODC",
+          "url": "https://www.podc.org/"
+        },
+        {
+          "name": "SODA",
+          "url": "https://www.siam.org/"
+        },
+        {
+          "name": "STOC",
+          "url": "https://sigact.org/"
         }
       ]
     }
@@ -2286,5 +2402,21 @@
     "ACM BCB 2027 — date TBD",
     "CHIL 2027 — date TBD"
   ],
-  "lastLiteratureAudit": "2026-10-27"
+  "lastLiteratureAudit": "2026-10-27",
+  "integrations": {
+    "huggingFace": {
+      "repository": "huggingface/ai-deadlines",
+      "source": "https://github.com/huggingface/ai-deadlines/tree/main/src/data/conferences",
+      "totalFiles": 68,
+      "matchedFiles": 11,
+      "reviewedAt": "2026-10-27",
+      "deadlinePolicy": "Official sources override HF metadata; HF dates are secondary and not automatically authoritative."
+    },
+    "computationalBiology": {
+      "source": "https://github.com/databio/conferences",
+      "sourceURL": "https://conferences.databio.org/",
+      "datasetRecords": 75,
+      "reviewedAt": "2026-10-27"
+    }
+  }
 }
