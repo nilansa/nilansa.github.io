@@ -460,7 +460,7 @@
   {
     "id": "ire-a3-sanity-first-plan-20261027",
     "title": "IRE Assignment 3 — Evidence-Based Execution Review",
-    "description": "Revised 31 October deadline; audited 282-row benchmark, recovered sanity tests, tuning/held-out selection defect, and safe finalization gates.",
+    "description": "31 Oct extension; existing full/quick runs; two P0 methodology bugs and underscore-based ZIP naming verified against the PDF.",
     "project": "IRE Assignment 3",
     "category": "Assignment workflow",
     "tags": [
