@@ -589,6 +589,17 @@
       "type": "paper"
     },
     {
+      "date": "2026-12-14",
+      "venue": "OHBM 2027",
+      "action": "Poster abstract / symposium, educational-course and other meeting-content submissions",
+      "area": "Neuroscience / neuroimaging",
+      "domain": "Neuroscience",
+      "time": "Organizer deadline date; cutoff time not specified; meeting content, NOT archival research paper; submission opens Nov 2",
+      "source": "https://w.humanbrainmapping.org/2027CallforContent/",
+      "status": "confirmed organizer date; time unspecified",
+      "type": "abstract"
+    },
+    {
       "date": "2026-12-15",
       "venue": "ICASSP 2027 CONVERGE 6G Grand Challenge",
       "action": "Challenge result submission; invited papers conditional on rank",
@@ -732,6 +743,17 @@
       "type": "abstract"
     },
     {
+      "date": "2027-02-01",
+      "venue": "CCN 2027",
+      "action": "Mandatory eight-page proceedings abstract deadline",
+      "area": "Cognitive computational neuroscience",
+      "domain": "Neuroscience",
+      "time": "End of day AoE (UTC−12); preliminary abstract required for eight-page proceedings route",
+      "source": "https://www.ccneuro.org/",
+      "status": "confirmed organizer",
+      "type": "abstract"
+    },
+    {
       "date": "2027-02-02",
       "venue": "SIGCOMM 2027",
       "action": "Research paper",
@@ -740,6 +762,17 @@
       "source": "https://conferences.sigcomm.org/sigcomm/2027/submission/",
       "status": "confirmed",
       "domain": "Networking / operations",
+      "type": "paper"
+    },
+    {
+      "date": "2027-02-04",
+      "venue": "CCN 2027",
+      "action": "Eight-page proceedings full paper (abstract due Feb 1)",
+      "area": "Cognitive computational neuroscience",
+      "domain": "Neuroscience",
+      "time": "End of day AoE (UTC−12); full proceedings paper, separate from two-page abstract route",
+      "source": "https://www.ccneuro.org/",
+      "status": "confirmed organizer",
       "type": "paper"
     },
     {
@@ -807,6 +840,28 @@
       "status": "confirmed organizer",
       "type": "paper",
       "domain": "AI / ML / statistics"
+    },
+    {
+      "date": "2027-03-18",
+      "venue": "CCN 2027 Events",
+      "action": "Community event / GAC organizer proposal",
+      "area": "Cognitive computational neuroscience",
+      "domain": "Neuroscience",
+      "time": "End of day AoE (UTC−12); community event, not research paper",
+      "source": "https://www.ccneuro.org/",
+      "status": "confirmed organizer",
+      "type": "proposal"
+    },
+    {
+      "date": "2027-04-01",
+      "venue": "CCN 2027",
+      "action": "Two-page extended research abstract (not eight-page proceedings paper)",
+      "area": "Cognitive computational neuroscience",
+      "domain": "Neuroscience",
+      "time": "End of day AoE (UTC−12); non-proceedings abstract route",
+      "source": "https://www.ccneuro.org/",
+      "status": "confirmed organizer",
+      "type": "abstract"
     },
     {
       "date": "2027-04-16",
@@ -1619,7 +1674,7 @@
       ]
     },
     {
-      "area": "Medical imaging / health AI / neuroscience",
+      "area": "Medical imaging / health AI",
       "venues": [
         {
           "name": "CHIL",
@@ -1628,14 +1683,6 @@
           "hfYear": 2026,
           "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/chil.yml",
           "fullName": "AHLI Conference on Health, Inference, and Learning"
-        },
-        {
-          "name": "Cognitive Computational Neuroscience (CCN)",
-          "url": "https://ccneuro.org/"
-        },
-        {
-          "name": "COSYNE",
-          "url": "https://www.cosyne.org/"
         },
         {
           "name": "EMBC",
@@ -1663,10 +1710,35 @@
         {
           "name": "MIDL",
           "url": "https://www.midl.io/"
+        }
+      ]
+    },
+    {
+      "area": "Neuroscience / computational neuroscience",
+      "venues": [
+        {
+          "name": "Bernstein Conference",
+          "url": "https://bernstein-network.de/en/bernstein-conference/bernstein-conference-2027/"
+        },
+        {
+          "name": "Cognitive Computational Neuroscience (CCN)",
+          "url": "https://ccneuro.org/"
+        },
+        {
+          "name": "COSYNE",
+          "url": "https://www.cosyne.org/"
+        },
+        {
+          "name": "INCF Assembly / Neuroinformatics",
+          "url": "https://www.incf.org/activities/incf-assembly"
         },
         {
           "name": "OHBM",
           "url": "https://www.humanbrainmapping.org/"
+        },
+        {
+          "name": "Organization for Computational Neurosciences (CNS*)",
+          "url": "https://www.cnsorg.org/"
         }
       ]
     },
@@ -3250,7 +3322,10 @@
     "WABI 2027 — date TBD",
     "BOSC 2027 — date TBD",
     "ACM BCB 2027 — date TBD",
-    "CHIL 2027 — date TBD"
+    "CHIL 2027 — date TBD",
+    "CCN 2027 — Feb 1 abstract, Feb 4 proceedings paper",
+    "OHBM 2027 — Dec 14 poster/meeting content",
+    "Bernstein Conference 2027 — paper/abstract CFP not yet announced"
   ],
   "lastLiteratureAudit": "2026-10-27",
   "integrations": {
