@@ -3,7 +3,7 @@
   "taskId": "20261026-csconf-research",
   "createdAt": "2026-10-26T13:51:12.349Z",
   "checkedAt": "2026-10-27",
-  "editorialNote": "27 Oct 2026: industry-track academic/student eligibility verified via official CFPs (NAACL, COLING, EACL, SIGMOD, ICDE, ISCA, CHIIR, PAKDD and historical examples); 17 track-specific evidence records and eligibility/affiliation filters. 27 Oct primary IMC 2027 Cycle 1+Replicability venue/AI policy; accepted SIGCOMM 2026 RepLLM/TianYan and IMC 2025 replication precedents; no new network or model experiment. 27 Oct 2026 speech/industry visibility correction: dedicated speech section and explicit Industry Track routes; new official ASLI 2027, COLING 2027 Industry, EUSIPCO, IWSLT, ITG Speech, DCASE, IEEE SSP organizer deadlines; separate ASLI from discontinued ASRU/SLT cycle. 27 Oct 2026 accepted KDD 2026 ReplicatorBench and ICML 2026 BioAgent Bench narrow generic research-agent and bioinformatics-agent novelty; CC08 internal-audit-first stop gate sharpened; separate ISIT 2027 workshop Nov15 and paper Jan10 added; SIGCOMM Feb2 source reconfirmed, CC13 paired control fixed. Prior VAANI class-agnostic correction preserved. No new model/agent benchmark, GPU, paid API, sealed data, paper submission or ChatGPT↔Codex/local transfer.",
+  "editorialNote": "27 Oct late cycle: added MLSys 2027 Industrial author eligibility to dedicated industry tracker; IMC 2025 LACeS/PyTNT accepted source audit; new CC18 method-change sensitivity PROPOSAL, private exploratory counts withheld; no matched-cohort result or new network probing. 27 Oct 2026: industry-track academic/student eligibility verified via official CFPs (NAACL, COLING, EACL, SIGMOD, ICDE, ISCA, CHIIR, PAKDD and historical examples); 17 track-specific evidence records and eligibility/affiliation filters. 27 Oct primary IMC 2027 Cycle 1+Replicability venue/AI policy; accepted SIGCOMM 2026 RepLLM/TianYan and IMC 2025 replication precedents; no new network or model experiment. 27 Oct 2026 speech/industry visibility correction: dedicated speech section and explicit Industry Track routes; new official ASLI 2027, COLING 2027 Industry, EUSIPCO, IWSLT, ITG Speech, DCASE, IEEE SSP organizer deadlines; separate ASLI from discontinued ASRU/SLT cycle. 27 Oct 2026 accepted KDD 2026 ReplicatorBench and ICML 2026 BioAgent Bench narrow generic research-agent and bioinformatics-agent novelty; CC08 internal-audit-first stop gate sharpened; separate ISIT 2027 workshop Nov15 and paper Jan10 added; SIGCOMM Feb2 source reconfirmed, CC13 paired control fixed. Prior VAANI class-agnostic correction preserved. No new model/agent benchmark, GPU, paid API, sealed data, paper submission or ChatGPT↔Codex/local transfer.",
   "deadlines": [
     {
       "date": "2026-10-27",
@@ -1173,6 +1173,18 @@
       "type": "paper",
       "domain": "Systems / networking / security",
       "trackCategory": "industry"
+    },
+    {
+      "date": "2026-10-30",
+      "venue": "MLSys 2027 Industrial Track",
+      "action": "Industrial large-scale ML systems paper; FIRST and MAJORITY industry-affiliated authors mandatory",
+      "area": "ML systems / deployed systems",
+      "time": "20:00 UTC / 12:00 noon PDT (not AoE); 10 pages plus references; separate industrial review; mandatory comprehensive AI Usage Disclosure",
+      "source": "https://mlsys.org/Conferences/2027/CallForResearchPapers",
+      "status": "confirmed organizer; academic-only author team ineligible",
+      "domain": "Systems / ML systems",
+      "type": "paper",
+      "trackCategory": "industry"
     }
   ],
   "areas": [
@@ -1444,6 +1456,12 @@
             "ERA": "A"
           },
           "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/uai.yml"
+        },
+        {
+          "name": "MLSys 2027 Industrial Track",
+          "url": "https://mlsys.org/Conferences/2027/CallForResearchPapers",
+          "fullName": "Industrial paper track: first and majority authors from industry; no independent CORE ranking",
+          "eligibilityTrackId": "mlsys27-industrial"
         }
       ]
     },
@@ -3286,6 +3304,40 @@
           "url": "https://www.isca-archive.org/interspeech_2025/serbest25_interspeech.html"
         }
       ]
+    },
+    {
+      "id": "CC-18",
+      "title": "Can a measurement-regime change mimic IPv6 anycast growth?",
+      "area": "Internet measurement / dataset integrity",
+      "venues": [
+        "IMC (only with independently new network-measurement insight)",
+        "SIGCOMM measurement/experience (only with strong novel evidence)"
+      ],
+      "cost": "low CPU, public archival data only",
+      "stage": "PROVISIONAL PUBLIC-SOURCE PROTOCOL (27 Oct 2026); LACeS 2025 accepted IMC paper and dataset docs already disclose 3 Oct 2026 airport-to-city metadata change and 17 Oct 2026 IPv6 alias-prefix sampling/granularity change. A read-only exploratory daily-aggregate diagnostic was completed but all numerical research findings are PRIVATE. Original authors disclosed the change: not a novel measurement method or established paper result. Matched-prefix analysis, independent network measurement and causal identification remain undone.",
+      "question": "At fixed /48 prefix, protocol, population and measurement-source scope, how much of an observed daily IPv6 anycast-detection trend survives adjustment for documented scan-granularity and geolocation-ID changes?",
+      "novelty": "LACeS (IMC 2025) already measures longitudinal IPv4/IPv6 anycast, publishes daily data, explicitly flags its alias /40 scan change from 2026-10-17 and airport-to-city geolocation representation from 2026-10-03. Therefore discovery of a raw aggregate jump or a plot around those dates alone cannot be claimed novel. A defensible result needs previously unreported unit-level sensitivity/validation or an independently observed measurement bias not already explained by the source documentation.",
+      "pilot": "Using only released public historical Parquet daily snapshots, pin four dates spanning each documented policy change plus 7-day windows and unchanged v4 controls. Predefine one stable /48 prefix cohort, AB/GCD protocol, denominator, alias /40 strata, inclusion/exclusion rules, and compare same-prefix detections versus raw changing-coverage totals. Use checksums and source metadata, never send active network probes without separate ethics and permissions. First source data read feasibility <= 1 CPU core-hour; 0 GPU, 0 paid API; current workspace binary snapshot fetch remains blocked, so no matched-cohort result. Treat summary stats as exploratory only.",
+      "stop": "Retire CC-18 as standalone paper if aligning the stable /48 cohort removes the entire apparent effect already explained in LACeS documentation, if immutable binary snapshots and valid per-prefix denominators are unavailable, or if no new independent scientific inference beyond the published IMC 2025 LACeS method emerges. Retain a public-dataset-trend caveat as internal research hygiene.",
+      "source": "https://github.com/ut-dacs/Anycast-Census/blob/main/README.md",
+      "closestPriorArt": [
+        {
+          "title": "LACeS: an Open, Fast, Responsible and Efficient Longitudinal Anycast Census System (IMC 2025)",
+          "url": "https://doi.org/10.1145/3730567.3764484"
+        },
+        {
+          "title": "LACeS public longitudinal datasets and methodology (primary code/data)",
+          "url": "https://github.com/ut-dacs/Anycast-Census"
+        },
+        {
+          "title": "Replication: Characterizing MPLS Tunnels over Internet Paths (IMC 2025)",
+          "url": "https://conferences.sigcomm.org/imc/2025/program/"
+        },
+        {
+          "title": "IMC 2027 replicability EoI eligibility and dates",
+          "url": "https://conferences.sigcomm.org/imc/2027/cfp/"
+        }
+      ]
     }
   ],
   "policies": [
@@ -3878,6 +3930,12 @@
       "kind": "ACCEPTED IMC 2025 Replicability Track paper; organizer program",
       "note": "Replicates earlier MPLS traceroute work using PyTNT and wider contemporary observations; CAIDA describes infrastructure-scale data, not a cheap two-hour reproduction. Illustrates why IMC 2027 EoI must scope independent dataset access and practical budget before any submission.",
       "url": "https://conferences.sigcomm.org/imc/2025/program/"
+    },
+    {
+      "title": "LACeS: an Open, Fast, Responsible and Efficient Longitudinal Anycast Census System (IMC 2025)",
+      "kind": "ACCEPTED IMC 2025 paper; primary public data source",
+      "note": "Open longitudinal anycast census, public IPv4/IPv6 daily Parquet and daily protocol-stat text; author README documents Oct 3 and Oct 17 2026 methodology/schema revisions. Aggregate trends are not independently validated adoption rates. No replay or active probing here.",
+      "url": "https://github.com/ut-dacs/Anycast-Census"
     }
   ],
   "closed": [
@@ -3921,7 +3979,7 @@
     "IEEE MLSP 2027 — paper CFP TBA",
     "ICASSP 2028 — paper deadline TBA"
   ],
-  "lastLiteratureAudit": "2026-10-27",
+  "lastLiteratureAudit": "27 Oct 2026 late cycle: source-audited IMC 2025 LACeS/PyTNT, documented anycast census schema/sampling changes, public-snapshot feasibility; source-only CC-18 protocol (quantitative exploratory findings private); separately verified MLSys 2027 Industrial Track first/majority author affiliation restriction.",
   "integrations": {
     "huggingFace": {
       "repository": "huggingface/ai-deadlines",
@@ -3952,7 +4010,7 @@
     },
     "industryEligibility": {
       "reviewedAt": "2026-10-27",
-      "records": 17,
+      "records": 18,
       "sourcePolicy": "Individual official CFP + FAQ, distinguish explicit academic eligibility / mandatory corporate affiliation / not stated; preserve historical-year caveats.",
       "categories": [
         "yes-explicit",
@@ -3961,7 +4019,7 @@
         "requires-industry-majority",
         "conditional"
       ],
-      "note": "Industry/applied/alternative paper types are distinct; verified does not imply an eligible or mature paper. Parent CORE/CCF rank does not certify track rank."
+      "note": "2026-10-27: includes MLSys 2027 Industrial Track first-and-majority mandatory industry authors; 2027 CFP controls, no inference from research-track eligibility. Parent CORE/CCF rank not independently granted to industry."
     }
   },
   "industryTracks": [
@@ -4218,6 +4276,21 @@
       "deadlineNote": "6-page evaluated archival demo paper; 23:59 AoE, different from Industry Track.",
       "source": "https://2027.naacl.org/calls/system_demonstration/",
       "evidence": "2027 system demo call; no company-affiliation condition",
+      "archival": "yes"
+    },
+    {
+      "id": "mlsys27-industrial",
+      "venue": "MLSys 2027",
+      "track": "Industrial Track",
+      "field": "Machine learning systems / deployment experience",
+      "kind": "industry",
+      "studentEligibility": "requires-industry-majority",
+      "affiliation": "Official 2027 CFP: FIRST author and MAJORITY of authors must be from industry. An academic-only student team is NOT eligible.",
+      "requirement": "Built/deployed real large-scale ML system, a planned product-roadmap system, or a canceled system with lessons. Benchmark at scale; novel algorithm is not mandatory. Small speculative lab project insufficient.",
+      "deadline": "2026-10-30",
+      "deadlineNote": "20:00 UTC = noon PDT; same deadline as research track; 10 technical pages + references; authors may not switch tracks later; mandatory detailed AI Usage Disclosure.",
+      "source": "https://mlsys.org/Conferences/2027/CallForResearchPapers",
+      "evidence": "2027 primary industrial subsection states first and majority authors must come from industry",
       "archival": "yes"
     }
   ]
