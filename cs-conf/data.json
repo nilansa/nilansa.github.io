@@ -836,8 +836,27 @@
           "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/neurips.yml"
         },
         {
+          "name": "RLC",
+          "url": "https://rl-conference.cc/",
+          "hfSlug": "rlc",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/rlc.yml",
+          "fullName": "Reinforcement Learning Conference"
+        },
+        {
           "name": "UAI",
-          "url": "https://www.auai.org/"
+          "url": "https://www.auai.org/",
+          "hfSlug": "uai",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/uai.yml",
+          "fullName": "Conference on Uncertainty in Artificial Intelligence",
+          "rankings": {
+            "CCF": "B",
+            "CORE": "A",
+            "THCPL": "B",
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/uai.yml"
         }
       ]
     },
@@ -1051,8 +1070,36 @@
           "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/icdar.yml"
         },
         {
+          "name": "SGP",
+          "url": "https://sgp26.org/",
+          "hfSlug": "sgp",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/sgp.yml",
+          "fullName": "Symposium on Geometry Processing",
+          "rankings": {
+            "ERA": "B"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/sgp.yml"
+        },
+        {
+          "name": "SIBGRAPI",
+          "url": "https://sibgrapi.sbc.org.br/2026/",
+          "hfSlug": "sibgrapi",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/sibgrapi.yml",
+          "fullName": "Conference on Graphics, Patterns and Images"
+        },
+        {
           "name": "SIGGRAPH",
-          "url": "https://www.siggraph.org/"
+          "url": "https://www.siggraph.org/",
+          "hfSlug": "siggraph",
+          "hfYear": 2027,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/siggraph.yml",
+          "fullName": "Conference on Computer Graphics and Interactive Techniques",
+          "rankings": {
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/siggraph.yml"
         },
         {
           "name": "SIGGRAPH Asia",
@@ -1060,7 +1107,16 @@
         },
         {
           "name": "WACV",
-          "url": "https://wacv.thecvf.com/"
+          "url": "https://wacv.thecvf.com/",
+          "hfSlug": "wacv",
+          "hfYear": 2027,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/wacv.yml",
+          "fullName": "IEEE/CVF Winter Conference on Applications of Computer Vision",
+          "rankings": {
+            "CORE": "A",
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/wacv.yml"
         }
       ]
     },
@@ -1167,7 +1223,15 @@
         },
         {
           "name": "SIGIR",
-          "url": "https://sigir2027.org/"
+          "url": "https://sigir2027.org/",
+          "hfSlug": "sigir",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/sigir.yml",
+          "fullName": "International ACM SIGIR Conference on Research and Development in Information Retrieval",
+          "rankings": {
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/sigir.yml"
         },
         {
           "name": "SIGMOD",
@@ -1175,7 +1239,15 @@
         },
         {
           "name": "The Web Conference (WWW)",
-          "url": "https://www2027.thewebconf.org/"
+          "url": "https://www2027.thewebconf.org/",
+          "hfSlug": "www",
+          "hfYear": 2027,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/www.yml",
+          "fullName": "The Web Conference",
+          "rankings": {
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/www.yml"
         },
         {
           "name": "VLDB",
@@ -1183,7 +1255,18 @@
         },
         {
           "name": "WSDM",
-          "url": "https://www.wsdm-conference.org/"
+          "url": "https://www.wsdm-conference.org/",
+          "hfSlug": "wsdm",
+          "hfYear": 2027,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/wsdm.yml",
+          "fullName": "ACM International Conference on Web Search and Data Mining",
+          "rankings": {
+            "CCF": "B",
+            "CORE": "A*",
+            "THCPL": "B",
+            "ERA": "B"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/wsdm.yml"
         }
       ]
     },
@@ -1247,6 +1330,14 @@
           "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/iui.yml"
         },
         {
+          "name": "NL-BSE",
+          "url": "https://nlbse2026.github.io/",
+          "hfSlug": "nlbse",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/nlbse.yml",
+          "fullName": "The 5th International Workshop on Natural Language-based Software Engineering"
+        },
+        {
           "name": "OOPSLA",
           "url": "https://conf.researchr.org/series/oopsla"
         },
@@ -1257,6 +1348,18 @@
         {
           "name": "POPL",
           "url": "https://popl.acm.org/"
+        },
+        {
+          "name": "RuleML+RR",
+          "url": "https://2026.declarativeai.net/events/ruleml-rr",
+          "hfSlug": "ruleml+rr",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/ruleml+rr.yml",
+          "fullName": "International Joint Conference on Rules and Reasoning",
+          "rankings": {
+            "ERA": "C"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/ruleml+rr.yml"
         },
         {
           "name": "SIGCSE",
@@ -1563,7 +1666,17 @@
         },
         {
           "name": "RSS",
-          "url": "https://roboticsconference.org/"
+          "url": "https://roboticsconference.org/",
+          "hfSlug": "rss",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/rss.yml",
+          "fullName": "Robotics Science and Systems",
+          "rankings": {
+            "CORE": "A*",
+            "THCPL": "A",
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/rss.yml"
         }
       ]
     },
@@ -2898,7 +3011,7 @@
       "repository": "huggingface/ai-deadlines",
       "source": "https://github.com/huggingface/ai-deadlines/tree/main/src/data/conferences",
       "totalFiles": 68,
-      "matchedFiles": 56,
+      "matchedFiles": 68,
       "reviewedAt": "2026-10-27",
       "deadlinePolicy": "Official sources override HF metadata; HF dates are secondary and not automatically authoritative."
     },
