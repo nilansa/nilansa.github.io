@@ -293,7 +293,10 @@ if(selectedArea!=='all'&&g.area!==selectedArea)continue;
 const filtered=g.venues.filter(v=>(v.name+' '+(v.fullName||'')).toLowerCase().includes(q)&&matchRank(v,'CORE',core)&&matchRank(v,'CCF',ccf)&&matchRank(v,'ERA',era));
 if(!filtered.length)continue;total+=filtered.length;
 const d=el('details',undefined,root);d.open=!!q||g.area.includes('Computational biology')||g.area.includes('Speech / audio');const s=el('summary',g.area+' ('+filtered.length+')',d);const p=el('p',undefined,d);
-filtered.forEach((v,i)=>{if(i)p.append(' · ');if(v.url)link(v.name,v.url,p);else el('span',v.name,p);const r=v.rankings||{};const scores=['CORE','CCF','ERA'].filter(k=>r[k]).map(k=>k+' '+r[k]);if(scores.length){const label=el('span',' ['+scores.join(' / ')+']',p);label.className='venue-rank';label.title=v.rankingsSource?'Reported by Hugging Face AI Deadlines; verify current ranking':'Ranking metadata; independently verify';}});
+filtered.forEach((v,i)=>{if(i)p.append(' · ');if(v.url)link(v.name,v.url,p);else el('span',v.name,p);const r=v.rankings||{};const scores=['CORE','CCF','ERA'].filter(k=>r[k]).map(k=>k+' '+r[k]);if(scores.length){const label=el('span',' ['+scores.join(' / ')+']',p);label.className='venue-rank';label.title=v.rankingsSource?'Reported by Hugging Face AI Deadlines; verify current ranking':'Ranking metadata; independently verify';}
+const t=(db.industryTracks||[]).find(x=>x.id===v.eligibilityTrackId);
+if(t){const eligibility=t.studentEligibility.startsWith('yes-')?'✓ academic authors allowed':t.studentEligibility.startsWith('requires-')?'✕ company-affiliation rule':'? confirm eligibility';const span=el('span',' ['+eligibility+']',p);span.className='venue-rank';span.title=t.affiliation+' Source: '+t.source;}
+});
 }
 if(!total)el('p','No venues match these filters. Try All or Not recorded for rankings.',root);
 $('venue-count').textContent=total+' catalogue entries displayed · '+db.areas.length+' subject groups.';
