@@ -39,7 +39,7 @@ body{max-width:940px;margin:0 auto;padding:24px;color:#17212d;background:#fff;fo
 <h2>5. Fair benchmark rules</h2>
 <ul><li>Use one machine and record its CPU, RAM, operating system and library versions.</li><li>Use the same data representation and distance definition for comparable runs.</li><li>Measure single-query QPS on one thread. Repeat timings and report the median.</li><li>Measure build time separately. Measure serialized index size and bytes per vector.</li><li>Save every run in results/results.csv with parameters, recall, QPS, build time, index size and software version.</li><li>Produce one recall@10 versus QPS plot per dataset. Report QPS at recall 0.90 and 0.95. Say “not reached” if an index does not reach a target.</li><li>Do not use the ann-benchmarks framework to run your experiments. Do not copy published benchmark numbers.</li></ul>
 <h2>6. Required ZIP inventory</h2>
-<pre>&lt;rollnumber&gt;_A3.zip
+<pre>&lt;rollnumber&gt; A3.zip
 ├── report.pdf                    # at most 5 pages
 ├── code/
 │   ├── .git/                     # keep hypothesis commit history
@@ -51,7 +51,7 @@ body{max-width:940px;margin:0 auto;padding:24px;color:#17212d;background:#fff;fo
 ├── results/
 │   ├── results.csv
 │   └── figures/
-└── ai_log/
+└── ai log/
     ├── ai_statement.md
     └── prompts and responses</pre>
 <p>The full command must regenerate every number, figure and table. The quick command must use a small subset and finish in under 15 minutes on a laptop.</p>
@@ -62,6 +62,7 @@ body{max-width:940px;margin:0 auto;padding:24px;color:#17212d;background:#fff;fo
 <label><input type="checkbox"> I approve synthetic cluster overlap for Part 4.</label>
 <label><input type="checkbox"> I approve the sanity gates before the full benchmark.</label>
 <label><input type="checkbox"> I checked the latest course deadline and submission status.</label>
+<label><input type="checkbox"> I confirmed the roll number and exact ZIP filename.</label>
 </div>
 <button id="reset" type="button">Clear checklist</button>
 <h2>8. Source evidence</h2>
