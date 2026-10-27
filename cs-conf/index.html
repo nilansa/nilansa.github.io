@@ -38,6 +38,7 @@ ul,ol{padding-left:24px}li{margin:4px 0}
 #venue-groups p{line-height:2}
 footer{border-top:1px solid #aaa;margin-top:40px;padding-top:12px;font-size:12px}
 #coverage-count,#bio-count{font-size:12px;color:#555}
+.countdown{white-space:nowrap;font-variant-numeric:tabular-nums}
 #venue-count{margin:6px 0}
 .venue-rank{font-size:11px;color:#555;white-space:nowrap}
 .bio-row td:first-child{white-space:nowrap}
@@ -70,10 +71,9 @@ footer{border-top:1px solid #aaa;margin-top:40px;padding-top:12px;font-size:12px
 <p class="muted">Each idea has a stable ID, a minimal experiment, and a stopping condition. All entries begin as untested hypotheses. This public page does not contain private datasets, unpublished measurements, credentials, or collaborator transcripts.</p>
 </section>
 <section id="deadlines">
-<h2>Upcoming deadlines</h2>
-<p><small>Official organizer deadlines are primary; rankings from Hugging Face are separate, unverified metadata. AoE = Anywhere on Earth. A mandatory abstract deadline may bar later full-paper submission. Organizer proposals, talks and registration dates are explicitly distinguished from research papers.</small></p>
+<h2>Upcoming deadlines — next 90 days</h2>
+<p><small>Only dated actions within the next 90 calendar days are shown. Dates use day month year; “days left” counts calendar days in India (IST) until the date listed by the organizer, <strong>not</strong> hours until the actual cutoff. Check the organizer time zone (AoE = Anywhere on Earth) and prerequisites such as abstract registration. Organizer proposals and registration events are not automatically research-paper deadlines.</small></p>
 <div>
-<label>Window <select id="window"><option value="60">Next 60 days</option><option value="120" selected>Next 120 days</option><option value="365">Next 365 days</option><option value="all">All checked dates</option></select></label>
 <label>Area <select id="deadline-area"><option value="all">All subjects</option></select></label>
 <label>Track <select id="deadline-kind"><option value="all">All types</option><option value="paper">Research paper</option><option value="abstract">Abstract / enrollment</option><option value="proposal">Organizer proposal / talk</option><option value="demo">Demo</option><option value="registration">Registration / application</option><option value="other">Challenge / other</option></select></label>
 <label>Search <input id="deadline-query" type="search" placeholder="ISMB, RECOMB, MICCAI…"></label>
@@ -81,19 +81,18 @@ footer{border-top:1px solid #aaa;margin-top:40px;padding-top:12px;font-size:12px
 <p id="deadline-count" class="muted"></p>
 <div class="tbl">
 <table aria-label="Verified submission deadlines">
-<thead><tr><th>Date</th><th>Venue</th><th>Required action</th><th>Time / caveat</th><th>Source</th></tr></thead>
-<tbody id="deadline-rows"><tr><td colspan="5">Loading verified schedule…</td></tr></tbody>
+<thead><tr><th>Date</th><th>Days left</th><th>Venue</th><th>Required action</th><th>Time / caveat</th><th>Source</th></tr></thead>
+<tbody id="deadline-rows"><tr><td colspan="6">Loading verified schedule…</td></tr></tbody>
 </table>
 </div>
-<p><small><strong>Already closed:</strong> <span id="closed">ICLR 2027; AISTATS 2027; ICRA 2027; ICASSP 2027.</span> Closed tracks are not near-term targets for new submissions.</small></p>
 </section>
 <section id="biology">
-<h2>Computational biology, biomedical AI &amp; neuroscience</h2>
+<h2>Computational biology, biomedical AI &amp; neuroscience — next 90 days</h2>
 <p>Prominent upcoming deadlines for RECOMB, ISMB/ECCB, BIOINFORMATICS, MICCAI, MIDL, ISBI, COSYNE and related events. Many 2027 conferences have not yet announced a paper deadline: an absent date means <strong>unannounced or unverified</strong>, not that a submission is open.</p>
 <p id="bio-count" class="muted">Loading biology dates…</p>
 <div class="tbl"><table aria-label="Biology, neuroscience and biomedical AI conference deadlines">
-<thead><tr><th>Date</th><th>Venue</th><th>Action / track</th><th>Official details</th></tr></thead>
-<tbody id="bio-rows"><tr><td colspan="4">Loading organizer-checked dates…</td></tr></tbody>
+<thead><tr><th>Date</th><th>Days left</th><th>Venue</th><th>Action / track</th><th>Official details</th></tr></thead>
+<tbody id="bio-rows"><tr><td colspan="5">Loading organizer-checked dates…</td></tr></tbody>
 </table></div>
 <p><a href="#venues">View the full computational biology conference catalogue below</a> · <a href="https://conferences.databio.org/">Databio biology conference list</a></p>
 </section>
@@ -162,20 +161,25 @@ function el(tag,text,parent){const x=document.createElement(tag);if(text!==undef
 function link(text,href,parent){const a=el('a',text,parent);try{const u=new URL(href,location.href);if(u.protocol==='https:'||u.protocol==='http:')a.href=u.href;else a.removeAttribute('href');}catch(e){a.removeAttribute('href');}a.target='_blank';a.rel='noopener noreferrer';return a;}
 function istDay(){const v={};new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Kolkata',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date()).forEach(p=>v[p.type]=p.value);return v.year+'-'+v.month+'-'+v.day;}
 function afterDays(day,n){const d=new Date(day+'T00:00:00Z');d.setUTCDate(d.getUTCDate()+n);return d.toISOString().slice(0,10);}
+const dateFormatter=new Intl.DateTimeFormat('en-GB',{timeZone:'UTC',day:'numeric',month:'long',year:'numeric'});
+function formatDeadlineDate(day){return dateFormatter.format(new Date(day+'T00:00:00Z'));}
+function daysUntil(day,today){return Math.round((Date.parse(day+'T00:00:00Z')-Date.parse(today+'T00:00:00Z'))/86400000);}
+function daysLeftText(n){return n===0?'Due today':n===1?'1 day left':n+' days left';}
+function within90Days(day,today){return day>=today&&day<=afterDays(today,90);}
 function renderDeadlines(){
-const area=$('deadline-area').value,kind=$('deadline-kind').value,q=$('deadline-query').value.toLowerCase(),w=$('window').value,start=istDay(),end=w==='all'?'9999-12-31':afterDays(start,Number(w));
-let ds=db.deadlines.filter(d=>(w==='all'||d.date>=start&&d.date<=end)&&(area==='all'||d.domain===area)&&(kind==='all'||d.type===kind)&&[d.venue,d.action,d.area,d.domain,d.type].join(' ').toLowerCase().includes(q)).sort((a,b)=>a.date.localeCompare(b.date));
+const area=$('deadline-area').value,kind=$('deadline-kind').value,q=$('deadline-query').value.toLowerCase(),today=istDay(),end=afterDays(today,90);
+const ds=db.deadlines.filter(d=>within90Days(d.date,today)&&(area==='all'||d.domain===area)&&(kind==='all'||d.type===kind)&&[d.venue,d.action,d.area,d.domain,d.type].join(' ').toLowerCase().includes(q)).sort((a,b)=>a.date.localeCompare(b.date));
 const root=$('deadline-rows');root.replaceChildren();
-for(const d of ds){const tr=el('tr',undefined,root);el('td',d.date,tr);el('td',d.venue,tr);el('td',d.action,tr);let note=d.time||'';if(String(d.status||'').includes('proposed'))note+=' [PROPOSED — verify]';el('td',note,tr);const td=el('td',undefined,tr);link('Official source',d.source,td);}
-if(!ds.length){const tr=el('tr',undefined,root);const td=el('td','No matching recorded deadlines. Check the venue website for updates.',tr);td.colSpan=5;}
-$('deadline-count').textContent=ds.length+' of '+db.deadlines.length+' dated actions displayed · organizer-reviewed snapshot '+db.checkedAt+'.';
+for(const d of ds){const tr=el('tr',undefined,root);el('td',formatDeadlineDate(d.date),tr);const days=el('td',daysLeftText(daysUntil(d.date,today)),tr);days.className='countdown';el('td',d.venue,tr);el('td',d.action,tr);let note=d.time||'';if(String(d.status||'').includes('proposed'))note+=' [PROPOSED — verify]';el('td',note,tr);const td=el('td',undefined,tr);link('Official source',d.source,td);}
+if(!ds.length){const tr=el('tr',undefined,root);const td=el('td','No matching deadlines in the next 90 days. Check organizer websites for updates.',tr);td.colSpan=6;}
+$('deadline-count').textContent=ds.length+' dated actions shown through '+formatDeadlineDate(end)+' · organizer source check: '+formatDeadlineDate(db.checkedAt)+'.';
 }
 function renderBiology(){
-const root=$('bio-rows');root.replaceChildren();const today=istDay();
-const ds=db.deadlines.filter(d=>d.date>=today&&['Computational biology / bioinformatics','Biomedical imaging / health AI','Neuroscience'].includes(d.domain)).sort((a,b)=>a.date.localeCompare(b.date));
-for(const d of ds){const tr=el('tr',undefined,root);tr.className='bio-row';el('td',d.date,tr);el('td',d.venue,tr);const cell=el('td',d.action,tr);const sub=el('div',d.type==='paper'?'Paper':d.type==='proposal'?'Proposal, NOT paper':d.type==='abstract'?'Abstract / preregistration':d.type==='registration'?'Registration, NOT paper':d.type||'Other',cell);sub.className='status';const td=el('td',undefined,tr);link('Organizer',d.source,td);}
-if(!ds.length){const tr=el('tr',undefined,root);const td=el('td','No upcoming organizer-checked biological dates yet; check catalogue and organizer sources.',tr);td.colSpan=4;}
-$('bio-count').textContent=ds.length+' upcoming dated actions · main research papers, abstracts, workshop proposals and meeting applications are differentiated.';
+const root=$('bio-rows');root.replaceChildren();const today=istDay(),end=afterDays(today,90);
+const ds=db.deadlines.filter(d=>within90Days(d.date,today)&&['Computational biology / bioinformatics','Biomedical imaging / health AI','Neuroscience'].includes(d.domain)).sort((a,b)=>a.date.localeCompare(b.date));
+for(const d of ds){const tr=el('tr',undefined,root);tr.className='bio-row';el('td',formatDeadlineDate(d.date),tr);const days=el('td',daysLeftText(daysUntil(d.date,today)),tr);days.className='countdown';el('td',d.venue,tr);const cell=el('td',d.action,tr);const sub=el('div',d.type==='paper'?'Paper':d.type==='proposal'?'Proposal, NOT paper':d.type==='abstract'?'Abstract / preregistration':d.type==='registration'?'Registration, NOT paper':d.type||'Other',cell);sub.className='status';const td=el('td',undefined,tr);link('Organizer',d.source,td);}
+if(!ds.length){const tr=el('tr',undefined,root);const td=el('td','No organizer-checked biology deadlines in the next 90 days.',tr);td.colSpan=5;}
+$('bio-count').textContent=ds.length+' dated actions through '+formatDeadlineDate(end)+' · research papers, abstracts, organizer proposals and meeting registrations are differentiated.';
 }
 function renderIdeas(){const root=$('idea-list'),q=$('idea-query').value.toLowerCase();root.replaceChildren();let shown=0;
 for(const d of db.branches){const all=Object.values(d).join(' ').toLowerCase();if(!all.includes(q))continue;shown++;
@@ -203,15 +207,15 @@ function renderPolicies(){const root=$('policy-rows');root.replaceChildren();for
 function renderSources(){const root=$('sources-list');root.replaceChildren();for(const d of db.examples){const li=el('li',undefined,root);link(d.title,d.url,li);li.append(' — '+d.note);}}
 fetch('./data.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json();}).then(d=>{if(!d||!Array.isArray(d.deadlines)||!Array.isArray(d.branches))throw Error('Invalid index data');db=d;
 $('snapshot').textContent='Organizer-source check: '+db.checkedAt+' · Public research index, not a live deadline feed.';
-$('closed').textContent=db.closed.join(' · ');
 $('watch').textContent=db.watch.join(' · ');
 Array.from(new Set(db.deadlines.map(d=>d.domain))).sort().forEach(a=>{const o=el('option',a,$('deadline-area'));o.value=a;});
 const coverage=db.integrations&&db.integrations.huggingFace;const bio=db.areas.find(a=>a.area==='Computational biology / bioinformatics / genomics');
 $('coverage-count').textContent='Total '+db.areas.reduce((n,a)=>n+a.venues.length,0)+' venue entries · Hugging Face '+(coverage?coverage.matchedFiles+' of '+coverage.totalFiles:'source pending')+' conference definitions · '+(bio?bio.venues.length:0)+' biology venues · '+db.deadlines.length+' dated actions.';
-['window','deadline-area','deadline-kind','deadline-query'].forEach(id=>$(id).addEventListener(id==='deadline-query'?'input':'change',renderDeadlines));
+['deadline-area','deadline-kind','deadline-query'].forEach(id=>$(id).addEventListener(id==='deadline-query'?'input':'change',renderDeadlines));
 $('idea-query').addEventListener('input',renderIdeas);
 ['venue-query','venue-core','venue-ccf','venue-era'].forEach(id=>$(id).addEventListener(id==='venue-query'?'input':'change',renderVenues));
 renderDeadlines();renderBiology();renderIdeas();renderVenues();renderPolicies();renderSources();
+let lastIstDate=istDay();setInterval(()=>{const now=istDay();if(now!==lastIstDate){lastIstDate=now;renderDeadlines();renderBiology();}},60000);
 }).catch(e=>{console.warn('CS Conf data load:',e);$('deadline-rows').replaceChildren(el('tr'));$('deadline-count').textContent='Could not load data.json. Use the machine-readable index link under Sources or the GitHub source.';$('idea-list').textContent='Data currently unavailable; open the linked data.json file.';$('policy-rows').textContent='Data currently unavailable.';});
 })();
 </script>
