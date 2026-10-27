@@ -724,12 +724,58 @@
           "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/ecml_pkdd.yml"
         },
         {
+          "name": "ESANN",
+          "url": "https://www.esann.org/",
+          "hfSlug": "esann",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/esann.yml",
+          "fullName": "European Symposium on Artificial Neural Networks, Computational Intelligence",
+          "rankings": {
+            "CORE": "B",
+            "ERA": "B"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/esann.yml"
+        },
+        {
+          "name": "ICANN",
+          "url": "https://e-nns.org/icann2026/",
+          "hfSlug": "icann",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/icann.yml",
+          "fullName": "35th International Conference on Artificial Neural Networks",
+          "rankings": {
+            "ERA": "B"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/icann.yml"
+        },
+        {
           "name": "ICLR",
-          "url": "https://iclr.cc/"
+          "url": "https://iclr.cc/",
+          "hfSlug": "iclr",
+          "hfYear": 2027,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/iclr.yml",
+          "fullName": "The Fifteenth International Conference on Learning Representations",
+          "rankings": {
+            "CORE": "A*",
+            "THCPL": "A",
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/iclr.yml"
         },
         {
           "name": "ICML",
-          "url": "https://icml.cc/"
+          "url": "https://icml.cc/",
+          "hfSlug": "icml",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/icml.yml",
+          "fullName": "International Conference on Machine Learning",
+          "rankings": {
+            "CCF": "A",
+            "CORE": "A*",
+            "THCPL": "A",
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/icml.yml"
         },
         {
           "name": "IJCAI",
@@ -897,8 +943,66 @@
           "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/eccv.yml"
         },
         {
+          "name": "EUROGRAPHICS",
+          "url": "https://eg2027.isti.cnr.it/",
+          "hfSlug": "eurographics",
+          "hfYear": 2027,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/eurographics.yml",
+          "fullName": "The 48th Annual Conference of the European Association for Computer Graphics",
+          "rankings": {
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/eurographics.yml"
+        },
+        {
+          "name": "EUVIP",
+          "url": "https://euvip2026.github.io/",
+          "hfSlug": "euvip",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/euvip.yml",
+          "fullName": "European Conference on Visual Information Processing"
+        },
+        {
+          "name": "FG",
+          "url": "https://fg2026.ieee-biometrics.org/",
+          "hfSlug": "fg",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/fg.yml",
+          "fullName": "International Conference on Automatic Face and Gesture Recognition",
+          "rankings": {
+            "ERA": "C"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/fg.yml"
+        },
+        {
           "name": "ICCV",
-          "url": "https://iccv.thecvf.com/"
+          "url": "https://iccv.thecvf.com/",
+          "hfSlug": "iccv",
+          "hfYear": 2025,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/iccv.yml",
+          "fullName": "IEEE International Conference on Computer Vision",
+          "rankings": {
+            "CCF": "A",
+            "CORE": "A*",
+            "THCPL": "A",
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/iccv.yml"
+        },
+        {
+          "name": "ICDAR",
+          "url": "https://icdar2027.org/",
+          "hfSlug": "icdar",
+          "hfYear": 2027,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/icdar.yml",
+          "fullName": "International Conference on Document Analysis and Recognition",
+          "rankings": {
+            "CCF": "C",
+            "CORE": "A",
+            "THCPL": "B",
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/icdar.yml"
         },
         {
           "name": "SIGGRAPH",
@@ -958,12 +1062,32 @@
           "url": null
         },
         {
+          "name": "HICSS",
+          "url": "https://hicss.hawaii.edu/",
+          "hfSlug": "hicss",
+          "hfYear": 2027,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/hicss.yml",
+          "fullName": "Hawaii International Conference on System Sciences",
+          "rankings": {
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/hicss.yml"
+        },
+        {
           "name": "ICDE",
           "url": "https://www.icde.org/"
         },
         {
           "name": "ICDM",
-          "url": "https://www.cs.uvm.edu/~icdm/"
+          "url": "https://www.cs.uvm.edu/~icdm/",
+          "hfSlug": "icdm",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/icdm.yml",
+          "fullName": "International Conference on Data Mining",
+          "rankings": {
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/icdm.yml"
         },
         {
           "name": "KDD",
@@ -1015,8 +1139,28 @@
           "url": "https://cscw.acm.org/"
         },
         {
+          "name": "FACCT",
+          "url": "https://facctconference.org/2026/index.html",
+          "hfSlug": "facct",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/facct.yml",
+          "fullName": "ACM Conference on Fairness, Accountability, and Transparency"
+        },
+        {
           "name": "FSE",
           "url": "https://conf.researchr.org/series/fse"
+        },
+        {
+          "name": "ICOMP",
+          "url": "https://icomp.cc/",
+          "hfSlug": "icomp",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/icomp.yml",
+          "fullName": "International Conference on Computational Optimization",
+          "rankings": {
+            "ERA": "B"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/icomp.yml"
         },
         {
           "name": "ICSE",
@@ -1172,8 +1316,30 @@
           "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/emnlp_industry_track.yml"
         },
         {
+          "name": "EMNLP System Demonstrations",
+          "url": "https://2026.emnlp.org/",
+          "hfSlug": "emnlp_system_demonstrations_track",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/emnlp_system_demonstrations_track.yml",
+          "fullName": "The annual Conference on Empirical Methods in Natural Language Processing",
+          "rankings": {
+            "CCF": "B",
+            "CORE": "A*",
+            "THCPL": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/emnlp_system_demonstrations_track.yml"
+        },
+        {
           "name": "ICASSP",
-          "url": "https://signalprocessingsociety.org/"
+          "url": "https://signalprocessingsociety.org/",
+          "hfSlug": "icassp",
+          "hfYear": 2026,
+          "hfSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/icassp.yml",
+          "fullName": "International Conference on Acoustics, Speech and Signal Processing",
+          "rankings": {
+            "ERA": "A"
+          },
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/icassp.yml"
         },
         {
           "name": "Interspeech",
@@ -2568,7 +2734,7 @@
       "repository": "huggingface/ai-deadlines",
       "source": "https://github.com/huggingface/ai-deadlines/tree/main/src/data/conferences",
       "totalFiles": 68,
-      "matchedFiles": 26,
+      "matchedFiles": 41,
       "reviewedAt": "2026-10-27",
       "deadlinePolicy": "Official sources override HF metadata; HF dates are secondary and not automatically authoritative."
     },
