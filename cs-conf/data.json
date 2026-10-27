@@ -3,7 +3,7 @@
   "taskId": "20261026-csconf-research",
   "createdAt": "2026-10-26T13:51:12.349Z",
   "checkedAt": "2026-10-28",
-  "editorialNote": "28 Oct deadline-time correction: official ISBI 2027 uses US Eastern; November 2 2026 and Jan–Feb 2027 are EST (UTC−5), not EDT. 28 Oct 2026 public-safe corrections: CC18 stable-denominator blocker and documented Oct10/Oct17 changes; RECOMB-Seq Proceedings/Overlay Jan25/Jan30; ISBI 2027 non-archival poster vs four-page paper, code/ethics policy. No published private pilot measurements. 27 Oct late cycle: added MLSys 2027 Industrial author eligibility to dedicated industry tracker; IMC 2025 LACeS/PyTNT accepted source audit; new CC18 method-change sensitivity PROPOSAL, private exploratory counts withheld; no matched-cohort result or new network probing. 27 Oct 2026: industry-track academic/student eligibility verified via official CFPs (NAACL, COLING, EACL, SIGMOD, ICDE, ISCA, CHIIR, PAKDD and historical examples); 17 track-specific evidence records and eligibility/affiliation filters. 27 Oct primary IMC 2027 Cycle 1+Replicability venue/AI policy; accepted SIGCOMM 2026 RepLLM/TianYan and IMC 2025 replication precedents; no new network or model experiment. 27 Oct 2026 speech/industry visibility correction: dedicated speech section and explicit Industry Track routes; new official ASLI 2027, COLING 2027 Industry, EUSIPCO, IWSLT, ITG Speech, DCASE, IEEE SSP organizer deadlines; separate ASLI from discontinued ASRU/SLT cycle. 27 Oct 2026 accepted KDD 2026 ReplicatorBench and ICML 2026 BioAgent Bench narrow generic research-agent and bioinformatics-agent novelty; CC08 internal-audit-first stop gate sharpened; separate ISIT 2027 workshop Nov15 and paper Jan10 added; SIGCOMM Feb2 source reconfirmed, CC13 paired control fixed. Prior VAANI class-agnostic correction preserved. No new model/agent benchmark, GPU, paid API, sealed data, paper submission or ChatGPT↔Codex/local transfer.",
+  "editorialNote": "28 Oct biomedical prior-art correction: CC12 cannot claim novel biological tracking/lineage metric, and accepted MICCAI 2026 already uses explicit cell division temporality; public annotated training vs hidden challenge test must be distinguished. 28 Oct deadline-time correction: official ISBI 2027 uses US Eastern; November 2 2026 and Jan–Feb 2027 are EST (UTC−5), not EDT. 28 Oct 2026 public-safe corrections: CC18 stable-denominator blocker and documented Oct10/Oct17 changes; RECOMB-Seq Proceedings/Overlay Jan25/Jan30; ISBI 2027 non-archival poster vs four-page paper, code/ethics policy. No published private pilot measurements. 27 Oct late cycle: added MLSys 2027 Industrial author eligibility to dedicated industry tracker; IMC 2025 LACeS/PyTNT accepted source audit; new CC18 method-change sensitivity PROPOSAL, private exploratory counts withheld; no matched-cohort result or new network probing. 27 Oct 2026: industry-track academic/student eligibility verified via official CFPs (NAACL, COLING, EACL, SIGMOD, ICDE, ISCA, CHIIR, PAKDD and historical examples); 17 track-specific evidence records and eligibility/affiliation filters. 27 Oct primary IMC 2027 Cycle 1+Replicability venue/AI policy; accepted SIGCOMM 2026 RepLLM/TianYan and IMC 2025 replication precedents; no new network or model experiment. 27 Oct 2026 speech/industry visibility correction: dedicated speech section and explicit Industry Track routes; new official ASLI 2027, COLING 2027 Industry, EUSIPCO, IWSLT, ITG Speech, DCASE, IEEE SSP organizer deadlines; separate ASLI from discontinued ASRU/SLT cycle. 27 Oct 2026 accepted KDD 2026 ReplicatorBench and ICML 2026 BioAgent Bench narrow generic research-agent and bioinformatics-agent novelty; CC08 internal-audit-first stop gate sharpened; separate ISIT 2027 workshop Nov15 and paper Jan10 added; SIGCOMM Feb2 source reconfirmed, CC13 paired control fixed. Prior VAANI class-agnostic correction preserved. No new model/agent benchmark, GPU, paid API, sealed data, paper submission or ChatGPT↔Codex/local transfer.",
   "deadlines": [
     {
       "date": "2026-10-27",
@@ -3166,7 +3166,7 @@
         "ISBI"
       ],
       "cost": "low-medium",
-      "stage": "AI AUTHORSHIP STOP FOR MIDL 2027: policy prohibits LLM-origin research ideas/designs/analysis/results; continue publicly as exploratory biomedical work only; a separate independently human-originated study must comply. No biological pilot run or paper.\n\nCROSS-DOMAIN SCOPE CHECK (27 Oct): Accepted ICML 2026 BioAgent Bench already evaluates robust end-to-end agent bioinformatics workflows (RNA-seq, variant calling, metagenomics) with corrupted-input/decoy controls. This does NOT test cell-lineage geometry/visual evaluation in time-lapse microscopy and is not a direct CC12 baseline. Do not relabel generic bioinformatics agent benchmarking as CC12 novelty. No images or model processed.",
+      "stage": "PRIOR-ART NARROWING (28 Oct): Nature Methods 2017 Cell Tracking Challenge already includes biological tracking/lineage measures, and accepted MICCAI 2026 uses frame-pair division-aware reasoning. Novel standalone lineage score not justified; only a controlled perceptual-vs-lineage rank inversion test remains, not run. AI AUTHORSHIP STOP FOR MIDL 2027: policy prohibits LLM-origin research ideas/designs/analysis/results; continue publicly as exploratory biomedical work only; a separate independently human-originated study must comply. No biological pilot run or paper.\n\nCROSS-DOMAIN SCOPE CHECK (27 Oct): Accepted ICML 2026 BioAgent Bench already evaluates robust end-to-end agent bioinformatics workflows (RNA-seq, variant calling, metagenomics) with corrupted-input/decoy controls. This does NOT test cell-lineage geometry/visual evaluation in time-lapse microscopy and is not a direct CC12 baseline. Do not relabel generic bioinformatics agent benchmarking as CC12 novelty. No images or model processed.",
       "question": "Do synthetic microscopy video quality scores predict cell-count, division-lineage, and tracking failures under matched appearance changes?",
       "novelty": "2025 microscopy video diffusion work already evaluates morphology, proliferation and migration in generated cell videos; Cell Tracking Challenge provides established tracking metrics. A generic 'biological geometry consistency' score would overlap existing evaluations. Need test whether visual/video metrics can miss biologically material lineage/topology errors, with licensed public data and explicit nonclinical scope.",
       "pilot": "Choose released Cell Tracking Challenge time-lapse sequences with labels. Construct matched editing pairs: one changes only brightness/texture, one inserts a division, disappearance, or impossible identity switch at controlled severity. Blind labels and compare 2-3 published image/video quality scores with cell count, division-timing, lineage and tracking metrics on held-out sequences. First test without training (CPU image edits and existing segmentation/tracking checkpoints). No clinical outcome claims without external validation. ISBI in-person and first-author cap (<=2) plus IEEE AI disclosure must be checked. Do NOT report poster abstract as a full research paper.",
@@ -3198,6 +3198,41 @@
         "ethics": "Authors must include statement of ethical compliance, including when no ethics approval was needed; no clinical conclusion without suitable evaluation.",
         "decision": "No submission-ready independent cell-lineage/visual-texture validation; keep source-only protocol.",
         "source": "https://biomedicalimaging.org/2027/papers/"
+      },
+      "latestLiteratureGate": {
+        "checkedAt": "2026-10-28",
+        "status": "novelty narrowed; no microscopy/video experiment executed",
+        "acceptedPriorArt": [
+          {
+            "venue": "Nature Methods 2017",
+            "title": "An objective comparison of cell-tracking algorithms",
+            "source": "https://www.nature.com/articles/nmeth.4473",
+            "claim": "Already evaluates biological measures (complete tracks, tracking fractions/biological accuracy) in addition to segmentation/tracking scores; cannot claim a first lineage-aware metric."
+          },
+          {
+            "venue": "Nature Methods 2023",
+            "title": "The Cell Tracking Challenge: 10 years of objective benchmarking",
+            "source": "https://www.nature.com/articles/s41592-023-01879-y",
+            "claim": "Official labeled training data, SEG/TRA/DET benchmarking and hidden reference annotations for evaluation exist."
+          },
+          {
+            "venue": "MICCAI 2026",
+            "title": "Cell-Division-Aware Category-Enhanced Contrastive Learning Model for Embryonic Cleavage Stage Classification",
+            "source": "https://papers.miccai.org/miccai-2026/0159-Paper3661.html",
+            "claim": "Accepted paper uses explicit frame-pair cell-division prediction and temporal transitions; not a generated-microscopy quality study, but blocks claims that division-aware video reasoning is new."
+          }
+        ],
+        "residualHypothesis": "At matched perceptual distortion and frame count, video-quality/appearance metrics may rank biologically impossible yet visually convincing lineage edits no worse than appearance-only perturbations; established cell-tracking metrics might detect the contradiction. This controlled ranking disagreement, NOT a novel lineage metric, is the only tentative contribution.",
+        "minimalExperiment": "First validate exact public training-sequence licenses and annotations from Cell Tracking Challenge, choose 2-3 labeled sequences with division events, lock held-out source movie groups. Create paired appearance-only versus division/identity-change edits with identical severity/length and an independent expert validity check. Compare existing pixel/video quality baselines (e.g. SSIM, LPIPS when legally available) against established SEG/TRA and biological lineage scores; use predeclared blinded rankings and negative controls. Do NOT use hidden CTC challenge test GT or simply change labels without video pixels.",
+        "computeBudget": "metadata preflight 0 GPU / zero paid API; <=2 CPU core-hours for a tiny paired clip evaluation only if access and manipulation controls verified",
+        "stop": "Retire standalone metric/evaluation paper if biological score contrast is tautological from directly edited labels, if quality baselines already distinguish the same edits at matched severity, or if no realistic physically/biologically meaningful images and independent labels can be produced.",
+        "publicationGate": "ISBI 2027 Nov2 full archival paper already too close without results; MIDL AI-origin research restriction unchanged; accepted MICCAI is closest accepted overlap but not direct falsification.",
+        "sources": [
+          "https://celltrackingchallenge.net/",
+          "https://www.nature.com/articles/nmeth.4473",
+          "https://www.nature.com/articles/s41592-023-01879-y",
+          "https://papers.miccai.org/miccai-2026/0159-Paper3661.html"
+        ]
       }
     },
     {
@@ -4030,6 +4065,24 @@
       "kind": "ARXIV PREPRINT, acceptance NOT verified",
       "note": "The study notes that daily target-mix changes can affect apparent longitudinal IP geolocation consistency; relevant prior-art warning for CC18, NOT an accepted conference paper.",
       "url": "https://arxiv.org/abs/2610.27318"
+    },
+    {
+      "title": "An objective comparison of cell-tracking algorithms (Nature Methods 2017)",
+      "kind": "PEER-REVIEWED journal article, original CTC technical and biological metrics",
+      "note": "Tracks both biological and technical performance; established lineage-aware measures mean CC12 must not claim first biological evaluation.",
+      "url": "https://www.nature.com/articles/nmeth.4473"
+    },
+    {
+      "title": "The Cell Tracking Challenge: 10 years of objective benchmarking (Nature Methods 2023)",
+      "kind": "PEER-REVIEWED benchmark retrospective",
+      "note": "SEG, TRA, DET and released annotated training data; official hidden test evaluation and source datasets must be treated separately.",
+      "url": "https://www.nature.com/articles/s41592-023-01879-y"
+    },
+    {
+      "title": "Cell-Division-Aware Category-Enhanced Contrastive Learning Model for Embryonic Cleavage Stage Classification (MICCAI 2026)",
+      "kind": "ACCEPTED MICCAI 2026 paper, with public reviewer reports",
+      "note": "Predicts cell division between frame pairs and uses it as a temporal transition prior; not a generative-microscopy metric, but direct prior art against generic novelty.",
+      "url": "https://papers.miccai.org/miccai-2026/0159-Paper3661.html"
     }
   ],
   "closed": [
@@ -4073,7 +4126,7 @@
     "IEEE MLSP 2027 — paper CFP TBA",
     "ICASSP 2028 — paper deadline TBA"
   ],
-  "lastLiteratureAudit": "28 Oct 2026 source-only: LACeS primary changelog/attribution reveals Oct10 hitlist update and unpublished target frame, blocking causal attribution of Oct17 v6 counts; accepted IMC 2020 MAnycast and unreviewed Oct19 RIPE Atlas consistency preprint narrow CC18. Official RECOMB-Seq 2027 Proceedings vs Overlay CFP and deadlines Jan25/Jan30, ISBI 2027 ethics/AI/workshop tracks audited. No new test.",
+  "lastLiteratureAudit": "28 Oct 2026 extra audit: existing Nature Methods 2017 biological cell-tracking measures and accepted MICCAI 2026 division-aware video-stage model narrow CC12; synthetic lineage metric alone not novel, only controlled perceptual-vs-biological disagreement remains; no experiment. 28 Oct 2026 source-only: LACeS primary changelog/attribution reveals Oct10 hitlist update and unpublished target frame, blocking causal attribution of Oct17 v6 counts; accepted IMC 2020 MAnycast and unreviewed Oct19 RIPE Atlas consistency preprint narrow CC18. Official RECOMB-Seq 2027 Proceedings vs Overlay CFP and deadlines Jan25/Jan30, ISBI 2027 ethics/AI/workshop tracks audited. No new test.",
   "integrations": {
     "huggingFace": {
       "repository": "huggingface/ai-deadlines",
