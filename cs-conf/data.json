@@ -1862,52 +1862,62 @@
         {
           "name": "CHIIR 2027 Industry Papers",
           "url": "https://chiir2027.github.io/industry-papers.html",
-          "fullName": "CHIIR 2027 Industry Papers; eligibility conditional; parent conference ranking is not a separate track ranking"
+          "fullName": "CHIIR 2027 Industry Papers; eligibility conditional; parent conference ranking is not a separate track ranking",
+          "eligibilityTrackId": "chiir27-industry"
         },
         {
           "name": "SIGMOD 2027 Industrial Track",
           "url": "https://2027.sigmod.org/calls_industrial_track_papers.shtml",
-          "fullName": "SIGMOD 2027 Industrial Track; eligibility requires-nonacademic; parent conference ranking is not a separate track ranking"
+          "fullName": "SIGMOD 2027 Industrial Track; eligibility requires-nonacademic; parent conference ranking is not a separate track ranking",
+          "eligibilityTrackId": "sigmod27-industrial"
         },
         {
           "name": "ICDE 2027 Industry and Applications",
           "url": "https://icde2027.github.io/cf-industry-track.html",
-          "fullName": "ICDE 2027 Industry and Applications Track; eligibility requires-nonacademic; parent conference ranking is not a separate track ranking"
+          "fullName": "ICDE 2027 Industry and Applications Track; eligibility requires-nonacademic; parent conference ranking is not a separate track ranking",
+          "eligibilityTrackId": "icde27-industrial"
         },
         {
           "name": "PAKDD 2027 Applied Data Science",
           "url": "https://www.pakdd2027.org/pages/calls/applied",
-          "fullName": "PAKDD 2027 Applied Data Science Track; eligibility yes-open; parent conference ranking is not a separate track ranking"
+          "fullName": "PAKDD 2027 Applied Data Science Track; eligibility yes-open; parent conference ranking is not a separate track ranking",
+          "eligibilityTrackId": "pakdd27-applied"
         },
         {
           "name": "The Web Conference 2027 Industry Track",
           "url": "https://www2027.thewebconf.org/call-for-industry-submissions/",
-          "fullName": "The Web Conference 2027 Industry Track; eligibility conditional; parent conference ranking is not a separate track ranking"
+          "fullName": "The Web Conference 2027 Industry Track; eligibility conditional; parent conference ranking is not a separate track ranking",
+          "eligibilityTrackId": "web27-industry"
         },
         {
           "name": "CIKM Applied Research 2026",
           "url": "https://cikm2026.diag.uniroma1.it/applied-research-papers/",
-          "fullName": "CIKM 2026 Applied Research Track (historical); eligibility yes-explicit; parent conference ranking is not a separate track ranking"
+          "fullName": "CIKM 2026 Applied Research Track (historical); eligibility yes-explicit; parent conference ranking is not a separate track ranking",
+          "eligibilityTrackId": "cikm26-applied"
         },
         {
           "name": "VLDB 2027 Scalable Data Science",
           "url": "https://vldb.org/2027/call-for-research-track.html",
-          "fullName": "VLDB 2027 / PVLDB Scalable Data Science (research-track alternative); eligibility yes-open; parent conference ranking is not a separate track ranking"
+          "fullName": "VLDB 2027 / PVLDB Scalable Data Science (research-track alternative); eligibility yes-open; parent conference ranking is not a separate track ranking",
+          "eligibilityTrackId": "vldb27-sds"
         },
         {
           "name": "VLDB 2026 Industrial Track (historical)",
           "url": "https://vldb.org/2026/call-for-industrial-track.html",
-          "fullName": "VLDB 2026 Industrial Track (historical); eligibility requires-nonacademic; parent conference ranking is not a separate track ranking"
+          "fullName": "VLDB 2026 Industrial Track (historical); eligibility requires-nonacademic; parent conference ranking is not a separate track ranking",
+          "eligibilityTrackId": "vldb26-industrial"
         },
         {
           "name": "RecSys 2026 Industry Track (historical)",
           "url": "https://recsys.acm.org/recsys26/call/",
-          "fullName": "RecSys 2026 Industry Track (historical); eligibility conditional; parent conference ranking is not a separate track ranking"
+          "fullName": "RecSys 2026 Industry Track (historical); eligibility conditional; parent conference ranking is not a separate track ranking",
+          "eligibilityTrackId": "recsys26-industry"
         },
         {
           "name": "ECIR 2027 Industry Day",
           "url": "https://www.ecir2027.co.uk/calls",
-          "fullName": "ECIR 2027 Industry Day submission; eligibility conditional; parent conference ranking is not a separate track ranking"
+          "fullName": "ECIR 2027 Industry Day submission; eligibility conditional; parent conference ranking is not a separate track ranking",
+          "eligibilityTrackId": "ecir27-industry"
         }
       ]
     },
@@ -2133,7 +2143,8 @@
         {
           "name": "COLING Industry Track",
           "url": "https://2027.coling-iccl.org/calls/industry_track/",
-          "fullName": "COLING 2027 standalone industry papers, deployed speech and NLP systems"
+          "fullName": "COLING 2027 standalone industry papers, deployed speech and NLP systems",
+          "eligibilityTrackId": "coling27-industry"
         },
         {
           "name": "CONLL",
@@ -2157,7 +2168,8 @@
         {
           "name": "EACL Industry Track",
           "url": "https://2027.eacl.org/calls/industry/",
-          "fullName": "EACL 2027 Industry Track; September 2026 paper deadline already closed"
+          "fullName": "EACL 2027 Industry Track; September 2026 paper deadline already closed",
+          "eligibilityTrackId": "eacl27-industry"
         },
         {
           "name": "EMNLP",
@@ -2187,7 +2199,8 @@
             "THCPL": "A",
             "ERA": "A"
           },
-          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/emnlp_industry_track.yml"
+          "rankingsSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/emnlp_industry_track.yml",
+          "eligibilityTrackId": "emnlp26-industry"
         },
         {
           "name": "EMNLP System Demonstrations",
@@ -2245,7 +2258,8 @@
         {
           "name": "NAACL Industry Track",
           "url": "https://2027.naacl.org/calls/industry_track/",
-          "fullName": "NAACL 2027 separate Industry Track: real-world NLP/speech systems; no independent CORE grade"
+          "fullName": "NAACL 2027 separate Industry Track: real-world NLP/speech systems; no independent CORE grade",
+          "eligibilityTrackId": "naacl27-industry"
         },
         {
           "name": "NAACL System Demonstrations",
@@ -2255,7 +2269,8 @@
         {
           "name": "ACL 2026 Industry Track (historical)",
           "url": "https://2026.aclweb.org/calls/industry_track/",
-          "fullName": "ACL 2026 Industry Track (historical rule); eligibility yes-explicit; parent conference ranking is not a separate track ranking"
+          "fullName": "ACL 2026 Industry Track (historical rule); eligibility yes-explicit; parent conference ranking is not a separate track ranking",
+          "eligibilityTrackId": "acl26-industry"
         }
       ]
     },
@@ -2536,7 +2551,8 @@
         {
           "name": "ISCA 2027 Industry Track",
           "url": "https://iscaconf.org/isca2027/submit/industry.php",
-          "fullName": "ISCA 2027 Industry Track; eligibility requires-industry-majority; parent conference ranking is not a separate track ranking"
+          "fullName": "ISCA 2027 Industry Track; eligibility requires-industry-majority; parent conference ranking is not a separate track ranking",
+          "eligibilityTrackId": "isca27-industry"
         }
       ]
     },
