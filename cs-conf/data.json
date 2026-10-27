@@ -3,7 +3,7 @@
   "taskId": "20261026-csconf-research",
   "createdAt": "2026-10-26T13:51:12.349Z",
   "checkedAt": "2026-10-27",
-  "editorialNote": "27 Oct fifteenth cycle: public Cora real-citation dataset and upstream gold-pair versus derived-class provenance were reviewed; the official per-record-label generator needs validation against raw pair links before it can support complete-link retrieval. No real-Cora retrieval experiment, learned allocator or sealed-test evaluation. Novelty boundary tightened against EDBT 2025 GraLMatch, 2026 batched-ER and 2026 retrieval-to-clustering studies. CVPR 2027 reciprocal-reviewer and AI-usage policies rechecked. Organizer-confirmed wireless challenges added to the deadline queue with platform-access caveats. All newly computed dataset audit figures remain private.",
+  "editorialNote": "27 Oct cycle 16: verified KDD 2026 accepted Alper as a strong adaptive budgeted-ER prior-art constraint; a read-only Cora source audit found ambiguous/missing title-tag semantics and stopped the predeclared exact-title gold-quality screening before candidate inspection. No retrieval evaluation or seal opened. EMNLP 2026 accepted RIDGE narrows CC-06, GenVid2Robot narrows CC-10, and repeated coding-agent run study narrows CC-13. Only reviewed public-safe bibliography/method updates published; numerical and record-level source audit stays private.",
   "deadlines": [
     {
       "date": "2026-10-27",
@@ -920,9 +920,9 @@
         "DESIRES 2027 (early-stage abstract; human-reviewed)"
       ],
       "cost": "low-medium",
-      "stage": "INDEPENDENT MULTI-SOURCE DEVELOPMENT PILOT COMPLETE (Oct 27): Leipzig University's Music Brainz 20K public cluster-labeled synthetic data was audited and evaluated in memory with deterministic CID-disjoint fit/dev/sealed partitions. Fit-only TF-IDF weighting and frozen cosine ranking compared uniform top-K, global top-B and 16 preregistered rank-preserving randomized source-offset controls at matched budgets. This is development data only; all numerical results are kept private. The strongest global-score baseline approaches its candidate-oracle ceiling, and the large fixed-K discrepancy at tight budgets is confounded by known multi-positive query degrees. Dataset is a useful control, not a main novelty evaluation. Sealed test unexamined for retrieval outcomes. No learned allocator or full production pipeline runtime established. SOURCE-ELIGIBILITY GATE (27 Oct): an independent source-level inspection of a real Cora citation benchmark is complete; per-record cluster IDs derived by an upstream heuristic are NOT assumed correct. A valid test must reconstruct cluster memberships from the raw gold-pair list and independently audit label omissions. The dataset is one-source dirty deduplication, not natural S1-to-S2/S3 matching. No Cora retrieval benchmark or sealed test run; numerical audit findings private.",
+      "stage": "INDEPENDENT MULTI-SOURCE DEVELOPMENT PILOT COMPLETE (Oct 27): Leipzig University's Music Brainz 20K public cluster-labeled synthetic data was audited and evaluated in memory with deterministic CID-disjoint fit/dev/sealed partitions. Fit-only TF-IDF weighting and frozen cosine ranking compared uniform top-K, global top-B and 16 preregistered rank-preserving randomized source-offset controls at matched budgets. This is development data only; all numerical results are kept private. The strongest global-score baseline approaches its candidate-oracle ceiling, and the large fixed-K discrepancy at tight budgets is confounded by known multi-positive query degrees. Dataset is a useful control, not a main novelty evaluation. Sealed test unexamined for retrieval outcomes. No learned allocator or full production pipeline runtime established. SOURCE-ELIGIBILITY GATE (27 Oct): an independent source-level inspection of a real Cora citation benchmark is complete; per-record cluster IDs derived by an upstream heuristic are NOT assumed correct. A valid test must reconstruct cluster memberships from the raw gold-pair list and independently audit label omissions. The dataset is one-source dirty deduplication, not natural S1-to-S2/S3 matching. No Cora retrieval benchmark or sealed test run; numerical audit findings private. CYCLE-16 NOVELTY AND LABEL GATE: KDD 2026 accepted Alper already combines adaptive ER budgeted pair querying and graph refinement; add it as mandatory scope/baseline comparison. Independent Cora XML structure inspection shows title tags are not a reliable clean canonical field; title-equality missing-label audit was stopped at the predeclared ambiguity gate. No Cora retrieval, new sealed outcome, Alper replication, or learned allocator executed.",
       "question": "Without knowing which sources have matches at inference time, can an allocation policy learn both match-existence probability and last-positive-rank completion curves to improve complete-link retrieval among all source queries under fixed candidate count AND end-to-end wall time, versus QASP-style and progressive-ER baselines?",
-      "novelty": "The PACMMOD/SIGMOD 2025 Progressive ER formal objective maximizes progressive recall@N of verified PAIRS, assumes oracle pair verification and explicitly excludes verification time from reported runtime. QASP (Jul 2026) predicts recall of nearest-neighbor search as probes increase; nearest-neighbor recall is NOT recall of all semantically true entity links. The proposed completion event max_true_match_rank<=K differs from both losses, but this is not proof of novel algorithm. Distinct evaluation must include multi-positive sources (standard clean-clean datasets often assume within-source no duplicates), real full-pipeline runtime, calibrated completion prediction, and equal-budget strong baselines. Critical new gate (Oct 27): allocation over positive queries only is oracle information leakage unless positivity is inferable at inference. Estimate p_i*F_i(k) over all S1, assess null-query opportunity cost and incomplete ground truth. No new algorithm claimed. A new necessary CONTROL is randomized source-level monotone score offsets: a policy can redistribute budget across sources without changing their local candidate ranks or using any label. Neither stochastic prioritization (SPER) nor generic budgeted success curves are intrinsically novel. A learned all-link allocator must show more than what random budget concentration achieves at equal B. DATASET GATE: WDC Products EDBT 2024's official val/test subsets assign two offers per product, so its isolated test does not provide multi-positive complete-link recall; do not treat pairwise evaluation as a multi-link retrieval benchmark. Leipzig Music Brainz 20K offers CID-labeled multi-source groups but has synthetic perturbations and source-specific duplication assumptions. Novelty must generalize beyond generated duplicate examples, under sealed cluster-disjoint testing. Additional prior art: EDBT 2025 GraLMatch already evaluates group-level multi-source ER; a June 2026 batched-oracle preprint studies progressive cost-controlled group recovery; an October 2026 multilingual-company preprint distinguishes retrieval from final clustering. Claim novelty only for verified completion-aware allocation under a different cost model and end-to-end controlled evidence.",
+      "novelty": "The PACMMOD/SIGMOD 2025 Progressive ER formal objective maximizes progressive recall@N of verified PAIRS, assumes oracle pair verification and explicitly excludes verification time from reported runtime. QASP (Jul 2026) predicts recall of nearest-neighbor search as probes increase; nearest-neighbor recall is NOT recall of all semantically true entity links. The proposed completion event max_true_match_rank<=K differs from both losses, but this is not proof of novel algorithm. Distinct evaluation must include multi-positive sources (standard clean-clean datasets often assume within-source no duplicates), real full-pipeline runtime, calibrated completion prediction, and equal-budget strong baselines. Critical new gate (Oct 27): allocation over positive queries only is oracle information leakage unless positivity is inferable at inference. Estimate p_i*F_i(k) over all S1, assess null-query opportunity cost and incomplete ground truth. No new algorithm claimed. A new necessary CONTROL is randomized source-level monotone score offsets: a policy can redistribute budget across sources without changing their local candidate ranks or using any label. Neither stochastic prioritization (SPER) nor generic budgeted success curves are intrinsically novel. A learned all-link allocator must show more than what random budget concentration achieves at equal B. DATASET GATE: WDC Products EDBT 2024's official val/test subsets assign two offers per product, so its isolated test does not provide multi-positive complete-link recall; do not treat pairwise evaluation as a multi-link retrieval benchmark. Leipzig Music Brainz 20K offers CID-labeled multi-source groups but has synthetic perturbations and source-specific duplication assumptions. Novelty must generalize beyond generated duplicate examples, under sealed cluster-disjoint testing. Additional prior art: EDBT 2025 GraLMatch already evaluates group-level multi-source ER; a June 2026 batched-oracle preprint studies progressive cost-controlled group recovery; an October 2026 multilingual-company preprint distinguishes retrieval from final clustering. Claim novelty only for verified completion-aware allocation under a different cost model and end-to-end controlled evidence. ACCEPTED PRIOR ART: Alper (KDD 2026, DOI 10.1145/3770855.3817856) optimizes adaptive costly pair queries together with graph refinement on eight dirty-ER datasets. Generic cost-aware adaptive ER or clustered retrieval is not first here. Distinguish the proposed complete-link retrieval-at-fixed-candidate-cost objective and test against a faithful Alper comparator when its different LLM-query cost model can be normalized. Treat ambiguous Cora XML title tags as a label-audit parser warning, never as canonical bibliographic title ground truth.",
       "pilot": "NEXT: Audit and freeze a harder REAL-WORLD multi-positive entity dataset, with complete-link label assumptions explicitly tested. Preserve deterministic cluster-disjoint fit/calibration/test and include all zero-match queries in budget. Use Leipzig Music Brainz 20K only as a documented synthetic control: train-only IDF, frozen cosine scoring, matched candidate B, uniform, global-score, 16 predetermined source-offset seeds; add a degree-capacity upper bound showing that fixed-K cannot complete queries with more than K true links. On harder data evaluate fitted probability-of-completion versus strong global/top-B, randomized concentration, QASP/Progressive ER/SPER variants under full CPU cost and inference-available signals. Do not open the sealed Leipzig split or claim paper novelty during development. For real Cora citations (package by Steorts et al.), use original citation records and raw public pairwise gold, NOT unverified generated cora_gold_update labels. Audit clique closure, isolate singletons, independently inspect likely false negatives, freeze a cluster-disjoint split before models, include size-skew controls and cluster bootstrap. Classify Cora as a small real dirty-ER sanity/stress test, not an independent real multi-source benchmark. Require candidate-to-matcher-to-cluster outcome measurements, and stop if labels remain incomplete or a learned policy cannot improve over global-score and random allocation at equal end-to-end costs.",
       "stop": "If no reliable gain over strong global-score AND QASP/progressive baselines on a new sealed cluster-disjoint test, or if gain is due to incomplete annotations/model-selection leakage, retire standalone adaptive-allocation claim. Candidate-universe missing links cannot be repaired by reallocation. Also stop novel learned-allocation claim if it cannot beat an uninformed rank-preserving source-offset baseline on the prospectively sealed test. No novel algorithm inferred from artificial score perturbations. Do not interpret a single-positive-only official benchmark as evidence for multi-positive all-links completion. Stop any new-data claim if controls differ in candidate universe, annotation coverage, or information available at inference. New finding: When a simple global-score allocation already approaches candidate-oracle completion on synthetic duplicates, retire that dataset as primary method-novelty evidence and seek harder real-world independent annotations. Do not advertise the mathematically predetermined failure of K<true-link-count uniform retrieval as algorithmic discovery.",
       "source": "https://sigir2027.org/pages/submit-full.html",
@@ -978,6 +978,10 @@
         {
           "title": "Better Retrieval, Limited Clustering Gains (October 2026 preprint)",
           "url": "https://arxiv.org/abs/2610.05573"
+        },
+        {
+          "title": "Alper: Adaptive Graph Refinement and Label Propagation with LLMs for Cost-Effective Entity Resolution (KDD 2026, accepted)",
+          "url": "https://doi.org/10.1145/3770855.3817856"
         }
       ]
     },
@@ -1008,9 +1012,9 @@
         "ACL"
       ],
       "cost": "low-medium",
-      "stage": "generic event/boundary sampling heavily covered; downstream marginal-utility audit only; no new runs",
+      "stage": "NARROW / no new run: EMNLP 2026 accepted RIDGE already uses query-score derivatives and phase/region selection at a matched frame budget; a 2026 phase-allocation preprint further overlaps generic event/boundary frame sampling. Test only incremental signal from query-agnostic GEBD against faithful query-aware RIDGE and phase selectors, with scorer and frame/token budget frozen.",
       "question": "Can detected event boundaries improve temporal retrieval or question answering at equal frame budget?",
-      "novelty": "Boundary-guided frame sampling predates this work (BMVC 2021), and long-video QA methods already curate query/event-relevant frames at fixed token budgets (Ground, Cover, and Refine 2026; MemoryCard 2026). Claiming first boundary-based QA sampling would be false. Narrower question: whether VIDEO-GENERIC GEBD boundaries, without text/query conditioning, have incremental QA value over equally dense semantic-event and query-aware selectors, and at what noise scale.",
+      "novelty": "Boundary-guided frame sampling predates this work (BMVC 2021), and long-video QA methods already curate query/event-relevant frames at fixed token budgets (Ground, Cover, and Refine 2026; MemoryCard 2026). Claiming first boundary-based QA sampling would be false. Narrower question: whether VIDEO-GENERIC GEBD boundaries, without text/query conditioning, have incremental QA value over equally dense semantic-event and query-aware selectors, and at what noise scale. NEW: RIDGE (Findings EMNLP 2026, 2026.findings-emnlp.1813) is accepted and directly studies derivative-informed region/boundary frame selection at fixed budgets without training. dKFD (arXiv:2609.33083) studies supervised pre/event/post allocation (preprint only). Neither generic temporal phase preservation nor query-score turning points are novel; isolate truly query-agnostic event boundaries and detector overhead.",
       "pilot": "Fixed 16/32-frame budgets, one frozen video QA model. Compare uniform, random, GEBD oracle, predicted GEBD, semantically selected events, and matched query-aware selector. Lock all question annotations and timestamp window, report temporal-relation vs object-identity QA separately plus frame-selection oracle gap and detector cost. First run a small diagnostic on available annotated clips, then require a disjoint larger public set before a paper claim.",
       "stop": "Stop generic boundary-as-sampler idea if it offers no gain beyond matched semantic/query-aware selectors on unseen videos or only oracle GT boundaries help.",
       "source": "https://cvpr.thecvf.com/Conferences/2027/CallForPapers",
@@ -1030,6 +1034,14 @@
         {
           "title": "Semantic Event Graphs for Long-Form Video QA (2026)",
           "url": "https://arxiv.org/abs/2601.06097"
+        },
+        {
+          "title": "RIDGE: Region-Informed Derivative-Guided Evidence Selection for Long Video Understanding (Findings EMNLP 2026)",
+          "url": "https://aclanthology.org/2026.findings-emnlp.1813/"
+        },
+        {
+          "title": "dKFD: Phase-Structured Evidence Allocation (2026 preprint; acceptance unverified)",
+          "url": "https://arxiv.org/abs/2609.33083"
         }
       ]
     },
@@ -1146,7 +1158,7 @@
         "ICRA"
       ],
       "cost": "medium",
-      "stage": "MAJOR PRIOR-ART CONFLICT: a Sep 2026 preprint already measures planner preference under paired sensing degradation; geometry-specific intervention not yet tested; high-risk / no model runs",
+      "stage": "MAJOR PRIOR-ART CONFLICT: a Sep 2026 preprint already measures planner preference under paired sensing degradation; geometry-specific intervention not yet tested; high-risk / no model runs ADDITIONAL PRIOR-ART WARNING: GenVid2Robot (July 2026 preprint) already applies rigid SE(3) geometric consistency to check if generated video motion can be transferred to robot execution. Geometry feasibility alone is not new. No robot study run.",
       "question": "For a fixed robot planner and task, which kinds and severity of generated-video geometry faults actually change plan feasibility, rather than only visual similarity?",
       "novelty": "Beyond Task Success (Sep 2026) explicitly measures fixed-candidate action rankings, prediction shifts and physical outcomes under 10 visual/temporal sensing degradations across 50 tasks. That BLOCKS generic 'first causal link between sensory errors and action decisions' and substantially duplicates the earlier pilot. Geometry-specific reconstructed-object errors (shape, depth, scale) might still differ from its low-light/blur/occlusion/history disturbances. RGraph-Eval (Oct 22 2026) already tests reference-conditioned robot-action, relation and 3D path consistency. Distinct publication novelty remains UNPROVEN.",
       "pilot": "First reproduce/inspect the reported frozen-candidate planner preference analysis in Beyond Task Success: arxiv 2609.07126. Only if replicable and geometric distortions are demonstrably absent: compare geometry/shape/depth edits (with unchanged true scene and action candidate pool) against photometric/occlusion controls of matched image change, stratifying by true action-cost margin and clearance; measure ground-truth regret, ranking changes and downstream success. A tiny 2D CPU scene can verify test logic only; a robotic/3D conclusion needs unseen real simulation scenes and existing pretrained world-model planner. No runs executed.",
@@ -1192,6 +1204,10 @@
         {
           "title": "RGraph-Eval (Oct 22 2026)",
           "url": "https://arxiv.org/abs/2610.31121"
+        },
+        {
+          "title": "GenVid2Robot: From Video Generation to Robot Manipulation via Rigid-Geometric Consistency (July 2026 preprint)",
+          "url": "https://arxiv.org/abs/2607.09191"
         }
       ]
     },
@@ -1264,11 +1280,11 @@
         "MLSys"
       ],
       "cost": "medium",
-      "stage": "hypothesis only",
+      "stage": "NOVELTY NARROWED; no runs: 2026 preprint Identical Runs, Different Results already reports hundreds of repeated agent trials. Generic agent-run stochasticity is not a new finding; restrict to network placement/contention causality with frozen workloads, paired intervention and matched seed/host controls.",
       "question": "How often do agent-driven optimization claims vanish under controlled placement, contention and seed variance?",
-      "novelty": "A benchmark alone needs a novel reproducibility protocol or generalizable systems finding.",
-      "pilot": "Run small synthetic services with controlled load and resource contention; measure throughput, latency and variance before/after each agent change.",
-      "stop": "If differences are explainable by noise, don't claim an optimization.",
+      "novelty": "A benchmark alone needs a novel reproducibility protocol or generalizable systems finding. NEW: Identical Runs, Different Results (arXiv:2609.33812; acceptance unverified) tests extensive repeated agent-run variance. An NSDI/SIGCOMM-suitable contribution would require specifically network/placement-induced effects that survive paired baselines, not mere seed variability.",
+      "pilot": "Start with read-only harness audit and a tiny CPU-only synthetic service. Then compare one frozen optimization intervention across matched 3+ hosts and 5+ paired seeds, fixed CPU affinity and frozen load traces; randomize before/after order, measure p50/p95/p99 latency, throughput and repeat variance, and report all hardware/network confounders and deployment cost.",
+      "stop": "Stop standalone system claim if the effect is within run-to-run variability or disappears after paired seed/host/load controls, or if reproduced literature already explains the mechanism.",
       "source": "https://www.usenix.org/conference/nsdi27/call-for-papers"
     },
     {
@@ -1650,6 +1666,30 @@
       "kind": "Controlled multilingual company ER preprint; acceptance unverified",
       "note": "Shows higher candidate recall may not improve downstream company clusters under a fixed matcher, with silver labels. End-to-end matching and clustering outcomes are necessary controls for candidate-budget work.",
       "url": "https://arxiv.org/abs/2610.05573"
+    },
+    {
+      "title": "Alper: Adaptive Graph Refinement and Label Propagation with LLMs for Cost-Effective Entity Resolution (KDD 2026)",
+      "kind": "Peer-reviewed ACM KDD 2026 accepted paper + public code",
+      "note": "Published adaptive dirty-ER algorithm combines budgeted expensive pair verifications, evolving graph refinement and label propagation; prevents broad first-claim for adaptive budgeted ER. Distinguish fixed retrieval-candidate cost from LLM verification cost and compare faithfully.",
+      "url": "https://doi.org/10.1145/3770855.3817856"
+    },
+    {
+      "title": "RIDGE: Region-Informed Derivative-Guided Evidence Selection for Long Video Understanding (Findings EMNLP 2026)",
+      "kind": "Accepted peer-reviewed NLP/video retrieval paper",
+      "note": "Already selects event cores, transitions and context from curvature of frame-query similarity curves at fixed visual budgets without new model training. CC-06 must test the incremental effect of generic event boundaries versus this strong query-aware control.",
+      "url": "https://aclanthology.org/2026.findings-emnlp.1813/"
+    },
+    {
+      "title": "GenVid2Robot (July 2026)",
+      "kind": "Robotics/video preprint; acceptance unverified",
+      "note": "Rigid SE(3) consistency and feasibility testing of generated video trajectories for robot manipulation already studied; mere geometry feasibility gating is not a first claim.",
+      "url": "https://arxiv.org/abs/2607.09191"
+    },
+    {
+      "title": "Identical Runs, Different Results (September 2026)",
+      "kind": "Agent reproducibility preprint; acceptance unverified",
+      "note": "Reports substantial variability over hundreds of identical coding-agent runs. Generic seed-variance observations overlap existing work; CC-13 needs a systems-specific placement/contention mechanism with paired controls.",
+      "url": "https://arxiv.org/abs/2609.33812"
     }
   ],
   "closed": [
