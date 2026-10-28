@@ -113,6 +113,21 @@
         "priority": "P1",
         "name": "ICML 2027 and NeurIPS 2027 main CFP",
         "state": "2027 track-specific deadlines not verified; TBA routes retained"
+      },
+      {
+        "priority": "P0",
+        "name": "NAACL 2027 Student Research Workshop",
+        "state": "Now verified official 16 Nov mentorship and 11 Jan student-paper dates"
+      },
+      {
+        "priority": "P0",
+        "name": "EACL 2027 Student Research Workshop and System Demos",
+        "state": "Separate official student mentorship and workshop-paper dates; demos already expired but retained"
+      },
+      {
+        "priority": "P0",
+        "name": "EACL 2027 accepted named workshops",
+        "state": "Official program lists 14 workshops; named TBA rows and individually verified LoResLM 7 Jan paper submission"
       }
     ],
     "sources": [
@@ -122,7 +137,11 @@
       "https://cspicks.roars.dev/csconfs.html?start=2026&end=2027",
       "https://2027.naacl.org/calls/industry_track/",
       "https://www.aclweb.org/portal/content/joint-call-workshops-proposals-2027",
-      "https://miccai.org/upcoming-conferences/"
+      "https://miccai.org/upcoming-conferences/",
+      "https://2027.eacl.org/program/workshops/",
+      "https://2027.naacl.org/calls/srw/",
+      "https://2027.eacl.org/calls/srw/",
+      "https://loreslm.github.io/"
     ],
     "caution": "Coverage denominator is known organizer-source records and selected audit gaps, NOT every conference or workshop worldwide. Manual abstract submissions cannot be inferred.",
     "officialConflicts": [
@@ -140,7 +159,9 @@
     ],
     "notes": [
       "Added a separate MIDL short-paper TBA row; unchanged 2027 main MIDL date official.",
-      "MLSys official conflicting paper submission hours flagged, not silently harmonized."
+      "MLSys official conflicting paper submission hours flagged, not silently harmonized.",
+      "Organizer-specific LoResLM EACL workshop Jan 7 2027 supersedes tentative generic Dec 15 joint date.",
+      "EACL 2027 SRW organizer has an anomalous December 2027 ARR commitment listing after the March event; excluded as unverified."
     ]
   },
   "opportunities": [
@@ -329,12 +350,41 @@
       "track": "Student Research Workshop",
       "category": "NLP / language / agents",
       "kind": "workshop-paper",
-      "source": "https://2027.naacl.org/",
+      "source": "https://2027.naacl.org/calls/srw/",
       "discover": "Official organizer CFP",
-      "academicEligibility": "?",
-      "prereg": "unknown",
-      "notes": "Separate CFP/submission time not yet independently verified. Student status is not equivalent to main-conference paper eligibility.",
-      "stages": [],
+      "academicEligibility": "✓",
+      "prereg": "none-listed",
+      "notes": "Student-first-author requirement; paper or thesis proposal; archival and non-archival options. Optional mentorship does NOT gate Jan 11 paper. Official SRW says no ARR commitment route.",
+      "stages": [
+        {
+          "kind": "registration",
+          "date": "2026-11-16",
+          "label": "Optional pre-submission mentorship request",
+          "verification": "official",
+          "at": "2026-11-16T23:59:00-12:00",
+          "cutoff": "23:59 AoE; optional"
+        },
+        {
+          "kind": "workshop-paper",
+          "date": "2027-01-11",
+          "label": "SRW paper + proof of student status",
+          "verification": "official",
+          "at": "2027-01-11T23:59:00-12:00",
+          "cutoff": "23:59 AoE"
+        },
+        {
+          "kind": "notification",
+          "date": "2027-03-08",
+          "label": "Decision",
+          "verification": "official"
+        },
+        {
+          "kind": "camera-ready",
+          "date": "2027-03-15",
+          "label": "Camera-ready",
+          "verification": "official"
+        }
+      ],
       "coreRankHint": "A",
       "coreRankSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/naacl.yml"
     },
@@ -635,7 +685,7 @@
       "discover": "Official organizer CFP",
       "academicEligibility": "?",
       "prereg": "check-workshop",
-      "notes": "Workshop ORGANIZER proposal closed 9 Oct 2026; individual accepted workshops and paper submission CFPs require separate verification.",
+      "notes": "Workshop ORGANIZER proposal closed 9 Oct 2026; individual accepted workshops and paper submission CFPs require separate verification. Organizer workshop guidance suggests 1 Feb 2027 for contributor submissions; this is NOT a binding individual workshop deadline, so it remains TBA.",
       "stages": [
         {
           "kind": "workshop-proposal",
@@ -2998,6 +3048,309 @@
       "academicEligibility": "?",
       "prereg": "unknown",
       "notes": "2027 CFP stage dates not verified as of the audit. Do not infer from 2026.",
+      "stages": []
+    },
+    {
+      "id": "eacl27-srw",
+      "venue": "EACL 2027",
+      "year": 2027,
+      "track": "Student Research Workshop — research/thesis",
+      "category": "NLP / language / agents",
+      "kind": "workshop-paper",
+      "source": "https://2027.eacl.org/calls/srw/",
+      "discover": "Official 2027 organizer CFP",
+      "academicEligibility": "✓",
+      "prereg": "none-listed",
+      "notes": "First author must be student. Pre-submission mentorship is OPTIONAL; December paper accepted without participation. CFP appears to contain inconsistent 22 Dec 2027 ARR commitment date (after the event); do not use it without correction.",
+      "stages": [
+        {
+          "kind": "registration",
+          "date": "2026-11-06",
+          "label": "Optional mentorship draft",
+          "verification": "official",
+          "at": "2026-11-06T23:59:00-12:00",
+          "cutoff": "23:59 AoE; optional"
+        },
+        {
+          "kind": "workshop-paper",
+          "date": "2026-12-15",
+          "label": "Direct student workshop paper",
+          "verification": "official",
+          "at": "2026-12-15T23:59:00-12:00",
+          "cutoff": "23:59 AoE"
+        },
+        {
+          "kind": "notification",
+          "date": "2027-01-05",
+          "label": "Decision",
+          "verification": "official"
+        },
+        {
+          "kind": "camera-ready",
+          "date": "2027-01-19",
+          "label": "Camera-ready",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "eacl27-demo",
+      "venue": "EACL 2027",
+      "year": 2027,
+      "track": "System Demonstrations (closed)",
+      "category": "NLP / language / agents",
+      "kind": "demo",
+      "source": "https://2027.eacl.org/calls/demos/",
+      "discover": "Official 2027 organizer CFP",
+      "academicEligibility": "✓",
+      "prereg": "none-listed",
+      "notes": "Archival six-page demo paper plus ≤2.5-minute video and a live site/installable package; submission ended 23 Sep 2026. At least one author must register/present if accepted.",
+      "stages": [
+        {
+          "kind": "demo",
+          "date": "2026-09-23",
+          "label": "System demo paper + video + live system",
+          "verification": "official",
+          "at": "2026-09-23T23:59:00-12:00",
+          "cutoff": "23:59 AoE"
+        },
+        {
+          "kind": "notification",
+          "date": "2026-12-18",
+          "label": "Acceptance decision",
+          "verification": "official"
+        },
+        {
+          "kind": "camera-ready",
+          "date": "2027-01-06",
+          "label": "Camera-ready",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "eacl27-loreslm",
+      "venue": "EACL 2027 — LoResLM",
+      "year": 2027,
+      "track": "3rd Workshop on Language Models for Low-Resource Languages",
+      "category": "NLP / language / agents",
+      "kind": "workshop-paper",
+      "source": "https://loreslm.github.io/",
+      "discover": "Official 2027 organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "none-listed",
+      "notes": "Specific workshop's own CFP overrides tentative joint EACL 15 Dec schedule. Direct papers and ARR commitments both 7 Jan 2027 (subject to change).",
+      "stages": [
+        {
+          "kind": "workshop-paper",
+          "date": "2027-01-07",
+          "label": "Direct paper submission",
+          "verification": "official",
+          "at": "2027-01-07T23:59:00-12:00",
+          "cutoff": "23:59 AoE"
+        },
+        {
+          "kind": "arr-commitment",
+          "date": "2027-01-07",
+          "label": "Reviewed ARR commitment",
+          "verification": "official",
+          "at": "2027-01-07T23:59:00-12:00",
+          "cutoff": "23:59 AoE"
+        },
+        {
+          "kind": "notification",
+          "date": "2027-01-28",
+          "label": "Decision",
+          "verification": "official"
+        },
+        {
+          "kind": "camera-ready",
+          "date": "2027-02-04",
+          "label": "Camera-ready",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "eacl27-workshop-africanlp",
+      "venue": "EACL 2027",
+      "year": 2027,
+      "track": "8th Workshop on African Natural Language Processing (AfricaNLP)",
+      "category": "NLP / language / agents",
+      "kind": "workshop-paper",
+      "source": "https://2027.eacl.org/program/workshops/",
+      "discover": "Official 2027 organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "check-workshop",
+      "notes": "ACCEPTED workshop listed on official EACL 2027 website. Its individual CFP and final submission date have NOT yet been verified; tentative joint 15 Dec 2026 schedule is not an authoritative individual deadline.",
+      "stages": []
+    },
+    {
+      "id": "eacl27-workshop-silkroad",
+      "venue": "EACL 2027",
+      "year": 2027,
+      "track": "SilkRoadNLP 2027: Advancing NLP for the Iranian Language Family",
+      "category": "NLP / language / agents",
+      "kind": "workshop-paper",
+      "source": "https://2027.eacl.org/program/workshops/",
+      "discover": "Official 2027 organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "check-workshop",
+      "notes": "ACCEPTED workshop listed on official EACL 2027 website. Its individual CFP and final submission date have NOT yet been verified; tentative joint 15 Dec 2026 schedule is not an authoritative individual deadline.",
+      "stages": []
+    },
+    {
+      "id": "eacl27-workshop-oracle",
+      "venue": "EACL 2027",
+      "year": 2027,
+      "track": "ORACLE: Second Workshop on Open Reasoning Across Cultures & Languages",
+      "category": "NLP / language / agents",
+      "kind": "workshop-paper",
+      "source": "https://2027.eacl.org/program/workshops/",
+      "discover": "Official 2027 organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "check-workshop",
+      "notes": "ACCEPTED workshop listed on official EACL 2027 website. Its individual CFP and final submission date have NOT yet been verified; tentative joint 15 Dec 2026 schedule is not an authoritative individual deadline.",
+      "stages": []
+    },
+    {
+      "id": "eacl27-workshop-chomps",
+      "venue": "EACL 2027",
+      "year": 2027,
+      "track": "CHOMPS: Multilingual Hallucinations and Precision-demanding Scenarios",
+      "category": "NLP / language / agents",
+      "kind": "workshop-paper",
+      "source": "https://2027.eacl.org/program/workshops/",
+      "discover": "Official 2027 organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "check-workshop",
+      "notes": "ACCEPTED workshop listed on official EACL 2027 website. Its individual CFP and final submission date have NOT yet been verified; tentative joint 15 Dec 2026 schedule is not an authoritative individual deadline.",
+      "stages": []
+    },
+    {
+      "id": "eacl27-workshop-field-matters",
+      "venue": "EACL 2027",
+      "year": 2027,
+      "track": "Field Matters: NLP Applications to Field Linguistics",
+      "category": "NLP / language / agents",
+      "kind": "workshop-paper",
+      "source": "https://2027.eacl.org/program/workshops/",
+      "discover": "Official 2027 organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "check-workshop",
+      "notes": "ACCEPTED workshop listed on official EACL 2027 website. Its individual CFP and final submission date have NOT yet been verified; tentative joint 15 Dec 2026 schedule is not an authoritative individual deadline.",
+      "stages": []
+    },
+    {
+      "id": "eacl27-workshop-linda",
+      "venue": "EACL 2027",
+      "year": 2027,
+      "track": "LInDA: Linguistic Information for Downstream Applications",
+      "category": "NLP / language / agents",
+      "kind": "workshop-paper",
+      "source": "https://2027.eacl.org/program/workshops/",
+      "discover": "Official 2027 organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "check-workshop",
+      "notes": "ACCEPTED workshop listed on official EACL 2027 website. Its individual CFP and final submission date have NOT yet been verified; tentative joint 15 Dec 2026 schedule is not an authoritative individual deadline.",
+      "stages": []
+    },
+    {
+      "id": "eacl27-workshop-argmining",
+      "venue": "EACL 2027",
+      "year": 2027,
+      "track": "ArgMining 2027: Argument Mining and Reasoning",
+      "category": "NLP / language / agents",
+      "kind": "workshop-paper",
+      "source": "https://2027.eacl.org/program/workshops/",
+      "discover": "Official 2027 organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "check-workshop",
+      "notes": "ACCEPTED workshop listed on official EACL 2027 website. Its individual CFP and final submission date have NOT yet been verified; tentative joint 15 Dec 2026 schedule is not an authoritative individual deadline.",
+      "stages": []
+    },
+    {
+      "id": "eacl27-workshop-mwe",
+      "venue": "EACL 2027",
+      "year": 2027,
+      "track": "23rd Workshop on Multiword Expressions",
+      "category": "NLP / language / agents",
+      "kind": "workshop-paper",
+      "source": "https://2027.eacl.org/program/workshops/",
+      "discover": "Official 2027 organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "check-workshop",
+      "notes": "ACCEPTED workshop listed on official EACL 2027 website. Its individual CFP and final submission date have NOT yet been verified; tentative joint 15 Dec 2026 schedule is not an authoritative individual deadline.",
+      "stages": []
+    },
+    {
+      "id": "eacl27-workshop-vardial",
+      "venue": "EACL 2027",
+      "year": 2027,
+      "track": "VarDial 2027: Similar Languages, Varieties and Dialects",
+      "category": "NLP / language / agents",
+      "kind": "workshop-paper",
+      "source": "https://2027.eacl.org/program/workshops/",
+      "discover": "Official 2027 organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "check-workshop",
+      "notes": "ACCEPTED workshop listed on official EACL 2027 website. Its individual CFP and final submission date have NOT yet been verified; tentative joint 15 Dec 2026 schedule is not an authoritative individual deadline.",
+      "stages": []
+    },
+    {
+      "id": "eacl27-workshop-multidems",
+      "venue": "EACL 2027",
+      "year": 2027,
+      "track": "MultiDems: NLP for Democracies",
+      "category": "NLP / language / agents",
+      "kind": "workshop-paper",
+      "source": "https://2027.eacl.org/program/workshops/",
+      "discover": "Official 2027 organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "check-workshop",
+      "notes": "ACCEPTED workshop listed on official EACL 2027 website. Its individual CFP and final submission date have NOT yet been verified; tentative joint 15 Dec 2026 schedule is not an authoritative individual deadline.",
+      "stages": []
+    },
+    {
+      "id": "eacl27-workshop-slavicnlp",
+      "venue": "EACL 2027",
+      "year": 2027,
+      "track": "Slavic NLP 2027",
+      "category": "NLP / language / agents",
+      "kind": "workshop-paper",
+      "source": "https://2027.eacl.org/program/workshops/",
+      "discover": "Official 2027 organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "check-workshop",
+      "notes": "ACCEPTED workshop listed on official EACL 2027 website. Its individual CFP and final submission date have NOT yet been verified; tentative joint 15 Dec 2026 schedule is not an authoritative individual deadline.",
+      "stages": []
+    },
+    {
+      "id": "eacl27-workshop-sighum",
+      "venue": "EACL 2027",
+      "year": 2027,
+      "track": "SIGHUM (LaTeCH-CLfL): Cultural Heritage and Social Sciences NLP",
+      "category": "NLP / language / agents",
+      "kind": "workshop-paper",
+      "source": "https://2027.eacl.org/program/workshops/",
+      "discover": "Official 2027 organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "check-workshop",
+      "notes": "ACCEPTED workshop listed on official EACL 2027 website. Its individual CFP and final submission date have NOT yet been verified; tentative joint 15 Dec 2026 schedule is not an authoritative individual deadline.",
+      "stages": []
+    },
+    {
+      "id": "eacl27-workshop-framenet",
+      "venue": "EACL 2027",
+      "year": 2027,
+      "track": "International FrameNet Workshop 2027 (held at a separate venue)",
+      "category": "NLP / language / agents",
+      "kind": "workshop-paper",
+      "source": "https://2027.eacl.org/program/workshops/",
+      "discover": "Official 2027 organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "check-workshop",
+      "notes": "ACCEPTED workshop listed on official EACL 2027 website. Its individual CFP and final submission date have NOT yet been verified; tentative joint 15 Dec 2026 schedule is not an authoritative individual deadline.",
       "stages": []
     }
   ]
