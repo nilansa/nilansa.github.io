@@ -1,0 +1,2900 @@
+{
+  "schemaVersion": 2,
+  "taskId": "cs-confs-deadline-tracker-repair-20261028-001",
+  "checkedAt": "2026-10-28",
+  "publicSafe": true,
+  "sourcePolicy": "Official 2026/2027 CFPs control. Tentative joint workshop timelines are not final individual workshop CFPs. HF/CCFDDL/CS-deadlines/CSPicks are discovery only.",
+  "statusPolicy": "No personal statuses in public repository. Browser decisions are device-local; copy them to a PRIVATE GitHub decision inbox for durable authenticated persistence.",
+  "legacyDataSha": "6cb5b6009c0ff93ac1e20a89035726306086e08e",
+  "coverageAudit": {
+    "checkedAt": "2026-10-28",
+    "stableTaskId": "cs-confs-deadline-tracker-repair-20261028-001",
+    "before": {
+      "datedActions": 109,
+      "industryEligibilityRecords": 18,
+      "subjectGroups": 12,
+      "hfDefinitions": 68,
+      "hfTotal": 68
+    },
+    "presentBefore": [
+      "NAACL 2027 Industry Track (31 Oct 2026): ✓ academic author eligibility in existing industryTracks",
+      "NAACL 2027 System Demonstrations (4 Dec 2026): dated action existed",
+      "ACL 2027 main ARR (4 Jan 2027): dated action existed",
+      "COLING 2027 Industry Track (30 Nov 2026): dated action and student eligibility existed",
+      "EACL 2027 Industry Track (11 Sep 2026, expired): eligibility catalogue existed",
+      "MLSys 2027 research and Industrial Track: research deadline and separate industrial-eligibility record existed",
+      "MICCAI venue and computational-biology/speech subject catalogues existed, but not 2027 track-specific MICCAI deadlines",
+      "FAccT 2027 and RECOMB 2027 mandatory abstracts and papers: separate dates existed but without a unified gate UI",
+      "Interspeech 2027 speech main, challenge proposals, special sessions and Show & Tell were dated actions",
+      "CVPR 2027 and RSS 2027 staged paper deadlines existed"
+    ],
+    "missingOrIncompleteBefore": [
+      {
+        "priority": "P0",
+        "name": "ACL 2027 Industry Track",
+        "state": "TBA (official 2027 track CFP not verified)"
+      },
+      {
+        "priority": "P0",
+        "name": "EMNLP 2027 Industry / Research / Demonstrations",
+        "state": "TBA (2027 track-specific CFP not verified)"
+      },
+      {
+        "priority": "P0",
+        "name": "NAACL 2027 Main ARR / Findings and commitment as one gated route",
+        "state": "missing distinct route (industry/demo previously present)"
+      },
+      {
+        "priority": "P0",
+        "name": "EACL 2027 contributed workshop papers",
+        "state": "tentative joint schedule only"
+      },
+      {
+        "priority": "P0",
+        "name": "COLING 2027 contributed workshop papers",
+        "state": "tentative joint schedule only"
+      },
+      {
+        "priority": "P0",
+        "name": "NAACL 2027 contributed workshop papers",
+        "state": "tentative joint schedule only"
+      },
+      {
+        "priority": "P0",
+        "name": "ACL 2027 contributed workshop papers",
+        "state": "tentative joint schedule only"
+      },
+      {
+        "priority": "P0",
+        "name": "MICCAI 2027 main research and workshops",
+        "state": "official paper date TBA"
+      },
+      {
+        "priority": "P1",
+        "name": "ICLR 2027 individual workshops (not organizer proposals)",
+        "state": "not independently announced"
+      },
+      {
+        "priority": "P1",
+        "name": "NeurIPS 2027 individual workshops",
+        "state": "not independently announced"
+      },
+      {
+        "priority": "P1",
+        "name": "RSS 2027 individual workshops",
+        "state": "not independently announced"
+      },
+      {
+        "priority": "P1",
+        "name": "NAACL 2027 Student Research Workshop",
+        "state": "individual CFP/deadline unverified"
+      },
+      {
+        "priority": "P1",
+        "name": "ACL 2027 systems demos",
+        "state": "individual CFP/deadline unverified"
+      },
+      {
+        "priority": "P1",
+        "name": "Interdisciplinary pretraining / mechanistic interpretability / AI safety / agents / memory / speech / medical / neuro / biology workshop CFPs",
+        "state": "specific names and calls require verified discovery"
+      },
+      {
+        "priority": "P0",
+        "name": "Unified stage, mandatory abstract gate, archive, personal decision UI",
+        "state": "missing from prior flat dated-action table"
+      }
+    ],
+    "sources": [
+      "https://github.com/huggingface/ai-deadlines",
+      "https://ccfddl.com/",
+      "https://cs-deadlines.cin.ufpe.br/",
+      "https://cspicks.roars.dev/csconfs.html?start=2026&end=2027",
+      "https://2027.naacl.org/calls/industry_track/",
+      "https://www.aclweb.org/portal/content/joint-call-workshops-proposals-2027",
+      "https://miccai.org/upcoming-conferences/"
+    ],
+    "caution": "Coverage denominator is known organizer-source records and selected audit gaps, NOT every conference or workshop worldwide. Manual abstract submissions cannot be inferred."
+  },
+  "opportunities": [
+    {
+      "id": "naacl27-industry",
+      "venue": "NAACL 2027",
+      "year": 2027,
+      "track": "Industry Track",
+      "category": "NLP / language / agents",
+      "kind": "industry",
+      "source": "https://2027.naacl.org/calls/industry_track/",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "✓",
+      "prereg": "none-listed",
+      "notes": "Six pages; deployed or credibly real-world NLP/speech system; academic-only teams explicitly eligible; direct OpenReview, not ARR.",
+      "stages": [
+        {
+          "kind": "paper",
+          "date": "2026-10-31",
+          "label": "Industry paper",
+          "verification": "official",
+          "at": "2026-10-31T23:59:00-12:00",
+          "cutoff": "23:59 AoE"
+        },
+        {
+          "kind": "notification",
+          "date": "2027-02-24",
+          "label": "Decision",
+          "verification": "official"
+        },
+        {
+          "kind": "camera-ready",
+          "date": null,
+          "label": "Camera-ready deadline (TBA)",
+          "verification": "TBA"
+        }
+      ],
+      "coreRankHint": "A",
+      "coreRankSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/naacl.yml"
+    },
+    {
+      "id": "naacl27-main",
+      "venue": "NAACL 2027",
+      "year": 2027,
+      "track": "Main research — long/short and Findings consideration",
+      "category": "NLP / language / agents",
+      "kind": "research",
+      "source": "https://2027.naacl.org/calls/main_conference_papers/",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "✓",
+      "prereg": "arr-required",
+      "notes": "Must already have eligible ARR reviews/meta-review from October 2026 or earlier; Findings is automatic consideration, NOT a separate submission.",
+      "stages": [
+        {
+          "kind": "arr-paper",
+          "date": "2026-10-12",
+          "label": "ARR paper / reviewer registration",
+          "verification": "official",
+          "at": "2026-10-12T23:59:00-12:00",
+          "cutoff": "23:59 AoE"
+        },
+        {
+          "kind": "commitment",
+          "date": "2026-12-23",
+          "label": "Conference commitment (requires eligible ARR reviews)",
+          "verification": "official",
+          "at": "2026-12-23T23:59:00-12:00",
+          "cutoff": "23:59 AoE",
+          "requires": "arr"
+        },
+        {
+          "kind": "notification",
+          "date": "2027-02-10",
+          "label": "Acceptance decision",
+          "verification": "official"
+        },
+        {
+          "kind": "camera-ready",
+          "date": "2027-03-03",
+          "label": "Camera-ready",
+          "verification": "official",
+          "at": "2027-03-03T23:59:00-12:00"
+        }
+      ],
+      "coreRankHint": "A",
+      "coreRankSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/naacl.yml"
+    },
+    {
+      "id": "naacl27-demo",
+      "venue": "NAACL 2027",
+      "year": 2027,
+      "track": "System Demonstrations",
+      "category": "NLP / language / agents",
+      "kind": "demo",
+      "source": "https://2027.naacl.org/calls/system_demonstration/",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "✓",
+      "prereg": "none-listed",
+      "notes": "",
+      "stages": [
+        {
+          "kind": "portal-open",
+          "date": "2026-11-01",
+          "label": "Portal opens",
+          "verification": "official"
+        },
+        {
+          "kind": "demo",
+          "date": "2026-12-04",
+          "label": "System demo paper",
+          "verification": "official",
+          "at": "2026-12-04T23:59:00-12:00",
+          "cutoff": "23:59 AoE"
+        },
+        {
+          "kind": "notification",
+          "date": "2027-02-10",
+          "label": "Acceptance decision",
+          "verification": "official"
+        },
+        {
+          "kind": "camera-ready",
+          "date": "2027-03-03",
+          "label": "Camera-ready",
+          "verification": "official",
+          "at": "2027-03-03T23:59:00-12:00"
+        }
+      ],
+      "coreRankHint": "A",
+      "coreRankSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/naacl.yml"
+    },
+    {
+      "id": "naacl27-workshop-papers",
+      "venue": "NAACL 2027",
+      "year": 2027,
+      "track": "Workshop contributed papers (joint schedule)",
+      "category": "NLP / language / agents",
+      "kind": "workshop-paper",
+      "source": "https://2027.naacl.org/calls/workshops/",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "check-workshop",
+      "notes": "Joint ACL 2027 workshop schedule is TENTATIVE; specific workshops may set different dates and acceptance rules; workshop organizer proposal deadline 4 Sep 2026 is closed.",
+      "stages": [
+        {
+          "kind": "workshop-proposal",
+          "date": "2026-09-04",
+          "label": "Organizer proposal deadline (past)",
+          "verification": "official",
+          "at": "2026-09-04T23:59:00-12:00"
+        },
+        {
+          "kind": "workshop-paper",
+          "date": "2027-02-05",
+          "label": "Tentative direct workshop-paper submission",
+          "verification": "tentative",
+          "at": "2027-02-05T23:59:00-12:00",
+          "cutoff": "tentative 23:59 AoE"
+        },
+        {
+          "kind": "arr-commitment",
+          "date": "2027-03-12",
+          "label": "Tentative reviewed ARR commitment",
+          "verification": "tentative"
+        },
+        {
+          "kind": "notification",
+          "date": "2027-03-26",
+          "label": "Tentative workshop decision",
+          "verification": "tentative"
+        },
+        {
+          "kind": "camera-ready",
+          "date": "2027-04-16",
+          "label": "Tentative camera-ready",
+          "verification": "tentative"
+        }
+      ],
+      "coreRankHint": "A",
+      "coreRankSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/naacl.yml"
+    },
+    {
+      "id": "naacl27-student-workshop",
+      "venue": "NAACL 2027",
+      "year": 2027,
+      "track": "Student Research Workshop",
+      "category": "NLP / language / agents",
+      "kind": "workshop-paper",
+      "source": "https://2027.naacl.org/",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "notes": "Separate CFP/submission time not yet independently verified. Student status is not equivalent to main-conference paper eligibility.",
+      "stages": [],
+      "coreRankHint": "A",
+      "coreRankSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/naacl.yml"
+    },
+    {
+      "id": "acl27-main",
+      "venue": "ACL 2027",
+      "year": 2027,
+      "track": "Main research — long/short; Findings consideration",
+      "category": "NLP / language / agents",
+      "kind": "research",
+      "source": "https://2027.aclweb.org/calls/main/",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "✓",
+      "prereg": "arr-required",
+      "notes": "ARR January-cycle submission is the latest route; eligible earlier ARR reviews may also be committed to ACL. Findings is automatic consideration, not an independent call.",
+      "stages": [
+        {
+          "kind": "arr-paper",
+          "date": "2027-01-04",
+          "label": "Latest ARR paper submission",
+          "verification": "official",
+          "at": "2027-01-04T23:59:00-12:00",
+          "cutoff": "23:59 AoE"
+        },
+        {
+          "kind": "commitment",
+          "date": null,
+          "label": "ACL commitment (TBA)",
+          "verification": "TBA"
+        }
+      ],
+      "coreRankHint": "A*",
+      "coreRankSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/acl.yml"
+    },
+    {
+      "id": "acl27-industry",
+      "venue": "ACL 2027",
+      "year": 2027,
+      "track": "Industry Track",
+      "category": "NLP / language / agents",
+      "kind": "industry",
+      "source": "https://2027.aclweb.org/",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "notes": "2027 industry CFP and eligibility rules not verified as announced; do not reuse ACL 2026 industry dates or assume a company coauthor is required.",
+      "stages": [],
+      "coreRankHint": "A*",
+      "coreRankSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/acl.yml"
+    },
+    {
+      "id": "acl27-demo",
+      "venue": "ACL 2027",
+      "year": 2027,
+      "track": "System Demonstrations",
+      "category": "NLP / language / agents",
+      "kind": "demo",
+      "source": "https://2027.aclweb.org/",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "notes": "2027 track-specific CFP/deadline not yet verified.",
+      "stages": [],
+      "coreRankHint": "A*",
+      "coreRankSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/acl.yml"
+    },
+    {
+      "id": "acl27-workshop-papers",
+      "venue": "ACL 2027",
+      "year": 2027,
+      "track": "Workshop contributed papers (joint schedule)",
+      "category": "NLP / language / agents",
+      "kind": "workshop-paper",
+      "source": "https://www.aclweb.org/portal/content/joint-call-workshops-proposals-2027",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "check-workshop",
+      "notes": "Tentative 2027 joint ACL workshop schedule; specific workshop CFP prevails. Workshop dates differ on some organizer pages; confirm.",
+      "stages": [
+        {
+          "kind": "workshop-proposal",
+          "date": "2026-09-04",
+          "label": "Joint organizer proposal deadline (past)",
+          "verification": "official",
+          "at": "2026-09-04T23:59:00-12:00"
+        },
+        {
+          "kind": "workshop-paper",
+          "date": "2027-04-25",
+          "label": "Tentative direct workshop-paper submission",
+          "verification": "tentative",
+          "at": "2027-04-25T23:59:00-12:00",
+          "cutoff": "tentative 23:59 AoE"
+        },
+        {
+          "kind": "notification",
+          "date": "2027-05-22",
+          "label": "Tentative decision",
+          "verification": "tentative"
+        }
+      ],
+      "coreRankHint": "A*",
+      "coreRankSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/acl.yml"
+    },
+    {
+      "id": "emnlp27-main",
+      "venue": "EMNLP 2027",
+      "year": 2027,
+      "track": "Main / Findings",
+      "category": "NLP / language / agents",
+      "kind": "research",
+      "source": "https://www.aclweb.org/portal/",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "notes": "2027 main CFP/deadline unverified; Findings typically follows reviewed main submissions, not an independent deadline; verify 2027 rules.",
+      "stages": [],
+      "coreRankHint": "A*",
+      "coreRankSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/emnlp.yml"
+    },
+    {
+      "id": "emnlp27-industry",
+      "venue": "EMNLP 2027",
+      "year": 2027,
+      "track": "Industry Track",
+      "category": "NLP / language / agents",
+      "kind": "industry",
+      "source": "https://www.aclweb.org/portal/",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "notes": "2027 industry CFP not yet verified; 2026 policies and 2026 dates must not be carried forward.",
+      "stages": [],
+      "coreRankHint": "A*",
+      "coreRankSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/emnlp.yml"
+    },
+    {
+      "id": "emnlp27-demo",
+      "venue": "EMNLP 2027",
+      "year": 2027,
+      "track": "System Demonstrations",
+      "category": "NLP / language / agents",
+      "kind": "demo",
+      "source": "https://www.aclweb.org/portal/",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "notes": "2027 demo CFP/deadline TBA.",
+      "stages": [],
+      "coreRankHint": "A*",
+      "coreRankSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/emnlp.yml"
+    },
+    {
+      "id": "emnlp27-workshops",
+      "venue": "EMNLP 2027",
+      "year": 2027,
+      "track": "Workshop contributed papers",
+      "category": "NLP / language / agents",
+      "kind": "workshop-paper",
+      "source": "https://www.aclweb.org/portal/content/joint-call-workshops-proposals-2027",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "notes": "2027 workshop organizer proposals closed 4 Sep 2026. EMNLP contributed-paper dates TBA; do not invent specific workshops.",
+      "stages": [
+        {
+          "kind": "workshop-proposal",
+          "date": "2026-09-04",
+          "label": "Joint workshop organizer proposal (past)",
+          "verification": "official",
+          "at": "2026-09-04T23:59:00-12:00"
+        }
+      ],
+      "coreRankHint": "A*",
+      "coreRankSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/emnlp.yml"
+    },
+    {
+      "id": "eacl27-main",
+      "venue": "EACL 2027",
+      "year": 2027,
+      "track": "Main research — ARR",
+      "category": "NLP / language / agents",
+      "kind": "research",
+      "source": "https://2027.eacl.org/calls/papers/",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "arr-required",
+      "notes": "2027 main ARR Aug 3 2026 already passed; later commitment requires eligible reviewed ARR paper.",
+      "stages": [
+        {
+          "kind": "arr-paper",
+          "date": "2026-08-03",
+          "label": "ARR submission (past)",
+          "verification": "official",
+          "at": "2026-08-03T23:59:00-12:00"
+        }
+      ]
+    },
+    {
+      "id": "eacl27-workshop-papers",
+      "venue": "EACL 2027",
+      "year": 2027,
+      "track": "Workshop contributed papers",
+      "category": "NLP / language / agents",
+      "kind": "workshop-paper",
+      "source": "https://2027.eacl.org/calls/workshops/",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "check-workshop",
+      "notes": "Tentative joint schedule; individual workshops may revise and have independent CFPs.",
+      "stages": [
+        {
+          "kind": "workshop-paper",
+          "date": "2026-12-15",
+          "label": "Tentative direct workshop paper",
+          "verification": "tentative",
+          "at": "2026-12-15T23:59:00-12:00",
+          "cutoff": "tentative 23:59 AoE"
+        },
+        {
+          "kind": "arr-commitment",
+          "date": "2026-12-22",
+          "label": "Tentative ARR commitment",
+          "verification": "tentative"
+        },
+        {
+          "kind": "camera-ready",
+          "date": "2027-01-19",
+          "label": "Tentative camera-ready",
+          "verification": "tentative"
+        }
+      ]
+    },
+    {
+      "id": "coling27-workshop-papers",
+      "venue": "COLING 2027",
+      "year": 2027,
+      "track": "Workshop contributed papers",
+      "category": "NLP / language / agents",
+      "kind": "workshop-paper",
+      "source": "https://2027.eacl.org/calls/workshops/",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "check-workshop",
+      "notes": "Tentative joint schedule; specific workshop CFP prevails.",
+      "stages": [
+        {
+          "kind": "workshop-paper",
+          "date": "2027-01-05",
+          "label": "Tentative direct workshop paper",
+          "verification": "tentative",
+          "at": "2027-01-05T23:59:00-12:00",
+          "cutoff": "tentative 23:59 AoE"
+        },
+        {
+          "kind": "camera-ready",
+          "date": "2027-03-05",
+          "label": "Tentative camera-ready",
+          "verification": "tentative"
+        }
+      ],
+      "coreRankHint": "B",
+      "coreRankSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/coling.yml"
+    },
+    {
+      "id": "coling27-industry",
+      "venue": "COLING 2027",
+      "year": 2027,
+      "track": "Industry Track",
+      "category": "NLP / language / agents",
+      "kind": "industry",
+      "source": "https://2027.coling-iccl.org/calls/industry_track/",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "✓",
+      "prereg": "none-listed",
+      "notes": "2027 official call explicitly permits student and academic-only author teams when real-world evidence is strong.",
+      "stages": [
+        {
+          "kind": "paper",
+          "date": "2026-11-30",
+          "label": "Industry paper",
+          "verification": "official",
+          "at": "2026-11-30T23:59:00-12:00",
+          "cutoff": "23:59 AoE"
+        }
+      ],
+      "coreRankHint": "B",
+      "coreRankSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/coling.yml"
+    },
+    {
+      "id": "iclr27-workshops",
+      "venue": "ICLR 2027",
+      "year": 2027,
+      "track": "Individual workshop contributed papers",
+      "category": "AI / ML / statistics",
+      "kind": "workshop-paper",
+      "source": "https://www.iclr.cc/Conferences/2027/CallForWorkshops",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "check-workshop",
+      "notes": "Workshop ORGANIZER proposal closed 9 Oct 2026; individual accepted workshops and paper submission CFPs require separate verification.",
+      "stages": [
+        {
+          "kind": "workshop-proposal",
+          "date": "2026-10-09",
+          "label": "Organizer workshop proposal (past)",
+          "verification": "official",
+          "at": "2026-10-09T23:59:00-12:00"
+        }
+      ],
+      "coreRankHint": "A*",
+      "coreRankSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/iclr.yml"
+    },
+    {
+      "id": "neurips27-workshops",
+      "venue": "NeurIPS 2027",
+      "year": 2027,
+      "track": "Individual workshop contributed papers",
+      "category": "AI / ML / statistics",
+      "kind": "workshop-paper",
+      "source": "https://neurips.cc/",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "check-workshop",
+      "notes": "No verified 2027 workshop paper deadline or specific CFP as of audit.",
+      "stages": []
+    },
+    {
+      "id": "aistats27-workshop-proposal",
+      "venue": "AISTATS 2027",
+      "year": 2027,
+      "track": "Workshop ORGANIZER proposals",
+      "category": "AI / ML / statistics",
+      "kind": "workshop-proposal",
+      "source": "https://virtual.aistats.org/Conferences/2027/CallForWorkshops",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "notes": "3-page proposal to organize a workshop, NOT an individual paper.",
+      "stages": [
+        {
+          "kind": "workshop-proposal",
+          "date": "2026-10-30",
+          "label": "Organizer proposal",
+          "verification": "official",
+          "at": "2026-10-30T21:59:00Z",
+          "cutoff": "22:59 CET (31 Oct 03:29 IST)"
+        }
+      ],
+      "coreRankHint": "A",
+      "coreRankSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/aistats.yml"
+    },
+    {
+      "id": "cvpr27-main",
+      "venue": "CVPR 2027",
+      "year": 2027,
+      "track": "Main research paper",
+      "category": "Vision / multimodal",
+      "kind": "research",
+      "source": "https://cvpr.thecvf.com/Conferences/2027/Dates",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "✓",
+      "prereg": "mandatory",
+      "notes": "Paper enrollment / author list required before full paper. Treat missing enrollment as a blocker if confirmed missed.",
+      "stages": [
+        {
+          "kind": "abstract",
+          "date": "2026-11-10",
+          "label": "Mandatory paper enrollment / author list",
+          "verification": "official",
+          "at": "2026-11-10T23:59:00-12:00",
+          "cutoff": "23:59 AoE",
+          "mandatory": true
+        },
+        {
+          "kind": "paper",
+          "date": "2026-11-16",
+          "label": "Full paper",
+          "verification": "official",
+          "at": "2026-11-16T23:59:00-12:00",
+          "cutoff": "23:59 AoE",
+          "requires": "abstract"
+        }
+      ],
+      "coreRankHint": "A*",
+      "coreRankSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/cvpr.yml"
+    },
+    {
+      "id": "cvpr27-workshop-organizers",
+      "venue": "CVPR 2027",
+      "year": 2027,
+      "track": "Workshop ORGANIZER proposals",
+      "category": "Vision / multimodal",
+      "kind": "workshop-proposal",
+      "source": "https://cvpr.thecvf.com/Conferences/2027/CallForWorkshops",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "notes": "This is a workshop proposal, not a contributed research paper.",
+      "stages": [
+        {
+          "kind": "workshop-proposal",
+          "date": "2026-11-04",
+          "label": "Organizer proposal",
+          "verification": "official",
+          "at": "2026-11-04T23:59:00-12:00",
+          "cutoff": "23:59 AoE"
+        }
+      ],
+      "coreRankHint": "A*",
+      "coreRankSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/cvpr.yml"
+    },
+    {
+      "id": "cvpr27-workshop-papers",
+      "venue": "CVPR 2027",
+      "year": 2027,
+      "track": "Individual workshop contributed papers",
+      "category": "Vision / multimodal",
+      "kind": "workshop-paper",
+      "source": "https://cvpr.thecvf.com/Conferences/2027/CallForWorkshops",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "check-workshop",
+      "notes": "Accepted workshops publish their own paper CFPs; no aggregate contributed-paper deadline verified.",
+      "stages": [],
+      "coreRankHint": "A*",
+      "coreRankSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/cvpr.yml"
+    },
+    {
+      "id": "cosyne27-workshop-proposals",
+      "venue": "COSYNE 2027",
+      "year": 2027,
+      "track": "Workshop ORGANIZER proposals",
+      "category": "Neuroscience",
+      "kind": "workshop-proposal",
+      "source": "https://www.cosyne.org/workshops-call",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "notes": "Organizer date published; cutoff time/timezone not specified.",
+      "stages": [
+        {
+          "kind": "workshop-proposal",
+          "date": "2026-11-01",
+          "label": "Organizer proposal",
+          "verification": "official",
+          "cutoff": "Organizer cutoff time not specified"
+        }
+      ]
+    },
+    {
+      "id": "miccai27-main",
+      "venue": "MICCAI 2027",
+      "year": 2027,
+      "track": "Main research paper",
+      "category": "Biomedical imaging / health AI",
+      "kind": "research",
+      "source": "https://miccai.org/upcoming-conferences/",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "notes": "MICCAI Society explicitly lists 2027 paper submission as To Be Announced; do not import 2026 dates.",
+      "stages": [],
+      "coreRankHint": "A*",
+      "coreRankSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/miccai.yml"
+    },
+    {
+      "id": "miccai27-workshops",
+      "venue": "MICCAI 2027",
+      "year": 2027,
+      "track": "Workshop papers / challenges",
+      "category": "Biomedical imaging / health AI",
+      "kind": "workshop-paper",
+      "source": "https://miccai.org/upcoming-conferences/",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "check-workshop",
+      "notes": "No verified 2027 individual workshop/challenge paper dates.",
+      "stages": [],
+      "coreRankHint": "A*",
+      "coreRankSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/miccai.yml"
+    },
+    {
+      "id": "midl27-main",
+      "venue": "MIDL 2027",
+      "year": 2027,
+      "track": "Main research / clinical translation",
+      "category": "Biomedical imaging / health AI",
+      "kind": "research",
+      "source": "https://2027.midl.io/",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "mandatory",
+      "notes": "Pre-register abstract before full paper; verify exact cutoff against MIDL official CFP before submission.",
+      "stages": [
+        {
+          "kind": "abstract",
+          "date": "2026-11-30",
+          "label": "Full-paper abstract registration",
+          "verification": "official",
+          "at": "2026-11-30T23:59:00-12:00",
+          "cutoff": "23:59 AoE",
+          "mandatory": true
+        },
+        {
+          "kind": "paper",
+          "date": "2026-12-04",
+          "label": "Full paper",
+          "verification": "official",
+          "at": "2026-12-04T23:59:00-12:00",
+          "cutoff": "23:59 AoE",
+          "requires": "abstract"
+        }
+      ]
+    },
+    {
+      "id": "rss27-main",
+      "venue": "RSS 2027",
+      "year": 2027,
+      "track": "Main research — two-stage paper",
+      "category": "Robotics / embodied AI",
+      "kind": "research",
+      "source": "https://roboticsconference.org/information/cfp/",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "stage1-required",
+      "notes": "First stage extended abstract; full paper only if invited.",
+      "stages": [
+        {
+          "kind": "extended-abstract",
+          "date": "2026-12-04",
+          "label": "Stage 1: six-page extended abstract",
+          "verification": "official",
+          "at": "2026-12-04T23:59:00-12:00",
+          "cutoff": "23:59 AoE",
+          "mandatory": true
+        },
+        {
+          "kind": "paper",
+          "date": "2027-04-16",
+          "label": "Stage 2 final paper (invited authors only)",
+          "verification": "official",
+          "at": "2027-04-16T23:59:00-12:00",
+          "requires": "stage1"
+        }
+      ],
+      "coreRankHint": "A*",
+      "coreRankSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/rss.yml"
+    },
+    {
+      "id": "rss27-workshops",
+      "venue": "RSS 2027",
+      "year": 2027,
+      "track": "Individual workshops",
+      "category": "Robotics / embodied AI",
+      "kind": "workshop-paper",
+      "source": "https://roboticsconference.org/",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "check-workshop",
+      "notes": "Workshop contributed paper CFPs unverified/TBA.",
+      "stages": [],
+      "coreRankHint": "A*",
+      "coreRankSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/rss.yml"
+    },
+    {
+      "id": "interspeech27-main",
+      "venue": "Interspeech 2027",
+      "year": 2027,
+      "track": "Main regular/long research paper",
+      "category": "Speech / audio",
+      "kind": "research",
+      "source": "https://interspeech2027.org/calls/call_for_papers/",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "none-listed",
+      "notes": "Submission portal opens 19 Jan; paper update 16 Feb is not a fresh submission deadline.",
+      "stages": [
+        {
+          "kind": "portal-open",
+          "date": "2027-01-19",
+          "label": "Portal opens",
+          "verification": "official"
+        },
+        {
+          "kind": "paper",
+          "date": "2027-02-09",
+          "label": "Regular or long research paper",
+          "verification": "official",
+          "cutoff": "Check official timezone/cutoff"
+        },
+        {
+          "kind": "paper-update",
+          "date": "2027-02-16",
+          "label": "Paper revision window closes",
+          "verification": "official"
+        },
+        {
+          "kind": "notification",
+          "date": "2027-06-02",
+          "label": "Decision",
+          "verification": "official"
+        },
+        {
+          "kind": "camera-ready",
+          "date": "2027-06-09",
+          "label": "Camera-ready",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "interspeech27-demo",
+      "venue": "Interspeech 2027",
+      "year": 2027,
+      "track": "Show & Tell demonstration",
+      "category": "Speech / audio",
+      "kind": "demo",
+      "source": "https://interspeech2027.org/calls/call_show_and_tell/",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "none-listed",
+      "notes": "Two-page paper PLUS demonstration video, distinct from regular long/short research papers.",
+      "stages": [
+        {
+          "kind": "demo",
+          "date": "2027-03-09",
+          "label": "Two-page paper and ≤5-min video",
+          "verification": "official",
+          "at": "2027-03-09T23:59:00-12:00",
+          "cutoff": "23:59 AoE"
+        },
+        {
+          "kind": "notification",
+          "date": "2027-06-02",
+          "label": "Decision",
+          "verification": "official"
+        },
+        {
+          "kind": "camera-ready",
+          "date": "2027-06-09",
+          "label": "Camera-ready",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "interspeech27-challenge-proposal",
+      "venue": "Interspeech 2027",
+      "year": 2027,
+      "track": "Challenge ORGANIZER proposals",
+      "category": "Speech / audio",
+      "kind": "workshop-proposal",
+      "source": "https://interspeech2027.org/calls/call_for_challenges/",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "notes": "Organize a challenge, NOT submit benchmark research paper; requires organizer, dataset and evaluation plan.",
+      "stages": [
+        {
+          "kind": "workshop-proposal",
+          "date": "2026-11-03",
+          "label": "Challenge organizer proposal",
+          "verification": "official",
+          "cutoff": "Organizer date; hour unverified"
+        },
+        {
+          "kind": "notification",
+          "date": "2026-11-24",
+          "label": "Challenge preselection",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "interspeech27-special-session",
+      "venue": "Interspeech 2027",
+      "year": 2027,
+      "track": "Special-session ORGANIZER proposals",
+      "category": "Speech / audio",
+      "kind": "workshop-proposal",
+      "source": "https://interspeech2027.org/calls/call_for_special_sessions/",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "notes": "Propose and organize a themed session, not submit an ordinary paper.",
+      "stages": [
+        {
+          "kind": "workshop-proposal",
+          "date": "2026-11-10",
+          "label": "Special session proposal",
+          "verification": "official",
+          "cutoff": "Organizer date; hour unverified"
+        }
+      ]
+    },
+    {
+      "id": "facct27-main",
+      "venue": "FAccT 2027",
+      "year": 2027,
+      "track": "Main research paper",
+      "category": "AI / ML / statistics",
+      "kind": "research",
+      "source": "https://facctconference.org/2027/cfp.html",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "mandatory",
+      "notes": "Mandatory abstract 27 Oct AoE = 28 Oct 17:29 IST; full paper cannot be submitted if no abstract was registered.",
+      "stages": [
+        {
+          "kind": "abstract",
+          "date": "2026-10-27",
+          "label": "Mandatory abstract registration",
+          "verification": "official",
+          "at": "2026-10-27T23:59:00-12:00",
+          "cutoff": "23:59 AoE → 28 Oct 17:29 IST",
+          "mandatory": true
+        },
+        {
+          "kind": "paper",
+          "date": "2026-11-03",
+          "label": "Full research paper",
+          "verification": "official",
+          "at": "2026-11-03T23:59:00-12:00",
+          "cutoff": "23:59 AoE",
+          "requires": "abstract"
+        }
+      ]
+    },
+    {
+      "id": "recomb27-main",
+      "venue": "RECOMB 2027",
+      "year": 2027,
+      "track": "Main research paper",
+      "category": "Computational biology / bioinformatics",
+      "kind": "research",
+      "source": "https://recomb.org/recomb2027/keydates_and_deadlines.html",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "mandatory",
+      "notes": "Mandatory abstract registration; no full paper without preregistration.",
+      "stages": [
+        {
+          "kind": "abstract",
+          "date": "2026-10-28",
+          "label": "Mandatory abstract registration",
+          "verification": "official",
+          "at": "2026-10-28T23:59:00-12:00",
+          "cutoff": "23:59 AoE",
+          "mandatory": true
+        },
+        {
+          "kind": "paper",
+          "date": "2026-11-04",
+          "label": "Full research paper",
+          "verification": "official",
+          "at": "2026-11-04T23:59:00-12:00",
+          "cutoff": "23:59 AoE",
+          "requires": "abstract"
+        }
+      ]
+    },
+    {
+      "id": "mlsys27-main",
+      "venue": "MLSys 2027",
+      "year": 2027,
+      "track": "Research Track",
+      "category": "Systems / ML systems",
+      "kind": "research",
+      "source": "https://mlsys.org/Conferences/2027/CallForResearchPapers",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "notes": "Organizer time is 12:00 noon PDT on 30 Oct, NOT AoE; check whether conference needs abstract submission.",
+      "stages": [
+        {
+          "kind": "paper",
+          "date": "2026-10-30",
+          "label": "Full research paper",
+          "verification": "official",
+          "at": "2026-10-30T19:00:00Z",
+          "cutoff": "12:00 PDT = 31 Oct 00:30 IST"
+        }
+      ]
+    },
+    {
+      "id": "mlsys27-industry",
+      "venue": "MLSys 2027",
+      "year": 2027,
+      "track": "Industrial Track",
+      "category": "Systems / ML systems",
+      "kind": "industry",
+      "source": "https://mlsys.org/Conferences/2027/CallForIndustrialTrackPapers",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "✕",
+      "prereg": "unknown",
+      "notes": "Industry-majority authorship rule according to existing verified industry eligibility record. Confirm specific CFP and cutoff before submitting.",
+      "stages": [
+        {
+          "kind": "paper",
+          "date": "2026-10-30",
+          "label": "Industrial paper",
+          "verification": "official-in-existing-audit",
+          "at": "2026-10-30T19:00:00Z",
+          "cutoff": "12:00 PDT (verify industrial cutoff)"
+        }
+      ]
+    },
+    {
+      "id": "ismb27-main",
+      "venue": "ISMB 2027",
+      "year": 2027,
+      "track": "Main computational biology contributions",
+      "category": "Computational biology / bioinformatics",
+      "kind": "research",
+      "source": "https://www.iscb.org/",
+      "discover": "Official organizer CFP",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "notes": "2027 paper track/date not yet established in this audit.",
+      "stages": []
+    },
+    {
+      "id": "biosafety27-workshops",
+      "venue": "AI / Neuroscience / Biology 2027",
+      "year": 2027,
+      "track": "Specialist representation, interpretability, memory, medical/robotics workshops",
+      "category": "AI / ML / statistics",
+      "kind": "workshop-paper",
+      "source": "https://huggingface.co/spaces/huggingface/ai-deadlines",
+      "discover": "Topic watchlist, not an announced workshop",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "notes": "Watch pretraining, mechanistic interpretability, safety/misalignment, agents/memory, multimodal medical, speech, neuro, computational-biology and embodied/world-model topics. No invented names or CFPs; individual workshop deadlines must be verified.",
+      "stages": []
+    },
+    {
+      "id": "legacy-bioinformatics-2027-biostec",
+      "venue": "BIOINFORMATICS 2027 (BIOSTEC)",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Computational biology / bioinformatics",
+      "kind": "paper",
+      "source": "https://bioinformatics.scitevents.org/ImportantDates.aspx",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "paper",
+          "date": "2026-10-29",
+          "label": "Extended second-stage regular/position research paper submission",
+          "source": "https://bioinformatics.scitevents.org/ImportantDates.aspx",
+          "cutoff": "11:59 PM AoE; position or regular paper second stage; lower-tier specialist venue, distinct from ISMB/RECOMB",
+          "verification": "official",
+          "at": "2026-10-29T23:59:00-12:00"
+        },
+        {
+          "kind": "abstract",
+          "date": "2026-12-03",
+          "label": "Abstracts Track submission (not a full research paper)",
+          "source": "https://bioinformatics.scitevents.org/ImportantDates.aspx",
+          "cutoff": "11:59 PM AoE; separate abstracts track",
+          "verification": "official",
+          "at": "2026-12-03T23:59:00-12:00"
+        },
+        {
+          "kind": "paper",
+          "date": "2026-12-22",
+          "label": "Doctoral Consortium paper submission",
+          "source": "https://bioinformatics.scitevents.org/ImportantDates.aspx",
+          "cutoff": "11:59 PM AoE; doctoral track, NOT full main research paper",
+          "verification": "official",
+          "at": "2026-12-22T23:59:00-12:00"
+        }
+      ]
+    },
+    {
+      "id": "legacy-chiir-2027",
+      "venue": "CHIIR 2027",
+      "year": 2027,
+      "track": "Industry Papers",
+      "category": "Data / IR / databases",
+      "kind": "industry",
+      "source": "https://chiir2027.github.io/short-papers.html",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "other",
+          "date": "2026-10-29",
+          "label": "Short, demo/design, resource and industry paper tracks (check individual CFPs)",
+          "source": "https://chiir2027.github.io/short-papers.html",
+          "cutoff": "11:59 PM AoE; short paper 4 pages, no abstract preregistration; in-person presentation; verify ACM OA payment",
+          "verification": "official",
+          "at": "2026-10-29T23:59:00-12:00"
+        }
+      ]
+    },
+    {
+      "id": "legacy-arrsi-2026-workshop-aacl-ijcnlp",
+      "venue": "ARRSI 2026 workshop (AACL-IJCNLP)",
+      "year": 2026,
+      "track": "Workshop organizer / papers (verify)",
+      "category": "NLP / language / agents",
+      "kind": "paper",
+      "source": "https://ar-rsi.github.io/",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "paper",
+          "date": "2026-10-30",
+          "label": "Short/position/resource (<=4 pages) or long (<=8 pages); work must meet double-blind evidence/reporting rules",
+          "source": "https://ar-rsi.github.io/",
+          "cutoff": "Oct 30 11:59 PM AoE = Oct 31 4:59 AM PDT; OpenReview; no paper-ready CC-08 claim yet",
+          "verification": "official",
+          "at": "2026-10-30T23:59:00-12:00"
+        }
+      ]
+    },
+    {
+      "id": "legacy-ipcai-2027-regular-papers",
+      "venue": "IPCAI 2027 regular papers",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Medical imaging / surgical robotics",
+      "kind": "other",
+      "source": "https://sites.google.com/view/ipcai2027/conference-timeline",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "other",
+          "date": "2026-10-30",
+          "label": "Regular FULL paper, only following mandatory October 23 intention-to-submit (now closed)",
+          "source": "https://sites.google.com/view/ipcai2027/conference-timeline",
+          "cutoff": "End-of-day Pacific Time (23:59 PT); Oct 23 intention gate was mandatory and had no extension",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-icassp-2027-eeg-saad",
+      "venue": "ICASSP 2027 EEG-sAAD",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Neuroscience",
+      "kind": "other",
+      "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "other",
+          "date": "2026-11-01",
+          "label": "Blind-test phase opens (not a registration deadline)",
+          "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
+          "cutoff": "23:55 UTC per organizer",
+          "verification": "official",
+          "actionable": false
+        },
+        {
+          "kind": "other",
+          "date": "2026-12-01",
+          "label": "Hidden evaluation submission deadline; top five invited to two-page papers",
+          "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
+          "cutoff": "23:55 UTC",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-ecir-2027",
+      "venue": "ECIR 2027",
+      "year": 2027,
+      "track": "Industry Day submission",
+      "category": "Data / IR / databases",
+      "kind": "industry",
+      "source": "https://www.ecir2027.co.uk/calls",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "demo",
+          "date": "2026-11-02",
+          "label": "Demo, resource, doctoral consortium, Industry Day or tutorial submission; main/full and short tracks already closed",
+          "source": "https://www.ecir2027.co.uk/calls",
+          "cutoff": "11:59 PM AoE; 2027 organizer calls dates PROPOSED, track-specific eligibility and formats",
+          "verification": "tentative",
+          "at": "2026-11-02T23:59:00-12:00"
+        }
+      ]
+    },
+    {
+      "id": "legacy-isbi-2027",
+      "venue": "ISBI 2027",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Biomedical imaging / health AI",
+      "kind": "paper",
+      "source": "https://biomedicalimaging.org/2027/papers/",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "paper",
+          "date": "2026-11-02",
+          "label": "Archival four-page biomedical imaging paper",
+          "source": "https://biomedicalimaging.org/2027/papers/",
+          "cutoff": "11:59 PM US Eastern Standard Time (EST; UTC−5 on this date) per organizers; 4 technical pages; in-person presentation mandatory",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-isca-2027",
+      "venue": "ISCA 2027",
+      "year": 2027,
+      "track": "Industry Track",
+      "category": "Systems / ML systems",
+      "kind": "industry",
+      "source": "https://iscaconf.org/isca2027/submit/callforpapers.php",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "✕",
+      "prereg": "mandatory",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "abstract",
+          "date": "2026-11-09",
+          "label": "Main-track abstract / final author list",
+          "source": "https://iscaconf.org/isca2027/submit/callforpapers.php",
+          "cutoff": "11:59 PM AoE; no ghost abstracts",
+          "verification": "official",
+          "at": "2026-11-09T23:59:00-12:00"
+        },
+        {
+          "kind": "paper",
+          "date": "2026-11-16",
+          "label": "Main-track full paper",
+          "source": "https://iscaconf.org/isca2027/submit/callforpapers.php",
+          "cutoff": "11:59 PM AoE",
+          "verification": "official",
+          "at": "2026-11-16T23:59:00-12:00"
+        },
+        {
+          "kind": "abstract",
+          "date": "2026-12-06",
+          "label": "Industry-track abstract",
+          "source": "https://iscaconf.org/isca2027/submit/callforpapers.php",
+          "cutoff": "11:59 PM AoE; first AND most authors must work in industry; student internship projects excluded",
+          "verification": "official",
+          "at": "2026-12-06T23:59:00-12:00",
+          "mandatory": true
+        },
+        {
+          "kind": "paper",
+          "date": "2026-12-13",
+          "label": "Industry-track full paper",
+          "source": "https://iscaconf.org/isca2027/submit/callforpapers.php",
+          "cutoff": "11:59 PM AoE; check published industry CFP; first AND most authors must work in industry; student internship projects excluded",
+          "verification": "official",
+          "at": "2026-12-13T23:59:00-12:00"
+        }
+      ]
+    },
+    {
+      "id": "legacy-the-web-conference-2027",
+      "venue": "The Web Conference 2027",
+      "year": 2027,
+      "track": "Industry Track",
+      "category": "Data / IR / databases",
+      "kind": "industry",
+      "source": "https://www2027.thewebconf.org/important-dates/",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "abstract",
+          "date": "2026-11-09",
+          "label": "Short-paper abstract",
+          "source": "https://www2027.thewebconf.org/important-dates/",
+          "cutoff": "11:59 PM AoE",
+          "verification": "official",
+          "at": "2026-11-09T23:59:00-12:00"
+        },
+        {
+          "kind": "demo",
+          "date": "2026-11-16",
+          "label": "Short paper / demo",
+          "source": "https://www2027.thewebconf.org/important-dates/",
+          "cutoff": "11:59 PM AoE",
+          "verification": "official",
+          "at": "2026-11-16T23:59:00-12:00"
+        }
+      ]
+    },
+    {
+      "id": "legacy-ieee-s-p-2027-cycle-2",
+      "venue": "IEEE S&P 2027 Cycle 2",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Security / privacy",
+      "kind": "abstract",
+      "source": "https://www.ieee-security.org/TC/SP2027/cfpapers.html",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "mandatory",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "abstract",
+          "date": "2026-11-10",
+          "label": "Mandatory complete abstract + fixed author/ORCID/COI registration",
+          "source": "https://www.ieee-security.org/TC/SP2027/cfpapers.html",
+          "cutoff": "23:59:59 AoE; title/abstract/author list cannot change; 6-paper per-author cycle cap",
+          "verification": "official",
+          "at": "2026-11-10T23:59:00-12:00",
+          "mandatory": true
+        },
+        {
+          "kind": "paper",
+          "date": "2026-11-17",
+          "label": "Full research/SoK paper",
+          "source": "https://www.ieee-security.org/TC/SP2027/cfpapers.html",
+          "cutoff": "23:59:59 AoE; AI-use consideration mandatory, anonymized artifacts",
+          "verification": "official",
+          "at": "2026-11-17T23:59:00-12:00"
+        }
+      ]
+    },
+    {
+      "id": "legacy-imc-2027-cycle-1",
+      "venue": "IMC 2027 Cycle 1",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Networking / systems",
+      "kind": "abstract",
+      "source": "https://conferences.sigcomm.org/imc/2027/submission-instructions/",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "mandatory",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "abstract",
+          "date": "2026-11-10",
+          "label": "MANDATORY paper registration with abstract (main/short measurement paper)",
+          "source": "https://conferences.sigcomm.org/imc/2027/submission-instructions/",
+          "cutoff": "11:59 PM AoE (UTC−12); Nov 17 full only after registration; not a paper acceptance or invited replication",
+          "verification": "official",
+          "at": "2026-11-10T23:59:00-12:00",
+          "mandatory": true
+        },
+        {
+          "kind": "paper",
+          "date": "2026-11-17",
+          "label": "Full/short network measurement research paper (pre-registered)",
+          "source": "https://conferences.sigcomm.org/imc/2027/submission-instructions/",
+          "cutoff": "11:59 PM AoE (UTC−12); 13 content pages full or 6 short; mandatory Ethics, Open Science and Generative AI appendices",
+          "verification": "official",
+          "at": "2026-11-17T23:59:00-12:00"
+        }
+      ]
+    },
+    {
+      "id": "legacy-icde-2027-research-eab-round-2",
+      "venue": "ICDE 2027 Research/EAB (round 2)",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Data / IR / databases",
+      "kind": "paper",
+      "source": "https://icde2027.github.io/cf-research-papers",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "paper",
+          "date": "2026-11-11",
+          "label": "Full research or Experimental/Analysis/Benchmark paper",
+          "source": "https://icde2027.github.io/cf-research-papers",
+          "cutoff": "5:00 PM Pacific (PST on November 11); NOT AoE; EAB requires every artifact needed to reproduce results",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-pldi-2027",
+      "venue": "PLDI 2027",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Programming languages",
+      "kind": "paper",
+      "source": "https://pldi27.sigplan.org/track/pldi-2027-papers",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "paper",
+          "date": "2026-11-12",
+          "label": "Full research paper",
+          "source": "https://pldi27.sigplan.org/track/pldi-2027-papers",
+          "cutoff": "23:59 AoE; NEW 2027 Data-Availability Statement; disclosure of research-stage AI methodology",
+          "verification": "official",
+          "at": "2026-11-12T23:59:00-12:00"
+        }
+      ]
+    },
+    {
+      "id": "legacy-icde-2027-deft",
+      "venue": "ICDE 2027 DEFT",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Data / IR / databases",
+      "kind": "abstract",
+      "source": "https://icde2027.github.io/cf-future.html",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "mandatory",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "abstract",
+          "date": "2026-11-15",
+          "label": "MANDATORY vision/position-paper abstract registration (not full paper)",
+          "source": "https://icde2027.github.io/cf-future.html",
+          "cutoff": "11:59 PM AoE; full paper barred without timely abstract",
+          "verification": "official",
+          "at": "2026-11-15T23:59:00-12:00",
+          "mandatory": true
+        },
+        {
+          "kind": "paper",
+          "date": "2026-11-22",
+          "label": "Vision/position full paper, requires Nov 15 abstract",
+          "source": "https://icde2027.github.io/cf-future.html",
+          "cutoff": "11:59 PM AoE; max one DEFT submission per author, 6–12 pages, vision focus",
+          "verification": "official",
+          "at": "2026-11-22T23:59:00-12:00"
+        }
+      ]
+    },
+    {
+      "id": "legacy-ieee-cec-2027",
+      "venue": "IEEE CEC 2027",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "AI / ML / statistics",
+      "kind": "workshop-proposal",
+      "source": "https://ieeecec.org/2027/authors/call-for-papers",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "workshop-proposal",
+          "date": "2026-11-15",
+          "label": "Special-session or workshop ORGANIZER proposal",
+          "source": "https://ieeecec.org/2027/authors/call-for-papers",
+          "cutoff": "Organizer date; cutoff hour not stated; not research paper",
+          "verification": "official"
+        },
+        {
+          "kind": "workshop-proposal",
+          "date": "2026-12-15",
+          "label": "Competition/tutorial ORGANIZER proposal",
+          "source": "https://ieeecec.org/2027/authors/call-for-papers",
+          "cutoff": "Organizer date; cutoff time not stated; not research paper",
+          "verification": "official"
+        },
+        {
+          "kind": "paper",
+          "date": "2027-02-28",
+          "label": "Full research paper; evolutionary computation including bioinformatics applications",
+          "source": "https://ieeecec.org/2027/authors/call-for-papers",
+          "cutoff": "Organizer lists date; cutoff time not stated; NO extension; HF YAML's Jan 15 date is inconsistent and should NOT be used",
+          "verification": "official"
+        },
+        {
+          "kind": "paper",
+          "date": "2027-03-15",
+          "label": "Short research paper",
+          "source": "https://ieeecec.org/2027/authors/call-for-papers",
+          "cutoff": "Organizer lists date; cutoff time not stated; no extension",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-isit-2027-workshop-proposals",
+      "venue": "ISIT 2027 Workshop Proposals",
+      "year": 2027,
+      "track": "Workshop organizer / papers (verify)",
+      "category": "Theory / information theory",
+      "kind": "workshop-proposal",
+      "source": "https://2027.ieee-isit.org/index.php/call-workshops",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "workshop-proposal",
+          "date": "2026-11-15",
+          "label": "Workshop ORGANIZER proposal, not research-paper submission",
+          "source": "https://2027.ieee-isit.org/index.php/call-workshops",
+          "cutoff": "Organizer specifies date without a verified cutoff hour/timezone; confirm before action",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-wsdm-2027",
+      "venue": "WSDM 2027",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Data / IR / databases",
+      "kind": "paper",
+      "source": "https://www.wsdm-conference.org/2027/cfsp.html",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": "A*",
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "paper",
+          "date": "2026-11-17",
+          "label": "Short research paper (4 content pages excluding references and ethics)",
+          "source": "https://www.wsdm-conference.org/2027/cfsp.html",
+          "cutoff": "11:59 PM AoE; FULL research track is closed; up to 10 short papers per author, in-person presentation",
+          "verification": "official",
+          "at": "2026-11-17T23:59:00-12:00"
+        },
+        {
+          "kind": "workshop-proposal",
+          "date": "2026-11-30",
+          "label": "WSDM Day presentation submission (talk, NOT proceedings research paper)",
+          "source": "https://wsdm-conference.org/2027/",
+          "cutoff": "11:59 PM AoE; WSDM Day presentation rather than full/short archival paper",
+          "verification": "official",
+          "at": "2026-11-30T23:59:00-12:00"
+        }
+      ],
+      "coreRankHint": "A*",
+      "coreRankSource": "https://github.com/huggingface/ai-deadlines/blob/main/src/data/conferences/wsdm.yml"
+    },
+    {
+      "id": "legacy-icassp-2027-xacle",
+      "venue": "ICASSP 2027 XACLE",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Speech / audio",
+      "kind": "other",
+      "source": "https://xacle.org/2027/index.html",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "other",
+          "date": "2026-11-19",
+          "label": "Unseen-generator evaluation data released",
+          "source": "https://xacle.org/2027/index.html",
+          "cutoff": "Organizer does not specify hour",
+          "verification": "official",
+          "actionable": false
+        },
+        {
+          "kind": "other",
+          "date": "2026-12-03",
+          "label": "Scores + YAML system + technical report submission; only leading teams invited later",
+          "source": "https://xacle.org/2027/index.html",
+          "cutoff": "Organizer timezone not explicit, verify",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-srecon27-americas",
+      "venue": "SREcon27 Americas",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Networking / operations",
+      "kind": "workshop-proposal",
+      "source": "https://www.usenix.org/conference/srecon27americas/call-for-participation",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "workshop-proposal",
+          "date": "2026-11-19",
+          "label": "Technical talk proposal (NOT a research-paper submission)",
+          "source": "https://www.usenix.org/conference/srecon27americas/call-for-participation",
+          "cutoff": "11:59 PM Pacific Time; talk, not archival paper",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-icassp-2027-heartbeat",
+      "venue": "ICASSP 2027 HEARTBEAT",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Speech / audio",
+      "kind": "other",
+      "source": "https://heartbeat-challenge.github.io/",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "other",
+          "date": "2026-11-20",
+          "label": "Team membership and external-resource declarations frozen",
+          "source": "https://heartbeat-challenge.github.io/",
+          "cutoff": "23:59 UTC",
+          "verification": "official"
+        },
+        {
+          "kind": "other",
+          "date": "2026-12-11",
+          "label": "Final offline OCI container submission",
+          "source": "https://heartbeat-challenge.github.io/",
+          "cutoff": "23:59 UTC",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-icde-2027-tutorials",
+      "venue": "ICDE 2027 Tutorials",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Data / IR / databases",
+      "kind": "workshop-proposal",
+      "source": "https://icde2027.github.io/cf-tutorials.html",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "workshop-proposal",
+          "date": "2026-11-20",
+          "label": "Tutorial proposal (not research paper)",
+          "source": "https://icde2027.github.io/cf-tutorials.html",
+          "cutoff": "AoE; at most four pages excluding references; organizer tutorial chairs",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-pakdd-2027",
+      "venue": "PAKDD 2027",
+      "year": 2027,
+      "track": "Applied Data Science Track",
+      "category": "Data / IR / databases",
+      "kind": "industry",
+      "source": "https://www.pakdd2027.org/pages/dates",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "✓",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "paper",
+          "date": "2026-11-20",
+          "label": "Research / Applied Data Science (ACADEMIC AUTHORS eligible) / survey / agentic AI papers",
+          "source": "https://www.pakdd2027.org/pages/dates",
+          "cutoff": "11:59 PM AoE; restrictive AI-use policy",
+          "verification": "official",
+          "at": "2026-11-20T23:59:00-12:00"
+        }
+      ]
+    },
+    {
+      "id": "legacy-icde-2027-demonstrations",
+      "venue": "ICDE 2027 Demonstrations",
+      "year": 2027,
+      "track": "Demo / system",
+      "category": "Systems / ML systems",
+      "kind": "demo",
+      "source": "https://icde2027.github.io/cf-demonstrations.html",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "demo",
+          "date": "2026-11-23",
+          "label": "Four-page demonstration paper",
+          "source": "https://icde2027.github.io/cf-demonstrations.html",
+          "cutoff": "11:59 PM AoE; working interactive demonstration required",
+          "verification": "official",
+          "at": "2026-11-23T23:59:00-12:00"
+        }
+      ]
+    },
+    {
+      "id": "legacy-icassp-2027-converge-6g-grand-challenge",
+      "venue": "ICASSP 2027 CONVERGE 6G Grand Challenge",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Speech / audio",
+      "kind": "registration",
+      "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "registration",
+          "date": "2026-11-30",
+          "label": "Challenge registration (not a research-paper submission)",
+          "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
+          "cutoff": "Organizer specifies date but not hour; challenge site currently marked pending; verify eligibility, dataset and scorer before any enrollment",
+          "verification": "official"
+        },
+        {
+          "kind": "other",
+          "date": "2026-12-15",
+          "label": "Challenge result submission; invited papers conditional on rank",
+          "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
+          "cutoff": "Organizer date; hour not specified; cross-site France/Portugal deployment transfer needs a leakage-free holdout",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-eusipco-2027-special-sessions",
+      "venue": "EUSIPCO 2027 Special Sessions",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Speech / audio",
+      "kind": "workshop-proposal",
+      "source": "https://eusipco2027.de/calls/",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "workshop-proposal",
+          "date": "2026-12-01",
+          "label": "Special-session ORGANIZER proposal, not an individual research-paper submission",
+          "source": "https://eusipco2027.de/calls/",
+          "cutoff": "Organizer date; no cutoff hour confirmed on accessed page",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-icde-2027-industry-and-applications",
+      "venue": "ICDE 2027 Industry and Applications",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Systems / ML systems",
+      "kind": "paper",
+      "source": "https://icde2027.github.io/cf-industry-track.html",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "paper",
+          "date": "2026-12-01",
+          "label": "Industry/application paper; at least one NON-ACADEMIC author mandatory",
+          "source": "https://icde2027.github.io/cf-industry-track.html",
+          "cutoff": "11:59 PM Pacific Time, NOT AoE; short 6pp or long 12pp; student-only university team cannot submit",
+          "verification": "official",
+          "at": "2026-12-01T23:59:00-12:00"
+        }
+      ]
+    },
+    {
+      "id": "legacy-osdi-2027",
+      "venue": "OSDI 2027",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Networking / operations",
+      "kind": "abstract",
+      "source": "https://www.usenix.org/conference/osdi27/call-for-papers",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "mandatory",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "abstract",
+          "date": "2026-12-01",
+          "label": "Mandatory abstract registration",
+          "source": "https://www.usenix.org/conference/osdi27/call-for-papers",
+          "cutoff": "5:59 PM EST = 22:59 UTC; not AoE; AI-written papers ineligible",
+          "verification": "official",
+          "mandatory": true
+        },
+        {
+          "kind": "paper",
+          "date": "2026-12-08",
+          "label": "Full research paper (requires Dec 1 abstract)",
+          "source": "https://www.usenix.org/conference/osdi27/call-for-papers",
+          "cutoff": "5:59 PM EST = 22:59 UTC; not AoE; AI-written papers ineligible",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-ieee-asli-2027-challenges",
+      "venue": "IEEE ASLI 2027 Challenges",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Speech / audio",
+      "kind": "workshop-proposal",
+      "source": "https://2027.ieeeasli.org/call-for-challenge-proposals/",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "workshop-proposal",
+          "date": "2026-12-03",
+          "label": "Scientific challenge ORGANIZER proposal, not the ASLI regular research-paper deadline",
+          "source": "https://2027.ieeeasli.org/call-for-challenge-proposals/",
+          "cutoff": "Organizer date; verify proposal submission instructions; ASLI joins ASRU and SLT communities",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-ieee-ssp-2027-sessions-tutorials",
+      "venue": "IEEE SSP 2027 Sessions & Tutorials",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Speech / audio",
+      "kind": "workshop-proposal",
+      "source": "https://ssp27.ieeesps.org/",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "workshop-proposal",
+          "date": "2026-12-07",
+          "label": "Special-session or tutorial ORGANIZER proposal, not a research paper",
+          "source": "https://ssp27.ieeesps.org/",
+          "cutoff": "Deadline shown by organizer; specific time not verified",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-dcase-2027",
+      "venue": "DCASE 2027",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Speech / audio",
+      "kind": "workshop-proposal",
+      "source": "https://dcase.community/articles/call-for-task-proposals-for-dcase2027",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "workshop-proposal",
+          "date": "2026-12-10",
+          "label": "MANDATORY declaration of intent to propose a DCASE 2027 challenge TASK (organizers only)",
+          "source": "https://dcase.community/articles/call-for-task-proposals-for-dcase2027",
+          "cutoff": "Email coordinators by this date; without intent, December 15 proposal is ineligible",
+          "verification": "official"
+        },
+        {
+          "kind": "workshop-proposal",
+          "date": "2026-12-15",
+          "label": "Full two-page DCASE challenge TASK organizer proposal (only after Dec 10 intent)",
+          "source": "https://dcase.community/articles/call-for-task-proposals-for-dcase2027",
+          "cutoff": "Organizer proposal, not a workshop-paper deadline; cite data, metric, baselines and team",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-icassp-2027-rms-aqa",
+      "venue": "ICASSP 2027 RMS-AQA",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Speech / audio",
+      "kind": "other",
+      "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "other",
+          "date": "2026-12-10",
+          "label": "Challenge result submission",
+          "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
+          "cutoff": "Organizer timezone not explicit, verify",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-ohbm-2027",
+      "venue": "OHBM 2027",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Neuroscience",
+      "kind": "abstract",
+      "source": "https://w.humanbrainmapping.org/2027CallforContent/",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "abstract",
+          "date": "2026-12-14",
+          "label": "Poster abstract / symposium, educational-course and other meeting-content submissions",
+          "source": "https://w.humanbrainmapping.org/2027CallforContent/",
+          "cutoff": "Organizer deadline date; cutoff time not specified; meeting content, NOT archival research paper; submission opens Nov 2",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-desires-2027",
+      "venue": "DESIRES 2027",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Data / IR / databases",
+      "kind": "abstract",
+      "source": "https://desires-conf.github.io/2027/",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "abstract",
+          "date": "2026-12-17",
+          "label": "Early-stage search/IR abstract (NOT an archival full-paper submission)",
+          "source": "https://desires-conf.github.io/2027/",
+          "cutoff": "11:59 PM AoE; ideas, prototypes, metric critiques welcomed; optional later IRRJ paper on May 31, 2027; verify applicable AI policy before submission",
+          "verification": "official",
+          "at": "2026-12-17T23:59:00-12:00"
+        }
+      ]
+    },
+    {
+      "id": "legacy-ismb-eccb-2027-tutorials",
+      "venue": "ISMB/ECCB 2027 Tutorials",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Computational biology / bioinformatics",
+      "kind": "workshop-proposal",
+      "source": "https://www.iscb.org/ismbeccb2027/call-for-submissions/tutorials",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "workshop-proposal",
+          "date": "2026-12-17",
+          "label": "Hands-on tutorial ORGANIZER proposal (not proceedings paper)",
+          "source": "https://www.iscb.org/ismbeccb2027/call-for-submissions/tutorials",
+          "cutoff": "Organizer-announced date; verify submission cutoff time; 4-page proposal, hands-on component",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-icassp-2027-lunar-pathloss-radio-map-challenge",
+      "venue": "ICASSP 2027 Lunar Pathloss Radio Map Challenge",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Speech / audio",
+      "kind": "other",
+      "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "other",
+          "date": "2026-12-20",
+          "label": "Final trained models, test code and radio-map estimates due; not an automatic paper acceptance",
+          "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
+          "cutoff": "Organizer does not state hour; evaluation maps release Dec 16",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-icassp-2027-published-journal-papers",
+      "venue": "ICASSP 2027 Published Journal Papers",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Speech / audio",
+      "kind": "other",
+      "source": "https://2027.ieeeicassp.org/call-for-papers/",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "other",
+          "date": "2027-01-06",
+          "label": "Journal paper/letter presentation-route deadline, NOT new regular conference research-paper submission",
+          "source": "https://2027.ieeeicassp.org/call-for-papers/",
+          "cutoff": "2027 ICASSP main conference full-paper deadline already closed September 23, 2026",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-icassp-2027-grand-challenges",
+      "venue": "ICASSP 2027 Grand Challenges",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Speech / audio",
+      "kind": "paper",
+      "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "paper",
+          "date": "2027-01-07",
+          "label": "Invited two-page paper deadline for XACLE, HEARTBEAT and RMS-AQA (invitation required)",
+          "source": "https://2027.ieeeicassp.org/sp-grand-challenges/",
+          "cutoff": "Check each challenge's own timezone",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-isit-2027",
+      "venue": "ISIT 2027",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Theory / information theory",
+      "kind": "paper",
+      "source": "https://2027.ieee-isit.org/call-papers",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "paper",
+          "date": "2027-01-10",
+          "label": "Research paper submission",
+          "source": "https://2027.ieee-isit.org/call-papers",
+          "cutoff": "23:59 AoE; accepted paper needs full-rate registration and in-person presentation to publish",
+          "verification": "official",
+          "at": "2027-01-10T23:59:00-12:00"
+        }
+      ]
+    },
+    {
+      "id": "legacy-imc-2027-replicability-track",
+      "venue": "IMC 2027 Replicability Track",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Networking / systems",
+      "kind": "workshop-proposal",
+      "source": "https://conferences.sigcomm.org/imc/2027/cfp/",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "workshop-proposal",
+          "date": "2027-01-13",
+          "label": "ONE-PAGE Expression of Interest naming prior NETWORK MEASUREMENT study (invitation gate, not paper)",
+          "source": "https://conferences.sigcomm.org/imc/2027/cfp/",
+          "cutoff": "11:59 PM AoE (UTC−12); accepted EoI invitations later register March 31 / full April 7 (outside 90-day home deadline window)",
+          "verification": "official",
+          "at": "2027-01-13T23:59:00-12:00"
+        }
+      ]
+    },
+    {
+      "id": "legacy-ismb-eccb-2027",
+      "venue": "ISMB/ECCB 2027",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Computational biology / bioinformatics",
+      "kind": "paper",
+      "source": "https://www.iscb.org/ismbeccb2027/call-for-submissions/proceedings",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "paper",
+          "date": "2027-01-14",
+          "label": "Proceedings full research paper",
+          "source": "https://www.iscb.org/ismbeccb2027/call-for-submissions/proceedings",
+          "cutoff": "11:59 PM in time zone of your choice per organizer; OUP Bioinformatics format; max 9 pages incl. references; public reproducible code required if applicable",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-sigir-2027",
+      "venue": "SIGIR 2027",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Data / IR / databases",
+      "kind": "abstract",
+      "source": "https://sigir2027.org/pages/submit-full.html",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "abstract",
+          "date": "2027-01-14",
+          "label": "Full-paper abstract",
+          "source": "https://sigir2027.org/pages/submit-full.html",
+          "cutoff": "11:59 PM AoE; official page labels proposed",
+          "verification": "tentative",
+          "at": "2027-01-14T23:59:00-12:00"
+        },
+        {
+          "kind": "paper",
+          "date": "2027-01-21",
+          "label": "Full paper",
+          "source": "https://sigir2027.org/pages/submit-full.html",
+          "cutoff": "11:59 PM AoE; official page labels proposed",
+          "verification": "tentative",
+          "at": "2027-01-21T23:59:00-12:00"
+        }
+      ]
+    },
+    {
+      "id": "legacy-ipcai-2027-long-abstracts",
+      "venue": "IPCAI 2027 long abstracts",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Medical imaging / surgical robotics",
+      "kind": "other",
+      "source": "https://sites.google.com/view/ipcai2027/call-for-papers-and-long-abstracts",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "other",
+          "date": "2027-01-15",
+          "label": "Separate long-abstract submission (NOT regular full paper)",
+          "source": "https://sites.google.com/view/ipcai2027/call-for-papers-and-long-abstracts",
+          "cutoff": "End-of-day Pacific Time (23:59 PT); official independent long-abstract deadline",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-ccn-2027",
+      "venue": "CCN 2027",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Neuroscience",
+      "kind": "abstract",
+      "source": "https://www.ccneuro.org/",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "mandatory",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "abstract",
+          "date": "2027-02-01",
+          "label": "Mandatory eight-page proceedings abstract deadline",
+          "source": "https://www.ccneuro.org/",
+          "cutoff": "End of day AoE (UTC−12); preliminary abstract required for eight-page proceedings route",
+          "verification": "official",
+          "mandatory": true
+        },
+        {
+          "kind": "paper",
+          "date": "2027-02-04",
+          "label": "Eight-page proceedings full paper (abstract due Feb 1)",
+          "source": "https://www.ccneuro.org/",
+          "cutoff": "End of day AoE (UTC−12); full proceedings paper, separate from two-page abstract route",
+          "verification": "official"
+        },
+        {
+          "kind": "abstract",
+          "date": "2027-04-01",
+          "label": "Two-page extended research abstract (not eight-page proceedings paper)",
+          "source": "https://www.ccneuro.org/",
+          "cutoff": "End of day AoE (UTC−12); non-proceedings abstract route",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-isbi-2027-one-page-abstracts",
+      "venue": "ISBI 2027 One-Page Abstracts",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Biomedical imaging / health AI",
+      "kind": "abstract",
+      "source": "https://biomedicalimaging.org/2027/",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "abstract",
+          "date": "2027-02-01",
+          "label": "One-page biomedical imaging ABSTRACT route, NOT the November archival four-page paper",
+          "source": "https://biomedicalimaging.org/2027/",
+          "cutoff": "11:59 PM US Eastern Standard Time (EST; UTC−5 on this date) per official event site; verify daylight offset near submission",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-sigcomm-2027",
+      "venue": "SIGCOMM 2027",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Networking / operations",
+      "kind": "paper",
+      "source": "https://conferences.sigcomm.org/sigcomm/2027/submission/",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "paper",
+          "date": "2027-02-02",
+          "label": "Research paper",
+          "source": "https://conferences.sigcomm.org/sigcomm/2027/submission/",
+          "cutoff": "Hard deadline",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-interspeech-2027-tutorials",
+      "venue": "Interspeech 2027 Tutorials",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Speech / audio",
+      "kind": "workshop-proposal",
+      "source": "https://interspeech2027.org/",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "workshop-proposal",
+          "date": "2027-02-05",
+          "label": "Tutorial ORGANIZER proposal deadline, not contributed research paper",
+          "source": "https://interspeech2027.org/",
+          "cutoff": "Organizer website deadline; cutoff hour not confirmed",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-eusipco-2027",
+      "venue": "EUSIPCO 2027",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Speech / audio",
+      "kind": "paper",
+      "source": "https://eusipco2027.de/conference-papers/",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "paper",
+          "date": "2027-02-06",
+          "label": "Five-page technical RESEARCH paper; includes Acoustic, Speech and Music Signal Processing",
+          "source": "https://eusipco2027.de/conference-papers/",
+          "cutoff": "Organizer lists February 6; check submission portal for final cutoff and formatting",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-ieee-ssp-2027",
+      "venue": "IEEE SSP 2027",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Speech / audio",
+      "kind": "paper",
+      "source": "https://ssp27.ieeesps.org/",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "paper",
+          "date": "2027-02-07",
+          "label": "Full research paper on statistical signal processing (some audio/acoustic overlap)",
+          "source": "https://ssp27.ieeesps.org/",
+          "cutoff": "Organizer key-date schedule; cutoff hour not confirmed",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-csh-biology-of-genomes-2027",
+      "venue": "CSH Biology of Genomes 2027",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Computational biology / bioinformatics",
+      "kind": "abstract",
+      "source": "https://meetings.cshl.edu/meetings.aspx?meet=GENOME",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "abstract",
+          "date": "2027-02-19",
+          "label": "Talk / poster abstract (not archival full paper)",
+          "source": "https://meetings.cshl.edu/meetings.aspx?meet=GENOME",
+          "cutoff": "Organizer specifies date, not hour; conference May 11–15, 2027",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-isbi-2027-challenges",
+      "venue": "ISBI 2027 Challenges",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Biomedical imaging / health AI",
+      "kind": "paper",
+      "source": "https://biomedicalimaging.org/2027/",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "paper",
+          "date": "2027-02-26",
+          "label": "Challenge PAPER submission; separate from one-page abstract and main four-page track",
+          "source": "https://biomedicalimaging.org/2027/",
+          "cutoff": "11:59 PM US Eastern Standard Time (EST; UTC−5 on this date) per official event site",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-eusipco-2027-tutorials",
+      "venue": "EUSIPCO 2027 Tutorials",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Speech / audio",
+      "kind": "workshop-proposal",
+      "source": "https://eusipco2027.de/calls/",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "workshop-proposal",
+          "date": "2027-03-01",
+          "label": "Tutorial ORGANIZER proposal, not conference research paper",
+          "source": "https://eusipco2027.de/calls/",
+          "cutoff": "Organizer date; cutoff hour not confirmed",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-iwslt-2027",
+      "venue": "IWSLT 2027",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Speech / audio",
+      "kind": "paper",
+      "source": "https://iwslt.org/2027/",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "paper",
+          "date": "2027-03-15",
+          "label": "Original scientific RESEARCH paper (spoken language translation), distinct from system report",
+          "source": "https://iwslt.org/2027/",
+          "cutoff": "Preliminary official schedule subject to change; 11:59 PM AoE",
+          "verification": "official",
+          "at": "2027-03-15T23:59:00-12:00"
+        }
+      ]
+    },
+    {
+      "id": "legacy-ccn-2027-events",
+      "venue": "CCN 2027 Events",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Neuroscience",
+      "kind": "workshop-proposal",
+      "source": "https://www.ccneuro.org/",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "workshop-proposal",
+          "date": "2027-03-18",
+          "label": "Community event / GAC organizer proposal",
+          "source": "https://www.ccneuro.org/",
+          "cutoff": "End of day AoE (UTC−12); community event, not research paper",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-ieee-asli-2027",
+      "venue": "IEEE ASLI 2027",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Speech / audio",
+      "kind": "paper",
+      "source": "https://2027.ieeeasli.org/important-dates/",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "paper",
+          "date": "2027-04-21",
+          "label": "Six-page regular RESEARCH paper; new flagship merging ASRU and SLT communities; main and Findings routes",
+          "source": "https://2027.ieeeasli.org/important-dates/",
+          "cutoff": "11:59 PM AoE per official Important Dates; review latest submission policies",
+          "verification": "official",
+          "at": "2027-04-21T23:59:00-12:00"
+        }
+      ]
+    },
+    {
+      "id": "legacy-iwslt-2027-shared-task-system-papers",
+      "venue": "IWSLT 2027 Shared-Task System Papers",
+      "year": 2027,
+      "track": "Demo / system",
+      "category": "Speech / audio",
+      "kind": "paper",
+      "source": "https://iwslt.org/2027/",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "paper",
+          "date": "2027-05-07",
+          "label": "Shared-task SYSTEM DESCRIPTION paper, not IWSLT original scientific-paper deadline",
+          "source": "https://iwslt.org/2027/",
+          "cutoff": "Preliminary schedule subject to change; 11:59 PM AoE",
+          "verification": "official",
+          "at": "2027-05-07T23:59:00-12:00"
+        }
+      ]
+    },
+    {
+      "id": "legacy-itg-speech-communication-2027",
+      "venue": "ITG Speech Communication 2027",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Speech / audio",
+      "kind": "abstract",
+      "source": "https://www.inf.uni-hamburg.de/en/inst/ab/sp/itg-2027/for-authors.html",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "mandatory",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "abstract",
+          "date": "2027-06-02",
+          "label": "MANDATORY research-paper abstract deadline (before June 9 full paper)",
+          "source": "https://www.inf.uni-hamburg.de/en/inst/ab/sp/itg-2027/for-authors.html",
+          "cutoff": "Organizer-listed June 2; no timezone on accessed page",
+          "verification": "official",
+          "mandatory": true
+        },
+        {
+          "kind": "paper",
+          "date": "2027-06-09",
+          "label": "Full four-page research paper (plus one references page)",
+          "source": "https://www.inf.uni-hamburg.de/en/inst/ab/sp/itg-2027/for-authors.html",
+          "cutoff": "June 9 full paper; abstract June 2 must be completed first",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-ieee-asli-2027-challenge-papers",
+      "venue": "IEEE ASLI 2027 Challenge Papers",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Speech / audio",
+      "kind": "paper",
+      "source": "https://2027.ieeeasli.org/call-for-challenge-proposals/",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "paper",
+          "date": "2027-06-17",
+          "label": "Challenge paper from approved ASLI 2027 challenge (not open regular-paper submission)",
+          "source": "https://2027.ieeeasli.org/call-for-challenge-proposals/",
+          "cutoff": "Challenge organizer route; follow challenge CFP eligibility; not a substitute for Apr 21 regular paper",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-grc-epigenetics-2027",
+      "venue": "GRC Epigenetics 2027",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Computational biology / bioinformatics",
+      "kind": "registration",
+      "source": "https://www.grc.org/epigenetics-conference/2027/",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "registration",
+          "date": "2027-07-04",
+          "label": "Attendance / poster participation application (not a paper)",
+          "source": "https://www.grc.org/epigenetics-conference/2027/",
+          "cutoff": "Meeting Aug 1–6, 2027; admissions may close earlier when full",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-chiir-2027-industry-papers",
+      "venue": "CHIIR 2027 Industry Papers",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Data mining / information retrieval",
+      "kind": "paper",
+      "source": "https://chiir2027.github.io/industry-papers.html",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "paper",
+          "date": "2026-10-29",
+          "label": "Four-page peer-reviewed Industry Paper; product/business context + presenter CV and company description",
+          "source": "https://chiir2027.github.io/industry-papers.html",
+          "cutoff": "23:59 AoE; industry/student internships encouraged; academic-only fit requires chair clarification",
+          "verification": "official",
+          "at": "2026-10-29T23:59:00-12:00"
+        }
+      ]
+    },
+    {
+      "id": "legacy-sigmod-2027-industrial-track",
+      "venue": "SIGMOD 2027 Industrial Track",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Systems / networking / security",
+      "kind": "paper",
+      "source": "https://2027.sigmod.org/calls_industrial_track_papers.shtml",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "paper",
+          "date": "2026-11-24",
+          "label": "Industrial systems paper: requires at least one non-academic coauthor",
+          "source": "https://2027.sigmod.org/calls_industrial_track_papers.shtml",
+          "cutoff": "23:59 AoE; student-only academic team NOT eligible; 12 pages + refs",
+          "verification": "official",
+          "at": "2026-11-24T23:59:00-12:00"
+        }
+      ]
+    },
+    {
+      "id": "legacy-mlsys-2027-industrial-track",
+      "venue": "MLSys 2027 Industrial Track",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Systems / ML systems",
+      "kind": "paper",
+      "source": "https://mlsys.org/Conferences/2027/CallForResearchPapers",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "paper",
+          "date": "2026-10-30",
+          "label": "Industrial large-scale ML systems paper; FIRST and MAJORITY industry-affiliated authors mandatory",
+          "source": "https://mlsys.org/Conferences/2027/CallForResearchPapers",
+          "cutoff": "20:00 UTC / 12:00 noon PDT (not AoE); 10 pages plus references; separate industrial review; mandatory comprehensive AI Usage Disclosure",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "legacy-recomb-seq-2027",
+      "venue": "RECOMB-Seq 2027",
+      "year": 2027,
+      "track": "Organizer-listed track (verify)",
+      "category": "Computational biology / bioinformatics",
+      "kind": "abstract",
+      "source": "https://recomb-seq.github.io/seq2027/keydates_and_deadlines",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "mandatory",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "abstract",
+          "date": "2027-01-25",
+          "label": "MANDATORY abstract for Proceedings OR Overlay paper; no placeholder titles/abstracts",
+          "source": "https://recomb-seq.github.io/seq2027/keydates_and_deadlines",
+          "cutoff": "23:59 AoE; Jan 30 full paper only for registered submissions; poster/short talk separate TBA",
+          "verification": "official",
+          "at": "2027-01-25T23:59:00-12:00",
+          "mandatory": true
+        },
+        {
+          "kind": "paper",
+          "date": "2027-01-30",
+          "label": "Full Proceedings/Overlay paper; prior Jan 25 abstract required",
+          "source": "https://recomb-seq.github.io/seq2027/call_for_papers.html",
+          "cutoff": "23:59 AoE; Proceedings cannot be under review elsewhere; Overlay needs public preprint and permits concurrent submission subject to CFP. Short poster abstract date TBA",
+          "verification": "official",
+          "at": "2027-01-30T23:59:00-12:00"
+        }
+      ]
+    },
+    {
+      "id": "legacy-isbi-2027-workshop-papers",
+      "venue": "ISBI 2027 Workshop Papers",
+      "year": 2027,
+      "track": "Workshop organizer / papers (verify)",
+      "category": "Biomedical imaging / health AI",
+      "kind": "paper",
+      "source": "https://biomedicalimaging.org/2027/",
+      "discover": "Existing public cs-conf/data.json; official-source claim to recheck",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "rankHint": null,
+      "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
+      "stages": [
+        {
+          "kind": "paper",
+          "date": "2027-01-26",
+          "label": "Workshop paper submission (separate from Nov 2 archival main paper and Feb 1 poster abstract)",
+          "source": "https://biomedicalimaging.org/2027/",
+          "cutoff": "11:59 PM US Eastern Standard Time (EST; UTC−5 on this date); publication status must be verified for the specific workshop",
+          "verification": "official"
+        }
+      ]
+    }
+  ]
+}
