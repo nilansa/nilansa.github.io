@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>CS Conf | Track submissions and prerequisites</title>
+<style>
+:root{color-scheme:light}*{box-sizing:border-box}body{max-width:1280px;margin:18px auto;padding:0 14px 40px;color:#111;background:#fff;font:14px/1.5 Arial,Verdana,sans-serif}
+h1,h2{font-family:Georgia,"Times New Roman",serif}h1{font-size:28px;margin-bottom:0}h2{font-size:20px;margin:26px 0 8px}p{margin:7px 0 11px}
+a{color:#0645ad}small,.muted{font-size:12px;color:#555}nav{margin:12px 0}nav a{margin-right:15px}
+hr{border:0;border-top:1px solid #aaa}label{display:inline-block;margin:3px 12px 3px 0;font-size:12px;vertical-align:middle}
+select,input,button,textarea{font:inherit;color:#111;border:1px solid #888;background:white;padding:4px}input[type=search]{width:200px}button{cursor:pointer}button:hover{background:#f5f5f5}
+table{border-collapse:collapse;min-width:1040px;width:100%;font-size:12px}th,td{text-align:left;vertical-align:top;border-bottom:1px solid #ddd;padding:7px 6px}th{background:#f7f7f7;border-bottom:1px solid #777}
+.scroll{max-width:100%;overflow-x:auto}.track-name{font-weight:bold}.rank{font-weight:normal;color:#555}.date{white-space:nowrap}.note{font-size:11px;color:#555;margin-top:3px}
+.notice{padding:9px 11px;border:1px solid #aaa;background:#fbfbfb;margin:12px 0}.muted-row{text-decoration:line-through;color:#777}.muted-row a{color:#777}
+details{margin-top:5px}details summary{cursor:pointer;color:#0645ad}.milestones{margin:7px 0 0 18px;padding:0;line-height:1.7}.milestones li{margin:3px 0}
+.status-select{max-width:165px;font-size:12px}.warning{font-weight:600}.pale{color:#555}
+.stats{font-size:12px;margin:8px 0}.filters{border-top:1px solid #ccc;border-bottom:1px solid #ccc;padding:6px 0}.hidden{display:none}
+#export{width:100%;min-height:110px;max-width:700px;font:12px/1.5 monospace;white-space:pre}
+.checklists{display:grid;grid-template-columns:1fr 1fr;gap:16px}.checklists li{margin-bottom:6px}
+@media(max-width:760px){body{margin:10px auto}h1{font-size:23px}table{font-size:11px}.checklists{grid-template-columns:1fr}input[type=search]{width:130px}}
+</style>
+</head>
+<body>
+<header>
+<h1>CS Conf — track submission deadlines</h1>
+<p>Track-by-track submission opportunities, prerequisites, workshops, and decisions. Minimal public index; official CFPs control.</p>
+<nav><a href="./">← CS Conf home</a><a href="./sources.md">Source protocol</a><a href="./opportunities.json">Structured opportunity data</a></nav>
+<small id="checked">Audit snapshot: 28 Oct 2026 IST. Deadlines are not a continuously verified feed.</small>
+</header>
+<hr>
+<div class="notice"><strong>Read before submitting:</strong> A mandatory abstract or paper-enrollment deadline can block a later full paper. When your submission status is unknown, the table says <strong>VERIFY</strong>, not "you missed it." Differentiate industry author eligibility from real-world deployment evidence. A workshop <em>organizer proposal</em> is not a workshop <em>paper</em>. Deadline times may vary by organizer.</div>
+<div class="notice"><strong>Privacy and persistence:</strong> Status selectors on this public static page are <strong>this device/browser only</strong>. Nothing is automatically sent to GitHub. Use <a href="#sync">Copy decisions for private GitHub inbox</a> to make an authenticated, durable record. Private submissions/abstract statuses are never published by this page, and cross-device synchronization is <strong>not automatic</strong>.</div>
+<section class="filters" aria-label="Opportunity filters">
+<label>View <select id="view"><option value="90">Next 90 days</option><option value="future">Beyond 90 days / TBA</option><option value="archive">Expired / archived</option><option value="all">All opportunities</option></select></label>
+<label>Category <select id="category"><option value="all">All categories</option></select></label>
+<label>Track type <select id="kind"><option value="all">All tracks</option><option value="industry">Industry</option><option value="research">Research</option><option value="demo">Demonstrations</option><option value="workshop-paper">Workshop papers</option><option value="workshop-proposal">Workshop organizers</option></select></label>
+<label>CORE (HF listing) <select id="core"><option value="all">All</option><option value="A*">A*</option><option value="A">A</option><option value="B">B</option><option value="unknown">Not recorded</option></select></label>
+<label>Eligibility <select id="elig"><option value="all">All</option><option value="✓">✓ Academic team</option><option value="✕">✕ Company rule</option><option value="?">? Verify</option></select></label>
+<label>Find <input id="query" type="search" placeholder="ACL, speech, workshops…"></label>
+</section>
+<p id="stats" class="stats">Loading opportunities…</p>
+<div class="scroll">
+<table aria-label="Submission-stage opportunities">
+<thead><tr>
+<th>Conference · year · track</th>
+<th>Next actionable stage</th>
+<th>Abstract / prerequisite</th>
+<th>Paper / demo stage</th>
+<th>Attendance registration</th>
+<th>Can I submit?</th>
+<th>Academic team?</th>
+<th>My status (this device only)</th>
+<th>Official CFP</th>
+</tr></thead>
+<tbody id="rows"><tr><td colspan="9">Loading…</td></tr></tbody>
+</table>
+</div>
+<p class="muted">Dates are shown with month names; each venue's published local time or AoE appears when known. "Days left" uses the actual cutoff instant if verified, otherwise a date-only estimate. CORE values shown are Hugging Face catalogue metadata, not independently certified track rankings.</p>
+<section id="sync">
+<h2>Record your decisions privately</h2>
+<p>Choose statuses in the table. Click below to prepare a plain-text decision record with stable opportunity IDs. Copy it into your already authorized <strong>private CS Conf GitHub issue #1</strong>; the scheduled editorial check can read those comments. This is a manual authenticated handoff, not two-way real-time synchronization. Do not paste private status notes into the public repository.</p>
+<p><button type="button" id="copy">Copy all my changed statuses</button> <button type="button" id="reset">Clear this browser's statuses</button> <span id="copy-msg" class="muted"></span></p>
+<textarea id="export" readonly aria-label="Status export for private issue" placeholder="Your decision log will appear here."></textarea>
+</section>
+<section id="audit">
+<h2>Coverage audit — baseline before repair</h2>
+<p>These are the verified initial data records and the specific 2027 track gaps found on <strong>28 Oct 2026</strong>. “Missing or incomplete” refers to the earlier data model or track rows, not proof that the CFP has already been published.</p>
+<p id="audit-stats" class="muted"></p>
+<div class="checklists">
+<div><h3>Present in original tracker</h3><ul id="audit-present"></ul></div>
+<div><h3>Missing or incomplete before repair</h3><ul id="audit-missing"></ul></div>
+</div>
+<p class="muted">Coverage denominator = entries in the actual repository plus a selected gap audit. This is not an exhaustive list of every conference or workshop worldwide. Individual representation learning, mechanistic interpretability, safety, agents/memory, speech, robotics, multimodal medical, neuroscience, and computational-biology workshops need separate annual CFP verification.</p>
+</section>
+<footer><hr><small>Editorial task: cs-confs-deadline-tracker-repair-20261028-001 · Public-safe records only · Source catalogue: <a href="https://github.com/huggingface/ai-deadlines">Hugging Face AI Deadlines</a> (discovery, not authority) · <a href="https://ccfddl.com/">CCFDDL</a> · <a href="https://cs-deadlines.cin.ufpe.br/">CS Deadlines</a> · <a href="https://cspicks.roars.dev/csconfs.html?start=2026&amp;end=2027">CSPicks</a></small></footer>
+<script>
+(()=>{
+"use strict";
+const $=id=>document.getElementById(id), els=(tag,text,parent)=>{const x=document.createElement(tag);if(text!==undefined&&text!==null)x.textContent=String(text);if(parent)parent.appendChild(x);return x;};
+const link=(text,url,parent)=>{const a=els("a",text,parent);if(/^https:\/\//.test(url||"")){a.href=url;a.rel="noopener noreferrer";a.target="_blank"}else a.href="#audit";return a;};
+let db=null,local={};const storageKey="cs-conf-opportunities-status-v1";
+try{local=JSON.parse(localStorage.getItem(storageKey)||"{}")||{}}catch(_){local={};}
+const statuses=[["","Unreviewed"],["interested","Interested"],["abstract-filed","Abstract filed"],["arr-filed","ARR paper filed"],["stage1-filed","Stage 1 filed"],["paper-filed","Paper submitted"],["registered","Registered"],["done","Completed"],["missed-abstract","Missed mandatory abstract"],["withdrawn","Withdrawn"],["excluded","Not interested / strike through"]];
+const stageKinds=new Set(["abstract","arr-paper","extended-abstract","paper","demo","workshop-paper","workshop-proposal","registration","commitment","arr-commitment"]);
+const fdate=d=>d?new Intl.DateTimeFormat("en-GB",{day:"numeric",month:"short",year:"numeric",timeZone:"UTC"}).format(new Date(d+"T00:00:00Z")):"TBA";
+const isoIST=date=>new Intl.DateTimeFormat("en-GB",{day:"numeric",month:"short",year:"numeric",hour:"2-digit",minute:"2-digit",timeZone:"Asia/Kolkata",hour12:false}).format(date)+" IST";
+const istDay=()=>{const p=Object.fromEntries(new Intl.DateTimeFormat("en-CA",{year:"numeric",month:"2-digit",day:"2-digit",timeZone:"Asia/Kolkata"}).formatToParts(new Date()).map(v=>[v.type,v.value]));return p.year+"-"+p.month+"-"+p.day;};
+const approxTime=s=>{if(!s.date)return null;if(s.at){const d=new Date(s.at);return Number.isNaN(d.getTime())?null:d;}return new Date(s.date+"T23:59:59+05:30");};
+function isPast(s){if(!s.date)return false;if(s.at)return (approxTime(s)||new Date(0)).getTime()<Date.now();return s.date<istDay();}
+function when(s){if(!s?.date)return "TBA";const d=approxTime(s),days=d?Math.ceil((d.getTime()-Date.now())/86400000):null;let parts=[fdate(s.date)];if(s.cutoff)parts.push(s.cutoff);if(s.at&&d)parts.push(isoIST(d));if(days!==null)parts.push(days<0?"expired":days===0?"due soon":days===1?"1 day left":days+" days left");return parts.join(" · ");}
+function labelStatus(op){return local[op.id]||"";}
+function actionStage(op){const sorted=(op.stages||[]).filter(s=>s.date&&stageKinds.has(s.kind)&&s.actionable!==false).sort((a,b)=>(approxTime(a)||0)-(approxTime(b)||0));return sorted.find(s=>!isPast(s))||null;}
+function isFuture(op){const s=actionStage(op);return !!s;}
+function isTBA(op){return !(op.stages||[]).some(s=>s.date&&stageKinds.has(s.kind)&&s.actionable!==false);}
+function daysTo(s){const d=approxTime(s);return d?(d.getTime()-Date.now())/86400000:Infinity;}
+function filterView(op,view){
+const stage=actionStage(op),future=!!stage,tba=isTBA(op);
+if(view==="all")return true;
+if(view==="90")return future&&daysTo(stage)<=90;
+if(view==="future")return tba||(future&&daysTo(stage)>90);
+return !future&&!tba;
+}
+function eligibility(op){
+const st=labelStatus(op),pastAbstract=(op.stages||[]).find(s=>(s.kind==="abstract"&&s.mandatory)||(op.prereg==="mandatory"&&s.kind==="abstract")),arr=(op.stages||[]).find(s=>s.kind==="arr-paper"),one=(op.stages||[]).find(s=>s.kind==="extended-abstract");
+if(st==="missed-abstract")return "BLOCKED — missed mandatory preregistration";
+if(op.prereg==="mandatory"){
+if(!pastAbstract)return "VERIFY — required abstract date unknown";
+if(isPast(pastAbstract)&&!["abstract-filed","paper-filed"].includes(st))return "VERIFY — was mandatory abstract filed?";
+return isPast(pastAbstract)?"✓ Prerequisite marked filed (local)":"✓ File mandatory abstract first";
+}
+if(op.prereg==="arr-required"){
+if(arr&&isPast(arr)&&!["arr-filed","paper-filed"].includes(st))return "VERIFY — eligible earlier ARR reviews?";
+return "Conditional — eligible ARR review and commitment required";
+}
+if(op.prereg==="stage1-required"){
+if(one&&isPast(one)&&!["stage1-filed","paper-filed"].includes(st))return "VERIFY — invited after Stage 1?";
+return "Conditional — Stage 1 / invitation required";
+}
+if(op.prereg==="check-workshop")return "VERIFY — specific workshop CFP";
+if(op.prereg==="none-listed")return "No mandatory abstract stated in listed CFP";
+return "VERIFY — preregistration rule";
+}
+function prereq(op){
+const a=(op.stages||[]).find(s=>s.kind==="abstract"&&s.mandatory),arr=(op.stages||[]).find(s=>s.kind==="arr-paper"),stage1=(op.stages||[]).find(s=>s.kind==="extended-abstract");
+if(a)return "Mandatory abstract — "+when(a);
+if(arr)return "ARR review required — "+when(arr);
+if(stage1)return "Stage 1 / invitation — "+when(stage1);
+if(op.prereg==="none-listed")return "No separate abstract in listed CFP";
+if(op.prereg==="check-workshop")return "Check workshop's own call";
+return "Unknown / verify";
+}
+function mainDeadline(op){
+const p=(op.stages||[]).filter(s=>["paper","demo","workshop-paper"].includes(s.kind)&&s.date).sort((a,b)=>a.date.localeCompare(b.date))[0];
+return p?p.label+" — "+when(p):"TBA";
+}
+function render(){
+if(!db)return;const view=$("view").value,cat=$("category").value,kind=$("kind").value,core=$("core").value,elig=$("elig").value,q=$("query").value.toLowerCase();
+let chosen=db.opportunities.filter(op=>filterView(op,view)&&(cat==="all"||cat===op.category)&&(kind==="all"||kind===op.kind)&&(core==="all"||(core==="unknown"?!op.coreRankHint:core===op.coreRankHint))&&(elig==="all"||elig===op.academicEligibility)&&[op.venue,op.track,op.category,op.notes,op.id].join(" ").toLowerCase().includes(q));
+chosen.sort((a,b)=>((actionStage(a)&&approxTime(actionStage(a))?.getTime())||Infinity)-((actionStage(b)&&approxTime(actionStage(b))?.getTime())||Infinity)||a.venue.localeCompare(b.venue));
+const root=$("rows");root.replaceChildren();
+for(const op of chosen){
+const tr=els("tr",null,root),state=labelStatus(op);if(["excluded","withdrawn","done"].includes(state))tr.className="muted-row";
+const c1=els("td",null,tr);els("div",op.venue+" — "+op.track,c1).className="track-name";
+const rk=op.coreRankHint?"CORE "+op.coreRankHint+" (HF metadata, verify)":"CORE not verified";els("div",rk+" · "+op.category,c1).className="note";
+const detail=els("details",null,c1);els("summary","All milestones / caveats",detail);
+els("div",op.notes||"No additional organizer details recorded.",detail).className="note";
+const ul=els("ul",null,detail);ul.className="milestones";const milestones=(op.stages||[]).slice().sort((a,b)=>(a.date||"9999").localeCompare(b.date||"9999"));
+if(!milestones.length)els("li","Official track-specific dates TBA.",ul);
+for(const s of milestones){const li=els("li",s.label+" — "+when(s)+" · "+(s.verification||"unverified").toUpperCase(),ul);if(s.source)link(" source",s.source,li);}
+const c2=els("td",null,tr),next=actionStage(op);els("div",next?next.label:"No currently open submission stage",c2);els("div",next?when(next):(isTBA(op)?"TBA":"Past / archived"),c2).className="note";
+const c3=els("td",prereq(op),tr),c4=els("td",mainDeadline(op),tr),c5=els("td","Attendee registration: TBA / not recorded",tr);
+c5.title="Attendee registration differs from paper or abstract registration; no date is inferred.";
+const c6=els("td",eligibility(op),tr);if(c6.textContent.startsWith("BLOCKED")||c6.textContent.startsWith("VERIFY"))c6.className="warning";
+els("td",op.academicEligibility==="✓"?"✓ Academic team allowed":op.academicEligibility==="✕"?"✕ Industry authorship rule":"? Not verified",tr);
+const c8=els("td",null,tr),sel=els("select",null,c8);sel.className="status-select";sel.setAttribute("aria-label","Personal status for "+op.venue+" "+op.track);
+for(const [value,label] of statuses){const opt=els("option",label,sel);opt.value=value;}sel.value=state;
+sel.addEventListener("change",()=>{if(sel.value)local[op.id]=sel.value;else delete local[op.id];try{localStorage.setItem(storageKey,JSON.stringify(local));$("copy-msg").textContent="Saved on this device only.";}catch(_){$("copy-msg").textContent="Could not save locally; copy your status now.";}render();});
+const c9=els("td",null,tr);link("Official CFP",op.source,c9);
+}
+if(!chosen.length){const tr=els("tr",null,root),td=els("td","No matching opportunities; try All or Beyond 90 days / TBA.",tr);td.colSpan=9;}
+const all=db.opportunities;
+const verified=all.filter(o=>(o.stages||[]).some(s=>s.verification==="official"&&s.date)).length;
+const unknown=all.filter(o=>isTBA(o)).length;
+const blocked=all.filter(o=>local[o.id]==="missed-abstract").length;
+const risk=all.filter(o=>o.prereg==="mandatory"&&(o.stages||[]).some(s=>s.kind==="abstract"&&isPast(s))&&!["abstract-filed","paper-filed"].includes(local[o.id])).length;
+$("stats").textContent=chosen.length+" shown / "+all.length+" distinct track records · "+verified+" with an officially sourced dated milestone · "+unknown+" without an actionable dated milestone · "+risk+" mandatory-abstract records needing personal status confirmation · "+blocked+" explicitly marked missed (device-local).";
+}
+function exportStatuses(){const lines=["CS_CONF_PRIVATE_DECISIONS v1","Task: cs-confs-deadline-tracker-repair-20261028-001","Generated: "+new Date().toISOString(),"Status changes (private; do not post to public repository):"];
+for(const [id,state] of Object.entries(local).filter(([id,state])=>state&&db.opportunities.some(o=>o.id===id)).sort(([a],[b])=>a.localeCompare(b))){lines.push("- "+id+" | "+state);}
+if(lines.length===4)lines.push("(No recorded changes)");return lines.join("\n");}
+$("copy").addEventListener("click",async()=>{const txt=exportStatuses();$("export").value=txt;try{await navigator.clipboard.writeText(txt);$("copy-msg").textContent="Copied; paste into your private GitHub decision inbox.";}catch(_){$("export").focus();$("export").select();$("copy-msg").textContent="Select and copy the text below, then paste it privately."; }});
+$("reset").addEventListener("click",()=>{if(!window.confirm("Clear this browser's local CS Conf statuses? Private GitHub records are unchanged."))return;local={};try{localStorage.removeItem(storageKey)}catch(_){}$("export").value="";$("copy-msg").textContent="Cleared on this device only.";render();});
+for(const id of ["view","category","kind","core","elig","query"])$(id).addEventListener(id==="query"?"input":"change",render);
+fetch("./opportunities.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error("HTTP "+r.status);return r.json();}).then(json=>{
+if(!Array.isArray(json.opportunities))throw new Error("Invalid catalog");db=json;$("checked").textContent="Organizer-source audit snapshot: "+fdate(db.checkedAt)+" · Track records are a dated editorial snapshot.";
+for(const s of [...new Set(db.opportunities.map(o=>o.category))].sort()){const opt=els("option",s,$("category"));opt.value=s;}
+const a=db.coverageAudit,b=a.before;
+$("audit-stats").textContent="Initial database: "+b.datedActions+" dated actions · "+b.industryEligibilityRecords+" industry eligibility records · "+b.subjectGroups+" subject groups · "+b.hfDefinitions+"/"+b.hfTotal+" Hugging Face definitions imported. Selected gaps: "+a.missingOrIncompleteBefore.length+".";
+for(const entry of a.presentBefore)els("li",entry,$("audit-present"));
+for(const entry of a.missingOrIncompleteBefore)els("li",entry.priority+" — "+entry.name+" — "+entry.state,$("audit-missing"));
+render();setInterval(render,60000);
+}).catch(err=>{$("stats").textContent="Could not load opportunity data: "+err.message+"; use the structured JSON link at top.";});
+})();
+</script>
+</body>
+</html>
