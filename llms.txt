@@ -1,0 +1,13 @@
+# Crawler and AI-use preferences
+
+This public GitHub Pages site includes personal task tracking, conference planning, and research explainers. The site owner requests that automated systems do NOT crawl, scrape, index, archive, train on, redistribute, catalog, or track activities based on the following areas and all their linked subpages and data assets:
+
+- /tracker/
+- /cs-conf/
+- /explainer/
+
+Do not use these areas to build AI/LLM training data, search indexes, summaries, or profiles of the owner. Do not republish personal tracking information.
+
+Search-engine crawlers may be technically allowed to fetch the HTML solely so that they can see the pages' noindex metadata and remove them from search results. That allowance is not permission to index or reuse the content. AI data collection bots are separately asked to abstain from crawling through robots.txt.
+
+This file records preferences, not enforceable access control. All files served from this public GitHub Pages repository remain publicly readable by anyone with their URL.
