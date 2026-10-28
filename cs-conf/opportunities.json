@@ -161,7 +161,8 @@
       "Added a separate MIDL short-paper TBA row; unchanged 2027 main MIDL date official.",
       "MLSys official conflicting paper submission hours flagged, not silently harmonized.",
       "Organizer-specific LoResLM EACL workshop Jan 7 2027 supersedes tentative generic Dec 15 joint date.",
-      "EACL 2027 SRW organizer has an anomalous December 2027 ARR commitment listing after the March event; excluded as unverified."
+      "EACL 2027 SRW organizer has an anomalous December 2027 ARR commitment listing after the March event; excluded as unverified.",
+      "Optional Student Research Workshop mentorship stages remain visible but do not replace the next actionable research-paper deadline; GRC Epigenetics attendee application is not categorized as a research paper or author submission."
     ]
   },
   "opportunities": [
@@ -362,7 +363,9 @@
           "label": "Optional pre-submission mentorship request",
           "verification": "official",
           "at": "2026-11-16T23:59:00-12:00",
-          "cutoff": "23:59 AoE; optional"
+          "cutoff": "23:59 AoE; optional",
+          "actionable": false,
+          "note": "Optional mentorship. A later contributed paper can still be submitted without it."
         },
         {
           "kind": "workshop-paper",
@@ -2833,12 +2836,14 @@
       "notes": "Legacy schedule grouped by venue; verify multiple distinct CFPs and mandatory prerequisite conditions against official track-specific call.",
       "stages": [
         {
-          "kind": "registration",
+          "kind": "attendance-registration",
           "date": "2027-07-04",
           "label": "Attendance / poster participation application (not a paper)",
           "source": "https://www.grc.org/epigenetics-conference/2027/",
           "cutoff": "Meeting Aug 1–6, 2027; admissions may close earlier when full",
-          "verification": "official"
+          "verification": "official",
+          "actionable": false,
+          "note": "Attendance/poster registration, NOT research-paper submission."
         }
       ]
     },
@@ -3069,7 +3074,9 @@
           "label": "Optional mentorship draft",
           "verification": "official",
           "at": "2026-11-06T23:59:00-12:00",
-          "cutoff": "23:59 AoE; optional"
+          "cutoff": "23:59 AoE; optional",
+          "actionable": false,
+          "note": "Optional mentorship. A later contributed paper can still be submitted without it."
         },
         {
           "kind": "workshop-paper",
