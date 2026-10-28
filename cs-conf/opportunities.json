@@ -103,6 +103,16 @@
         "priority": "P0",
         "name": "Unified stage, mandatory abstract gate, archive, personal decision UI",
         "state": "missing from prior flat dated-action table"
+      },
+      {
+        "priority": "P1",
+        "name": "MIDL 2027 Short Papers",
+        "state": "Published official 2027 track; paper date TBD; now retained as separate TBA record"
+      },
+      {
+        "priority": "P1",
+        "name": "ICML 2027 and NeurIPS 2027 main CFP",
+        "state": "2027 track-specific deadlines not verified; TBA routes retained"
       }
     ],
     "sources": [
@@ -114,7 +124,24 @@
       "https://www.aclweb.org/portal/content/joint-call-workshops-proposals-2027",
       "https://miccai.org/upcoming-conferences/"
     ],
-    "caution": "Coverage denominator is known organizer-source records and selected audit gaps, NOT every conference or workshop worldwide. Manual abstract submissions cannot be inferred."
+    "caution": "Coverage denominator is known organizer-source records and selected audit gaps, NOT every conference or workshop worldwide. Manual abstract submissions cannot be inferred.",
+    "officialConflicts": [
+      {
+        "venue": "MLSys 2027",
+        "stage": "Paper",
+        "earlier": "30 Oct 2026 12:00 PDT / 19:00 UTC",
+        "later": "30 Oct 2026 20:00 UTC",
+        "sources": [
+          "https://mlsys.org/Conferences/2027/Dates",
+          "https://mlsys.org/Conferences/2027/CallForResearchPapers"
+        ],
+        "resolution": "Do not resolve without chair confirmation; display earlier cutoff as a conservative planning bound."
+      }
+    ],
+    "notes": [
+      "Added a separate MIDL short-paper TBA row; unchanged 2027 main MIDL date official.",
+      "MLSys official conflicting paper submission hours flagged, not silently harmonized."
+    ]
   },
   "opportunities": [
     {
@@ -797,11 +824,11 @@
       "track": "Main research / clinical translation",
       "category": "Biomedical imaging / health AI",
       "kind": "research",
-      "source": "https://2027.midl.io/",
+      "source": "https://2027.midl.io/important-dates",
       "discover": "Official organizer CFP",
       "academicEligibility": "?",
       "prereg": "mandatory",
-      "notes": "Pre-register abstract before full paper; verify exact cutoff against MIDL official CFP before submission.",
+      "notes": "Pre-register abstract before full paper; verify exact cutoff against MIDL official CFP before submission. Official 2027 short-paper track date remains TBD.",
       "stages": [
         {
           "kind": "abstract",
@@ -1081,15 +1108,16 @@
       "discover": "Official organizer CFP",
       "academicEligibility": "?",
       "prereg": "unknown",
-      "notes": "Organizer time is 12:00 noon PDT on 30 Oct, NOT AoE; check whether conference needs abstract submission.",
+      "notes": "OFFICIAL ORGANIZER TIME CONFLICT: MLSys 2027 Dates page gives 30 Oct 12:00 PDT (=19:00 UTC, 31 Oct 00:30 IST) while 2027 CFP gives 20:00 UTC (=31 Oct 01:30 IST). Display earlier time conservatively and confirm with chairs/OpenReview before submission. Organizer time is 12:00 noon PDT on 30 Oct, NOT AoE; check whether conference needs abstract submission.",
       "stages": [
         {
           "kind": "paper",
           "date": "2026-10-30",
           "label": "Full research paper",
-          "verification": "official",
+          "verification": "official-conflict",
           "at": "2026-10-30T19:00:00Z",
-          "cutoff": "12:00 PDT = 31 Oct 00:30 IST"
+          "cutoff": "CONFLICT: 12:00 PDT vs 20:00 UTC; use EARLIER 12:00 PDT → 31 Oct 00:30 IST",
+          "source": "https://mlsys.org/Conferences/2027/Dates"
         }
       ]
     },
@@ -1100,19 +1128,20 @@
       "track": "Industrial Track",
       "category": "Systems / ML systems",
       "kind": "industry",
-      "source": "https://mlsys.org/Conferences/2027/CallForIndustrialTrackPapers",
+      "source": "https://mlsys.org/Conferences/2027/CallForResearchPapers",
       "discover": "Official organizer CFP",
       "academicEligibility": "✕",
       "prereg": "unknown",
-      "notes": "Industry-majority authorship rule according to existing verified industry eligibility record. Confirm specific CFP and cutoff before submitting.",
+      "notes": "OFFICIAL ORGANIZER TIME CONFLICT: MLSys 2027 Dates page gives 30 Oct 12:00 PDT (=19:00 UTC, 31 Oct 00:30 IST) while 2027 CFP gives 20:00 UTC (=31 Oct 01:30 IST). Display earlier time conservatively and confirm with chairs/OpenReview before submission. Industry-majority authorship rule according to existing verified industry eligibility record. Confirm specific CFP and cutoff before submitting.",
       "stages": [
         {
           "kind": "paper",
           "date": "2026-10-30",
           "label": "Industrial paper",
-          "verification": "official-in-existing-audit",
+          "verification": "official-conflict",
           "at": "2026-10-30T19:00:00Z",
-          "cutoff": "12:00 PDT (verify industrial cutoff)"
+          "cutoff": "CONFLICT: 12:00 PDT vs 20:00 UTC; use EARLIER 12:00 PDT → 31 Oct 00:30 IST",
+          "source": "https://mlsys.org/Conferences/2027/Dates"
         }
       ]
     },
@@ -2895,6 +2924,81 @@
           "verification": "official"
         }
       ]
+    },
+    {
+      "id": "midl27-short",
+      "venue": "MIDL 2027",
+      "year": 2027,
+      "track": "Short papers",
+      "category": "Biomedical imaging / health AI",
+      "kind": "research",
+      "source": "https://2027.midl.io/important-dates",
+      "discover": "Official organizer schedule",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "notes": "2027 official organizer explicitly says short-paper submission deadline TBD; 3-page short paper, distinct from mandatory abstract/full paper route.",
+      "stages": []
+    },
+    {
+      "id": "iclr27-main",
+      "venue": "ICLR 2027",
+      "year": 2027,
+      "track": "Main research (closed)",
+      "category": "AI / ML / statistics",
+      "kind": "research",
+      "source": "https://iclr.cc/Conferences/2027/CallForPapers",
+      "discover": "Official organizer schedule",
+      "academicEligibility": "?",
+      "prereg": "mandatory",
+      "notes": "Mandatory abstract on 18 Sep 2026 and full paper 25 Sep 2026 were closed as of 28 Oct 2026; retained in archive.",
+      "stages": [
+        {
+          "kind": "abstract",
+          "label": "Mandatory abstract",
+          "date": "2026-09-18",
+          "at": "2026-09-18T23:59:00-12:00",
+          "cutoff": "23:59 AoE",
+          "verification": "official",
+          "mandatory": true
+        },
+        {
+          "kind": "paper",
+          "label": "Full research paper",
+          "date": "2026-09-25",
+          "at": "2026-09-25T23:59:00-12:00",
+          "cutoff": "23:59 AoE",
+          "verification": "official",
+          "requires": "abstract"
+        }
+      ]
+    },
+    {
+      "id": "icml27-main",
+      "venue": "ICML 2027",
+      "year": 2027,
+      "track": "Main research",
+      "category": "AI / ML / statistics",
+      "kind": "research",
+      "source": "https://icml.cc/",
+      "discover": "Official organizer schedule",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "notes": "2027 CFP stage dates not verified as of the audit. Do not reuse 2026 deadlines.",
+      "stages": []
+    },
+    {
+      "id": "neurips27-main",
+      "venue": "NeurIPS 2027",
+      "year": 2027,
+      "track": "Main research",
+      "category": "AI / ML / statistics",
+      "kind": "research",
+      "source": "https://neurips.cc/",
+      "discover": "Official organizer schedule",
+      "academicEligibility": "?",
+      "prereg": "unknown",
+      "notes": "2027 CFP stage dates not verified as of the audit. Do not infer from 2026.",
+      "stages": []
     }
   ]
 }
