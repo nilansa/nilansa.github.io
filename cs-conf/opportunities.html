@@ -150,8 +150,10 @@ const ul=els("ul",null,detail);ul.className="milestones";const milestones=(op.st
 if(!milestones.length)els("li","Official track-specific dates TBA.",ul);
 for(const s of milestones){const li=els("li",s.label+" — "+when(s)+" · "+(s.verification||"unverified").toUpperCase(),ul);if(s.source)link(" source",s.source,li);}
 const c2=els("td",null,tr),next=actionStage(op);els("div",next?next.label:"No currently open submission stage",c2);els("div",next?when(next):(isTBA(op)?"TBA":"Past / archived"),c2).className="note";
-const c3=els("td",prereq(op),tr),c4=els("td",mainDeadline(op),tr),c5=els("td","Attendee registration: TBA / not recorded",tr);
-c5.title="Attendee registration differs from paper or abstract registration; no date is inferred.";
+const c3=els("td",prereq(op),tr),c4=els("td",mainDeadline(op),tr);
+const attendee=(op.stages||[]).filter(s=>s.kind==="attendance-registration");
+const c5=els("td",attendee.length?attendee.map(s=>s.label+" — "+when(s)).join("; "):"Attendee registration: TBA / not recorded",tr);
+c5.title="Attendance registration is separate from abstract/paper enrollment, workshop proposals and paper submissions.";
 const c6=els("td",eligibility(op),tr);if(c6.textContent.startsWith("BLOCKED")||c6.textContent.startsWith("VERIFY"))c6.className="warning";
 els("td",op.academicEligibility==="✓"?"✓ Academic team allowed":op.academicEligibility==="✕"?"✕ Industry authorship rule":"? Not verified",tr);
 const c8=els("td",null,tr),sel=els("select",null,c8);sel.className="status-select";sel.setAttribute("aria-label","Personal status for "+op.venue+" "+op.track);
