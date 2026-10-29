@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "taskId": "cs-confs-deadline-tracker-repair-20261028-001",
-  "checkedAt": "2026-10-28",
+  "checkedAt": "2026-10-29",
   "publicSafe": true,
   "sourcePolicy": "Official 2026/2027 CFPs control. Tentative joint workshop timelines are not final individual workshop CFPs. HF/CCFDDL/CS-deadlines/CSPicks are discovery only.",
   "statusPolicy": "No personal statuses in public repository. Browser decisions are device-local; copy them to a PRIVATE GitHub decision inbox for durable authenticated persistence.",
@@ -163,6 +163,28 @@
       "Organizer-specific LoResLM EACL workshop Jan 7 2027 supersedes tentative generic Dec 15 joint date.",
       "EACL 2027 SRW organizer has an anomalous December 2027 ARR commitment listing after the March event; excluded as unverified.",
       "Optional Student Research Workshop mentorship stages remain visible but do not replace the next actionable research-paper deadline; GRC Epigenetics attendee application is not categorized as a research paper or author submission."
+    ],
+    "dailyChecks": [
+      {
+        "date": "2026-10-29",
+        "type": "bounded EACL accepted individual-workshop CFP verification",
+        "verifiedOpportunityIDs": [
+          "eacl27-workshop-argmining",
+          "eacl27-workshop-silkroad",
+          "eacl27-workshop-chomps",
+          "eacl27-workshop-vardial",
+          "eacl27-workshop-argmining-sharedtask-proposal"
+        ],
+        "newRecords": 1,
+        "existingRecordsWithNewDates": 4,
+        "notes": "Added four official individual workshop CFP milestone sets and separate ArgMining shared-task organizer proposal deadline 31 Oct 2026. Distinguish organizer proposals, paper/ARR, non-archival and shared-task registration without dates. Preserve previous audit snapshot, other tracks, and private decisions.",
+        "sources": [
+          "https://argmining-org.github.io/2027/index.html",
+          "https://www.silkroadnlp.org/callforpapers",
+          "https://list.elra.info/mailman3/hyperkitty/list/corpora@list.elra.info/thread/BU3VNCK4DXB7VTSRX7VUUPELGCEJKY3Q/",
+          "https://www.aclweb.org/portal/content/fourteenth-workshop-nlp-similar-languages-varieties-and-dialects-vardial-2027"
+        ]
+      }
     ]
   },
   "opportunities": [
@@ -3199,12 +3221,47 @@
       "track": "SilkRoadNLP 2027: Advancing NLP for the Iranian Language Family",
       "category": "NLP / language / agents",
       "kind": "workshop-paper",
-      "source": "https://2027.eacl.org/program/workshops/",
+      "source": "https://www.silkroadnlp.org/callforpapers",
       "discover": "Official 2027 organizer CFP",
       "academicEligibility": "?",
-      "prereg": "check-workshop",
-      "notes": "ACCEPTED workshop listed on official EACL 2027 website. Its individual CFP and final submission date have NOT yet been verified; tentative joint 15 Dec 2026 schedule is not an authoritative individual deadline.",
-      "stages": []
+      "prereg": "none-listed",
+      "notes": "Individual 2027 organizer CFP verified 29 Oct 2026: Iranian language family; long (8p), short (4p), demos, position/work-in-progress and resources; direct OpenReview or completed ARR review route. Tajik transliteration shared-task participation dates remain TBA, NOT this paper deadline. Workshop's camera-ready Jan 9 supersedes tentative joint schedule Jan 19.",
+      "stages": [
+        {
+          "kind": "workshop-paper",
+          "date": "2026-12-15",
+          "label": "Direct workshop paper / demo",
+          "verification": "official",
+          "at": "2026-12-15T23:59:00-12:00",
+          "cutoff": "23:59 AoE"
+        },
+        {
+          "kind": "arr-commitment",
+          "date": "2026-12-22",
+          "label": "ARR-reviewed paper commitment",
+          "verification": "official",
+          "at": "2026-12-22T23:59:00-12:00",
+          "cutoff": "23:59 AoE"
+        },
+        {
+          "kind": "notification",
+          "date": "2027-01-05",
+          "label": "Acceptance",
+          "verification": "official"
+        },
+        {
+          "kind": "camera-ready",
+          "date": "2027-01-09",
+          "label": "Camera-ready",
+          "verification": "official"
+        },
+        {
+          "kind": "presentation",
+          "date": "2027-02-05",
+          "label": "Poster slides",
+          "verification": "official"
+        }
+      ]
     },
     {
       "id": "eacl27-workshop-oracle",
@@ -3227,12 +3284,41 @@
       "track": "CHOMPS: Multilingual Hallucinations and Precision-demanding Scenarios",
       "category": "NLP / language / agents",
       "kind": "workshop-paper",
-      "source": "https://2027.eacl.org/program/workshops/",
+      "source": "https://list.elra.info/mailman3/hyperkitty/list/corpora@list.elra.info/thread/BU3VNCK4DXB7VTSRX7VUUPELGCEJKY3Q/",
       "discover": "Official 2027 organizer CFP",
       "academicEligibility": "?",
-      "prereg": "check-workshop",
-      "notes": "ACCEPTED workshop listed on official EACL 2027 website. Its individual CFP and final submission date have NOT yet been verified; tentative joint 15 Dec 2026 schedule is not an authoritative individual deadline.",
-      "stages": []
+      "prereg": "none-listed",
+      "notes": "Individual 13 Oct 2026 CHOMPS organizer-authored first CFP on ACL/ELRA Corpora list; official workshop website not machine-readable at audit. Direct paper/ARR route, archival or non-archival 8p/4p and 1p dissemination abstracts. SHROOM-Visions 2.0 shared-task sign-up exists, but NO separate dated registration deadline was stated; do not conflate participation with paper submission.",
+      "stages": [
+        {
+          "kind": "workshop-paper",
+          "date": "2026-12-15",
+          "label": "Direct archival/non-archival workshop paper",
+          "verification": "official",
+          "at": "2026-12-15T23:59:00-12:00",
+          "cutoff": "23:59 AoE"
+        },
+        {
+          "kind": "arr-commitment",
+          "date": "2026-12-22",
+          "label": "Reviewed ARR commitment",
+          "verification": "official",
+          "at": "2026-12-22T23:59:00-12:00",
+          "cutoff": "23:59 AoE"
+        },
+        {
+          "kind": "notification",
+          "date": "2027-01-05",
+          "label": "Decision",
+          "verification": "official"
+        },
+        {
+          "kind": "camera-ready",
+          "date": "2027-01-19",
+          "label": "Camera-ready",
+          "verification": "official"
+        }
+      ]
     },
     {
       "id": "eacl27-workshop-field-matters",
@@ -3269,12 +3355,78 @@
       "track": "ArgMining 2027: Argument Mining and Reasoning",
       "category": "NLP / language / agents",
       "kind": "workshop-paper",
-      "source": "https://2027.eacl.org/program/workshops/",
+      "source": "https://argmining-org.github.io/2027/index.html",
       "discover": "Official 2027 organizer CFP",
       "academicEligibility": "?",
-      "prereg": "check-workshop",
-      "notes": "ACCEPTED workshop listed on official EACL 2027 website. Its individual CFP and final submission date have NOT yet been verified; tentative joint 15 Dec 2026 schedule is not an authoritative individual deadline.",
-      "stages": []
+      "prereg": "none-listed",
+      "notes": "Individual organizer CFP verified 29 Oct 2026. Agentic and human–AI argumentation; archival long (8p) or short (4p); non-archival extended abstracts (2p) and PhD proposals (4p). Direct/ARR-reviewed routes; submissions portal not yet announced. Separate 31 Oct shared-task ORGANIZER proposal is its own row; it is NOT a paper deadline.",
+      "stages": [
+        {
+          "kind": "workshop-paper",
+          "date": "2026-12-15",
+          "label": "Direct archival long/short workshop paper",
+          "verification": "official",
+          "at": "2026-12-15T23:59:00-12:00",
+          "cutoff": "23:59 AoE"
+        },
+        {
+          "kind": "arr-commitment",
+          "date": "2026-12-22",
+          "label": "ARR-reviewed paper commitment",
+          "verification": "official",
+          "at": "2026-12-22T23:59:00-12:00",
+          "cutoff": "23:59 AoE"
+        },
+        {
+          "kind": "workshop-paper",
+          "date": "2026-12-22",
+          "label": "Non-archival extended abstract or PhD proposal",
+          "verification": "official",
+          "at": "2026-12-22T23:59:00-12:00",
+          "cutoff": "23:59 AoE"
+        },
+        {
+          "kind": "notification",
+          "date": "2027-01-05",
+          "label": "Decision",
+          "verification": "official"
+        },
+        {
+          "kind": "camera-ready",
+          "date": "2027-01-19",
+          "label": "Camera-ready",
+          "verification": "official"
+        },
+        {
+          "kind": "presentation",
+          "date": "2027-02-12",
+          "label": "Pre-recorded video",
+          "verification": "official"
+        }
+      ]
+    },
+    {
+      "id": "eacl27-workshop-argmining-sharedtask-proposal",
+      "venue": "EACL 2027 — ArgMining",
+      "year": 2027,
+      "track": "ArgMining 2027 shared-task ORGANIZER proposal (not a paper)",
+      "category": "NLP / language / agents",
+      "kind": "workshop-proposal",
+      "source": "https://argmining-org.github.io/2027/index.html",
+      "discover": "Individual official organizer call published 16 Oct 2026",
+      "academicEligibility": "?",
+      "prereg": "none-listed",
+      "notes": "Separate 2-page shared-task proposal (dataset readiness, evaluation, organizers, timing) emailed to ArgMining organizers. This is a call for organizing a shared task, NOT submitting a paper to the workshop. No pre-registration stated.",
+      "stages": [
+        {
+          "kind": "workshop-proposal",
+          "date": "2026-10-31",
+          "label": "Shared-task organizer proposal (2-page PDF)",
+          "verification": "official",
+          "at": "2026-10-31T23:59:00-12:00",
+          "cutoff": "23:59 AoE"
+        }
+      ]
     },
     {
       "id": "eacl27-workshop-mwe",
@@ -3297,12 +3449,39 @@
       "track": "VarDial 2027: Similar Languages, Varieties and Dialects",
       "category": "NLP / language / agents",
       "kind": "workshop-paper",
-      "source": "https://2027.eacl.org/program/workshops/",
+      "source": "https://www.aclweb.org/portal/content/fourteenth-workshop-nlp-similar-languages-varieties-and-dialects-vardial-2027",
       "discover": "Official 2027 organizer CFP",
       "academicEligibility": "?",
-      "prereg": "check-workshop",
-      "notes": "ACCEPTED workshop listed on official EACL 2027 website. Its individual CFP and final submission date have NOT yet been verified; tentative joint 15 Dec 2026 schedule is not an authoritative individual deadline.",
-      "stages": []
+      "prereg": "none-listed",
+      "notes": "Individual VarDial organizer CFP posted on ACL Member Portal 12 Oct 2026; direct submission open without prior abstract specified. Pre-reviewed ARR commitment date is TBA, not inferred from tentative joint EACL deadline. Camera-ready Jan 29 supersedes tentative joint Jan 19.",
+      "stages": [
+        {
+          "kind": "workshop-paper",
+          "date": "2026-12-15",
+          "label": "Direct workshop paper",
+          "verification": "official",
+          "at": "2026-12-15T23:59:00-12:00",
+          "cutoff": "23:59 AoE"
+        },
+        {
+          "kind": "arr-commitment",
+          "date": null,
+          "label": "Pre-reviewed ARR deadline (TBA)",
+          "verification": "TBA"
+        },
+        {
+          "kind": "notification",
+          "date": "2027-01-20",
+          "label": "Acceptance",
+          "verification": "official"
+        },
+        {
+          "kind": "camera-ready",
+          "date": "2027-01-29",
+          "label": "Camera-ready",
+          "verification": "official"
+        }
+      ]
     },
     {
       "id": "eacl27-workshop-multidems",
