@@ -1,13 +1,18 @@
-# Crawler and AI-use preferences
+# Site-wide crawler and AI-use preferences
 
-This public GitHub Pages site includes personal task tracking, conference planning, and research explainers. The site owner requests that automated systems do NOT crawl, scrape, index, archive, train on, redistribute, catalog, or track activities based on the following areas and all their linked subpages and data assets:
+This is a public GitHub Pages site, not an authenticated or private service.
+The owner requests that automated systems do NOT scrape, train on, archive,
+republish, catalog, profile, or track activities from any page or file on
+this site, including the homepage, conference pages, research explainers,
+tracker, and all machine-readable data assets.
 
-- /tracker/
-- /cs-conf/
-- /explainer/
+All published HTML pages specify meta robots noindex,nofollow so compliant
+search engines can fetch those pages only to detect exclusion and remove
+them from search indexes. AI crawlers are asked not to crawl any path via
+robots.txt. These policies are voluntary, not enforceable access controls.
 
-Do not use these areas to build AI/LLM training data, search indexes, summaries, or profiles of the owner. Do not republish personal tracking information.
+The Claude Science public shortcut was removed. Do not infer or publicize
+private service addresses from historical repository content.
 
-Search-engine crawlers may be technically allowed to fetch the HTML solely so that they can see the pages' noindex metadata and remove them from search results. That allowance is not permission to index or reuse the content. AI data collection bots are separately asked to abstain from crawling through robots.txt.
-
-This file records preferences, not enforceable access control. All files served from this public GitHub Pages repository remain publicly readable by anyone with their URL.
+Anyone who already knows the URL of a public asset can still request it.
+Private data should be kept outside public GitHub repositories and Pages.
