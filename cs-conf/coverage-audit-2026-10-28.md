@@ -7,7 +7,42 @@
 **Structured dataset:** [opportunities.json](opportunities.json)  
 **Original research schedule:** [data.json](data.json)
 
-## Scope and counts
+## Daily verified delta — 29 Oct 2026
+
+**Stable maintenance task:** `cs-confs-daily-deadline-review-20261028-001`. This is a **bounded follow-up**, not a replacement for the 28 Oct baseline or permission to resume the paused hourly scout. Primary-source checks on 29 Oct 2026 (Asia/Kolkata).
+
+| Current catalogue metric | Verified value |
+| --- | ---: |
+| Opportunity/track rows | **123** (previously 122; one new ArgMining shared-task organizer route) |
+| Rows with at least one official dated milestone | **93** (previously 88) |
+| Rows without a currently recorded actionable dated submission milestone | **34** (previously 37; different property, not a complement) |
+| Newly dated named EACL workshop paper routes | **4** |
+| Newly added time-sensitive shared-task organizer proposal route | **1** |
+| Personally missed mandatory abstract registrations | **UNKNOWN** — no private submission declaration found |
+
+### Now present / independently verified
+
+- [x] **EACL 2027 ArgMining workshop PAPERS**: direct archival long/short paper **15 Dec 2026**; ARR-reviewed commitment and direct non-archival extended abstract/PhD proposal **22 Dec 2026**; accepted decision **5 Jan 2027**, camera-ready **19 Jan 2027**. Official 2027 workshop organizer call: https://argmining-org.github.io/2027/index.html
+- [x] **EACL 2027 ArgMining shared-task ORGANIZER proposal**: a **separate** 2-page proposal, **31 Oct 2026, 23:59 AoE** (1 Nov 2026, 17:29 IST); organizer accepts proposal by email. **Not** a regular workshop research-paper submission. Same primary source.
+- [x] **EACL 2027 SilkRoadNLP**: direct contributed paper/demo **15 Dec 2026**, reviewed ARR commitment **22 Dec 2026**, camera-ready **9 Jan 2027**, as distinct from tentative joint calendar's 19 Jan. Organizer: https://www.silkroadnlp.org/callforpapers
+- [x] **EACL 2027 CHOMPS**: contributed paper **15 Dec 2026**, ARR commitment **22 Dec 2026**, camera-ready **19 Jan 2027**; confirmed by the organizer's 13 Oct first CFP on the ACL/ELRA Corpora list https://list.elra.info/mailman3/hyperkitty/list/corpora@list.elra.info/thread/BU3VNCK4DXB7VTSRX7VUUPELGCEJKY3Q/ . Its separate SHROOM-Visions shared-task sign-up has **no published deadline** in that notice; do not treat it as a mandatory research-paper registration.
+- [x] **EACL 2027 VarDial**: direct submission **15 Dec 2026**, notification **20 Jan 2027**, camera-ready **29 Jan 2027**; pre-reviewed ARR deadline **TBA**, not assumed to be the tentative joint schedule. ACL Member Portal, 12 Oct 2026: https://www.aclweb.org/portal/content/fourteenth-workshop-nlp-similar-languages-varieties-and-dialects-vardial-2027
+- [x] **NAACL 2027 Industry** official CFP rechecked: **31 Oct 2026, 23:59 AoE**. Academics eligible; independent real-world application criterion remains; the route does not use ARR. https://2027.naacl.org/calls/industry_track/
+- [x] **NAACL 2027 SRW** unchanged: **16 Nov 2026** optional mentorship, **11 Jan 2027** paper+student proof. Missing mentorship does **not** bar direct paper submission. https://2027.naacl.org/calls/srw/
+
+### Missing, unconfirmed, or needing organizer resolution
+
+- [ ] **P0** ACL 2027 Industry CFP and EMNLP 2027 Industry/Main/Demo annual track dates: keep TBA until verified from their specific 2027 calls.
+- [ ] **P1** Remaining nine named EACL accepted workshops apart from LoResLM and the four newly verified here: individual organizer CFP/dates still require verification. Do not automatically assign tentative shared dates.
+- [ ] **P1** Individual ICLR/NeurIPS 2027 workshops, NAACL/ACL named workshops, MICCAI 2027 workshop and paper dates: distinct verified calls needed.
+- [ ] **P0** MLSys 2027 official cutoff discrepancy **still unresolved**: official Dates page gives **30 Oct 2026 12:00 PDT = 31 Oct 2026 00:30 IST**, CFP gives **30 Oct 2026 20:00 UTC = 31 Oct 2026 01:30 IST**; plan by the earlier bound, without claiming organizers confirmed it. https://mlsys.org/Conferences/2027/Dates and https://mlsys.org/Conferences/2027/CallForResearchPapers
+- [ ] **P1** The public GitHub Pages deployment at https://nilansa.github.io/cs-conf/opportunities.html could not be loaded independently through the public web reader this cycle, though committed repository content was retrieved and read back. Do not say deployment confirmed.
+
+**Handoff:** [Daily verified track-data commit](https://github.com/nilansa/nilansa.github.io/commit/df2934fa4f71e86e5893eb5bc7c485abfbed7ab4), read-back `opportunities.json` blob `1c84baac8c87fb7d16a589a1f1d8ddde7b9323d0`. The 28 Oct baseline below remains historical. No private decision data was copied to public files. No ChatGPT↔Codex/local file transfer occurred.
+
+---
+
+## Initial scope and counts (28 Oct 2026 historical baseline)
 
 | Evidence pool | Count |
 | --- | ---: |
