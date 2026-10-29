@@ -1,10 +1,10 @@
-# Scoped crawler preferences for the task tracker, conference tracker and explainer.
-# robots.txt is not access control; it does not make GitHub Pages private.
-# Search crawlers MUST be able to retrieve HTML to discover each page's
-# <meta name="robots" content="noindex,nofollow,noarchive">.
-# Do not add blanket Disallow rules for these HTML paths.
+# Site-wide voluntary crawler restrictions.
+# This public GitHub Pages site is NOT private or access-controlled.
+# Ordinary search crawlers must be able to fetch HTML to read the
+# meta robots noindex directive; blocking HTML here can prevent removal
+# of already indexed URLs. Disallow rules are voluntary and can be ignored.
 
-# Voluntary AI/LLM data-collection and AI-search crawler exclusions.
+# Request that AI indexing, scraping, and model-training bots stay off the site.
 User-agent: GPTBot
 User-agent: OAI-SearchBot
 User-agent: ClaudeBot
@@ -18,17 +18,14 @@ User-agent: Bytespider
 User-agent: Meta-ExternalAgent
 User-agent: Meta-ExternalFetcher
 User-agent: Applebot-Extended
-Disallow: /tracker/
-Disallow: /cs-conf/
-Disallow: /explainer/
+User-agent: Amazonbot
+Disallow: /
 
-# Other compliant crawlers may read HTML noindex metadata.
-# Discourage crawling of linked machine-readable and document assets.
-# These resource paths are NOT guaranteed to disappear from search results.
+# Discourage other crawlers from retrieving machine-readable and document files.
+# Do not block HTML: all published HTML has noindex, nofollow metadata.
 User-agent: *
-Disallow: /tracker/*.json$
-Disallow: /tracker/*.md$
-Disallow: /cs-conf/*.json$
-Disallow: /cs-conf/*.md$
-Disallow: /explainer/*.json$
-Disallow: /explainer/*.md$
+Disallow: /*.json$
+Disallow: /*.md$
+Disallow: /*.csv$
+Disallow: /*.pdf$
+Disallow: /*.xml$
