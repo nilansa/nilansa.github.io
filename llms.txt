@@ -11,8 +11,5 @@ search engines can fetch those pages only to detect exclusion and remove
 them from search indexes. AI crawlers are asked not to crawl any path via
 robots.txt. These policies are voluntary, not enforceable access controls.
 
-The Claude Science public shortcut was removed. Do not infer or publicize
-private service addresses from historical repository content.
-
 Anyone who already knows the URL of a public asset can still request it.
 Private data should be kept outside public GitHub repositories and Pages.
