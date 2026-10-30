@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "taskId": "cs-confs-deadline-tracker-repair-20261028-001",
-  "checkedAt": "2026-10-29",
+  "checkedAt": "2026-10-30",
   "publicSafe": true,
   "sourcePolicy": "Official 2026/2027 CFPs control. Tentative joint workshop timelines are not final individual workshop CFPs. HF/CCFDDL/CS-deadlines/CSPicks are discovery only.",
   "statusPolicy": "No personal statuses in public repository. Browser decisions are device-local; copy them to a PRIVATE GitHub decision inbox for durable authenticated persistence.",
@@ -183,6 +183,24 @@
           "https://www.silkroadnlp.org/callforpapers",
           "https://list.elra.info/mailman3/hyperkitty/list/corpora@list.elra.info/thread/BU3VNCK4DXB7VTSRX7VUUPELGCEJKY3Q/",
           "https://www.aclweb.org/portal/content/fourteenth-workshop-nlp-similar-languages-varieties-and-dialects-vardial-2027"
+        ]
+      },
+      {
+        "date": "2026-10-30",
+        "type": "bounded official workshop CFP audit and prerequisite display correction",
+        "verifiedOpportunityIDs": [
+          "eacl27-workshop-field-matters",
+          "eacl27-workshop-linda",
+          "naacl27-workshop-langcode"
+        ],
+        "newRecords": 1,
+        "existingRecordsWithNewDates": 2,
+        "notes": "Official individual workshop CFPs for Field Matters, LInDA and LangCode; no separate mandatory abstract preregistration; ARR commitments conditional on existing ARR reviews. Field Matters accepts late non-archival work without fixed deadline; LInDA individual announcement does not specify cutoff clock time. CSS/JS follow-up fixes the dashboard to avoid labelling gated full papers/ARR commitments as immediately actionable; do not infer personal submitted/missed statuses.",
+        "sources": [
+          "https://field-matters.github.io/cfp/cfp2027",
+          "https://www.aclweb.org/portal/content/call-papers-first-workshop-linguistic-information-downstream-applications",
+          "https://langcode2027.github.io/submission/",
+          "https://www.aclweb.org/portal/content/first-call-papers-langcode-2027-first-language-and-code-workshop-naacl-2027"
         ]
       }
     ]
@@ -3327,12 +3345,48 @@
       "track": "Field Matters: NLP Applications to Field Linguistics",
       "category": "NLP / language / agents",
       "kind": "workshop-paper",
-      "source": "https://2027.eacl.org/program/workshops/",
+      "source": "https://field-matters.github.io/cfp/cfp2027",
       "discover": "Official 2027 organizer CFP",
       "academicEligibility": "?",
-      "prereg": "check-workshop",
-      "notes": "ACCEPTED workshop listed on official EACL 2027 website. Its individual CFP and final submission date have NOT yet been verified; tentative joint 15 Dec 2026 schedule is not an authoritative individual deadline.",
-      "stages": []
+      "prereg": "none-listed",
+      "notes": "Official individual Field Matters 2027 CFP: direct archival long 8p/short 4p and non-archival work-in-progress or previously published papers/2p abstracts; non-archival late submissions may be accepted after regular deadline (no hard date published). ARR pre-reviewed route is conditional on existing reviews; separate 2027 shared task on interlinear glossing announced, dataset/deadlines not independently fixed. Organizer confirms 23:59 UTC−12 cutoffs.",
+      "stages": [
+        {
+          "kind": "workshop-paper",
+          "date": "2026-12-15",
+          "label": "Direct archival/non-archival workshop paper",
+          "verification": "official",
+          "at": "2026-12-15T23:59:00-12:00",
+          "cutoff": "23:59 AoE"
+        },
+        {
+          "kind": "arr-commitment",
+          "date": "2026-12-22",
+          "label": "Pre-reviewed ARR paper commitment",
+          "verification": "official",
+          "at": "2026-12-22T23:59:00-12:00",
+          "cutoff": "23:59 AoE",
+          "requires": "arr"
+        },
+        {
+          "kind": "notification",
+          "date": "2027-01-11",
+          "label": "Decision",
+          "verification": "official"
+        },
+        {
+          "kind": "camera-ready",
+          "date": "2027-01-22",
+          "label": "Camera-ready",
+          "verification": "official"
+        },
+        {
+          "kind": "event",
+          "date": "2027-03-09",
+          "label": "EACL 2027 workshop period begins",
+          "verification": "official"
+        }
+      ]
     },
     {
       "id": "eacl27-workshop-linda",
@@ -3341,12 +3395,40 @@
       "track": "LInDA: Linguistic Information for Downstream Applications",
       "category": "NLP / language / agents",
       "kind": "workshop-paper",
-      "source": "https://2027.eacl.org/program/workshops/",
+      "source": "https://www.aclweb.org/portal/content/call-papers-first-workshop-linguistic-information-downstream-applications",
       "discover": "Official 2027 organizer CFP",
       "academicEligibility": "?",
-      "prereg": "check-workshop",
-      "notes": "ACCEPTED workshop listed on official EACL 2027 website. Its individual CFP and final submission date have NOT yet been verified; tentative joint 15 Dec 2026 schedule is not an authoritative individual deadline.",
-      "stages": []
+      "prereg": "none-listed",
+      "notes": "Official organizer-authored CFP in ACL Member Portal dated 13 Oct 2026: submission must connect linguistic resource/annotation to downstream NLP effect (except scoped position/ethics papers); archival 8p long/4p short; non-archival 2p extended abstract for ongoing or prior work. Direct CFP specifies dates but does NOT explicitly specify clock time/timezone; do not infer AoE from the joint tentative calendar. ARR route requires existing reviews; OpenReview specific submission link not confirmed.",
+      "stages": [
+        {
+          "kind": "workshop-paper",
+          "date": "2026-12-15",
+          "label": "Direct long/short paper or non-archival abstract",
+          "verification": "official",
+          "cutoff": "time zone not specified by individual CFP"
+        },
+        {
+          "kind": "arr-commitment",
+          "date": "2026-12-22",
+          "label": "Pre-reviewed ARR paper commitment",
+          "verification": "official",
+          "requires": "arr",
+          "cutoff": "time zone not specified by individual CFP"
+        },
+        {
+          "kind": "notification",
+          "date": "2027-01-05",
+          "label": "Decision",
+          "verification": "official"
+        },
+        {
+          "kind": "camera-ready",
+          "date": "2027-01-19",
+          "label": "Camera-ready",
+          "verification": "official"
+        }
+      ]
     },
     {
       "id": "eacl27-workshop-argmining",
@@ -3538,6 +3620,50 @@
       "prereg": "check-workshop",
       "notes": "ACCEPTED workshop listed on official EACL 2027 website. Its individual CFP and final submission date have NOT yet been verified; tentative joint 15 Dec 2026 schedule is not an authoritative individual deadline.",
       "stages": []
+    },
+    {
+      "id": "naacl27-workshop-langcode",
+      "venue": "NAACL 2027",
+      "year": 2027,
+      "track": "LangCode 2027: Language and Code Workshop",
+      "category": "NLP / language / agents",
+      "kind": "workshop-paper",
+      "source": "https://langcode2027.github.io/submission/",
+      "discover": "Organizing committee 2027 CFP; ACL Member Portal 23 Oct 2026",
+      "academicEligibility": "?",
+      "prereg": "none-listed",
+      "notes": "First NAACL 2027 Language and Code Workshop. Direct archival 8p long, 4p short, or 4p shared-task system paper, all via OpenReview (link TBA); workshop site says no non-archival option. Pre-reviewed ARR commitment is separate and requires eligible reviews/meta-review. CodaBench shared tasks Multilingual Code Generation and Adversarial Prompt Detection have registration open but no registration cutoff verified; do not confuse with paper submission deadline. Workshop site marks dates subject to change.",
+      "stages": [
+        {
+          "kind": "workshop-paper",
+          "date": "2027-02-05",
+          "label": "Direct workshop long/short/system paper",
+          "verification": "official",
+          "at": "2027-02-05T23:59:00-12:00",
+          "cutoff": "23:59 AoE"
+        },
+        {
+          "kind": "arr-commitment",
+          "date": "2027-03-12",
+          "label": "Reviewed ARR commitment",
+          "verification": "official",
+          "at": "2027-03-12T23:59:00-12:00",
+          "cutoff": "23:59 AoE",
+          "requires": "arr"
+        },
+        {
+          "kind": "notification",
+          "date": "2027-03-26",
+          "label": "Decision",
+          "verification": "official"
+        },
+        {
+          "kind": "camera-ready",
+          "date": "2027-04-16",
+          "label": "Camera-ready",
+          "verification": "official"
+        }
+      ]
     }
   ]
 }
