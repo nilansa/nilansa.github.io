@@ -135,6 +135,15 @@ function mainDeadline(op){
 const p=(op.stages||[]).filter(s=>["paper","demo","workshop-paper"].includes(s.kind)&&s.date).sort((a,b)=>a.date.localeCompare(b.date))[0];
 return p?p.label+" — "+when(p):"TBA";
 }
+function nextGate(op,stage){
+const st=labelStatus(op),rule=eligibility(op);
+if(st==="missed-abstract")return "BLOCKED — mandatory prerequisite marked missed (this browser)";
+if(op.prereg==="mandatory"&&rule.startsWith("VERIFY"))return "VERIFY — mandatory abstract filing unconfirmed";
+if(op.prereg==="arr-required"&&rule.startsWith("VERIFY"))return rule;
+if(op.prereg==="stage1-required"&&rule.startsWith("VERIFY"))return rule;
+if(stage&&(stage.kind==="arr-commitment"||stage.requires==="arr")&&!["arr-filed","paper-filed"].includes(st))return "VERIFY — existing eligible ARR reviews/meta-review unconfirmed";
+return "";
+}
 function render(){
 if(!db)return;const view=$("view").value,cat=$("category").value,kind=$("kind").value,core=$("core").value,elig=$("elig").value,q=$("query").value.toLowerCase();
 let chosen=db.opportunities.filter(op=>filterView(op,view)&&(cat==="all"||cat===op.category)&&(kind==="all"||kind===op.kind)&&(core==="all"||(core==="unknown"?!op.coreRankHint:core===op.coreRankHint))&&(elig==="all"||elig===op.academicEligibility)&&[op.venue,op.track,op.category,op.notes,op.id].join(" ").toLowerCase().includes(q));
@@ -149,7 +158,7 @@ els("div",op.notes||"No additional organizer details recorded.",detail).classNam
 const ul=els("ul",null,detail);ul.className="milestones";const milestones=(op.stages||[]).slice().sort((a,b)=>(a.date||"9999").localeCompare(b.date||"9999"));
 if(!milestones.length)els("li","Official track-specific dates TBA.",ul);
 for(const s of milestones){const li=els("li",s.label+" — "+when(s)+" · "+(s.verification||"unverified").toUpperCase(),ul);if(s.source)link(" source",s.source,li);}
-const c2=els("td",null,tr),next=actionStage(op);els("div",next?next.label:"No currently open submission stage",c2);els("div",next?when(next):(isTBA(op)?"TBA":"Past / archived"),c2).className="note";
+const c2=els("td",null,tr),next=actionStage(op),gate=nextGate(op,next);els("div",gate|| (next?next.label:"No currently open submission stage"),c2);els("div",gate?(next?"Next recorded cutoff: "+when(next)+" · NOT confirmed actionable":"Review prerequisite status"):next?when(next):(isTBA(op)?"TBA":"Past / archived"),c2).className="note";
 const c3=els("td",prereq(op),tr),c4=els("td",mainDeadline(op),tr);
 const attendee=(op.stages||[]).filter(s=>s.kind==="attendance-registration");
 const c5=els("td",attendee.length?attendee.map(s=>s.label+" — "+when(s)).join("; "):"Attendee registration: TBA / not recorded",tr);
