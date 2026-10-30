@@ -135,3 +135,34 @@ Reconcile these files by current blob SHA before edits. Check official CFPs for 
 - CCFDDL: https://ccfddl.com/
 - CS Deadlines: https://cs-deadlines.cin.ufpe.br/
 - CSPicks: https://cspicks.roars.dev/csconfs.html?start=2026&end=2027
+
+## Daily editorial verification — 30 Oct 2026
+
+This is a **bounded follow-up**, not a rebuild of the 28 Oct baseline. The canonical track planner now has **124 distinct opportunity rows**, **96 with at least one officially verified dated milestone**, and **32 without any dated actionable-submission-kind milestone**; these statistics are different properties and are not complementary. The original research and Hugging Face imported catalogues remain untouched. No user-specific private decision statuses have been included.
+
+### Present and updated from 2027 individual organizer CFPs
+
+| Status | Track | Verified paper/related stage | Caveat | Source |
+| --- | --- | --- | --- | --- |
+| ✓ Updated | EACL 2027 — Field Matters | Direct **15 Dec 2026**, ARR-pre-reviewed **22 Dec 2026**, decision **11 Jan 2027**, camera-ready **22 Jan 2027** | Direct route includes archival papers and non-archival work-in-progress; later non-archival papers possible without published cutoff. ARR route requires pre-existing reviews. All ordinary deadlines 23:59 AoE. | https://field-matters.github.io/cfp/cfp2027 |
+| ✓ Updated | EACL 2027 — LInDA | Direct **15 Dec 2026**, ARR pre-reviewed **22 Dec 2026**, decision **5 Jan 2027**, camera-ready **19 Jan 2027** | Official workshop-authored ACL CFP; direct long/short or 2-page non-archival extended abstract is a **submission**, not mandatory abstract *registration*. The individual CFP does not specify cutoff clock/timezone; keep unknown rather than invent AoE. | https://www.aclweb.org/portal/content/call-papers-first-workshop-linguistic-information-downstream-applications |
+| ✓ New | NAACL 2027 — LangCode Workshop | Direct workshop paper **5 Feb 2027**, reviewed ARR commitment **12 Mar 2027**, decision **26 Mar 2027**, camera-ready **16 Apr 2027** | Paper types: 8p long, 4p short/system; no non-archival route. Separate shared-task CodaBench signups opened but no registration **deadline** verified. Organizer says dates subject to change; OpenReview submission link TBA. | https://langcode2027.github.io/submission/ |
+
+### Current missing / incomplete selected coverage
+
+- [ ] **P0:** ACL 2027 Industry Track and System Demonstrations: organizer-specific CFP dates and eligibility still unverified, so **TBA**.
+- [ ] **P0:** EMNLP 2027 Main, Industry Track, Demo and contributed workshops: individual CFPs remain **TBA**.
+- [ ] **P0:** MICCAI 2027 main/subtracks: official 2027 paper deadline still **TBA**.
+- [ ] **P1:** Seven existing named EACL 2027 workshop rows remain individually **TBA** after two verified additions today: AfricaNLP, ORACLE, MWE, MultiDems, Slavic NLP, SIGHUM, FrameNet. The last is hosted at a separate venue; do not imply it has an EACL paper deadline.
+- [ ] **P1:** ICLR, ICML, NeurIPS, RSS workshops: verify actual accepted individual 2027 CFPs before assigning paper dates.
+- [ ] **P1:** Continue dated-source coverage for speech, robotics, neuro and computational biology, without claiming an exhaustive worldwide denominator.
+
+### Submission gating and data integrity
+
+The dashboard now displays **VERIFY** in the next-stage column instead of presenting a subsequent full paper/ARR commitment as unconditionally actionable when a mandatory abstract, earlier ARR review, or Stage 1 prerequisite is unconfirmed. A user explicitly marking a missed mandatory abstract sees **BLOCKED**. This is a display correction, not proof the user missed a deadline; the main paper date remains visible for reference. Non-archival workshop *abstract submissions* are not the same as mandatory preregistration.
+
+**MLSys 2027:** official Dates lists **30 Oct 2026 12:00 PDT** (= **31 Oct 2026 00:30 IST**) while official research CFP says **30 Oct 2026 20:00 UTC** (= **31 Oct 2026 01:30 IST**). As checked on **30 Oct**, no verified organizer reconciliation; retain the earlier cutoff only as a conservative planning bound. https://mlsys.org/Conferences/2027/Dates and https://mlsys.org/Conferences/2027/CallForResearchPapers
+
+**NAACL 2027 Industry:** official direct-paper cutoff remains **31 Oct 2026 23:59 AoE** (= **1 Nov 2026 17:29 IST**); no ARR requirement, academic-only authors allowed subject to real-world evidence. https://2027.naacl.org/calls/industry_track/
+
+No private status export from the user was found in the existing authorized issue comments; keep all personal abstract/submission statuses unknown. Static-page decisions remain this-device-only and no private data was copied into public files. The GitHub Pages deployment could not be fetched by the web reader, so a live browser release claim remains unverified.
