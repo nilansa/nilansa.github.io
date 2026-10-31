@@ -537,7 +537,7 @@
   },
   "evening_proposal_review": {
     "date": "2026-10-31",
-    "status": "Read-only external literature synthesis and term-project draft; not yet acknowledged or approved by the two original native Claude Science frames.",
+    "status": "Original native P1 Science request accepted and processing as of 19:06 IST on 31 October; report pending. P5 native request remains unacknowledged. No new scientific result or pilot.",
     "candidate_a": {
       "label": "Cost-aware collective evidence retrieval",
       "scientific_question": "Can complete evidence support and downstream answer correctness be retained at lower end-to-end latency, context-token and verification cost than strong existing retrieval methods?",
@@ -545,7 +545,11 @@
         "DISCo ICLR 2026",
         "Petcu et al. EACL 2026 sequential subquery bandit",
         "Yin et al. Findings EMNLP 2026 stage-aware query decomposition",
-        "SetR / Sufficient Context / HALT"
+        "SetR / Sufficient Context / HALT",
+        "SetR — ACL 2025 long paper: set-wise passage selection",
+        "BEAR — EMNLP 2026 main paper: fixed context-token budget across evidence granularity",
+        "HALT — Findings EMNLP 2026: support-based retrieval stopping",
+        "VRR — Findings EMNLP 2026: verification-guided retrieval correction"
       ],
       "minimal_proposed_pilot": "100–200 multi-hop DEV questions with two annotated support documents; K=2–5 and 1–2 budgets; qrel-independent retrieval, BM25/ColBERT/DISCo/Petcu-bandit/stage-aware comparisons, full-support recall, downstream QA, p50/p95 latency, total tokens and bootstrap confidence intervals. Not executed.",
       "evidence_status": "HYPOTHESIS ONLY",
@@ -573,7 +577,7 @@
       ]
     },
     "lookup_architecture_note": "L3 ICML 2026, STEM ICLR 2026 and Engram 2026 concern model-internal memory lookup; no evidence they directly improve corpus ANN retrieval; bekko claims require independent evaluation.",
-    "deployment_status": "Only new public explanatory text published; no Science session instruction accepted or new job started.",
+    "deployment_status": "Read-only evening research instructions accepted by the original P1 native Science frame (not completed). P5 original native review not confirmed. No new research or GPU jobs launched by this synchronization.",
     "references": [
       "https://proceedings.iclr.cc/paper_files/paper/2026/hash/6ded182245f8e4db3963d2027174133d-Abstract-Conference.html",
       "https://github.com/structlearning/DISCo",
@@ -582,7 +586,16 @@
       "https://research.google/pubs/robust-active-distillation/",
       "https://proceedings.mlr.press/v306/tseng26a.html",
       "https://proceedings.iclr.cc/paper_files/paper/2026/hash/082ebebc722cea31791b68a868bcd48c-Abstract-Conference.html",
-      "https://arxiv.org/abs/2601.07372"
-    ]
+      "https://arxiv.org/abs/2601.07372",
+      "https://aclanthology.org/2025.acl-long.861/",
+      "https://aclanthology.org/2026.emnlp-main.1348/",
+      "https://aclanthology.org/2026.findings-emnlp.343/",
+      "https://aclanthology.org/2026.findings-emnlp.143/"
+    ],
+    "native_review_status": {
+      "p1": "ACCEPTED · native original frame processing at 19:07 IST · scientific report pending",
+      "p5": "NOT ACKNOWLEDGED · original session still completed · scientific report pending"
+    },
+    "native_delivery_checked_at_ist": "2026-10-31 19:07 IST"
   }
 }
