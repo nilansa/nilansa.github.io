@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="description" content="Evidence-led IRE explainer: teacher feedback, dense retriever learning, SciFact results and the fixed-budget research question.">
+<title>Teacher feedback under a fixed budget — IRE / Team Ceous</title>
+<style>
+:root{--ink:#171917;--muted:#666d68;--line:#d9ded9;--soft:#f5f7f4;--accent:#315b49;--warn:#8a5b28;--bad:#8c3939;--max:1080px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:78px}
+body{margin:0;background:#fff;color:var(--ink);font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}a:hover{color:#142d22}
+header{height:58px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#ffffffed;backdrop-filter:blur(8px);z-index:5}
+.header{max-width:var(--max);height:100%;margin:auto;padding:0 24px;display:flex;align-items:center;gap:24px}
+.brand{font:700 11px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.nav{margin-left:auto;display:flex;gap:20px}.nav a{font-size:11px;color:#606760;text-decoration:none}.nav a:hover{color:var(--accent)}
+.wrap{max-width:var(--max);margin:auto;padding:0 24px}.hero{padding:78px 0 58px}
+.kicker{font:700 10px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:clamp(42px,6vw,72px);line-height:1.02;letter-spacing:-.065em;max-width:850px;margin:18px 0 20px;font-weight:760}
+.lede{font-size:19px;line-height:1.55;color:#444b45;max-width:770px;margin:0}.hero-note{font-size:11px;color:var(--muted);margin-top:22px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:42px}
+.stat{padding:18px 22px 19px 0;margin-right:22px;border-right:1px solid var(--line)}.stat:last-child{border:0;margin:0}
+.stat strong{display:block;font:650 30px/1.1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:-.06em}
+.stat span{display:block;font-size:11px;color:var(--muted);margin-top:8px;max-width:220px}
+section{padding:58px 0;border-top:1px solid var(--line)}
+.section-head{display:grid;grid-template-columns:170px 1fr;gap:24px;margin-bottom:28px}
+.section-no{font:700 10px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.13em;color:var(--accent);padding-top:8px}
+h2{font-size:30px;line-height:1.15;letter-spacing:-.045em;margin:0 0 10px}h3{font-size:17px;line-height:1.25;letter-spacing:-.02em;margin:0 0 10px}
+p{margin:8px 0 13px;max-width:78ch}.small{font-size:12px;color:var(--muted)}
+.pipeline{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;border:1px solid var(--line);margin:26px 0 12px}
+.step{min-height:124px;padding:15px 13px 14px;position:relative;border-right:1px solid var(--line);background:#fff}.step:last-child{border:0}
+.step:not(:last-child):after{content:"›";position:absolute;right:-7px;top:42px;z-index:2;background:#fff;color:var(--accent);font:24px/1 Georgia,serif;padding:0 2px}
+.step .n{font:700 10px ui-monospace,Menlo,monospace;color:var(--accent)}
+.step b{display:block;font-size:13px;line-height:1.25;margin:13px 0 7px}.step span{display:block;font-size:10px;line-height:1.4;color:var(--muted)}
+.branch{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:28px}
+.branch article{border-top:2px solid var(--ink);padding-top:13px}.branch .tag{font:700 9px ui-monospace,Menlo,monospace;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+.branch p{font-size:13px;color:#515851}
+.table-wrap{overflow-x:auto;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;font-size:12px;min-width:600px}
+th{text-align:left;font:700 10px ui-monospace,Menlo,monospace;text-transform:uppercase;letter-spacing:.07em;color:#59615a;background:var(--soft);padding:11px 12px}
+td{padding:12px;border-top:1px solid #e5e8e4;vertical-align:top}td.num{text-align:right;white-space:nowrap;font-family:ui-monospace,Menlo,monospace}
+td strong{font-weight:700}.good{color:var(--accent);font-weight:700}.bad{color:var(--bad);font-weight:700}.warn{color:var(--warn);font-weight:700}
+.figure{margin:22px 0 10px;border:1px solid var(--line);padding:18px 18px 10px;background:#fff}
+.figure-title{font-size:12px;font-weight:700;margin-bottom:10px}.figure svg{display:block;width:100%;height:auto}
+.caption{font-size:10px;color:var(--muted);margin:8px 0 0}
+.callout{border-left:3px solid var(--accent);padding:12px 16px;background:var(--soft);margin:20px 0;font-size:13px}
+.columns{display:grid;grid-template-columns:1fr 1fr;gap:26px}.columns h3{padding-bottom:9px;border-bottom:1px solid var(--line)}
+ul{margin:10px 0;padding-left:18px}li{margin:7px 0;font-size:13px}
+.status{display:inline-block;border:1px solid #b9c8bf;padding:3px 7px;font:700 9px ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.status.fail{border-color:#d9b7b7;color:var(--bad)}.status.pending{border-color:#dfc8a9;color:var(--warn)}
+.footnotes{font-size:11px;color:var(--muted)}.refs{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px}.refs a{font-size:11px}
+footer{border-top:1px solid var(--line);padding:22px 0 38px;color:var(--muted);font-size:10px}
+@media(max-width:850px){.pipeline{grid-template-columns:repeat(3,1fr)}.step:nth-child(3){border-right:0}.step:nth-child(3):after{display:none}.step:nth-child(-n+3){border-bottom:1px solid var(--line)}.section-head{grid-template-columns:1fr;gap:5px}.section-no{padding:0}.nav{gap:11px}}
+@media(max-width:600px){.header{padding:0 16px}.nav a{display:none}.wrap{padding:0 17px}.hero{padding:55px 0 40px}h1{font-size:43px}.lede{font-size:16px}.stats{grid-template-columns:1fr}.stat{border-right:0;border-bottom:1px solid var(--line);margin:0;padding:15px 0}.stat:last-child{border:0}.pipeline{grid-template-columns:1fr 1fr}.step{min-height:112px}.step:nth-child(3){border-right:1px solid var(--line)}.step:nth-child(2n){border-right:0}.step:nth-child(2n):after{display:none}.branch,.columns{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="header"><div class="brand">IRE / TEAM CEOUS</div><nav class="nav"><a href="#method">Method</a><a href="#results">Results</a><a href="#limits">Limits</a><a href="#next">Next</a></nav></div></header>
+<main class="wrap">
+<div class="hero">
+<div class="kicker">Research note · 31 October 2026 · Evidence snapshot</div>
+<h1>A stronger teacher is not enough.</h1>
+<p class="lede">Can a dense retriever learn more from a fixed budget of expensive cross-encoder judgments? We test the teacher, the student, and the supervision between them.</p>
+<p class="hero-note">The current evidence supports gold-label training. It does not yet show a reliable extra gain from teacher distillation.</p>
+<div class="stats">
+<div class="stat"><strong>5,183</strong><span>SciFact corpus documents</span></div>
+<div class="stat"><strong>50,500</strong><span>Fresh teacher-scored query–document pairs; training slates only</span></div>
+<div class="stat"><strong>+0.0053</strong><span>C5 teacher gain over gold-only; 95% CI crosses zero</span></div>
+</div>
+</div>
+<section id="method">
+<div class="section-head"><div class="section-no">01 / PIPELINE</div><div><h2>Where does the teacher enter?</h2><p class="small">The target workflow. The selector decides which pairs consume the scoring budget.</p></div></div>
+<div class="pipeline" aria-label="Teacher feedback pipeline">
+<div class="step"><div class="n">01</div><b>Query</b><span>Claim or search question</span></div>
+<div class="step"><div class="n">02</div><b>Student retriever</b><span>Bi-encoder finds a candidate slate</span></div>
+<div class="step"><div class="n">03</div><b>Pair selection</b><span>Choose B pairs under a fixed budget</span></div>
+<div class="step"><div class="n">04</div><b>Teacher</b><span>Cross-encoder scores each selected pair</span></div>
+<div class="step"><div class="n">05</div><b>Student update</b><span>Gold labels and/or teacher feedback</span></div>
+<div class="step"><div class="n">06</div><b>Evaluation</b><span>Full-corpus ranking on held-out queries</span></div>
+</div>
+<div class="branch">
+<article><div class="tag">Student · bi-encoder</div><h3>Two separate encodings</h3><p>Encode the query and document independently. Compare their vectors. This is fast enough to search a large corpus.</p><p class="small">Current student: <strong>all-MiniLM-L6-v2</strong>.</p></article>
+<article><div class="tag">Teacher · cross-encoder</div><h3>One joint query–document pass</h3><p>Read the query and document together. The model can compare their words and context directly. This is stronger for pair scoring, but costly to run for many pairs.</p><p class="small">Teachers tested: MiniLM cross-encoder, MedCPT, and BGE reranker.</p></article>
+</div>
+<div class="callout"><strong>Labels are not the same thing.</strong> Gold labels are benchmark relevance judgments (qrels). Teacher labels are model-generated scores for selected pairs. Distillation asks the student to learn from those scores; it does not turn them into human judgments.</div>
+</section>
+<section id="results">
+<div class="section-head"><div class="section-no">02 / RESULTS</div><div><h2>Gold labels help. Teacher distillation has not cleared the gate.</h2><p class="small">Δ nDCG@10. Positive values are better. Intervals are paired query-bootstrap 95% CIs over seed-averaged differences where reported.</p></div></div>
+<div class="figure">
+<div class="figure-title">Student-side changes — split labels matter</div>
+<svg viewBox="0 0 960 430" role="img" aria-label="Forest plot of changes in nDCG at 10 with confidence intervals">
+<rect width="960" height="430" fill="#fff"/>
+<g font-family="ui-monospace,Menlo,monospace" font-size="10" fill="#687069">
+<text x="12" y="24">COMPARISON</text><text x="185" y="24">SPLIT</text><text x="945" y="24" text-anchor="end">Δ [95% CI]</text>
+<text x="260" y="412" text-anchor="middle">−0.04</text><text x="407" y="412" text-anchor="middle">0</text><text x="555" y="412" text-anchor="middle">+0.04</text><text x="703" y="412" text-anchor="middle">+0.08</text><text x="850" y="412" text-anchor="middle">+0.12</text>
+</g>
+<g stroke="#e3e7e3" stroke-width="1"><line x1="260" y1="38" x2="260" y2="385"/><line x1="555" y1="38" x2="555" y2="385"/><line x1="703" y1="38" x2="703" y2="385"/><line x1="850" y1="38" x2="850" y2="385"/></g>
+<line x1="407" y1="36" x2="407" y2="385" stroke="#202620" stroke-width="1.4" stroke-dasharray="4 4"/>
+<g font-family="Inter,Arial,sans-serif" font-size="11" fill="#222">
+<text x="12" y="76">C2 · Gold only − base</text><text x="185" y="76" fill="#687069">HOLDOUT</text>
+<text x="12" y="132">C2 · MiniLM KD − gold</text><text x="185" y="132" fill="#687069">HOLDOUT</text>
+<text x="12" y="188">C3 · MiniLM KD − gold</text><text x="185" y="188" fill="#687069">INNER</text>
+<text x="12" y="244">C4b · MedCPT KD − gold</text><text x="185" y="244" fill="#687069">INNER</text>
+<text x="12" y="300">C5 · Gold only − base</text><text x="185" y="300" fill="#687069">HOLDOUT*</text>
+<text x="12" y="356">C5 · MedCPT KD − gold</text><text x="185" y="356" fill="#687069">HOLDOUT*</text>
+</g>
+<g stroke-width="3" stroke-linecap="round">
+<line x1="529" y1="72" x2="717" y2="72" stroke="#315b49"/><line x1="283" y1="128" x2="404" y2="128" stroke="#8c3939"/>
+<line x1="406" y1="184" x2="449" y2="184" stroke="#9b9f99"/><line x1="360" y1="240" x2="507" y2="240" stroke="#9b9f99"/>
+<line x1="566" y1="296" x2="810" y2="296" stroke="#315b49"/><line x1="376" y1="352" x2="478" y2="352" stroke="#8a5b28"/>
+</g>
+<g>
+<circle cx="621" cy="72" r="5" fill="#315b49"/><circle cx="345" cy="128" r="5" fill="#8c3939"/>
+<circle cx="425" cy="184" r="5" fill="#777e77"/><circle cx="431" cy="240" r="5" fill="#777e77"/>
+<circle cx="688" cy="296" r="5" fill="#315b49"/><circle cx="427" cy="352" r="5" fill="#8a5b28"/>
+</g>
+<g font-family="ui-monospace,Menlo,monospace" font-size="10" fill="#303630">
+<text x="945" y="76" text-anchor="end">+.058 [.033,.084]</text>
+<text x="945" y="132" text-anchor="end">−.017 [−.034,−.001]</text>
+<text x="945" y="188" text-anchor="end">+.0047 [−.0003,.0113]</text>
+<text x="945" y="244" text-anchor="end">+.0065 [−.013,.027]</text>
+<text x="945" y="300" text-anchor="end">+.076 [.043,.109]</text>
+<text x="945" y="356" text-anchor="end">+.0053 [−.0085,.019]</text>
+</g>
+</svg>
+<p class="caption">The zero line separates positive from negative change. C3/C4b are INNER exploration; C2/C5 are the 200-query SciFact holdout. *That holdout was first evaluated in C2; C5 is not a new untouched test.</p>
+</div>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Cycle</th><th>Question</th><th>Observed result</th><th>Reading</th></tr></thead>
+<tbody>
+<tr><td>C2</td><td>Does gold-only training beat the untouched query tower?</td><td class="num good">+.058 [.033,.084]</td><td>Positive control</td></tr>
+<tr><td>C2</td><td>Does cached MiniLM teacher KD add to gold labels?</td><td class="num bad">−.017 [−.034,−.001]</td><td>G1 failed</td></tr>
+<tr><td>C3</td><td>Best MiniLM KD variant vs gold-only</td><td class="num">+.0047 [−.0003,.0113]</td><td>INNER; inconclusive</td></tr>
+<tr><td>C4b</td><td>Best MedCPT KD variant vs gold-only</td><td class="num">+.0065 [−.013,.027]</td><td>INNER; inconclusive</td></tr>
+<tr><td>C5</td><td>Full bi-encoder, gold-only vs untouched</td><td class="num good">+.076 [.043,.109]</td><td>Gold-only control positive</td></tr>
+<tr><td>C5</td><td>Full bi-encoder, gold + MedCPT KD vs gold-only</td><td class="num warn">+.0053 [−.0085,.0190]</td><td><span class="status fail">G5 failed</span></td></tr>
+</tbody>
+</table>
+</div>
+<div class="branch">
+<article><div class="tag">Teacher-side ranking · TRAIN′</div><h3>MedCPT was the stronger scorer</h3><p>MedCPT reranking beat the cached MiniLM cross-encoder by <strong>+.067</strong> [+.044,+.091]. BGE-v2-m3 gained +.027 and did not qualify under the teacher gate.</p><p class="small">This measures teacher ranking quality, not student improvement.</p></article>
+<article><div class="tag">C5 · three seeds</div><h3>Small positive deltas in every seed</h3><p>Teacher increment over gold-only: <strong>+.0099 / +.0034 / +.0025</strong> for seeds 17 / 29 / 41.</p><p class="small">All positive, but below the +.010 minimum effect gate; the combined interval includes zero.</p></article>
+</div>
+</section>
+<section id="selection">
+<div class="section-head"><div class="section-no">03 / WHY SELECT?</div><div><h2>Similar ANN recall can expose different training pairs.</h2><p class="small">A separate one-seed MS MARCO pilot motivates the candidate-selection stage. It did not use a teacher and is not evidence of a teacher-feedback gain.</p></div></div>
+<div class="stats">
+<div class="stat"><strong>.956 / .962</strong><span>HNSW / IVF agreement with exact top-200 on calibration queries</span></div>
+<div class="stat"><strong>.917</strong><span>Jaccard overlap of HNSW and IVF top-200 candidate sets</span></div>
+<div class="stat"><strong>43.44%</strong><span>Shared fraction of selected top-20 passages under the same selector</span></div>
+</div>
+<p class="small">The two selected pools shared 8.688 of 20 passages per query on average. The pilot's three trained branches all degraded relative to the untouched checkpoint, used one seed, and did not use cross-encoder feedback. Treat it as motivation only.</p>
+</section>
+<section id="limits">
+<div class="section-head"><div class="section-no">04 / PROTOCOL</div><div><h2>What was actually measured?</h2><p class="small">SciFact is a scientific claim–evidence retrieval benchmark. It is not a purely biomedical corpus.</p></div></div>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Item</th><th>Protocol</th><th>Boundary</th></tr></thead>
+<tbody>
+<tr><td>Corpus</td><td>5,183 SciFact documents</td><td>Scientific claim/evidence retrieval</td></tr>
+<tr><td>Training</td><td>505 queries</td><td>INNER: 100 queries, subset of TRAIN</td></tr>
+<tr><td>Holdout</td><td>200 queries</td><td>First evaluated in C2; later C5 result is not a fresh test</td></tr>
+<tr><td>Official test</td><td>300 queries</td><td>Viewed earlier; diagnostic only, not confirmatory evidence</td></tr>
+<tr><td>Student</td><td>all-MiniLM-L6-v2</td><td>C5 trains the full bi-encoder; C2 trained the query tower</td></tr>
+<tr><td>Metric / seeds</td><td>nDCG@10 · 17, 29, 41</td><td>Paired query-bootstrap intervals where reported</td></tr>
+<tr><td>Teacher scoring</td><td>50,500 fresh pairs; BGE + MedCPT</td><td>TRAIN slates only; zero holdout pairs scored</td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout"><strong>Why MedCPT?</strong> It was tested because it ranked the training candidates better than the cached MiniLM teacher. Its biomedical pretraining is a possible domain mismatch on SciFact, but that is not an established explanation for the weak student transfer.</div>
+<div class="columns">
+<div><h3>What the results support</h3><ul>
+<li>Gold relevance labels improve the SciFact student in the tested setup.</li>
+<li>MedCPT is a stronger teacher-side reranker than the cached MiniLM teacher on TRAIN′.</li>
+<li>Adding MedCPT KD to gold labels did not pass the C5 incremental-gain gate.</li>
+</ul></div>
+<div><h3>What they do not support</h3><ul>
+<li>That teacher feedback improves the student retriever.</li>
+<li>That the best teacher is necessarily the best student supervisor.</li>
+<li>That any selection policy has beaten random or top-ranked selection.</li>
+<li>That the result generalizes across retrieval domains.</li>
+</ul></div>
+</div>
+</section>
+<section id="next">
+<div class="section-head"><div class="section-no">05 / NEXT TESTS</div><div><h2>What would change the conclusion?</h2><p class="small">The research claim must be about useful feedback per teacher call, not teacher strength alone.</p></div></div>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Workstream</th><th>Current state</th><th>What it can establish</th></tr></thead>
+<tbody>
+<tr><td>C5 · SciFact full bi-encoder</td><td><span class="status fail">G5 failed</span></td><td>No-go for this gold + MedCPT KD framing under the frozen +.010 gate</td></tr>
+<tr><td>C6 · NFCorpus + FiQA</td><td><span class="status pending">Running at 11:06 IST</span></td><td>Cross-domain test on official test sets; no final result yet</td></tr>
+<tr><td>Teacher-only / label-scarce branch</td><td><span class="status pending">Next question</span></td><td>Test whether teacher feedback helps when gold labels are sparse, rather than merely adding KD to gold labels</td></tr>
+<tr><td>Feedback selection</td><td><span class="status pending">Not yet validated</span></td><td>Compare random, top-ranked, hard-negative and diversity/uncertainty selection at the same teacher budget</td></tr>
+</tbody>
+</table>
+</div>
+<div class="callout"><strong>Go/no-go rule.</strong> First establish that teacher feedback can improve the student in a well-controlled setting. Only then can we identify which selection policy spends the fixed teacher budget most effectively.</div>
+<p class="small">The C6 run had completed NFCorpus teacher scoring; FiQA scoring had started. A four-GPU job was active. No C6 training or untouched-test result is claimed in this snapshot.</p>
+</section>
+<section id="prior">
+<div class="section-head"><div class="section-no">06 / PRIOR WORK</div><div><h2>The teacher–student pattern is established.</h2><p class="small">The potential contribution is the feedback-acquisition policy and its measured value under a fixed budget — not simply adding a cross-encoder.</p></div></div>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Paper</th><th>Relevant precedent</th></tr></thead>
+<tbody>
+<tr><td><a href="https://aclanthology.org/2021.naacl-main.466/">RocketQA · NAACL 2021</a></td><td>Cross-encoder denoises retrieved hard negatives and labels selected unlabeled pairs for dual-encoder training.</td></tr>
+<tr><td><a href="https://aclanthology.org/2021.emnlp-main.224/">RocketQAv2 · EMNLP 2021</a></td><td>Joint training and listwise distillation between retriever and reranker.</td></tr>
+<tr><td><a href="https://www.microsoft.com/en-us/research/publication/approximate-nearest-neighbor-negative-contrastive-learning-for-dense-text-retrieval/">ANCE · ICLR 2021</a></td><td>Uses global ANN-mined negatives to make dense-retriever training examples more representative.</td></tr>
+<tr><td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12478430/">MedCPT · Bioinformatics 2023</a></td><td>Biomedical retriever and reranker trained from large-scale PubMed search logs.</td></tr>
+<tr><td><a href="https://aclanthology.org/2020.emnlp-main.609/">SciFact · EMNLP 2020</a></td><td>Scientific claim verification with evidence-containing abstracts and expert-written claims.</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<footer>
+<div><strong>IRE / Team Ceous</strong> · Feedback-budgeted retriever learning · Snapshot: 31 Oct 2026, 11:06 IST</div>
+<div class="footnotes">Internal research explainer. Results are separated by split and evaluation stage. Exploratory INNER results are not confirmatory. The SciFact holdout was accessed in C2 and reused for the final C5 gate; the official test-300 is diagnostic only. C6 is in progress. This page does not claim an accepted paper or a demonstrated teacher-feedback gain.</div>
+<div class="refs">
+<a href="https://www.microsoft.com/en-us/research/academic-program/microsoft-research-fellowship/research-challenges/">Microsoft Research challenge</a>
+<a href="https://github.com/nilansa/ire-project-2026">Project repository</a>
+<a href="https://nilansa.github.io/explainer/">Explainer index</a>
+</div>
+</footer>
+</main>
+</body>
+</html>
