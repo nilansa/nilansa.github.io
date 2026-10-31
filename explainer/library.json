@@ -1,12 +1,12 @@
 [
   {
     "id": "ire-asd-sd100-research-explainer-20261031",
-    "title": "ASD-ST100 — IRE Research Explainer (Projects 1 & 5)",
+    "title": "AST-ST100 — IRE Research Explainer (Projects 1 & 5)",
     "description": "Evidence-led status of feedback-budgeted retriever learning and minimal sufficient evidence retrieval: baselines, paired confidence intervals, negative results, novelty limits, compute progress and unfinished tests.",
     "project": "IRE Research — Projects 1 and 5",
     "category": "Ongoing research explainer",
     "tags": [
-      "ASD-ST100",
+      "AST-ST100",
       "IRE",
       "dense retrieval",
       "teacher feedback",
