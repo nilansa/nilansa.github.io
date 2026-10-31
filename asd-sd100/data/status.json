@@ -1,7 +1,7 @@
 {
-  "snapshot_ist": "31 October 2026, 19:24 IST",
-  "verified_at": "2026-10-31T19:24:33+05:30",
-  "source": "Original native Claude Science P1 frame (read-only evening science decision at 19:09 IST, message 672) and P5 frame (read-only second science decision at 19:24 IST, message 170), frozen C5/C6 experiment gates and P5 B3R DEV pilot, exact transfer-index/hash check, and independently verified published research sources. Last restrained Ada check at 19:14 IST found no allocations. No new GPU jobs, teacher calls, datasets, holdout access or cross-surface file handoffs were initiated.",
+  "snapshot_ist": "31 October 2026, 20:00 IST",
+  "verified_at": "2026-10-31T20:00:16+05:30",
+  "source": "Original native Claude Science P1 frame (read-only evening science decision at 19:09 IST, message 672) and P5 frame (read-only second science decision at 19:24 IST, message 170), frozen C5/C6 experiment gates and P5 B3R DEV pilot, exact transfer-index/hash check, and independently verified published research sources. Last restrained Ada check at 19:14 IST found no allocations. No new GPU jobs, teacher calls, datasets, holdout access or cross-surface file handoffs were initiated. Follow-up 20:00 IST audit: P5 Stage 1 CPU BM25 has NOT launched because native Science submission is blocked by signed-out authentication; no sample manifest, PID, or metrics.",
   "p1_summary": "P1 original native Claude Science scientific reset COMPLETED at 15:12 IST. Decision: NO-GO for original teacher-budget selection / full-gold KD as an A*-paper direction. Frozen C5 full-gold KD +0.005255 [−0.008486,+0.018968] FAIL. C6 full-gold KD +0.003430 [−0.002713,+0.009672] FAIL on pooled 971 official test queries; 10%-gold KD +0.066617 [+0.054264,+0.079109] formal PASS, but G10 worsens against the untouched student and K10 sees additional teacher-scored queries. A teacher-content effect at matched query exposure is NOT established. P1 recommends stopping teacher budget selection; a teacher-versus-exposure control is conditional on reopening the program.",
   "p5_summary": "P5 original native Claude Science scientific reset COMPLETED at 15:12 IST. Decision: NO-GO for set-aware teacher allocation/distillation as a top-conference method under the tested evidence. B3R on 200 DEV questions lost to random in FS@2 (−0.025 at 2 labels, −0.027 at 5), with ~29% more teacher tokens at five. Separate off-the-shelf BGE reranking on 4,742 DEV2 improved bridge FS@2 (+0.0243 descriptive) but hurt comparison (−0.0231). Science recommends a CONDITIONAL measurement-validity study: do gold-support scores agree with audited evidence sufficiency? No new audit or holdout experiment has run.",
   "jobs": [
@@ -34,12 +34,17 @@
       "track": "P5",
       "experiment": "Original native Claude Science frame",
       "status": "COMPLETED 15:12 IST · same original frame, read-only scientific reset; NO-GO teacher allocation; proposes metric-validity study only"
+    },
+    {
+      "track": "P5",
+      "experiment": "MuSiQue Stage 1 CPU BM25 pilot",
+      "status": "BLOCKED / NOT LAUNCHED · native Science signed out; no 150-q manifest, PID or metrics"
     }
   ],
   "p1_gate": "C5 G5 frozen three-seed full-gold KD−gold +0.005255 [−0.008486,+0.018968] FAIL, SciFact 200 spent queries. C6 H6a pooled K100−G100 +0.003430 [−0.002713,+0.009672] FAIL; H6b pooled K10−G10 +0.066617 [+0.054264,+0.079109] PASS over 971 untouched test queries. K10−G100 −0.016034 [−0.024914,−0.007258]. Post-hoc G10−untouched −0.0441 [−0.0585,−0.0295], K10−untouched +0.0225 [+0.0127,+0.0324]: possible low-gold overfitting, and extra query exposure confounds the apparent teacher benefit. Native Science: original contribution NO-GO; label-scarce hypothesis not yet publication-ready.",
   "p5_gate": "B3R set-aware−random FS@2 200-DEV effect −0.025 [−0.058,+0.010] at 2 labels/q and −0.027 [−0.057,−0.000] at 5, with ~29% more teacher input tokens for set-aware at 5. Larger 4742-DEV2 off-the-shelf reranking comparison shows a descriptive bridge gain for BGE conditioning but comparison-question regression; no sealed holdout or new method.",
   "notes": "Research snapshot verified 16:05 IST. Both original Science leads completed a read-only scientific PROBLEM RESET at 15:12: P1 NO-GO original teacher-budget/pair selection, P5 NO-GO teacher allocation; P5 conditionally favors testing validity of gold-support as a proxy for actual evidence sufficiency. No new experiments. C6 full-gold KD FAIL; 10%-gold KD PASS with unequal query exposure and weakened G10 baseline. Absence of a statistically detectable gain is not proof of equivalence; explaining the scarcity gain by exposure alone is an UNTESTED hypothesis. P5 gold-support's limitations are not yet demonstrated by audited alternative evidence. Exposed SciFact/pilot holdouts must not be reused.",
-  "latest_result": "19:24 IST: Both original Claude Science scientific reviews completed. P5 native frame received the specific evening user brief and returned NO-GO for a novel cost-aware evidence-retrieval method, PIVOT to a fair cost-matched evaluation-only IRE course study. Brunborg's 28 October n-gram-hinted NanoGPT speedrun and the distinct Bekko encoder variants were independently source-checked; they do not demonstrate multi-hop retrieval gains. No new experiments were performed.",
+  "latest_result": "20:00 IST: P5 original native session sign-in BLOCKED. Proposed 150-question MuSiQue CPU BM25 Stage 1 NOT LAUNCHED: no sample selected, manifest SHA, PID, BM25 metrics or GPU jobs. Earlier C5/C6 and B3R results unchanged.",
   "gpu_verified": {
     "partition": "u22",
     "qos": "research/medium",
@@ -53,6 +58,7 @@
     "note": "One restrained read-only squeue for both authorized accounts at 31 Oct 16:05 IST returned no active jobs; no Slurm writes. This is a point-in-time observation, not continuous monitoring."
   },
   "blockers": [
+    "20:00 IST P5 Stage 1 launch BLOCKED: original native P5 frame remains completed at 19:24 and normal login opens signed-out page. No new message acknowledgement, sample, output or process. No separate Codex execution started.",
     "Both original Claude Science scientific resets are now COMPLETE (P1 15:12, P5 15:12 IST). P1 recommends NO-GO teacher-budget and pair-selection thesis; P5 recommends NO-GO allocation and a conditional audit of gold-support metric validity. No new experiments or holdout tests approved or executed.",
     "P1 native Science final verdict NO-GO for full-gold teacher-feedback-selection A*-paper framing. SciFact 200 held-out questions spent and previously exposed.",
     "C6 H6a FAIL: pooled full-gold KD +0.00343 CI [−0.00271,+0.00967]. H6b formal PASS: 10%-gold KD +0.06662 CI [+0.05426,+0.07911], but G10 is 0.0441 below untouched; K10 gains only 0.0225 over untouched and sees many more teacher-scored queries. Difference cannot isolate teacher content vs more exposure/weak baseline.",
@@ -649,5 +655,21 @@
       "proposed_IRE_study": "ONLY IF scientifically justified: lexical/exact-match cache + compact dense retriever compared with BM25, BM25+dense hybrid, and ColBERT under equal full-memory footprint, query latency and full support recall; no such result exists.",
       "attribution": "Brunborg author; Tatsu Hashimoto acknowledged as advisor; Percy Liang reposted, not credited as author."
     }
+  },
+  "p5_stage1_launch": {
+    "checked_at_ist": "2026-10-31 20:00:16 IST",
+    "status": "BLOCKED_NATIVE_AUTH_NOT_LAUNCHED",
+    "original_native_p5_session": "COMPLETED_READ_ONLY_19_24_IST",
+    "message_submission": "NOT_ACKNOWLEDGED",
+    "auth_rejection": "Normal native Science login URL opens signed-out page; the authenticated frame endpoint returns HTTP 401 invalid bearer token. No authentication bypass attempted.",
+    "planned_dataset": "MuSiQue-Ans DEV, 150 previously unused two-hop questions with exactly two annotated gold-support documents",
+    "sample_selected": 0,
+    "sample_manifest_sha256": null,
+    "run_pid": null,
+    "metric_files": null,
+    "bm25_complete_support_at_2_3_5": null,
+    "controls": "No qrel-informed retrieval or holdout access; support labels permitted only in evaluation.",
+    "next_step": "Restore a normal authenticated native Claude Science P5 session and send the approved CPU-only Stage 1 instruction in the original frame.",
+    "source": "Connected Mac read-only native Science frame status, local process search, saved experiment/protocol records and one restrained Ada job check."
   }
 }
