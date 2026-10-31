@@ -65,7 +65,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 38px;color:var(--muted);f
 <p class="hero-note">The SciFact full-gold setting has not shown a reliable incremental teacher gain. The final pre-registered test is C6: two domains, untouched official tests, and a 10%-gold regime.</p>
 <div class="stats">
 <div class="stat"><strong>5,183</strong><span>SciFact corpus documents</span></div>
-<div class="stat"><strong>50,500</strong><span>Fresh teacher-scored query–document pairs; training slates only</span></div>
+<div class="stat"><strong>50,500</strong><span>SciFact teacher-scored pairs (BGE + MedCPT); training slates only</span></div>
 <div class="stat"><strong>+0.0053</strong><span>C5 teacher gain over gold-only; 95% CI crosses zero</span></div>
 </div>
 </div>
@@ -165,7 +165,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 38px;color:var(--muted);f
 <tr><td>Official test</td><td>300 queries</td><td>Viewed earlier; diagnostic only, not confirmatory evidence</td></tr>
 <tr><td>Student</td><td>all-MiniLM-L6-v2</td><td>C5 trains the full bi-encoder; C2 trained the query tower</td></tr>
 <tr><td>Metric / seeds</td><td>nDCG@10 · 17, 29, 41</td><td>Paired query-bootstrap intervals where reported</td></tr>
-<tr><td>Teacher scoring</td><td>50,500 fresh pairs; BGE + MedCPT</td><td>TRAIN slates only; zero holdout pairs scored</td></tr>
+<tr><td>Teacher scoring</td><td>50,500 fresh SciFact pairs; BGE + MedCPT</td><td>TRAIN slates only; zero holdout pairs scored</td></tr>
 </tbody>
 </table>
 </div>
@@ -197,8 +197,8 @@ footer{border-top:1px solid var(--line);padding:22px 0 38px;color:var(--muted);f
 </tbody>
 </table>
 </div>
-<div class="callout"><strong>Go/no-go rule.</strong> First establish that teacher feedback can improve the student in a well-controlled setting. Only then can we identify which selection policy spends the fixed teacher budget most effectively.</div>
-<p class="small">At 11:29 IST: data and 2 × 2,000-query slates were ready; NFCorpus MedCPT scores (100,000 pairs) were complete. FiQA/BGE scoring was running in Slurm job 50107 on four GTX 1080 Ti GPUs. Then 24 fits and one untouched-test evaluation remain. ETA: approximately 13:00–14:00 IST. No C6 result is claimed yet.</p>
+<div class="callout"><strong>Current decision.</strong> NO-GO for the labeled-SciFact framing (G1, C4b and G5 failed). C6 is the final pre-registered gate: pooled Δ ≥ +0.01 supports a narrow pivot to label-scarce budgeted feedback and a powered Phase 2; otherwise, stop the programme claim.</div>
+<p class="small">At 11:29 IST: data and 2 × 2,000-query slates were ready; NFCorpus MedCPT scores (100,000 pairs) were complete. FiQA/BGE scoring was running in Slurm job 50107 on four GTX 1080 Ti GPUs. Then 24 fits and one untouched-test evaluation remain. ETA: approximately 13:30–14:30 IST. No C6 result is claimed yet.</p>
 <div class="callout"><strong>C6 arms.</strong> Untouched · gold-100% · gold-100% + KD · gold-10% · gold-10% + KD. Three seeds; full bi-encoder; untouched official test queries.</div>
 <div class="callout"><strong>Power check.</strong> Estimated paired-difference SD: 0.122. Detecting a +0.01 change needs about 1,175 untouched queries; the pooled C6 test sets contain about 971. A small effect may remain hard to resolve.</div>
 </section>
@@ -212,7 +212,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 38px;color:var(--muted);f
 <tr><td><a href="https://aclanthology.org/2022.naacl-main.168/">GPL · NAACL 2022</a></td><td>Generated queries plus cross-encoder pseudo-labels for unsupervised domain adaptation.</td><td>Domain adaptation; not equal-cost comparison of pair-selection policies.</td></tr>
 <tr><td><a href="https://www.microsoft.com/en-us/research/publication/simans-simple-ambiguous-negatives-sampling-for-dense-text-retrieval/">SimANS · EMNLP 2022</a></td><td>Samples ambiguous negatives using relevance-score-informed probabilities.</td><td>Negative sampling, not adaptive acquisition of teacher labels.</td></tr>
 <tr><td><a href="https://aclanthology.org/2024.emnlp-main.1013/">PairDistill · EMNLP 2024</a></td><td>Pairwise teacher relevance comparisons for dense-retriever distillation.</td><td>Improves the distillation signal; does not establish a fixed-budget selection gain.</td></tr>
-<tr><td><a href="https://aclanthology.org/2026.findings-acl.481/">BAGEL · Findings ACL 2026</a></td><td>Budgeted active selection of passages for LLM relevance scoring, with Gaussian-process relevance propagation.</td><td>Closest budgeted-acquisition precedent; it selects at retrieval time, not for retriever post-training.</td></tr>
+<tr><td><a href="https://aclanthology.org/2026.findings-acl.481/">BAGEL · Findings ACL 2026</a></td><td>Budgeted active selection of passages for LLM relevance scoring, with Gaussian-process relevance propagation.</td><td>Closest budgeted-acquisition precedent; it spends LLM relevance-scoring calls to estimate query relevance, rather than distilling scores into a retriever.</td></tr>
 <tr><td><a href="https://arxiv.org/abs/2607.11465">Score-Only Distillation · arXiv 2026</a></td><td>Trains a compact retriever from teacher score vectors; hard-negative mining is a separate extension.</td><td>Relevant score-distillation preprint; it does not establish our acquisition policy.</td></tr>
 <tr><td><a href="https://www.amazon.science/publications/active-learning-with-crowd-sourcing-improves-information-retrieval">Crowd-Coachable Retriever · ICML 2023 workshop</a></td><td>Active candidate selection for human relevance feedback and model tuning.</td><td>Human feedback, not cross-encoder teacher distillation; workshop paper.</td></tr>
 </tbody></table></div>
