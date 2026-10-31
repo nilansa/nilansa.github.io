@@ -40,7 +40,23 @@ body{margin:0;background:#0b1420;color:#edf5f7;font:15px/1.6 system-ui,sans-seri
 <li><b>2021–2024 · More realistic assumptions.</b> Work studied ranking-metric estimators, relevance and bias separation, and flexible click models that trade bias against variance.</li>
 </ul></section>
 <section id="papers"><div class="no">06 / Approved reading spine</div><h2>15 connected papers</h2><p class="small">Read these as one story: evaluation → causal correction → learning → top-k and slate policies → modern click models.</p>
-<ol class="papers" id="paper-list"></ol>
+<ol class="papers">
+<li><b>Unbiased Offline Evaluation of Contextual-bandit-based News Article Recommendation Algorithms</b> — WSDM 2011 · <a href="https://arxiv.org/abs/1003.5956" target="_blank" rel="noopener">paper ↗</a></li>
+<li><b>Doubly Robust Policy Evaluation and Learning</b> — ICML 2011 · <a href="https://www.microsoft.com/en-us/research/publication/doubly-robust-policy-evaluation-and-learning-2/" target="_blank" rel="noopener">paper ↗</a></li>
+<li><b>Counterfactual Reasoning and Learning Systems: The Example of Computational Advertising</b> — JMLR 2013 · <a href="https://www.jmlr.org/papers/v14/bottou13a.html" target="_blank" rel="noopener">paper ↗</a></li>
+<li><b>Counterfactual Risk Minimization: Learning from Logged Bandit Feedback</b> — ICML 2015 · <a href="https://proceedings.mlr.press/v37/swaminathan15.html" target="_blank" rel="noopener">paper ↗</a></li>
+<li><b>The Self-Normalized Estimator for Counterfactual Learning</b> — NeurIPS 2015 · <a href="https://papers.nips.cc/paper/2015/hash/39027dfad5138c9ca0c474d71db915c3-Abstract.html" target="_blank" rel="noopener">paper ↗</a></li>
+<li><b>Recommendations as Treatments: Debiasing Learning and Evaluation</b> — ICML 2016 · <a href="https://proceedings.mlr.press/v48/schnabel16.html" target="_blank" rel="noopener">paper ↗</a></li>
+<li><b>Learning to Rank with Selection Bias in Personal Search</b> — SIGIR 2016 · <a href="https://research.google/pubs/learning-to-rank-with-selection-bias-in-personal-search/" target="_blank" rel="noopener">paper ↗</a></li>
+<li><b>Unbiased Learning-to-Rank with Biased Feedback</b> — WSDM 2017 · <a href="https://www.microsoft.com/en-us/research/publication/unbiased-learning-rank-biased-feedback/" target="_blank" rel="noopener">paper ↗</a></li>
+<li><b>Unbiased Learning to Rank with Unbiased Propensity Estimation</b> — SIGIR 2018 · <a href="https://arxiv.org/abs/1804.05938" target="_blank" rel="noopener">paper ↗</a></li>
+<li><b>A General Framework for Counterfactual Learning-to-Rank</b> — SIGIR 2019 · <a href="https://arxiv.org/abs/1805.00065" target="_blank" rel="noopener">paper ↗</a></li>
+<li><b>Top-K Off-Policy Correction for a REINFORCE Recommender System</b> — WSDM 2019 · <a href="https://research.google/pubs/top-k-off-policy-correction-for-a-reinforce-recommender-system/" target="_blank" rel="noopener">paper ↗</a></li>
+<li><b>Policy-Aware Unbiased Learning to Rank for Top-k Rankings</b> — SIGIR 2020 · <a href="https://arxiv.org/abs/2005.09035" target="_blank" rel="noopener">paper ↗</a></li>
+<li><b>Counterfactual Evaluation of Slate Recommendations with Sequential Reward Interactions</b> — KDD 2020 · <a href="https://research.atspotify.com/publications/counterfactual-evaluation-of-slate-recommendations-with-sequential-reward-interactions" target="_blank" rel="noopener">paper ↗</a></li>
+<li><b>Towards Disentangling Relevance and Bias in Unbiased Learning to Rank</b> — KDD 2023 · <a href="https://research.google/pubs/towards-disentangling-relevance-and-bias-in-unbiased-learning-to-rank/" target="_blank" rel="noopener">paper ↗</a></li>
+<li><b>Counterfactual Ranking Evaluation with Flexible Click Models</b> — SIGIR 2024 · <a href="https://www.amazon.science/publications/counterfactual-ranking-evaluation-with-flexible-click-models" target="_blank" rel="noopener">paper ↗</a></li>
+</ol>
 </section>
 <section id="roadmap"><div class="no">07 / Survey plan</div><h2>Turn the papers into one argument</h2>
 <ul><li>Explain the logging policy, target policy, reward and propensity.</li><li>Derive IPS. Explain why small propensities create high variance.</li><li>Compare IPS, self-normalization, DR and CRM. State their assumptions.</li><li>Explain why ranked lists and slates are harder than one-action bandits.</li><li>Compare guarantees and real-world evidence in the 15 papers.</li><li>End with open problems: support gaps, wrong propensity models, variance and changing user behaviour.</li></ul>
