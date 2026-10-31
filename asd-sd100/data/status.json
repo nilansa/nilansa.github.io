@@ -1,62 +1,83 @@
 {
-  "snapshot_ist": "31 October 2026, 08:34 IST",
-  "verified_at": "2026-10-31T08:33:00+05:30",
-  "source": "Existing native Claude Science sessions plus saved Codex job.json records; read-only",
-  "p1_summary": "C5 and Ada setup running; multi-domain C6 on NFCorpus/FiQA dispatched; GPU allocation not yet verified",
-  "p5_summary": "B2 detector completed; B3 timed out mid teacher-scoring (no final metrics); P5 reader Ada worker running; openwiki worker blocked before Ada",
+  "snapshot_ist": "31 October 2026, 09:15 IST",
+  "verified_at": "2026-10-31T09:15:41+05:30",
+  "source": "Read-only inspection of both native Claude Science projects, local Codex result/metric artifacts, and live Slurm squeue/scontrol/sinfo for job 50000; public summary only",
+  "p1_summary": "Gold-only +0.058 [0.033,0.084] nDCG@10 vs untouched, cached teacher-KD −0.017 [−0.034,−0.001] vs gold; C5 local training stopped before any fit/G5 and Ada launch blocked. C6 allocated Slurm 50000, 2 GPUs, but no measured C6 result.",
+  "p5_summary": "B2 DEV logistic AUROC 0.882 vs cross-encoder 0.715, but reliable bridge stop uses 9.58/10. B3 first allocation failed after 43,224/67,420 teacher scores without metrics; offline retry still testing. New DEV2 n=4,742 conditional MiniLM CE +0.056 bridge FS@2 [0.041,0.070] vs independent; adaptive stop mean frontier −0.0398 [−0.0427,−0.0367]. All exploratory; new 2,000-query holdout sealed.",
   "jobs": [
     {
       "track": "P1",
-      "experiment": "Full encoder C5 · ire-c5-luna-001",
-      "status": "Running; final G5 pending"
+      "experiment": "C5 full encoder · ire-c5-luna-001",
+      "status": "NO G5 result: 0 completed fits; local timing probe stopped, Ada launch blocked; no C5 GPU job"
     },
     {
       "track": "P1",
-      "experiment": "Multi-domain C6 · ire-c6-ada-luna-001",
-      "status": "Codex running; Ada Slurm job not yet verified"
+      "experiment": "C6 NFCorpus/FiQA · Slurm 50000",
+      "status": "RUNNING on Ada gnode058; research/medium/u22; 2×RTX 2080 Ti GPU allocated; environment setup, no benchmark outcomes"
+    },
+    {
+      "track": "P1",
+      "experiment": "Two-tower adapter replication",
+      "status": "DONE exploratory: best MiniLM KD − gold +0.0119 [−0.0051,+0.0313] on INNER n=100 (not full encoder)"
     },
     {
       "track": "P5",
-      "experiment": "B2 sufficiency",
-      "status": "DONE: logistic AUROC 0.882 DEV; early stopping limited"
+      "experiment": "B2 sufficiency detector",
+      "status": "DONE DEV n=200: AUROC logistic 0.882, CE 0.715; high-precision bridge stops at 9.58/10"
     },
     {
       "track": "P5",
-      "experiment": "B3 feedback allocation",
-      "status": "FAILED (TimeoutExpired); no final metrics; recover via checkpointed run"
+      "experiment": "Wave 2 DEV2 fullscale rerank",
+      "status": "DONE exploratory n=4742: bridge MiniLM conditional−independent +0.056 [0.041,0.070]; strong independent BGE reranker FS@2=0.699"
     },
     {
       "track": "P5",
-      "experiment": "Ada reader",
-      "status": "Codex worker running; Slurm allocation unverified"
+      "experiment": "Wave 2 adaptive stopping",
+      "status": "DONE exploratory n=4742: mean frontier effect −0.0398 [−0.0427,−0.0367] vs fixed-k"
     },
     {
       "track": "P5",
-      "experiment": "Ada openwiki",
-      "status": "BLOCKED by Chat Mode prerequisite; no Ada job submitted"
+      "experiment": "B3 teacher acquisition",
+      "status": "First run FAILED timeout; 43,224/67,420 scored; NO allocation metrics. Offline B3R2 unit-test/retry underway"
+    },
+    {
+      "track": "P5",
+      "experiment": "Ada reader/open-corpus",
+      "status": "NOT ALLOCATED: stage2 READY.json missing; no P5 Slurm ID or GPUs"
     },
     {
       "track": "Both",
-      "experiment": "Ada quota",
-      "status": "research/medium 4 GPUs/user on u22; do not confuse quota with allocation"
+      "experiment": "GPU allocation vs quota",
+      "status": "Only verified running research/medium/u22 job 50000 under sampled account: 2 GPUs allocated (not 4 quota)"
     }
   ],
-  "p1_gate": "Awaiting C5 full-encoder comparison; ≥ +0.010, CI lower > 0, 3/3 seeds positive",
-  "p5_gate": "Awaiting teacher-budget allocation; ≥ +0.03 complete support vs uniform and rank-aware controls",
-  "notes": "Research claims are provisional; no unverified GPU counts or outcomes are asserted.",
-  "latest_result": "P5 B2 logistic DEV AUROC 0.882, but 96.8% bridge stop precision consumes 9.58/10 passages. B3 timed out while scoring 43,224/67,420 pairs; no validated B3 gains.",
+  "p1_gate": "C5 G5 NOT MEASURED: need ≥ +0.010 nDCG@10, paired CI lower >0 and all 3 seeds positive; C6 no metric yet.",
+  "p5_gate": "B3 training-time teacher-budget allocation NOT MEASURED: target ≥ +0.03 held-out complete support vs uniform/rank-aware at matched per-arm teacher tokens.",
+  "notes": "All P5 results so far use supplied HotpotQA 10-candidate pools, not open-corpus. Pilot 400 holdout previously exposed. Wave2 new 2,000-question holdout is sealed; DEV2 differences are exploratory and can reflect model selection. SciFact test-300 previously viewed is diagnostic only.",
+  "latest_result": "NEW DEV2 n=4,742: conditional MiniLM cross-encoder bridge FS@2 +0.056 [0.041,0.070] vs independent, but adaptive stopping mean effect −0.0398 [−0.0427,−0.0367]. B2 logistic DEV AUROC 0.882 vs CE 0.715; high-precision bridge stop needs 9.58/10 passages. No B3 or C5 gate result. C6 Slurm 50000 has 2×RTX 2080 Ti GPUs allocated.",
   "gpu_verified": {
     "partition": "u22",
     "qos": "research/medium",
     "nilan_max_gpus": 4,
     "vramanrs_max_gpus": 4,
-    "active_allocations_confirmed": 0,
-    "verified_at": "2026-10-31T08:24+05:30"
+    "active_allocations_confirmed": 1,
+    "job_id": "50000",
+    "job_state": "RUNNING",
+    "node": "gnode058",
+    "gpu_model": "NVIDIA RTX 2080 Ti (node feature 2080ti)",
+    "allocated_gpus": 2,
+    "requested_cpus": 16,
+    "allocated_cpus": 22,
+    "allocated_memory": "64G",
+    "use": "P1 C6 environment/setup; no measured train result",
+    "verified_at": "2026-10-31T09:12+05:30"
   },
   "blockers": [
-    "B3 teacher scoring exceeded ~58-min delegated task window; no persisted metrics or resumable checkpoint verified",
-    "P5 open-corpus worker stopped before Ada due to ChatGPT Chat surface gate in native Science→Codex context",
-    "P1 C6 label-scarce teacher arm adds 90% unlabeled query exposure vs G10; teacher-specific effect needs matched control",
-    "Ada resource schedule must coordinate C6 and P5 reader if both use vramanrs"
+    "C5 full encoder never passed timing probe; no fits and no G5 result; Ada launch blocked, no C5 job.",
+    "B3 initial teacher acquisition timed out before metrics; offline checkpointed retry still in unit-test, so no learning gain established.",
+    "HotpotQA Stage-2 open-corpus READY.json and model inputs absent; no P5 Ada jobs or open-corpus result.",
+    "Wave2 conditional reranking signal is DEV2-only; strongest independent BGE reranker and comparison-type harms must be included in sealed-holdout test.",
+    "SciFact C2 already used 200-query holdout; official test 300 was viewed before; n=200 underpowered for +0.01 and not fresh confirmatory evidence.",
+    "Network/DNS and heavy concurrent local CPU jobs are delaying model transfers; preserve existing experiments and avoid duplicate launch."
   ]
 }
