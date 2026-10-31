@@ -2,7 +2,7 @@
   {
     "id": "ire-teacher-feedback-budget-20261031",
     "title": "IRE — Teacher Feedback Under a Fixed Budget: Evidence So Far",
-    "description": "Minimal research presentation of the teacher–student retrieval pipeline, SciFact gold/KD gates, MedCPT teacher comparison, candidate-pool pilot, benchmark protocol, limits and next tests. Results are split-labelled; C6 remains pending.",
+    "description": "Minimalist, evidence-led presentation of the teacher–student retrieval pipeline; SciFact C2–C5 gates; MedCPT teacher strength versus student transfer; C6 two-domain, 10%-gold design and power limits; prior-art boundaries and next tests. C6 results remain pending.",
     "project": "IRE Team Ceous — Problem 1",
     "category": "Research progress explainer",
     "tags": [
