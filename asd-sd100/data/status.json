@@ -1,8 +1,8 @@
 {
-  "snapshot_ist": "31 October 2026, 13:04 IST",
-  "verified_at": "2026-10-31T13:04:56+05:30",
-  "source": "Read-only native Claude Science P1/P5 frame SQLite at 13:02 IST; saved C5 combined G5 JSON and independent Terra verification; P5 B3R selected-pair protocol and results.json; native P1 cycle report at 13:00; Codex job.json; one combined u22 squeue at 13:03 and targeted sacct for C6 jobs 50107/50259 at approximately 13:04. No local experiment or handoff/index files modified.",
-  "p1_summary": "C5 full-encoder three-seed G5 FAIL remains confirmed: KD−gold +0.005255 nDCG@10, paired 95% CI [−0.008486,+0.018968], three positive but subthreshold seed contrasts; SciFact holdout spent. C6 teachers passed VALIDATION qualifications only after 100k scores per dataset. Native P1 reports 6/24 main student fits completed by 13:00 (FiQA gold-only G10/G100); no combined student/official-test results. C6 50107 main and 50259 complementary training-only shard both recorded RUNNING with 4 GPUs each in read-only sacct near 13:04; earlier 50163 cancelled while pending at 12:45, 0 GPUs.",
+  "snapshot_ist": "31 October 2026, 14:01 IST",
+  "verified_at": "2026-10-31T14:01:00+05:30",
+  "source": "Read-only existing native Claude Science P1/P5 frame SQLite; C5 combined G5 JSON; P5 completed B3R RESULT.md/results.json and frozen split/accounting; at 14:01 IST, one restrained read-only squeue per authorized Ada identity and direct inspection of 19 C6 train_record.json files at the main destination. The native P1 cycle record independently documents corrected 13:44–13:45 output sync. No Science, Slurm, Codex index or research files changed.",
+  "p1_summary": "C5 G5 frozen FAIL unchanged: 3 seeds, KD−gold +0.005255 nDCG@10, paired 95% CI [−0.008486,+0.018968], SciFact holdout spent. C6 teacher qualification PASSED on validation only (100,000 scored pairs per dataset). At 14:01 IST the existing C6 main destination physically held 19 of 24 training records (12 FiQA; 7 NFCorpus); 5 remain. Main job 50107 and complementary job 50259 each RUNNING with 4 GPUs on separate authorized identities (8 combined). The earlier local-to-main transfer race was repaired at 13:44–13:45 and 5 completed fits moved; their data are included in the 19, not additional fits. No C6 official-test evaluation or student gain exists yet.",
   "p5_summary": "B3R completed (1,000 TRAIN, 200 DEV, 3 seeds, 24 adapter fits, 9,857 physical shared-cache teacher scores); set-aware FS@2 loses to random at both budgets. B2 DEV AUROC 0.882; high-precision bridge stopping still consumes 9.58/10 paragraphs. P5 native session completed at 09:09; open-corpus confirmation unverified.",
   "jobs": [
     {
@@ -13,7 +13,7 @@
     {
       "track": "P1",
       "experiment": "C6 main training · job 50107",
-      "status": "RUNNING (sacct 13:04), 4 GPUs allocated; 6/24 student fits complete per native P1 13:00; no official test result"
+      "status": "RUNNING at 14:01 (read-only squeue), 4 GPUs allocated; 19/24 training records physically present at main run destination (12 FiQA, 7 NFCorpus), 5 still outstanding; official-test gate PENDING"
     },
     {
       "track": "P1",
@@ -23,7 +23,7 @@
     {
       "track": "P1",
       "experiment": "C6 complementary training-only shard · job 50259",
-      "status": "RUNNING (squeue/sacct 13:03–13:04), 4 GPUs allocated; progress and duplicate-free fit ownership not yet independently checked; no student test result"
+      "status": "RUNNING at 14:01 (read-only squeue), 4 GPUs allocated; five completed NFCorpus fit directories transferred via corrected v2 sync at 13:44–13:45 and counted within the 19 main-run records, not additional fits; no final test result"
     },
     {
       "track": "P5",
@@ -43,8 +43,8 @@
   ],
   "p1_gate": "C5 frozen G5 FAIL after three complete gold/KD fits per seed 17,29,41: KD-full − G-full +0.0052552 nDCG@10, paired 95% CI [-0.0084858,+0.0189676], n=200, 10,000 query bootstrap draws; seed gains [+0.0098974,+0.0033547,+0.0025134]. Mean below +0.010 and CI lower below zero. One combined final evaluation; prior holdout C2 access and incremental instrumentation are limitations. C5 HOLDOUT is fully spent and must not be reused. C6 teacher-vs-initial-student validation qualification PASS on both datasets but student G100/K100/G10/K10 fits and official tests remain unmeasured.",
   "p5_gate": "B3R DEV pilot does NOT support set-aware selection: paired FS@2 differences vs random −0.025 [−0.058,+0.010] at 2 pairs/question and −0.027 [−0.057,−0.000] at 5. No confirmed +0.03 held-out gain; 5-pair teacher tokens not matched and this is an adapter-only closed-candidate test.",
-  "notes": "This is a dated 13:04 IST research snapshot, not live telemetry. P1 C5 G5 FAIL and P5 B3R negative DEV are unchanged. C6 student training has started and six MAIN fits were reported done by 13:00, not evaluated on the final official tests. Two independent account jobs 50107 and 50259 were recorded RUNNING and allocated 4 GPUs each near 13:04. Old pending 50163 cancelled, not running. No A* or new-method claim established. No private records, raw logs or credentials published.",
-  "latest_result": "13:04 IST: C5 full-encoder KD−gold +0.005255 [−0.008486,+0.018968] remains frozen FAIL, n=200 SciFact holdout, three seeds. C6 both teachers qualify on 200 VALIDATION queries each (FiQA +0.0738 [0.0352,0.1143]; NFCorpus +0.0411 [0.0193,0.0633]), not evidence of student transfer. P1 native 13:00 says 6 of 24 main student fits complete, no final test metrics. Slurm 13:03–13:04: jobs 50107 and 50259 RUNNING on separate authorized identities, 4 allocated GPUs each; old pending 50163 CANCELLED at 12:45. P5 B3R set-aware still trails random on DEV n=200.",
+  "notes": "Dated 14:01 IST research snapshot, not live telemetry. P1 C5 G5 FAIL and P5 B3R negative DEV findings unchanged. C6 main destination has 19/24 training records (12 FiQA + 7 NFCorpus), verified by a read-only file listing, not just a native model status. Five fits remained at snapshot; validation teacher scores must not be confused with trained student performance. Jobs 50107 and 50259 each had 4 allocated GPUs at 14:01; separate quotas, not pooling. A C6 output sync v1 issue was repaired by v2, which moved five previously completed outputs without overwriting existing fits; final combination/checkpoint verification remains pending. No A* or new-method success claim. No private records or credentials published.",
+  "latest_result": "14:01 IST: C6 19/24 training records physically present at the main frozen-run destination (12 FiQA, 7 NFCorpus); 5 outstanding, official-test gate pending. Main job 50107 and complementary job 50259 each RUNNING with 4 GPUs across distinct authorized identities. Five formerly stranded output directories successfully transferred by corrected sync v2 at 13:44–13:45; do not double-count. C5 frozen KD−gold +0.005255 [−0.008486,+0.018968] nDCG@10 still FAIL. P5 set-aware vs random at five labels remains −0.027 [−0.057,−0.000] on 200 DEV questions, with unequal teacher-token cost.",
   "gpu_verified": {
     "partition": "u22",
     "qos": "research/medium",
@@ -54,19 +54,20 @@
     "active_allocations_confirmed": 2,
     "active_gpus_confirmed": 8,
     "pending_jobs_without_gpus": 0,
-    "verified_at": "2026-10-31T13:04:00+05:30",
-    "note": "Single combined squeue at 13:03 confirmed job 50259 RUNNING with gres/gpu:4 (gnode068). Targeted sacct -j 50107,50259 then reported BOTH RUNNING and each AllocTRES gres/gpu=4, separately for authorized users. Other-account 50107 was not displayed in nilan's squeue view; sacct supplies its job state/allocation. Previous job 50163 was cancelled while pending at 12:45. Eight GPUs are allocated across two separate account quotas, NOT pooled entitlement. No additional quota or compute probe was submitted."
+    "verified_at": "2026-10-31T14:01:00+05:30",
+    "note": "Single restrained read-only Ada squeue from each of the two authorized identities at 14:01 IST: main 50107 RUNNING gres/gpu:4, companion 50259 RUNNING gres/gpu:4 (8 GPUs total across two identities). Their separate per-user four-GPU quotas are respected. Main-run training file listing yielded 19 completed training records; this is not an official-test result. No compute state modified."
   },
   "blockers": [
     "C5 G5 is a measured FAIL despite positive seed effects: +0.005255 [-0.008486,+0.018968], below predeclared +0.010. SciFact 200 HOLDOUT is spent; no new tuning/evaluation on it.",
     "C5 bootstrap resamples the 200 queries after seed-averaging; only 3 training seeds. Prior C2 holdout exposure and per-fit instrumentation limit clean confirmatory interpretation. Do not infer universal KD failure from this one benchmark.",
     "C6 VALIDATION teacher superiority (FiQA +0.0738; NFCorpus +0.0411) is not student distillation transfer. Teacher scores complete for 100k pairs per dataset; frozen 24 student fits and official test comparisons remain unmeasured.",
     "C6 execution deviation D-C6-2 used 7 row-sharded FiQA BGE scoring passes, with approximately 5,786 GPU-s logged, preserving candidate rows and model snapshot; possible batch-boundary floating-point differences and wasted abandoned partial scorer compute must be disclosed.",
-    "At 13:04 IST, Slurm sacct reported C6 jobs 50107 and 50259 RUNNING with 4 GPUs allocated per separate authorized identity (8 total), not 8 per user. The earlier pending job 50163 was cancelled by another actor before allocation. Main native P1 report shows only 6/24 student fits complete; companion fit output remains unverified. No held-out cross-domain result exists.",
+    "At 14:01 IST, restrained read-only squeue reported C6 jobs 50107 and 50259 RUNNING with 4 GPUs allocated per separate authorized identity (8 total), not 8 per user. The earlier pending job 50163 was cancelled by another actor before allocation. Main native P1 report shows only 6/24 student fits complete; companion fit output remains unverified. No held-out cross-domain result exists.",
     "P5 B3R set-aware minus random FS@2 = -0.025 [-0.058,+0.010] at 2 labels/q and -0.027 [-0.057,-0.000] at 5 on 200 DEV queries. CIs resample questions after averaging seeds, not seed variance; multiple comparisons not adjusted.",
     "P5 B3R 5-label teacher input tokens unequal (random 971,006 vs set-aware 1,252,556, ~29% more). Original 400-question pilot holdout exposed, new 2,000-question stage-two holdout lacks a confirmatory result.",
     "P5 inference-time set selection/stopping has strong prior art (DISCo, SetR, SCARLet, PRD); cost-matched sufficiency-boundary acquisition remains an UNTESTED hypothesis.",
-    "The public page is a static dated research explanation and does not access private Mac or Ada sessions."
+    "The public page is a static dated research explanation and does not access private Mac or Ada sessions.",
+    "C6 output transfer anomaly (13:27–13:45 IST) is resolved, not a model failure: v1 sync marked five finished NFCorpus fits copied despite missing remote temp parents; the corrected v2 transfer moved all five without overwriting run outputs. Verify remaining checkpoints and single-writer ownership before official one-time test evaluation."
   ],
   "audit": {
     "methodology": "P1 C5 D4 all six gold/KD fits completed with 256/64 token lengths, no fallback, A0 per-query agreement; 3-seed frozen combined G5 computed once, independently checked, FAIL. Query-bootstrap CI on seed-average, n=200, no training-seed bootstrap. P1 C6 two teacher qualification PASS results are only 200-query validation reranking effects, not gains from fitting 24 student models. D-C6-2 shard scoring introduces possible float-noise differences. P5 B3R 200 DEV, three seeds, adapter-only student, query-bootstrap without full seed uncertainty and unadjusted policy comparisons.",
@@ -186,6 +187,10 @@
     {
       "claim": "13:00 native C6 main training 6/24 fits reported, old nilan pending job 50163 cancelled, replacement 50259 started; 13:04 sacct confirms jobs 50107/50259 running with 4 allocated GPUs each",
       "local_source": "ire-project/IRE_CEOUS_RESEARCH_CYCLES.md (native P1 13:00–13:03 report); read-only Ada squeue 13:03 and sacct 13:04 (no raw Slurm logs public)"
+    },
+    {
+      "claim": "C6 14:01 training progress: 19/24 destination records; synced five previously stranded fit outputs; no student metric yet",
+      "local_source": "Read-only Ada main run-001 training-record listing 14:01 IST and native P1 13:44–13:45 sync incident record; private raw logs not published"
     }
   ],
   "public_literature": [
@@ -261,23 +266,23 @@
       "tau": 4,
       "qualified": true
     },
-    "student_fits": "Native P1 report at 13:00: 6 of 24 main student fits complete (FiQA G10/G100), not an evaluated student outcome. Complementary shard job 50259 running 4 GPUs at 13:04, no validated fit results from it yet.",
-    "official_test": "Not accessed for final student evaluation at snapshot; no result"
+    "student_fits": "At 14:01 IST the existing main destination held 19/24 seed-arm training records: all 12 FiQA and 7 NFCorpus. A sync race was corrected at 13:44–13:45; five transfer-completed outputs are included, not double-counted. Final 5 fitting outputs and untouched-test evaluation remain pending.",
+    "official_test": "Not evaluated in the verified 14:01 snapshot; no student retrieval metrics or combined H6 gate available."
   },
   "c6_execution": {
-    "status": "IN PROGRESS, NOT EVALUATED",
+    "status": "TRAINING IN PROGRESS, 19/24 OUTPUT RECORDS PRESENT; NOT TEST EVALUATED",
     "main_job": "50107",
     "main_allocated_gpus": 4,
-    "reported_main_fits_completed": 6,
+    "reported_main_fits_completed": 19,
     "reported_main_total_fits": 24,
-    "reported_progress_time_ist": "2026-10-31 13:00",
+    "reported_progress_time_ist": "2026-10-31 14:01",
     "supplementary_job": "50259",
     "supplementary_allocated_gpus": 4,
-    "supplementary_training_result": "NOT VERIFIED",
+    "supplementary_training_result": "Five NFCorpus fit output directories originally stranded by sync v1 were moved to the main destination by corrected sync v2 at 13:44–13:45; present among 19 final run records.",
     "old_pending_job": "50163",
     "old_pending_job_end": "CANCELLED at 12:45:47 before allocation",
-    "gpu_state_source": "One restrained read-only squeue plus targeted sacct from Ada at 13:03–13:04 IST",
-    "source_note": "The six completed fits are reported in native Science P1, not independently finalized as official-test metrics. No duplicate workers or independent output ownership check performed in this monitoring pass.",
-    "heldout_status": "Not evaluated; no test figures to report"
+    "gpu_state_source": "One read-only squeue each on ada-raman and ada at 14:01 IST, plus direct main-run file listing; not a new allocation or probe.",
+    "source_note": "Main run has 12 FiQA + 7 NFCorpus train_record.json artifacts at 14:01, 5 missing. Physical training records are not a valid official-test gate. Earlier sync race fixed with v2 mkdir-before-atomic-move and skip-if-done; no fit overwrite reported, but final checkpoint consistency must still be audited.",
+    "heldout_status": "Official test not evaluated by the verified 14:01 snapshot; no H6a/H6b verdict."
   }
 }
