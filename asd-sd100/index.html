@@ -104,9 +104,9 @@ table{width:100%;border-collapse:collapse;font-size:.9rem}td,th{border-bottom:1p
 </section>
 
 <section id="evening-proposals">
-<div class="eyebrow">TERM-PROJECT DRAFT · 31 OCTOBER 2026 EVENING · NOT YET REVIEWED BY NATIVE CLAUDE SCIENCE</div>
+<div class="eyebrow">TERM-PROJECT DRAFT · 31 OCTOBER 2026 EVENING · P1 NATIVE REVIEW REQUEST ACCEPTED · P5 PENDING</div>
 <h2>Two possible research problems, not two established contributions</h2>
-<p>This is a short evidence-based proposal for IRE coursework, written from existing experiments and verified published papers. It does not report a new experiment. The original Claude Science sessions have not yet acknowledged this specific evening review.</p>
+<p>This is a short evidence-based proposal for IRE coursework, written from existing experiments and verified published papers. It does not report a new experiment. The original P1 Claude Science session accepted a read-only review request at 19:06 IST and is processing it; no new scientific findings have yet been confirmed. The original P5 session has not acknowledged this evening proposal.</p>
 <h3>1. Why these problems matter</h3>
 <p>For difficult questions, the answer may need evidence from two different documents. The usual top-ranked documents can repeat one fact and miss the other. At the same time, retrieval, reranking, and teacher verification have real latency and token costs. A separate training problem is that an expensive cross-encoder teacher may add little value once enough gold relevance labels already exist.</p>
 <div class="grid">
@@ -114,7 +114,7 @@ table{width:100%;border-collapse:collapse;font-size:.9rem}td,th{border-bottom:1p
 <h3>Can we get the full evidence set at lower total cost?</h3>
 <p><b>Input:</b> complex question, fixed document corpus, small retrieval and verification budgets. <b>Output:</b> a short set of documents that jointly supports a correct answer, with measured latency and token cost.</p>
 <p><b>Existing work:</b> <a href="https://proceedings.iclr.cc/paper_files/paper/2026/hash/6ded182245f8e4db3963d2027174133d-Abstract-Conference.html">DISCo (ICLR 2026)</a> optimizes collective contextual-query-vector coverage through repeated dense index probes. Its semantic-coverage score is not a proof of complete gold support or correct answers. <a href="https://aclanthology.org/2026.eacl-long.322/">Petcu et al. (EACL 2026)</a> already use fixed-budget sequential subquery bandits; <a href="https://aclanthology.org/2026.findings-emnlp.1644/">Yin et al. (Findings EMNLP 2026)</a> show that query decomposition can hurt initial retrieval but help reranking.</p>
-<p><b>Possible gap (unproven):</b> an end-to-end decision rule that combines evidence completeness, answer correctness, wall latency, and verifier cost and wins over all three strong alternatives. Merely adding a budget or renaming coverage is not new.</p>
+<p><b>Possible gap (unproven):</b> an end-to-end decision rule that combines evidence completeness, answer correctness, wall latency, and verifier cost and wins over all three strong alternatives. Merely adding a budget or renaming coverage is not new.</p><p><b>Other close accepted work:</b> <a href="https://aclanthology.org/2025.acl-long.861/">SetR (ACL 2025)</a> already selects evidence sets; <a href="https://aclanthology.org/2026.emnlp-main.1348/">BEAR (EMNLP 2026)</a> allocates fixed evidence-context budgets; <a href="https://aclanthology.org/2026.findings-emnlp.343/">HALT (Findings EMNLP 2026)</a> uses claim-support verification to stop retrieval; <a href="https://aclanthology.org/2026.findings-emnlp.143/">VRR (Findings EMNLP 2026)</a> uses verification to revise retrieval. None is a new contribution of this project.</p>
 </div>
 <div class="card"><div class="eyebrow">B · RETRIEVER POST-TRAINING</div>
 <h3>When is paying for teacher labels actually useful?</h3>
