@@ -1,0 +1,27 @@
+{
+  "snapshot_ist": "31 October 2026, 08:20 IST",
+  "verified_at": "2026-10-31T08:20:31+05:30",
+  "source": "Existing native Claude Science sessions plus saved Codex job.json records; read-only",
+  "p1_summary": "C5 full-encoder experiment active; results pending",
+  "p5_summary": "Sufficiency and feedback-allocation branches active; results pending",
+  "jobs": [
+    {
+      "track": "P1",
+      "experiment": "ire-c5-luna-001 · full encoder",
+      "status": "Running · 08:20 IST"
+    },
+    {
+      "track": "P5",
+      "experiment": "ire-p5-b2-suff-luna-001 · sufficiency cross-encoder",
+      "status": "Running · 08:20 IST"
+    },
+    {
+      "track": "P5",
+      "experiment": "ire-p5-b3-alloc-luna-001 · teacher-feedback allocation",
+      "status": "Running · 08:20 IST"
+    }
+  ],
+  "p1_gate": "Awaiting C5 full-encoder comparison; ≥ +0.010, CI lower > 0, 3/3 seeds positive",
+  "p5_gate": "Awaiting teacher-budget allocation; ≥ +0.03 complete support vs uniform and rank-aware controls",
+  "notes": "Research claims are provisional; no unverified GPU counts or outcomes are asserted."
+}
