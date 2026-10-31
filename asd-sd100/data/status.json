@@ -537,7 +537,7 @@
   },
   "evening_proposal_review": {
     "date": "2026-10-31",
-    "status": "Original native P1 Science request accepted and processing as of 19:06 IST on 31 October; report pending. P5 native request remains unacknowledged. No new scientific result or pilot.",
+    "status": "Original native P1 Science review completed at 19:09 IST on 31 October, read-only. Original P5 native evening review remains unacknowledged. No new experiment run.",
     "candidate_a": {
       "label": "Cost-aware collective evidence retrieval",
       "scientific_question": "Can complete evidence support and downstream answer correctness be retained at lower end-to-end latency, context-token and verification cost than strong existing retrieval methods?",
@@ -577,7 +577,7 @@
       ]
     },
     "lookup_architecture_note": "L3 ICML 2026, STEM ICLR 2026 and Engram 2026 concern model-internal memory lookup; no evidence they directly improve corpus ANN retrieval; bekko claims require independent evaluation.",
-    "deployment_status": "Read-only evening research instructions accepted by the original P1 native Science frame (not completed). P5 original native review not confirmed. No new research or GPU jobs launched by this synchronization.",
+    "deployment_status": "Native P1 evening scientific scout completed and independently cross-checked; original P5 evening request not confirmed. Public bibliography corrections and verdict only; no GPU jobs, teacher calls or holdout access.",
     "references": [
       "https://proceedings.iclr.cc/paper_files/paper/2026/hash/6ded182245f8e4db3963d2027174133d-Abstract-Conference.html",
       "https://github.com/structlearning/DISCo",
@@ -590,12 +590,29 @@
       "https://aclanthology.org/2025.acl-long.861/",
       "https://aclanthology.org/2026.emnlp-main.1348/",
       "https://aclanthology.org/2026.findings-emnlp.343/",
-      "https://aclanthology.org/2026.findings-emnlp.143/"
+      "https://aclanthology.org/2026.findings-emnlp.143/",
+      "https://arxiv.org/abs/2507.04820",
+      "https://huggingface.co/blog/hotchpotch/bekko-static-embedding"
     ],
     "native_review_status": {
-      "p1": "ACCEPTED · native original frame processing at 19:07 IST · scientific report pending",
+      "p1": "COMPLETED · native P1 read-only research report at 19:09 IST · NO-GO original pair selection, P5 novelty also not established",
       "p5": "NOT ACKNOWLEDGED · original session still completed · scientific report pending"
     },
-    "native_delivery_checked_at_ist": "2026-10-31 19:07 IST"
+    "native_delivery_checked_at_ist": "2026-10-31 19:11 IST",
+    "native_p1_report": {
+      "status": "COMPLETED_READ_ONLY",
+      "scientific_decision": "NO-GO original budgeted pair acquisition; no demonstrated novel collective evidence method; optional matched-exposure teacher falsifier remains HYPOTHESIS ONLY.",
+      "literature_audit_corrections": [
+        "Pairwise Ranking Distillation exists: Wu et al., arXiv:2507.04820; ReNeuIR 2025 workshop noted, not verified main SIGIR.",
+        "Yin et al. stage-aware query decomposition is Findings of EMNLP 2026, anthology ID 2026.findings-emnlp.1644.",
+        "Bekko static multilingual retrieval blog was published 21 October 2026, not unverified."
+      ],
+      "limitations": [
+        "Teacher-free gold-only controls have zero teacher cost; compare quality-cost curves, not artificial identical realized teacher expenditure.",
+        "C6 scarce-gold effect is confounded by different training-query exposure and weak gold-only baseline.",
+        "Native P1 report suggested new datasets/five seeds as an unapproved design; none were run or authorized.",
+        "P5 evening native scientific review remains pending; original P5 earlier reset is not the requested new review."
+      ]
+    }
   }
 }
