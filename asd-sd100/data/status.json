@@ -1,7 +1,7 @@
 {
-  "snapshot_ist": "31 October 2026, 16:05 IST",
-  "verified_at": "2026-10-31T16:05:49+05:30",
-  "source": "Read-only original native Claude Science P1/P5 root-frame scientific reset messages (both completed 31 Oct ~15:12 IST), saved frozen C6 gates.json (SHA-256 ec7ea2a6...), independent Terra audit, P5 B3R RESULT.md/results.json and Wave2 DEV2 files, exact P1 handoff hashes, and one restrained read-only Ada job query at 16:05 IST. No new jobs, training, teacher calls, holdout runs, file handoffs or raw-data publication.",
+  "snapshot_ist": "31 October 2026, 18:51 IST",
+  "verified_at": "2026-10-31T18:51:33+05:30",
+  "source": "Existing native Claude Science P1 and P5 original root sessions (last scientific reviews completed 15:12 IST, no later research turn seen at 18:41); read-only frozen C6 protocol and P5 B3R RESULT.md; Codex job records and byte-verified separate P1 handoff; restrained Ada queue request at 18:51; independent primary-literature lookup for DISCo (ICLR 2026), Petcu (EACL 2026), Yin (Findings EMNLP 2026), Robust Active Distillation (ICLR 2023), L3 (ICML 2026), STEM (ICLR 2026), and Engram (preprint). No new experiments, teacher calls, datasets, holdout reads, local-to-ChatGPT file handoffs or raw lab data publication.",
   "p1_summary": "P1 original native Claude Science scientific reset COMPLETED at 15:12 IST. Decision: NO-GO for original teacher-budget selection / full-gold KD as an A*-paper direction. Frozen C5 full-gold KD +0.005255 [−0.008486,+0.018968] FAIL. C6 full-gold KD +0.003430 [−0.002713,+0.009672] FAIL on pooled 971 official test queries; 10%-gold KD +0.066617 [+0.054264,+0.079109] formal PASS, but G10 worsens against the untouched student and K10 sees additional teacher-scored queries. A teacher-content effect at matched query exposure is NOT established. P1 recommends stopping teacher budget selection; a teacher-versus-exposure control is conditional on reopening the program.",
   "p5_summary": "P5 original native Claude Science scientific reset COMPLETED at 15:12 IST. Decision: NO-GO for set-aware teacher allocation/distillation as a top-conference method under the tested evidence. B3R on 200 DEV questions lost to random in FS@2 (−0.025 at 2 labels, −0.027 at 5), with ~29% more teacher tokens at five. Separate off-the-shelf BGE reranking on 4,742 DEV2 improved bridge FS@2 (+0.0243 descriptive) but hurt comparison (−0.0231). Science recommends a CONDITIONAL measurement-validity study: do gold-support scores agree with audited evidence sufficiency? No new audit or holdout experiment has run.",
   "jobs": [
@@ -39,7 +39,7 @@
   "p1_gate": "C5 G5 frozen three-seed full-gold KD−gold +0.005255 [−0.008486,+0.018968] FAIL, SciFact 200 spent queries. C6 H6a pooled K100−G100 +0.003430 [−0.002713,+0.009672] FAIL; H6b pooled K10−G10 +0.066617 [+0.054264,+0.079109] PASS over 971 untouched test queries. K10−G100 −0.016034 [−0.024914,−0.007258]. Post-hoc G10−untouched −0.0441 [−0.0585,−0.0295], K10−untouched +0.0225 [+0.0127,+0.0324]: possible low-gold overfitting, and extra query exposure confounds the apparent teacher benefit. Native Science: original contribution NO-GO; label-scarce hypothesis not yet publication-ready.",
   "p5_gate": "B3R set-aware−random FS@2 200-DEV effect −0.025 [−0.058,+0.010] at 2 labels/q and −0.027 [−0.057,−0.000] at 5, with ~29% more teacher input tokens for set-aware at 5. Larger 4742-DEV2 off-the-shelf reranking comparison shows a descriptive bridge gain for BGE conditioning but comparison-question regression; no sealed holdout or new method.",
   "notes": "Research snapshot verified 16:05 IST. Both original Science leads completed a read-only scientific PROBLEM RESET at 15:12: P1 NO-GO original teacher-budget/pair selection, P5 NO-GO teacher allocation; P5 conditionally favors testing validity of gold-support as a proxy for actual evidence sufficiency. No new experiments. C6 full-gold KD FAIL; 10%-gold KD PASS with unequal query exposure and weakened G10 baseline. Absence of a statistically detectable gain is not proof of equivalence; explaining the scarcity gain by exposure alone is an UNTESTED hypothesis. P5 gold-support's limitations are not yet demonstrated by audited alternative evidence. Exposed SciFact/pilot holdouts must not be reused.",
-  "latest_result": "16:05 IST · Both original Claude Science sessions completed scientific resets at 15:12. P1: NO-GO on full-gold teacher-budget / pair-selection as an A* direction; a matched-query-exposure test for teacher content remains only a proposed, conditional question. P5: NO-GO on set-aware teacher allocation; proposes an independent audit of whether gold-support metrics agree with actual answer sufficiency, not yet run. Frozen C6: full-gold KD +0.0034 CI [−0.0027,+0.0097] FAIL; low-gold KD +0.0666 CI [+0.0543,+0.0791] PASS but confounded. No active Ada jobs at 16:05.",
+  "latest_result": "18:51 IST: Two new IRE research proposals and a skeptical course-report draft have been added: A, cost-aware collective evidence retrieval; B, properly controlled teacher-value post-training. These are untested hypotheses, not new experimental findings. Original native Science sessions remain completed; acknowledgement/review of these evening proposals has not been verified.",
   "gpu_verified": {
     "partition": "u22",
     "qos": "research/medium",
@@ -534,5 +534,55 @@
       "original Science P1 #667 and P5 #166"
     ],
     "no_new_work": true
+  },
+  "evening_proposal_review": {
+    "date": "2026-10-31",
+    "status": "Read-only external literature synthesis and term-project draft; not yet acknowledged or approved by the two original native Claude Science frames.",
+    "candidate_a": {
+      "label": "Cost-aware collective evidence retrieval",
+      "scientific_question": "Can complete evidence support and downstream answer correctness be retained at lower end-to-end latency, context-token and verification cost than strong existing retrieval methods?",
+      "prior_art": [
+        "DISCo ICLR 2026",
+        "Petcu et al. EACL 2026 sequential subquery bandit",
+        "Yin et al. Findings EMNLP 2026 stage-aware query decomposition",
+        "SetR / Sufficient Context / HALT"
+      ],
+      "minimal_proposed_pilot": "100–200 multi-hop DEV questions with two annotated support documents; K=2–5 and 1–2 budgets; qrel-independent retrieval, BM25/ColBERT/DISCo/Petcu-bandit/stage-aware comparisons, full-support recall, downstream QA, p50/p95 latency, total tokens and bootstrap confidence intervals. Not executed.",
+      "evidence_status": "HYPOTHESIS ONLY",
+      "caveats": [
+        "DISCo semantic query coverage does not establish correct answers",
+        "A fixed budget alone is not novel",
+        "Claimed DISCo 8-replica 285GB vs PLAID 23GB memory footprint and fairness/dynamic-corpus limitations not independently verified in this review"
+      ]
+    },
+    "candidate_b": {
+      "label": "Budgeted teacher-value retriever post-training",
+      "scientific_question": "Does teacher score information help beyond matched gold-only and additional-training-query exposure controls?",
+      "prior_art": [
+        "Robust Active Distillation ICLR 2023",
+        "GPL NAACL 2022",
+        "PairDistill",
+        "SCARLet / PRD"
+      ],
+      "minimal_proposed_pilot": "Equal teacher input/output tokens, training-query exposure, optimizer steps and gold labels across controls, with three seeds, paired query bootstrap CIs and independent seed variability. Not executed.",
+      "evidence_status": "HYPOTHESIS ONLY",
+      "caveats": [
+        "C6 full-gold KD +0.00343 [-0.00271,+0.00967] FAIL",
+        "C6 low-gold +0.06662 [+0.05426,+0.07911] PASS but confounded by unequal query exposure and weakened G10",
+        "Novelty not established by budget constraint alone"
+      ]
+    },
+    "lookup_architecture_note": "L3 ICML 2026, STEM ICLR 2026 and Engram 2026 concern model-internal memory lookup; no evidence they directly improve corpus ANN retrieval; bekko claims require independent evaluation.",
+    "deployment_status": "Only new public explanatory text published; no Science session instruction accepted or new job started.",
+    "references": [
+      "https://proceedings.iclr.cc/paper_files/paper/2026/hash/6ded182245f8e4db3963d2027174133d-Abstract-Conference.html",
+      "https://github.com/structlearning/DISCo",
+      "https://aclanthology.org/2026.eacl-long.322/",
+      "https://aclanthology.org/2026.findings-emnlp.1644/",
+      "https://research.google/pubs/robust-active-distillation/",
+      "https://proceedings.mlr.press/v306/tseng26a.html",
+      "https://proceedings.iclr.cc/paper_files/paper/2026/hash/082ebebc722cea31791b68a868bcd48c-Abstract-Conference.html",
+      "https://arxiv.org/abs/2601.07372"
+    ]
   }
 }
