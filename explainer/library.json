@@ -1,5 +1,23 @@
 [
   {
+    "id": "ire-asd-sd100-research-explainer-20261031",
+    "title": "ASD SD100 — IRE Research Explainer (Projects 1 & 5)",
+    "description": "Evidence-led status of feedback-budgeted retriever learning and minimal sufficient evidence retrieval: baselines, paired confidence intervals, negative results, novelty limits, compute progress and unfinished tests.",
+    "project": "IRE Research — Projects 1 and 5",
+    "category": "Ongoing research explainer",
+    "tags": [
+      "ASD SD100",
+      "IRE",
+      "dense retrieval",
+      "teacher feedback",
+      "sufficiency",
+      "research evidence"
+    ],
+    "url": "https://nilansa.github.io/asd-sd100/",
+    "date": "2026-10-31",
+    "indexed_at": "2026-10-31T11:56:15+05:30"
+  },
+  {
     "id": "ire-teacher-feedback-budget-20261031",
     "title": "IRE — Teacher Feedback Under a Fixed Budget: Evidence So Far",
     "description": "Minimalist, evidence-led presentation of the teacher–student retrieval pipeline; SciFact C2–C5 gates; MedCPT teacher strength versus student transfer; C6 two-domain, 10%-gold design and power limits; prior-art boundaries and next tests. C6 results remain pending.",
