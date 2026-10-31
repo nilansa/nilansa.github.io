@@ -1,9 +1,9 @@
 {
-  "snapshot_ist": "31 October 2026, 15:03 IST",
-  "verified_at": "2026-10-31T15:03:02+05:30",
-  "source": "Read-only native Claude Science P1/P5 frames, P1 final Science NO-GO decision, frozen C6 gates.json and independently computed Terra audit, P5 B3R and Wave2 metrics.jsonl/RESULT.md/split manifest, and one restrained Ada squeue at 15:03 for the two authorized identities. No new jobs, transfers, test runs or raw-data publication.",
-  "p1_summary": "Original P1 Science frame COMPLETED: original full-gold teacher-feedback-selection paper framing NO-GO. C5 SciFact KD−gold +0.005255 [−0.008486,+0.018968] FAIL (previously accessed 200-query holdout). C6 frozen COMPLETE: 24/24 fits and one final evaluation on 971 official test queries. Pooled full-gold KD−gold +0.003430 [−0.002713,+0.009672] FAIL; 10%-gold KD−gold +0.066617 [+0.054264,+0.079109] PASS, but confounded because cycling 10%-gold-only baseline deteriorates below untouched, and KD arm uses scores on extra queries. No causal teacher-information gain or novel method established.",
-  "p5_summary": "P5 original native Science frame COMPLETED; its B3R 200-DEV set-aware feedback allocation remains NO-GO and has unequal teacher-token cost at 5 labels. New separate Wave2 (no task fine-tuning) on 4742 HotpotQA DEV2 questions: pretrained BGE-reranker-v2-m3 independent vs conditional FS@2 is 0.6993 vs 0.7236 on 3831 bridge questions, but 0.9748 vs 0.9517 on 911 comparison questions. MiniLM conditional−independent bridge +0.0559 [0.041,0.070] but trails stronger BGE. A different 2000-query sequence holdout remains sealed. Some selected-best bootstrap point estimates contradict their CIs and must not be used.",
+  "snapshot_ist": "31 October 2026, 16:05 IST",
+  "verified_at": "2026-10-31T16:05:49+05:30",
+  "source": "Read-only original native Claude Science P1/P5 root-frame scientific reset messages (both completed 31 Oct ~15:12 IST), saved frozen C6 gates.json (SHA-256 ec7ea2a6...), independent Terra audit, P5 B3R RESULT.md/results.json and Wave2 DEV2 files, exact P1 handoff hashes, and one restrained read-only Ada job query at 16:05 IST. No new jobs, training, teacher calls, holdout runs, file handoffs or raw-data publication.",
+  "p1_summary": "P1 original native Claude Science scientific reset COMPLETED at 15:12 IST. Decision: NO-GO for original teacher-budget selection / full-gold KD as an A*-paper direction. Frozen C5 full-gold KD +0.005255 [−0.008486,+0.018968] FAIL. C6 full-gold KD +0.003430 [−0.002713,+0.009672] FAIL on pooled 971 official test queries; 10%-gold KD +0.066617 [+0.054264,+0.079109] formal PASS, but G10 worsens against the untouched student and K10 sees additional teacher-scored queries. A teacher-content effect at matched query exposure is NOT established. P1 recommends stopping teacher budget selection; a teacher-versus-exposure control is conditional on reopening the program.",
+  "p5_summary": "P5 original native Claude Science scientific reset COMPLETED at 15:12 IST. Decision: NO-GO for set-aware teacher allocation/distillation as a top-conference method under the tested evidence. B3R on 200 DEV questions lost to random in FS@2 (−0.025 at 2 labels, −0.027 at 5), with ~29% more teacher tokens at five. Separate off-the-shelf BGE reranking on 4,742 DEV2 improved bridge FS@2 (+0.0243 descriptive) but hurt comparison (−0.0231). Science recommends a CONDITIONAL measurement-validity study: do gold-support scores agree with audited evidence sufficiency? No new audit or holdout experiment has run.",
   "jobs": [
     {
       "track": "P1",
@@ -18,7 +18,7 @@
     {
       "track": "P1",
       "experiment": "Native Claude Science final verdict",
-      "status": "COMPLETED · original A*-paper framing NO-GO, label-scarce pivot conditional and unproven"
+      "status": "COMPLETED 15:12 IST · same original frame, read-only scientific reset; NO-GO original teacher-budget thesis; label-scarce teacher-content effect untested"
     },
     {
       "track": "P5",
@@ -33,13 +33,13 @@
     {
       "track": "P5",
       "experiment": "Original native Claude Science frame",
-      "status": "COMPLETED at 09:09 IST; no later native problem-reframe report verified"
+      "status": "COMPLETED 15:12 IST · same original frame, read-only scientific reset; NO-GO teacher allocation; proposes metric-validity study only"
     }
   ],
-  "p1_gate": "C5 G5 frozen three-seed full-gold KD−gold +0.005255 [−0.008486,+0.018968] FAIL, SciFact 200 spent queries. C6 H6a pooled K100−G100 +0.003430 [−0.002713,+0.009672] FAIL; H6b pooled K10−G10 +0.066617 [+0.054264,+0.079109] PASS over 971 untouched test queries. K10−G100 −0.016034 [−0.024914,−0.007258]. Post-hoc G10−untouched −0.0441, K10−untouched +0.0225: possible low-gold overfitting, and extra query exposure confounds the apparent teacher benefit. Native Science: original contribution NO-GO; label-scarce hypothesis not yet publication-ready.",
+  "p1_gate": "C5 G5 frozen three-seed full-gold KD−gold +0.005255 [−0.008486,+0.018968] FAIL, SciFact 200 spent queries. C6 H6a pooled K100−G100 +0.003430 [−0.002713,+0.009672] FAIL; H6b pooled K10−G10 +0.066617 [+0.054264,+0.079109] PASS over 971 untouched test queries. K10−G100 −0.016034 [−0.024914,−0.007258]. Post-hoc G10−untouched −0.0441 [−0.0585,−0.0295], K10−untouched +0.0225 [+0.0127,+0.0324]: possible low-gold overfitting, and extra query exposure confounds the apparent teacher benefit. Native Science: original contribution NO-GO; label-scarce hypothesis not yet publication-ready.",
   "p5_gate": "B3R set-aware−random FS@2 200-DEV effect −0.025 [−0.058,+0.010] at 2 labels/q and −0.027 [−0.057,−0.000] at 5, with ~29% more teacher input tokens for set-aware at 5. Larger 4742-DEV2 off-the-shelf reranking comparison shows a descriptive bridge gain for BGE conditioning but comparison-question regression; no sealed holdout or new method.",
-  "notes": "Dated 15:03 IST evidence snapshot, not live telemetry. C5 and C6 full-gold KD FAIL; C6 10%-gold KD formal PASS but its baseline is weaker than untouched and its teacher-scored query exposure differs. Native P1 Science final NO-GO for original thesis. P5 B3R remains negative; separate DEV2 pretrained-reranking observations are exploratory with strong existing baselines. Do not reuse exposed holdouts, overstate bootstrap training-seed uncertainty or claim a publication-ready discovery.",
-  "latest_result": "15:03 IST: C6 frozen benchmark COMPLETE (24/24 fits; 971 official test queries), full-gold KD pooled +0.00343 [−0.00271,+0.00967] FAIL, low-gold KD +0.06662 [+0.05426,+0.07911] PASS with a weak low-gold baseline and additional teacher/query exposure confound. P1 Science says NO-GO for original framing. P5 new DEV2 pretrained BGE conditional vs independent bridge FS@2 0.7236 vs 0.6993 (n=3831), opposite effect on comparison (n=911), independent holdout untested. No active nilan/vramanrs Ada jobs in restrained 15:03 read-only snapshot.",
+  "notes": "Research snapshot verified 16:05 IST. Both original Science leads completed a read-only scientific PROBLEM RESET at 15:12: P1 NO-GO original teacher-budget/pair selection, P5 NO-GO teacher allocation; P5 conditionally favors testing validity of gold-support as a proxy for actual evidence sufficiency. No new experiments. C6 full-gold KD FAIL; 10%-gold KD PASS with unequal query exposure and weakened G10 baseline. Absence of a statistically detectable gain is not proof of equivalence; explaining the scarcity gain by exposure alone is an UNTESTED hypothesis. P5 gold-support's limitations are not yet demonstrated by audited alternative evidence. Exposed SciFact/pilot holdouts must not be reused.",
+  "latest_result": "16:05 IST · Both original Claude Science sessions completed scientific resets at 15:12. P1: NO-GO on full-gold teacher-budget / pair-selection as an A* direction; a matched-query-exposure test for teacher content remains only a proposed, conditional question. P5: NO-GO on set-aware teacher allocation; proposes an independent audit of whether gold-support metrics agree with actual answer sufficiency, not yet run. Frozen C6: full-gold KD +0.0034 CI [−0.0027,+0.0097] FAIL; low-gold KD +0.0666 CI [+0.0543,+0.0791] PASS but confounded. No active Ada jobs at 16:05.",
   "gpu_verified": {
     "partition": "u22",
     "qos": "research/medium",
@@ -49,23 +49,24 @@
     "active_allocations_confirmed": 0,
     "active_gpus_confirmed": 0,
     "pending_jobs_without_gpus": 0,
-    "verified_at": "2026-10-31T15:03:02+05:30",
-    "note": "Single restrained read-only Ada squeue on 31 Oct 15:03 IST for both nilan and vramanrs returned no active jobs; no Slurm operation."
+    "verified_at": "2026-10-31T16:05:49+05:30",
+    "note": "One restrained read-only squeue for both authorized accounts at 31 Oct 16:05 IST returned no active jobs; no Slurm writes. This is a point-in-time observation, not continuous monitoring."
   },
   "blockers": [
+    "Both original Claude Science scientific resets are now COMPLETE (P1 15:12, P5 15:12 IST). P1 recommends NO-GO teacher-budget and pair-selection thesis; P5 recommends NO-GO allocation and a conditional audit of gold-support metric validity. No new experiments or holdout tests approved or executed.",
     "P1 native Science final verdict NO-GO for full-gold teacher-feedback-selection A*-paper framing. SciFact 200 held-out questions spent and previously exposed.",
     "C6 H6a FAIL: pooled full-gold KD +0.00343 CI [−0.00271,+0.00967]. H6b formal PASS: 10%-gold KD +0.06662 CI [+0.05426,+0.07911], but G10 is 0.0441 below untouched; K10 gains only 0.0225 over untouched and sees many more teacher-scored queries. Difference cannot isolate teacher content vs more exposure/weak baseline.",
     "C6 query-bootstrap averages just 3 training seeds; full training-seed uncertainty, hardware/provenance and end-to-end cost not captured; no repeat test permitted.",
     "P5 B3R set-aware allocation negative on 200 DEV and uses ~29% more teacher tokens than random at 5 labels.",
     "P5 4,742 DEV2 no-training reranker result is exploratory; conditioning benefits bridge but hurts comparison questions; 2,000 independent sequence holdout remains sealed. The reselected-best bootstrap comparison has inconsistent point estimate and CI fields; do not report those CIs.",
-    "Novelty has substantial prior work (GPL, SetR, SCARLet, DISCo, PRD); the new research direction requires reframing rather than automatic minor loss tuning.",
+    "Novelty is constrained by GPL, SetR, SCARLet, DISCo, PRD, and work on evaluating evidence sufficiency. The new Science problem formulations are proposals, not measured novel contributions.",
     "This public page is a static dated snapshot, not live Mac/Ada status; no private files or raw logs published."
   ],
   "audit": {
-    "methodology": "C5 frozen SciFact full-gold KD FAIL. C6 frozen 971-query official test, 24 fits and 3 seeds; Terra recomputed 6 gates and their paired query-bootstrap CIs. H6b low-gold pass does not isolate teacher information because K10 uses all train slates and G10 cycles the small gold subset; G10 is worse than A0. Multiple machines and one output-sync duplicate race pose provenance uncertainty. P5 Wave2 BGE conditional helps bridges, hurts comparison; best-single-shot comparison CI fields internally inconsistent.",
-    "split_integrity": "C5 previously exposed SciFact 200-query holdout is spent. C6 FiQA/NFCorpus frozen official 648/323 test used once after training. P5 early 400 pilot holdout has been exposed; P5 larger DEV2 uses 4,742 separate HotpotQA validation questions and a sealed 2,000-question sequence holdout, not evaluated.",
+    "methodology": "C5 frozen SciFact full-gold KD FAIL. C6 frozen 971-query official test, 24 fits and 3 seeds; Terra recomputed 6 gates and their paired query-bootstrap CIs. H6b low-gold pass does not isolate teacher information because K10 uses all train slates and G10 cycles the small gold subset; G10 is worse than A0. Multiple machines and one output-sync duplicate race pose provenance uncertainty. P5 Wave2 BGE conditional helps bridges, hurts comparison; best-single-shot comparison CI fields internally inconsistent. Independent reviewer after 15:12 resets: 'no detectable added value' is not proof of zero KD benefit; bootstrap resamples queries after seed averaging and does not measure the full training-seed uncertainty. P5's Science report attributed H6b improvement to query exposure, but this causal attribution is a hypothesis, not a measured explanation.",
+    "split_integrity": "C5 previously exposed SciFact 200-query holdout is spent. C6 FiQA/NFCorpus frozen official 648/323 test used once after training. P5 early 400 pilot holdout has been exposed; P5 larger DEV2 uses 4,742 separate HotpotQA validation questions and a sealed 2,000-question sequence holdout, not evaluated. No new holdout accessed during either 15:12 read-only scientific reset. Fresh evaluation would require newly specified untouched questions, rather than the exposed ones.",
     "cost": "C6 200k teacher scores and reported ~10.58 GPU-hours are not total end-to-end costs; FiQA seven-way scoring alone consumed 5,786 GPU-seconds and failed/duplicate work needs accounting. P5 B3R 5-label set-aware used 1,252,556 teacher input tokens vs random 971,006. P5 Wave2 ~$0.29659 metered Modal GPU/CPU inference and 25.1min local CPU.",
-    "novelty": "Full-gold teacher selection NO-GO under tested framing. Scarce-label KD overlaps GPL (NAACL 2022) and related pseudo-labeling. P5 has prior art SetR, DISCo, SCARLet and PRD. The newer BGE static reranking baseline is useful practice, not automatically a new method. Scientific problem reset and controlled falsification precede further training."
+    "novelty": "Both original Claude Science sessions now explicitly reject the teacher-budget / set-aware allocation framing as a demonstrated top-tier method. P1 proposes an equal-query-exposure teacher-vs-self-training mechanism check only if reopened; this overlaps GPL/active selection. P5 recommends first auditing validity of the gold-support metric against human-reviewed sufficient evidence sets; alternative evidence is not yet verified and 28.5% answer-string overlap does not by itself prove gold labels are wrong. No credible new contribution established."
   },
   "evidence": [
     {
@@ -207,6 +208,18 @@
     {
       "claim": "P5 Wave2 4,742 DEV2/2,000 sealed holdout split",
       "local_source": "ire-p5-minimal-evidence/wave2-20261031-0815/p5-fullscale-methods/split_manifest.json"
+    },
+    {
+      "claim": "P1 original native Science scientific-lead problem reset and F1–F4 falsification proposals, completed 15:12 IST (read-only)",
+      "local_source": "native Claude Science P1 root frame · last scientific report, message 667 (private)"
+    },
+    {
+      "claim": "P5 original native Science scientific-lead problem reset and choice of metric-validity audit B, completed 15:12 IST (read-only)",
+      "local_source": "native Claude Science P5 root frame · last scientific report, message 166 (private)"
+    },
+    {
+      "claim": "P5 frozen B3R per-arm costs and paired DEV FS@2 results",
+      "local_source": "ire-p5-minimal-evidence/branches/B3R_alloc/RESULT.md"
     }
   ],
   "public_literature": [
@@ -307,7 +320,7 @@
     "supplementary_training_result": "Original experiment record: 15 fits trained on vramanrs and 9 on nilan; corrected transfer and one duplicate-fit collision are documented; final 24 train_record.json were present.",
     "old_pending_job": "50163",
     "old_pending_job_end": "Cancelled while pending before GPU allocation",
-    "gpu_state_source": "15:03 read-only Ada squeue for nilan and vramanrs found no active jobs.",
+    "gpu_state_source": "31 October 16:05 IST read-only Ada squeue for both authorized identities returned no active jobs.",
     "source_note": "Single frozen final test completed. Terra recomputed gates, but shared GPU hardware provenance, failed initial launches and fit transfer race require disclosure.",
     "heldout_status": "Official FiQA 648 + NFCorpus 323 test evaluated once; no re-tuning or reuse authorized."
   },
@@ -482,5 +495,44 @@
       "ire-p5-minimal-evidence/wave2-20261031-0815/p5-fullscale-methods/metrics.jsonl",
       "ire-p5-minimal-evidence/wave2-20261031-0815/p5-fullscale-methods/split_manifest.json"
     ]
+  },
+  "scientific_reset": {
+    "version": "2026-10-31 read-only scientific-lead reset",
+    "observed_at_ist": "31 Oct 2026 15:12 IST",
+    "verified_at_ist": "31 Oct 2026 16:05 IST",
+    "p1": {
+      "original_session": "Completed read-only scientific report in existing P1 native frame",
+      "decision": "NO-GO: full-gold teacher KD and budgeted pair selection as an A*-paper thesis",
+      "measured_evidence": "C5 +0.005255 CI [−0.008486,+0.018968] FAIL; C6 full-gold +0.003430 CI [−0.002713,+0.009672] FAIL; 10%-gold KD vs G10 +0.066617 CI [+0.054264,+0.079109] PASS but treatment/query exposure differs",
+      "hypothesis_not_result": "Gold labels may already convey useful ranking signal; 10%-gold improvement might be query exposure or regularisation rather than teacher-specific information",
+      "conditional_decisive_test": "Only if explicitly reopened: compare validation-early-stopped 10%-gold-only, equal-query-exposure teacher-free self-training (e.g. BM25/student pseudo-labels), and 10%-gold + teacher KD with fixed steps and new untouched test sets. Reject teacher-value thesis if incremental KD improvement is below +0.01 pooled.",
+      "primary_prior_art": "GPL, rank-learning active acquisition, pseudo-labeling and Score-Only Distillation",
+      "status": "Proposed only; not performed"
+    },
+    "p5": {
+      "original_session": "Completed read-only scientific report in existing P5 native frame",
+      "decision": "NO-GO: set-aware teacher-feedback acquisition or distillation as a top-conference method in the tested setting",
+      "measured_evidence": "B3R on 200 DEV questions: set-aware minus random FS@2 −0.025 at b=2 and −0.027 at b=5; at b=5 teacher input token cost 1,252,556 vs 971,006 for random. DEV2 4,742-query pretrained BGE comparison remains exploratory and mixed.",
+      "hypothesis_not_result": "Gold-support matching may rank valid alternative evidence sets incorrectly; finding a non-gold paragraph containing the answer in 28.5% of questions is not a sufficiency audit.",
+      "conditional_decisive_test": "Only after a new protocol: audit a new 200-question sample for answer sufficiency and compare method rankings under gold-support vs audited sufficiency, including human adjudication and matched judge cost. A high Kendall rank agreement need not imply zero pairwise ranking flips.",
+      "primary_prior_art": "HotpotQA shortcut studies, MuSiQue construction, Sufficient Context, SetR and DISCo",
+      "status": "Proposed measurement study only; no new data accessed"
+    },
+    "independent_caveats": [
+      "A CI including 0 does not establish equivalence or zero benefit.",
+      "P1 training used three seeds; query-bootstrap CI omits training-seed variability.",
+      "C6 H6b does not isolate teacher-content value from exposure and a weak G10 baseline; G10 overfitting is plausible but unverified.",
+      "P5 B3R teacher cost at b=5 is not matched; direct method-vs-random superiority cannot be claimed.",
+      "Answer-string overlap is not proof of alternative sufficient evidence; an independent sufficiency audit is required.",
+      "No full-paper novelty, human-audited metric-validity result or independent replication yet."
+    ],
+    "local_evidence": [
+      "C6 frozen gates.json SHA256 ec7ea2a6450add488615f907b28fd06d97171c46b9112c7739ce8298c03295a4",
+      "TERRA_C6_CHECK.md",
+      "P5 B3R RESULT.md",
+      "P5 Wave2 RESULT.md and split_manifest.json",
+      "original Science P1 #667 and P5 #166"
+    ],
+    "no_new_work": true
   }
 }
