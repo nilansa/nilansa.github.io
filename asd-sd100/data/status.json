@@ -1,83 +1,131 @@
 {
-  "snapshot_ist": "31 October 2026, 09:15 IST",
-  "verified_at": "2026-10-31T09:15:41+05:30",
-  "source": "Read-only inspection of both native Claude Science projects, local Codex result/metric artifacts, and live Slurm squeue/scontrol/sinfo for job 50000; public summary only",
-  "p1_summary": "Gold-only +0.058 [0.033,0.084] nDCG@10 vs untouched, cached teacher-KD −0.017 [−0.034,−0.001] vs gold; C5 local training stopped before any fit/G5 and Ada launch blocked. C6 allocated Slurm 50000, 2 GPUs, but no measured C6 result.",
-  "p5_summary": "B2 DEV logistic AUROC 0.882 vs cross-encoder 0.715, but reliable bridge stop uses 9.58/10. B3 first allocation failed after 43,224/67,420 teacher scores without metrics; offline retry still testing. New DEV2 n=4,742 conditional MiniLM CE +0.056 bridge FS@2 [0.041,0.070] vs independent; adaptive stop mean frontier −0.0398 [−0.0427,−0.0367]. All exploratory; new 2,000-query holdout sealed.",
+  "snapshot_ist": "31 October 2026, 09:18 IST",
+  "verified_at": "2026-10-31T09:18:19+05:30",
+  "source": "Direct read-only audit: native Claude Science frame database for both named projects, Codex job.json states, experiment protocols/results/progress files, live local process and tmux observations, and one read-only Slurm allocation query",
+  "p1_summary": "C5 baseline check passed but zero training seeds finished; Ada C5 setup/launch blocked. C6 worker blocked despite an observed 2-GPU allocation; no final C5/C6 comparison.",
+  "p5_summary": "B2 and B4 DEV audits completed; B3R2 detached CPU recovery running without verified checkpoint/outcome; open-pool H1 awaiting data.",
   "jobs": [
     {
       "track": "P1",
-      "experiment": "C5 full encoder · ire-c5-luna-001",
-      "status": "NO G5 result: 0 completed fits; local timing probe stopped, Ada launch blocked; no C5 GPU job"
+      "experiment": "C5 local full encoder",
+      "status": "A0 reproduced 0.67879; zero completed seeds; local run ended after time budget"
     },
     {
       "track": "P1",
-      "experiment": "C6 NFCorpus/FiQA · Slurm 50000",
-      "status": "RUNNING on Ada gnode058; research/medium/u22; 2×RTX 2080 Ti GPU allocated; environment setup, no benchmark outcomes"
+      "experiment": "C5 Ada setup/launch",
+      "status": "Blocked: existing Ada shell/session and Chat-surface gates; no GPU run-002 output"
     },
     {
       "track": "P1",
-      "experiment": "Two-tower adapter replication",
-      "status": "DONE exploratory: best MiniLM KD − gold +0.0119 [−0.0051,+0.0313] on INNER n=100 (not full encoder)"
+      "experiment": "C6 multi-domain",
+      "status": "Codex BLOCKED by Chat-surface gate; one 2-GPU Slurm allocation observed; pipeline/results unverified"
     },
     {
       "track": "P5",
-      "experiment": "B2 sufficiency detector",
-      "status": "DONE DEV n=200: AUROC logistic 0.882, CE 0.715; high-precision bridge stops at 9.58/10"
+      "experiment": "B2 sufficiency",
+      "status": "DONE: logistic DEV AUROC 0.882; 96.8% stop precision uses 9.58/10 paragraphs"
     },
     {
       "track": "P5",
-      "experiment": "Wave 2 DEV2 fullscale rerank",
-      "status": "DONE exploratory n=4742: bridge MiniLM conditional−independent +0.056 [0.041,0.070]; strong independent BGE reranker FS@2=0.699"
+      "experiment": "B4 gold-set ambiguity",
+      "status": "DONE: answer phrase in non-gold paragraph 57/200 (28.5%, CI 22.5–35.0%); lexical proxy only"
     },
     {
       "track": "P5",
-      "experiment": "Wave 2 adaptive stopping",
-      "status": "DONE exploratory n=4742: mean frontier effect −0.0398 [−0.0427,−0.0367] vs fixed-k"
+      "experiment": "Original B3 feedback allocation",
+      "status": "FAILED: delegated task timeout during teacher scoring, no final result"
     },
     {
       "track": "P5",
-      "experiment": "B3 teacher acquisition",
-      "status": "First run FAILED timeout; 43,224/67,420 scored; NO allocation metrics. Offline B3R2 unit-test/retry underway"
+      "experiment": "B3R2 offline CPU recovery",
+      "status": "Live Python process and tmux session observed; split verified 6742 train/200 DEV/400 holdout; no checkpoint or final metric yet"
     },
     {
       "track": "P5",
-      "experiment": "Ada reader/open-corpus",
-      "status": "NOT ALLOCATED: stage2 READY.json missing; no P5 Slurm ID or GPUs"
+      "experiment": "S0 shared data / H1 open pool",
+      "status": "S0 FAILED; H1 awaiting READY.json; no open-corpus metrics"
+    },
+    {
+      "track": "P5",
+      "experiment": "Ada reader",
+      "status": "Codex worker running; no separate reader Slurm allocation verified"
     },
     {
       "track": "Both",
-      "experiment": "GPU allocation vs quota",
-      "status": "Only verified running research/medium/u22 job 50000 under sampled account: 2 GPUs allocated (not 4 quota)"
+      "experiment": "u22 GPU observation",
+      "status": "One active 2-GPU allocation as of 09:18 IST, under the 4-GPU-per-user research/medium quota; allocation ≠ completed experiment"
     }
   ],
   "p1_gate": "C5 G5 NOT MEASURED: need ≥ +0.010 nDCG@10, paired CI lower >0 and all 3 seeds positive; C6 no metric yet.",
   "p5_gate": "B3 training-time teacher-budget allocation NOT MEASURED: target ≥ +0.03 held-out complete support vs uniform/rank-aware at matched per-arm teacher tokens.",
-  "notes": "All P5 results so far use supplied HotpotQA 10-candidate pools, not open-corpus. Pilot 400 holdout previously exposed. Wave2 new 2,000-question holdout is sealed; DEV2 differences are exploratory and can reflect model selection. SciFact test-300 previously viewed is diagnostic only.",
-  "latest_result": "NEW DEV2 n=4,742: conditional MiniLM cross-encoder bridge FS@2 +0.056 [0.041,0.070] vs independent, but adaptive stopping mean effect −0.0398 [−0.0427,−0.0367]. B2 logistic DEV AUROC 0.882 vs CE 0.715; high-precision bridge stop needs 9.58/10 passages. No B3 or C5 gate result. C6 Slurm 50000 has 2×RTX 2080 Ti GPUs allocated.",
+  "notes": "All measured outcomes are labeled DEV/pilot, not independent post-registration confirmation. No secrets, raw lab logs, file bytes, HPC hostnames or private frames are published.",
+  "latest_result": "New P5 B4 audit: 57/200 DEV questions (28.5%, 95% CI 22.5–35.0%) contain the answer phrase in a non-gold paragraph; 100/200 have gold-title lexical overlap. These do not prove alternative semantic sufficiency. C5 still has zero finished seeds; C6 has a live two-GPU allocation but no confirmed pipeline result.",
   "gpu_verified": {
     "partition": "u22",
     "qos": "research/medium",
     "nilan_max_gpus": 4,
     "vramanrs_max_gpus": 4,
+    "vramanrs_cvit_normal_max_gpus_separate": 1,
     "active_allocations_confirmed": 1,
-    "job_id": "50000",
-    "job_state": "RUNNING",
-    "node": "gnode058",
-    "gpu_model": "NVIDIA RTX 2080 Ti (node feature 2080ti)",
-    "allocated_gpus": 2,
-    "requested_cpus": 16,
-    "allocated_cpus": 22,
-    "allocated_memory": "64G",
-    "use": "P1 C6 environment/setup; no measured train result",
-    "verified_at": "2026-10-31T09:12+05:30"
+    "active_gpus_confirmed": 2,
+    "verified_at": "2026-10-31T09:18:19+05:30",
+    "note": "A single read-only Slurm observation confirmed one two-GPU allocation. No node, user-identifying log, or job identifier is published."
   },
   "blockers": [
-    "C5 full encoder never passed timing probe; no fits and no G5 result; Ada launch blocked, no C5 job.",
-    "B3 initial teacher acquisition timed out before metrics; offline checkpointed retry still in unit-test, so no learning gain established.",
-    "HotpotQA Stage-2 open-corpus READY.json and model inputs absent; no P5 Ada jobs or open-corpus result.",
-    "Wave2 conditional reranking signal is DEV2-only; strongest independent BGE reranker and comparison-type harms must be included in sealed-holdout test.",
-    "SciFact C2 already used 200-query holdout; official test 300 was viewed before; n=200 underpowered for +0.01 and not fresh confirmatory evidence.",
-    "Network/DNS and heavy concurrent local CPU jobs are delaying model transfers; preserve existing experiments and avoid duplicate launch."
+    "C5 full-encoder G5 remains unevaluated: A0 reproduced but 0/3 seeds completed locally; Ada launch blocked.",
+    "C6’s active two-GPU allocation is not a valid result. The delegated Codex job is blocked before verified pipeline completion; assess idle resource use without submitting duplicate jobs.",
+    "B3R2 local CPU recovery is alive but first checkpoint and per-arm matched-cost results are unverified; earlier B3 timed out.",
+    "Open-pool P5 evidence absent: S0 data build failed and H1 awaits READY.json; H2 has no verified evaluation.",
+    "Dataset labels: 10 supplied candidate passages and a previously exposed 400-question pilot holdout; B4 lexical overlap does not certify semantic minimality.",
+    "C6 K10 vs G10 confounds teacher supervision with extra unlabelled query exposure unless update counts and gold-loss normalization are matched.",
+    "Site is public with advisory noindex. Status is a point-in-time audit, not live telemetry."
+  ],
+  "audit": {
+    "methodology": "P1 gold vs KD comparisons use paired query bootstrap but cannot establish cross-domain novelty; P5 B2 thresholds selected on DEV are diagnostic. B4 is 200-DEV-question lexical analysis, not an entailment adjudication.",
+    "split_integrity": "P5 pilot 400-question holdout has been exposed; B3R2 presently verifies train 6742 / DEV 200 / holdout IDs 400 but has not produced confirmatory evaluation. P1 historical holdout previously used for diagnostics.",
+    "cost": "B3 original pooled teacher cache counts must not be called per-arm savings. B3R2 protocol requires per-arm unique teacher endpoints/tokens and zero pre-selection teacher scoring.",
+    "novelty": "P1 cross-encoder KD is incremental; P5 set selection/stopping overlaps DISCo, SetR, HALT, SCARLet and PRD. Boundary-aware acquisition remains a hypothesis until matched-cost multi-seed tests."
+  },
+  "evidence": [
+    {
+      "claim": "P1 historical paired comparisons",
+      "local_source": "ire-project/IRE_CEOUS_RESEARCH_CYCLES.md"
+    },
+    {
+      "claim": "P1 full-encoder baseline and zero completed seeds",
+      "local_source": "ire-project/ire-fullencoder-c5-20261031/shared/run-001/progress.json"
+    },
+    {
+      "claim": "C5 resource deviation",
+      "local_source": "ire-project/ire-fullencoder-c5-20261031/shared/DEVIATION_C5_D1.md"
+    },
+    {
+      "claim": "C6 matching confound",
+      "local_source": "ire-project/ire-multidomain-c6-20261031/shared/TERRA_CHECK_C6.md"
+    },
+    {
+      "claim": "B2 stopping detector",
+      "local_source": "ire-p5-minimal-evidence/branches/B2_suff/RESULT.md"
+    },
+    {
+      "claim": "B4 gold label caveat",
+      "local_source": "ire-p5-minimal-evidence/branches/B4_redund/RESULT.md"
+    },
+    {
+      "claim": "B3R2 frozen method and cost controls",
+      "local_source": "ire-p5-minimal-evidence/branches/B3R_alloc/protocol.md"
+    },
+    {
+      "claim": "P5 integrated audit",
+      "local_source": "ire-p5-minimal-evidence/P5_BRIEFING_0915.md"
+    },
+    {
+      "claim": "Native project state",
+      "local_source": "local Claude Science native frame DB (not public)"
+    },
+    {
+      "claim": "Runtime job states",
+      "local_source": "local Codex job.json files (not public)"
+    }
   ]
 }
