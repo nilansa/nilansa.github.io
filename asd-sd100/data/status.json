@@ -1,7 +1,7 @@
 {
-  "snapshot_ist": "31 October 2026, 18:51 IST",
-  "verified_at": "2026-10-31T18:51:33+05:30",
-  "source": "Existing native Claude Science P1 and P5 original root sessions (last scientific reviews completed 15:12 IST, no later research turn seen at 18:41); read-only frozen C6 protocol and P5 B3R RESULT.md; Codex job records and byte-verified separate P1 handoff; restrained Ada queue request at 18:51; independent primary-literature lookup for DISCo (ICLR 2026), Petcu (EACL 2026), Yin (Findings EMNLP 2026), Robust Active Distillation (ICLR 2023), L3 (ICML 2026), STEM (ICLR 2026), and Engram (preprint). No new experiments, teacher calls, datasets, holdout reads, local-to-ChatGPT file handoffs or raw lab data publication.",
+  "snapshot_ist": "31 October 2026, 19:24 IST",
+  "verified_at": "2026-10-31T19:24:33+05:30",
+  "source": "Original native Claude Science P1 frame (read-only evening science decision at 19:09 IST, message 672) and P5 frame (read-only second science decision at 19:24 IST, message 170), frozen C5/C6 experiment gates and P5 B3R DEV pilot, exact transfer-index/hash check, and independently verified published research sources. Last restrained Ada check at 19:14 IST found no allocations. No new GPU jobs, teacher calls, datasets, holdout access or cross-surface file handoffs were initiated.",
   "p1_summary": "P1 original native Claude Science scientific reset COMPLETED at 15:12 IST. Decision: NO-GO for original teacher-budget selection / full-gold KD as an A*-paper direction. Frozen C5 full-gold KD +0.005255 [−0.008486,+0.018968] FAIL. C6 full-gold KD +0.003430 [−0.002713,+0.009672] FAIL on pooled 971 official test queries; 10%-gold KD +0.066617 [+0.054264,+0.079109] formal PASS, but G10 worsens against the untouched student and K10 sees additional teacher-scored queries. A teacher-content effect at matched query exposure is NOT established. P1 recommends stopping teacher budget selection; a teacher-versus-exposure control is conditional on reopening the program.",
   "p5_summary": "P5 original native Claude Science scientific reset COMPLETED at 15:12 IST. Decision: NO-GO for set-aware teacher allocation/distillation as a top-conference method under the tested evidence. B3R on 200 DEV questions lost to random in FS@2 (−0.025 at 2 labels, −0.027 at 5), with ~29% more teacher tokens at five. Separate off-the-shelf BGE reranking on 4,742 DEV2 improved bridge FS@2 (+0.0243 descriptive) but hurt comparison (−0.0231). Science recommends a CONDITIONAL measurement-validity study: do gold-support scores agree with audited evidence sufficiency? No new audit or holdout experiment has run.",
   "jobs": [
@@ -39,7 +39,7 @@
   "p1_gate": "C5 G5 frozen three-seed full-gold KD−gold +0.005255 [−0.008486,+0.018968] FAIL, SciFact 200 spent queries. C6 H6a pooled K100−G100 +0.003430 [−0.002713,+0.009672] FAIL; H6b pooled K10−G10 +0.066617 [+0.054264,+0.079109] PASS over 971 untouched test queries. K10−G100 −0.016034 [−0.024914,−0.007258]. Post-hoc G10−untouched −0.0441 [−0.0585,−0.0295], K10−untouched +0.0225 [+0.0127,+0.0324]: possible low-gold overfitting, and extra query exposure confounds the apparent teacher benefit. Native Science: original contribution NO-GO; label-scarce hypothesis not yet publication-ready.",
   "p5_gate": "B3R set-aware−random FS@2 200-DEV effect −0.025 [−0.058,+0.010] at 2 labels/q and −0.027 [−0.057,−0.000] at 5, with ~29% more teacher input tokens for set-aware at 5. Larger 4742-DEV2 off-the-shelf reranking comparison shows a descriptive bridge gain for BGE conditioning but comparison-question regression; no sealed holdout or new method.",
   "notes": "Research snapshot verified 16:05 IST. Both original Science leads completed a read-only scientific PROBLEM RESET at 15:12: P1 NO-GO original teacher-budget/pair selection, P5 NO-GO teacher allocation; P5 conditionally favors testing validity of gold-support as a proxy for actual evidence sufficiency. No new experiments. C6 full-gold KD FAIL; 10%-gold KD PASS with unequal query exposure and weakened G10 baseline. Absence of a statistically detectable gain is not proof of equivalence; explaining the scarcity gain by exposure alone is an UNTESTED hypothesis. P5 gold-support's limitations are not yet demonstrated by audited alternative evidence. Exposed SciFact/pilot holdouts must not be reused.",
-  "latest_result": "18:51 IST: Two new IRE research proposals and a skeptical course-report draft have been added: A, cost-aware collective evidence retrieval; B, properly controlled teacher-value post-training. These are untested hypotheses, not new experimental findings. Original native Science sessions remain completed; acknowledgement/review of these evening proposals has not been verified.",
+  "latest_result": "19:24 IST: Both original Claude Science scientific reviews completed. P5 native frame received the specific evening user brief and returned NO-GO for a novel cost-aware evidence-retrieval method, PIVOT to a fair cost-matched evaluation-only IRE course study. Brunborg's 28 October n-gram-hinted NanoGPT speedrun and the distinct Bekko encoder variants were independently source-checked; they do not demonstrate multi-hop retrieval gains. No new experiments were performed.",
   "gpu_verified": {
     "partition": "u22",
     "qos": "research/medium",
@@ -537,7 +537,7 @@
   },
   "evening_proposal_review": {
     "date": "2026-10-31",
-    "status": "Original native P1 Science review completed at 19:09 IST on 31 October, read-only. Original P5 native evening review remains unacknowledged. No new experiment run.",
+    "status": "Both original native Claude Science sessions completed read-only evening research reviews: P1 at 19:09 IST and P5 at 19:24 IST. NO-GO for current new-method novelty claims; course evaluation study remains a proposed design only.",
     "candidate_a": {
       "label": "Cost-aware collective evidence retrieval",
       "scientific_question": "Can complete evidence support and downstream answer correctness be retained at lower end-to-end latency, context-token and verification cost than strong existing retrieval methods?",
@@ -576,8 +576,8 @@
         "Novelty not established by budget constraint alone"
       ]
     },
-    "lookup_architecture_note": "L3 ICML 2026, STEM ICLR 2026 and Engram 2026 concern model-internal memory lookup; no evidence they directly improve corpus ANN retrieval; bekko claims require independent evaluation.",
-    "deployment_status": "Native P1 evening scientific scout completed and independently cross-checked; original P5 evening request not confirmed. Public bibliography corrections and verdict only; no GPU jobs, teacher calls or holdout access.",
+    "lookup_architecture_note": "Independent public-source distinction: Herman Brunborg (28 Oct 2026) uses next-token hints from 37B training tokens in an LM and reports a 39.9→6.7-second NanoGPT speedrun on 8 H100s with 352-GiB lookup index and 377-GiB build arena; not a corpus retriever. L3, STEM and Engram are model-internal memory designs (not ANN); DISCo indexes corpus documents. bekko-static-embedding-v1 uses zero Transformer layers, whereas bekko-embedding-v1-a8m is the separate four-layer, 7.7M-active-parameter retriever. Static/table size and training data must be counted. All possible IRE crossovers are hypotheses only.",
+    "deployment_status": "Original P1 and P5 Science frames both received and completed their specific read-only evening scientific scout, without a substitute Codex experiment. No GPU/teacher/test activity. Public literature note independently checked.",
     "references": [
       "https://proceedings.iclr.cc/paper_files/paper/2026/hash/6ded182245f8e4db3963d2027174133d-Abstract-Conference.html",
       "https://github.com/structlearning/DISCo",
@@ -592,27 +592,62 @@
       "https://aclanthology.org/2026.findings-emnlp.343/",
       "https://aclanthology.org/2026.findings-emnlp.143/",
       "https://arxiv.org/abs/2507.04820",
-      "https://huggingface.co/blog/hotchpotch/bekko-static-embedding"
+      "https://huggingface.co/blog/hotchpotch/bekko-static-embedding",
+      "https://brunborg.com/n-gram-hinted-lm",
+      "https://x.com/hermanbrunborg/status/2115502130350227798",
+      "https://huggingface.co/hotchpotch/bekko-static-embedding-v1",
+      "https://aclanthology.org/2024.emnlp-main.1013/"
     ],
     "native_review_status": {
       "p1": "COMPLETED · native P1 read-only research report at 19:09 IST · NO-GO original pair selection, P5 novelty also not established",
-      "p5": "NOT ACKNOWLEDGED · original session still completed · scientific report pending"
+      "p5": "COMPLETED · native original P5 frame msg 170 at 19:24 IST · NO-GO novel method, PIVOT to cost-matched multi-hop evidence evaluation; no new experiments"
     },
-    "native_delivery_checked_at_ist": "2026-10-31 19:11 IST",
+    "native_delivery_checked_at_ist": "2026-10-31 19:24 IST",
     "native_p1_report": {
       "status": "COMPLETED_READ_ONLY",
       "scientific_decision": "NO-GO original budgeted pair acquisition; no demonstrated novel collective evidence method; optional matched-exposure teacher falsifier remains HYPOTHESIS ONLY.",
       "literature_audit_corrections": [
         "Pairwise Ranking Distillation exists: Wu et al., arXiv:2507.04820; ReNeuIR 2025 workshop noted, not verified main SIGIR.",
         "Yin et al. stage-aware query decomposition is Findings of EMNLP 2026, anthology ID 2026.findings-emnlp.1644.",
-        "Bekko static multilingual retrieval blog was published 21 October 2026, not unverified."
+        "Bekko static multilingual retrieval blog was published 21 October 2026, not unverified.",
+        "Distinct papers: PairDistill (EMNLP 2024 main, ACL Anthology 2024.emnlp-main.1013) versus a separate pairwise-ranking-distillation paper at ReNeuIR 2025. Neither is a new finding here."
       ],
       "limitations": [
         "Teacher-free gold-only controls have zero teacher cost; compare quality-cost curves, not artificial identical realized teacher expenditure.",
         "C6 scarce-gold effect is confounded by different training-query exposure and weak gold-only baseline.",
-        "Native P1 report suggested new datasets/five seeds as an unapproved design; none were run or authorized.",
-        "P5 evening native scientific review remains pending; original P5 earlier reset is not the requested new review."
+        "Native P1 report suggested new datasets/five seeds as an unapproved design; none were run or authorized."
       ]
+    },
+    "p5_native_report": {
+      "status": "COMPLETED_READ_ONLY",
+      "source_frame": "proj_fcc1c57d1385 / message 170",
+      "decision": "NO-GO as novel evidence-selection method; PIVOT to a controlled equal-budget comparison for IRE coursework, conditional on independent reproducibility; not a top-conference claim.",
+      "proposed_pilot": "150 previously unused MuSiQue two-hop development questions, two gold-support documents; BM25, ColBERTv2/PLAID, official DISCo, stage-aware subquery rerank; K=2/3/5, equal latency, context tokens and verifier budget, qrel-free selection, complete-support recall and fixed-reader EM/F1 with paired CIs. Proposed only.",
+      "audit_caveats": [
+        "150-question sample is small: actual paired bootstrap uncertainty must be computed; the report's rough ±0.07 estimate is not a measured interval.",
+        "Earlier closed-corpus +0.080 coverage pilot is not a general retrieval gain.",
+        "Gold-support recall is not proof of answer sufficiency or reader correctness.",
+        "No new experiments, sealed test read, or independent replicated positive result."
+      ]
+    },
+    "n_gram_lookup_scout": {
+      "status": "PRIMARY SOURCE VERIFIED, NO EXPERIMENT",
+      "source_date": "2026-10-28",
+      "exact_technique": "CPU-built hashed n-gram next-token hint lookup; transformer learns to trust hints in residual stream using previous training tokens.",
+      "reported_speedrun": "39.9 s to 6.7 s, 8 H100; competition targets validation language-model loss, not retrieval or QA",
+      "reported_resources": "37B hint-corpus tokens; 352 GiB slot index plus 377 GiB construction arena",
+      "distinct_from": [
+        "internal memory lookup (L3/STEM/Engram)",
+        "Bekko corpus encoder, separate static and 4-layer contextual models",
+        "DISCo ANN corpus item retrieval"
+      ],
+      "closest_prior": [
+        "RETRO",
+        "kNN-LM",
+        "Infini-gram"
+      ],
+      "proposed_IRE_study": "ONLY IF scientifically justified: lexical/exact-match cache + compact dense retriever compared with BM25, BM25+dense hybrid, and ColBERT under equal full-memory footprint, query latency and full support recall; no such result exists.",
+      "attribution": "Brunborg author; Tatsu Hashimoto acknowledged as advisor; Percy Liang reposted, not credited as author."
     }
   }
 }
