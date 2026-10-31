@@ -253,6 +253,11 @@
       "title": "SetR — set retrieval (ACL 2025)",
       "url": "https://aclanthology.org/2025.acl-long.861/",
       "relevance": "P5 related work on collectively useful evidence selection"
+    },
+    {
+      "title": "Vendi-RAG — diversity/quality adaptive retrieval (Findings EMNLP 2026)",
+      "url": "https://aclanthology.org/2026.findings-emnlp.1499/",
+      "relevance": "Already optimizes set-level semantic diversity and query relevance, with LLM answer-quality feedback on HotpotQA/MuSiQue/2Wiki; narrows Direction A method novelty."
     }
   ],
   "c5_confirmatory": {
@@ -555,7 +560,8 @@
         "SetR — ACL 2025 long paper: set-wise passage selection",
         "BEAR — EMNLP 2026 main paper: fixed context-token budget across evidence granularity",
         "HALT — Findings EMNLP 2026: support-based retrieval stopping",
-        "VRR — Findings EMNLP 2026: verification-guided retrieval correction"
+        "VRR — Findings EMNLP 2026: verification-guided retrieval correction",
+        "Vendi-RAG — Findings EMNLP 2026: adaptive relevance/diversity with LLM answer-quality feedback"
       ],
       "minimal_proposed_pilot": "100–200 multi-hop DEV questions with two annotated support documents; K=2–5 and 1–2 budgets; qrel-independent retrieval, BM25/ColBERT/DISCo/Petcu-bandit/stage-aware comparisons, full-support recall, downstream QA, p50/p95 latency, total tokens and bootstrap confidence intervals. Not executed.",
       "evidence_status": "HYPOTHESIS ONLY",
@@ -722,5 +728,13 @@
     "next_step": "Native Science should finish its short report and review corpus parity/strong BM25/ColBERT/DISCo feasibility before any additional authorized comparison; do not rerun this Stage-1 pilot or use P1 teacher resources.",
     "source": "Existing native Claude Science P5 frame 147b175d (ack message index 175, checkpoint index 192), frozen protocol, sample, retrieval log and metrics independently audited at 21:08 IST.",
     "science_final_message": "Native Science P5 final Stage-1 checkpoint message index 192; frame completed 21:09:22 IST"
+  },
+  "literature_update_2026_11_01": {
+    "checked_at_ist": "2026-11-01 04:00 IST",
+    "status": "VERIFIED_ACCEPTED_PRIOR_ART_ONLY_NO_NEW_EXPERIMENT",
+    "title": "Vendi-RAG: Adaptively Trading-Off Diversity And Quality Significantly Improves Retrieval Augmented Generation With LLMs",
+    "venue": "Findings EMNLP 2026",
+    "source": "https://aclanthology.org/2026.findings-emnlp.1499/",
+    "interpretation": "Set-wise diversity and feedback-guided balancing are demonstrated prior art; Direction A must use a strong matching baseline and cannot claim these features alone as novelty. No Stage 2, teacher, GPU or reader result."
   }
 }
