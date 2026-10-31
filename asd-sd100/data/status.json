@@ -1,35 +1,50 @@
 {
-  "snapshot_ist": "31 October 2026, 08:27 IST",
-  "verified_at": "2026-10-31T08:26:28+05:30",
+  "snapshot_ist": "31 October 2026, 08:34 IST",
+  "verified_at": "2026-10-31T08:33:00+05:30",
   "source": "Existing native Claude Science sessions plus saved Codex job.json records; read-only",
-  "p1_summary": "C5 full encoder running; Claude Science initiating Ada setup (no allocation confirmed)",
-  "p5_summary": "B2 sufficiency complete; B3 allocation running; Claude Science building S0 data",
+  "p1_summary": "C5 and Ada setup running; multi-domain C6 on NFCorpus/FiQA dispatched; GPU allocation not yet verified",
+  "p5_summary": "B2 detector completed; B3 timed out mid teacher-scoring (no final metrics); P5 reader Ada worker running; openwiki worker blocked before Ada",
   "jobs": [
     {
       "track": "P1",
-      "experiment": "Full-encoder C5 · ire-c5-luna-001",
-      "status": "Running · 08:26 IST"
+      "experiment": "Full encoder C5 · ire-c5-luna-001",
+      "status": "Running; final G5 pending"
+    },
+    {
+      "track": "P1",
+      "experiment": "Multi-domain C6 · ire-c6-ada-luna-001",
+      "status": "Codex running; Ada Slurm job not yet verified"
     },
     {
       "track": "P5",
-      "experiment": "Sufficiency B2 · ire-p5-b2-suff-luna-001",
-      "status": "DONE · 08:26 IST · DEV AUROC logistic 0.882 vs cross-encoder 0.715"
+      "experiment": "B2 sufficiency",
+      "status": "DONE: logistic AUROC 0.882 DEV; early stopping limited"
     },
     {
       "track": "P5",
-      "experiment": "Teacher feedback B3 · ire-p5-b3-alloc-luna-001",
-      "status": "Running · 08:26 IST"
+      "experiment": "B3 feedback allocation",
+      "status": "FAILED (TimeoutExpired); no final metrics; recover via checkpointed run"
+    },
+    {
+      "track": "P5",
+      "experiment": "Ada reader",
+      "status": "Codex worker running; Slurm allocation unverified"
+    },
+    {
+      "track": "P5",
+      "experiment": "Ada openwiki",
+      "status": "BLOCKED by Chat Mode prerequisite; no Ada job submitted"
     },
     {
       "track": "Both",
-      "experiment": "Ada GPU offload",
-      "status": "Research/medium allows 4 GPUs per account; allocation not yet confirmed"
+      "experiment": "Ada quota",
+      "status": "research/medium 4 GPUs/user on u22; do not confuse quota with allocation"
     }
   ],
   "p1_gate": "Awaiting C5 full-encoder comparison; ≥ +0.010, CI lower > 0, 3/3 seeds positive",
   "p5_gate": "Awaiting teacher-budget allocation; ≥ +0.03 complete support vs uniform and rank-aware controls",
   "notes": "Research claims are provisional; no unverified GPU counts or outcomes are asserted.",
-  "latest_result": "P5 B2 DEV logistic AUROC 0.882; reliable bridge stops require ~9.6 of 10 passages. Not holdout-confirmed.",
+  "latest_result": "P5 B2 logistic DEV AUROC 0.882, but 96.8% bridge stop precision consumes 9.58/10 passages. B3 timed out while scoring 43,224/67,420 pairs; no validated B3 gains.",
   "gpu_verified": {
     "partition": "u22",
     "qos": "research/medium",
@@ -37,5 +52,11 @@
     "vramanrs_max_gpus": 4,
     "active_allocations_confirmed": 0,
     "verified_at": "2026-10-31T08:24+05:30"
-  }
+  },
+  "blockers": [
+    "B3 teacher scoring exceeded ~58-min delegated task window; no persisted metrics or resumable checkpoint verified",
+    "P5 open-corpus worker stopped before Ada due to ChatGPT Chat surface gate in native Science→Codex context",
+    "P1 C6 label-scarce teacher arm adds 90% unlabeled query exposure vs G10; teacher-specific effect needs matched control",
+    "Ada resource schedule must coordinate C6 and P5 reader if both use vramanrs"
+  ]
 }
