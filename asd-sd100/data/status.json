@@ -1,27 +1,41 @@
 {
-  "snapshot_ist": "31 October 2026, 08:20 IST",
-  "verified_at": "2026-10-31T08:20:31+05:30",
+  "snapshot_ist": "31 October 2026, 08:27 IST",
+  "verified_at": "2026-10-31T08:26:28+05:30",
   "source": "Existing native Claude Science sessions plus saved Codex job.json records; read-only",
-  "p1_summary": "C5 full-encoder experiment active; results pending",
-  "p5_summary": "Sufficiency and feedback-allocation branches active; results pending",
+  "p1_summary": "C5 full encoder running; Claude Science initiating Ada setup (no allocation confirmed)",
+  "p5_summary": "B2 sufficiency complete; B3 allocation running; Claude Science building S0 data",
   "jobs": [
     {
       "track": "P1",
-      "experiment": "ire-c5-luna-001 · full encoder",
-      "status": "Running · 08:20 IST"
+      "experiment": "Full-encoder C5 · ire-c5-luna-001",
+      "status": "Running · 08:26 IST"
     },
     {
       "track": "P5",
-      "experiment": "ire-p5-b2-suff-luna-001 · sufficiency cross-encoder",
-      "status": "Running · 08:20 IST"
+      "experiment": "Sufficiency B2 · ire-p5-b2-suff-luna-001",
+      "status": "DONE · 08:26 IST · DEV AUROC logistic 0.882 vs cross-encoder 0.715"
     },
     {
       "track": "P5",
-      "experiment": "ire-p5-b3-alloc-luna-001 · teacher-feedback allocation",
-      "status": "Running · 08:20 IST"
+      "experiment": "Teacher feedback B3 · ire-p5-b3-alloc-luna-001",
+      "status": "Running · 08:26 IST"
+    },
+    {
+      "track": "Both",
+      "experiment": "Ada GPU offload",
+      "status": "Research/medium allows 4 GPUs per account; allocation not yet confirmed"
     }
   ],
   "p1_gate": "Awaiting C5 full-encoder comparison; ≥ +0.010, CI lower > 0, 3/3 seeds positive",
   "p5_gate": "Awaiting teacher-budget allocation; ≥ +0.03 complete support vs uniform and rank-aware controls",
-  "notes": "Research claims are provisional; no unverified GPU counts or outcomes are asserted."
+  "notes": "Research claims are provisional; no unverified GPU counts or outcomes are asserted.",
+  "latest_result": "P5 B2 DEV logistic AUROC 0.882; reliable bridge stops require ~9.6 of 10 passages. Not holdout-confirmed.",
+  "gpu_verified": {
+    "partition": "u22",
+    "qos": "research/medium",
+    "nilan_max_gpus": 4,
+    "vramanrs_max_gpus": 4,
+    "active_allocations_confirmed": 0,
+    "verified_at": "2026-10-31T08:24+05:30"
+  }
 }
