@@ -1,5 +1,44 @@
 [
   {
+    "id": "ire-teacher-feedback-budget-20261031",
+    "title": "IRE — Teacher Feedback Under a Fixed Budget: Evidence So Far",
+    "description": "Minimal research presentation of the teacher–student retrieval pipeline, SciFact gold/KD gates, MedCPT teacher comparison, candidate-pool pilot, benchmark protocol, limits and next tests. Results are split-labelled; C6 remains pending.",
+    "project": "IRE Team Ceous — Problem 1",
+    "category": "Research progress explainer",
+    "tags": [
+      "ASD-STE100",
+      "IRE",
+      "dense retrieval",
+      "teacher feedback",
+      "MedCPT",
+      "SciFact",
+      "cross-encoder",
+      "distillation",
+      "feedback selection"
+    ],
+    "url": "./explainers/ire-teacher-feedback-budget-2026-10-31.html",
+    "date": "2026-10-31",
+    "indexed_at": "2026-10-31T11:21:24.560+05:30"
+  },
+  {
+    "id": "ire-counterfactual-ranking-survey-20261031",
+    "title": "IRE Individual Research Survey — Counterfactual Ranking from Logged Feedback",
+    "description": "ASD-STE100-style introduction to the solo survey: why clicks are biased, a story-based toy example, counterfactual evaluation and learning pipelines, a short research history, key assumptions, and the approved 15-paper reading spine with tutorial links.",
+    "project": "IRE Individual Research Survey",
+    "category": "Research survey explainer",
+    "tags": [
+      "IRE",
+      "counterfactual ranking",
+      "unbiased learning-to-rank",
+      "logged feedback",
+      "IPS",
+      "ASD-STE100"
+    ],
+    "url": "./explainers/ire-counterfactual-ranking-survey-2026-10-31.html",
+    "date": "2026-10-31",
+    "indexed_at": "2026-10-31T11:08:52+05:30"
+  },
+  {
     "id": "xmlc-research-atlas-20261028",
     "title": "XMLC — Extreme Multi-Label Classification: History, Competitions & Research Roadmap",
     "description": "ASDST100 source-audited atlas: XMLC history and model taxonomy, 6 benchmarks, 2025–26 competition verification, 8 CPU-feasible experiments, 12 research precedents, 18 conference-track deadlines and student eligibility.",
@@ -42,6 +81,26 @@
     "indexed_at": "2026-10-28T00:55:00+05:30"
   },
   {
+    "id": "ire-survey-critical-proposal-audit-20261027",
+    "title": "IRE Research Survey — Critical Audit of 18 Topic Proposals",
+    "description": "Decision-first ST100+ audit of all 18 research directions against Anil's theory, literature, industry and viva criteria, with reasons, verified paper chain and an initial proposal.",
+    "project": "IRE Optional Research Survey",
+    "category": "Research proposal decision audit",
+    "tags": [
+      "ST100 Plus",
+      "IRE",
+      "research survey",
+      "evaluation",
+      "DPP",
+      "unbiased ranking",
+      "industry",
+      "topics"
+    ],
+    "url": "./explainers/ire-survey-critical-proposal-audit-2026-10-27.html",
+    "date": "2026-10-27",
+    "indexed_at": "2026-10-27T17:00:21.057Z"
+  },
+  {
     "id": "task-explainer-public-index-20261027",
     "title": "Task explainer — public status index",
     "description": "A minimal, dated public snapshot of selected long-running task milestones. Private agent logs, local paths and research outputs are excluded.",
@@ -76,6 +135,97 @@
     "url": "./explainers/ire-research-survey-tutorial-map-2026-10-27.html",
     "date": "2026-10-27",
     "indexed_at": "2026-10-27T11:16:53.724Z"
+  },
+  {
+    "id": "ire-a3-sanity-first-plan-20261027",
+    "title": "IRE Assignment 3 — Evidence-Based Execution Review",
+    "description": "31 Oct extension; existing full/quick runs; two P0 methodology bugs and underscore-based ZIP naming verified against the PDF.",
+    "project": "IRE Assignment 3",
+    "category": "Assignment workflow",
+    "tags": [
+      "ASD-STE100",
+      "ST100 Plus",
+      "IRE",
+      "Assignment 3",
+      "HNSW",
+      "IVF-Flat",
+      "IVF-PQ",
+      "reproducibility"
+    ],
+    "url": "./explainers/ire-a3-sanity-first-plan-2026-10-27.html",
+    "date": "2026-10-27",
+    "indexed_at": "2026-10-27T06:30:59.640Z"
+  },
+  {
+    "id": "ire-quiz2-answerkey-style-20261022",
+    "title": "IRE Quiz 2 — Past Answer Keys & Predicted Questions",
+    "description": "Rapid reconstruction of Quiz-1 (3 parts) and midsem (5 parts) with keyed solutions/mark breakdowns, plus 26 new Quiz-2-style MCQs and five short-answer models.",
+    "project": "Information Retrieval and Extraction",
+    "category": "Quiz preparation",
+    "tags": [
+      "ST100 Plus",
+      "IRE",
+      "Quiz 2",
+      "Quiz 1",
+      "Midsem",
+      "answer key",
+      "practice"
+    ],
+    "url": "./explainers/ire-quiz2-answerkey-style-sprint-2026-10-22.html",
+    "date": "2026-10-22",
+    "indexed_at": "2026-10-22T09:45:12.361Z"
+  },
+  {
+    "id": "ire-quiz2-part-a-b-formula-map-20261022",
+    "title": "IRE Quiz 2 — Part A & B: Interactive Formula Map",
+    "description": "Concise, interactive explanations of all 11 official pre-reading cases, four formulas, symptom-to-principle map, and Zipf, Heaps, inverted-index and compression basics.",
+    "project": "Information Retrieval and Extraction",
+    "category": "Quiz preparation",
+    "tags": [
+      "ASD-STE100",
+      "IRE",
+      "Quiz 2",
+      "Part A",
+      "Part B",
+      "formulas"
+    ],
+    "url": "./explainers/ire-quiz2-part-a-b-formula-map-2026-10-22.html",
+    "date": "2026-10-22",
+    "indexed_at": "2026-10-22T08:54:06.610Z"
+  },
+  {
+    "id": "ire-quiz2-narrated-visual-20261022",
+    "title": "IRE Quiz 2 — Narrated Visual Sprint",
+    "description": "14 self-contained visual slides covering all eleven official Quiz-2 scenarios, with selectable device voice, captions, and keyboard navigation.",
+    "project": "Information Retrieval and Extraction",
+    "category": "Visual exam revision",
+    "tags": [
+      "ST100 Plus",
+      "IRE",
+      "Quiz 2",
+      "voice narration",
+      "captions"
+    ],
+    "url": "./explainers/ire-quiz2-visual-audio-2026-10-22.html",
+    "date": "2026-10-22",
+    "indexed_at": "2026-10-22T08:36:47.512Z"
+  },
+  {
+    "id": "ire-quiz2-five-pass-20261022",
+    "title": "IRE Quiz 2 — Progressive ST100+ Mastery (10 Passes)",
+    "description": "Ten passes: 10-minute primer, core mechanisms, formula intuition, 30 original questions, exact slide references, 14 Otter-derived answers, 16 Socratic drills, a 20-question mock, adaptive repair and 12 combined-principle scenarios.",
+    "project": "Information Retrieval and Extraction",
+    "category": "Quiz preparation",
+    "tags": [
+      "ST100 Plus",
+      "ASD-STE100",
+      "IRE",
+      "Quiz 2",
+      "Anil Nelakanti"
+    ],
+    "url": "./explainers/ire-quiz2-five-pass-2026-10-22.html",
+    "date": "2026-10-22",
+    "indexed_at": "2026-10-22T06:33:21.446Z"
   },
   {
     "id": "ire-github-a1-a2-final-viva-20261019",
@@ -463,116 +613,5 @@
     "url": "https://nilansa.github.io/ire-project-2026/",
     "date": "2026-10-11",
     "indexed_at": "2026-10-16T12:42:57+05:30"
-  },
-  {
-    "id": "ire-quiz2-five-pass-20261022",
-    "title": "IRE Quiz 2 — Progressive ST100+ Mastery (10 Passes)",
-    "description": "Ten passes: 10-minute primer, core mechanisms, formula intuition, 30 original questions, exact slide references, 14 Otter-derived answers, 16 Socratic drills, a 20-question mock, adaptive repair and 12 combined-principle scenarios.",
-    "project": "Information Retrieval and Extraction",
-    "category": "Quiz preparation",
-    "tags": [
-      "ST100 Plus",
-      "ASD-STE100",
-      "IRE",
-      "Quiz 2",
-      "Anil Nelakanti"
-    ],
-    "url": "./explainers/ire-quiz2-five-pass-2026-10-22.html",
-    "date": "2026-10-22",
-    "indexed_at": "2026-10-22T06:33:21.446Z"
-  },
-  {
-    "id": "ire-quiz2-narrated-visual-20261022",
-    "title": "IRE Quiz 2 — Narrated Visual Sprint",
-    "description": "14 self-contained visual slides covering all eleven official Quiz-2 scenarios, with selectable device voice, captions, and keyboard navigation.",
-    "project": "Information Retrieval and Extraction",
-    "category": "Visual exam revision",
-    "tags": [
-      "ST100 Plus",
-      "IRE",
-      "Quiz 2",
-      "voice narration",
-      "captions"
-    ],
-    "url": "./explainers/ire-quiz2-visual-audio-2026-10-22.html",
-    "date": "2026-10-22",
-    "indexed_at": "2026-10-22T08:36:47.512Z"
-  },
-  {
-    "id": "ire-quiz2-part-a-b-formula-map-20261022",
-    "title": "IRE Quiz 2 — Part A & B: Interactive Formula Map",
-    "description": "Concise, interactive explanations of all 11 official pre-reading cases, four formulas, symptom-to-principle map, and Zipf, Heaps, inverted-index and compression basics.",
-    "project": "Information Retrieval and Extraction",
-    "category": "Quiz preparation",
-    "tags": [
-      "ASD-STE100",
-      "IRE",
-      "Quiz 2",
-      "Part A",
-      "Part B",
-      "formulas"
-    ],
-    "url": "./explainers/ire-quiz2-part-a-b-formula-map-2026-10-22.html",
-    "date": "2026-10-22",
-    "indexed_at": "2026-10-22T08:54:06.610Z"
-  },
-  {
-    "id": "ire-quiz2-answerkey-style-20261022",
-    "title": "IRE Quiz 2 — Past Answer Keys & Predicted Questions",
-    "description": "Rapid reconstruction of Quiz-1 (3 parts) and midsem (5 parts) with keyed solutions/mark breakdowns, plus 26 new Quiz-2-style MCQs and five short-answer models.",
-    "project": "Information Retrieval and Extraction",
-    "category": "Quiz preparation",
-    "tags": [
-      "ST100 Plus",
-      "IRE",
-      "Quiz 2",
-      "Quiz 1",
-      "Midsem",
-      "answer key",
-      "practice"
-    ],
-    "url": "./explainers/ire-quiz2-answerkey-style-sprint-2026-10-22.html",
-    "date": "2026-10-22",
-    "indexed_at": "2026-10-22T09:45:12.361Z"
-  },
-  {
-    "id": "ire-a3-sanity-first-plan-20261027",
-    "title": "IRE Assignment 3 — Evidence-Based Execution Review",
-    "description": "31 Oct extension; existing full/quick runs; two P0 methodology bugs and underscore-based ZIP naming verified against the PDF.",
-    "project": "IRE Assignment 3",
-    "category": "Assignment workflow",
-    "tags": [
-      "ASD-STE100",
-      "ST100 Plus",
-      "IRE",
-      "Assignment 3",
-      "HNSW",
-      "IVF-Flat",
-      "IVF-PQ",
-      "reproducibility"
-    ],
-    "url": "./explainers/ire-a3-sanity-first-plan-2026-10-27.html",
-    "date": "2026-10-27",
-    "indexed_at": "2026-10-27T06:30:59.640Z"
-  },
-  {
-    "id": "ire-survey-critical-proposal-audit-20261027",
-    "title": "IRE Research Survey — Critical Audit of 18 Topic Proposals",
-    "description": "Decision-first ST100+ audit of all 18 research directions against Anil's theory, literature, industry and viva criteria, with reasons, verified paper chain and an initial proposal.",
-    "project": "IRE Optional Research Survey",
-    "category": "Research proposal decision audit",
-    "tags": [
-      "ST100 Plus",
-      "IRE",
-      "research survey",
-      "evaluation",
-      "DPP",
-      "unbiased ranking",
-      "industry",
-      "topics"
-    ],
-    "url": "./explainers/ire-survey-critical-proposal-audit-2026-10-27.html",
-    "date": "2026-10-27",
-    "indexed_at": "2026-10-27T17:00:21.057Z"
   }
 ]
