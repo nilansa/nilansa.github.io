@@ -1,45 +1,55 @@
 {
-  "snapshot_ist": "31 October 2026, 10:25 IST",
-  "verified_at": "2026-10-31T10:25:44+05:30",
-  "source": "Read-only native Claude Science frame database for P1/P5; C5 and C6 frozen protocols and deviations; read-only Ada Slurm accounting at 10:23 IST and remote RUN_STATE/pipeline progress at approximately 10:25 IST; P5 B3R primary results/protocol and fresh 17-of-17 SHA256 manifest verification. Jobs were not modified by this explainer sync.",
-  "p1_summary": "C5 D3 job 50071 RUNNING on 1 allocated GPU: untouched A0 and G-full seed 17 training fit completed, but no valid G5 nDCG/paired CI or KD comparison yet. Native P1 also submitted seed jobs 50088/50089, both PENDING without allocation. C6 existing job 50000 RUNNING on 2 GPUs: data and slates stages complete, NFCorpus teacher scoring at least 64,032/100,000 pairs; no cross-domain quality result.",
+  "snapshot_ist": "31 October 2026, 10:41 IST",
+  "verified_at": "2026-10-31T10:41:05+05:30",
+  "source": "Read-only native Claude Science P1 frame and saved 10:41 IST report; P5 frozen B3R RESULT.md and protocol.md; read-only Ada squeue for nilan and vramanrs at 10:41 IST; C5 D4 deviation and C6 pipeline state. No experiments or Slurm jobs were modified during this sync.",
+  "p1_summary": "C5 seed-17 gold/KD full-encoder pair finished under D4; no per-seed nDCG was read and the frozen three-seed G5 paired holdout gate is still unmeasured. At 10:41 IST, C5 seeds 29 and 41 (jobs 50088 and 50089) were each RUNNING on 1 GPU. C6 completed NFCorpus 100,000 teacher-pair scores and released job 50000; its 4-GPU follow-on job 50096 was PENDING (0 GPUs, AssocGrpGRES). No C6 student/test metric.",
   "p5_summary": "B3R completed (1,000 TRAIN, 200 DEV, 3 seeds, 24 adapter fits, 9,857 physical shared-cache teacher scores); set-aware FS@2 loses to random at both budgets. B2 DEV AUROC 0.882; high-precision bridge stopping still consumes 9.58/10 paragraphs. P5 native session completed at 09:09; open-corpus confirmation unverified.",
   "jobs": [
     {
       "track": "P1",
-      "experiment": "C5 D3 · Slurm 50071",
-      "status": "RUNNING, 1 GPU (10:23 IST). A0 and G-full seed17 training fit recorded; no KD contrast, CI or G5 decision."
+      "experiment": "C5 seed17 · job 50071",
+      "status": "Seed17 gold/KD training pair COMPLETE; job canceled afterward under frozen D4 to avoid duplicate seed work. No interim nDCG/G5 read (native P1 report 10:41 IST)."
     },
     {
       "track": "P1",
-      "experiment": "C5 additional seeds · 50088, 50089",
-      "status": "Both PENDING (AssocGrpGRES) at 10:23 IST, 0 GPUs allocated. Submitted by native P1 Science session; check D4 protocol equivalence before combining."
+      "experiment": "C5 seed29 · job 50088",
+      "status": "RUNNING, 1 GPU on gnode025 (10:41 IST Slurm); no finalized seed metrics."
     },
     {
       "track": "P1",
-      "experiment": "C6 multi-domain · 50000",
-      "status": "RUNNING, 2 allocated GPUs. Data+slates complete; teacher-scoring stage, NFCorpus 64,032/100,000 pairs at last read; no teacher-qualification or test metrics."
+      "experiment": "C5 seed41 · job 50089",
+      "status": "RUNNING, 1 GPU on gnode012 (10:41 IST Slurm); no finalized seed metrics."
+    },
+    {
+      "track": "P1",
+      "experiment": "C6 NFCorpus · job 50000",
+      "status": "Previous 2-GPU allocation released after 100,000 NFCorpus MedCPT teacher scores. Student fits and test metrics NOT measured (native P1 report)."
+    },
+    {
+      "track": "P1",
+      "experiment": "C6 FiQA/training · job 50096",
+      "status": "PENDING (AssocGrpGRES), requested 4 GPUs but 0 allocated at 10:41 IST. Pinned bge-v2-m3 cache copied with 6/6 file hashes verified; no retrieval scores."
     },
     {
       "track": "P5",
-      "experiment": "B3R selected-pair feedback pilot",
-      "status": "COMPLETE; 17/17 manifest hashes reverified. 200 DEV questions, three seeds, 24 adapter fits, 9,857 physical teacher endpoints; no positive set-aware effect."
+      "experiment": "B3R 200-DEV feedback pilot",
+      "status": "COMPLETE; 3 seeds, 24 adapter fits, 9,857 physical selected teacher scores. Set-aware FS@2 does not outperform random at two or five labels/question; non-equal token costs at five."
     },
     {
       "track": "P5",
-      "experiment": "B2 sufficiency and B4 label audit",
-      "status": "DONE, DEV only: B2 logistic AUROC 0.882; B4 answer phrase in non-gold passage 57/200, lexical proxy."
+      "experiment": "B2 sufficiency / B4 label audit",
+      "status": "COMPLETE, DEV only; logistic AUROC 0.882 and high-precision bridge stop uses 9.58/10 passages. Alternative answer-phrase overlap 57/200 is lexical, not verified semantic sufficiency."
     },
     {
       "track": "P5",
-      "experiment": "Open-corpus / cross-dataset",
-      "status": "NOT VERIFIED. Existing P5 frame is completed; blocked jobs and data dependencies do not constitute open-corpus results."
+      "experiment": "Open-pool / cross-dataset",
+      "status": "NOT VERIFIED; no open-corpus or cross-dataset positive result in the inspected native P5 session."
     }
   ],
-  "p1_gate": "C5 G5 NOT MEASURED: D3 repaired the invalid 128-token fallback, preserved 256/64 length and disclosed D2 effective-batch accumulation. RUN_STATE shows A0 and G-full seed17 fit, no completed matched KD pair or seed-level nDCG/CI; additional native jobs 50088/50089 pending. C6 H6a/H6b NOT MEASURED: data and slates complete, teacher scoring in progress, no student fits or official test evaluation verified. C5 holdout was previously accessed for C2 and is final-use only under frozen C5.",
+  "p1_gate": "C5 G5 NOT MEASURED. After execution-only D4 split, seed17 gold and KD full-encoder training pair completed, seed29 and seed41 are running on independent one-GPU jobs. The frozen G5 rule is ≥+0.010 KD-minus-gold nDCG@10 with 95% paired CI lower>0 and positive effects for all three seeds, computed ONCE after complete pairs. No preliminary per-seed holdout inspection. C6 H6a/H6b NOT MEASURED: 100,000 NFCorpus teacher scores ready but FiQA scores, student fits and official-test final evaluation remain pending. SciFact HOLDOUT 200 was previously exposed in C2, so 'single look' is conditional on this prior usage.",
   "p5_gate": "B3R DEV pilot does NOT support set-aware selection: paired FS@2 differences vs random −0.025 [−0.058,+0.010] at 2 pairs/question and −0.027 [−0.057,−0.000] at 5. No confirmed +0.03 held-out gain; 5-pair teacher tokens not matched and this is an adapter-only closed-candidate test.",
-  "notes": "10:25 IST snapshot; C5 and C6 have work in progress but zero measured new KD effectiveness/gate outcomes. P5's negative B3R DEV results remain unchanged. No local research files, passwords, hostnames or private frame contents were copied into this public feed.",
-  "latest_result": "P1 recovery has real but incomplete progress: C5 job 50071 produced its untouched baseline and one gold-only seed-17 fit (NOT a KD result); C6 job 50000 completed data/slates and reached at least 64,032 of 100,000 NFCorpus teacher-scoring pairs (NOT a retrieval metric). Read-only Slurm at 10:23 IST showed 3 allocated GPUs in 2 jobs; C5 seed jobs 50088/50089 were pending and allocated zero. P5 B3R's negative 200-DEV finding remains unchanged.",
+  "notes": "10:41 IST evidence snapshot; C5 C6 no completed teacher-KD success gate. D4 is an execution-only parallelization deviation, not a new experimental arm. Teacher scoring completed on NFCorpus but no FiQA training/official metrics. Native P5 B3R remains a negative pilot; source-linked primary literature listed separately. No raw questions, lab logs, credentials, private frame text, or absolute local paths published.",
+  "latest_result": "10:41 IST: C5 seed17 gold/KD pair completed but withheld from interim evaluation; separate seed29 and seed41 jobs 50088/50089 RUNNING with 1 allocated GPU each. C6 NFCorpus teacher scoring reached 100,000/100,000; previous job 50000 released; 50096 queued for 4 GPUs (0 allocated). Frozen C5 G5 and C6 H6a/H6b have NO measured outcomes. P5 B3R negative DEV results unchanged.",
   "gpu_verified": {
     "partition": "u22",
     "qos": "research/medium",
@@ -47,27 +57,28 @@
     "vramanrs_max_gpus": 4,
     "vramanrs_cvit_normal_max_gpus_separate": 1,
     "active_allocations_confirmed": 2,
-    "active_gpus_confirmed": 3,
-    "pending_jobs_without_gpus": 2,
-    "verified_at": "2026-10-31T10:23:01+05:30",
-    "note": "Point-in-time read-only Slurm job states: 50071 RUNNING with 1 GPU under nilan; 50000 RUNNING with 2 GPUs in the C6 vramanrs allocation; jobs 50088/50089 PENDING with no GPUs (AssocGrpGRES). Counts describe allocations, not GPU utilization or completion. Current C5 GPU model was not independently confirmed in this check.",
-    "observed_gpu_model": "C6 previously observed 2× NVIDIA GeForce RTX 2080 Ti; C5 job 50071 GPU model not independently reconfirmed"
+    "active_gpus_confirmed": 2,
+    "pending_jobs_without_gpus": 1,
+    "verified_at": "2026-10-31T10:41:05+05:30",
+    "note": "One restrained read-only squeue check, by each authorized identity: nilan jobs 50088 and 50089 running with gres/gpu:1 each; vramanrs job 50096 pending with requested gres/gpu:4 and allocation zero (AssocGrpGRES). The previous 50071 and 50000 releases are recorded in the native P1 report, not independently sacct-confirmed because the cluster no longer accepts AllocGRES. Pending requests are not allocated GPUs. Shared-account scheduler cap can block requests even below individual quotas.",
+    "observed_gpu_model": "C5 D4 node names confirmed, model not rechecked inside CUDA; earlier C5/C6 work used RTX 2080 Ti."
   },
   "blockers": [
-    "C5 G5 is unmeasured. D3 job 50071 has only a baseline and one G-full seed17 training fit recorded, with no matched seed KD result or paired confidence interval.",
-    "Native P1 independently submitted additional C5 seed jobs 50088/50089, both pending (AssocGrpGRES). They allocate no GPUs at the recorded snapshot. Reconcile D4 with frozen D3 protocol and avoid duplicate work.",
-    "C6 finished data/slates but is still scoring NFCorpus teacher pairs (at least 64,032/100,000 at last check). Teacher qualification, training, official test metrics, GPU-hours and total teacher-pair costs are not complete.",
-    "C5's SciFact holdout was used in C2 and is being accessed for its frozen final C5 comparison; incremental per-fit holdout evaluation and earlier adapter fallback complicate strict single-look claims. No more adaptive tuning from it.",
-    "P5 B3R 200-question DEV set-aware minus random FS@2 is −0.025 [−0.058,+0.010] at two pairs and −0.027 [−0.057,−0.000] at five pairs, after averaging three seeds. These CIs resample questions, not training seeds; multiple policy comparisons are unadjusted.",
-    "P5 B3R has unequal teacher-token budgets at five pairs (971,006 random vs 1,252,556 set-aware). It trains only a frozen-encoder residual query adapter and evaluates closed ten-passage candidates; this does not establish full retriever or open-corpus gains.",
-    "The original P5 400-question pilot holdout was exposed. Open-corpus HotpotQA, MuSiQue transfer and a clean independent test remain unverified; SCARLet, PRD, DISCo and SetR narrow novelty.",
-    "The public page is a dated and sanitized snapshot, not live Slurm telemetry. A running allocation or scoring checkpoint is not a completed scientific result."
+    "C5 G5 is unmeasured: seed17 gold/KD training pair complete but not evaluated in an interim holdout look; 50088/50089 each running one independent seed on one GPU as of 10:41 IST.",
+    "C5 D4 split seeds across independently owned job/output directories for speed. Must verify exact protocol equivalence, A0 checks and no duplicate/shared-file writes before combining; apply the original three-seed gate only once.",
+    "C6 NFCorpus MedCPT scoring complete (100,000 pairs) but four-GPU FiQA/training follow-on job 50096 was pending, 0 GPUs allocated (AssocGrpGRES) at 10:41 IST. Student fits and official test metrics unmeasured.",
+    "C6 bge-v2-m3 offline snapshot reportedly matched 6/6 file hashes; the paired model/teacher score validity and end-to-end teacher-input-token plus GPU-hour accounting must still be checked after execution.",
+    "C5 SciFact HOLDOUT 200 was evaluated in C2 and is frozen for final C5 use. Earlier per-fit holdout instrumentation complicates single-look semantics; do not adaptively inspect or tune from seed outputs.",
+    "P5 B3R set-aware minus random FS@2 = −0.025 [−0.058,+0.010] at 2 labels/q and −0.027 [−0.057,−0.000] at 5 on 200 DEV questions. Bootstrap resamples queries after 3-seed averaging, not independent training runs; multiple comparisons unadjusted.",
+    "P5 B3R five-label teacher input tokens differ: random 971,006 versus set-aware 1,252,556 (+29%). Student is a frozen-encoder residual adapter with closed 10-passage candidate sets; no evidence for full bi-encoder or open-corpus gains.",
+    "The original P5 400-question pilot holdout is exposed. Clean independent and open-pool HotpotQA/MuSiQue transfer remain unverified; SCARLet, PRD, DISCo and SetR narrow novelty.",
+    "Public site is a dated static research snapshot, not live job telemetry. A checkpoint, pending job or GPU allocation is not an observed student-retrieval improvement."
   ],
   "audit": {
-    "methodology": "P1 C5 D3 documents effective-batch-preserving microbatch repair and no sequence-length fallback, but only one gold-only fit is completed. Paired nDCG and G5 remain unmeasured. C6 is mid-teacher-scoring, not an evaluated multi-domain comparison. P5 B3R 95% intervals bootstrap 200 DEV questions after averaging three seeds; they omit training-seed uncertainty and multiplicity, and student is a residual query adapter rather than a fully fine-tuned bi-encoder.",
-    "split_integrity": "P1 C5 SciFact train 505, INNER 100 exploratory, holdout 200 previously exposed in C2 and planned final-use C5; beware repeated per-fit writes and never retune on them. P1 C6 NFCorpus and FiQA official test qrels are reserved for post-training final evaluation; no official test metric verified. P5 B3R sampled 1,000 training from 6,742 and used DEV 200; 400 pilot holdout rows were not materialized, but the prior pilot already exposed that holdout.",
-    "cost": "P5 B3R physical union scores 9,857 endpoints, with counterfactual uncached per-arm counts. Two pairs: random 508,381 vs set-aware 508,091 input tokens; five pairs: random 971,006 vs set-aware 1,252,556 (+29%). C6 NFCorpus teacher scoring observed 64,032/100,000 target pairs; no completed end-to-end teacher-cost or GPU-hour accounting. C5 reuses pinned MedCPT teacher scores without new teacher calls.",
-    "novelty": "New B3R DEV comparison is negative for set-aware selection, not a new contribution. P1 teacher selection has prior art in GPL/PairDistill/PRD; P5 set utility and pairwise supervision overlap SCARLet, PRD, DISCo, SetR. Distinguish the hypothesis of boundary-aware training-time allocation from measured results."
+    "methodology": "C5 full bi-encoder D3 preserves 256/64 sequence lengths and D2 effective batch via accumulation; D4 splits seeds 17/29/41 into separate output-owned GPU jobs. Paired nDCG/CI must be computed once after all six gold/KD fits. C6 completed NFCorpus teacher pairs but no 3-seed cross-domain student outcome. P5 B3R CIs bootstrap 200 DEV questions after averaging three seeds (seed variance omitted), with selection heuristics rather than a true boundary-aware oracle, residual adapter student, and unadjusted comparisons.",
+    "split_integrity": "P1 C5 SciFact 505 train, INNER 100, 200 HOLDOUT previously exposed at C2 and reserved for G5; no early read of seed17's final holdout metrics in the native report. C6 official NFCorpus test 323 and FiQA test 648 queries, reserved for final evaluator; no test metric. P5 B3R TRAIN 1000 sampled from 6742, DEV 200, split manifest frozen; prior 400-question pilot holdout exposed and excluded from new claims. New 2000-question P5 holdout remains unverified as a confirmatory result.",
+    "cost": "P1 C6 NFCorpus MedCPT teacher scored 100,000 candidate pairs, FiQA teacher and end-to-end GPU-hours not yet finalized; C5 reuses pinned teacher scores. P5 B3R 9,857 physical union teacher endpoints, but per-arm uncached costs: 2 labels random 508,381 input tokens, set-aware 508,091; 5 labels random 971,006 versus set-aware 1,252,556 (+29%). Pair budget alone is not matched token cost.",
+    "novelty": "P1 learning from expensive teacher selection has GPL, PairDistill and related precedents; P5 set interaction utility overlaps SCARLet and efficient pairwise distillation overlaps PRD; DISCo and SetR challenge inference-time novelty. B3R set-aware ranking/diversity heuristic is not the proposed sufficiency-boundary acquisition. No A* or new method claim is established."
   },
   "evidence": [
     {
@@ -149,6 +160,39 @@
     {
       "claim": "P5 B3R outputs independently verified",
       "local_source": "ire-p5-minimal-evidence/branches/B3R_alloc/manifest.sha256; 17/17 shasum entries rechecked"
+    },
+    {
+      "claim": "P1 full-encoder C5 execution-only D4 (separate seeds / single final G5)",
+      "local_source": "C5 frozen DEVIATION_C5_D4.md, protocol; native P1 10:41 report (private)"
+    },
+    {
+      "claim": "C5 50088/50089 running 1 GPU each; C6 50096 pending 0",
+      "local_source": "Read-only squeue for nilan/vramanrs 31 Oct 10:41 IST; no raw Slurm log published"
+    },
+    {
+      "claim": "C6 NFCorpus 100,000 teacher scores complete; job 50000 released",
+      "local_source": "Native P1 10:41 research report and cycle record, not final retrieval outcome"
+    },
+    {
+      "claim": "P1 handoff task kept separate and byte-verified",
+      "local_source": "Codex-authored task transfer index revision 1, staged until native acknowledgement (private)"
+    }
+  ],
+  "public_literature": [
+    {
+      "title": "SCARLet — utility-based retriever training with inter-passage interaction",
+      "url": "https://arxiv.org/abs/2504.00573",
+      "relevance": "Prior work narrows P5 training-time set-utility novelty"
+    },
+    {
+      "title": "Harnessing Pairwise Ranking Prompting Through Sample-Efficient Ranking Distillation",
+      "url": "https://arxiv.org/abs/2507.04820",
+      "relevance": "Prior work narrows teacher-pair cost-efficiency claims"
+    },
+    {
+      "title": "GPL — Generative Pseudo Labeling",
+      "url": "https://arxiv.org/abs/2112.07577",
+      "relevance": "P1 distillation baseline precedent"
     }
   ]
 }
