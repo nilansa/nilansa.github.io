@@ -59,10 +59,10 @@ footer{border-top:1px solid var(--line);padding:22px 0 38px;color:var(--muted);f
 <header><div class="header"><div class="brand">IRE / TEAM CEOUS</div><nav class="nav"><a href="#method">Method</a><a href="#results">Results</a><a href="#limits">Limits</a><a href="#next">Next</a></nav></div></header>
 <main class="wrap">
 <div class="hero">
-<div class="kicker">Research note · 31 October 2026 · Evidence snapshot</div>
+<div class="kicker">Research note · 31 October 2026 · Evidence snapshot · 11:29 IST</div>
 <h1>A stronger teacher is not enough.</h1>
 <p class="lede">Can a dense retriever learn more from a fixed budget of expensive cross-encoder judgments? We test the teacher, the student, and the supervision between them.</p>
-<p class="hero-note">The current evidence supports gold-label training. It does not yet show a reliable extra gain from teacher distillation.</p>
+<p class="hero-note">The SciFact full-gold setting has not shown a reliable incremental teacher gain. The final pre-registered test is C6: two domains, untouched official tests, and a 10%-gold regime.</p>
 <div class="stats">
 <div class="stat"><strong>5,183</strong><span>SciFact corpus documents</span></div>
 <div class="stat"><strong>50,500</strong><span>Fresh teacher-scored query–document pairs; training slates only</span></div>
@@ -141,7 +141,7 @@ footer{border-top:1px solid var(--line);padding:22px 0 38px;color:var(--muted);f
 </div>
 <div class="branch">
 <article><div class="tag">Teacher-side ranking · TRAIN′</div><h3>MedCPT was the stronger scorer</h3><p>MedCPT reranking beat the cached MiniLM cross-encoder by <strong>+.067</strong> [+.044,+.091]. BGE-v2-m3 gained +.027 and did not qualify under the teacher gate.</p><p class="small">This measures teacher ranking quality, not student improvement.</p></article>
-<article><div class="tag">C5 · three seeds</div><h3>Small positive deltas in every seed</h3><p>Teacher increment over gold-only: <strong>+.0099 / +.0034 / +.0025</strong> for seeds 17 / 29 / 41.</p><p class="small">All positive, but below the +.010 minimum effect gate; the combined interval includes zero.</p></article>
+<article><div class="tag">C5 · three seeds</div><h3>Small positive deltas in every seed</h3><p>Teacher increment over gold-only: <strong>+.0053</strong> [−.0085,.0190]. Mean nDCG@10: untouched .679 · gold-only .755 · gold + KD .760.</p><p class="small">Seed deltas: +.0099 / +.0034 / +.0025. All positive, but below the +.010 minimum effect gate; the combined interval includes zero.</p></article>
 </div>
 </section>
 <section id="selection">
@@ -191,32 +191,33 @@ footer{border-top:1px solid var(--line);padding:22px 0 38px;color:var(--muted);f
 <thead><tr><th>Workstream</th><th>Current state</th><th>What it can establish</th></tr></thead>
 <tbody>
 <tr><td>C5 · SciFact full bi-encoder</td><td><span class="status fail">G5 failed</span></td><td>No-go for this gold + MedCPT KD framing under the frozen +.010 gate</td></tr>
-<tr><td>C6 · NFCorpus + FiQA</td><td><span class="status pending">Running at 11:06 IST</span></td><td>Cross-domain test on official test sets; no final result yet</td></tr>
-<tr><td>Teacher-only / label-scarce branch</td><td><span class="status pending">Next question</span></td><td>Test whether teacher feedback helps when gold labels are sparse, rather than merely adding KD to gold labels</td></tr>
+<tr><td>C6 · NFCorpus + FiQA</td><td><span class="status pending">Running at 11:29 IST</span></td><td>323 NFCorpus + 648 FiQA official test queries; five arms, including 10%-gold label scarcity</td></tr>
+<tr><td>C6 · 10%-gold + KD</td><td><span class="status pending">In run</span></td><td>Compare 10%-gold training against 10%-gold + teacher KD; this is the most plausible setting for useful teacher feedback</td></tr>
 <tr><td>Feedback selection</td><td><span class="status pending">Not yet validated</span></td><td>Compare random, top-ranked, hard-negative and diversity/uncertainty selection at the same teacher budget</td></tr>
 </tbody>
 </table>
 </div>
 <div class="callout"><strong>Go/no-go rule.</strong> First establish that teacher feedback can improve the student in a well-controlled setting. Only then can we identify which selection policy spends the fixed teacher budget most effectively.</div>
-<p class="small">The C6 run had completed NFCorpus teacher scoring; FiQA scoring had started. A four-GPU job was active. No C6 training or untouched-test result is claimed in this snapshot.</p>
+<p class="small">At 11:29 IST: data and 2 × 2,000-query slates were ready; NFCorpus MedCPT scores (100,000 pairs) were complete. FiQA/BGE scoring was running in Slurm job 50107 on four GTX 1080 Ti GPUs. Then 24 fits and one untouched-test evaluation remain. ETA: approximately 13:00–14:00 IST. No C6 result is claimed yet.</p>
 </section>
 <section id="prior">
-<div class="section-head"><div class="section-no">06 / PRIOR WORK</div><div><h2>The teacher–student pattern is established.</h2><p class="small">The potential contribution is the feedback-acquisition policy and its measured value under a fixed budget — not simply adding a cross-encoder.</p></div></div>
-<div class="table-wrap">
-<table>
-<thead><tr><th>Paper</th><th>Relevant precedent</th></tr></thead>
+<div class="section-head"><div class="section-no">06 / PRIOR WORK</div><div><h2>Teacher supervision is not new. Budgeted acquisition is the question.</h2><p class="small">Closest precedents, separated by what they actually select or supervise.</p></div></div>
+<div class="table-wrap"><table>
+<thead><tr><th>Paper</th><th>What it establishes</th><th>Boundary for this project</th></tr></thead>
 <tbody>
-<tr><td><a href="https://aclanthology.org/2021.naacl-main.466/">RocketQA · NAACL 2021</a></td><td>Cross-encoder denoises retrieved hard negatives and labels selected unlabeled pairs for dual-encoder training.</td></tr>
-<tr><td><a href="https://aclanthology.org/2021.emnlp-main.224/">RocketQAv2 · EMNLP 2021</a></td><td>Joint training and listwise distillation between retriever and reranker.</td></tr>
-<tr><td><a href="https://www.microsoft.com/en-us/research/publication/approximate-nearest-neighbor-negative-contrastive-learning-for-dense-text-retrieval/">ANCE · ICLR 2021</a></td><td>Uses global ANN-mined negatives to make dense-retriever training examples more representative.</td></tr>
-<tr><td><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12478430/">MedCPT · Bioinformatics 2023</a></td><td>Biomedical retriever and reranker trained from large-scale PubMed search logs.</td></tr>
-<tr><td><a href="https://aclanthology.org/2020.emnlp-main.609/">SciFact · EMNLP 2020</a></td><td>Scientific claim verification with evidence-containing abstracts and expert-written claims.</td></tr>
-</tbody>
-</table>
-</div>
+<tr><td><a href="https://doi.org/10.1145/3404835.3462891">TAS-Balanced · SIGIR 2021</a></td><td>Dual-teacher signals and topic-aware, balanced-margin batch sampling.</td><td>Sampling for training; not a fixed budget for fresh teacher calls.</td></tr>
+<tr><td><a href="https://aclanthology.org/2021.naacl-main.466/">RocketQA · NAACL 2021</a></td><td>Cross-encoder denoising and pseudo-labeling of retrieved hard negatives.</td><td>Teacher supervision; no budgeted acquisition policy.</td></tr>
+<tr><td><a href="https://aclanthology.org/2022.naacl-main.168/">GPL · NAACL 2022</a></td><td>Generated queries plus cross-encoder pseudo-labels for unsupervised domain adaptation.</td><td>Domain adaptation; not equal-cost comparison of pair-selection policies.</td></tr>
+<tr><td><a href="https://www.microsoft.com/en-us/research/publication/simans-simple-ambiguous-negatives-sampling-for-dense-text-retrieval/">SimANS · EMNLP 2022</a></td><td>Samples ambiguous negatives using relevance-score-informed probabilities.</td><td>Negative sampling, not adaptive acquisition of teacher labels.</td></tr>
+<tr><td><a href="https://aclanthology.org/2024.emnlp-main.1013/">PairDistill · EMNLP 2024</a></td><td>Pairwise teacher relevance comparisons for dense-retriever distillation.</td><td>Improves the distillation signal; does not establish a fixed-budget selection gain.</td></tr>
+<tr><td><a href="https://aclanthology.org/2026.findings-acl.481/">BAGEL · Findings ACL 2026</a></td><td>Budgeted active selection of passages for LLM relevance scoring, with Gaussian-process relevance propagation.</td><td>Closest budgeted-acquisition precedent; it selects at retrieval time, not for retriever post-training.</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2607.11465">Score-Only Distillation · arXiv 2026</a></td><td>Trains a compact retriever from teacher score vectors; hard-negative mining is a separate extension.</td><td>Relevant score-distillation preprint; it does not establish our acquisition policy.</td></tr>
+<tr><td><a href="https://www.amazon.science/publications/active-learning-with-crowd-sourcing-improves-information-retrieval">Crowd-Coachable Retriever · ICML 2023 workshop</a></td><td>Active candidate selection for human relevance feedback and model tuning.</td><td>Human feedback, not cross-encoder teacher distillation; workshop paper.</td></tr>
+</tbody></table></div>
+<div class="callout"><strong>Novelty audit: incremental at present.</strong> A residual claim needs a stable gain at equal total teacher cost over strong random, active-row and GPL-style baselines, across domains, on untouched tests.</div>
 </section>
 <footer>
-<div><strong>IRE / Team Ceous</strong> · Feedback-budgeted retriever learning · Snapshot: 31 Oct 2026, 11:06 IST</div>
+<div><strong>IRE / Team Ceous</strong> · Feedback-budgeted retriever learning · Snapshot: 31 Oct 2026, 11:29 IST</div>
 <div class="footnotes">Internal research explainer. Results are separated by split and evaluation stage. Exploratory INNER results are not confirmatory. The SciFact holdout was accessed in C2 and reused for the final C5 gate; the official test-300 is diagnostic only. C6 is in progress. This page does not claim an accepted paper or a demonstrated teacher-feedback gain.</div>
 <div class="refs">
 <a href="https://www.microsoft.com/en-us/research/academic-program/microsoft-research-fellowship/research-challenges/">Microsoft Research challenge</a>
