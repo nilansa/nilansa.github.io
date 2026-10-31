@@ -1,8 +1,8 @@
 {
-  "snapshot_ist": "31 October 2026, 10:41 IST",
-  "verified_at": "2026-10-31T10:41:05+05:30",
-  "source": "Read-only native Claude Science P1 frame and saved 10:41 IST report; P5 frozen B3R RESULT.md and protocol.md; read-only Ada squeue for nilan and vramanrs at 10:41 IST; C5 D4 deviation and C6 pipeline state. No experiments or Slurm jobs were modified during this sync.",
-  "p1_summary": "C5 seed-17 gold/KD full-encoder pair finished under D4; no per-seed nDCG was read and the frozen three-seed G5 paired holdout gate is still unmeasured. At 10:41 IST, C5 seeds 29 and 41 (jobs 50088 and 50089) were each RUNNING on 1 GPU. C6 completed NFCorpus 100,000 teacher-pair scores and released job 50000; its 4-GPU follow-on job 50096 was PENDING (0 GPUs, AssocGrpGRES). No C6 student/test metric.",
+  "snapshot_ist": "31 October 2026, 10:59 IST",
+  "verified_at": "2026-10-31T10:59:00+05:30",
+  "source": "Read-only native Claude Science P1/P5 frames, frozen P1 C5/C6 and P5 B3R protocol/result files, B3R hash manifest, read-only Ada u22 squeue 10:58 IST, sacct and run-state checks 10:58–10:59 IST. No experiments, jobs, splits or local transfer indexes changed.",
+  "p1_summary": "C5 frozen D4: seed17 gold/KD pair complete (50071 previously canceled after completion); seed29 pair complete (50088 COMPLETED exit 0; RUN_STATE completed_pairs=[29]); seed41 (50089) RUNNING on 1 GPU. Frozen combined G5 remains NOT MEASURED and no interim per-seed holdout metrics were inspected. C6 NFCorpus teacher scoring 100,000/100,000, but four-GPU follow-on job 50096 FAILED exit 127 immediately (missing libpython3.12.so.1.0 on compute node); no C6 student/test result. Previous 50000 allocation released.",
   "p5_summary": "B3R completed (1,000 TRAIN, 200 DEV, 3 seeds, 24 adapter fits, 9,857 physical shared-cache teacher scores); set-aware FS@2 loses to random at both budgets. B2 DEV AUROC 0.882; high-precision bridge stopping still consumes 9.58/10 paragraphs. P5 native session completed at 09:09; open-corpus confirmation unverified.",
   "jobs": [
     {
@@ -13,22 +13,22 @@
     {
       "track": "P1",
       "experiment": "C5 seed29 · job 50088",
-      "status": "RUNNING, 1 GPU on gnode025 (10:41 IST Slurm); no finalized seed metrics."
+      "status": "COMPLETED (exit 0), seed29 gold/KD fit pair confirmed by RUN_STATE, GPU released at 10:58; combined G5 NOT YET computed."
     },
     {
       "track": "P1",
       "experiment": "C5 seed41 · job 50089",
-      "status": "RUNNING, 1 GPU on gnode012 (10:41 IST Slurm); no finalized seed metrics."
+      "status": "RUNNING, 1 allocated u22 research/medium GPU, gnode012 at 10:58; seed41 pair not yet complete."
     },
     {
       "track": "P1",
       "experiment": "C6 NFCorpus · job 50000",
-      "status": "Previous 2-GPU allocation released after 100,000 NFCorpus MedCPT teacher scores. Student fits and test metrics NOT measured (native P1 report)."
+      "status": "Previously canceled/released after NFCorpus 100,000 teacher scores; no C6 student fit or test metric."
     },
     {
       "track": "P1",
       "experiment": "C6 FiQA/training · job 50096",
-      "status": "PENDING (AssocGrpGRES), requested 4 GPUs but 0 allocated at 10:41 IST. Pinned bge-v2-m3 cache copied with 6/6 file hashes verified; no retrieval scores."
+      "status": "FAILED (exit 127) on allocation attempt at 10:53 IST; venv Python cannot load libpython3.12.so.1.0. 0 current GPUs, no student/evaluation result; stale RUN_STATE marked RUNNING is not authoritative."
     },
     {
       "track": "P5",
@@ -46,27 +46,27 @@
       "status": "NOT VERIFIED; no open-corpus or cross-dataset positive result in the inspected native P5 session."
     }
   ],
-  "p1_gate": "C5 G5 NOT MEASURED. After execution-only D4 split, seed17 gold and KD full-encoder training pair completed, seed29 and seed41 are running on independent one-GPU jobs. The frozen G5 rule is ≥+0.010 KD-minus-gold nDCG@10 with 95% paired CI lower>0 and positive effects for all three seeds, computed ONCE after complete pairs. No preliminary per-seed holdout inspection. C6 H6a/H6b NOT MEASURED: 100,000 NFCorpus teacher scores ready but FiQA scores, student fits and official-test final evaluation remain pending. SciFact HOLDOUT 200 was previously exposed in C2, so 'single look' is conditional on this prior usage.",
+  "p1_gate": "C5 final three-seed G5 NOT MEASURED. D4 seed17 and seed29 gold/KD fit pairs finished; seed41 is running. Frozen G5 requires seed-averaged KD−gold nDCG@10 >= +0.010, positive paired-bootstrap 95% CI lower bound, and positive gains for all seeds; compute once after all three pairs and verify A0/protocol equivalence. C6 H6a/H6b NOT MEASURED; FiQA teacher and student fits/test still outstanding. SciFact HOLDOUT 200 was exposed earlier in C2 and its re-use is a study limitation.",
   "p5_gate": "B3R DEV pilot does NOT support set-aware selection: paired FS@2 differences vs random −0.025 [−0.058,+0.010] at 2 pairs/question and −0.027 [−0.057,−0.000] at 5. No confirmed +0.03 held-out gain; 5-pair teacher tokens not matched and this is an adapter-only closed-candidate test.",
-  "notes": "10:41 IST evidence snapshot; C5 C6 no completed teacher-KD success gate. D4 is an execution-only parallelization deviation, not a new experimental arm. Teacher scoring completed on NFCorpus but no FiQA training/official metrics. Native P5 B3R remains a negative pilot; source-linked primary literature listed separately. No raw questions, lab logs, credentials, private frame text, or absolute local paths published.",
-  "latest_result": "10:41 IST: C5 seed17 gold/KD pair completed but withheld from interim evaluation; separate seed29 and seed41 jobs 50088/50089 RUNNING with 1 allocated GPU each. C6 NFCorpus teacher scoring reached 100,000/100,000; previous job 50000 released; 50096 queued for 4 GPUs (0 allocated). Frozen C5 G5 and C6 H6a/H6b have NO measured outcomes. P5 B3R negative DEV results unchanged.",
+  "notes": "Evidence snapshot 10:59 IST, NOT continuous job telemetry. C5 seed-level artifact presence does not establish the combined three-seed confirmatory gate. One actual u22 research/medium GPU allocated to verified running C5 50089; C6 50096 failed with no currently allocated GPUs. No raw lab data, credentials, private frame text or absolute local paths published.",
+  "latest_result": "10:59 IST verification: C5 50088 COMPLETED (exit 0; seed29 pair complete in run state), 50089 RUNNING on 1 allocated GPU; seed17 pair had already finished. Final combined three-seed C5 G5 is still absent and interim holdout metrics were not inspected. C6 50096 FAILED immediately with exit code 127 due to missing libpython3.12.so.1.0; its stale RUN_STATE=RUNNING must not be interpreted as a live allocation. C6 has no student retrieval outcome. P5 B3R negative DEV pilot unchanged.",
   "gpu_verified": {
     "partition": "u22",
     "qos": "research/medium",
     "nilan_max_gpus": 4,
     "vramanrs_max_gpus": 4,
     "vramanrs_cvit_normal_max_gpus_separate": 1,
-    "active_allocations_confirmed": 2,
-    "active_gpus_confirmed": 2,
-    "pending_jobs_without_gpus": 1,
-    "verified_at": "2026-10-31T10:41:05+05:30",
-    "note": "One restrained read-only squeue check, by each authorized identity: nilan jobs 50088 and 50089 running with gres/gpu:1 each; vramanrs job 50096 pending with requested gres/gpu:4 and allocation zero (AssocGrpGRES). The previous 50071 and 50000 releases are recorded in the native P1 report, not independently sacct-confirmed because the cluster no longer accepts AllocGRES. Pending requests are not allocated GPUs. Shared-account scheduler cap can block requests even below individual quotas.",
-    "observed_gpu_model": "C5 D4 node names confirmed, model not rechecked inside CUDA; earlier C5/C6 work used RTX 2080 Ti."
+    "active_allocations_confirmed": 1,
+    "active_gpus_confirmed": 1,
+    "pending_jobs_without_gpus": 0,
+    "verified_at": "2026-10-31T10:58:19+05:30",
+    "note": "Read-only u22 squeue for both authorized identities at 10:58: job 50089 RUNNING with 1 GPU (nilan); no running u22 vramanrs job. One subsequent sacct check confirmed 50088 COMPLETED (exit 0), 50089 RUNNING and 50096 FAILED (127:0). The 50096 submission briefly obtained allocation before immediately failing; it is NOT allocated now. This is a point-in-time check, not continuous monitoring.",
+    "observed_gpu_model": "Model not rechecked inside CUDA at 10:58; node gnode012 was observed."
   },
   "blockers": [
-    "C5 G5 is unmeasured: seed17 gold/KD training pair complete but not evaluated in an interim holdout look; 50088/50089 each running one independent seed on one GPU as of 10:41 IST.",
-    "C5 D4 split seeds across independently owned job/output directories for speed. Must verify exact protocol equivalence, A0 checks and no duplicate/shared-file writes before combining; apply the original three-seed gate only once.",
-    "C6 NFCorpus MedCPT scoring complete (100,000 pairs) but four-GPU FiQA/training follow-on job 50096 was pending, 0 GPUs allocated (AssocGrpGRES) at 10:41 IST. Student fits and official test metrics unmeasured.",
+    "C5 G5 remains unmeasured: seed17 and seed29 fit pairs complete, seed41 running. Do not read single-seed holdout metrics or report pass/fail before combined three-seed evaluator.",
+    "C6 job 50096 failed instantly with exit 127 (missing libpython3.12.so.1.0 in the virtual environment on gnode033); no training/evaluation. Earlier RUN_STATE=RUNNING is stale. Diagnose environment without changing scientific protocol or launching duplicate jobs.",
+    "At 10:58 IST one u22 GPU was actually allocated (C5 50089), not four. Job 50088 completed and 50096 failed/released. Confirm anew before citing current compute.",
     "C6 bge-v2-m3 offline snapshot reportedly matched 6/6 file hashes; the paired model/teacher score validity and end-to-end teacher-input-token plus GPU-hour accounting must still be checked after execution.",
     "C5 SciFact HOLDOUT 200 was evaluated in C2 and is frozen for final C5 use. Earlier per-fit holdout instrumentation complicates single-look semantics; do not adaptively inspect or tune from seed outputs.",
     "P5 B3R set-aware minus random FS@2 = −0.025 [−0.058,+0.010] at 2 labels/q and −0.027 [−0.057,−0.000] at 5 on 200 DEV questions. Bootstrap resamples queries after 3-seed averaging, not independent training runs; multiple comparisons unadjusted.",
@@ -75,7 +75,7 @@
     "Public site is a dated static research snapshot, not live job telemetry. A checkpoint, pending job or GPU allocation is not an observed student-retrieval improvement."
   ],
   "audit": {
-    "methodology": "C5 full bi-encoder D3 preserves 256/64 sequence lengths and D2 effective batch via accumulation; D4 splits seeds 17/29/41 into separate output-owned GPU jobs. Paired nDCG/CI must be computed once after all six gold/KD fits. C6 completed NFCorpus teacher pairs but no 3-seed cross-domain student outcome. P5 B3R CIs bootstrap 200 DEV questions after averaging three seeds (seed variance omitted), with selection heuristics rather than a true boundary-aware oracle, residual adapter student, and unadjusted comparisons.",
+    "methodology": "C5 full bi-encoder D3 preserves 256/64 sequence lengths and D2 effective batch via accumulation; D4 splits seeds 17/29/41 into separate output-owned GPU jobs. Paired nDCG/CI must be computed once after all six gold/KD fits. C6 completed NFCorpus teacher pairs but no 3-seed cross-domain student outcome. P5 B3R CIs bootstrap 200 DEV questions after averaging three seeds (seed variance omitted), with selection heuristics rather than a true boundary-aware oracle, residual adapter student, and unadjusted comparisons. At 10:59 the D4 seed29 pair was complete, but no interim holdout metric was inspected; a single combined G5 evaluation remains pending.",
     "split_integrity": "P1 C5 SciFact 505 train, INNER 100, 200 HOLDOUT previously exposed at C2 and reserved for G5; no early read of seed17's final holdout metrics in the native report. C6 official NFCorpus test 323 and FiQA test 648 queries, reserved for final evaluator; no test metric. P5 B3R TRAIN 1000 sampled from 6742, DEV 200, split manifest frozen; prior 400-question pilot holdout exposed and excluded from new claims. New 2000-question P5 holdout remains unverified as a confirmatory result.",
     "cost": "P1 C6 NFCorpus MedCPT teacher scored 100,000 candidate pairs, FiQA teacher and end-to-end GPU-hours not yet finalized; C5 reuses pinned teacher scores. P5 B3R 9,857 physical union teacher endpoints, but per-arm uncached costs: 2 labels random 508,381 input tokens, set-aware 508,091; 5 labels random 971,006 versus set-aware 1,252,556 (+29%). Pair budget alone is not matched token cost.",
     "novelty": "P1 learning from expensive teacher selection has GPL, PairDistill and related precedents; P5 set interaction utility overlaps SCARLet and efficient pairwise distillation overlaps PRD; DISCo and SetR challenge inference-time novelty. B3R set-aware ranking/diversity heuristic is not the proposed sufficiency-boundary acquisition. No A* or new method claim is established."
