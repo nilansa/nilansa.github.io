@@ -1,9 +1,9 @@
 {
-  "snapshot_ist": "31 October 2026, 09:18 IST",
-  "verified_at": "2026-10-31T09:18:19+05:30",
-  "source": "Direct read-only audit: native Claude Science frame database for both named projects, Codex job.json states, experiment protocols/results/progress files, live local process and tmux observations, and one read-only Slurm allocation query",
-  "p1_summary": "C5 baseline check passed but zero training seeds finished; Ada C5 setup/launch blocked. C6 worker blocked despite an observed 2-GPU allocation; no final C5/C6 comparison.",
-  "p5_summary": "B2 and B4 DEV audits completed; B3R2 detached CPU recovery running without verified checkpoint/outcome; open-pool H1 awaiting data.",
+  "snapshot_ist": "31 October 2026, 10:06 IST",
+  "verified_at": "2026-10-31T10:06:26+05:30",
+  "source": "Fresh read-only native Claude Science frame database, saved Codex job state, P5 B3R saved protocol/RESULT/results.json and 17-entry SHA256 manifest verification, P1 Wave2 results and C5 Terra audit, targeted Ada Slurm allocation and failure-state checks and read-only remote experiment logs. No experiments modified.",
+  "p1_summary": "C5 Ada full-encoder job failed CUDA OOM on a single 10.90 GiB GTX 1080 Ti after A0 reproduced 0.678792; zero G/KD fits finished. Terra static audit rejects runtime fallback and holdout usage. C6 job with two RTX 2080 Ti GPUs reached data stage, then both slate workers failed on a tokenizer non-tensor field; no cross-domain result.",
+  "p5_summary": "B3R DEV pilot COMPLETE: 1,000 training / 200 DEV questions, 3 seeds, 9,857 physical shared teacher calls, 24 adapter fits; set-aware FS@2=0.292 vs random 0.317 at 2 pair labels, 0.298 vs 0.325 at 5. No positive acquisition gain; 5-label token costs differ substantially; 400 prior pilot holdout not re-evaluated.",
   "jobs": [
     {
       "track": "P1",
@@ -14,11 +14,6 @@
       "track": "P1",
       "experiment": "C5 Ada setup/launch",
       "status": "Blocked: existing Ada shell/session and Chat-surface gates; no GPU run-002 output"
-    },
-    {
-      "track": "P1",
-      "experiment": "C6 multi-domain",
-      "status": "Codex BLOCKED by Chat-surface gate; one 2-GPU Slurm allocation observed; pipeline/results unverified"
     },
     {
       "track": "P5",
@@ -37,11 +32,6 @@
     },
     {
       "track": "P5",
-      "experiment": "B3R2 offline CPU recovery",
-      "status": "Live Python process and tmux session observed; split verified 6742 train/200 DEV/400 holdout; no checkpoint or final metric yet"
-    },
-    {
-      "track": "P5",
       "experiment": "S0 shared data / H1 open pool",
       "status": "S0 FAILED; H1 awaiting READY.json; no open-corpus metrics"
     },
@@ -51,15 +41,30 @@
       "status": "Codex worker running; no separate reader Slurm allocation verified"
     },
     {
+      "track": "P1",
+      "experiment": "C5 Ada full encoder",
+      "status": "FAILED: A0 0.678792 passed, 0/6 fits; CUDA OOM on 1× 1080 Ti; G5 not measured; Terra adapter audit FAIL"
+    },
+    {
+      "track": "P1",
+      "experiment": "C6 multi-domain",
+      "status": "FAILED pipeline stage slates: data completed; both workers raised AttributeError on a string tokenizer value; no gates/metric. 2 GPU allocation still RUNNING as of 10:04 IST"
+    },
+    {
+      "track": "P5",
+      "experiment": "B3R2 offline CPU recovery",
+      "status": "COMPLETE: 9,857 teacher endpoints, 24 seed fits, 17 manifest hashes verified; set-aware vs random FS@2 negative on DEV 200"
+    },
+    {
       "track": "Both",
       "experiment": "u22 GPU observation",
-      "status": "One active 2-GPU allocation as of 09:18 IST, under the 4-GPU-per-user research/medium quota; allocation ≠ completed experiment"
+      "status": "10:04 IST: 1 active research/medium allocation (2× RTX 2080 Ti), both assigned to P1 C6; C5 one-GPU job already FAILED, not allocated"
     }
   ],
-  "p1_gate": "C5 G5 NOT MEASURED: need ≥ +0.010 nDCG@10, paired CI lower >0 and all 3 seeds positive; C6 no metric yet.",
-  "p5_gate": "B3 training-time teacher-budget allocation NOT MEASURED: target ≥ +0.03 held-out complete support vs uniform/rank-aware at matched per-arm teacher tokens.",
+  "p1_gate": "C5 full-encoder G5 NOT MEASURED: A0 passed, 0/6 fits, 0/3 seeds because CUDA OOM on 10.90 GiB GTX 1080 Ti; adapter contains protocol-invalid fallback and early holdout evaluation. C6 data stage complete but slates worker failure means no final comparison.",
+  "p5_gate": "B3R DEV pilot does NOT support set-aware selection: paired FS@2 differences vs random −0.025 [−0.058,+0.010] at 2 pairs/question and −0.027 [−0.057,−0.000] at 5. No confirmed +0.03 held-out gain; 5-pair teacher tokens not matched and this is an adapter-only closed-candidate test.",
   "notes": "All measured outcomes are labeled DEV/pilot, not independent post-registration confirmation. No secrets, raw lab logs, file bytes, HPC hostnames or private frames are published.",
-  "latest_result": "New P5 B4 audit: 57/200 DEV questions (28.5%, 95% CI 22.5–35.0%) contain the answer phrase in a non-gold paragraph; 100/200 have gold-title lexical overlap. These do not prove alternative semantic sufficiency. C5 still has zero finished seeds; C6 has a live two-GPU allocation but no confirmed pipeline result.",
+  "latest_result": "New B3R allocation pilot completed (200 DEV questions; 1,000 training questions; 3 seeds): at 2 pair labels/question, set-aware FS@2 0.292 vs random 0.317, paired Δ −0.025 [−0.058,+0.010]; at 5 pairs 0.298 vs 0.325, Δ −0.027 [−0.057,−0.000]. No positive feedback-allocation signal. C5 job failed CUDA OOM (A0 passed; 0 training fits); C6 two-GPU pipeline reached data stage then failed in both slate workers, with its allocation still running at the last check.",
   "gpu_verified": {
     "partition": "u22",
     "qos": "research/medium",
@@ -68,23 +73,25 @@
     "vramanrs_cvit_normal_max_gpus_separate": 1,
     "active_allocations_confirmed": 1,
     "active_gpus_confirmed": 2,
-    "verified_at": "2026-10-31T09:18:19+05:30",
-    "note": "A single read-only Slurm observation confirmed one two-GPU allocation. No node, user-identifying log, or job identifier is published."
+    "verified_at": "2026-10-31T10:04:25+05:30",
+    "note": "Read-only Slurm check of both authorized identities at ~10:04 IST; C5 one-GPU job FAILED with CUDA OOM on GTX 1080 Ti. C6's 2-GPU allocation was still running although its pipeline had exited at the slate stage. Counts are point-in-time, not utilization telemetry.",
+    "observed_gpu_model": "2× NVIDIA GeForce RTX 2080 Ti (P1 C6 only)"
   },
   "blockers": [
-    "C5 full-encoder G5 remains unevaluated: A0 reproduced but 0/3 seeds completed locally; Ada launch blocked.",
-    "C6’s active two-GPU allocation is not a valid result. The delegated Codex job is blocked before verified pipeline completion; assess idle resource use without submitting duplicate jobs.",
-    "B3R2 local CPU recovery is alive but first checkpoint and per-arm matched-cost results are unverified; earlier B3 timed out.",
-    "Open-pool P5 evidence absent: S0 data build failed and H1 awaits READY.json; H2 has no verified evaluation.",
-    "Dataset labels: 10 supplied candidate passages and a previously exposed 400-question pilot holdout; B4 lexical overlap does not certify semantic minimality.",
-    "C6 K10 vs G10 confounds teacher supervision with extra unlabelled query exposure unless update counts and gold-loss normalization are matched.",
-    "Site is public with advisory noindex. Status is a point-in-time audit, not live telemetry."
+    "C5 G5 is unmeasured: A0 passed but all six full-encoder fits remain incomplete after CUDA out-of-memory on one GTX 1080 Ti; Terra's protocol audit also flags a sequence-length fallback and early holdout evaluations.",
+    "C6 has no metric: data preparation succeeded, but both GPU slate workers crashed because tokenization returned a string field passed to .to(device); two GPUs remained allocated as of ~10:04 IST despite pipeline exit.",
+    "B3R is complete but negative on 200 DEV questions. Random versus set-aware teacher-token budgets are approximately equal at 2 labels/question (508,381 vs 508,091) but not at 5 labels (971,006 vs 1,252,556).",
+    "B3R's 3-seed CI resamples 200 DEV questions after averaging seed outcomes; it does not quantify across-seed uncertainty. Only a frozen MiniLM query adapter was trained.",
+    "The original 400-question pilot holdout has been exposed; B3R did not re-materialize it. No fresh independent open-corpus evidence or cross-dataset confirmation exists.",
+    "P1 Wave2 selection-scale NFCorpus pilot completed only one full seed, with no completed FiQA domain and no independently validated teacher-vs-gold claim; small/budgeted DEV effects are exploratory.",
+    "Novelty remains tightly constrained by SCARLet, PRD, DISCo and SetR. Boundary-aware acquisition has not passed its empirical gate.",
+    "The public status page is a dated snapshot with advisory noindex, not a live connection to Slurm or the Mac."
   ],
   "audit": {
-    "methodology": "P1 gold vs KD comparisons use paired query bootstrap but cannot establish cross-domain novelty; P5 B2 thresholds selected on DEV are diagnostic. B4 is 200-DEV-question lexical analysis, not an entailment adjudication.",
-    "split_integrity": "P5 pilot 400-question holdout has been exposed; B3R2 presently verifies train 6742 / DEV 200 / holdout IDs 400 but has not produced confirmatory evaluation. P1 historical holdout previously used for diagnostics.",
-    "cost": "B3 original pooled teacher cache counts must not be called per-arm savings. B3R2 protocol requires per-arm unique teacher endpoints/tokens and zero pre-selection teacher scoring.",
-    "novelty": "P1 cross-encoder KD is incremental; P5 set selection/stopping overlaps DISCo, SetR, HALT, SCARLet and PRD. Boundary-aware acquisition remains a hypothesis until matched-cost multi-seed tests."
+    "methodology": "P1 C5 A0=0.678792 passed but zero full-encoder fits; code audit FAIL means even a recovered run must be checked against frozen protocol. P5 B3R trained only a 384→64→384 residual query adapter with 3 seeds, not a full bi-encoder. Reported 95% intervals bootstrap 200 DEV questions after averaging seeds, not training-seed uncertainty; multiple DEV policy comparisons are unadjusted.",
+    "split_integrity": "P5 B3R selected 1,000 training examples from a 6,742-query training pool; 200 DEV questions and 400 HOLDOUT IDs. 400-question pilot holdout was previously exposed; B3R did not materialize its question/passage rows. No independent confirmatory P5 test. P1 C5 A0 holdout gate required but per-fit holdout writes violate final-only evaluation discipline.",
+    "cost": "B3R scored 9,857 physical shared-cache teacher endpoints; per-arm counterfactual uncached endpoints and teacher-token counts recorded separately. 2 pair labels/question: random 508,381 vs set-aware 508,091 tokens. 5 labels: random 971,006 vs set-aware 1,252,556 tokens (+29% set-aware). Therefore equal pair-label budgets are not strictly equal teacher-token budgets. Selection-stage teacher calls zero for both.",
+    "novelty": "New B3R DEV comparison is negative for set-aware selection, not a new contribution. P1 teacher selection has prior art in GPL/PairDistill/PRD; P5 set utility and pairwise supervision overlap SCARLet, PRD, DISCo, SetR. Distinguish the hypothesis of boundary-aware training-time allocation from measured results."
   },
   "evidence": [
     {
@@ -126,6 +133,30 @@
     {
       "claim": "Runtime job states",
       "local_source": "local Codex job.json files (not public)"
+    },
+    {
+      "claim": "P5 B3R verified completed 200-DEV pilot, teacher costs, paired CIs",
+      "local_source": "ire-p5-minimal-evidence/branches/B3R_alloc/RESULT.md (17-file manifest SHA256 verified)"
+    },
+    {
+      "claim": "B3R frozen plan and 1,000/200/400 train/dev/held-out protocol",
+      "local_source": "ire-p5-minimal-evidence/branches/B3R_alloc/protocol.md"
+    },
+    {
+      "claim": "P1 C5 adapter protocol audit failed (static code review)",
+      "local_source": "ire-project/ire-fullencoder-c5-20261031/shared/run-002-ada/TERRA_ADAPTER_AUDIT.md"
+    },
+    {
+      "claim": "P1 C5 OOM in running Ada job (no model fit finished)",
+      "local_source": "read-only Ada C5 RUN_STATE.json and Slurm standard error (not public)"
+    },
+    {
+      "claim": "P1 C6 data stage complete, both slate workers failed",
+      "local_source": "read-only Ada C6 RUN_STATE.json and pipeline.log (not public)"
+    },
+    {
+      "claim": "P1 Wave2 incomplete NFCorpus budget comparisons",
+      "local_source": "ire-project/ire-wave2-20261031-0815/p1-selection-scale/RESULT.md"
     }
   ]
 }
