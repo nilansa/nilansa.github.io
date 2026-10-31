@@ -1,34 +1,24 @@
 {
-  "snapshot_ist": "31 October 2026, 10:59 IST",
-  "verified_at": "2026-10-31T10:59:00+05:30",
-  "source": "Read-only native Claude Science P1/P5 frames, frozen P1 C5/C6 and P5 B3R protocol/result files, B3R hash manifest, read-only Ada u22 squeue 10:58 IST, sacct and run-state checks 10:58–10:59 IST. No experiments, jobs, splits or local transfer indexes changed.",
-  "p1_summary": "C5 frozen D4: seed17 gold/KD pair complete (50071 previously canceled after completion); seed29 pair complete (50088 COMPLETED exit 0; RUN_STATE completed_pairs=[29]); seed41 (50089) RUNNING on 1 GPU. Frozen combined G5 remains NOT MEASURED and no interim per-seed holdout metrics were inspected. C6 NFCorpus teacher scoring 100,000/100,000, but four-GPU follow-on job 50096 FAILED exit 127 immediately (missing libpython3.12.so.1.0 on compute node); no C6 student/test result. Previous 50000 allocation released.",
+  "snapshot_ist": "31 October 2026, 11:58 IST",
+  "verified_at": "2026-10-31T11:58:52+05:30",
+  "source": "Read-only native Claude Science project/frame SQLite, frozen C5 combined G5 JSON and independent Terra check (11:03–11:05 IST), C6 qualification JSON (11:54 IST), C6 research cycle/protocol deviations (11:56 IST), and one restrained two-account u22 Slurm check at 11:58:52 IST. No experiments, Slurm jobs, splits, coursework, or local handoff/index files modified.",
+  "p1_summary": "C5 COMPLETE: frozen 3-seed G5 FAIL. KD-full minus gold-full nDCG@10 +0.005255 (paired 95% CI [-0.008486,+0.018968]; seeds 17 +0.009897, 29 +0.003355, 41 +0.002513); missed +0.010 threshold and CI lower bound >0 despite positive seeds. Gold-full minus untouched +0.075984 [0.042879,0.109478]. SciFact HOLDOUT 200 fully spent, previously viewed in C2. C6: NFCorpus and FiQA 100,000 teacher pairs each, validation-only teacher qualifications PASS; 24 frozen student fits reportedly started 11:54 under existing job 50107 on 4 GPUs, no student/test metrics. Job 50163 pending 4 requested, 0 allocated.",
   "p5_summary": "B3R completed (1,000 TRAIN, 200 DEV, 3 seeds, 24 adapter fits, 9,857 physical shared-cache teacher scores); set-aware FS@2 loses to random at both budgets. B2 DEV AUROC 0.882; high-precision bridge stopping still consumes 9.58/10 paragraphs. P5 native session completed at 09:09; open-corpus confirmation unverified.",
   "jobs": [
     {
       "track": "P1",
-      "experiment": "C5 seed17 · job 50071",
-      "status": "Seed17 gold/KD training pair COMPLETE; job canceled afterward under frozen D4 to avoid duplicate seed work. No interim nDCG/G5 read (native P1 report 10:41 IST)."
+      "experiment": "C5 full-encoder · three-seed G5",
+      "status": "COMPLETE, frozen gate FAIL: KD−gold +0.005255 nDCG@10; 95% CI crosses 0; all three seeds complete. No active C5 job at 11:58."
     },
     {
       "track": "P1",
-      "experiment": "C5 seed29 · job 50088",
-      "status": "COMPLETED (exit 0), seed29 gold/KD fit pair confirmed by RUN_STATE, GPU released at 10:58; combined G5 NOT YET computed."
+      "experiment": "C6 main · job 50107, vramanrs",
+      "status": "RUNNING on 4 allocated u22 research/medium GPUs, gnode025 at 11:58; 100k FiQA and 100k NFCorpus teacher pairs complete; qualified on DEV, 24 student fits launched per 11:54 research log, no student test results."
     },
     {
       "track": "P1",
-      "experiment": "C5 seed41 · job 50089",
-      "status": "RUNNING, 1 allocated u22 research/medium GPU, gnode012 at 10:58; seed41 pair not yet complete."
-    },
-    {
-      "track": "P1",
-      "experiment": "C6 NFCorpus · job 50000",
-      "status": "Previously canceled/released after NFCorpus 100,000 teacher scores; no C6 student fit or test metric."
-    },
-    {
-      "track": "P1",
-      "experiment": "C6 FiQA/training · job 50096",
-      "status": "FAILED (exit 127) on allocation attempt at 10:53 IST; venv Python cannot load libpython3.12.so.1.0. 0 current GPUs, no student/evaluation result; stale RUN_STATE marked RUNNING is not authoritative."
+      "experiment": "C6 parallel fits · job 50163, nilan",
+      "status": "PENDING (AssocGrpGRES), 4 GPUs REQUESTED but 0 allocated at 11:58. Inputs verified; no duplicate running worker confirmed."
     },
     {
       "track": "P5",
@@ -46,10 +36,10 @@
       "status": "NOT VERIFIED; no open-corpus or cross-dataset positive result in the inspected native P5 session."
     }
   ],
-  "p1_gate": "C5 final three-seed G5 NOT MEASURED. D4 seed17 and seed29 gold/KD fit pairs finished; seed41 is running. Frozen G5 requires seed-averaged KD−gold nDCG@10 >= +0.010, positive paired-bootstrap 95% CI lower bound, and positive gains for all seeds; compute once after all three pairs and verify A0/protocol equivalence. C6 H6a/H6b NOT MEASURED; FiQA teacher and student fits/test still outstanding. SciFact HOLDOUT 200 was exposed earlier in C2 and its re-use is a study limitation.",
+  "p1_gate": "C5 frozen G5 FAIL after three complete gold/KD fits per seed 17,29,41: KD-full − G-full +0.0052552 nDCG@10, paired 95% CI [-0.0084858,+0.0189676], n=200, 10,000 query bootstrap draws; seed gains [+0.0098974,+0.0033547,+0.0025134]. Mean below +0.010 and CI lower below zero. One combined final evaluation; prior holdout C2 access and incremental instrumentation are limitations. C5 HOLDOUT is fully spent and must not be reused. C6 teacher-vs-initial-student validation qualification PASS on both datasets but student G100/K100/G10/K10 fits and official tests remain unmeasured.",
   "p5_gate": "B3R DEV pilot does NOT support set-aware selection: paired FS@2 differences vs random −0.025 [−0.058,+0.010] at 2 pairs/question and −0.027 [−0.057,−0.000] at 5. No confirmed +0.03 held-out gain; 5-pair teacher tokens not matched and this is an adapter-only closed-candidate test.",
-  "notes": "Evidence snapshot 10:59 IST, NOT continuous job telemetry. C5 seed-level artifact presence does not establish the combined three-seed confirmatory gate. One actual u22 research/medium GPU allocated to verified running C5 50089; C6 50096 failed with no currently allocated GPUs. No raw lab data, credentials, private frame text or absolute local paths published.",
-  "latest_result": "10:59 IST verification: C5 50088 COMPLETED (exit 0; seed29 pair complete in run state), 50089 RUNNING on 1 allocated GPU; seed17 pair had already finished. Final combined three-seed C5 G5 is still absent and interim holdout metrics were not inspected. C6 50096 FAILED immediately with exit code 127 due to missing libpython3.12.so.1.0; its stale RUN_STATE=RUNNING must not be interpreted as a live allocation. C6 has no student retrieval outcome. P5 B3R negative DEV pilot unchanged.",
+  "notes": "Dated static evidence snapshot, NOT continuous telemetry. C5 confirmatory 3-seed test is finished and FAIL; prior 10:59 snapshot is obsolete. C6 teacher validation is not a student result. C6 training was reported started at 11:54 and live 4-GPU allocation verified at 11:58; per-seed C6 metrics and held-out tests are pending. P5 B3R negative DEV result unchanged. Public version strips credentials, raw logs and private queries.",
+  "latest_result": "11:58 IST verification: P1 C5 combined 3-seed full-encoder gate FAIL (+0.005255 nDCG@10, paired CI [-0.008486,+0.018968], n=200), although all seed effects are positive; gold-only vs untouched +0.075984 [0.042879,0.109478]. P1 C6 both teachers qualify on VALIDATION only (FiQA +0.0738 [0.0352,0.1143]; NFCorpus +0.0411 [0.0193,0.0633]); these are teacher-vs-initial-student effects, NOT distilled-student improvements. At 11:58 4 GPUs allocated to vramanrs C6 job 50107, 4 GPUs requested but 0 allocated for nilan job 50163. P5 B3R negative DEV result unchanged; no new P5 sealed holdout.",
   "gpu_verified": {
     "partition": "u22",
     "qos": "research/medium",
@@ -57,27 +47,26 @@
     "vramanrs_max_gpus": 4,
     "vramanrs_cvit_normal_max_gpus_separate": 1,
     "active_allocations_confirmed": 1,
-    "active_gpus_confirmed": 1,
-    "pending_jobs_without_gpus": 0,
-    "verified_at": "2026-10-31T10:58:19+05:30",
-    "note": "Read-only u22 squeue for both authorized identities at 10:58: job 50089 RUNNING with 1 GPU (nilan); no running u22 vramanrs job. One subsequent sacct check confirmed 50088 COMPLETED (exit 0), 50089 RUNNING and 50096 FAILED (127:0). The 50096 submission briefly obtained allocation before immediately failing; it is NOT allocated now. This is a point-in-time check, not continuous monitoring.",
-    "observed_gpu_model": "Model not rechecked inside CUDA at 10:58; node gnode012 was observed."
+    "active_gpus_confirmed": 4,
+    "pending_jobs_without_gpus": 1,
+    "verified_at": "2026-10-31T11:58:52+05:30",
+    "note": "One restrained live squeue check using both authorized identities: vramanrs 50107 RUNNING, gres/gpu:4 on gnode025; nilan 50163 PENDING, gres/gpu:4 requested, 0 allocated, reason AssocGrpGRES. GTX 1080 Ti model comes from saved node runtime record, not this Slurm query. No GPU was counted twice."
   },
   "blockers": [
-    "C5 G5 remains unmeasured: seed17 and seed29 fit pairs complete, seed41 running. Do not read single-seed holdout metrics or report pass/fail before combined three-seed evaluator.",
-    "C6 job 50096 failed instantly with exit 127 (missing libpython3.12.so.1.0 in the virtual environment on gnode033); no training/evaluation. Earlier RUN_STATE=RUNNING is stale. Diagnose environment without changing scientific protocol or launching duplicate jobs.",
-    "At 10:58 IST one u22 GPU was actually allocated (C5 50089), not four. Job 50088 completed and 50096 failed/released. Confirm anew before citing current compute.",
-    "C6 bge-v2-m3 offline snapshot reportedly matched 6/6 file hashes; the paired model/teacher score validity and end-to-end teacher-input-token plus GPU-hour accounting must still be checked after execution.",
-    "C5 SciFact HOLDOUT 200 was evaluated in C2 and is frozen for final C5 use. Earlier per-fit holdout instrumentation complicates single-look semantics; do not adaptively inspect or tune from seed outputs.",
-    "P5 B3R set-aware minus random FS@2 = −0.025 [−0.058,+0.010] at 2 labels/q and −0.027 [−0.057,−0.000] at 5 on 200 DEV questions. Bootstrap resamples queries after 3-seed averaging, not independent training runs; multiple comparisons unadjusted.",
-    "P5 B3R five-label teacher input tokens differ: random 971,006 versus set-aware 1,252,556 (+29%). Student is a frozen-encoder residual adapter with closed 10-passage candidate sets; no evidence for full bi-encoder or open-corpus gains.",
-    "The original P5 400-question pilot holdout is exposed. Clean independent and open-pool HotpotQA/MuSiQue transfer remain unverified; SCARLet, PRD, DISCo and SetR narrow novelty.",
-    "Public site is a dated static research snapshot, not live job telemetry. A checkpoint, pending job or GPU allocation is not an observed student-retrieval improvement."
+    "C5 G5 is a measured FAIL despite positive seed effects: +0.005255 [-0.008486,+0.018968], below predeclared +0.010. SciFact 200 HOLDOUT is spent; no new tuning/evaluation on it.",
+    "C5 bootstrap resamples the 200 queries after seed-averaging; only 3 training seeds. Prior C2 holdout exposure and per-fit instrumentation limit clean confirmatory interpretation. Do not infer universal KD failure from this one benchmark.",
+    "C6 VALIDATION teacher superiority (FiQA +0.0738; NFCorpus +0.0411) is not student distillation transfer. Teacher scores complete for 100k pairs per dataset; frozen 24 student fits and official test comparisons remain unmeasured.",
+    "C6 execution deviation D-C6-2 used 7 row-sharded FiQA BGE scoring passes, with approximately 5,786 GPU-s logged, preserving candidate rows and model snapshot; possible batch-boundary floating-point differences and wasted abandoned partial scorer compute must be disclosed.",
+    "At 11:58 IST vramanrs 50107 had 4 actual GPUs, nilan 50163 was pending with 0. Existing GPU quotas are per identity, not pooled availability. Do not launch or cancel duplicate jobs.",
+    "P5 B3R set-aware minus random FS@2 = -0.025 [-0.058,+0.010] at 2 labels/q and -0.027 [-0.057,-0.000] at 5 on 200 DEV queries. CIs resample questions after averaging seeds, not seed variance; multiple comparisons not adjusted.",
+    "P5 B3R 5-label teacher input tokens unequal (random 971,006 vs set-aware 1,252,556, ~29% more). Original 400-question pilot holdout exposed, new 2,000-question stage-two holdout lacks a confirmatory result.",
+    "P5 inference-time set selection/stopping has strong prior art (DISCo, SetR, SCARLet, PRD); cost-matched sufficiency-boundary acquisition remains an UNTESTED hypothesis.",
+    "The public page is a static dated research explanation and does not access private Mac or Ada sessions."
   ],
   "audit": {
-    "methodology": "C5 full bi-encoder D3 preserves 256/64 sequence lengths and D2 effective batch via accumulation; D4 splits seeds 17/29/41 into separate output-owned GPU jobs. Paired nDCG/CI must be computed once after all six gold/KD fits. C6 completed NFCorpus teacher pairs but no 3-seed cross-domain student outcome. P5 B3R CIs bootstrap 200 DEV questions after averaging three seeds (seed variance omitted), with selection heuristics rather than a true boundary-aware oracle, residual adapter student, and unadjusted comparisons. At 10:59 the D4 seed29 pair was complete, but no interim holdout metric was inspected; a single combined G5 evaluation remains pending.",
-    "split_integrity": "P1 C5 SciFact 505 train, INNER 100, 200 HOLDOUT previously exposed at C2 and reserved for G5; no early read of seed17's final holdout metrics in the native report. C6 official NFCorpus test 323 and FiQA test 648 queries, reserved for final evaluator; no test metric. P5 B3R TRAIN 1000 sampled from 6742, DEV 200, split manifest frozen; prior 400-question pilot holdout exposed and excluded from new claims. New 2000-question P5 holdout remains unverified as a confirmatory result.",
-    "cost": "P1 C6 NFCorpus MedCPT teacher scored 100,000 candidate pairs, FiQA teacher and end-to-end GPU-hours not yet finalized; C5 reuses pinned teacher scores. P5 B3R 9,857 physical union teacher endpoints, but per-arm uncached costs: 2 labels random 508,381 input tokens, set-aware 508,091; 5 labels random 971,006 versus set-aware 1,252,556 (+29%). Pair budget alone is not matched token cost.",
+    "methodology": "P1 C5 D4 all six gold/KD fits completed with 256/64 token lengths, no fallback, A0 per-query agreement; 3-seed frozen combined G5 computed once, independently checked, FAIL. Query-bootstrap CI on seed-average, n=200, no training-seed bootstrap. P1 C6 two teacher qualification PASS results are only 200-query validation reranking effects, not gains from fitting 24 student models. D-C6-2 shard scoring introduces possible float-noise differences. P5 B3R 200 DEV, three seeds, adapter-only student, query-bootstrap without full seed uncertainty and unadjusted policy comparisons.",
+    "split_integrity": "P1 C5 SciFact 505 train, INNER 100, 200 holdout previously read in C2 and now spent on final 3-seed G5; do not reuse. P1 C6 NFCorpus official test 323 and FiQA 648, no verified final student test outcome; validation 200 per dataset used only for teacher qualification/tau. P5 B3R 1000 TRAIN, 200 DEV; original 400 pilot holdout exposed, independent 2000 stage-two holdout not confirmed as tested.",
+    "cost": "P1 C6 100,000 teacher pairs each on NFCorpus (MedCPT) and FiQA (BGE v2 m3); FiQA 7-shard pass 5,786 GPU-s and abandoned partial work must be counted as waste in true end-to-end cost. P1 C5 pinned cached teacher, but complete GPU-hours/teacher-token accounting remains to be finalized. P5 B3R 9,857 physical shared-cache teacher endpoints; random vs set-aware token costs at 5 labels differ ~29%.",
     "novelty": "P1 learning from expensive teacher selection has GPL, PairDistill and related precedents; P5 set interaction utility overlaps SCARLet and efficient pairwise distillation overlaps PRD; DISCo and SetR challenge inference-time novelty. B3R set-aware ranking/diversity heuristic is not the proposed sufficiency-boundary acquisition. No A* or new method claim is established."
   },
   "evidence": [
@@ -176,6 +165,18 @@
     {
       "claim": "P1 handoff task kept separate and byte-verified",
       "local_source": "Codex-authored task transfer index revision 1, staged until native acknowledgement (private)"
+    },
+    {
+      "claim": "C5 3-seed final G5 FAIL, per-seed effects and 10k paired bootstrap",
+      "local_source": "ire-project/ire-fullencoder-c5-20261031/shared/run-002-ada/results-d4-combined/g5.json (confirmed by independent TERRA_G5_CHECK.md)"
+    },
+    {
+      "claim": "C6 both teachers pass validation-only superiority, tau and pair counts",
+      "local_source": "ire-project/ire-multidomain-c6-20261031/shared/run-001/sync-x/qualification_tau.json"
+    },
+    {
+      "claim": "C6 11:54 merged FiQA 7 shards, main 4-GPU student training launch and pending supplementary job",
+      "local_source": "ire-project/IRE_CEOUS_RESEARCH_CYCLES.md, 11:54–11:56 entry; read-only live Slurm 11:58 IST"
     }
   ],
   "public_literature": [
@@ -194,5 +195,64 @@
       "url": "https://arxiv.org/abs/2112.07577",
       "relevance": "P1 distillation baseline precedent"
     }
-  ]
+  ],
+  "c5_confirmatory": {
+    "verdict": "FAIL",
+    "metric": "nDCG@10",
+    "n_holdout_queries": 200,
+    "n_seeds": 3,
+    "seeds": [
+      17,
+      29,
+      41
+    ],
+    "gold_full_mean": 0.7547766999,
+    "kd_full_mean": 0.7600318997,
+    "kd_minus_gold_mean": 0.0052551998,
+    "paired_95ci": [
+      -0.008485823,
+      0.0189676478
+    ],
+    "per_seed_gains": [
+      0.0098974461,
+      0.0033547365,
+      0.0025134167
+    ],
+    "gold_minus_initial_mean": 0.0759844876,
+    "gold_minus_initial_ci95": [
+      0.0428792437,
+      0.1094780518
+    ],
+    "frozen_pass_rule": "KD gain ≥ 0.010; paired 95% CI lower >0; positive gain for every seed",
+    "method": "10,000 paired bootstrap resamples of 200 holdout queries on seed-averaged per-query differences",
+    "evidence": "C5 results-d4-combined/g5.json; independent TERRA_G5_CHECK.md; 3 per-seed CSV SHA-256s verified",
+    "limitations": "SciFact 200-query holdout earlier accessed in C2; per-fit instrumentation reduces clean single-look interpretation; bootstrap does not capture seed variability."
+  },
+  "c6_teacher_qualification": {
+    "kind": "VALIDATION-ONLY teacher ranking vs initial student, NOT student training improvement",
+    "n_val_queries_each": 200,
+    "scored_teacher_pairs_each": 100000,
+    "fiqa": {
+      "teacher": "BGE reranker v2 m3",
+      "gain": 0.0738078057,
+      "paired_95ci": [
+        0.0352155287,
+        0.1142955996
+      ],
+      "tau": 1,
+      "qualified": true
+    },
+    "nfcorpus": {
+      "teacher": "MedCPT cross-encoder",
+      "gain": 0.0411142166,
+      "paired_95ci": [
+        0.0193306419,
+        0.0633499946
+      ],
+      "tau": 4,
+      "qualified": true
+    },
+    "student_fits": "Reported launched at 11:54 IST, not evaluated",
+    "official_test": "Not accessed for final student evaluation at snapshot; no result"
+  }
 }
