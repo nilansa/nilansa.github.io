@@ -257,7 +257,7 @@
     {
       "title": "Vendi-RAG — diversity/quality adaptive retrieval (Findings EMNLP 2026)",
       "url": "https://aclanthology.org/2026.findings-emnlp.1499/",
-      "relevance": "Already optimizes set-level semantic diversity and query relevance, with LLM answer-quality feedback on HotpotQA/MuSiQue/2Wiki; narrows Direction A method novelty."
+      "relevance": "Already tests set-level semantic diversity, relevance and LLM answer-quality feedback on HotpotQA/MuSiQue/2Wiki. The fixed-s no-judge variant captures most gain with no extra inference cost and should be a cost-matched baseline. Its +1.6 MuSiQue answer-accuracy-point gain is against Adaptive Retrieval + MMR in the paper's setup, not our experiment."
     }
   ],
   "c5_confirmatory": {
@@ -735,6 +735,8 @@
     "title": "Vendi-RAG: Adaptively Trading-Off Diversity And Quality Significantly Improves Retrieval Augmented Generation With LLMs",
     "venue": "Findings EMNLP 2026",
     "source": "https://aclanthology.org/2026.findings-emnlp.1499/",
-    "interpretation": "Set-wise diversity and feedback-guided balancing are demonstrated prior art; Direction A must use a strong matching baseline and cannot claim these features alone as novelty. No Stage 2, teacher, GPU or reader result."
+    "interpretation": "Set-wise diversity and feedback-guided balancing are demonstrated prior art; Direction A must use a strong matching baseline and cannot claim these features alone as novelty. No Stage 2, teacher, GPU or reader result.",
+    "refinement": "The published fixed-s/no-judge arm captures most gains at no additional inference cost; compare it separately from expensive feedback-guided adaptation. The +1.6-point MuSiQue figure belongs to the paper's evaluation, not ASD-STE100. No new P5 measurement.",
+    "refinement_checked_on": "2026-11-01"
   }
 }
