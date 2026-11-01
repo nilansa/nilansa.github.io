@@ -784,5 +784,23 @@
     "index_seconds": 0.53,
     "total_run_seconds": 5.02,
     "note": "One local CPU run; cannot compare latency with DISCo or ColBERT until corpus, hardware and end-to-end timing protocol match. Evidence lengths reported as whitespace words, not actual model tokens."
+  },
+  "execution_provenance_audit_2026_11_01": {
+    "checked_on": "2026-11-01, afternoon IST",
+    "source_types": [
+      "read-only Slurm squeue/sacct on authorized Ada account",
+      "frozen C5 seed run-state files and three-seed gate",
+      "frozen C6 final gate and documented scoring-shard deviation",
+      "original native Claude Science frames"
+    ],
+    "live_queue_at_check": "No jobs for the two authorized research identities; point-in-time observation only.",
+    "original_allocations": "The historical original C5 and C6 Slurm allocations were CANCELLED; do not misreport these specific allocations as completed jobs.",
+    "c5_source_discrepancy": "The earlier C5 D3 run-state JSON still says running, but its original Slurm allocation is cancelled. Separate later seed-fit run-state files are marked complete, and the frozen three-seed combined G5 gate has been independently recomputed.",
+    "c5_final_gate_sha256": "9f8bc533aee8ceef769bf38742a4d07cfba2c768805e6945eca05614f976e9f2",
+    "c6_source_discrepancy": "The original C6 allocation was cancelled; documented later sharded scoring and frozen final gates are distinct. The frozen final gate file says COMPLETE and has an independent numerical check.",
+    "c6_final_gate_sha256": "ec7ea2a6450add488615f907b28fd06d97171c46b9112c7739ce8298c03295a4",
+    "scientific_effect": "No change to C5 FAIL, C6 full-gold FAIL, exposure-confounded low-gold PASS, or P5 BM25 Stage-1 results.",
+    "new_jobs_or_evaluations": false,
+    "public_note": "Only sanitized execution-state qualifications are published; no credentials, usernames, raw logs, paths or datasets."
   }
 }
