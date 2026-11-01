@@ -727,7 +727,13 @@
     "scientific_interpretation": "Measured weak CPU BM25 baseline, not a novel method or performance gain. Transductive DEV-derived candidate corpus is substantially narrower than production open-corpus retrieval; two-hop stratification and 150 questions limit generality. Other baselines not yet run.",
     "next_step": "Native Science should finish its short report and review corpus parity/strong BM25/ColBERT/DISCo feasibility before any additional authorized comparison; do not rerun this Stage-1 pilot or use P1 teacher resources.",
     "source": "Existing native Claude Science P5 frame 147b175d (ack message index 175, checkpoint index 192), frozen protocol, sample, retrieval log and metrics independently audited at 21:08 IST.",
-    "science_final_message": "Native Science P5 final Stage-1 checkpoint message index 192; frame completed 21:09:22 IST"
+    "science_final_message": "Native Science P5 final Stage-1 checkpoint message index 192; frame completed 21:09:22 IST",
+    "bm25_mean_evidence_words_at_2_3_5": [
+      165.19333333333333,
+      253.31333333333333,
+      425.20666666666665
+    ],
+    "context_cost_interpretation": "Existing native Stage-1 metrics: average retrieved evidence length grows from 165.2 words at K=2 to 425.2 at K=5; document-K improvements are not resource-matched. Stage-2 systems must match and disclose passage count, evidence tokens/words, latency and verifier calls. No new results or jobs."
   },
   "literature_update_2026_11_01": {
     "checked_at_ist": "2026-11-01 04:00 IST",
