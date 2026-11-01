@@ -771,5 +771,18 @@
     "exact_normalized_hotpot_question_overlap": 0,
     "method": "Native Claude Science Stage-1 PROTOCOL.md, freeze_info.json and metrics.json, each read through authenticated Mac and checked against native artifact version SHA-256; public HF mirror independently verifies file SHA-256",
     "caveat": "Qrels used for eligibility and evaluation, not retrieval or corpus selection. Zero exact matching questions cannot establish independence from paraphrases, pretrained knowledge, or shared source passages. DEV-derived closed corpus limits generalization."
+  },
+  "p5_stage1_runtime_audit": {
+    "audit_date": "2026-11-01",
+    "source": "Original native P5 saved retrieve_log.json and frozen PROTOCOL.md; existing 150-query BM25 run on 2026-10-31, not a new run",
+    "source_sha256": "50158566c9d44a732bccb40624e4d37df85a6c99ca5674754f018dad3453658d",
+    "corpus_size": 21100,
+    "queries": 150,
+    "top_k_retrieved": 5,
+    "mean_query_ms": 29.892717997233074,
+    "p95_query_ms": 44.81302499771117,
+    "index_seconds": 0.53,
+    "total_run_seconds": 5.02,
+    "note": "One local CPU run; cannot compare latency with DISCo or ColBERT until corpus, hardware and end-to-end timing protocol match. Evidence lengths reported as whitespace words, not actual model tokens."
   }
 }
