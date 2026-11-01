@@ -738,5 +738,17 @@
     "interpretation": "Set-wise diversity and feedback-guided balancing are demonstrated prior art; Direction A must use a strong matching baseline and cannot claim these features alone as novelty. No Stage 2, teacher, GPU or reader result.",
     "refinement": "The published fixed-s/no-judge arm captures most gains at no additional inference cost; compare it separately from expensive feedback-guided adaptation. The +1.6-point MuSiQue figure belongs to the paper's evaluation, not ASD-STE100. No new P5 measurement.",
     "refinement_checked_on": "2026-11-01"
+  },
+  "implementation_feasibility": {
+    "verified_date": "2026-11-01",
+    "status": "Official DISCo MuSiQue adapter not yet implemented or executed",
+    "finding": "The official DISCo loader implements BEIR and LoTTE, not MuSiQue. Its BEIR get_data reads qrels internally before discarding them, so a qrel-blind adapter is needed to preserve this study's retrieval/evaluation separation. The published run commands use PLAID plus eight random-hyperplane index variants by default; an example with eight GPUs is not a required allocation. Same 21,100-paragraph frozen corpus and consistent IDs must be established before a matched Stage-2 run.",
+    "sources": [
+      "https://github.com/structlearning/DISCo/blob/main/src/dataloader.py",
+      "https://github.com/structlearning/DISCo/blob/main/COMMANDS.md",
+      "https://github.com/structlearning/DISCo/blob/main/configs/retrieval.yaml"
+    ],
+    "evidence_type": "Verified repository implementation detail, not a measured experimental result",
+    "science_snapshot_unchanged": true
   }
 }
