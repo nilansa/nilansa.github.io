@@ -750,5 +750,20 @@
     ],
     "evidence_type": "Verified repository implementation detail, not a measured experimental result",
     "science_snapshot_unchanged": true
+  },
+  "stage1_provenance_audit": {
+    "checked_on": "2026-11-01",
+    "change_type": "reproducibility metadata only; no experiment or new result",
+    "source": "https://huggingface.co/datasets/dgslibisey/MuSiQue/commit/c8f4f8c9465fb69d31a8eae894c3fd509c4ca321",
+    "dataset": "dgslibisey/MuSiQue; musique_ans_v1.0_dev.jsonl (community mirror)",
+    "frozen_revision": "c8f4f8c9465fb69d31a8eae894c3fd509c4ca321",
+    "file_sha256": "15fa63794d18a94ce12411aca6e2327e65b6e83b0b1490efab3f1962e48abf3b",
+    "dev_rows": 2417,
+    "eligible_two_hop": 1252,
+    "selected": 150,
+    "corpus_paragraphs": 21100,
+    "exact_normalized_hotpot_question_overlap": 0,
+    "method": "Native Claude Science Stage-1 PROTOCOL.md, freeze_info.json and metrics.json, each read through authenticated Mac and checked against native artifact version SHA-256; public HF mirror independently verifies file SHA-256",
+    "caveat": "Qrels used for eligibility and evaluation, not retrieval or corpus selection. Zero exact matching questions cannot establish independence from paraphrases, pretrained knowledge, or shared source passages. DEV-derived closed corpus limits generalization."
   }
 }
