@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="description" content="ML contests and shared-task challenge tracker with direct paths to archival research paper submissions.">
+<title>CS Conf · ML competitions and conference-paper routes</title>
+<link rel="stylesheet" href="./board.css">
+<script src="./board.js" defer></script>
+</head>
+<body>
+<header>
+<h1>ML competitions <span class="muted">/ leaderboard → paper</span></h1>
+<p>Practical ML contests, benchmark challenges, and NLP shared tasks, with the publication route spelled out. <strong>Winning a contest does not automatically mean an accepted NeurIPS, ICASSP or ACL paper.</strong></p>
+<nav aria-label="CS Conf sections">
+<a href="./">Conference 90-day board</a>
+<a href="./competitions.html" aria-current="page">ML competitions</a>
+<a href="./opportunities.html">Track prerequisites</a>
+<a href="./research.html">Research atlas + CS rankings</a>
+<a href="/tracker/">Private task tracker</a>
+</nav>
+</header>
+<main>
+<div class="banner important"><strong>SemEval 2027:</strong> The shared-task evaluation period is listed as <strong>10–31 January 2027</strong>. This is an overall planning window; individual tasks may close earlier. System-description papers are a separate February submission (tentative, verify task-specific CFP). Prefer task-specific official websites over a universal cutoff.</div>
+<section class="kpis" aria-label="Competition planning summary">
+<div class="kpi"><strong id="comp-targets">0</strong><span>Competition targets / working / submitted · browser-only</span></div>
+<div class="kpi"><strong>20</strong><span>Initial catalogued challenges and SemEval tasks</span></div>
+<div class="kpi"><strong>12</strong><span>SemEval 2027 tasks to choose among</span></div>
+<div class="kpi"><strong>3</strong><span>Types of paper routes: archival workshop, invited, unconfirmed</span></div>
+</section>
+<h2 id="competition-heading">Contest deadlines and publication pathways</h2>
+<div class="controls" aria-label="Competition filters">
+<label>Time window
+<select id="comp-window">
+<option value="90" selected>Next 90 days</option>
+<option value="future">All upcoming dates</option>
+<option value="past">Past (archive)</option>
+<option value="all">All / TBA</option>
+</select></label>
+<label>Field
+<select id="comp-field">
+<option value="all">All fields</option>
+<option value="nlp">NLP / shared tasks</option>
+<option value="speech">Speech / audio</option>
+<option value="ml">ML and AI</option>
+<option value="wireless">Wireless / radio</option>
+</select></label>
+<label>Publication potential
+<select id="comp-paper">
+<option value="all">All routes</option>
+<option value="yes">Some linked paper path</option>
+</select></label>
+<label>Find challenge
+<input type="search" id="comp-query" placeholder="SemEval, retrieval, agent, ICASSP…">
+</label>
+</div>
+<p id="competition-count" class="summaryline" aria-live="polite">Loading official challenge dates…</p>
+<div class="scroll">
+<table aria-labelledby="competition-heading">
+<thead><tr>
+<th scope="col">Deadline / registration</th>
+<th scope="col">Competition / SemEval task</th>
+<th scope="col">Submission required</th>
+<th scope="col">Competition + paper route</th>
+<th scope="col">Participation rules</th>
+<th scope="col">My private browser status</th>
+<th scope="col">Official source</th>
+</tr></thead>
+<tbody id="competition-rows"><tr><td colspan="7">Loading source-backed competitions…</td></tr></tbody>
+</table>
+</div>
+<p class="table-key">Dates and organizer rules are subject to change. “Paper route” refers to a submission or conditional invitation, <strong>not accepted proceedings by default</strong>. Some contests are competition-only; their row states this explicitly. Mark rejected or irrelevant tasks “Strike through” without deleting them.</p>
+<h2>Three practical routes to a publication</h2>
+<div class="hint-list">
+<p><strong>Shared-task system papers:</strong> SemEval and some NLP workshops invite participating teams to describe reproducible systems. Confirm the exact track, submission policy, page limit and whether accepted papers appear in ACL Anthology. The metric rank and paper peer review are not equivalent.</p>
+<p><strong>Competition with separate conference submission:</strong> Use PAIEC/NeurIPS, ICASSP and other organizer calls to find research directions, then confirm team registration, reproducibility, OpenReview proceedings or report requirements. There may be a competition paper track with separate decisions.</p>
+<p><strong>Winner invitation:</strong> Some competitions offer an invitation to submit a two-page paper, oral presentation or a journal article. An invitation is conditional and is not acceptance without review.</p>
+<p><strong>Unconfirmed publication:</strong> For many challenges the only guaranteed deliverable is an evaluated model or submission. The table displays this as <em>No automatic / no confirmed route</em>, not an archival promise.</p>
+</div>
+<h2>Discovery and monthly review</h2>
+<p>Compare <a href="https://mlcontests.github.io/">ML Contests</a>, <a href="https://www.codabench.org/">CoDaBench</a>, <a href="https://www.kaggle.com/competitions">Kaggle competitions</a>, <a href="https://semeval.github.io/SemEval2027/">SemEval 2027 official site</a>, <a href="https://neurips.cc/">NeurIPS competition tracks</a> and <a href="https://2027.ieeeicassp.org/sp-grand-challenges/">ICASSP Grand Challenges</a>, then validate deadlines on each organizer’s site. Every 30 days, re-evaluate feasibility, compute budget, leaderboard risk, paper requirement, registration gate and novelty.</p>
+<div class="banner">This is a public-safe directory. Status selections are stored in this browser only; neither Claude nor GitHub can see them without an explicit private handoff. Noindex does not make public GitHub Pages private.</div>
+<div id="load-message" role="status" class="muted"></div>
+<div id="copy-notice" role="status" class="muted"></div>
+</main>
+<footer>
+<span id="audit-date">Reading source snapshot…</span>
+· <a href="./competitions.json">Structured competition source data</a>
+· <a href="./acceptance.json">Conference acceptance provenance</a>
+· <a href="https://github.com/nilansa/nilansa.github.io/tree/main/cs-conf">GitHub source</a>
+</footer>
+</body>
+</html>
