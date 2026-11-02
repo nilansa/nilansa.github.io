@@ -49,10 +49,10 @@ function acceptInfo(o){
  return {rec,exactly};
 }
 function gateCell(o,s,today,tr){
- const td=el("td",null,tr),date=el("div",s?fdate(s.date):"TBA",td,"date row-strong");
+ const td=el("td",null,tr),last=stages(o).filter(x=>isPast(x,today)).at(-1);el("div",s?fdate(s.date):last?"Closed "+fdate(last.date):"TBA",td,"date row-strong");
  if(s){el("span",s.label||s.kind,td,"line");el("span",stageDue(s,today),td,"line");if(s.cutoff)el("span",s.cutoff,td,"line");
  if(s.verification&&s.verification!=="official")el("span","Date: "+s.verification,td,"flag warn");
- }else el("span","Next CFP not verified",td,"flag warn");
+ }else if(last){el("span","Last deadline closed · "+last.label,td,"flag alert");}else el("span","Next CFP not verified",td,"flag warn");
  return td;
 }
 function renderWatch(){
@@ -113,11 +113,16 @@ function renderBoard(){
  const now=ist(),mode=$("window").value,end=addDays(now,mode==="all"||mode==="archive"?36500:Number(mode));
  const area=$("area").value,kind=$("kind").value,q=$("search").value.trim().toLowerCase(),view=$("window").value,only=$("shortlisted").checked;
  const all=opps.map(o=>({o,s:chooseStage(o,now)}));
+ const candidates=all.filter(({o,s})=>s&&s.date<=addDays(now,90)&&paperKinds.has(o.kind)&&o.academicEligibility!=="✕");
+ const priority=/\b(NAACL|COLING|ACL|EACL|CVPR|IJCAI|ICML|ICLR|NEURIPS|RSS|PAKDD|WSDM|SIGIR|MIDL|ICASSP|ICDE)\b/i;
+ const score=({o,s})=>(o.academicEligibility==="✓"?7:0)+(priority.test(o.venue)?6:0)+(s.verification==="official"?6:-7)+(o.kind==="industry"||o.kind==="demo"?5:0)+(o.kind==="workshop-paper"?3:0)+(areaOf(o)==="NLP / LLM"||areaOf(o)==="AI / ML"||areaOf(o)==="Vision / 3D"||areaOf(o)==="IR / Data"?4:0)-(gateInfo(o,now).risk==="alert"?4:0);
+ const pool=new Set(candidates.slice().sort((a,b)=>score(b)-score(a)||a.s.date.localeCompare(b.s.date)).slice(0,40).map(x=>x.o.id));
  const visible=all.filter(({o,s})=>{
   const live=s&&s.date<=end;
   if(view==="archive"){if(s)return false; if(!(o.stages||[]).some(v=>v.date&&actKinds.has(v.kind)))return false;}
   else if(view==="all"){/* include TBA */}
   else if(!live)return false;
+  if(view==="90"&&$("focus-pool")?.checked&&!pool.has(o.id)&&!selected(board[o.id]?.state))return false;
   if(area!=="all"&&areaOf(o)!==area)return false;
   if(kind!=="all"&&(kind==="paper"? !paperKinds.has(o.kind):o.kind!==kind))return false;
   if(only&&!selected(board[o.id]?.state))return false;
@@ -127,19 +132,45 @@ function renderBoard(){
  table.replaceChildren();
  visible.forEach(({o,s})=>drawConference(o,s,now,table));
  if(!visible.length)el("tr",null,table).append(el("td","No matching confirmed future stage. Try All dates/TBA or clear filters."));
- const candidates=all.filter(({o,s})=>s&&s.date<=addDays(now,90)&&paperKinds.has(o.kind));
  const planned=opps.filter(o=>selected(board[o.id]?.state));
- if($("candidate-count"))$("candidate-count").textContent=String(candidates.length);
+ if($("candidate-count"))$("candidate-count").textContent=String(pool.size);
  if($("target-count"))$("target-count").textContent=planned.length+" / 10";
  if($("deadline-stat"))$("deadline-stat").textContent=String(all.filter(({s})=>s&&s.date<=addDays(now,30)).length);
  if($("contest-stat"))$("contest-stat").textContent=String(comps.filter(c=>c.deadline&&c.deadline>=now&&c.deadline<=addDays(now,90)).length);
- if($("count-label"))$("count-label").textContent=visible.length+" visible of "+opps.length+" tracked routes. "+candidates.length+" paper/demo/industry/workshop candidate routes within 90 days (not 10 completed submissions).";
+ if($("count-label"))$("count-label").textContent=visible.length+" visible of "+opps.length+" tracked routes. Focused pool "+pool.size+" of "+candidates.length+" eligible candidate routes within 90 days; not submitted papers.";
  if($("plan-note"))$("plan-note").textContent=planned.length<10?"Select "+(10-planned.length)+" more DISTINCT targets to plan 10 submissions; an abstract + its paper count once.":planned.length===10?"10 target routes selected. Verify every prerequisite and eliminate overlapping submissions.":"More than 10 targets selected. Consider narrowing the plan to a feasible 10.";
- renderPreview();
+ renderPreview();renderSlate();
 }
 function renderPreview(){
  const root=$("contest-preview");if(!root)return;root.replaceChildren();const t=ist(),list=comps.filter(c=>c.deadline&&c.deadline>=t).sort((a,b)=>a.deadline.localeCompare(b.deadline)).slice(0,6);
  for(const c of list){const tr=el("tr",null,root);el("td",fdate(c.deadline),tr,"date");const td=el("td",null,tr);link(c.title,c.source,td);el("td",c.stage||"Challenge",tr);el("td",c.paperRouteStatus||"No verified paper route",tr);const last=el("td",null,tr);link("Details","./competitions.html",last);}
+}
+
+const slate=[
+ ["legacy-wsdm-2027","IR / short research paper · verify exact short-track CFP and evidence"],
+ ["legacy-pakdd-2027","Applied data science · retrieval / entity resolution with practical validation"],
+ ["legacy-icde-2027-demonstrations","System demo · live retrieval or data tooling"],
+ ["coling27-industry","NLP industry · measured real-world system pathway"],
+ ["naacl27-demo","NLP demo · working prototype, video, repeatable evaluation"],
+ ["rss27-main","Robotics/physical AI · two-stage, high scientific burden"],
+ ["eacl27-workshop-chomps","LLM hallucination · direct workshop route"],
+ ["eacl27-workshop-linda","Downstream NLP · direct workshop route"],
+ ["ijcai27-ai4science","AI4Science · Jan abstract + Jan full paper; special CFP needs verification"],
+ ["naacl27-student-workshop","Student research · independent study or thesis research"]
+];
+function renderSlate(){
+ const root=$("slate-rows");if(!root)return;root.replaceChildren();const today=ist();
+ slate.forEach(([id,fit])=>{
+ const o=opps.find(o=>o.id===id);if(!o)return;
+ const s=chooseStage(o,today),tr=el("tr",null,root),tc=el("td",null,tr);
+ link(o.venue+" · "+o.track,o.source,tc);
+ el("td",s?fdate(s.date)+" · "+(s.label||"Submission"):"Closed / TBA",tr);
+ el("td",fit,tr);
+ const gate=gateInfo(o,today);el("td",gate.text,tr);
+ const td=el("td",null,tr),selectedNow=selected(board[o.id]?.state),b=el("button",selectedNow?"Remove target":"Add target",td);
+ b.type="button";b.setAttribute("aria-label",(selectedNow?"Remove":"Add")+" target "+o.venue+" "+o.track);
+ b.addEventListener("click",()=>{board[o.id]=board[o.id]||{};board[o.id].state=selectedNow?"watch":"target";board[o.id].updatedAt=new Date().toISOString();save();renderBoard();});
+ });
 }
 function renderCompetition(){
  const root=$("competition-rows");if(!root)return;root.replaceChildren();
@@ -173,7 +204,7 @@ function renderCompetition(){
 }
 function attach(){
  if($("conference-rows")){
-  ["window","area","kind","search","shortlisted"].forEach(id=>{const x=$(id);x.addEventListener(id==="search"?"input":"change",renderBoard);});
+  ["window","area","kind","search","shortlisted","focus-pool"].forEach(id=>{const x=$(id);x.addEventListener(id==="search"?"input":"change",renderBoard);});
   $("review-button").addEventListener("click",()=>{board._lastReviewed=ist();save();showReview();});
   $("copy-plan").addEventListener("click",async()=>{
    const records=opps.filter(o=>selected(board[o.id]?.state)).map(o=>o.venue+" · "+o.track+" | "+board[o.id].state+" | "+o.source);
@@ -186,9 +217,9 @@ function attach(){
 }
 function showReview(){
  if(!$("review-due"))return;
- const date=typeof board._lastReviewed==="string"?board._lastReviewed:"2026-11-02";
- const due=addDays(date,30);
- $("review-due").textContent="30-day editorial review due "+fdate(due)+" · last marked "+fdate(date)+" (this browser only).";
+ const date=typeof board._lastReviewed==="string"?board._lastReviewed:null;
+ const due=addDays(date||"2026-11-02",30);
+ $("review-due").textContent=(date?"Last manually marked "+fdate(date)+" · next local review "+fdate(due):"First 30-day review due "+fdate(due)+" · not yet manually marked on this device")+". Scheduled ChatGPT review is separate from this browser marker.";
 }
 async function init(){
  renderWatch();
