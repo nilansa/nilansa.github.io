@@ -1,6 +1,6 @@
 {
-  "snapshot_ist": "3 November 2026, 03:02 IST — P1 native frame resumed separate read-only mechanism review; frozen C5/C6 and P5 results unchanged",
-  "verified_at": "2026-11-03T03:02:00+05:30",
+  "snapshot_ist": "3 November 2026, early morning IST — P1 separate mechanism review failed on missing native host-folder access; frozen scientific results unchanged",
+  "verified_at": "2026-11-03T04:03:50.320+05:30",
   "source": "Original native Claude Science P1 frame (final scientific decision, 19:09 IST), original native P5 frame (19:24 scientific scout and new 21:06-21:08 CPU Stage-1 execution, assistant acknowledgement and output in existing frame), frozen C5/C6 gate files, P5 B3R pilot, Stage-1 source code and saved predictions independently recomputed. Source data and full local outputs remain private. One restrained read-only Ada check at 21:06 IST showed no jobs for authorized identities. Update 2 Nov 09:15 IST: read-only direct inspection of both original native Science frames and execution records, 24/24 P1 and 10/10 P5 artifact byte-size/SHA256 validation, P1 native transfer acknowledgement, P5 native CPU feasibility worker acceptance, and connected GitHub blob checks. No new retrieval outcome reported. Additional direct 2 Nov 10:03 IST check: native P5 frame messages, execution records, Stage-2 protocol/deviation files, live process and indexer progress, qrel adapter row count and gold file permissions. 24/24 P1 and 10/10 P5 latest native artifacts independently verified against recorded sizes and SHA-256; no private logs published. At 2 Nov 12:02 IST, read-only verification of the original two native frame DB records, 24/24 P1 and 10/10 P5 latest artifact bytes/SHA256, actual native P5 Stage-2 STATUS.md and steps.jsonl, indexer logs, output tree, gold file mode and live processes confirmed CPU timeout at 11:15 IST, no produced ColBERT/DISCo scores, and no continuing main worker. No private raw data or logs published.",
   "p1_summary": "P1 original native Claude Science scientific reset COMPLETED at 15:12 IST. Decision: NO-GO for original teacher-budget selection / full-gold KD as an A*-paper direction. Frozen C5 full-gold KD +0.005255 [−0.008486,+0.018968] FAIL. C6 full-gold KD +0.003430 [−0.002713,+0.009672] FAIL on pooled 971 official test queries; 10%-gold KD +0.066617 [+0.054264,+0.079109] formal PASS, but G10 worsens against the untouched student and K10 sees additional teacher-scored queries. A teacher-content effect at matched query exposure is NOT established. P1 recommends stopping teacher budget selection; a teacher-versus-exposure control is conditional on reopening the program. On 2 Nov 09:15 IST the existing native P1 frame explicitly ACKNOWLEDGED the separate P1 handoff and verified its 7,862-byte artifact SHA-256 and revision-1 index SHA-256; the index itself remains staged until Codex records the acknowledgement.",
   "p5_summary": "P5 Stage-1 CPU BM25 on the frozen 150 MuSiQue DEV questions and 21,100 DEV-derived paragraphs remains complete-support@2/3/5 = 8/17/23. Its original native Claude Science session launched ColBERTv2/PLAID CPU Stage 2 on 2 Nov at 09:45 IST, but the fourth pre-scoring attempt TIMED OUT at 11:15 IST (5400.12 seconds). The main worker exited, the index was not completed, and there are NO ColBERT/DISCo retrieval comparisons, paired intervals, or new reader/teacher/GPU outcomes. The CPU timeout is an engineering feasibility failure, not a scientific negative retrieval result. Prior 200-query set-aware teacher pilot was worse than random and used ~29% more teacher input tokens. The pre-registered CPU feasibility gate explicitly prohibits GPU attempts following this failure; the current Stage-2 run is closed as BLOCKED_CPU. At 19:16 IST on 2 Nov the ORIGINAL native P5 Science frame completed a read-only closeout and acknowledged BLOCKED_CPU/STOP (no GPU). Gold/frozen manifests and absence of an active main worker were checked; no new retrieval scores were produced.",
@@ -49,6 +49,11 @@
       "track": "P1",
       "experiment": "P1 separate handoff acknowledgement",
       "status": "ACKNOWLEDGED in original native P1 frame at 09:15 IST, 2 Nov; SHA verified; index remains Codex-owned"
+    },
+    {
+      "track": "P1",
+      "experiment": "P1 separate mechanism review — native access blocker",
+      "status": "FAILED ~03:04 IST 3 Nov · research-harness folder inaccessible in native host grants; no data collected, no new result; frozen C5/C6 gates unchanged"
     }
   ],
   "p1_gate": "C5 G5 frozen three-seed full-gold KD−gold +0.005255 [−0.008486,+0.018968] FAIL, SciFact 200 spent queries. C6 H6a pooled K100−G100 +0.003430 [−0.002713,+0.009672] FAIL; H6b pooled K10−G10 +0.066617 [+0.054264,+0.079109] PASS over 971 untouched test queries. K10−G100 −0.016034 [−0.024914,−0.007258]. Post-hoc G10−untouched −0.0441 [−0.0585,−0.0295], K10−untouched +0.0225 [+0.0127,+0.0324]: possible low-gold overfitting, and extra query exposure confounds the apparent teacher benefit. Native Science: original contribution NO-GO; label-scarce hypothesis not yet publication-ready.",
@@ -68,6 +73,7 @@
     "note": "A single restrained read-only squeue at 21:06 IST returned no rows for nilan or vramanrs. No Slurm writes; observation is point-in-time. P5 Stage 1 used CPU only."
   },
   "blockers": [
+    "3 Nov 2026 native P1 mechanism-review access blocker: the original frame's separate read-only cached-score review stalled on a host folder that was absent from the Science host-grant list and finished FAILED. Resume only after authorized folder access is resolved; do not duplicate training, teacher calls or use frozen holdouts. This is an operational failure, not an IR-quality conclusion.",
     "P5 Stage 2: fourth native-launched ColBERTv2/PLAID CPU index attempt timed out at 11:15 IST, 2 Nov, after 5400.12s. This is BLOCKED_CPU, not an IR quality verdict. The preregistered PROTOCOL_S2.md explicitly says STOP on CPU feasibility failure and DO NOT ATTEMPT GPU, so no GPU offload or further experiment is authorized under this protocol. Original native P5 Science acknowledged failure at 19:16 IST on 2 Nov; a new experiment would require separately approved protocol, while frozen 150-question/21,100-document inputs and BM25 scores remain unchanged.",
     "Both original Claude Science scientific reset reviews finished 31 Oct. P1 original full-gold teacher-budget hypothesis NO-GO; P5 set-aware teacher allocation NO-GO. A new P5 CPU indexing experiment began 2 Nov, but it has not produced retrieval metrics. Both 2,000-query P5 holdout and other unused tests remain sealed.",
     "P1 native Science final verdict NO-GO for full-gold teacher-feedback-selection A*-paper framing. SciFact 200 held-out questions spent and previously exposed.",
@@ -955,5 +961,18 @@
       "https://github.com/structlearning/DISCo",
       "https://aclanthology.org/2025.acl-long.861/"
     ]
+  },
+  "latest_operational_check": {
+    "checked_at_ist": "2026-11-03T04:03:50.320+05:30",
+    "task_id": "ire-asd-sd100-20261031-001",
+    "p1_original_frame_status": "failed",
+    "p1_failure_time_ist": "2026-11-03T03:04:05+05:30",
+    "p1_failure_scope": "Separate read-only cached-score/harness review; host-folder grants did not include the requested research-harness location; no new scientific result",
+    "p5_original_frame_status": "completed; Stage-2 BLOCKED_CPU previously acknowledged",
+    "gpu_current_occupancy": "Not rechecked in this pass; do not infer live GPU availability",
+    "source": "Original native Science frame records; read-only frozen C5/C6 gate files and native P5 baseline artifact; current GitHub file SHAs",
+    "local_read_limit": "Some Documents-folder diagnostic reads stalled and were not treated as fresh protocol or worker verification",
+    "handoff": "Original P1 handoff/index byte SHA-256 verified; Codex-owned index still staged; ASD local index and listed artifact bytes matched but reconciliation status not changed",
+    "new_scientific_result": false
   }
 }
