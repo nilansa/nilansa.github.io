@@ -20,18 +20,22 @@ details{margin-top:5px}details summary{cursor:pointer;color:#0645ad}.milestones{
 #export{width:100%;min-height:110px;max-width:700px;font:12px/1.5 monospace;white-space:pre}
 .checklists{display:grid;grid-template-columns:1fr 1fr;gap:16px}.checklists li{margin-bottom:6px}
 @media(max-width:760px){body{margin:10px auto}h1{font-size:23px}table{font-size:11px}.checklists{grid-template-columns:1fr}input[type=search]{width:130px}}
-</style>
-</head>
-<body>
-<header>
-<h1>CS Conf — track submission deadlines</h1>
-<p>Track-by-track submission opportunities, prerequisites, workshops, and decisions. Minimal public index; official CFPs control.</p>
-<nav><a href="./">← 90-day submission board</a><a href="./competitions.html">ML competitions</a><a href="/tracker/">Private tasks</a><a href="./sources.md">Source protocol</a><a href="./opportunities.json">Structured opportunity data</a></nav>
-<small id="checked">Audit snapshot: 28 Oct 2026 IST. Deadlines are not a continuously verified feed.</small>
-</header>
-<hr>
-<div class="notice"><strong>Read before submitting:</strong> A mandatory abstract or paper-enrollment deadline can block a later full paper. When your submission status is unknown, the table says <strong>VERIFY</strong>, not "you missed it." Differentiate industry author eligibility from real-world deployment evidence. A workshop <em>organizer proposal</em> is not a workshop <em>paper</em>. Deadline times may vary by organizer.</div>
-<div class="notice"><strong>Privacy and persistence:</strong> Status selectors on this public static page are <strong>this device/browser only</strong>. Nothing is automatically sent to GitHub. Use <a href="#sync">Copy decisions for private GitHub inbox</a> to make an authenticated, durable record. Private submissions/abstract statuses are never published by this page, and cross-device synchronization is <strong>not automatic</strong>.</div>
+</style><link rel="stylesheet" href="./board.css">
+<style>
+.opportunity-page .responsive-table table{min-width:0}
+.opportunity-page .track-name{font-size:13px}
+.opportunity-page .muted-row{text-decoration:none;opacity:.58}
+.opportunity-page .muted-row .track-name{text-decoration:line-through}
+.opportunity-page .status-select{width:145px;max-width:100%}
+@media(max-width:760px){.opportunity-page .responsive-table tbody td[data-label="My status"],.opportunity-page .responsive-table tbody td[data-label="Eligibility & prerequisites"]{grid-column:1/-1}.opportunity-page .status-select{width:100%}}
+</style></head>
+<body class="opportunity-page">
+<header class="site-header"><div class="brandline"><a class="brand" href="./">CS Conf / Research planner</a><span class="aside">Detailed prerequisites</span></div>
+<nav aria-label="CS Conf navigation"><a href="./">Paper deadlines</a><a href="./competitions.html">Challenges & shared tasks</a><a href="./opportunities.html" aria-current="page">All tracks & requirements</a><a href="./research.html">Research atlas</a><a href="/tracker/">My private tasks</a></nav>
+<div class="hero"><p class="page-kicker">Track-level opportunity catalogue</p><h1>Every stage, not just the paper date.</h1><p class="lede">Mandatory abstracts, ARR conditions, demos, workshop submissions and academic-author rules. A recorded cutoff may be blocked by an unconfirmed prerequisite.</p></div>
+<small id="checked">Loading audit snapshot…</small></header>
+<details class="secondary-disclosure"><summary>Important: abstract and registration prerequisites</summary><div class="notice"><strong>Read before submitting:</strong> A mandatory abstract or paper-enrollment deadline can block a later full paper. When your submission status is unknown, the table says <strong>VERIFY</strong>, not "you missed it." Differentiate industry author eligibility from real-world deployment evidence. A workshop <em>organizer proposal</em> is not a workshop <em>paper</em>. Deadline times may vary by organizer.</div>
+<div class="notice"><strong>Privacy:</strong> Changes save <strong>only in this browser</strong>, not across devices. Use the private decision export below for authenticated persistence.</div></details>
 <section class="filters" aria-label="Opportunity filters">
 <label>View <select id="view"><option value="90">Next 90 days</option><option value="future">Beyond 90 days / TBA</option><option value="archive">Expired / archived</option><option value="all">All opportunities</option></select></label>
 <label>Category <select id="category"><option value="all">All categories</option></select></label>
@@ -41,30 +45,17 @@ details{margin-top:5px}details summary{cursor:pointer;color:#0645ad}.milestones{
 <label>Find <input id="query" type="search" placeholder="ACL, speech, workshops…"></label>
 </section>
 <p id="stats" class="stats">Loading opportunities…</p>
-<div class="scroll">
-<table aria-label="Submission-stage opportunities">
-<thead><tr>
-<th>Conference · year · track</th>
-<th>Next actionable stage</th>
-<th>Abstract / prerequisite</th>
-<th>Paper / demo stage</th>
-<th>Attendance registration</th>
-<th>Can I submit?</th>
-<th>Academic team?</th>
-<th>My status (this device only)</th>
-<th>Official CFP</th>
-</tr></thead>
-<tbody id="rows"><tr><td colspan="9">Loading…</td></tr></tbody>
-</table>
-</div>
+<div class="scroll responsive-table"><table aria-label="Submission-stage opportunities">
+<thead><tr><th>Conference & track</th><th>Next recorded cutoff</th><th>Eligibility & prerequisites</th><th>Paper / demo stage</th><th>My status</th><th>Official CFP</th></tr></thead>
+<tbody id="rows"><tr><td colspan="6">Loading…</td></tr></tbody></table></div>
 <p class="muted">Dates are shown with month names; each venue's published local time or AoE appears when known. "Days left" uses the actual cutoff instant if verified, otherwise a date-only estimate. CORE values shown are Hugging Face catalogue metadata, not independently certified track rankings.</p>
-<section id="sync">
+<details id="sync" class="secondary-disclosure"><summary>Save your decisions to private GitHub</summary>
 <h2>Record your decisions privately</h2>
 <p>Choose statuses in the table. Click below to prepare a plain-text decision record with stable opportunity IDs. Copy it into your already authorized <strong>private CS Conf GitHub issue #1</strong>; the scheduled editorial check can read those comments. This is a manual authenticated handoff, not two-way real-time synchronization. Do not paste private status notes into the public repository.</p>
 <p><button type="button" id="copy">Copy all my changed statuses</button> <button type="button" id="reset">Clear this browser's statuses</button> <span id="copy-msg" class="muted"></span></p>
 <textarea id="export" readonly aria-label="Status export for private issue" placeholder="Your decision log will appear here."></textarea>
-</section>
-<section id="audit">
+</details>
+<details id="audit" class="secondary-disclosure"><summary>Coverage audit and checklist</summary>
 <h2>Coverage audit — baseline before repair</h2>
 <p>These are the verified initial data records and the specific 2027 track gaps found on <strong>28 Oct 2026</strong>. “Missing or incomplete” refers to the earlier data model or track rows, not proof that the CFP has already been published.</p>
 <p id="audit-stats" class="muted"></p>
@@ -73,7 +64,7 @@ details{margin-top:5px}details summary{cursor:pointer;color:#0645ad}.milestones{
 <div><h3>Missing or incomplete before repair</h3><ul id="audit-missing"></ul></div>
 </div>
 <p class="muted">Coverage denominator = entries in the actual repository plus a selected gap audit. This is not an exhaustive list of every conference or workshop worldwide. Individual representation learning, mechanistic interpretability, safety, agents/memory, speech, robotics, multimodal medical, neuroscience, and computational-biology workshops need separate annual CFP verification.</p>
-</section>
+</details>
 <footer><hr><small>Editorial task: cs-confs-deadline-tracker-repair-20261028-001 · Public-safe records only · Source catalogue: <a href="https://github.com/huggingface/ai-deadlines">Hugging Face AI Deadlines</a> (discovery, not authority) · <a href="https://ccfddl.com/">CCFDDL</a> · <a href="https://cs-deadlines.cin.ufpe.br/">CS Deadlines</a> · <a href="https://cspicks.roars.dev/csconfs.html?start=2026&amp;end=2027">CSPicks</a></small></footer>
 <script>
 (()=>{
@@ -150,27 +141,34 @@ let chosen=db.opportunities.filter(op=>filterView(op,view)&&(cat==="all"||cat===
 chosen.sort((a,b)=>((actionStage(a)&&approxTime(actionStage(a))?.getTime())||Infinity)-((actionStage(b)&&approxTime(actionStage(b))?.getTime())||Infinity)||a.venue.localeCompare(b.venue));
 const root=$("rows");root.replaceChildren();
 for(const op of chosen){
-const tr=els("tr",null,root),state=labelStatus(op);if(["excluded","withdrawn","done"].includes(state))tr.className="muted-row";
-const c1=els("td",null,tr);els("div",op.venue+" — "+op.track,c1).className="track-name";
-const rk=op.coreRankHint?"CORE "+op.coreRankHint+" (HF metadata, verify)":"CORE not verified";els("div",rk+" · "+op.category,c1).className="note";
-const detail=els("details",null,c1);els("summary","All milestones / caveats",detail);
-els("div",op.notes||"No additional organizer details recorded.",detail).className="note";
-const ul=els("ul",null,detail);ul.className="milestones";const milestones=(op.stages||[]).slice().sort((a,b)=>(a.date||"9999").localeCompare(b.date||"9999"));
-if(!milestones.length)els("li","Official track-specific dates TBA.",ul);
-for(const s of milestones){const li=els("li",s.label+" — "+when(s)+" · "+(s.verification||"unverified").toUpperCase(),ul);if(s.source)link(" source",s.source,li);}
-const c2=els("td",null,tr),next=actionStage(op),gate=nextGate(op,next);els("div",gate|| (next?next.label:"No currently open submission stage"),c2);els("div",gate?(next?"Next recorded cutoff: "+when(next)+" · NOT confirmed actionable":"Review prerequisite status"):next?when(next):(isTBA(op)?"TBA":"Past / archived"),c2).className="note";
-const c3=els("td",prereq(op),tr),c4=els("td",mainDeadline(op),tr);
-const attendee=(op.stages||[]).filter(s=>s.kind==="attendance-registration");
-const c5=els("td",attendee.length?attendee.map(s=>s.label+" — "+when(s)).join("; "):"Attendee registration: TBA / not recorded",tr);
-c5.title="Attendance registration is separate from abstract/paper enrollment, workshop proposals and paper submissions.";
-const c6=els("td",eligibility(op),tr);if(c6.textContent.startsWith("BLOCKED")||c6.textContent.startsWith("VERIFY"))c6.className="warning";
-els("td",op.academicEligibility==="✓"?"✓ Academic team allowed":op.academicEligibility==="✕"?"✕ Industry authorship rule":"? Not verified",tr);
-const c8=els("td",null,tr),sel=els("select",null,c8);sel.className="status-select";sel.setAttribute("aria-label","Personal status for "+op.venue+" "+op.track);
-for(const [value,label] of statuses){const opt=els("option",label,sel);opt.value=value;}sel.value=state;
-sel.addEventListener("change",()=>{if(sel.value)local[op.id]=sel.value;else delete local[op.id];try{localStorage.setItem(storageKey,JSON.stringify(local));$("copy-msg").textContent="Saved on this device only.";}catch(_){$("copy-msg").textContent="Could not save locally; copy your status now.";}render();});
-const c9=els("td",null,tr);link("Official CFP",op.source,c9);
+ const tr=els("tr",null,root),state=labelStatus(op);if(["excluded","withdrawn","done"].includes(state))tr.className="muted-row";
+ const name=els("td",null,tr);name.dataset.label="Conference";
+ link(op.venue+" · "+op.track,op.source,name).className="track-name";
+ const rk=op.coreRankHint?"CORE "+op.coreRankHint+" (venue hint)":"CORE unverified";
+ els("span",rk+" · "+op.category,name).className="note";
+ const d=els("details",null,name);els("summary","Milestones & caveats",d);
+ els("p",op.notes||"No further organizer caveats recorded.",d).className="note";
+ const ul=els("ul",null,d);ul.className="milestones";
+ const ms=(op.stages||[]).slice().sort((x,y)=>(x.date||"9999").localeCompare(y.date||"9999"));
+ if(!ms.length)els("li","Submission dates TBA.",ul);
+ for(const m of ms){const li=els("li",m.label+" — "+when(m)+" · "+(m.verification||"unverified").toUpperCase(),ul);if(m.source)link(" source",m.source,li);}
+ const next=actionStage(op),gate=nextGate(op,next);
+ const cutoff=els("td",null,tr);cutoff.dataset.label="Next cutoff";
+ els("div",gate|| (next?next.label:"No future submission stage"),cutoff).className="warning";
+ els("span",gate?(next?"Recorded (not necessarily actionable): "+when(next):"Check prerequisites"):next?when(next):(isTBA(op)?"TBA":"Closed / archived"),cutoff).className="note";
+ const rules=els("td",null,tr);rules.dataset.label="Eligibility & prerequisites";
+ els("div",eligibility(op),rules);
+ els("span",op.academicEligibility==="✓"?"Academic team allowed":op.academicEligibility==="✕"?"Industry coauthor restriction":"Academic eligibility unverified",rules).className="note";
+ els("span",prereq(op),rules).className="note";
+ const paper=els("td",mainDeadline(op),tr);paper.dataset.label="Paper / demo";
+ if((op.stages||[]).some(x=>x.kind==="attendance-registration"))els("span","Attendee registration dates appear in milestones, separately from paper deadlines.",paper).className="note";
+ const action=els("td",null,tr);action.dataset.label="My status";
+ const sel=els("select",null,action);sel.className="status-select";sel.setAttribute("aria-label","Personal status for "+op.venue+" "+op.track);
+ for(const [value,label] of statuses){const opt=els("option",label,sel);opt.value=value;}sel.value=state;
+ sel.addEventListener("change",()=>{if(sel.value)local[op.id]=sel.value;else delete local[op.id];try{localStorage.setItem(storageKey,JSON.stringify(local));$("copy-msg").textContent="Saved on this device only.";}catch(_){$("copy-msg").textContent="Could not save; copy your changes manually.";}render();});
+ const source=els("td",null,tr);source.dataset.label="Source";link("Official CFP",op.source,source);
 }
-if(!chosen.length){const tr=els("tr",null,root),td=els("td","No matching opportunities; try All or Beyond 90 days / TBA.",tr);td.colSpan=9;}
+if(!chosen.length){const tr=els("tr",null,root),td=els("td","No matching opportunities; try All or Beyond 90 days / TBA.",tr);td.colSpan=6;}
 const all=db.opportunities;
 const verified=all.filter(o=>(o.stages||[]).some(s=>s.verification==="official"&&s.date)).length;
 const unknown=all.filter(o=>isTBA(o)).length;
