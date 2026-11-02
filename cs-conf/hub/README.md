@@ -1,79 +1,46 @@
-# CVPR Research Hypothesis Hub
+# CS Conference Research Hub
 
-A static, no-build-tools paper search and hypothesis workbench for CVPR metadata from 2022 through 2026. It uses plain HTML, CSS, JavaScript, Web Workers, and Python's standard library. There is no server component, JavaScript CDN, external font, or PDF download.
+A static, no-backend paper search and research workbench for conference records from 2022–2026. It uses plain HTML, CSS, JavaScript, Web Workers, and Python build tools. The published site has no runtime package, paid API, embedding asset, external script, or PDF download.
 
 ## Use the site
 
-Serve this directory as static files. For example, from the repository root:
+Serve this directory over HTTP, for example:
 
 ```sh
 python3 -m http.server 8000 --directory cs-conf/hub
 ```
 
-Open the server's root page. The browser fetches a year file only after a search starts. A Web Worker builds a lexical inverted index and ranks title, author, and abstract matches. The ranking uses BM25-style term weights, a title boost, exact phrase boosts, and adjacent-word boosts. Topic clusters are keyword rules and are for discovery only.
+Choose one or more fields, conferences, years, and an optional source topic or area label. CVPR 2026 is selected by default. The coverage table marks source years that are unavailable. Search loads only selected shards, one at a time. A worker scans title, author, and abstract text, scores lexical and phrase matches, and retains at most 200 results from each shard. If the transfer estimate exceeds 30 MB, the page warns and lets you continue. No shard is silently truncated during scanning.
 
-Paper pins and imported pin files stay in this browser's local storage. Search text and Idea Lab packets are not sent anywhere. Use Export pins to save a local JSON copy. Do not put private notes in this public repository.
+Pins stay in browser storage; old CVPR pins using `cvpr-research-hub-pins-v1` remain readable. Search text and Idea Lab packets are not sent to a server. Idea Lab accepts papers from different venues even when they share a field. Every packet is labelled **UNTESTED** and cites each paper's venue and original source.
 
-## Build and validate metadata
+## Corpus and build
 
-The ingester downloads the five JSONL metadata files and one official proceedings HTML listing per year. It uses the listings to match paper titles to CVF's original paper and PDF links. It never downloads a paper PDF.
+The existing `data/2022.json` through `data/2026.json` CVPR corpus is reused without modification. Other available venue/year records are stored in compact JSON at `data/venues/{VENUE}/{year}.json`. `catalog.json` records per-shard counts, byte sizes, checksums, source URLs and revisions, license information when declared, abstract coverage, and unavailable years. An unavailable year is not a zero-paper acceptance count.
 
-```sh
-python3 cs-conf/hub/tools/build_cvpr_hub.py
-```
-
-The script checks each record's year path, title and authors, abstract presence, duplicate title/author key, and safe CVF PDF URL. It matches title records to the official CVF year listing, then uses the listing's paper and PDF URLs where it finds a match. The current source has six records with a null abstract (three in 2022 and three in 2024). It keeps these records, marks the abstract as unavailable, and prevents them from being used as Idea Lab evidence. It writes compact year files and `provenance.json`, which records source and output byte counts, SHA256 values, record counts, CVF listing match counts, repaired-link counts, validation counts, and track signals. The checksums below are from the checked-in generated files, not estimates.
-
-### Corpus snapshot
-
-| Year | Records | File bytes | SHA256 |
-|---|---:|---:|---|
-| 2022 | 2,074 | 4,300,265 | `e64495c6c1564b0e5d46fbfd6adcb7cad067a1ca95c7142780b123c75a499399` |
-| 2023 | 2,353 | 4,949,638 | `bf2d6a05fd2a4b62fbb73332bbab95e3464a3b6319dcd90b9b1df12695895d7e` |
-| 2024 | 2,716 | 5,744,772 | `5cbf968a8a4d576e634bca1c7e3cc10df60d82b31f5bd51a5e14c8b94d12b94a` |
-| 2025 | 2,871 | 6,222,618 | `6d405e18a90ec8f36043fa64bda2eba9eadc2b469a70fb1f9126cfd269ead3c5` |
-| 2026 | 4,069 | 9,014,661 | `a943a072385222f9ed9e1abfb04aa109bd688f7e4c7ea0c329740681bf841695` |
-
-`provenance.json` is the source of truth for those values. The page displays the same counts and hashes. The corpus total is stored there.
-
-## Search from a terminal
-
-The CLI reads the same checked-in JSON files and does not need a network connection:
+The source is the `ai-conferences/{VENUE}{YEAR}` dataset on Hugging Face. The build uses `uv` and `pyarrow` only at build time; these are not browser or runtime dependencies. Rebuilds write one normalized shard at a time and leave identical files untouched:
 
 ```sh
-python3 cs-conf/hub/tools/search_cvpr.py "open vocabulary detection" --years 2024,2025 --limit 8
-python3 cs-conf/hub/tools/search_cvpr.py '"3D reconstruction"' --year 2026 --json
+uv run --with pyarrow python cs-conf/hub/tools/build_conferences.py
 ```
 
-It searches title, author, and abstract fields. A title match ranks above an otherwise similar abstract match. Exact phrases and adjacent query words receive a boost. `--year` can be repeated; `--years` accepts a comma-separated list. `--json` returns full paper records and scores.
-
-## Inspect papers and propose a hypothesis
-
-1. Search a concrete problem, method, or task term in the site or CLI. Open the original CVF paper page and PDF. Read the full paper, including its method, evaluation, limitations, and references. Abstracts alone are not evidence of a result.
-2. Check the CVF page and BibTeX for the publication track. The dataset's `CVPR` label alone does not verify a main-track acceptance. If the source does not confirm a track, the hub labels it **CVPR main candidate**.
-3. In Idea Lab, select a problem paper and a method paper from different keyword clusters. Read the extracted sentences in context. The extraction uses simple sentence patterns; it is not an LLM summary and can miss limitations or contributions.
-4. Treat the output as an **UNTESTED hypothesis**. Choose and cite a strong, task-matched public baseline before a test. Keep the data split, inputs, training budget, compute budget, and metric matched. State in advance what result would falsify the idea. The hub invents no baselines or results.
-5. Search related work and inspect both papers before claiming novelty. A combination of two papers does not prove novelty. Historical acceptance does not guarantee future acceptance.
-
-Example terminal workflow:
+The existing CVPR builder and `search_cvpr.py` are preserved. The multi-venue search CLI is:
 
 ```sh
-python3 cs-conf/hub/tools/search_cvpr.py "domain adaptation segmentation" --years 2023,2024,2025 --limit 12 --json
+python3 cs-conf/hub/tools/search_conferences.py "diffusion restoration" --venue CVPR --venue ECCV --venue ACL --year 2022 --year 2026 --limit 20
+python3 cs-conf/hub/tools/search_conferences.py '"visual instruction tuning"' --venue ACL --venue EMNLP --year 2024 --json
 ```
 
-Open the returned `cvf_url` and `pdf_url` yourself to inspect source papers. This CLI does not download or parse PDFs.
+It reads checked-in JSON only and emits original trusted paper links and source labels. It does not fetch data or PDFs.
 
-## Attribution and limits
+## Source limits
 
-Metadata and abstracts are derived from the [CVPR_Papers dataset](https://huggingface.co/datasets/choucsan/CVPR_Papers), whose dataset card lists an MIT license. The dataset credits Zhishan Zou and identifies CVF Open Access as its source. Paper and PDF references point to the [Computer Vision Foundation Open Access repository](https://openaccess.thecvf.com/). CVF states that paper rights remain with authors or other rights holders. This site stores metadata and abstracts only; it does not redistribute PDFs.
+The dataset is a curated metadata collection. A record in it does not independently verify that the paper appeared in the conference's main track. The page labels track status as unverified unless the source provides a track label, and even a source-provided label remains attributed to that dataset. Only HTTPS paper or PDF URLs on the configured conference publisher domains are retained. Missing and untrusted URLs stay empty.
 
-The source dataset can change. Re-run the ingester to refresh it; each run updates the source and output hashes in `provenance.json`. Topic labels are keyword-derived. Track statements are limited to explicit CVF URL or BibTeX signals. A paper listed here is not a guarantee of acceptance for future work.
+Some ICRA and ICASSP source records do not have abstracts. They remain findable by title and authors, show “Abstract unavailable,” but cannot be selected as evidence in Idea Lab until an abstract and trusted source link are available. A dataset card that declares no license is shown as such; paper rights remain with authors or other rights holders. Field labels and area fallbacks support discovery only. They are not conference rankings, acceptance predictions, or official classifications.
 
-## Checks recorded for this snapshot
+The old CVPR snapshots retain their own provenance in `provenance.json`. See `catalog.json` for actual non-CVPR source revisions, license declarations, counts, and hashes.
 
-Observed results for the current checked-in snapshot (no estimates):
+## Release QA
 
-- Corpus: 14,083 records across five years; six source records have no abstract (three in 2022 and three in 2024). All six remain searchable by title and authors and are marked in the UI.
-- Corpus byte counts and SHA256: generated and recorded in `provenance.json`; the data file bytes are listed above.
-- Python unit tests, Node syntax checks, CLI query, and local static HTTP fetch: results are recorded after the final verification pass.
-- Estimated file sizes: none are presented as measured values.
+Run Python unit tests, JavaScript syntax checks and the Node worker security tests under the tests folder. The Node test checks stored URLs against browser/worker allowlists and checks topic-only filtering. Search ranking is approximate: the Python CLI uses the original CVPR BM25-style scorer, while the browser uses a bounded per-shard lexical scorer, so score scales and result order may differ. Full-text similarity and independent novelty verification are not implemented.
