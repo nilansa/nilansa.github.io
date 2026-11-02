@@ -303,9 +303,9 @@
       "venue": "ACL 2027 co-located workshop",
       "verifiedAt": "2026-11-02",
       "id": "semeval27-compartment",
-      "title": "Task 5 · ComPartMENT: Idiom and Compositionality in Context",
+      "title": "Task 5 · ComPartMENT — Noun Compound and Particle Verb Compositionality Prediction in Context",
       "source": "https://sites.google.com/view/semeval-compartment",
-      "notes": "Evaluation Jan 10–31 per task organizer; Codabench available",
+      "notes": "Compositionality of noun compounds and particle verbs, not idiom classification; task-specific closing time to verify.",
       "priority": "medium",
       "registrationDeadline": null
     },
