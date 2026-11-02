@@ -1,9 +1,9 @@
 {
-  "snapshot_ist": "2 November 2026, 09:15 IST — operational update; scientific results remain from 31 October",
-  "verified_at": "2026-11-02T09:15:05+05:30",
-  "source": "Original native Claude Science P1 frame (final scientific decision, 19:09 IST), original native P5 frame (19:24 scientific scout and new 21:06-21:08 CPU Stage-1 execution, assistant acknowledgement and output in existing frame), frozen C5/C6 gate files, P5 B3R pilot, Stage-1 source code and saved predictions independently recomputed. Source data and full local outputs remain private. One restrained read-only Ada check at 21:06 IST showed no jobs for authorized identities. Update 2 Nov 09:15 IST: read-only direct inspection of both original native Science frames and execution records, 24/24 P1 and 10/10 P5 artifact byte-size/SHA256 validation, P1 native transfer acknowledgement, P5 native CPU feasibility worker acceptance, and connected GitHub blob checks. No new retrieval outcome reported.",
+  "snapshot_ist": "2 November 2026, 10:03 IST — P5 Stage-2 CPU index construction in progress; scientific findings unchanged",
+  "verified_at": "2026-11-02T10:03:43+05:30",
+  "source": "Original native Claude Science P1 frame (final scientific decision, 19:09 IST), original native P5 frame (19:24 scientific scout and new 21:06-21:08 CPU Stage-1 execution, assistant acknowledgement and output in existing frame), frozen C5/C6 gate files, P5 B3R pilot, Stage-1 source code and saved predictions independently recomputed. Source data and full local outputs remain private. One restrained read-only Ada check at 21:06 IST showed no jobs for authorized identities. Update 2 Nov 09:15 IST: read-only direct inspection of both original native Science frames and execution records, 24/24 P1 and 10/10 P5 artifact byte-size/SHA256 validation, P1 native transfer acknowledgement, P5 native CPU feasibility worker acceptance, and connected GitHub blob checks. No new retrieval outcome reported. Additional direct 2 Nov 10:03 IST check: native P5 frame messages, execution records, Stage-2 protocol/deviation files, live process and indexer progress, qrel adapter row count and gold file permissions. 24/24 P1 and 10/10 P5 latest native artifacts independently verified against recorded sizes and SHA-256; no private logs published.",
   "p1_summary": "P1 original native Claude Science scientific reset COMPLETED at 15:12 IST. Decision: NO-GO for original teacher-budget selection / full-gold KD as an A*-paper direction. Frozen C5 full-gold KD +0.005255 [−0.008486,+0.018968] FAIL. C6 full-gold KD +0.003430 [−0.002713,+0.009672] FAIL on pooled 971 official test queries; 10%-gold KD +0.066617 [+0.054264,+0.079109] formal PASS, but G10 worsens against the untouched student and K10 sees additional teacher-scored queries. A teacher-content effect at matched query exposure is NOT established. P1 recommends stopping teacher budget selection; a teacher-versus-exposure control is conditional on reopening the program. On 2 Nov 09:15 IST the existing native P1 frame explicitly ACKNOWLEDGED the separate P1 handoff and verified its 7,862-byte artifact SHA-256 and revision-1 index SHA-256; the index itself remains staged until Codex records the acknowledgement.",
-  "p5_summary": "P5 original native Science review rejected set-aware teacher allocation as novel research; B3R lost to random on 200 DEV with ~29% more teacher tokens at five. New 31 Oct 21:07 IST original-native-Science CPU Stage-1 baseline actually ran once: 150 independently hashed two-hop MuSiQue-Ans DEV questions, 21,100 deduplicated DEV-derived paragraphs, BM25 full-support@2/3/5 0.0533/0.1133/0.1533, 1000-query-bootstrap intervals. Script-level independent re-count matched gold and predictions. This is a small closed DEV-corpus baseline; no DISCo/ColBERT/reader comparison or method improvement demonstrated. The independent 2,000-question P5 holdout remains untouched. At 2 Nov 09:15 IST its original Science frame is actively processing a CPU-only Stage-2 feasibility worker. This is an execution launch, not a measured improvement; no new DISCo/ColBERT/reader results exist.",
+  "p5_summary": "Native P5 completed Stage-1 CPU BM25 on 150 frozen MuSiQue DEV questions and 21,100 DEV-derived paragraphs: complete-support@2/3/5 = 8/17/23 successes. As of 2 Nov 10:03 IST, its ORIGINAL native Claude Science session has launched an actual CPU ColBERTv2/PLAID index builder in Stage 2; fourth pre-scoring attempt is running after documented compatibility fixes. The upstream DISCo corpus adapter has zero qrel rows; gold labels are inaccessible during indexing. NO DISCo/ColBERT-vs-BM25 outcome or new teacher/reader/GPU allocation exists. Previous 200-question set-aware teacher pilot remains worse than random with about 29% higher input-token cost. This is DEV-only closed-corpus research, not a novel-method result.",
   "jobs": [
     {
       "track": "P1",
@@ -43,7 +43,7 @@
     {
       "track": "P5",
       "experiment": "Stage-2 CPU feasibility (native P5 continuation)",
-      "status": "RUNNING at 09:15 IST, 2 Nov · worker accepted; no ColBERTv2/DISCo result or GPU allocation verified"
+      "status": "ACTIVE CPU INDEX BUILD at 10:03 IST, 2 Nov · native P5 run 4 (started 09:45); encoding 21,100 documents; three earlier pre-scoring attempts failed with recorded deviations; no scores or GPU allocation"
     },
     {
       "track": "P1",
@@ -53,8 +53,8 @@
   ],
   "p1_gate": "C5 G5 frozen three-seed full-gold KD−gold +0.005255 [−0.008486,+0.018968] FAIL, SciFact 200 spent queries. C6 H6a pooled K100−G100 +0.003430 [−0.002713,+0.009672] FAIL; H6b pooled K10−G10 +0.066617 [+0.054264,+0.079109] PASS over 971 untouched test queries. K10−G100 −0.016034 [−0.024914,−0.007258]. Post-hoc G10−untouched −0.0441 [−0.0585,−0.0295], K10−untouched +0.0225 [+0.0127,+0.0324]: possible low-gold overfitting, and extra query exposure confounds the apparent teacher benefit. Native Science: original contribution NO-GO; label-scarce hypothesis not yet publication-ready.",
   "p5_gate": "B3R set-aware−random FS@2 200-DEV effect −0.025 [−0.058,+0.010] at 2 labels/q and −0.027 [−0.057,−0.000] at 5, with ~29% more teacher input tokens for set-aware at 5. Larger 4742-DEV2 off-the-shelf reranking comparison shows a descriptive bridge gain for BGE conditioning but comparison-question regression; no sealed holdout or new method.",
-  "notes": "Research snapshot verified 16:05 IST. Both original Science leads completed a read-only scientific PROBLEM RESET at 15:12: P1 NO-GO original teacher-budget/pair selection, P5 NO-GO teacher allocation; P5 conditionally favors testing validity of gold-support as a proxy for actual evidence sufficiency. No new experiments. C6 full-gold KD FAIL; 10%-gold KD PASS with unequal query exposure and weakened G10 baseline. Absence of a statistically detectable gain is not proof of equivalence; explaining the scarcity gain by exposure alone is an UNTESTED hypothesis. P5 gold-support's limitations are not yet demonstrated by audited alternative evidence. Exposed SciFact/pilot holdouts must not be reused.",
-  "latest_result": "2 Nov 09:15 IST: Both original native Claude Science sessions are reachable again. P1 explicitly acknowledged the separately staged handoff after verifying both SHA-256 values; the frozen negative full-gold C5/C6 conclusions are unchanged. P5 acknowledged Stage-2 and started a CPU-only feasibility worker for qrel-blind identical-corpus comparison; no new ColBERTv2/DISCo benchmark outputs exist yet. Stage-1 BM25 remains 8/17/23 complete-support successes at K=2/3/5 (n=150). No teacher/reader or GPU allocations were initiated in this continuation; current Ada occupancy is unverified because SSH hostname resolution failed.",
+  "notes": "P1 full-gold C5/C6 frozen gates remain negative; C6 low-gold PASS is confounded by unequal query exposure. P5 Stage-1 BM25 is a weak DEV-derived closed-corpus baseline. As of 2 Nov 10:03 IST, a native P5 CPU Stage-2 index-build worker is running, with no comparative results. Do not confuse the active worker with a completed benchmark, or qrel-free retrieval with proven answer correctness.",
+  "latest_result": "2 Nov 10:03 IST: The original native P5 Claude Science session has launched the actual CPU ColBERTv2/PLAID index builder (fourth pre-scoring attempt, started 09:45 IST) for the frozen 21,100-document MuSiQue DEV corpus. The indexer process is alive and has completed one 50-batch encoding pass; a second pass has begun. DISCo and comparative scoring have not completed; there is NO new retrieval-quality, latency-comparison or reader outcome. Earlier attempts failed on TSV embedded newlines, missing Ninja PATH, and a fresh-index guard; these deviations were recorded and failed artifacts retained. Zero qrel data rows in the retrieval adapter; gold evaluation file mode 000 while indexing. No GPU, teacher or reader calls. P1 C5/C6 conclusions remain unchanged.",
   "gpu_verified": {
     "partition": "u22",
     "qos": "research/medium",
@@ -68,8 +68,8 @@
     "note": "A single restrained read-only squeue at 21:06 IST returned no rows for nilan or vramanrs. No Slurm writes; observation is point-in-time. P5 Stage 1 used CPU only."
   },
   "blockers": [
-    "P5 Stage 1 CPU BM25 is complete (150 MuSiQue DEV queries; 21,100 DEV-derived paragraphs). On 2 November its original native Science frame accepted a Stage-2 CPU-only feasibility worker, but there is still no matched ColBERTv2/DISCo evidence, reader result or new contribution. Qrel-blind identical-corpus feasibility must be verified before comparison.",
-    "Both original Claude Science scientific resets are now COMPLETE (P1 15:12, P5 15:12 IST). P1 recommends NO-GO teacher-budget and pair-selection thesis; P5 recommends NO-GO allocation and a conditional audit of gold-support metric validity. No new experiments or holdout tests approved or executed.",
+    "P5 Stage 2: a real CPU ColBERTv2/PLAID indexing process is active as of 2 Nov 10:03 IST, after three documented pre-scoring failures. Comparative DISCo, ColBERT and BM25 complete-support metrics and budget-matched latency are not available. Index success and genuine qrel-free paired comparisons remain unverified; do not claim success from a running worker.",
+    "Both original Claude Science scientific reset reviews finished 31 Oct. P1 original full-gold teacher-budget hypothesis NO-GO; P5 set-aware teacher allocation NO-GO. A new P5 CPU indexing experiment began 2 Nov, but it has not produced retrieval metrics. Both 2,000-query P5 holdout and other unused tests remain sealed.",
     "P1 native Science final verdict NO-GO for full-gold teacher-feedback-selection A*-paper framing. SciFact 200 held-out questions spent and previously exposed.",
     "C6 H6a FAIL: pooled full-gold KD +0.00343 CI [−0.00271,+0.00967]. H6b formal PASS: 10%-gold KD +0.06662 CI [+0.05426,+0.07911], but G10 is 0.0441 below untouched; K10 gains only 0.0225 over untouched and sees many more teacher-scored queries. Difference cannot isolate teacher content vs more exposure/weak baseline.",
     "C6 query-bootstrap averages just 3 training seeds; full training-seed uncertainty, hardware/provenance and end-to-end cost not captured; no repeat test permitted.",
@@ -815,13 +815,44 @@
     "public_note": "Only sanitized execution-state qualifications are published; no credentials, usernames, raw logs, paths or datasets."
   },
   "operational_update_2026_11_02": {
-    "as_of_ist": "2026-11-02 09:15 IST",
+    "as_of_ist": "2026-11-02 10:03 IST",
     "native_service": "Existing localhost Claude Science UI authenticated and both original project frames resumed; this is a local operational observation, not a public endpoint.",
     "p1": "Frozen C5/C6 unchanged. Separate P1 closeout handoff explicitly acknowledged in the original frame with exact byte count and SHA-256 verified.",
-    "p5": "Original native P5 acknowledged and accepted a CPU-only Stage-2 feasibility worker. Qrel-blind identical-corpus ColBERTv2/DISCo benchmarking has not produced results.",
+    "p5": "Original native P5 has launched actual 21,100-document ColBERTv2/PLAID CPU indexing (run 4, 09:45 IST); first encoding pass finished and second started. Three failed pre-scoring attempts were documented and retained; no comparisons or new metrics.",
     "dataset": "Existing SHA256-frozen n=150 MuSiQue-Ans DEV sample and 21,100-paragraph corpus; BM25 complete-support@2/3/5 remains 8/17/23.",
-    "compute": "No new GPU, teacher or reader calls initiated by this run; one Ada SSH check failed at DNS resolution, therefore live occupancy is unknown.",
-    "integrity": "All 24 P1 and 10 P5 native artifacts match their saved byte-size and SHA-256. ASD scratch index discrepancy remains unresolved and no transfer occurred.",
+    "compute": "CPU only; no Ada/GPU, teacher or reader invocation from this P5 run. Existing frozen C5/C6 unchanged.",
+    "integrity": "Latest native artifacts independently rechecked 24/24 P1 and 10/10 P5 by byte size and SHA-256; P1 staged handoff/index match. ASD scratch revision-2 index discrepancy persists, so no cross-surface transfer.",
     "scientific_decision": "No new evidence changes the negative full-gold C5/C6 gates or the exposure-confounded C6 low-gold contrast; no novel P5 improvement established."
+  },
+  "p5_stage2_cpu_index_2026_11_02": {
+    "checked_at_ist": "2026-11-02 10:03:43 IST",
+    "launch_source": "Existing native Claude Science P5 frame, not an independent substitute",
+    "status": "RUNNING_CPU_INDEXING_NOT_SCORED",
+    "started_at_ist": "2026-11-02 09:45:23 IST",
+    "frozen_stage1_manifest_sha256": "9bbea3f6a3eb014b6c401715980e80e3f777da79f9a8bbca79e6387ec39e0832",
+    "corpus_size": 21100,
+    "question_count": 150,
+    "upstream_DISCo_commit": "53df0b192a80165135d850c015e1755b6a165136",
+    "checkpoint_revision": "c1e84128e85ef755c096a95bdb06b47793b13acf",
+    "first_50_batch_encoding_pass": "completed",
+    "second_pass": "started, not completed at check",
+    "qrel_adapter_data_rows": 0,
+    "eval_gold_file_permission": "000 during retrieval",
+    "failures_before_current_run": [
+      "embedded newline/tab-separated corpus adapter incompatibility",
+      "missing Ninja executable on worker PATH",
+      "fresh-index guard detected prior failed-run residue"
+    ],
+    "deviations": "Pre-scoring fixes and preserved failed-run outputs; frozen Stage-1 corpus/question IDs and files unchanged. Whitespace-normalized adapter copy, not frozen source.",
+    "new_paired_metrics": false,
+    "gpu_allocations_initiated": 0,
+    "teacher_calls": 0,
+    "reader_calls": 0,
+    "estimated_duration_note": "Native P5 protocol estimates up to six hours for the complete CPU sequence; this is an estimate, not a committed finish time or result.",
+    "scientific_caveat": "Three pre-scoring retries and implementation substitutions need a full audit; first-stage gold-support is not downstream QA. Any claimed gains must have identical corpus, qrel-blind selection, controlled costs and paired query-bootstrap.",
+    "upstream_sources": [
+      "https://github.com/structlearning/DISCo",
+      "https://huggingface.co/colbert-ir/colbertv2.0"
+    ]
   }
 }
