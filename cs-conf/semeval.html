@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="description" content="SemEval 2027 task directory with registration gates, task organizer links and system-description paper pathways.">
+<title>SemEval 2027 shared tasks | CS Conf</title><link rel="stylesheet" href="./board.css"></head>
+<body class="semeval-page">
+<header class="site-header"><div class="brandline"><a class="brand" href="./">CS Conf / Research planner</a><span class="aside">NLP shared tasks</span></div>
+<nav aria-label="CS Conf sections"><a href="./">Paper deadlines</a><a href="./competitions.html" aria-current="page">Challenges & shared tasks</a><a href="./opportunities.html">All tracks & requirements</a><a href="./research.html">Research atlas</a><a href="/tracker/">My private tasks</a></nav></header>
+<main>
+<section class="hero"><p class="page-kicker">SemEval 2027</p><h1>One workshop. Twelve shared tasks.</h1>
+<p class="lede">Compare each task's fit, evaluation rules, registration deadlines and possible system-paper path. A task number is an identifier, not a rank or conference count.</p></section>
+<section class="highlight-panel"><h2>The timeline is not the same for every task</h2>
+<p><strong>General evaluation window:</strong> 10–31 Jan 2027; individual tasks may close earlier. <strong>System-description paper:</strong> separate February submission, tentative until its official CFP is confirmed. <strong>Registration:</strong> task-specific; CLaS currently lists 31 Dec 2026.</p>
+<p>A leaderboard score, task participation, system-paper submission and archival acceptance are different outcomes.</p>
+<p><a href="https://semeval.github.io/SemEval2027/">Official SemEval 2027 task hub</a></p></section>
+<section aria-labelledby="task-directory" class="section">
+<div class="section-heading"><h2 id="task-directory">Individual tasks</h2><p id="task-count">Loading…</p></div>
+<div class="controls"><label>Search tasks<input type="search" id="task-search" placeholder="retrieval, steering, agents, multimodal…"></label>
+<label>Show<select id="task-view"><option value="all">All tasks</option><option value="selected">My selected tasks</option><option value="open">Not struck through</option></select></label></div>
+<div id="task-list" class="task-grid" aria-live="polite"></div>
+<p class="table-key">Your task selections use the same browser-only storage as the competitions page. They are not shared with your other devices or published to GitHub.</p>
+</section>
+<details class="secondary-disclosure"><summary>How a shared-task submission may lead to a paper</summary>
+<p>Read the task-specific CFP, register if required, follow its dataset and evaluation instructions, and submit a separate system-description paper when the official workshop submission route opens. There is no guaranteed paper acceptance for participating or ranking highly.</p>
+</details><div id="task-error" role="status" class="muted"></div>
+</main>
+<footer><a href="./competitions.html">All challenges</a> · <a href="./competitions.json">Task source data</a> · No analytics or third-party scripts.</footer>
+<script>
+(()=>{
+"use strict";
+const $=id=>document.getElementById(id),root=$("task-list"),search=$("task-search"),view=$("task-view");
+const STORE="cs-conf-competition-board-v1";
+const elem=(tag,content,parent,cls)=>{const e=document.createElement(tag);if(content!==null&&content!==undefined)e.textContent=String(content);if(cls)e.className=cls;if(parent)parent.append(e);return e;};
+const date=d=>d?new Intl.DateTimeFormat("en-GB",{day:"numeric",month:"short",year:"numeric",timeZone:"UTC"}).format(new Date(d+"T12:00:00Z")):"TBA";
+let data={},tasks=[];
+try{const v=JSON.parse(localStorage.getItem(STORE)||"{}");if(v&&typeof v==="object")data=v}catch(_){}
+function render(){
+ const q=search.value.toLowerCase().trim(),v=view.value;
+ const matching=tasks.filter(t=>(!q||(t.title+" "+t.notes+" "+t.field).toLowerCase().includes(q))&&(v==="all"||(v==="open"&&data[t.id]!=="skip")||(v==="selected"&&["watch","target","drafting","submitted"].includes(data[t.id]))));
+ root.replaceChildren();$("task-count").textContent=matching.length+" / "+tasks.length+" tasks";
+ for(const t of matching){
+  const card=elem("article",null,root,"task-card"+(data[t.id]==="skip"?" skip":""));
+  const m=/^Task\s+(\d+)\s*·\s*/.exec(t.title||"");
+  elem("span",m?"Task "+m[1]:"Shared task",card,"task-id");
+  elem("h3",m?t.title.slice(m[0].length):t.title,card);
+  if(t.notes)elem("p",t.notes,card);
+  let p=elem("p",null,card);elem("strong","Evaluation: ",p);
+  elem("span",date(t.deadline)+" is the general latest date, not necessarily this task's cutoff.",p);
+  if(t.registrationDeadline){p=elem("p",null,card);elem("strong","Registration deadline: ",p);elem("span",date(t.registrationDeadline),p);}
+  p=elem("p",null,card);const a=elem("a","Task organizer / rules",p);a.href=t.source;a.target="_blank";a.rel="noopener noreferrer";
+  const label=elem("label","My plan",card),sel=elem("select",null,label,"status");
+  [["","Unreviewed"],["watch","Watch"],["target","Target"],["drafting","Working"],["submitted","Submitted"],["skip","Strike through"]].forEach(([val,txt])=>{const o=elem("option",txt,sel);o.value=val;});
+  sel.value=data[t.id]||"";sel.setAttribute("aria-label","Status for "+t.title);
+  sel.addEventListener("change",()=>{data[t.id]=sel.value;try{localStorage.setItem(STORE,JSON.stringify(data))}catch(_){$("task-error").textContent="Local status could not be saved."}render();});
+  const details=elem("details",null,card);elem("summary","Paper route and eligibility",details);
+  elem("p",(t.paperRoute||"System-description paper")+" · "+(t.paperRouteStatus||"Verify workshop policy"),details);
+  elem("p",t.eligibility||"Check task-specific eligibility",details);
+ }
+ if(!matching.length)elem("p","No matching task. Clear search or change the status filter.",root);
+}
+search.addEventListener("input",render);view.addEventListener("change",render);
+fetch("./competitions.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()}).then(x=>{
+ tasks=(x.competitions||[]).filter(t=>t.series==="SemEval 2027").sort((a,b)=>a.title.localeCompare(b.title,undefined,{numeric:true}));
+ render();
+}).catch(e=>{$("task-count").textContent="Could not load";$("task-error").textContent="Unable to read task data: "+e.message;});
+})();
+</script>
+</body></html>
