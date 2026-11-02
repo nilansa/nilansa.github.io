@@ -1,0 +1,208 @@
+{
+  "schema": "cvpr-hypothesis-hub-provenance-v1",
+  "generated_at": "2026-11-02T23:04:05+05:30",
+  "total_papers": 14083,
+  "years": {
+    "2022": {
+      "count": 2074,
+      "empty_abstracts": 3,
+      "empty_abstract_titles": [
+        "Accelerating Neural Network Optimization Through an Automated Control Theory Lens",
+        "E2V-SDE: From Asynchronous Events to Fast and Continuous Video Reconstruction via Neural Stochastic Differential Equations",
+        "A Graph Matching Perspective With Transformers on Video Instance Segmentation"
+      ],
+      "invalid_input_urls": 0,
+      "repaired_pdf_links": 2074,
+      "duplicates": 0,
+      "year_mismatches": 0,
+      "cvf_listing_matched": 2074,
+      "cvf_listing_unmatched": 0,
+      "source_links_replaced": 2074,
+      "checked_404_pdf_links": 3,
+      "track_counts": {
+        "main": 2074
+      },
+      "source_url": "https://huggingface.co/datasets/choucsan/CVPR_Papers/resolve/main/2022/meta.jsonl",
+      "source_bytes": 4516163,
+      "source_sha256": "6086e1b66b7eece7851b5ce9e7c2ce7cf3a1a3f13e0873a3d4be27de48733dea",
+      "cvf_listing_url": "https://openaccess.thecvf.com/CVPR2022?day=all",
+      "cvf_listing_bytes": 5411665,
+      "cvf_listing_sha256": "7c6a81f30b3317d1837142298c512807e62981d7184057df50acc5d6c66b131c",
+      "output_file": "2022.json",
+      "output_bytes": 4300265,
+      "output_sha256": "e64495c6c1564b0e5d46fbfd6adcb7cad067a1ca95c7142780b123c75a499399"
+    },
+    "2023": {
+      "count": 2353,
+      "empty_abstracts": 0,
+      "empty_abstract_titles": [],
+      "invalid_input_urls": 0,
+      "repaired_pdf_links": 2353,
+      "duplicates": 0,
+      "year_mismatches": 0,
+      "cvf_listing_matched": 2353,
+      "cvf_listing_unmatched": 0,
+      "source_links_replaced": 2353,
+      "checked_404_pdf_links": 0,
+      "track_counts": {
+        "main": 2353
+      },
+      "source_url": "https://huggingface.co/datasets/choucsan/CVPR_Papers/resolve/main/2023/meta.jsonl",
+      "source_bytes": 5205383,
+      "source_sha256": "579cb8d5c8d792a601f7d7afa93062ba7a14069819093231a43eb750d55997b8",
+      "cvf_listing_url": "https://openaccess.thecvf.com/CVPR2023?day=all",
+      "cvf_listing_bytes": 6273840,
+      "cvf_listing_sha256": "8284937abea6f8052da24f58802f619bb7b4261d80ee52305f31b428a2cfe4c5",
+      "output_file": "2023.json",
+      "output_bytes": 4949638,
+      "output_sha256": "bf2d6a05fd2a4b62fbb73332bbab95e3464a3b6319dcd90b9b1df12695895d7e"
+    },
+    "2024": {
+      "count": 2716,
+      "empty_abstracts": 3,
+      "empty_abstract_titles": [
+        "SportsSloMo: A New Benchmark and Baselines for Human-centric Video Frame Interpolation",
+        "GenHowTo: Learning to Generate Actions and State Transformations from Instructional Videos",
+        "DePT: Decoupled Prompt Tuning"
+      ],
+      "invalid_input_urls": 0,
+      "repaired_pdf_links": 2716,
+      "duplicates": 0,
+      "year_mismatches": 0,
+      "cvf_listing_matched": 2716,
+      "cvf_listing_unmatched": 0,
+      "source_links_replaced": 2716,
+      "checked_404_pdf_links": 3,
+      "track_counts": {
+        "main": 2716
+      },
+      "source_url": "https://huggingface.co/datasets/choucsan/CVPR_Papers/resolve/main/2024/meta.jsonl",
+      "source_bytes": 6055651,
+      "source_sha256": "32624f39f97db25553aef18c537bdd19351e929ea17eac0f3819f33f1615a936",
+      "cvf_listing_url": "https://openaccess.thecvf.com/CVPR2024?day=all",
+      "cvf_listing_bytes": 7471679,
+      "cvf_listing_sha256": "720265923ad5cc65224d2ce1cd9cea868c6e4589ae51c05d1493f1f9d9aea03c",
+      "output_file": "2024.json",
+      "output_bytes": 5744772,
+      "output_sha256": "5cbf968a8a4d576e634bca1c7e3cc10df60d82b31f5bd51a5e14c8b94d12b94a"
+    },
+    "2025": {
+      "count": 2871,
+      "empty_abstracts": 0,
+      "empty_abstract_titles": [],
+      "invalid_input_urls": 0,
+      "repaired_pdf_links": 2871,
+      "duplicates": 0,
+      "year_mismatches": 0,
+      "cvf_listing_matched": 2871,
+      "cvf_listing_unmatched": 0,
+      "source_links_replaced": 2871,
+      "checked_404_pdf_links": 0,
+      "track_counts": {
+        "main": 2871
+      },
+      "source_url": "https://huggingface.co/datasets/choucsan/CVPR_Papers/resolve/main/2025/meta.jsonl",
+      "source_bytes": 6554186,
+      "source_sha256": "91dda9164e90e64e95c2178d728a24edbe540b3ba07cfbba19f0ee1f2db00527",
+      "cvf_listing_url": "https://openaccess.thecvf.com/CVPR2025?day=all",
+      "cvf_listing_bytes": 8396274,
+      "cvf_listing_sha256": "2f08dc191b870530993ba6a5a79e8c8ae812f158b6a30b21a96f3b190af96bfa",
+      "output_file": "2025.json",
+      "output_bytes": 6222618,
+      "output_sha256": "6d405e18a90ec8f36043fa64bda2eba9eadc2b469a70fb1f9126cfd269ead3c5"
+    },
+    "2026": {
+      "count": 4069,
+      "empty_abstracts": 0,
+      "empty_abstract_titles": [],
+      "invalid_input_urls": 0,
+      "repaired_pdf_links": 0,
+      "duplicates": 0,
+      "year_mismatches": 0,
+      "cvf_listing_matched": 4041,
+      "cvf_listing_unmatched": 28,
+      "source_links_replaced": 0,
+      "checked_404_pdf_links": 0,
+      "track_counts": {
+        "main": 4069
+      },
+      "source_url": "https://huggingface.co/datasets/choucsan/CVPR_Papers/resolve/main/2026/meta.jsonl",
+      "source_bytes": 9549104,
+      "source_sha256": "de11588a91c50a7689c034acf90f1a52c0403839bfc73b626cd99e4fd0694840",
+      "cvf_listing_url": "https://openaccess.thecvf.com/CVPR2026?day=all",
+      "cvf_listing_bytes": 12117951,
+      "cvf_listing_sha256": "8af49e25ae802a5150596890723adbca037730365503682aa4cb1b3735ab6c74",
+      "output_file": "2026.json",
+      "output_bytes": 9014661,
+      "output_sha256": "a943a072385222f9ed9e1abfb04aa109bd688f7e4c7ea0c329740681bf841695"
+    }
+  },
+  "sources": [
+    {
+      "name": "CVPR_Papers dataset",
+      "url": "https://huggingface.co/datasets/choucsan/CVPR_Papers",
+      "metadata_url_pattern": "https://huggingface.co/datasets/choucsan/CVPR_Papers/resolve/main/{year}/meta.jsonl",
+      "license": "MIT (dataset card)",
+      "attribution": "Dataset maintained by Zhishan Zou; metadata is sourced from CVF Open Access."
+    },
+    {
+      "name": "Computer Vision Foundation Open Access",
+      "url": "https://openaccess.thecvf.com/",
+      "listing_url_pattern": "https://openaccess.thecvf.com/CVPR{year}?day=all",
+      "role": "Official proceedings listings reconcile paper titles to original paper and PDF links. Paper rights remain with authors or other rights holders."
+    }
+  ],
+  "limitations": [
+    "This site stores paper metadata and abstracts only. It does not download or host PDFs.",
+    "Some source records have no abstract. They remain searchable by title and authors, are marked in the interface, and cannot be selected as Idea Lab evidence.",
+    "Six CVF PDF endpoints returned HTTP 404 to a HEAD request on 2026-11-02. Their records point to the official year proceedings listing, and the unavailable PDF links are marked instead of shown as active downloads.",
+    "A CVPR source label alone does not prove main-track acceptance. Track labels are upgraded only when a CVF URL or BibTeX field identifies the track; otherwise the item remains a CVPR main candidate.",
+    "Historical accepted papers are examples, not a guarantee of future acceptance.",
+    "Topic clusters are simple keyword labels for discovery. They are not official CVPR categories."
+  ],
+  "url_validation": "All input and output PDF links are checked for HTTPS, the CVF host, a .pdf path, and absence of credentials, query strings, and fragments. CVF listing links are matched by normalized title. Only the six known unavailable links were checked with HTTP HEAD; no PDF body was fetched.",
+  "link_checks": {
+    "checked_on": "2026-11-02",
+    "method": "HTTP HEAD request; no PDF body fetched",
+    "unavailable_count": 6,
+    "unavailable": [
+      {
+        "year": 2022,
+        "title": "A Graph Matching Perspective With Transformers on Video Instance Segmentation",
+        "url": "https://openaccess.thecvf.com/content/CVPR2022/papers/Qin_A_Graph_Matching_Perspective_With_Transformers_on_Video_Instance_Segmentation_CVPR_2022_paper.pdf",
+        "status": "HTTP 404 by HEAD on 2026-11-02"
+      },
+      {
+        "year": 2022,
+        "title": "Accelerating Neural Network Optimization Through an Automated Control Theory Lens",
+        "url": "https://openaccess.thecvf.com/content/CVPR2022/papers/Wang_Accelerating_Neural_Network_Optimization_Through_an_Automated_Control_Theory_Lens_CVPR_2022_paper.pdf",
+        "status": "HTTP 404 by HEAD on 2026-11-02"
+      },
+      {
+        "year": 2022,
+        "title": "E2V-SDE: From Asynchronous Events to Fast and Continuous Video Reconstruction via Neural Stochastic Differential Equations",
+        "url": "https://openaccess.thecvf.com/content/CVPR2022/papers/Kim_E2V-SDE_From_Asynchronous_Events_to_Fast_and_Continuous_Video_Reconstruction_CVPR_2022_paper.pdf",
+        "status": "HTTP 404 by HEAD on 2026-11-02"
+      },
+      {
+        "year": 2024,
+        "title": "DePT: Decoupled Prompt Tuning",
+        "url": "https://openaccess.thecvf.com/content/CVPR2024/papers/Zhang_DePT_Decoupled_Prompt_Tuning_CVPR_2024_paperOriginal.pdf",
+        "status": "HTTP 404 by HEAD on 2026-11-02"
+      },
+      {
+        "year": 2024,
+        "title": "GenHowTo: Learning to Generate Actions and State Transformations from Instructional Videos",
+        "url": "https://openaccess.thecvf.com/content/CVPR2024/papers/Soucek_GenHowTo_Learning_to_Generate_Actions_and_State_Transformations_from_Instructional_CVPR_2024_paper.pdf",
+        "status": "HTTP 404 by HEAD on 2026-11-02"
+      },
+      {
+        "year": 2024,
+        "title": "SportsSloMo: A New Benchmark and Baselines for Human-centric Video Frame Interpolation",
+        "url": "https://openaccess.thecvf.com/content/CVPR2024/papers/Chen_SportsSloMo_A_New_Benchmark_and_Baselines_for_Human-centric_Video_Frame_CVPR_2024_paper.pdf",
+        "status": "HTTP 404 by HEAD on 2026-11-02"
+      }
+    ]
+  },
+  "cvf_reference_method": "Where a title matches, paper-page and PDF URLs come from the official CVF proceedings listing. Unmatched titles use a safe source link or a filename-derived CVF URL. Listing match counts and source hashes are recorded per year."
+}
