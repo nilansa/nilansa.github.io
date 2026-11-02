@@ -2,7 +2,7 @@
 "use strict";
 const $=id=>document.getElementById(id);
 const STORE="cs-conf-submission-board-v3",COMP_STORE="cs-conf-competition-board-v1",OLD_STORE="cs-conf-opportunities-status-v1";
-let board={},cboard={},old={},opps=[],comps=[],rates=[];
+let board={},cboard={},old={},opps=[],comps=[],rates=[],viewLimit=25;
 for(const [key,assign] of [[STORE,x=>board=x],[COMP_STORE,x=>cboard=x],[OLD_STORE,x=>old=x]]){
   try{const v=JSON.parse(localStorage.getItem(key)||"{}");assign(v&&typeof v==="object"?v:{});}catch(_){assign({});}
 }
@@ -200,15 +200,24 @@ function renderBoard(){
   if(q&&!(o.venue+" "+o.track+" "+o.category+" "+o.notes).toLowerCase().includes(q))return false;
   return true;
  }).sort((a,b)=>(a.s?a.s.date:"9999-12-31").localeCompare(b.s?b.s.date:"9999-12-31")||(a.o.venue+" "+a.o.track).localeCompare(b.o.venue+" "+b.o.track));
+ const progressive=view==="90"&&!q&&area==="all"&&kind==="all"&&!only&&!$("focus-pool").checked;
+ const showing=progressive?visible.slice(0,viewLimit):visible;
  table.replaceChildren();
- visible.forEach(({o,s})=>drawConference(o,s,now,table));
- if(!visible.length)el("tr",null,table).append(el("td","No matching confirmed future stage. Try All dates/TBA or clear filters."));
+ showing.forEach(({o,s})=>drawConference(o,s,now,table));
+ if(!visible.length){
+  const tr=el("tr",null,table),td=el("td","No matching future stage. Try All dates/TBA or clear filters.",tr);td.colSpan=6;
+ }
+ const more=$("show-more");
+ if(more){
+  more.hidden=!progressive||showing.length===visible.length;
+  if(!more.hidden)more.textContent="Show next "+Math.min(25,visible.length-showing.length)+" of "+(visible.length-showing.length)+" remaining routes";
+ }
  const planned=opps.filter(o=>selected(effectiveState(o)));
  if($("candidate-count"))$("candidate-count").textContent=String(pool.size);
  if($("target-count"))$("target-count").textContent=planned.length+" / 10";
  if($("deadline-stat"))$("deadline-stat").textContent=String(all.filter(({o,s})=>s&&s.date<=addDays(now,30)&&!["skip","submitted"].includes(effectiveState(o))&&oldStage(o)!=="missed-abstract").length);
  if($("contest-stat"))$("contest-stat").textContent=String(comps.filter(c=>c.deadline&&c.deadline>=now&&c.deadline<=addDays(now,90)).length);
- if($("count-label"))$("count-label").textContent=visible.length+" routes shown · "+opps.length+" track records monitored · "+pool.size+" suggested short-list routes. Browser selections are not submissions.";
+ if($("count-label"))$("count-label").textContent=showing.length+" shown / "+visible.length+" matching routes · "+opps.length+" tracked overall. All 90-day results remain accessible.";
  if($("plan-note"))$("plan-note").textContent=planned.length<10?"Select "+(10-planned.length)+" more DISTINCT targets to plan 10 submissions; an abstract + its paper count once.":planned.length===10?"10 target routes selected. Verify every prerequisite and eliminate overlapping submissions.":"More than 10 targets selected. Consider narrowing the plan to a feasible 10.";
  renderPreview();renderSlate();
 }
@@ -316,7 +325,8 @@ function renderCompetition(){
 }
 function attach(){
  if($("conference-rows")){
-  ["window","area","kind","search","shortlisted","focus-pool"].forEach(id=>{const x=$(id);x.addEventListener(id==="search"?"input":"change",renderBoard);});
+  ["window","area","kind","search","shortlisted","focus-pool"].forEach(id=>{const x=$(id);x.addEventListener(id==="search"?"input":"change",()=>{viewLimit=25;renderBoard();});});
+  if($("show-more"))$("show-more").addEventListener("click",()=>{viewLimit+=25;renderBoard();});
   $("review-button").addEventListener("click",()=>{board._lastReviewed=ist();save();showReview();});
   $("copy-plan").addEventListener("click",async()=>{
    const detail=Object.entries(old).filter(([id,v])=>v&&opps.some(o=>o.id===id)).sort(([a],[b])=>a.localeCompare(b));
