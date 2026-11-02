@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "checkedAt": "2026-11-02",
-  "policy": "Acceptance rate is historical and scoped to the named year and track. Parent main-track rate does not imply a demo, industry, workshop, challenge or student-track rate. Unknown remains N/A; never choose solely by historical rate.",
+  "policy": "Historical rate only for a named year and category, from an organizer or authoritative institutional report. Parent conference main-track rates never imply workshop, industry, demo or SemEval acceptance. If unknown, show N/A.",
   "records": [
     {
       "venueKey": "CVPR",
@@ -35,6 +35,17 @@
       "source": "https://blog.neurips.cc/category/2025-conference/page/2/",
       "denominator": "valid main-track submissions",
       "note": "Latest historically sourced main-track baseline selected for comparisons, not 2027 forecast."
+    },
+    {
+      "venueKey": "ICML",
+      "year": 2026,
+      "track": "Main research",
+      "accepted": 6352,
+      "submissions": 23918,
+      "percent": 26.56,
+      "source": "https://aip.riken.jp/news/icml2026/",
+      "denominator": "total submissions",
+      "note": "RIKEN AIP institutional report of ICML 2026 main-track counts; 26.6% rounded. Does not apply to workshops or competitions."
     }
   ]
 }
