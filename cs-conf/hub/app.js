@@ -1,419 +1,66 @@
 (() => {
   "use strict";
-  const years = [2022, 2023, 2024, 2025, 2026];
-  const topics = ["3D & geometry", "Vision & language", "Generative models", "Video & motion", "Medical imaging", "Robotics & embodied", "Recognition & detection", "Learning & robustness", "Other vision"];
-  const pinKey = "cvpr-research-hub-pins-v1";
-  const $ = selector => document.querySelector(selector);
-  const elements = {
-    form:$("#search-form"), query:$("#query"), yearFilters:$("#year-filters"), topicFilters:$("#topic-filters"), sort:$("#sort-order"),
-    status:$("#search-status"), resultCount:$("#result-count"), results:$("#results"), more:$("#more-results"), progressWrap:$("#load-progress"), progress:$("#progress"), progressLabel:$("#progress-label"),
-    heroCount:$("#hero-count"), integrity:$("#integrity-content"), pinCount:$("#pin-count"), pinned:$("#pinned-papers"), exportPins:$("#export-pins"), importPins:$("#import-pins"),
-    dialog:$("#paper-dialog"), dialogBody:$("#dialog-body"), closeDialog:$("#close-dialog"), problemPick:$("#problem-pick"), methodPick:$("#method-pick"), clearProblem:$("#clear-problem"), clearMethod:$("#clear-method"), ideaStatus:$("#idea-status"), hypothesis:$("#hypothesis-card")
-  };
-  const worker = new Worker(new URL("search-worker.js", document.currentScript.src));
-  let requestId = 0;
-  let debounce = 0;
-  let currentTotal = 0;
-  let currentOffset = 0;
-  let problemPaper = null;
-  let methodPaper = null;
-  let currentPacket = null;
-  const pins = loadPins();
-
-  function node(tag, className, value) {
-    const item = document.createElement(tag);
-    if (className) item.className = className;
-    if (value !== undefined) item.textContent = value;
-    return item;
-  }
-
-  function safeCvfLink(value, extension) {
+  const years=[2022,2023,2024,2025,2026], taxonomy={"Computer Vision & 3D":["CVPR","ICCV","ECCV"],"Machine Learning & AI":["NeurIPS","ICML","ICLR","AAAI"],"Language/NLP":["ACL","EMNLP","NAACL"],"Robotics & Speech":["ICRA","ICASSP"]};
+  const hosts={CVPR:["openaccess.thecvf.com"],ICCV:["openaccess.thecvf.com"],ECCV:["openaccess.thecvf.com","ecva.net","www.ecva.net","eccv.ecva.net","eccv2024.ecva.net","eccv2022.ecva.net"],NeurIPS:["openreview.net","proceedings.neurips.cc"],ICML:["openreview.net","proceedings.mlr.press"],ICLR:["openreview.net"],AAAI:["ojs.aaai.org"],ACL:["aclanthology.org"],EMNLP:["aclanthology.org"],NAACL:["aclanthology.org"],ICRA:["ieeexplore.ieee.org","doi.org"],ICASSP:["ieeexplore.ieee.org","doi.org","cmsworkshops.com"]};
+  const pinKey="cs-conference-hub-pins-v1", oldPinKey="cvpr-research-hub-pins-v1", $=s=>document.querySelector(s);
+  const e={form:$("#search-form"),query:$("#query"),topic:$("#topic-filter"),fields:$("#field-filters"),years:$("#year-filters"),sort:$("#sort-order"),status:$("#search-status"),count:$("#result-count"),results:$("#results"),more:$("#more-results"),progressWrap:$("#load-progress"),progress:$("#progress"),progressLabel:$("#progress-label"),hero:$("#hero-count"),integrity:$("#integrity-content"),estimate:$("#selected-estimate"),matrix:$("#coverage-matrix"),pinCount:$("#pin-count"),pinned:$("#pinned-papers"),exportPins:$("#export-pins"),importPins:$("#import-pins"),dialog:$("#paper-dialog"),dialogBody:$("#dialog-body"),closeDialog:$("#close-dialog"),problem:$("#problem-pick"),method:$("#method-pick"),clearProblem:$("#clear-problem"),clearMethod:$("#clear-method"),ideaStatus:$("#idea-status"),hypothesis:$("#hypothesis-card")};
+  const worker=new Worker(new URL("search-worker.js",document.currentScript.src));let catalog=null,requestId=0,debounce=0,currentTotal=0,currentOffset=0,retained=0,problemPaper=null,methodPaper=null,currentPacket=null;
+  const pins=loadPins();
+  function node(tag,cls,text){const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n}
+  function safeUrl(value,venue,ext=""){
     try {
-      const url = new URL(value);
-      const allowedHost = ["openaccess.thecvf.com", "www.openaccess.thecvf.com"].includes(url.hostname);
-      const paperLink = url.pathname.startsWith("/content/") && url.pathname.toLowerCase().endsWith(extension) && !url.search;
-      const listingLink = extension === ".html" && /^\/CVPR20\d{2}$/i.test(url.pathname) && url.search === "?day=all";
-      return url.protocol === "https:" && allowedHost && !url.username && !url.password && !url.hash && (paperLink || listingLink);
-    } catch { return false; }
+      const u=new URL(value);
+      const listing=venue==="CVPR"&&/^\/CVPR20\d{2}$/i.test(u.pathname)&&u.search==="?day=all";
+      const forum=["NeurIPS","ICML","ICLR"].includes(venue)&&u.hostname==="openreview.net"&&["/forum","/pdf"].includes(u.pathname)&&/^\?id=[A-Za-z0-9_-]{6,80}$/.test(u.search);
+      const icassp=venue==="ICASSP"&&u.hostname==="cmsworkshops.com"&&/^\/ICASSP20\d{2}\/view_paper\.php$/.test(u.pathname)&&/^\?PaperNum=\d{1,10}$/.test(u.search);
+      const aaaiPdf=venue==="AAAI"&&ext===".pdf"&&/^\/index\.php\/AAAI\/article\/download\/\d+\/\d+$/.test(u.pathname);
+      return u.protocol==="https:"&&hosts[venue]?.includes(u.hostname)&&!u.username&&!u.password&&!u.hash&&(!u.search||listing||forum||icassp)&&(!ext||u.pathname.toLowerCase().endsWith(ext)||listing||aaaiPdf)?u.href:"";
+    }catch{return ""}
   }
-
-  function safePaper(paper) {
-    return paper && typeof paper.id === "string" && typeof paper.title === "string" &&
-      typeof paper.authors === "string" && typeof paper.abstract === "string" &&
-      Number.isInteger(paper.year) && paper.year >= 2022 && paper.year <= 2026 &&
-      safeCvfLink(paper.cvf_url, ".html") && safeCvfLink(paper.pdf_url, ".pdf");
-  }
-
-  function loadPins() {
-    try {
-      const stored = JSON.parse(localStorage.getItem(pinKey) || "[]");
-      return Array.isArray(stored) ? stored.filter(safePaper).slice(0, 500) : [];
-    } catch { return []; }
-  }
-
-  function persistPins() {
-    try { localStorage.setItem(pinKey, JSON.stringify(pins)); }
-    catch { elements.status.textContent = "Browser storage is full. Export pins, then remove some."; }
-    renderPins();
-  }
-
-  function selectedYears() {
-    return [...elements.yearFilters.querySelectorAll("input:checked")].map(input => Number(input.value));
-  }
-
-  function selectedTopic() {
-    const active = elements.topicFilters.querySelector("button[aria-pressed='true']");
-    return active ? active.dataset.topic : "";
-  }
-
-  function setupFilters() {
-    for (const year of years) {
-      const label = node("label", "year-option");
-      const input = node("input"); input.type = "checkbox"; input.value = String(year); input.checked = year === 2026;
-      const text = node("span", "", String(year));
-      label.append(input, text); elements.yearFilters.append(label);
-      input.addEventListener("change", () => runSearch(true));
+  function cleanPaper(p){if(!p||typeof p.id!=="string"||typeof p.title!=="string"||!Number.isInteger(p.year)||p.year<2022||p.year>2026)return null;const venue=p.venue||"CVPR",paperUrl=safeUrl(p.paper_url||p.cvf_url,venue)||safeUrl(p.paper_url||p.cvf_url,venue,".html"),pdf=safeUrl(p.pdf_url,venue,".pdf");if(!hosts[venue]||!paperUrl)return null;return {...p,venue,paper_url:paperUrl,cvf_url:paperUrl,pdf_url:pdf,authors:String(p.authors||""),abstract:String(p.abstract||""),cluster:String(p.cluster||p.primary_area||"Other"),source:String(p.source||"Curated venue record"),track_status:String(p.track_status||"Curated venue record; track not independently verified")}}
+  function loadPins(){try{const x=JSON.parse(localStorage.getItem(pinKey)||localStorage.getItem(oldPinKey)||"[]");return Array.isArray(x)?x.map(cleanPaper).filter(Boolean).slice(0,500):[]}catch{return []}}
+  function persistPins(){try{localStorage.setItem(pinKey,JSON.stringify(pins))}catch{e.status.textContent="Browser storage is full. Export pins, then remove some."}renderPins()}
+  function checked(selector){return [...document.querySelectorAll(selector+":checked")].map(x=>x.value)}
+  function selectedVenues(){return checked(".venue-check")}
+  function selectedYears(){return checked(".year-check").map(Number)}
+  function selectedShards(){const items=[];for(const v of selectedVenues())for(const y of selectedYears())if(catalog?.venues?.[v]?.available_years?.includes(y))items.push({venue:v,year:y});return items}
+  function fileEntry(v,y){return catalog?.venues?.[v]?.years?.[String(y)]}
+  function setupFilters(){
+    for(const [field,venues] of Object.entries(taxonomy)){
+      const box=node("fieldset","field-group"),legend=node("legend","",field),actions=node("span","field-actions"),all=node("button","filter-action","Select all"),clear=node("button","filter-action","Clear"),chips=node("div","field-chips");all.type=clear.type="button";
+      all.addEventListener("click",()=>{chips.querySelectorAll("input").forEach(i=>{i.checked=true});filtersChanged()});clear.addEventListener("click",()=>{chips.querySelectorAll("input").forEach(i=>{i.checked=false});filtersChanged()});actions.append(all,clear);legend.append(actions);box.append(legend,chips);
+      for(const venue of venues){const meta=catalog.venues[venue],label=node("label","year-option"),input=node("input");input.type="checkbox";input.className="venue-check";input.value=venue;input.checked=venue==="CVPR";input.disabled=!meta?.available_years?.length;input.addEventListener("change",filtersChanged);label.append(input,node("span","",venue));chips.append(label)}e.fields.append(box)
     }
-    for (const topic of topics) {
-      const wrap = node("span", "topic-chip");
-      const button = node("button", "", topic); button.type = "button"; button.setAttribute("aria-pressed", "false"); button.dataset.topic = topic;
-      button.addEventListener("click", () => {
-        const wasActive = button.getAttribute("aria-pressed") === "true";
-        for (const other of elements.topicFilters.querySelectorAll("button")) other.setAttribute("aria-pressed", "false");
-        if (!wasActive) button.setAttribute("aria-pressed", "true");
-        runSearch(true);
-      });
-      wrap.append(button); elements.topicFilters.append(wrap);
-    }
+    const availableYears=[...new Set(Object.values(catalog.venues).flatMap(v=>v.available_years||[]))].sort((a,b)=>a-b);
+    for(const year of years){const label=node("label","year-option"),input=node("input");input.type="checkbox";input.className="year-check";input.value=String(year);input.checked=year===Math.max(...availableYears);input.disabled=!availableYears.includes(year);input.addEventListener("change",filtersChanged);label.append(input,node("span","",String(year)));e.years.append(label)}
+    $("#years-all").addEventListener("click",()=>{document.querySelectorAll(".year-check:not(:disabled)").forEach(i=>i.checked=true);filtersChanged()});$("#years-clear").addEventListener("click",()=>{document.querySelectorAll(".year-check").forEach(i=>i.checked=false);filtersChanged()});
   }
-
-  function emptyState(title, message) {
-    const box = node("div", "empty-state");
-    box.append(node("span", "empty-symbol", "⌕"), node("h3", "", title), node("p", "", message));
-    elements.results.replaceChildren(box);
-  }
-
-  function runSearch(reset) {
-    if (reset) currentOffset = 0;
-    const query = elements.query.value.trim();
-    const topic = selectedTopic();
-    const yearsSelected = selectedYears();
-    if (!query && !topic) {
-      currentTotal = 0; elements.resultCount.textContent = "No search yet"; elements.more.hidden = true;
-      elements.status.textContent = "Choose a topic or enter a search. Year files load only when needed.";
-      elements.progressWrap.hidden = true;
-      emptyState("Your next question starts here.", "Search a phrase or choose a topic. The paper files are fetched one year at a time.");
-      return;
-    }
-    if (!yearsSelected.length) {
-      elements.status.textContent = "Select at least one year."; elements.resultCount.textContent = "0 papers"; elements.more.hidden = true;
-      emptyState("Choose a year to search.", "Select one or more publication years above."); return;
-    }
-    const id = ++requestId;
-    elements.status.textContent = "Preparing the selected year files…";
-    elements.progressWrap.hidden = false; elements.progress.max = yearsSelected.length; elements.progress.value = 0;
-    elements.progressLabel.textContent = "Starting";
-    if (reset) emptyState("Searching the archive…", "Year files load one at a time. Your search stays in this browser.");
-    worker.postMessage({type:"search", requestId:id, query, topic, years:yearsSelected, sort:elements.sort.value, offset:currentOffset, limit:40});
-  }
-
-  function addMeta(paper) {
-    const row = node("div", "card-meta");
-    row.append(node("span", "", String(paper.year)), node("span", "meta-dot"), node("span", "", paper.source || "Hugging Face dataset"));
-    return row;
-  }
-
-  function isPinned(id) { return pins.some(paper => paper.id === id); }
-
-  function pinPaper(paper) {
-    const index = pins.findIndex(item => item.id === paper.id);
-    if (index >= 0) pins.splice(index, 1); else pins.unshift(paper);
-    persistPins();
-    for (const card of elements.results.querySelectorAll(".paper-card")) {
-      const button = card.querySelector("[data-action='pin']");
-      if (button && card.__paper) {
-        const active = isPinned(card.__paper.id);
-        button.textContent = active ? "Pinned ★" : "Pin +";
-        button.setAttribute("aria-pressed", String(active));
-      }
-    }
-  }
-
-  function renderPaperCard(paper) {
-    const card = node("article", "paper-card");
-    const top = node("div", "card-top");
-    const meta = addMeta(paper);
-    const cluster = node("span", "cluster-tag", paper.cluster);
-    const pin = node("button", "pin-button", isPinned(paper.id) ? "Pinned ★" : "Pin +"); pin.type = "button"; pin.dataset.action = "pin"; pin.setAttribute("aria-pressed", String(isPinned(paper.id)));
-    top.append(meta, cluster, pin);
-    const track = node("span", "track-tag", paper.track_status || "CVPR main candidate");
-    const title = node("button", "paper-title", paper.title); title.type = "button"; title.dataset.action = "detail";
-    const authors = node("p", "paper-authors", paper.authors);
-    const abstract = node("p", "paper-abstract", paper.abstract || "Abstract unavailable in source metadata.");
-    const actions = node("div", "card-actions");
-    const problem = node("button", "", "Use as problem"); problem.type = "button"; problem.dataset.action = "problem";
-    const method = node("button", "", "Use as method"); method.type = "button"; method.dataset.action = "method";
-    const sourceLabel = paper.pdf_status && paper.pdf_status.startsWith("HTTP 404") ? "CVF listing · PDF unavailable ↗" : (paper.cvf_reference_type === "year proceedings listing" ? "CVF listing ↗" : "CVF paper ↗");
-    const source = node("a", "source-link", sourceLabel); source.href = paper.cvf_url; source.target = "_blank"; source.rel = "noopener";
-    actions.append(problem, method, source);
-    card.append(top, track, title, authors, abstract, actions);
-    card.dataset.paperId = paper.id;
-    return card;
-  }
-
-  function renderResults(message) {
-    currentTotal = message.total; currentOffset += message.results.length;
-    elements.resultCount.textContent = `${message.total.toLocaleString()} matching paper${message.total === 1 ? "" : "s"}`;
-    elements.status.textContent = message.total ? `Showing ${Math.min(currentOffset, message.total).toLocaleString()} of ${message.total.toLocaleString()} matches. Search stays on this device.` : "No matches for these filters. Try fewer terms, another year, or a different topic.";
-    if (message.offset === 0) elements.results.replaceChildren();
-    if (message.results.length) {
-      const fragment = document.createDocumentFragment();
-      for (const paper of message.results) {
-        const card = renderPaperCard(paper); card.__paper = paper; fragment.append(card);
-      }
-      elements.results.append(fragment);
-    } else if (message.offset === 0) emptyState("No papers found.", "Try a shorter phrase or remove a filter.");
-    elements.more.hidden = currentOffset >= currentTotal;
-  }
-
-  function renderPins() {
-    elements.pinCount.textContent = String(pins.length);
-    if (!pins.length) { elements.pinned.replaceChildren(node("p", "empty-note", "No pinned papers yet.")); return; }
-    const list = document.createDocumentFragment();
-    for (const paper of pins) {
-      const item = node("div", "pinned-item");
-      const title = node("button", "", `${paper.year} · ${paper.title}`); title.type = "button"; title.dataset.action = "detail"; title.dataset.pinId = paper.id;
-      const remove = node("button", "", "Remove"); remove.type = "button"; remove.dataset.action = "unpin"; remove.dataset.pinId = paper.id; remove.setAttribute("aria-label", `Remove ${paper.title} from pins`);
-      item.append(title, remove); list.append(item);
-    }
-    elements.pinned.replaceChildren(list);
-  }
-
-  function showDetail(paper) {
-    elements.dialogBody.replaceChildren();
-    const title = node("h2", "detail-title", paper.title); title.id = "detail-title";
-    const meta = node("div", "detail-meta");
-    meta.append(node("span", "cluster-tag", paper.cluster), node("span", "track-tag", paper.track_status || "CVPR main candidate"), node("span", "card-meta", String(paper.year)));
-    const authors = node("p", "detail-authors", paper.authors);
-    const abstractLabel = node("h3", "", "Abstract"); abstractLabel.style.margin = "23px 0 0";
-    const abstract = node("p", "detail-abstract", paper.abstract || "Abstract unavailable in source metadata.");
-    const links = node("div", "detail-links");
-    const cvfLabel = paper.cvf_reference_type === "year proceedings listing" ? "Open CVF year listing ↗" : "Open CVF paper page ↗";
-    const cvf = node("a", "", cvfLabel); cvf.href = paper.cvf_url; cvf.target = "_blank"; cvf.rel = "noopener";
-    links.append(cvf);
-    if (paper.pdf_status && paper.pdf_status.startsWith("HTTP 404")) {
-      const unavailable = node("span", "detail-note", `PDF link returned HTTP 404 on ${paper.pdf_status.split(" on ").pop()}. The CVF year listing is linked above; no PDF was downloaded.`);
-      links.append(unavailable);
-    } else {
-      const pdf = node("a", "", "Open PDF at CVF ↗"); pdf.href = paper.pdf_url; pdf.target = "_blank"; pdf.rel = "noopener"; links.append(pdf);
-    }
-    const buttons = node("div", "packet-actions");
-    const asProblem = node("button", "secondary", "Use as problem paper"); asProblem.type = "button"; asProblem.addEventListener("click", () => setIdeaPaper("problem", paper));
-    const asMethod = node("button", "secondary", "Use as method paper"); asMethod.type = "button"; asMethod.addEventListener("click", () => setIdeaPaper("method", paper));
-    buttons.append(asProblem, asMethod);
-    const note = node("p", "detail-note", `${paper.source}. Track label basis: ${paper.track_basis || "source metadata"}. Topic clusters are keyword labels.`);
-    elements.dialogBody.append(title, meta, authors, abstractLabel, abstract, links, buttons, note);
-    if (!elements.dialog.open) elements.dialog.showModal();
-  }
-
-  function setIdeaPaper(role, paper) {
-    if (!paper.abstract || !paper.abstract.trim()) { elements.ideaStatus.textContent = "This source record has no abstract. Choose a paper with an abstract for evidence-based snippets."; return; }
-    const other = role === "problem" ? methodPaper : problemPaper;
-    if (other && other.id === paper.id) { elements.ideaStatus.textContent = "Choose two different papers."; return; }
-    if (other && other.cluster === paper.cluster) { elements.ideaStatus.textContent = "Choose papers with different topic clusters. Change one paper or clear a selection."; return; }
-    if (role === "problem") problemPaper = paper; else methodPaper = paper;
-    elements.ideaStatus.textContent = problemPaper && methodPaper ? "Different clusters selected. Review the evidence before you copy the packet." : "One paper selected. Choose another paper from a different cluster.";
-    renderIdea();
-    if (elements.dialog.open) elements.dialog.close();
-    const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-    document.querySelector("#idea-lab").scrollIntoView({behavior:reduceMotion ? "auto" : "smooth", block:"start"});
-  }
-
-  function sentenceList(abstract) {
-    return String(abstract || "").match(/[^.!?]+(?:[.!?]+|$)/g)?.map(sentence => sentence.trim()).filter(Boolean) || [];
-  }
-
-  function evidenceFor(paper, role) {
-    const sentences = sentenceList(paper.abstract);
-    const pattern = role === "problem"
-      ? /\b(however|challenges?|limitations?|remain(?:s|ed)?|still|difficult(?:y)?|despite|lack of|not address(?:ed)?|cannot|future work|open question)\b/i
-      : /\b(we propose|we introduce|we present|we develop|our method|our approach|framework|architecture|algorithm|we design)\b/i;
-    const match = sentences.find(sentence => pattern.test(sentence));
-    return {text:match || sentences[0] || "No abstract sentence was available.", matched:Boolean(match), kind:match ? (role === "problem" ? "Limitation or challenge pattern" : "Method pattern") : "Opening abstract excerpt; check the full abstract"};
-  }
-
-  function paperRef(paper) {
-    return {id:paper.id, title:paper.title, year:paper.year, cluster:paper.cluster, cvf_url:paper.cvf_url, pdf_url:paper.pdf_url};
-  }
-
-  function makePacket() {
-    if (!problemPaper || !methodPaper) return null;
-    const problemEvidence = evidenceFor(problemPaper, "problem");
-    const methodEvidence = evidenceFor(methodPaper, "method");
-    return {
-      schema:"cvpr-hypothesis-packet-v1",
-      status:"UNTESTED",
-      created_at:new Date().toISOString(),
-      hypothesis:`A method described in “${methodPaper.title}” may provide a useful test for the challenge discussed in “${problemPaper.title}” in ${problemPaper.cluster} tasks. Test it with one score (metric) named before the test and a matched compute budget.`,
-      evidence:[
-        {role:"problem paper", paper:paperRef(problemPaper), extraction:problemEvidence.kind, sentence:problemEvidence.text},
-        {role:"method paper", paper:paperRef(methodPaper), extraction:methodEvidence.kind, sentence:methodEvidence.text}
-      ],
-      comparison:{baseline:"Select and cite a strong, task-matched public baseline (a reference method) before the test.", controls:"Use the same data split, inputs, training budget, compute budget, and score for both methods.", report:"Record repeated runs and uncertainty; do not treat abstract claims as results."},
-      falsification:"The idea fails this test if the adapted method does not improve the preselected score over the baseline in the matched test, or if it breaks a quality rule set before the test.",
-      novelty_warning:"Novelty means a new contribution compared with earlier work. A cross-paper combination does not prove novelty. Search related work and inspect both papers before making a claim."
-    };
-  }
-
-  function citationLine(paper) {
-    return `[${paper.title} (${paper.year})](${paper.cvf_url})`;
-  }
-
-  function renderIdea() {
-    for (const [paper, label, clear] of [[problemPaper, elements.problemPick, elements.clearProblem], [methodPaper, elements.methodPick, elements.clearMethod]]) {
-      label.className = paper ? "pick-name" : "pick-empty";
-      label.textContent = paper ? `${paper.title} · ${paper.year} · ${paper.cluster}` : "Choose from a search result.";
-      clear.hidden = !paper;
-    }
-    elements.hypothesis.replaceChildren();
-    currentPacket = makePacket();
-    if (!currentPacket) {
-      const placeholder = node("div", "hypothesis-placeholder");
-      placeholder.append(node("span", "placeholder-mark", "↗"), node("h3", "", "Your evidence packet will appear here."), node("p", "", "It will include source sentences, paper links, a controlled comparison, and a step that can disprove the idea."));
-      elements.hypothesis.append(placeholder); return;
-    }
-    const badge = node("span", "untested-badge", "UNTESTED HYPOTHESIS");
-    const heading = node("h3", "", "A question to test");
-    const statement = node("p", "hypothesis-text", currentPacket.hypothesis);
-    const evidence = node("div", "evidence-pair");
-    for (const item of currentPacket.evidence) {
-      const box = node("div", "evidence-box");
-      box.append(node("small", "", `${item.role} · ${item.extraction}`), node("blockquote", "", `“${item.sentence}”`));
-      const link = node("a", "idea-source", `${item.paper.title} (${item.paper.year}) ↗`); link.href = item.paper.cvf_url; link.target = "_blank"; link.rel = "noopener"; box.append(link);
-      evidence.append(box);
-    }
-    const methods = node("div", "method-block");
-    const comparison = node("div"); comparison.append(node("h4", "", "Controlled comparison"), node("p", "", `${currentPacket.comparison.baseline} ${currentPacket.comparison.controls}`));
-    const falsification = node("div"); falsification.append(node("h4", "", "Falsification step"), node("p", "", currentPacket.falsification));
-    methods.append(comparison, falsification);
-    const warning = node("p", "detail-note", currentPacket.novelty_warning);
-    const actions = node("div", "packet-actions");
-    const copyJson = node("button", "", "Copy packet JSON"); copyJson.type = "button"; copyJson.addEventListener("click", () => copyPacket("json"));
-    const copyMarkdown = node("button", "secondary", "Copy as Markdown"); copyMarkdown.type = "button"; copyMarkdown.addEventListener("click", () => copyPacket("markdown"));
-    const notice = node("span", "packet-notice", "No results or novelty claims are generated."); notice.id = "packet-notice";
-    actions.append(copyJson, copyMarkdown, notice);
-    elements.hypothesis.append(badge, heading, statement, evidence, methods, warning, actions);
-  }
-
-  function markdownPacket(packet) {
-    return `# UNTESTED hypothesis\n\n${packet.hypothesis}\n\n## Evidence\n\n${packet.evidence.map(item => `### ${item.role}\n\n> ${item.sentence}\n\nSource: ${citationLine(item.paper)}\n\nExtraction: ${item.extraction}`).join("\n\n")}\n\n## Controlled comparison\n\n- Baseline: ${packet.comparison.baseline}\n- Controls: ${packet.comparison.controls}\n- Reporting: ${packet.comparison.report}\n\n## Falsification step\n\n${packet.falsification}\n\n## Novelty warning\n\n${packet.novelty_warning}\n`;
-  }
-
-  async function copyPacket(format) {
-    if (!currentPacket) return;
-    const text = format === "json" ? JSON.stringify(currentPacket, null, 2) : markdownPacket(currentPacket);
-    try {
-      await navigator.clipboard.writeText(text);
-    } catch {
-      const textarea = node("textarea"); textarea.value = text; textarea.style.position = "fixed"; textarea.style.opacity = "0"; document.body.append(textarea); textarea.select();
-      const copied = document.execCommand("copy"); textarea.remove();
-      if (!copied) { elements.ideaStatus.textContent = "Clipboard access is unavailable. Use a secure browser context and try again."; return; }
-    }
-    const notice = $("#packet-notice"); if (notice) notice.textContent = `${format === "json" ? "JSON" : "Markdown"} copied.`;
-  }
-
-  async function loadIntegrity() {
-    try {
-      const response = await fetch(new URL("provenance.json", document.baseURI));
-      if (!response.ok) throw new Error("Provenance metadata could not be loaded.");
-      const provenance = await response.json();
-      elements.heroCount.textContent = `${provenance.total_papers.toLocaleString()} papers · 5 years`;
-      elements.integrity.replaceChildren();
-      const generated = node("p", "", `Metadata snapshot generated ${provenance.generated_at}. Counts and SHA256 values below are from files written by the ingester.`);
-      const table = node("table");
-      const head = node("thead"); const headerRow = node("tr");
-      for (const label of ["Year", "Papers", "Empty abstracts", "CVF title matches", "Links replaced", "PDF HEAD 404", "File size", "SHA256"]) headerRow.append(node("th", "", label));
-      head.append(headerRow); const body = node("tbody");
-      for (const [year, item] of Object.entries(provenance.years)) {
-        const row = node("tr");
-        row.append(node("td", "", year), node("td", "", item.count.toLocaleString()), node("td", "", String(item.empty_abstracts)), node("td", "", `${item.cvf_listing_matched}/${item.count}`), node("td", "", String(item.source_links_replaced)), node("td", "", String(item.checked_404_pdf_links)), node("td", "", `${item.output_bytes.toLocaleString()} bytes`));
-        const hashCell = node("td"); hashCell.append(node("code", "", item.output_sha256)); row.append(hashCell); body.append(row);
-      }
-      table.append(head, body); elements.integrity.append(generated, table);
-    } catch (error) {
-      elements.heroCount.textContent = "2022–2026 archive";
-      elements.integrity.replaceChildren(node("p", "", error.message));
-    }
-  }
-
-  async function importPins(file) {
-    if (!file) return;
-    try {
-      const data = JSON.parse(await file.text());
-      const incoming = Array.isArray(data) ? data : data.pins;
-      if (!Array.isArray(incoming)) throw new Error("Expected an array of pinned paper records.");
-      for (const paper of incoming.slice(0, 500)) {
-        if (safePaper(paper)) {
-          const old = pins.findIndex(item => item.id === paper.id);
-          if (old >= 0) pins.splice(old, 1);
-          pins.push(paper);
-        }
-      }
-      persistPins(); elements.status.textContent = `Imported pins from ${file.name}. They remain in this browser.`;
-    } catch (error) { elements.status.textContent = `Could not import pins: ${error.message}`; }
-    elements.importPins.value = "";
-  }
-
-  function exportPins() {
-    const file = new Blob([JSON.stringify({schema:"cvpr-hub-pins-v1", exported_at:new Date().toISOString(), pins}, null, 2)], {type:"application/json"});
-    const link = node("a"); link.href = URL.createObjectURL(file); link.download = "cvpr-hub-pins.json"; link.click();
-    setTimeout(() => URL.revokeObjectURL(link.href), 1000);
-  }
-
-  function paperById(id) { return pins.find(paper => paper.id === id); }
-
-  elements.form.addEventListener("submit", event => { event.preventDefault(); clearTimeout(debounce); runSearch(true); });
-  elements.query.addEventListener("input", () => { clearTimeout(debounce); debounce = setTimeout(() => runSearch(true), 260); });
-  elements.sort.addEventListener("change", () => runSearch(true));
-  elements.more.addEventListener("click", () => runSearch(false));
-  elements.exportPins.addEventListener("click", exportPins);
-  elements.importPins.addEventListener("change", () => importPins(elements.importPins.files[0]));
-  elements.closeDialog.addEventListener("click", () => elements.dialog.close());
-  elements.clearProblem.addEventListener("click", () => { problemPaper = null; renderIdea(); elements.ideaStatus.textContent = "Problem paper cleared."; });
-  elements.clearMethod.addEventListener("click", () => { methodPaper = null; renderIdea(); elements.ideaStatus.textContent = "Method paper cleared."; });
-  elements.results.addEventListener("click", event => {
-    const button = event.target.closest("[data-action]"); if (!button) return;
-    const card = button.closest("[data-paper-id]"); if (!card) return;
-    const paperId = card.dataset.paperId;
-    const paper = [...elements.results.querySelectorAll("[data-paper-id]")].map(item => item.__paper).find(item => item && item.id === paperId);
-    if (!paper) return;
-    if (button.dataset.action === "detail") showDetail(paper);
-    if (button.dataset.action === "pin") pinPaper(paper);
-    if (button.dataset.action === "problem" || button.dataset.action === "method") setIdeaPaper(button.dataset.action, paper);
-  });
-  elements.pinned.addEventListener("click", event => {
-    const button = event.target.closest("[data-action]"); if (!button) return;
-    const paper = paperById(button.dataset.pinId); if (!paper) return;
-    if (button.dataset.action === "detail") showDetail(paper);
-    if (button.dataset.action === "unpin") pinPaper(paper);
-  });
-  worker.addEventListener("message", event => {
-    const message = event.data;
-    if (message.requestId !== requestId) return;
-    if (message.type === "progress") {
-      elements.progress.max = message.total; elements.progress.value = message.current;
-      elements.progressLabel.textContent = `${message.stage === "indexed" ? "Indexed" : "Loading"} ${message.year} · ${message.current}/${message.total}`;
-      elements.status.textContent = message.stage === "indexed" ? `${message.yearCount.toLocaleString()} papers added from ${message.year}.` : `Loading ${message.year} papers…`;
-    } else if (message.type === "results") {
-      elements.progressWrap.hidden = true; renderResults(message);
-    } else if (message.type === "error") {
-      elements.progressWrap.hidden = true; elements.status.textContent = message.message; elements.resultCount.textContent = "Search unavailable";
-      emptyState("The search could not finish.", `${message.message} Check that this site is served over HTTP or HTTPS.`);
-    }
-  });
-
-  setupFilters(); renderPins(); loadIntegrity();
-  document.addEventListener("keydown", event => {
-    if (event.key === "/" && !elements.dialog.open && !["INPUT", "TEXTAREA", "SELECT"].includes(document.activeElement.tagName)) { event.preventDefault(); elements.query.focus(); }
-  });
+  function drawCoverage(){e.matrix.replaceChildren();for(const venue of Object.keys(taxonomy).flatMap(k=>taxonomy[k])){const row=node("div","coverage-row"),name=node("strong","",venue);row.append(name);for(const year of years){const ok=catalog.venues[venue]?.available_years?.includes(year),b=node("span",ok?"coverage-year available":"coverage-year",ok?String(year):"—");b.title=ok?`${venue} ${year}: ${catalog.venues[venue].years[String(year)].count.toLocaleString()} records`: `${venue} ${year}: unavailable in source dataset`;row.append(b)}e.matrix.append(row)}}
+  function filtersChanged(){estimate();if(e.query.value.trim())runSearch(true)}
+  function estimate(){const shards=selectedShards(),bytes=shards.reduce((n,s)=>n+(fileEntry(s.venue,s.year)?.bytes||0),0);e.estimate.textContent=`${shards.length} available shard${shards.length===1?"":"s"} · about ${(bytes/1048576).toFixed(1)} MB metadata${bytes>30*1048576?" · This selection exceeds 30 MB; narrow it or continue with this search.":""}`;e.estimate.classList.toggle("transfer-warning",bytes>30*1048576)}
+  function emptyState(title,message){const b=node("div","empty-state");b.append(node("span","empty-symbol","⌕"),node("h3","",title),node("p","",message));e.results.replaceChildren(b)}
+  function runSearch(reset){if(reset)currentOffset=0;const query=e.query.value.trim(),topic=e.topic.value.trim(),shards=selectedShards();if(!query&&!topic){currentTotal=0;e.count.textContent="No search yet";e.more.hidden=true;e.status.textContent="Enter a search term. Shards load only when needed.";e.progressWrap.hidden=true;emptyState("Your next question starts here.","Search selected conferences and years. Metadata shards load one at a time.");return}if(!shards.length){e.status.textContent="Select an available conference and year.";e.count.textContent="0 papers";e.more.hidden=true;emptyState("Choose proceedings to search.","Unavailable venue/year pairs are marked in the coverage table.");return}if(requestId)worker.postMessage({type:"cancel",requestId});const id=++requestId;e.status.textContent="Preparing selected proceedings…";e.progressWrap.hidden=false;e.progress.max=shards.length;e.progress.value=0;e.progressLabel.textContent="Starting";if(reset)emptyState("Searching the archive…","Proceedings are scanned one at a time. Search stays in this browser.");worker.postMessage({type:"search",requestId:id,query,shards,sort:e.sort.value,topic,offset:currentOffset,limit:40});}
+  function meta(p){const row=node("div","card-meta");row.append(node("span","venue-badge",p.venue),node("span","",String(p.year)),node("span","meta-dot"),node("span","",p.source));return row}
+  function isPinned(id){return pins.some(p=>p.id===id)}
+  function pinPaper(p){const i=pins.findIndex(x=>x.id===p.id);if(i>=0)pins.splice(i,1);else pins.unshift(p);persistPins();for(const c of e.results.querySelectorAll(".paper-card")){if(c.__paper){const b=c.querySelector("[data-action=pin]"),active=isPinned(c.__paper.id);b.textContent=active?"Pinned ★":"Pin +";b.setAttribute("aria-pressed",String(active))}}}
+  function renderCard(p){const card=node("article","paper-card"),top=node("div","card-top"),cluster=node("span","cluster-tag",p.cluster),pin=node("button","pin-button",isPinned(p.id)?"Pinned ★":"Pin +");pin.type="button";pin.dataset.action="pin";pin.setAttribute("aria-pressed",String(isPinned(p.id)));top.append(meta(p),cluster,pin);const track=node("span","track-tag",p.track_status),title=node("button","paper-title",p.title);title.type="button";title.dataset.action="detail";const authors=node("p","paper-authors",p.authors||"Author list unavailable."),abstract=node("p","paper-abstract",p.abstract||"Abstract unavailable in source metadata."),actions=node("div","card-actions"),problem=node("button","","Use as problem"),method=node("button","","Use as method");problem.type=method.type="button";problem.dataset.action="problem";method.dataset.action="method";actions.append(problem,method);if(p.paper_url){const a=node("a","source-link","Open paper source ↗");a.href=p.paper_url;a.target="_blank";a.rel="noopener";actions.append(a)}card.append(top,track,title,authors,abstract,actions);card.dataset.paperId=p.id;return card}
+  function renderResults(m){currentTotal=m.total;retained=m.retained;currentOffset+=m.results.length;e.count.textContent=`${m.total.toLocaleString()} matching paper${m.total===1?"":"s"}`;e.status.textContent=m.total?`Showing ${Math.min(currentOffset,m.total).toLocaleString()} results. Up to 200 matches per selected shard are retained for paging.`:"No matches. Try fewer terms, another year, or more conferences.";if(m.offset===0)e.results.replaceChildren();if(m.results.length){const frag=document.createDocumentFragment();for(const p of m.results){const c=renderCard(p);c.__paper=p;frag.append(c)}e.results.append(frag)}else if(m.offset===0)emptyState("No papers found.","Try a shorter phrase or change the selected proceedings.");e.more.hidden=currentOffset>=retained}
+  function renderPins(){e.pinCount.textContent=String(pins.length);if(!pins.length){e.pinned.replaceChildren(node("p","empty-note","No pinned papers yet."));return}const frag=document.createDocumentFragment();for(const p of pins){const item=node("div","pinned-item"),title=node("button","",`${p.venue} ${p.year} · ${p.title}`),remove=node("button","","Remove");title.type=remove.type="button";title.dataset.action="detail";remove.dataset.action="unpin";title.dataset.pinId=remove.dataset.pinId=p.id;item.append(title,remove);frag.append(item)}e.pinned.replaceChildren(frag)}
+  function showDetail(p){e.dialogBody.replaceChildren();const title=node("h2","detail-title",p.title);title.id="detail-title";const metadata=node("div","detail-meta");metadata.append(node("span","venue-badge",p.venue),node("span","track-tag",p.track_status),node("span","card-meta",String(p.year)));const abstractLabel=node("h3","","Abstract"),abstract=node("p","detail-abstract",p.abstract||"Abstract unavailable in source metadata."),links=node("div","detail-links");abstractLabel.style.margin="23px 0 0";if(p.paper_url){const a=node("a","",`Open ${p.venue} paper source ↗`);a.href=p.paper_url;a.target="_blank";a.rel="noopener";links.append(a)}if(p.pdf_url){const a=node("a","","Open PDF at source ↗");a.href=p.pdf_url;a.target="_blank";a.rel="noopener";links.append(a)}const actions=node("div","packet-actions");for(const [role,label] of [["problem","Use as problem paper"],["method","Use as method paper"]]){const b=node("button","secondary",label);b.type="button";b.addEventListener("click",()=>setIdeaPaper(role,p));actions.append(b)}e.dialogBody.append(title,metadata,node("p","detail-authors",p.authors||"Author list unavailable."),abstractLabel,abstract,links,actions,node("p","detail-note",`${p.source}. ${p.track_status}. Topic labels are for discovery only.`));if(!e.dialog.open)e.dialog.showModal()}
+  function setIdeaPaper(role,p){if(!p.abstract?.trim()||!p.paper_url){e.ideaStatus.textContent="This record lacks a usable abstract or paper link. It can be searched, but it cannot support an evidence-backed hypothesis.";return}const other=role==="problem"?methodPaper:problemPaper;if(other&&other.id===p.id){e.ideaStatus.textContent="Choose two different papers.";return}if(role==="problem")problemPaper=p;else methodPaper=p;e.ideaStatus.textContent=problemPaper&&methodPaper?"Review both sources and treat this as an untested connection.":"One paper selected. Choose another paper.";renderIdea();if(e.dialog.open)e.dialog.close();document.querySelector("#idea-lab").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"})}
+  function evidence(p,role){const sentences=p.abstract.match(/[^.!?]+(?:[.!?]+|$)/g)?.map(s=>s.trim()).filter(Boolean)||[];const re=role==="problem"?/\b(however|challenges?|limitations?|remain(?:s|ed)?|still|difficult(?:y)?|despite|lack of|not address(?:ed)?|cannot|future work|open question)\b/i:/\b(we propose|we introduce|we present|we develop|our method|our approach|framework|architecture|algorithm|we design)\b/i;const found=sentences.find(s=>re.test(s));return {text:found||sentences[0]||"Abstract unavailable; inspect the paper source directly.",kind:found?(role==="problem"?"Challenge pattern":"Method pattern"):sentences.length?"Opening abstract excerpt; check the full abstract":"Title and source only"}}
+  function ref(p){return {id:p.id,venue:p.venue,title:p.title,year:p.year,source:p.source,paper_url:p.paper_url}}
+  function makePacket(){if(!problemPaper||!methodPaper)return null;const pe=evidence(problemPaper,"problem"),me=evidence(methodPaper,"method");return {schema:"cs-conference-hypothesis-packet-v1",status:"UNTESTED",created_at:new Date().toISOString(),hypothesis:`A method described in “${methodPaper.title}” may provide a useful test for the challenge discussed in “${problemPaper.title}”. Test it with a score named before the test and a matched compute budget.`,evidence:[{role:"problem paper",paper:ref(problemPaper),extraction:pe.kind,sentence:pe.text},{role:"method paper",paper:ref(methodPaper),extraction:me.kind,sentence:me.text}],comparison:{baseline:"Select and cite a strong task-matched public baseline before the test.",controls:"Use the same data split, inputs, training budget, compute budget, and score for both methods.",report:"Record repeated runs and uncertainty; do not treat abstract claims as results."},falsification:"The idea fails this test if the adapted method does not improve the preselected score over the baseline in a matched test, or if it breaks a quality rule set before the test.",novelty_warning:"A cross-paper combination does not prove novelty. Search related work and inspect both papers before making a claim."}}
+  function cite(p){return `${p.venue} ${p.year}. ${p.title}. ${p.source}. ${p.paper_url}`}
+  function renderIdea(){for(const [p,label,clear] of [[problemPaper,e.problem,e.clearProblem],[methodPaper,e.method,e.clearMethod]]){label.className=p?"pick-name":"pick-empty";label.textContent=p?`${p.venue} ${p.year} · ${p.title}`:"Choose from a search result.";clear.hidden=!p}e.hypothesis.replaceChildren();currentPacket=makePacket();if(!currentPacket){const p=node("div","hypothesis-placeholder");p.append(node("span","placeholder-mark","↗"),node("h3","","Your evidence packet will appear here."),node("p","","It will include source sentences, paper links, a controlled comparison, and a step that can disprove the idea."));e.hypothesis.append(p);return}e.hypothesis.append(node("span","untested-badge","UNTESTED HYPOTHESIS"),node("h3","","A question to test"),node("p","hypothesis-text",currentPacket.hypothesis));const pair=node("div","evidence-pair");for(const item of currentPacket.evidence){const box=node("div","evidence-box");box.append(node("small","",`${item.role} · ${item.extraction}`),node("blockquote","",`“${item.sentence}”`));const a=node("a","idea-source",cite(item.paper));a.href=item.paper.paper_url;a.target="_blank";a.rel="noopener";box.append(a);pair.append(box)}const methods=node("div","method-block");for(const [heading,body] of [["Controlled comparison",`${currentPacket.comparison.baseline} ${currentPacket.comparison.controls}`],["Falsification step",currentPacket.falsification]]){const div=node("div");div.append(node("h4","",heading),node("p","",body));methods.append(div)}const actions=node("div","packet-actions"),json=node("button","","Copy packet JSON"),md=node("button","secondary","Copy as Markdown"),notice=node("span","packet-notice","No results or novelty claims are generated.");json.type=md.type="button";json.addEventListener("click",()=>copyPacket("json"));md.addEventListener("click",()=>copyPacket("markdown"));notice.id="packet-notice";actions.append(json,md,notice);e.hypothesis.append(pair,methods,node("p","detail-note",currentPacket.novelty_warning),actions)}
+  function markdownPacket(p){return `# UNTESTED hypothesis\n\n${p.hypothesis}\n\n## Evidence\n\n${p.evidence.map(x=>`### ${x.role}\n\n> ${x.sentence}\n\nSource: ${cite(x.paper)}\n\nExtraction: ${x.extraction}`).join("\n\n")}\n\n## Controlled comparison\n\n- Baseline: ${p.comparison.baseline}\n- Controls: ${p.comparison.controls}\n- Reporting: ${p.comparison.report}\n\n## Falsification step\n\n${p.falsification}\n\n## Novelty warning\n\n${p.novelty_warning}\n`}
+  async function copyPacket(format){if(!currentPacket)return;const value=format==="json"?JSON.stringify(currentPacket,null,2):markdownPacket(currentPacket);try{await navigator.clipboard.writeText(value)}catch{const ta=node("textarea");ta.value=value;document.body.append(ta);ta.select();document.execCommand("copy");ta.remove()}const n=$("#packet-notice");if(n)n.textContent=`${format} copied.`}
+  async function loadCatalog(){try{const r=await fetch("catalog.json");if(!r.ok)throw Error(`Catalog HTTP ${r.status}`);catalog=await r.json();setupFilters();drawCoverage();estimate();const total=Object.values(catalog.venues).reduce((n,v)=>n+v.total_records,0);e.hero.textContent=`${total.toLocaleString()} records · ${Object.values(catalog.venues).filter(v=>v.available_years.length).length} conferences · 2022–2026`;e.integrity.replaceChildren(node("p","",`The catalog records source revisions, checksums, and transfer sizes for each static metadata shard.`));const table=node("table"),head=node("thead"),tr=node("tr");for(const x of ["Venue","Year","Records","Abstracts","File size","SHA256","Source"])tr.append(node("th","",x));head.append(tr);const body=node("tbody");for(const [v,meta]of Object.entries(catalog.venues))for(const y of meta.available_years){const item=meta.years[String(y)],row=node("tr");for(const val of [v,String(y),item.count.toLocaleString(),`${item.abstract_count??"—"} (${Math.round((item.abstract_coverage||0)*100)}%)`,`${item.bytes.toLocaleString()} bytes`,item.sha256,item.dataset_url||item.source_url])row.append(node("td","",val));body.append(row)}table.append(head,body);e.integrity.append(table)}catch(err){e.hero.textContent="Conference archive";e.integrity.replaceChildren(node("p","",err.message))}}
+  async function importPins(file){if(!file)return;try{const parsed=JSON.parse(await file.text()),incoming=Array.isArray(parsed)?parsed:parsed.pins;if(!Array.isArray(incoming))throw Error("Expected a pin list.");for(const raw of incoming.slice(0,500)){const p=cleanPaper(raw);if(p){const i=pins.findIndex(x=>x.id===p.id);if(i>=0)pins.splice(i,1);pins.push(p)}}persistPins();e.status.textContent=`Imported pins from ${file.name}. They remain in this browser.`}catch(err){e.status.textContent=`Could not import pins: ${err.message}`}e.importPins.value=""}
+  function exportPins(){const blob=new Blob([JSON.stringify({schema:"cs-conference-hub-pins-v1",exported_at:new Date().toISOString(),pins},null,2)],{type:"application/json"}),a=node("a");a.href=URL.createObjectURL(blob);a.download="cs-conference-hub-pins.json";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+  function findPin(id){return pins.find(p=>p.id===id)}
+  e.form.addEventListener("submit",ev=>{ev.preventDefault();clearTimeout(debounce);runSearch(true)});e.query.addEventListener("input",()=>{clearTimeout(debounce);debounce=setTimeout(()=>runSearch(true),260)});e.topic.addEventListener("input",()=>{clearTimeout(debounce);debounce=setTimeout(()=>runSearch(true),260)});e.sort.addEventListener("change",()=>runSearch(true));e.more.addEventListener("click",()=>runSearch(false));e.exportPins.addEventListener("click",exportPins);e.importPins.addEventListener("change",()=>importPins(e.importPins.files[0]));e.closeDialog.addEventListener("click",()=>e.dialog.close());e.clearProblem.addEventListener("click",()=>{problemPaper=null;renderIdea();e.ideaStatus.textContent="Problem paper cleared."});e.clearMethod.addEventListener("click",()=>{methodPaper=null;renderIdea();e.ideaStatus.textContent="Method paper cleared."});
+  e.results.addEventListener("click",ev=>{const b=ev.target.closest("[data-action]"),card=b?.closest("[data-paper-id]");if(!b||!card)return;const p=[...e.results.querySelectorAll("[data-paper-id]")].map(x=>x.__paper).find(x=>x?.id===card.dataset.paperId);if(!p)return;if(b.dataset.action==="detail")showDetail(p);if(b.dataset.action==="pin")pinPaper(p);if(b.dataset.action==="problem"||b.dataset.action==="method")setIdeaPaper(b.dataset.action,p)});e.pinned.addEventListener("click",ev=>{const b=ev.target.closest("[data-action]"),p=b&&findPin(b.dataset.pinId);if(!p)return;if(b.dataset.action==="detail")showDetail(p);if(b.dataset.action==="unpin")pinPaper(p)});
+  worker.addEventListener("message",ev=>{const m=ev.data;if(m.requestId!==requestId)return;if(m.type==="progress"){e.progress.max=m.total;e.progress.value=m.current;e.progressLabel.textContent=`${m.stage==="indexed"?"Scanned":"Loading"} ${m.venue} ${m.year} · ${m.current}/${m.total}`;e.status.textContent=m.stage==="indexed"?`${m.yearCount.toLocaleString()} papers scanned in ${m.venue} ${m.year}.`:m.stage==="scan"?`Searching ${m.venue} ${m.year}…`:`Loading ${m.venue} ${m.year} metadata…`}else if(m.type==="results"){e.progressWrap.hidden=true;renderResults(m)}else if(m.type==="error"){e.progressWrap.hidden=true;e.status.textContent=m.message;e.count.textContent="Search unavailable";emptyState("The search could not finish.",`${m.message} Check that this site is served over HTTP or HTTPS.`)}});
+  renderPins();loadCatalog();document.addEventListener("keydown",ev=>{if(ev.key==="/"&&!e.dialog.open&&!["INPUT","TEXTAREA","SELECT"].includes(document.activeElement.tagName)){ev.preventDefault();e.query.focus()}});
 })();

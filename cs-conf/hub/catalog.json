@@ -1,0 +1,914 @@
+{
+  "schema": "cs-conf-catalog-v1",
+  "taxonomy": {
+    "Computer Vision & 3D": [
+      "CVPR",
+      "ICCV",
+      "ECCV"
+    ],
+    "Machine Learning & AI": [
+      "NeurIPS",
+      "ICML",
+      "ICLR",
+      "AAAI"
+    ],
+    "Language/NLP": [
+      "ACL",
+      "EMNLP",
+      "NAACL"
+    ],
+    "Robotics & Speech": [
+      "ICRA",
+      "ICASSP"
+    ]
+  },
+  "venues": {
+    "CVPR": {
+      "available_years": [
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "years": {
+        "2022": {
+          "count": 2074,
+          "file": "data/2022.json",
+          "bytes": 4300265,
+          "sha256": "e64495c6c1564b0e5d46fbfd6adcb7cad067a1ca95c7142780b123c75a499399",
+          "source_url": "Hugging Face dataset",
+          "revision": "existing-cvpr-corpus",
+          "abstract_coverage": 0.9986,
+          "license": "MIT dataset license; see provenance.json",
+          "abstract_count": 2071
+        },
+        "2023": {
+          "count": 2353,
+          "file": "data/2023.json",
+          "bytes": 4949638,
+          "sha256": "bf2d6a05fd2a4b62fbb73332bbab95e3464a3b6319dcd90b9b1df12695895d7e",
+          "source_url": "Hugging Face dataset",
+          "revision": "existing-cvpr-corpus",
+          "abstract_coverage": 1.0,
+          "license": "MIT dataset license; see provenance.json",
+          "abstract_count": 2353
+        },
+        "2024": {
+          "count": 2716,
+          "file": "data/2024.json",
+          "bytes": 5744772,
+          "sha256": "5cbf968a8a4d576e634bca1c7e3cc10df60d82b31f5bd51a5e14c8b94d12b94a",
+          "source_url": "Hugging Face dataset",
+          "revision": "existing-cvpr-corpus",
+          "abstract_coverage": 0.9989,
+          "license": "MIT dataset license; see provenance.json",
+          "abstract_count": 2713
+        },
+        "2025": {
+          "count": 2871,
+          "file": "data/2025.json",
+          "bytes": 6222618,
+          "sha256": "6d405e18a90ec8f36043fa64bda2eba9eadc2b469a70fb1f9126cfd269ead3c5",
+          "source_url": "Hugging Face dataset",
+          "revision": "existing-cvpr-corpus",
+          "abstract_coverage": 1.0,
+          "license": "MIT dataset license; see provenance.json",
+          "abstract_count": 2871
+        },
+        "2026": {
+          "count": 4069,
+          "file": "data/2026.json",
+          "bytes": 9014661,
+          "sha256": "a943a072385222f9ed9e1abfb04aa109bd688f7e4c7ea0c329740681bf841695",
+          "source_url": "Hugging Face dataset",
+          "revision": "existing-cvpr-corpus",
+          "abstract_coverage": 1.0,
+          "license": "MIT dataset license; see provenance.json",
+          "abstract_count": 4069
+        }
+      },
+      "missing_years": [],
+      "total_records": 14083
+    },
+    "ICCV": {
+      "available_years": [
+        2023,
+        2025
+      ],
+      "years": {
+        "2023": {
+          "count": 2156,
+          "file": "data/venues/ICCV/2023.json",
+          "bytes": 4451774,
+          "sha256": "939173e66f450df69b7d72ad819a73ffb4d03efaffd10a3168d92017cf12f6fb",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/ICCV2023/resolve/b1c65d22e665c262b4a3b93aef48b6f2f7a91920/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/ICCV2023",
+          "source_bytes": 2469678,
+          "source_sha256": "5d70d1cbc18526b8df3b2a2748b2774613981080bd92f0f338d9485940b0a301",
+          "revision": "b1c65d22e665c262b4a3b93aef48b6f2f7a91920",
+          "abstract_count": 2156,
+          "abstract_coverage": 1.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2025": {
+          "count": 2701,
+          "file": "data/venues/ICCV/2025.json",
+          "bytes": 5739158,
+          "sha256": "bcda9927de8d22aad359f78798cc51d1e9cd4cc5bf5422115bb73cff9598cbd6",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/ICCV2025/resolve/b23ab75a2ff16b72e027cd95515c0f2f091c8c21/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/ICCV2025",
+          "source_bytes": 3226979,
+          "source_sha256": "1ff60609fad21169b01d4384ea8777a8fe91d14d91ec20b0183230b16e6d7955",
+          "revision": "b23ab75a2ff16b72e027cd95515c0f2f091c8c21",
+          "abstract_count": 2701,
+          "abstract_coverage": 1.0,
+          "license": "Dataset card does not declare a license"
+        }
+      },
+      "missing_years": [
+        2022,
+        2024,
+        2026
+      ],
+      "total_records": 4857
+    },
+    "ECCV": {
+      "available_years": [
+        2022,
+        2024,
+        2026
+      ],
+      "years": {
+        "2022": {
+          "count": 1645,
+          "file": "data/venues/ECCV/2022.json",
+          "bytes": 3083008,
+          "sha256": "3fab4f831ae6fdc923344a2f9063ad68e7a46174597502e98b7139de0933643f",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/ECCV2022/resolve/400c02057be5fd7e60d8b65d8cb9777cd090b272/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/ECCV2022",
+          "source_bytes": 1376853,
+          "source_sha256": "f5a4ca6784fe66da45a91d409aa3b41daaf2fee202889e429ec8b263456f28e9",
+          "revision": "400c02057be5fd7e60d8b65d8cb9777cd090b272",
+          "abstract_count": 1645,
+          "abstract_coverage": 1.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2024": {
+          "count": 2387,
+          "file": "data/venues/ECCV/2024.json",
+          "bytes": 4562141,
+          "sha256": "ee71c3ea6d775c9f960e790c656464d0857458ed5494bdfdba6cc441113a0d29",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/ECCV2024/resolve/d9f9ac8f2e3fc92c97f6c83e6aaa421f12d5b50f/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/ECCV2024",
+          "source_bytes": 2120129,
+          "source_sha256": "1043c60f03153f77a1391406e2239f655fd23efa2f613167afffce595f099127",
+          "revision": "d9f9ac8f2e3fc92c97f6c83e6aaa421f12d5b50f",
+          "abstract_count": 2387,
+          "abstract_coverage": 1.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2026": {
+          "count": 2864,
+          "file": "data/venues/ECCV/2026.json",
+          "bytes": 4128520,
+          "sha256": "a58b75c32f1bccfc07ed8562494da4a64034d21f91914d64c729f396adcfc642",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/ECCV2026/resolve/78c31903dfd6c027be0b4258ac84c4b1bec71ff3/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/ECCV2026",
+          "source_bytes": 1987444,
+          "source_sha256": "760001b44a3ff24810b6190c78e45eb26359f9621f4195da831ee526022e9143",
+          "revision": "78c31903dfd6c027be0b4258ac84c4b1bec71ff3",
+          "abstract_count": 1823,
+          "abstract_coverage": 0.6365,
+          "license": "Dataset card does not declare a license"
+        }
+      },
+      "missing_years": [
+        2023,
+        2025
+      ],
+      "total_records": 6896
+    },
+    "NeurIPS": {
+      "available_years": [
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "years": {
+        "2022": {
+          "count": 2671,
+          "file": "data/venues/NeurIPS/2022.json",
+          "bytes": 4930166,
+          "sha256": "662340cb0ebacf9baaecca70073d7466285a992cf8f11b5a9987844dacdb12d2",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/NeurIPS2022/resolve/76ffa7cddd2990fcdc6654006b6c94c3582806b0/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/NeurIPS2022",
+          "source_bytes": 2658941,
+          "source_sha256": "e9201df8a130c6e5f10559c2ec553ed53b655858adfcd6dc32941994a6191263",
+          "revision": "76ffa7cddd2990fcdc6654006b6c94c3582806b0",
+          "abstract_count": 2671,
+          "abstract_coverage": 1.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2023": {
+          "count": 3218,
+          "file": "data/venues/NeurIPS/2023.json",
+          "bytes": 5978671,
+          "sha256": "1bc659eeb3a45496bb73446319ab3f6bf8019216f9aa75653f0c13c3088c98d8",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/NeurIPS2023/resolve/cc315f4dad97426f50b17f9ca110a3fef9ce8fbb/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/NeurIPS2023",
+          "source_bytes": 3256170,
+          "source_sha256": "5c5ecaff4145efc55563cc247524cdb27c982a0e211dcb84118d89f42e049dd9",
+          "revision": "cc315f4dad97426f50b17f9ca110a3fef9ce8fbb",
+          "abstract_count": 3218,
+          "abstract_coverage": 1.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2024": {
+          "count": 4035,
+          "file": "data/venues/NeurIPS/2024.json",
+          "bytes": 7355857,
+          "sha256": "66e2054a6c0d32f84dc5255628dc1c70e20ba253cb6ccc484343714097ffa52b",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/NeurIPS2024/resolve/6324e6472adc3b6b3b7ad28b6392cf92c700068d/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/NeurIPS2024",
+          "source_bytes": 4155043,
+          "source_sha256": "8e9524907725fab89093824ef80587e1a2ac5f3f503084d38c6d801e8857e7b0",
+          "revision": "6324e6472adc3b6b3b7ad28b6392cf92c700068d",
+          "abstract_count": 4035,
+          "abstract_coverage": 1.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2025": {
+          "count": 5286,
+          "file": "data/venues/NeurIPS/2025.json",
+          "bytes": 9827890,
+          "sha256": "c67e9727b335670b422a3ca1a99aff26ea5c72fe3749847fb35ba3ad3c63cec4",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/NeurIPS2025/resolve/b923bcad8712a42cbb59d09722ede6026e07cc2a/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/NeurIPS2025",
+          "source_bytes": 5594752,
+          "source_sha256": "aee3b96895b3c454175704bf278f3ad17e15faf6bb67ecf10f8c62e58f6aaac3",
+          "revision": "b923bcad8712a42cbb59d09722ede6026e07cc2a",
+          "abstract_count": 5286,
+          "abstract_coverage": 1.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2026": {
+          "count": 7898,
+          "file": "data/venues/NeurIPS/2026.json",
+          "bytes": 15203832,
+          "sha256": "12f17bb6f4f8879f5d8faf359cf4ba6f9aa5a3ba79dea013dd327745b564e391",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/NeurIPS2026/resolve/48ff0fd621ae3a8962d157045d8fc6ddbb0d7441/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/NeurIPS2026",
+          "source_bytes": 7682923,
+          "source_sha256": "9387d29c19b7b325909e0cb86c35d55b8acea8549f7a1ea2eae0e2cd090aa4dc",
+          "revision": "48ff0fd621ae3a8962d157045d8fc6ddbb0d7441",
+          "abstract_count": 7898,
+          "abstract_coverage": 1.0,
+          "license": "Dataset card does not declare a license"
+        }
+      },
+      "missing_years": [],
+      "total_records": 23108
+    },
+    "ICML": {
+      "available_years": [
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "years": {
+        "2022": {
+          "count": 1233,
+          "file": "data/venues/ICML/2022.json",
+          "bytes": 2046670,
+          "sha256": "0121034b46ea23e3b49582c7449823ed31a25b5a8fda3d0c7f1ffe5327cd66f1",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/ICML2022/resolve/7137731726f6073e1ed815c9eb241673617de08c/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/ICML2022",
+          "source_bytes": 952588,
+          "source_sha256": "26a1b850a675aede4c9c677c911965d2f8e1669d1f4de53a235d4f7309a8beeb",
+          "revision": "7137731726f6073e1ed815c9eb241673617de08c",
+          "abstract_count": 1233,
+          "abstract_coverage": 1.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2023": {
+          "count": 1828,
+          "file": "data/venues/ICML/2023.json",
+          "bytes": 2961487,
+          "sha256": "ce3c48a2444688cc9d7d6b8ce058ae604fdaa89cf7d9f69fe75cac75b6e590e0",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/ICML2023/resolve/e9fd260f66ca1bba72ef71c0ccfb1be78cda986c/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/ICML2023",
+          "source_bytes": 1431113,
+          "source_sha256": "d1c49c5b908141f532f9cb602437472193e07076d13742459aea57dcf367ed3d",
+          "revision": "e9fd260f66ca1bba72ef71c0ccfb1be78cda986c",
+          "abstract_count": 1828,
+          "abstract_coverage": 1.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2024": {
+          "count": 2610,
+          "file": "data/venues/ICML/2024.json",
+          "bytes": 4344800,
+          "sha256": "b0c721b2744c5e6127b363f3ac8fc510302f232e78e906af66601af02470728a",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/ICML2024/resolve/158c042bff2930352950514d6a39f08b4355136e/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/ICML2024",
+          "source_bytes": 2126742,
+          "source_sha256": "510da8659bb89ea4bed0e62a690ad5ee27568c3720479a4d2b6061c9f8771ec6",
+          "revision": "158c042bff2930352950514d6a39f08b4355136e",
+          "abstract_count": 2610,
+          "abstract_coverage": 1.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2025": {
+          "count": 3257,
+          "file": "data/venues/ICML/2025.json",
+          "bytes": 5702329,
+          "sha256": "ad081a74b20045cd50dce0876cd03cff2b2e62e9f0a6d63421f8dca0461360bc",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/ICML2025/resolve/789658fc85034b416b7ecbea3d7c99e29735f332/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/ICML2025",
+          "source_bytes": 3221511,
+          "source_sha256": "c742a97a9033047b695e4cc63d13dcf5d284fec828763b02dc3bfcbc320f0d42",
+          "revision": "789658fc85034b416b7ecbea3d7c99e29735f332",
+          "abstract_count": 3257,
+          "abstract_coverage": 1.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2026": {
+          "count": 6341,
+          "file": "data/venues/ICML/2026.json",
+          "bytes": 11401761,
+          "sha256": "e48320dfc25c23d1ee0a68a5ca0323c66bfc5b51f6d646ee8c60358ec9d31584",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/ICML2026/resolve/7af73e0aa4707d84a4cfeba3f07f720637ab9b14/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/ICML2026",
+          "source_bytes": 6608090,
+          "source_sha256": "86c4705ac177611b48bc3c7a004b7d6ff5e63a060c4f9b61163b47b2d0ffd80e",
+          "revision": "7af73e0aa4707d84a4cfeba3f07f720637ab9b14",
+          "abstract_count": 6341,
+          "abstract_coverage": 1.0,
+          "license": "Dataset card does not declare a license"
+        }
+      },
+      "missing_years": [],
+      "total_records": 15269
+    },
+    "ICLR": {
+      "available_years": [
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "years": {
+        "2022": {
+          "count": 1094,
+          "file": "data/venues/ICLR/2022.json",
+          "bytes": 1974439,
+          "sha256": "4bc60783869f65d98e64a86f1eef6311a3edeaba37dc508050b0b6263d4c8ec2",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/ICLR2022/resolve/b924481757f3747c2dc287349329549be23754fc/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/ICLR2022",
+          "source_bytes": 1028149,
+          "source_sha256": "c8bc18ec349d083de15722eaad28025e4ed6463d1325ad7b27fc4998b65cc784",
+          "revision": "b924481757f3747c2dc287349329549be23754fc",
+          "abstract_count": 1094,
+          "abstract_coverage": 1.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2023": {
+          "count": 1573,
+          "file": "data/venues/ICLR/2023.json",
+          "bytes": 2922192,
+          "sha256": "b3889941602d8afef45459ec927fb0a426c52e6c4b4e9234abb2e72d7e64b68c",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/ICLR2023/resolve/83200d521c7ae67bb231bf9deacc1508908d1f2c/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/ICLR2023",
+          "source_bytes": 1486255,
+          "source_sha256": "debfaac682f9cdd599b99e363afafe7e8085b666dd35c2991002f349ef4ce5bb",
+          "revision": "83200d521c7ae67bb231bf9deacc1508908d1f2c",
+          "abstract_count": 1573,
+          "abstract_coverage": 1.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2024": {
+          "count": 2260,
+          "file": "data/venues/ICLR/2024.json",
+          "bytes": 4248521,
+          "sha256": "69a6c91d5b54548b341bf846e0ed953acb982adb9f30f49dee392ae872ea2933",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/ICLR2024/resolve/e0a8df3d2eea836331c50e0deae07ab31cc6a753/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/ICLR2024",
+          "source_bytes": 2362858,
+          "source_sha256": "64a4da6a058a3f7adbbc677e249a1710d23b00b3d869a9a5ae2f0ca8fbfc0950",
+          "revision": "e0a8df3d2eea836331c50e0deae07ab31cc6a753",
+          "abstract_count": 2260,
+          "abstract_coverage": 1.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2025": {
+          "count": 3703,
+          "file": "data/venues/ICLR/2025.json",
+          "bytes": 7156510,
+          "sha256": "6b04639a91e3c6242a0701bcae8b331165f7f6c4ced14b834b6b556fd23348b4",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/ICLR2025/resolve/0562291ff7f9fb1a7b845a7b3960177355f41a58/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/ICLR2025",
+          "source_bytes": 3967978,
+          "source_sha256": "baf5e77f90d187b9f3895e1c2ae05235eb5a4ce90985ef9cef7b610dacaf0a10",
+          "revision": "0562291ff7f9fb1a7b845a7b3960177355f41a58",
+          "abstract_count": 3703,
+          "abstract_coverage": 1.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2026": {
+          "count": 5352,
+          "file": "data/venues/ICLR/2026.json",
+          "bytes": 10531973,
+          "sha256": "5be779814480cf2d494ce2975146324921b1114365200609203b98590d82adeb",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/ICLR2026/resolve/9fec8f3eb5c2202b1e536967f2de9caebf9a7ab2/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/ICLR2026",
+          "source_bytes": 5923100,
+          "source_sha256": "32bacfea640cfda8143caa029ac2e384cb2c882acfcbefde3a932a419a5461e2",
+          "revision": "9fec8f3eb5c2202b1e536967f2de9caebf9a7ab2",
+          "abstract_count": 5352,
+          "abstract_coverage": 1.0,
+          "license": "Dataset card does not declare a license"
+        }
+      },
+      "missing_years": [],
+      "total_records": 13982
+    },
+    "AAAI": {
+      "available_years": [
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "years": {
+        "2022": {
+          "count": 1319,
+          "file": "data/venues/AAAI/2022.json",
+          "bytes": 2381649,
+          "sha256": "075ef478325123fa65b6cd7044c94e9f0ddfa843bde579fe3111d1caf81ae878",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/AAAI2022/resolve/e3a6c610ca65c078d1ec50ae837bb60329542da4/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/AAAI2022",
+          "source_bytes": 1094697,
+          "source_sha256": "845cea0649afdd0cb0b9e3c647b64528b222cdd04b15425e1691f9d353401288",
+          "revision": "e3a6c610ca65c078d1ec50ae837bb60329542da4",
+          "abstract_count": 1319,
+          "abstract_coverage": 1.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2023": {
+          "count": 1578,
+          "file": "data/venues/AAAI/2023.json",
+          "bytes": 2906882,
+          "sha256": "bad11091177c94d282e208a8777367cc23948769f93da22ec716de3862ac8f12",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/AAAI2023/resolve/8b645909d6bd773fd0bd227b7cd5077f88226017/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/AAAI2023",
+          "source_bytes": 1361223,
+          "source_sha256": "57b7cc32468aae4260027e2b1e3255b3bf9ccee865e2c1acf05eab34116177e7",
+          "revision": "8b645909d6bd773fd0bd227b7cd5077f88226017",
+          "abstract_count": 1578,
+          "abstract_coverage": 1.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2024": {
+          "count": 2331,
+          "file": "data/venues/AAAI/2024.json",
+          "bytes": 4436707,
+          "sha256": "bfc7fcaa1977aa9f6a73b4362def7717be65e48119b8922c77fe8f514e2d9a90",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/AAAI2024/resolve/6daa13447c6bceafbf3efa981b98642b0ecb36dd/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/AAAI2024",
+          "source_bytes": 2083592,
+          "source_sha256": "ca318e3bf0d9ed73aec3330ff6d7f311a9c2186cca3a58db696f8f6520061a96",
+          "revision": "6daa13447c6bceafbf3efa981b98642b0ecb36dd",
+          "abstract_count": 2331,
+          "abstract_coverage": 1.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2025": {
+          "count": 3028,
+          "file": "data/venues/AAAI/2025.json",
+          "bytes": 5781779,
+          "sha256": "f7d6cd3cc7d11a11dcee10767bb701ee590e404a4fa891cd544fd04fcc3eda2b",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/AAAI2025/resolve/d00f1b70b9d4e8e5b247d7e9cd77461733236cb5/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/AAAI2025",
+          "source_bytes": 2710669,
+          "source_sha256": "99afd4255d4c59f2edf5679d6130faf1661894dd20085a8eb7dc847360d59b37",
+          "revision": "d00f1b70b9d4e8e5b247d7e9cd77461733236cb5",
+          "abstract_count": 3028,
+          "abstract_coverage": 1.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2026": {
+          "count": 4149,
+          "file": "data/venues/AAAI/2026.json",
+          "bytes": 8108799,
+          "sha256": "1f79ee80788bc48cb35d462cddea05d257c02d547b44113a334c244edfebb928",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/AAAI2026/resolve/75b069fb76563d165727128376ac7d2db747294c/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/AAAI2026",
+          "source_bytes": 3875500,
+          "source_sha256": "b2317efdc856dd2f53942883de9de597c9864ca78700f0d08d12e807de40cd73",
+          "revision": "75b069fb76563d165727128376ac7d2db747294c",
+          "abstract_count": 4149,
+          "abstract_coverage": 1.0,
+          "license": "Dataset card does not declare a license"
+        }
+      },
+      "missing_years": [],
+      "total_records": 12405
+    },
+    "ACL": {
+      "available_years": [
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "years": {
+        "2022": {
+          "count": 700,
+          "file": "data/venues/ACL/2022.json",
+          "bytes": 1079447,
+          "sha256": "c93aa8a1b283ca3f793e018a97a213fe8efb5a00860ae1bf8550b7694202e9c4",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/ACL2022/resolve/168e3597ec6329a9bf105008a6b4424b0af22e41/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/ACL2022",
+          "source_bytes": 509541,
+          "source_sha256": "d755c8c04ba507f298d11f475c15577c86ba1411e351cebd2d8b1d91c608a10b",
+          "revision": "168e3597ec6329a9bf105008a6b4424b0af22e41",
+          "abstract_count": 700,
+          "abstract_coverage": 1.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2023": {
+          "count": 1074,
+          "file": "data/venues/ACL/2023.json",
+          "bytes": 1750844,
+          "sha256": "a55c3f83a00c06e6e4c403d6cf38fe5e4622d5fad12a8eaf163aa1ecd71f8423",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/ACL2023/resolve/8044058716bce31259e7ddd2c5610976516c293e/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/ACL2023",
+          "source_bytes": 834167,
+          "source_sha256": "fc90e639981d8daecff26dfdd2965aae5b4a7890f42d53e3e82cd22e7cf4148b",
+          "revision": "8044058716bce31259e7ddd2c5610976516c293e",
+          "abstract_count": 1074,
+          "abstract_coverage": 1.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2024": {
+          "count": 940,
+          "file": "data/venues/ACL/2024.json",
+          "bytes": 1579781,
+          "sha256": "c0e6fc40bec99cb7ee6f480335c7fdf2409764d1a9a93f1decd223f4aa8416f1",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/ACL2024/resolve/79bf13db2032d154094a6f2e1b4b9d063a38634e/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/ACL2024",
+          "source_bytes": 763559,
+          "source_sha256": "7d477da6c612aa67710cb92d678888cc3f33b3d163babd1e9b528e41dabaf425",
+          "revision": "79bf13db2032d154094a6f2e1b4b9d063a38634e",
+          "abstract_count": 939,
+          "abstract_coverage": 0.9989,
+          "license": "Dataset card does not declare a license"
+        },
+        "2025": {
+          "count": 1699,
+          "file": "data/venues/ACL/2025.json",
+          "bytes": 2920356,
+          "sha256": "c7cad6b7648ead1da97d9ee3f4fe210af9479ce3a9b9fa73c98b6a0f17f9a244",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/ACL2025/resolve/3ff283946934c789061acbba1817fa5a614e9d14/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/ACL2025",
+          "source_bytes": 1415277,
+          "source_sha256": "90e7df0db10d0cc274f06389159ce1e76c639dd95dd9e17e511ff44488a7b87b",
+          "revision": "3ff283946934c789061acbba1817fa5a614e9d14",
+          "abstract_count": 1699,
+          "abstract_coverage": 1.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2026": {
+          "count": 2296,
+          "file": "data/venues/ACL/2026.json",
+          "bytes": 4070926,
+          "sha256": "75b79cb2a39525dab1267039dbab83211fbf73eddb044beab24b18bea63f2374",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/ACL2026/resolve/807cf0b6b6c5232dca2c3043d30ac2f44a5f31ab/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/ACL2026",
+          "source_bytes": 2016965,
+          "source_sha256": "8a4a0746e2aef0c55bb20447a9f4ef3bc442d8bd7a20c98dc7730c2b398c1d2a",
+          "revision": "807cf0b6b6c5232dca2c3043d30ac2f44a5f31ab",
+          "abstract_count": 2295,
+          "abstract_coverage": 0.9996,
+          "license": "Dataset card does not declare a license"
+        }
+      },
+      "missing_years": [],
+      "total_records": 6709
+    },
+    "EMNLP": {
+      "available_years": [
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "years": {
+        "2022": {
+          "count": 828,
+          "file": "data/venues/EMNLP/2022.json",
+          "bytes": 1344438,
+          "sha256": "818d00bc93fb3e634467aa9e48bccb217742a511e99c43d56a58a3237a31ae0e",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/EMNLP2022/resolve/bbd0e0198f85433006856717c9c06c8f2fb85615/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/EMNLP2022",
+          "source_bytes": 632497,
+          "source_sha256": "04efc9c80dd0262263ba67e56c4e0a466a417ae7fe97dfac64372493853c3292",
+          "revision": "bbd0e0198f85433006856717c9c06c8f2fb85615",
+          "abstract_count": 826,
+          "abstract_coverage": 0.9976,
+          "license": "Dataset card does not declare a license"
+        },
+        "2023": {
+          "count": 1047,
+          "file": "data/venues/EMNLP/2023.json",
+          "bytes": 1734752,
+          "sha256": "707dce37ec55c1f33bfa2da9a474fefb0501fe02646b22ceee07ec77e3022e8c",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/EMNLP2023/resolve/f17ffbc481fbf2468356eb6fc04b1ff19a8db877/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/EMNLP2023",
+          "source_bytes": 830341,
+          "source_sha256": "cdc11853d7bcd47876a09ef28dda32837a33a80b4e748c9279e9ce549ce30638",
+          "revision": "f17ffbc481fbf2468356eb6fc04b1ff19a8db877",
+          "abstract_count": 1047,
+          "abstract_coverage": 1.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2024": {
+          "count": 1268,
+          "file": "data/venues/EMNLP/2024.json",
+          "bytes": 2088942,
+          "sha256": "17c2712c3c9cdb3e0c8d150b7158c8b86d98af577829e5e13fc0c4a9e593fdeb",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/EMNLP2024/resolve/df856ad5282a4d23bbdd8f9eab2c7e5ccd61d6c1/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/EMNLP2024",
+          "source_bytes": 1001574,
+          "source_sha256": "00e85c16017af353481debcef065abd8d0c7c0842c93ff81ae461cff96566b38",
+          "revision": "df856ad5282a4d23bbdd8f9eab2c7e5ccd61d6c1",
+          "abstract_count": 1237,
+          "abstract_coverage": 0.9756,
+          "license": "Dataset card does not declare a license"
+        },
+        "2025": {
+          "count": 1809,
+          "file": "data/venues/EMNLP/2025.json",
+          "bytes": 3092043,
+          "sha256": "cd24f4e865af45cbaabe9e8197c452cd5646d58cf7587a9ccfef25365c57b7dc",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/EMNLP2025/resolve/9365474bb295de7d1a7b8fe2ec0cc94ec1b15f81/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/EMNLP2025",
+          "source_bytes": 1494608,
+          "source_sha256": "8013603bd8ad65c45b146a102198b2297b6de1567d8b41c98ef1498e5807ab08",
+          "revision": "9365474bb295de7d1a7b8fe2ec0cc94ec1b15f81",
+          "abstract_count": 1809,
+          "abstract_coverage": 1.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2026": {
+          "count": 2704,
+          "file": "data/venues/EMNLP/2026.json",
+          "bytes": 4863956,
+          "sha256": "58c6ef2822130d26e2ce8d430d5a72f5ae1a326ef4f67721dedc9be2899211b1",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/EMNLP2026/resolve/ccff9c34e7ad8ed1390a79cb4d48f04559f4fde6/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/EMNLP2026",
+          "source_bytes": 2451676,
+          "source_sha256": "419da6bf605bcc49c7e37238655e2af189ca78ba0502bce49f472626b3ba45ec",
+          "revision": "ccff9c34e7ad8ed1390a79cb4d48f04559f4fde6",
+          "abstract_count": 2704,
+          "abstract_coverage": 1.0,
+          "license": "Dataset card does not declare a license"
+        }
+      },
+      "missing_years": [],
+      "total_records": 7656
+    },
+    "NAACL": {
+      "available_years": [
+        2022,
+        2024,
+        2025
+      ],
+      "years": {
+        "2022": {
+          "count": 442,
+          "file": "data/venues/NAACL/2022.json",
+          "bytes": 692030,
+          "sha256": "ed7e4373e4e72513ed134afb56c6da542c8be9b48fbfe3a1c125a86fefa66181",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/NAACL2022/resolve/4383d5ec976bef4488fb346dd1b2f5f4cdddeae5/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/NAACL2022",
+          "source_bytes": 329632,
+          "source_sha256": "7496141c0e7361a4c6707d127ce6ac30b2ca64f6b8e32ee1d1e3acba4cbd62fe",
+          "revision": "4383d5ec976bef4488fb346dd1b2f5f4cdddeae5",
+          "abstract_count": 442,
+          "abstract_coverage": 1.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2024": {
+          "count": 562,
+          "file": "data/venues/NAACL/2024.json",
+          "bytes": 935146,
+          "sha256": "7518ba6b0569ee9ac373839c3a2d8add695f4ecef07f083afbdd867a8c553a17",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/NAACL2024/resolve/41c8116364b9a4a443c83724ff124d957ac60a39/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/NAACL2024",
+          "source_bytes": 451987,
+          "source_sha256": "e168fca81d6e3057d49f53aab316aaca37d878fcc8adbc39e08c7c8881b2a04d",
+          "revision": "41c8116364b9a4a443c83724ff124d957ac60a39",
+          "abstract_count": 562,
+          "abstract_coverage": 1.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2025": {
+          "count": 718,
+          "file": "data/venues/NAACL/2025.json",
+          "bytes": 1181655,
+          "sha256": "11f1fd02d88f133d8289c893aeb6d79d3f46e0839b54ff292431ffe11d3599b0",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/NAACL2025/resolve/86bd9912abe7607e121a8a10abb717536fa8db2f/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/NAACL2025",
+          "source_bytes": 570643,
+          "source_sha256": "97cba748605a75e9bd5dc7295c687ae1e17edd606c36e2a0ab651cc03941e975",
+          "revision": "86bd9912abe7607e121a8a10abb717536fa8db2f",
+          "abstract_count": 695,
+          "abstract_coverage": 0.968,
+          "license": "Dataset card does not declare a license"
+        }
+      },
+      "missing_years": [
+        2023,
+        2026
+      ],
+      "total_records": 1722
+    },
+    "ICRA": {
+      "available_years": [
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "years": {
+        "2022": {
+          "count": 929,
+          "file": "data/venues/ICRA/2022.json",
+          "bytes": 475916,
+          "sha256": "b855d2a4ebfa370b12363b4302b190600838ad612781910a85a050f0113c3652",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/ICRA2022/resolve/c39f830191cb853d7243b6590070431d6a6576ac/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/ICRA2022",
+          "source_bytes": 185539,
+          "source_sha256": "eb3f7bde05e51dec9c7382c4689d5ec61988e202c1ee41e11872a90e01b4b837",
+          "revision": "c39f830191cb853d7243b6590070431d6a6576ac",
+          "abstract_count": 0,
+          "abstract_coverage": 0.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2023": {
+          "count": 1341,
+          "file": "data/venues/ICRA/2023.json",
+          "bytes": 687920,
+          "sha256": "ef9550fad9344f9a3e9598a85b124bc667ed180d93d94bb628bba8db361f1524",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/ICRA2023/resolve/5e08f743228a06bbb31051c51777b8d9193a610a/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/ICRA2023",
+          "source_bytes": 265414,
+          "source_sha256": "a22ab1c37b052d3e544ef4333f46d72cf327ef2b970ec3e2b6440b3b2a1e9479",
+          "revision": "5e08f743228a06bbb31051c51777b8d9193a610a",
+          "abstract_count": 0,
+          "abstract_coverage": 0.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2024": {
+          "count": 1760,
+          "file": "data/venues/ICRA/2024.json",
+          "bytes": 912209,
+          "sha256": "6932e522aeb296512573e0746b59d32fd07b9dc0f1243ced1e1f77955760f9c2",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/ICRA2024/resolve/b5e520c21bc1f560a171d55274a2a968d1ed5611/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/ICRA2024",
+          "source_bytes": 348901,
+          "source_sha256": "57f487169393bb5c5f2caa80db99351cba3328445550224d28cd57981884b785",
+          "revision": "b5e520c21bc1f560a171d55274a2a968d1ed5611",
+          "abstract_count": 0,
+          "abstract_coverage": 0.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2025": {
+          "count": 1604,
+          "file": "data/venues/ICRA/2025.json",
+          "bytes": 837520,
+          "sha256": "0f3abf9d83c37e74aad8c590e76dd611501046f41ff50a0e55f612737edaa6fb",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/ICRA2025/resolve/3cc4a40b6c302e48e037725aac4b514858587306/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/ICRA2025",
+          "source_bytes": 315424,
+          "source_sha256": "f775a76634968b0fde777e67a83562e0de3f1e5bbc218f7874a4f325007d127e",
+          "revision": "3cc4a40b6c302e48e037725aac4b514858587306",
+          "abstract_count": 0,
+          "abstract_coverage": 0.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2026": {
+          "count": 2951,
+          "file": "data/venues/ICRA/2026.json",
+          "bytes": 5307487,
+          "sha256": "73a4e942c7af94ddc352cf77d6356b3ae83dd094e50b670c3eb02198a33aa971",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/ICRA2026/resolve/2d67ac921707da9a6e98e5554a829f9cb24722f1/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/ICRA2026",
+          "source_bytes": 2702856,
+          "source_sha256": "a3017b66a389b940ef358081eb22e43abd895af72a19790c3e80e8f07a0683f7",
+          "revision": "2d67ac921707da9a6e98e5554a829f9cb24722f1",
+          "abstract_count": 2761,
+          "abstract_coverage": 0.9356,
+          "license": "Dataset card does not declare a license"
+        }
+      },
+      "missing_years": [],
+      "total_records": 8585
+    },
+    "ICASSP": {
+      "available_years": [
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "years": {
+        "2022": {
+          "count": 1865,
+          "file": "data/venues/ICASSP/2022.json",
+          "bytes": 942883,
+          "sha256": "e452376c26bd8eda999d90b6d04a70b96e6874b38a3002d076a4d050f4b956cb",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/ICASSP2022/resolve/bd2d03f17f12fb3898275e899e9a29677798931f/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/ICASSP2022",
+          "source_bytes": 330635,
+          "source_sha256": "c1f3c36a7a1796bc17a72c4a041e3b60ea5a31cecf56a89799d3f60b624b5980",
+          "revision": "bd2d03f17f12fb3898275e899e9a29677798931f",
+          "abstract_count": 0,
+          "abstract_coverage": 0.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2023": {
+          "count": 2720,
+          "file": "data/venues/ICASSP/2023.json",
+          "bytes": 1383267,
+          "sha256": "a30b4bfef7cdd68a42b4aba6916f09cf650636f0ac27380611ed9cbd6c9bbfb8",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/ICASSP2023/resolve/98aba243b1def2fda9ccf7eefeef2aee38982f65/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/ICASSP2023",
+          "source_bytes": 483435,
+          "source_sha256": "7cb32f3933be30f916fe89ee648769691af0de8d9e359378328634ebb67ea613",
+          "revision": "98aba243b1def2fda9ccf7eefeef2aee38982f65",
+          "abstract_count": 0,
+          "abstract_coverage": 0.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2024": {
+          "count": 2679,
+          "file": "data/venues/ICASSP/2024.json",
+          "bytes": 1367635,
+          "sha256": "9405ca2674cdb2b345a353e8e95b1ed8475ac88f3650eb723bf49719ecf86c53",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/ICASSP2024/resolve/0586dbe39ac6a1b9b699c05019105831105d225f/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/ICASSP2024",
+          "source_bytes": 471059,
+          "source_sha256": "d2c4d8336a35efbc9b4786b009b2d593ff9e10e1b3c9e4ce08d608daeff835c5",
+          "revision": "0586dbe39ac6a1b9b699c05019105831105d225f",
+          "abstract_count": 0,
+          "abstract_coverage": 0.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2025": {
+          "count": 3307,
+          "file": "data/venues/ICASSP/2025.json",
+          "bytes": 1695419,
+          "sha256": "2f2a7fdeef737b8c936b216e7e65b3aef25692efbf2241b13b99145035348db8",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/ICASSP2025/resolve/624fa655f5a6bd018e18dcc3f81d1e06ce0f93da/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/ICASSP2025",
+          "source_bytes": 580410,
+          "source_sha256": "691ec3bfc8b2b5f666f4cffcd1a43fd8f3ae24c6d33ae32daf74dc199eed7fd5",
+          "revision": "624fa655f5a6bd018e18dcc3f81d1e06ce0f93da",
+          "abstract_count": 0,
+          "abstract_coverage": 0.0,
+          "license": "Dataset card does not declare a license"
+        },
+        "2026": {
+          "count": 4518,
+          "file": "data/venues/ICASSP/2026.json",
+          "bytes": 1998977,
+          "sha256": "7eb773e85dba1e0064c11f696889bd313b2348b37cfd77ca69939191f2947871",
+          "source_url": "https://huggingface.co/datasets/ai-conferences/ICASSP2026/resolve/5d48b9c35217108f1000d4c4336e39094bb67739/data/train-00000-of-00001.parquet",
+          "dataset_url": "https://huggingface.co/datasets/ai-conferences/ICASSP2026",
+          "source_bytes": 772674,
+          "source_sha256": "188c525432bfeb745d20953d4d0f49f109bfb5f04c6db8d3710afa9f39db85a4",
+          "revision": "5d48b9c35217108f1000d4c4336e39094bb67739",
+          "abstract_count": 0,
+          "abstract_coverage": 0.0,
+          "license": "Dataset card does not declare a license"
+        }
+      },
+      "missing_years": [],
+      "total_records": 15089
+    }
+  },
+  "source_dataset": "https://huggingface.co/datasets/ai-conferences"
+}
