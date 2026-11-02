@@ -74,8 +74,9 @@ details{margin-top:5px}details summary{cursor:pointer;color:#0645ad}.milestones{
 "use strict";
 const $=id=>document.getElementById(id), els=(tag,text,parent)=>{const x=document.createElement(tag);if(text!==undefined&&text!==null)x.textContent=String(text);if(parent)parent.appendChild(x);return x;};
 const link=(text,url,parent)=>{const a=els("a",text,parent);if(/^https:\/\//.test(url||"")){a.href=url;a.rel="noopener noreferrer";a.target="_blank"}else a.href="#audit";return a;};
-let db=null,local={};const storageKey="cs-conf-opportunities-status-v1";
+let db=null,local={},plan={};const storageKey="cs-conf-opportunities-status-v1",planKey="cs-conf-submission-board-v3";
 try{local=JSON.parse(localStorage.getItem(storageKey)||"{}")||{}}catch(_){local={};}
+try{plan=JSON.parse(localStorage.getItem(planKey)||"{}")||{}}catch(_){plan={};}
 const statuses=[["","Unreviewed"],["interested","Interested"],["abstract-filed","Abstract filed"],["arr-filed","ARR paper filed"],["stage1-filed","Stage 1 filed"],["paper-filed","Paper submitted"],["registered","Registered"],["done","Completed"],["missed-abstract","Missed mandatory abstract"],["withdrawn","Withdrawn"],["excluded","Not interested / strike through"]];
 const stageKinds=new Set(["abstract","arr-paper","extended-abstract","paper","demo","workshop-paper","workshop-proposal","registration","commitment","arr-commitment"]);
 const fdate=d=>d?new Intl.DateTimeFormat("en-GB",{day:"numeric",month:"short",year:"numeric",timeZone:"UTC"}).format(new Date(d+"T00:00:00Z")):"TBA";
@@ -89,7 +90,23 @@ const approxTime=s=>{
 };
 function isPast(s){if(!s.date)return false;const x=approxTime(s);return x?x.getTime()<Date.now():s.date<istDay();}
 function when(s){if(!s?.date)return "TBA";const d=approxTime(s),days=d?Math.ceil((d.getTime()-Date.now())/86400000):Math.round((Date.parse(s.date+"T12:00:00Z")-Date.parse(istDay()+"T12:00:00Z"))/86400000);let parts=[fdate(s.date)];if(s.cutoff)parts.push(s.cutoff);if(d)parts.push(isoIST(d));parts.push(days<0?"expired":days===0?"due today":days===1?"1 day left":days+" days left");return parts.join(" · ");}
-function labelStatus(op){return local[op.id]||"";}
+function labelStatus(op){
+ const own=local[op.id];
+ if(own)return own;
+ const stage=plan[op.id]?.state;
+ return stage==="skip"?"excluded":stage==="submitted"?"paper-filed":["target","watch","drafting"].includes(stage)?"interested":"";
+}
+function syncMainPlan(op,stage){
+ const current=plan[op.id]?.state||"";
+ if(["excluded","withdrawn","done"].includes(stage))
+  plan[op.id]={...(plan[op.id]||{}),state:"skip",updatedAt:new Date().toISOString()};
+ else if(current==="skip")
+  plan[op.id]={...(plan[op.id]||{}),state:stage==="paper-filed"?"submitted":"watch",updatedAt:new Date().toISOString()};
+ else if(stage==="paper-filed")
+  plan[op.id]={...(plan[op.id]||{}),state:"submitted",updatedAt:new Date().toISOString()};
+ else return;
+ try{localStorage.setItem(planKey,JSON.stringify(plan));}catch(_){$("copy-msg").textContent="Main plan cannot sync within this browser.";}
+}
 const mandatoryPrereg=op=>["mandatory","mandatory-abstract"].includes(String(op.prereg||"").toLowerCase());
 function mandatoryAbstract(op){
  const abstracts=(op.stages||[]).filter(st=>st.kind==="abstract"&&st.date);
@@ -163,7 +180,7 @@ let chosen=db.opportunities.filter(op=>filterView(op,view)&&(cat==="all"||cat===
 chosen.sort((a,b)=>((actionStage(a)&&approxTime(actionStage(a))?.getTime())||Infinity)-((actionStage(b)&&approxTime(actionStage(b))?.getTime())||Infinity)||a.venue.localeCompare(b.venue));
 const root=$("rows");root.replaceChildren();
 for(const op of chosen){
- const tr=els("tr",null,root),state=labelStatus(op);if(["excluded","withdrawn","done"].includes(state))tr.className="muted-row";
+ const tr=els("tr",null,root),state=labelStatus(op);if(["excluded","withdrawn","done"].includes(state)||plan[op.id]?.state==="skip")tr.className="muted-row";
  const name=els("td",null,tr);name.dataset.label="Conference";
  link(op.venue+" · "+op.track,op.source,name).className="track-name";
  const rk=op.coreRankHint?"CORE "+op.coreRankHint+" (venue hint)":"CORE unverified";
@@ -185,9 +202,10 @@ for(const op of chosen){
  const paper=els("td",mainDeadline(op),tr);paper.dataset.label="Paper / demo";
  if((op.stages||[]).some(x=>x.kind==="attendance-registration"))els("span","Attendee registration dates appear in milestones, separately from paper deadlines.",paper).className="note";
  const action=els("td",null,tr);action.dataset.label="My status";
+ if(plan[op.id]?.state)els("span","Main plan: "+plan[op.id].state+" · browser-only",action).className="note";
  const sel=els("select",null,action);sel.className="status-select";sel.setAttribute("aria-label","Personal status for "+op.venue+" "+op.track);
  for(const [value,label] of statuses){const opt=els("option",label,sel);opt.value=value;}sel.value=state;
- sel.addEventListener("change",()=>{if(sel.value)local[op.id]=sel.value;else delete local[op.id];try{localStorage.setItem(storageKey,JSON.stringify(local));$("copy-msg").textContent="Saved on this device only.";}catch(_){$("copy-msg").textContent="Could not save; copy your changes manually.";}render();});
+  sel.addEventListener("change",()=>{if(sel.value)local[op.id]=sel.value;else delete local[op.id];try{localStorage.setItem(storageKey,JSON.stringify(local));$("copy-msg").textContent="Saved on this device only.";}catch(_){$("copy-msg").textContent="Could not save; copy your changes manually.";}syncMainPlan(op,sel.value);render();});
  const source=els("td",null,tr);source.dataset.label="Source";link("Official CFP",op.source,source);
 }
 if(!chosen.length){const tr=els("tr",null,root),td=els("td","No matching opportunities; try All or Beyond 90 days / TBA.",tr);td.colSpan=6;}
