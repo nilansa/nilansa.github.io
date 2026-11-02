@@ -15,32 +15,81 @@ const daysApart=(a,b)=>Math.round((Date.parse(b+"T12:00:00Z")-Date.parse(a+"T12:
 const fdate=d=>d?fmt.format(new Date(d+"T12:00:00Z")):"TBA";
 const el=(tag,content,parent,className)=>{const z=document.createElement(tag);if(content!==null&&content!==undefined)z.textContent=String(content);if(className)z.className=className;if(parent)parent.append(z);return z;};
 const link=(label,url,parent)=>{const x=el("a",label,parent);if(/^https:\/\//i.test(url||"")){x.href=url;x.target="_blank";x.rel="noopener noreferrer";}else x.removeAttribute("href");return x;};
-const stageInstant=s=>{if(s.at){const d=new Date(s.at);if(!isNaN(d))return d;}if(s.date&&/AoE|anywhere on earth/i.test(s.cutoff||""))return new Date(s.date+"T23:59:00-12:00");return null;};
+const stageInstant=s=>{
+ if(s.at){const d=new Date(s.at);if(!isNaN(d.getTime()))return d;}
+ if(s.date&&/\bAoE\b|anywhere on earth/i.test(s.cutoff||""))return new Date(s.date+"T23:59:00-12:00");
+ return null;
+};
 const isPast=(s,today)=>{if(!s.date)return false;const x=stageInstant(s);return x?x.getTime()<Date.now():s.date<today;};
 const stages=o=>(o.stages||[]).filter(s=>s.date&&actKinds.has(s.kind)&&s.actionable!==false).sort((a,b)=>a.date.localeCompare(b.date));
-const chooseStage=(o,today)=>{const all=stages(o).filter(s=>!isPast(s,today));return all.find(s=>!/optional|pre-submission mentorship/i.test(s.label||""))||all[0]||null;};
+const chooseStage=(o,today)=>{
+ const done=["paper-filed","done"].includes(oldStage(o))||effectiveState(o)==="submitted";
+ const all=stages(o).filter(s=>!isPast(s,today))
+   .filter(s=>!(s===mandatoryAbstract(o)&&hasAbstract(o)))
+   .filter(s=>!(done&&["paper","demo","workshop-paper","arr-paper"].includes(s.kind)));
+ return all.find(s=>!/optional|pre-submission mentorship/i.test(s.label||""))||all[0]||null;
+};
 const paperStage=o=>{const p=(o.stages||[]).filter(s=>s.date&&/^(paper|demo|workshop-paper|arr-paper|extended-abstract)$/.test(s.kind));return p.sort((a,b)=>b.date.localeCompare(a.date))[0]||null;};
-const stageDue=(s,today)=>{if(!s||!s.date)return "TBA";const x=stageInstant(s),n=x?Math.ceil((x.getTime()-Date.now())/86400000):daysApart(today,s.date);return (n<0?"past":n===0?"today":n===1?"1 day":"in "+n+" days");};
+const stageDue=(s,today)=>{if(!s||!s.date)return "TBA";const x=stageInstant(s),ms=x?x.getTime()-Date.now():null,n=x?Math.ceil(ms/86400000):daysApart(today,s.date);return x&&ms>0&&ms<172800000?"in "+Math.ceil(ms/3600000)+" hours":(n<0?"past":n===0?"today":n===1?"1 day":"in "+n+" days");};
 function areaOf(o){const s=(o.venue+" "+o.track+" "+o.category).toLowerCase();if(/speech|audio|acoustic|interspeech|icassp|eeg/.test(s))return "Speech";if(/robot|rss 2027|icra|iros|embodied/.test(s))return "Robotics";if(/medical|neuro|biolog|midl|miccai|recomb/.test(s))return "Medical / Bio";if(/vision|cvpr|image|3d|video/.test(s))return "Vision / 3D";if(/nlp|naacl|acl 2027|eacl|coling|language|linguist/.test(s))return "NLP / LLM";if(/search|retrieval|data mining|sigir|ecir|kdd|pakdd|database/.test(s))return "IR / Data";if(/icml|iclr|neurips|mlsys|learning|ai4science|ijcai|statistics/.test(s))return "AI / ML";return "Other CS";}
 const selected=v=>["target","drafting","submitted"].includes(v||"");
 function save(){try{localStorage.setItem(STORE,JSON.stringify(board));}catch(e){const n=$("copy-notice");if(n)n.textContent="Cannot save in this browser: "+e.message;}}
 function saveComp(){try{localStorage.setItem(COMP_STORE,JSON.stringify(cboard));}catch(e){const n=$("copy-notice");if(n)n.textContent="Cannot save in this browser: "+e.message;}}
 const oldStage=o=>old[o.id]||"";
-const hasAbstract=o=>Boolean(board[o.id]&&board[o.id].abstractFiled)||oldStage(o)==="abstract-filed";
-function gateInfo(o,today){
- const arr=String(o.prereg||"").toLowerCase();
- if(arr.includes("arr"))return {text:"Requires eligible ARR reviews and meta-review",risk:"alert"};
- const abs=(o.stages||[]).filter(s=>["abstract","extended-abstract"].includes(s.kind)).sort((a,b)=>a.date.localeCompare(b.date))[0];
- const explicit=(o.stages||[]).some(s=>s.requires==="abstract");
- if(abs||explicit){
-  if(abs&&isPast(abs,today)&&!hasAbstract(o))return {text:"VERIFY prior abstract / registration filed ("+fdate(abs.date)+")",risk:"alert"};
-  if(abs&&isPast(abs,today)&&hasAbstract(o))return {text:"Abstract filed (self-declared); verify author list",risk:"good"};
-  if(abs)return {text:"Abstract / enrollment: "+fdate(abs.date),risk:"warn"};
-  return {text:"Abstract gate required: check official CFP",risk:"alert"};
- }
- if(arr.includes("mandatory"))return {text:"Mandatory preregistration: verify CFP",risk:"warn"};
- return {text:"No mandatory abstract recorded; verify CFP",risk:""};
+const isMandatoryPrereg=o=>["mandatory","mandatory-abstract"].includes(String(o.prereg||"").toLowerCase());
+const mandatoryAbstract=o=>{
+ const abstracts=(o.stages||[]).filter(s=>s.kind==="abstract"&&s.date);
+ const marked=abstracts.filter(s=>s.mandatory===true).sort((a,b)=>a.date.localeCompare(b.date));
+ if(marked.length)return marked[0];
+ return isMandatoryPrereg(o)&&abstracts.length===1?abstracts[0]:null;
+};
+function effectiveState(o){
+ const detail=oldStage(o),plan=board[o.id]?.state||"";
+ if(["excluded","withdrawn","done"].includes(detail))return "skip";
+ if(plan==="skip")return "skip";
+ if(plan)return plan;
+ return detail==="paper-filed"?"submitted":detail==="interested"?"watch":"";
 }
+const hasAbstract=o=>Boolean(board[o.id]?.abstractFiled)||["abstract-filed","paper-filed","done"].includes(oldStage(o));
+function storePlanningStatus(o,state){
+ const prev=oldStage(o);
+ board[o.id]={...(board[o.id]||{}),state,updatedAt:new Date().toISOString()};
+ if(state==="skip"){
+  if(["","interested","excluded","withdrawn","done"].includes(prev))old[o.id]="excluded";
+ }else if(["excluded","withdrawn","done"].includes(prev)){
+  if(!state)delete old[o.id];else old[o.id]=state==="submitted"?"paper-filed":"interested";
+ }else if(state==="submitted"&&["","interested"].includes(prev)){
+  old[o.id]="paper-filed";
+ }
+ save();try{localStorage.setItem(OLD_STORE,JSON.stringify(old));}catch(e){
+  const n=$("copy-notice");if(n)n.textContent="Detailed-status sync unavailable: "+e.message;
+ }
+ renderBoard();renderWatch();
+}
+function gateInfo(o,today,stage=null){
+ const detail=oldStage(o);
+ if(detail==="missed-abstract")return {text:"BLOCKED — you marked the mandatory abstract missed",risk:"alert",blocked:true};
+ if(o.prereg==="arr-required")return {text:"VERIFY eligible ARR submission / reviews before commitment",risk:"alert"};
+ if(o.prereg==="stage1-required"){
+  if(["stage1-filed","paper-filed"].includes(detail))return {text:"Stage 1 marked filed; verify organizer invitation",risk:"good"};
+  const first=(o.stages||[]).find(s=>s.kind==="extended-abstract"&&s.mandatory);
+  return {text:first&&isPast(first,today)?"VERIFY prior Stage 1/invitation":"Stage 1 proposal and invitation required",risk:"alert"};
+ }
+ if(isMandatoryPrereg(o)){
+  const abs=mandatoryAbstract(o);
+  if(!abs)return {text:"VERIFY exact mandatory abstract / enrollment stage",risk:"alert"};
+  if(hasAbstract(o))return {text:"Mandatory abstract marked filed (this browser)",risk:"good"};
+  if(isPast(abs,today))return {text:"VERIFY mandatory abstract filed — "+fdate(abs.date),risk:"alert"};
+  return {text:"Mandatory abstract first — "+fdate(abs.date),risk:"warn"};
+ }
+ if(stage&&(stage.kind==="arr-commitment"||stage.requires==="arr"))
+  return {text:"VERIFY eligible ARR reviews before commitment",risk:"alert"};
+ if(o.prereg==="check-workshop")return {text:"VERIFY this individual workshop CFP",risk:"warn"};
+ if(o.prereg==="unknown")return {text:"Preregistration policy not verified",risk:"warn"};
+ if(o.prereg==="none-listed")return {text:"No mandatory abstract listed; confirm CFP",risk:""};
+ return {text:"Verify organizer rules",risk:"warn"};
+}
+
 function acceptInfo(o){
  let v=(o.venue||"").toLowerCase();
  const rec=rates.find(a=>new RegExp("\\b"+a.venueKey.toLowerCase()+"\\b").test(v));
@@ -68,17 +117,18 @@ function renderRates(){
 }
 function renderWatch(){
  const root=$("watch-list");if(!root)return;root.replaceChildren();
- const now=ist();
- const next=opps.map(o=>({o,s:chooseStage(o,now)}))
-  .filter(x=>x.s&&x.s.verification==="official"&&x.o.academicEligibility!=="✕")
+ const now=ist(),next=opps.map(o=>({o,s:chooseStage(o,now)}))
+  .filter(({o,s})=>s&&s.verification==="official"&&o.academicEligibility!=="✕"&&!["skip","submitted"].includes(effectiveState(o))&&oldStage(o)!=="missed-abstract")
   .sort((a,b)=>a.s.date.localeCompare(b.s.date)).slice(0,4);
- if(!next.length){el("span","No verified future deadlines in this snapshot.",root,"muted");return;}
+ if(!next.length){el("span","No verified future actions in this snapshot.",root,"muted");return;}
  for(const {o,s} of next){
+  const gate=gateInfo(o,now,s);
   const a=el("a",null,root,"watch-item");a.href=o.source;a.target="_blank";a.rel="noopener noreferrer";
   el("span",fdate(s.date),a,"watch-date");
-  el("span",s.label||s.kind,a,"watch-stage");
+  el("span",(gate.risk==="alert"?"VERIFY prerequisite · ":"")+(s.label||s.kind),a,"watch-stage");
   el("span",o.venue+" · "+o.track,a,"watch-venue");
   el("span",stageDue(s,now),a,"watch-days");
+  if(s.at||stageInstant(s))el("span",new Intl.DateTimeFormat("en-GB",{timeZone:"Asia/Kolkata",day:"numeric",month:"short",hour:"2-digit",minute:"2-digit",hour12:false}).format(stageInstant(s))+" IST",a,"watch-days");
  }
 }
 function rowStages(o,parent){
@@ -88,15 +138,19 @@ function rowStages(o,parent){
  return d;
 }
 function statusSelect(o,tr){
- const td=el("td",null,tr),sel=el("select",null,td,"status"),v=board[o.id]?.state||"";
- for(const [a,b] of [["","Unreviewed"],["watch","Watch"],["target","Target"],["drafting","Drafting"],["submitted","Submitted"],["skip","Strike through"]]){const opt=el("option",b,sel);opt.value=a;}
+ const td=el("td",null,tr),sel=el("select",null,td,"status"),v=effectiveState(o);
+ for(const [a,b] of [["","Unreviewed"],["watch","Watch"],["target","Target"],["drafting","Drafting"],["submitted","Submitted"],["skip","Strike through"]]){
+  const opt=el("option",b,sel);opt.value=a;
+ }
  sel.value=v;sel.setAttribute("aria-label","Plan status for "+o.venue+" "+o.track);
- sel.addEventListener("change",()=>{if(!board[o.id])board[o.id]={};board[o.id].state=sel.value;board[o.id].updatedAt=new Date().toISOString();save();renderBoard();});
- const s=oldStage(o);if(s&&s!=="")el("div","Previous status (other local board): "+s,td,"line");
+ sel.addEventListener("change",()=>storePlanningStatus(o,sel.value));
+ const d=oldStage(o);
+ if(["abstract-filed","arr-filed","stage1-filed","paper-filed","registered","missed-abstract"].includes(d))
+  el("span","Detailed stage: "+d.replaceAll("-"," ")+" (this browser)",td,"line");
  return td;
 }
 function drawConference(o,s,today,root){
- const mode=board[o.id]?.state||"";
+ const mode=effectiveState(o);
  const tr=el("tr",null,root,["target","drafting"].includes(mode)?"target":mode==="submitted"?"submitted":mode==="skip"?"skip":"");
  const name=el("td",null,tr);name.dataset.label="Conference";
  link(o.venue+" · "+o.track,o.source,name).className="track-name";
@@ -105,24 +159,26 @@ function drawConference(o,s,today,root){
  const history=acceptInfo(o),detail=rowStages(o,name);
  if(history){
   const note=el("p",null,detail,"line");link(history.rec.percent.toFixed(1)+"% past main-track rate",history.rec.source,note);
-  el("span",history.exactly?" · comparable research category":" · not this track's acceptance rate",note);
+  el("span",history.exactly?" · comparable research category":" · not this track's rate",note);
  }
- const date=gateCell(o,s,today,tr);date.dataset.label="Next cutoff";
+ const g=gateInfo(o,today,s),date=gateCell(o,s,today,tr);date.dataset.label="Next cutoff";
+ if(g.risk==="alert")el("span",g.blocked?"BLOCKED — mandatory abstract missed":"VERIFY prerequisite before submitting",date,"flag alert");
  const sub=el("td",null,tr);sub.dataset.label="Submission";
  const type=o.kind==="workshop-proposal"?"Workshop organizer proposal":o.kind==="demo"?"System demo":o.kind==="industry"?"Industry / applied":o.kind==="workshop-paper"?"Workshop paper":"Research paper";
  el("div",type,sub,"row-strong");const paper=paperStage(o);
  el("span",paper?"Paper/demo stage "+fdate(paper.date):"Paper stage TBA / see CFP",sub,"line");
  const prereq=el("td",null,tr);prereq.dataset.label="Before submitting";
- const g=gateInfo(o,today);el("span",g.text,prereq,"flag "+g.risk);
+ el("span",g.text,prereq,"flag "+g.risk);
  el("span",o.academicEligibility==="✓"?"Academic team allowed":o.academicEligibility==="✕"?"Industry affiliation required":"Academic eligibility to verify",prereq,"line");
- if(g.risk==="alert"&&!hasAbstract(o)&&/abstract/i.test(g.text)){
+ if(g.risk==="alert"&&!hasAbstract(o)&&/abstract/i.test(g.text)&&!g.blocked){
   const label=el("label",null,prereq),box=el("input",null,label);box.type="checkbox";box.checked=false;
   label.append(document.createTextNode(" I filed the abstract"));
-  box.addEventListener("change",()=>{board[o.id]=board[o.id]||{};board[o.id].abstractFiled=box.checked;save();renderBoard();});
+  box.addEventListener("change",()=>{board[o.id]=board[o.id]||{};board[o.id].abstractFiled=box.checked;if(box.checked&&!oldStage(o))old[o.id]="abstract-filed";save();try{localStorage.setItem(OLD_STORE,JSON.stringify(old));}catch(_){}renderBoard();renderWatch();});
  }
  statusSelect(o,tr);tr.lastElementChild.dataset.label="My plan";
  const source=el("td",null,tr);source.dataset.label="Source";link("Official CFP",o.source,source);
 }
+
 function renderBoard(){
  const table=$("conference-rows");if(!table)return;
  const now=ist(),mode=$("window").value,end=addDays(now,mode==="all"||mode==="archive"?36500:Number(mode));
@@ -137,20 +193,20 @@ function renderBoard(){
   if(view==="archive"){if(s)return false; if(!(o.stages||[]).some(v=>v.date&&actKinds.has(v.kind)))return false;}
   else if(view==="all"){/* include TBA */}
   else if(!live)return false;
-  if(view==="90"&&$("focus-pool")?.checked&&!pool.has(o.id)&&!selected(board[o.id]?.state))return false;
+  if(view==="90"&&$("focus-pool")?.checked&&!pool.has(o.id)&&!selected(effectiveState(o)))return false;
   if(area!=="all"&&areaOf(o)!==area)return false;
   if(kind!=="all"&&(kind==="paper"? !paperKinds.has(o.kind):o.kind!==kind))return false;
-  if(only&&!selected(board[o.id]?.state))return false;
+  if(only&&!selected(effectiveState(o)))return false;
   if(q&&!(o.venue+" "+o.track+" "+o.category+" "+o.notes).toLowerCase().includes(q))return false;
   return true;
  }).sort((a,b)=>(a.s?a.s.date:"9999-12-31").localeCompare(b.s?b.s.date:"9999-12-31")||(a.o.venue+" "+a.o.track).localeCompare(b.o.venue+" "+b.o.track));
  table.replaceChildren();
  visible.forEach(({o,s})=>drawConference(o,s,now,table));
  if(!visible.length)el("tr",null,table).append(el("td","No matching confirmed future stage. Try All dates/TBA or clear filters."));
- const planned=opps.filter(o=>selected(board[o.id]?.state));
+ const planned=opps.filter(o=>selected(effectiveState(o)));
  if($("candidate-count"))$("candidate-count").textContent=String(pool.size);
  if($("target-count"))$("target-count").textContent=planned.length+" / 10";
- if($("deadline-stat"))$("deadline-stat").textContent=String(all.filter(({s})=>s&&s.date<=addDays(now,30)).length);
+ if($("deadline-stat"))$("deadline-stat").textContent=String(all.filter(({o,s})=>s&&s.date<=addDays(now,30)&&!["skip","submitted"].includes(effectiveState(o))&&oldStage(o)!=="missed-abstract").length);
  if($("contest-stat"))$("contest-stat").textContent=String(comps.filter(c=>c.deadline&&c.deadline>=now&&c.deadline<=addDays(now,90)).length);
  if($("count-label"))$("count-label").textContent=visible.length+" routes shown · "+opps.length+" track records monitored · "+pool.size+" suggested short-list routes. Browser selections are not submissions.";
  if($("plan-note"))$("plan-note").textContent=planned.length<10?"Select "+(10-planned.length)+" more DISTINCT targets to plan 10 submissions; an abstract + its paper count once.":planned.length===10?"10 target routes selected. Verify every prerequisite and eliminate overlapping submissions.":"More than 10 targets selected. Consider narrowing the plan to a feasible 10.";
@@ -201,9 +257,9 @@ function renderSlate(){
  el("td",s?fdate(s.date)+" · "+(s.label||"Submission"):"Closed / TBA",tr);
  el("td",fit,tr);
  const gate=gateInfo(o,today);el("td",gate.text,tr);
- const td=el("td",null,tr),selectedNow=selected(board[o.id]?.state),b=el("button",selectedNow?"Remove target":"Add target",td);
+ const td=el("td",null,tr),selectedNow=selected(effectiveState(o)),b=el("button",selectedNow?"Remove target":"Add target",td);
  b.type="button";b.setAttribute("aria-label",(selectedNow?"Remove":"Add")+" target "+o.venue+" "+o.track);
- b.addEventListener("click",()=>{board[o.id]=board[o.id]||{};board[o.id].state=selectedNow?"watch":"target";board[o.id].updatedAt=new Date().toISOString();save();renderBoard();});
+ b.addEventListener("click",()=>storePlanningStatus(o,selectedNow?"watch":"target"));
  });
 }
 function renderCompetition(){
@@ -263,10 +319,18 @@ function attach(){
   ["window","area","kind","search","shortlisted","focus-pool"].forEach(id=>{const x=$(id);x.addEventListener(id==="search"?"input":"change",renderBoard);});
   $("review-button").addEventListener("click",()=>{board._lastReviewed=ist();save();showReview();});
   $("copy-plan").addEventListener("click",async()=>{
-   const records=opps.filter(o=>selected(board[o.id]?.state)).map(o=>o.venue+" · "+o.track+" | "+board[o.id].state+" | "+o.source);
-   const text="PRIVATE planning list — DO NOT publish\nReview "+ist()+"\n"+records.join("\n");
-   try{await navigator.clipboard.writeText(text);$("copy-notice").textContent="Copied planned routes. Save only in your private GitHub repository.";}catch(_){$("copy-notice").textContent="Clipboard unavailable; use your browser's site permissions.";}
+   const detail=Object.entries(old).filter(([id,v])=>v&&opps.some(o=>o.id===id)).sort(([a],[b])=>a.localeCompare(b));
+   const planning=Object.entries(board).filter(([id,v])=>id!=="_lastReviewed"&&v&&(v.state||v.abstractFiled)&&opps.some(o=>o.id===id)).sort(([a],[b])=>a.localeCompare(b));
+   const lines=["CS_CONF_PRIVATE_DECISIONS v1","Task: cs-confs-daily-deadline-review-20261028-001","Generated: "+new Date().toISOString(),"Private status export; do not publish in the public repo.","Detailed submission decisions:"];
+   detail.forEach(([id,v])=>lines.push("- "+id+" | "+v));
+   lines.push("Main planner states:");
+   planning.forEach(([id,v])=>lines.push("- "+id+" | plan="+(v.state||"")+(v.abstractFiled?" | abstractFiled=true":"")));
+   if(detail.length+planning.length===0)lines.push("(No local changes)");
+   const text=lines.join("\n");
+   try{await navigator.clipboard.writeText(text);$("copy-notice").textContent="Copied all local decisions; paste into your private GitHub issue."; }
+   catch(_){$("copy-notice").textContent="Clipboard unavailable; enable browser clipboard permission."; }
   });
+
   renderBoard();renderRates();showReview();
  }
  if($("competition-rows")){["comp-window","comp-field","comp-paper","comp-query"].forEach(id=>$(id).addEventListener(id==="comp-query"?"input":"change",renderCompetition));renderCompetition();}
