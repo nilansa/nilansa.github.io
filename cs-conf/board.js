@@ -68,15 +68,18 @@ function renderRates(){
 }
 function renderWatch(){
  const root=$("watch-list");if(!root)return;root.replaceChildren();
- const items=[
- ["NeurIPS","2027 main CFP TBA","https://neurips.cc/Conferences/2027",""],
- ["ICLR","2027 main papers closed","https://iclr.cc/Conferences/2027/CallForPapers",""],
- ["ICML","2027 main CFP to verify","https://icml.cc/Conferences/2027",""],
- ["CVPR","10 Nov register · 16 Nov paper","https://cvpr.thecvf.com/Conferences/2027/CallForPapers","soon"],
- ["IJCAI","4 Jan abstract · 11 Jan paper","https://2027.ijcai.org/ijcai-2027-call-for-papers-main-track/",""],
- ["SemEval","Jan 10–31 shared tasks","https://semeval.github.io/SemEval2027/",""]
- ];
- items.forEach(x=>{const e=el("div",null,root,"watch-item "+x[3]);link(x[0],x[2],e).style.fontWeight="700";el("span",x[1],e,"when");});
+ const now=ist();
+ const next=opps.map(o=>({o,s:chooseStage(o,now)}))
+  .filter(x=>x.s&&x.s.verification==="official"&&x.o.academicEligibility!=="✕")
+  .sort((a,b)=>a.s.date.localeCompare(b.s.date)).slice(0,4);
+ if(!next.length){el("span","No verified future deadlines in this snapshot.",root,"muted");return;}
+ for(const {o,s} of next){
+  const a=el("a",null,root,"watch-item");a.href=o.source;a.target="_blank";a.rel="noopener noreferrer";
+  el("span",fdate(s.date),a,"watch-date");
+  el("span",s.label||s.kind,a,"watch-stage");
+  el("span",o.venue+" · "+o.track,a,"watch-venue");
+  el("span",stageDue(s,now),a,"watch-days");
+ }
 }
 function rowStages(o,parent){
  const d=el("details",null,parent),su=el("summary","All dates & requirements",d),ul=el("ul",null,d);
@@ -95,29 +98,30 @@ function statusSelect(o,tr){
 function drawConference(o,s,today,root){
  const mode=board[o.id]?.state||"";
  const tr=el("tr",null,root,["target","drafting"].includes(mode)?"target":mode==="submitted"?"submitted":mode==="skip"?"skip":"");
- statusSelect(o,tr);
- gateCell(o,s,today,tr);
- const name=el("td",null,tr);
- link(o.venue+" — "+o.track,o.source,name).className="track-name";
- el("div",areaOf(o)+" · "+(o.kind||"Research"),name,"line");
- if(/NeurIPS|ICLR|ICML|CVPR|IJCAI/i.test(o.venue))el("span","Priority venue",name,"flag warn");
- if(o.coreRankHint)el("span","CORE list "+o.coreRankHint+" (verify)",name,"flag");
- rowStages(o,name);
- const prereq=gateInfo(o,today),gt=el("td",null,tr);el("span",prereq.text,gt,"flag "+prereq.risk);
- if(prereq.risk==="alert"&&hasAbstract(o)===false&&/abstract/i.test(prereq.text)){
-  const lb=el("label",null,gt),cb=el("input",null,lb);cb.type="checkbox";cb.checked=false;lb.append(document.createTextNode(" I filed this abstract"));cb.addEventListener("change",()=>{board[o.id]=board[o.id]||{};board[o.id].abstractFiled=cb.checked;save();renderBoard();});
+ const name=el("td",null,tr);name.dataset.label="Conference";
+ link(o.venue+" · "+o.track,o.source,name).className="track-name";
+ el("span",areaOf(o)+" · "+(o.kind||"Research"),name,"line");
+ if(o.coreRankHint)el("span","CORE "+o.coreRankHint+" · venue hint",name,"flag");
+ const history=acceptInfo(o),detail=rowStages(o,name);
+ if(history){
+  const note=el("p",null,detail,"line");link(history.rec.percent.toFixed(1)+"% past main-track rate",history.rec.source,note);
+  el("span",history.exactly?" · comparable research category":" · not this track's acceptance rate",note);
  }
- const p=paperStage(o),pCell=el("td",null,tr);
- if(p){el("div",fdate(p.date),pCell,"date row-strong");el("span",p.label||"Paper stage",pCell,"line");}
- else el("span","TBA / see CFP",pCell,"muted");
- const a=acceptInfo(o),aCell=el("td",null,tr);
- if(a){link(a.rec.percent.toFixed(1)+"% · "+a.rec.year+" main",a.rec.source,aCell);el("div",a.exactly?"Historical main-track (same category)":"Parent main-track ONLY; not this track",aCell,"line");}
- else el("span","N/A — not verified",aCell,"muted");
- const e=el("td",null,tr);
- el("span",o.academicEligibility==="✓"?"✓ Academic teams allowed":o.academicEligibility==="✕"?"✕ Non-academic author rule":"? Check author rule",e,"flag "+(o.academicEligibility==="✓"?"good":o.academicEligibility==="✕"?"alert":"warn"));
- if(o.kind==="demo"||o.kind==="industry")el("div","Practical evidence / deployment rules are separate",e,"line");
- const c=el("td",null,tr);if(/ICASSP|SemEval|NeurIPS|PAIEC/i.test(o.venue+" "+o.track))link("Competition → paper routes","./competitions.html",c);else el("span","No confirmed linked contest",c,"muted");
- link("Official CFP",o.source,el("td",null,tr));
+ const date=gateCell(o,s,today,tr);date.dataset.label="Next cutoff";
+ const sub=el("td",null,tr);sub.dataset.label="Submission";
+ const type=o.kind==="workshop-proposal"?"Workshop organizer proposal":o.kind==="demo"?"System demo":o.kind==="industry"?"Industry / applied":o.kind==="workshop-paper"?"Workshop paper":"Research paper";
+ el("div",type,sub,"row-strong");const paper=paperStage(o);
+ el("span",paper?"Paper/demo stage "+fdate(paper.date):"Paper stage TBA / see CFP",sub,"line");
+ const prereq=el("td",null,tr);prereq.dataset.label="Before submitting";
+ const g=gateInfo(o,today);el("span",g.text,prereq,"flag "+g.risk);
+ el("span",o.academicEligibility==="✓"?"Academic team allowed":o.academicEligibility==="✕"?"Industry affiliation required":"Academic eligibility to verify",prereq,"line");
+ if(g.risk==="alert"&&!hasAbstract(o)&&/abstract/i.test(g.text)){
+  const label=el("label",null,prereq),box=el("input",null,label);box.type="checkbox";box.checked=false;
+  label.append(document.createTextNode(" I filed the abstract"));
+  box.addEventListener("change",()=>{board[o.id]=board[o.id]||{};board[o.id].abstractFiled=box.checked;save();renderBoard();});
+ }
+ statusSelect(o,tr);tr.lastElementChild.dataset.label="My plan";
+ const source=el("td",null,tr);source.dataset.label="Source";link("Official CFP",o.source,source);
 }
 function renderBoard(){
  const table=$("conference-rows");if(!table)return;
@@ -185,33 +189,55 @@ function renderSlate(){
 }
 function renderCompetition(){
  const root=$("competition-rows");if(!root)return;root.replaceChildren();
- const now=ist(),window=$("comp-window").value,field=$("comp-field").value,paper=$("comp-paper").value,q=$("comp-query").value.toLowerCase().trim();
- const list=comps.filter(c=>{
-  if(window==="90"&&(!c.deadline||c.deadline<now||c.deadline>addDays(now,90)))return false;
-  if(window==="past"&&(!c.deadline||c.deadline>=now))return false;
-  if(window==="all"){}else if(window!=="past"&&window!=="90"&&(!c.deadline||c.deadline<now))return false;
+ const today=ist(),view=$("comp-window").value,field=$("comp-field").value,paper=$("comp-paper").value,q=$("comp-query").value.toLowerCase().trim();
+ const filtered=comps.filter(c=>{
+  if(view==="90"&&(!c.deadline||c.deadline<today||c.deadline>addDays(today,90)))return false;
+  if(view==="past"&&(!c.deadline||c.deadline>=today))return false;
+  if(view!=="90"&&view!=="past"&&view!=="all"&&(!c.deadline||c.deadline<today))return false;
   if(field!=="all"&&!(c.field||"").toLowerCase().includes(field))return false;
   if(paper==="yes"&&/No confirmed|No automatic/i.test(c.paperRouteStatus||""))return false;
   if(q&&!(c.title+" "+c.series+" "+c.field+" "+c.notes).toLowerCase().includes(q))return false;
   return true;
- }).sort((a,b)=>(a.deadline||"9999").localeCompare(b.deadline||"9999")||a.title.localeCompare(b.title));
- for(const c of list){
-  const state=cboard[c.id]||"",tr=el("tr",null,root,state==="skip"?"skip":selected(state)?"target":"");
-  const date=el("td",null,tr);el("div",fdate(c.deadline),date,"date row-strong");el("span",c.deadlineAccuracy||"Verify organizer time",date,"line");if(c.opens)el("span","Opens "+fdate(c.opens),date,"line");
-  const name=el("td",null,tr);link(c.title,c.source,name).className="track-name";el("div",c.series+" · "+(c.field||"ML"),name,"line");if(c.priority==="high")el("span","Priority",name,"flag warn");
-  const stage=el("td",c.stage||"Evaluation / challenge submission",tr);if(c.registrationDeadline)el("div","Register by "+fdate(c.registrationDeadline),stage,"flag warn");if(c.notes)el("div",c.notes,stage,"line");
-  const route=el("td",null,tr);el("div",c.paperRoute||"N/A",route,"row-strong");el("div",c.paperRouteStatus||"Verify organizer",route,"line");
-  if(c.paperDue)el("div","Paper/report: "+fdate(c.paperDue),route,"line");
-  if(c.paperUrl)link("Paper path",c.paperUrl,route);
-  const elig=el("td",c.eligibility||"Verify rules",tr);
-  const status=el("td",null,tr),sel=el("select",null,status,"status");
-  [["","Unreviewed"],["watch","Watch"],["target","Target"],["drafting","Working"],["submitted","Submitted"],["skip","Strike through"]].forEach(([v,s])=>{const o=el("option",s,sel);o.value=v;});sel.value=state;
-  sel.setAttribute("aria-label","Status for "+c.title);sel.addEventListener("change",()=>{cboard[c.id]=sel.value;saveComp();renderCompetition();});
-  link("Official",c.source,el("td",null,tr));
+ });
+ const sems=filtered.filter(x=>x.series==="SemEval 2027");
+ const rows=filtered.filter(x=>x.series!=="SemEval 2027").map(c=>({c,date:c.deadline||"9999"}));
+ if(sems.length)rows.push({sems,date:sems.map(c=>c.registrationDeadline||c.deadline||"9999").sort()[0]});
+ rows.sort((a,b)=>a.date.localeCompare(b.date));
+ for(const item of rows){
+  const tr=el("tr",null,root);
+  if(item.sems){
+   let td=el("td",null,tr);td.dataset.label="Challenge";link("SemEval 2027 · one workshop family","./semeval.html",td).className="track-name";
+   el("span",sems.length+" matching of 12 independent shared tasks",td,"line");
+   td=el("td",null,tr);td.dataset.label="Next cutoff";el("span","Task-specific",td,"date");el("span","Evaluation generally 10–31 Jan 2027; task cutoff can be earlier",td,"line");
+   td=el("td","Select an individual task; follow its registration instructions",tr);td.dataset.label="What to submit";
+   el("span","CLaS registration 31 Dec 2026 applies only to CLaS",td,"line");
+   td=el("td",null,tr);td.dataset.label="Paper pathway";el("div","System-description paper",td,"row-strong");el("span","Separate Feb 2027 submission · exact date unverified",td,"line");
+   td=el("td",null,tr);td.dataset.label="My plan";link("Browse 12 tasks","./semeval.html",td);
+   td=el("td",null,tr);td.dataset.label="Source";link("SemEval official hub","https://semeval.github.io/SemEval2027/",td);
+   continue;
+  }
+  const c=item.c,state=cboard[c.id]||"";tr.className=state==="skip"?"skip":selected(state)?"target":"";
+  let td=el("td",null,tr);td.dataset.label="Challenge";link(c.title,c.source,td).className="track-name";el("span",c.series+" · "+c.field,td,"line");
+  td=el("td",null,tr);td.dataset.label="Next cutoff";
+  const next=c.registrationDeadline&&c.registrationDeadline>=today&&(!c.deadline||c.registrationDeadline<c.deadline)?c.registrationDeadline:c.deadline;
+  el("div",fdate(next),td,"date");el("span",next===c.registrationDeadline?"Registration":"Challenge submission",td,"line");
+  if(c.deadlineAccuracy)el("span",c.deadlineAccuracy,td,"line");
+  td=el("td",c.stage||"Challenge submission",tr);td.dataset.label="What to submit";
+  if(c.registrationDeadline)el("span","Register by "+fdate(c.registrationDeadline),td,"line");
+  if(c.notes){const d=el("details",null,td);el("summary","Requirements",d);el("p",c.notes,d,"line");}
+  td=el("td",null,tr);td.dataset.label="Paper pathway";el("div",c.paperRoute||"Not verified",td,"row-strong");
+  el("span",c.paperRouteStatus||"Check organizer",td,"line");if(c.paperDue)el("span","Paper / report: "+fdate(c.paperDue),td,"line");
+  td=el("td",null,tr);td.dataset.label="My plan";const select=el("select",null,td,"status");
+  [["","Unreviewed"],["watch","Watch"],["target","Target"],["drafting","Working"],["submitted","Submitted"],["skip","Strike through"]].forEach(([value,label])=>{const opt=el("option",label,select);opt.value=value;});
+  select.value=state;select.setAttribute("aria-label","Status for "+c.title);
+  select.addEventListener("change",()=>{cboard[c.id]=select.value;saveComp();renderCompetition();});
+  td=el("td",null,tr);td.dataset.label="Source";link("Organizer CFP",c.source,td);
  }
- if(!list.length){const tr=el("tr",null,root);const td=el("td","No matching competition (or official deadline not yet known).",tr);td.colSpan=7;}
- if($("competition-count"))$("competition-count").textContent=list.length+" visible of "+comps.length+" monitored";
+ if(!rows.length){const tr=el("tr",null,root),td=el("td","No matching entries; adjust search or deadline window.",tr);td.colSpan=6;}
+ if($("competition-count"))$("competition-count").textContent=rows.length+" programmes visible · "+filtered.length+" underlying tasks/challenges";
  if($("comp-targets"))$("comp-targets").textContent=comps.filter(c=>selected(cboard[c.id])).length;
+ if($("comp-challenges"))$("comp-challenges").textContent=comps.filter(c=>c.series!=="SemEval 2027").length;
+ if($("comp-families"))$("comp-families").textContent=String(new Set(comps.filter(c=>c.series==="SemEval 2027").map(c=>c.series)).size);
 }
 function attach(){
  if($("conference-rows")){
@@ -233,10 +259,10 @@ function showReview(){
  $("review-due").textContent=(date?"Last manually marked "+fdate(date)+" · next local review "+fdate(due):"First 30-day review due "+fdate(due)+" · not yet manually marked on this device")+". Scheduled ChatGPT review is separate from this browser marker.";
 }
 async function init(){
- renderWatch();
  try{
   const [o,c,a]=await Promise.all(["./opportunities.json","./competitions.json","./acceptance.json"].map(x=>fetch(x,{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error(x+": HTTP "+r.status);return r.json();})));
   opps=o.opportunities||[];comps=c.competitions||[];rates=a.records||[];
+  renderWatch();
   if($("audit-date"))$("audit-date").textContent="Competition/priority sources checked "+c.checkedAt+"; existing track catalog last overall audit "+o.checkedAt+". Official organizer pages override these snapshots.";
   attach();
  }catch(e){const z=$("load-message");if(z)z.textContent="Could not load the tracked sources: "+e.message+". Use official CFP links or reload the page."; }
