@@ -81,14 +81,31 @@ const stageKinds=new Set(["abstract","arr-paper","extended-abstract","paper","de
 const fdate=d=>d?new Intl.DateTimeFormat("en-GB",{day:"numeric",month:"short",year:"numeric",timeZone:"UTC"}).format(new Date(d+"T00:00:00Z")):"TBA";
 const isoIST=date=>new Intl.DateTimeFormat("en-GB",{day:"numeric",month:"short",year:"numeric",hour:"2-digit",minute:"2-digit",timeZone:"Asia/Kolkata",hour12:false}).format(date)+" IST";
 const istDay=()=>{const p=Object.fromEntries(new Intl.DateTimeFormat("en-CA",{year:"numeric",month:"2-digit",day:"2-digit",timeZone:"Asia/Kolkata"}).formatToParts(new Date()).map(v=>[v.type,v.value]));return p.year+"-"+p.month+"-"+p.day;};
-const approxTime=s=>{if(!s.date)return null;if(s.at){const d=new Date(s.at);return Number.isNaN(d.getTime())?null:d;}return new Date(s.date+"T23:59:59+05:30");};
-function isPast(s){if(!s.date)return false;if(s.at)return (approxTime(s)||new Date(0)).getTime()<Date.now();return s.date<istDay();}
-function when(s){if(!s?.date)return "TBA";const d=approxTime(s),days=d?Math.ceil((d.getTime()-Date.now())/86400000):null;let parts=[fdate(s.date)];if(s.cutoff)parts.push(s.cutoff);if(s.at&&d)parts.push(isoIST(d));if(days!==null)parts.push(days<0?"expired":days===0?"due soon":days===1?"1 day left":days+" days left");return parts.join(" · ");}
+const approxTime=s=>{
+ if(!s.date)return null;
+ if(s.at){const d=new Date(s.at);return Number.isNaN(d.getTime())?null:d;}
+ if(/\bAoE\b|anywhere on earth/i.test(s.cutoff||""))return new Date(s.date+"T23:59:00-12:00");
+ return null;
+};
+function isPast(s){if(!s.date)return false;const x=approxTime(s);return x?x.getTime()<Date.now():s.date<istDay();}
+function when(s){if(!s?.date)return "TBA";const d=approxTime(s),days=d?Math.ceil((d.getTime()-Date.now())/86400000):Math.round((Date.parse(s.date+"T12:00:00Z")-Date.parse(istDay()+"T12:00:00Z"))/86400000);let parts=[fdate(s.date)];if(s.cutoff)parts.push(s.cutoff);if(d)parts.push(isoIST(d));parts.push(days<0?"expired":days===0?"due today":days===1?"1 day left":days+" days left");return parts.join(" · ");}
 function labelStatus(op){return local[op.id]||"";}
-function actionStage(op){const sorted=(op.stages||[]).filter(s=>s.date&&stageKinds.has(s.kind)&&s.actionable!==false).sort((a,b)=>(approxTime(a)||0)-(approxTime(b)||0));return sorted.find(s=>!isPast(s))||null;}
+const mandatoryPrereg=op=>["mandatory","mandatory-abstract"].includes(String(op.prereg||"").toLowerCase());
+function mandatoryAbstract(op){
+ const abstracts=(op.stages||[]).filter(st=>st.kind==="abstract"&&st.date);
+ const marked=abstracts.filter(st=>st.mandatory===true).sort((a,b)=>a.date.localeCompare(b.date));
+ if(marked.length)return marked[0];
+ return mandatoryPrereg(op)&&abstracts.length===1?abstracts[0]:null;
+}
+function actionStage(op){
+ const state=labelStatus(op);
+ const sorted=(op.stages||[]).filter(st=>st.date&&stageKinds.has(st.kind)&&st.actionable!==false).sort((a,b)=>a.date.localeCompare(b.date)||(approxTime(a)?.getTime()||0)-(approxTime(b)?.getTime()||0));
+ const future=sorted.filter(st=>!isPast(st)&&!(st===mandatoryAbstract(op)&&["abstract-filed","paper-filed","done"].includes(state)));
+ return future.find(st=>!/optional|pre-submission mentorship/i.test(st.label||""))||future[0]||null;
+}
 function isFuture(op){const s=actionStage(op);return !!s;}
 function isTBA(op){return !(op.stages||[]).some(s=>s.date&&stageKinds.has(s.kind)&&s.actionable!==false);}
-function daysTo(s){const d=approxTime(s);return d?(d.getTime()-Date.now())/86400000:Infinity;}
+function daysTo(s){const d=approxTime(s);return d?(d.getTime()-Date.now())/86400000:s.date?Math.round((Date.parse(s.date+"T12:00:00Z")-Date.parse(istDay()+"T12:00:00Z"))/86400000):Infinity;}
 function filterView(op,view){
 const stage=actionStage(op),future=!!stage,tba=isTBA(op);
 if(view==="all")return true;
@@ -97,33 +114,35 @@ if(view==="future")return tba||(future&&daysTo(stage)>90);
 return !future&&!tba;
 }
 function eligibility(op){
-const st=labelStatus(op),pastAbstract=(op.stages||[]).find(s=>(s.kind==="abstract"&&s.mandatory)||(op.prereg==="mandatory"&&s.kind==="abstract")),arr=(op.stages||[]).find(s=>s.kind==="arr-paper"),one=(op.stages||[]).find(s=>s.kind==="extended-abstract");
-if(st==="missed-abstract")return "BLOCKED — missed mandatory preregistration";
-if(op.prereg==="mandatory"){
-if(!pastAbstract)return "VERIFY — required abstract date unknown";
-if(isPast(pastAbstract)&&!["abstract-filed","paper-filed"].includes(st))return "VERIFY — was mandatory abstract filed?";
-return isPast(pastAbstract)?"✓ Prerequisite marked filed (local)":"✓ File mandatory abstract first";
-}
-if(op.prereg==="arr-required"){
-if(arr&&isPast(arr)&&!["arr-filed","paper-filed"].includes(st))return "VERIFY — eligible earlier ARR reviews?";
-return "Conditional — eligible ARR review and commitment required";
-}
-if(op.prereg==="stage1-required"){
-if(one&&isPast(one)&&!["stage1-filed","paper-filed"].includes(st))return "VERIFY — invited after Stage 1?";
-return "Conditional — Stage 1 / invitation required";
-}
-if(op.prereg==="check-workshop")return "VERIFY — specific workshop CFP";
-if(op.prereg==="none-listed")return "No mandatory abstract stated in listed CFP";
-return "VERIFY — preregistration rule";
+ const state=labelStatus(op),required=mandatoryAbstract(op);
+ if(state==="missed-abstract")return "BLOCKED — mandatory abstract marked missed (this browser)";
+ if(mandatoryPrereg(op)){
+  if(!required)return "VERIFY — mandatory abstract date or track stage unknown";
+  if(["abstract-filed","paper-filed","done"].includes(state))return "✓ Mandatory abstract marked filed (this browser)";
+  return isPast(required)?"VERIFY — was mandatory abstract filed?":"Required abstract / enrollment first: "+fdate(required.date);
+ }
+ if(op.prereg==="arr-required"){
+  if(["arr-filed","paper-filed"].includes(state))return "ARR stage marked filed; confirm qualifying reviews";
+  return "VERIFY — qualifying ARR submission and reviews required";
+ }
+ if(op.prereg==="stage1-required"){
+  if(["stage1-filed","paper-filed"].includes(state))return "Stage 1 marked filed; verify invitation";
+  const first=(op.stages||[]).find(st=>st.kind==="extended-abstract"&&st.mandatory);
+  return first&&isPast(first)?"VERIFY — Stage 1 invitation unconfirmed":"Stage 1 submission and invitation required";
+ }
+ if(op.prereg==="check-workshop")return "VERIFY — individual workshop CFP";
+ if(op.prereg==="none-listed")return "No mandatory abstract stated in listed CFP";
+ return "VERIFY — preregistration policy unknown";
 }
 function prereq(op){
-const a=(op.stages||[]).find(s=>s.kind==="abstract"&&s.mandatory),arr=(op.stages||[]).find(s=>s.kind==="arr-paper"),stage1=(op.stages||[]).find(s=>s.kind==="extended-abstract");
-if(a)return "Mandatory abstract — "+when(a);
-if(arr)return "ARR review required — "+when(arr);
-if(stage1)return "Stage 1 / invitation — "+when(stage1);
-if(op.prereg==="none-listed")return "No separate abstract in listed CFP";
-if(op.prereg==="check-workshop")return "Check workshop's own call";
-return "Unknown / verify";
+ const a=mandatoryAbstract(op),arr=(op.stages||[]).find(st=>st.kind==="arr-paper"||st.requires==="arr"),one=(op.stages||[]).find(st=>st.kind==="extended-abstract"&&st.mandatory);
+ if(a)return "Mandatory abstract — "+when(a);
+ if(mandatoryPrereg(op))return "Mandatory abstract stage unclear; verify official CFP";
+ if(arr)return "ARR review/commitment — "+when(arr);
+ if(one)return "Stage 1 / invitation — "+when(one);
+ if(op.prereg==="none-listed")return "No separate abstract in listed CFP";
+ if(op.prereg==="check-workshop")return "Check workshop's own call";
+ return "Unknown / verify";
 }
 function mainDeadline(op){
 const p=(op.stages||[]).filter(s=>["paper","demo","workshop-paper"].includes(s.kind)&&s.date).sort((a,b)=>a.date.localeCompare(b.date))[0];
@@ -132,7 +151,7 @@ return p?p.label+" — "+when(p):"TBA";
 function nextGate(op,stage){
 const st=labelStatus(op),rule=eligibility(op);
 if(st==="missed-abstract")return "BLOCKED — mandatory prerequisite marked missed (this browser)";
-if(op.prereg==="mandatory"&&rule.startsWith("VERIFY"))return "VERIFY — mandatory abstract filing unconfirmed";
+if(mandatoryPrereg(op)&&rule.startsWith("VERIFY"))return "VERIFY — mandatory abstract filing unconfirmed";
 if(op.prereg==="arr-required"&&rule.startsWith("VERIFY"))return rule;
 if(op.prereg==="stage1-required"&&rule.startsWith("VERIFY"))return rule;
 if(stage&&(stage.kind==="arr-commitment"||stage.requires==="arr")&&!["arr-filed","paper-filed"].includes(st))return "VERIFY — existing eligible ARR reviews/meta-review unconfirmed";
@@ -176,7 +195,7 @@ const all=db.opportunities;
 const verified=all.filter(o=>(o.stages||[]).some(s=>s.verification==="official"&&s.date)).length;
 const unknown=all.filter(o=>isTBA(o)).length;
 const blocked=all.filter(o=>local[o.id]==="missed-abstract").length;
-const risk=all.filter(o=>o.prereg==="mandatory"&&(o.stages||[]).some(s=>s.kind==="abstract"&&isPast(s))&&!["abstract-filed","paper-filed"].includes(local[o.id])).length;
+const risk=all.filter(o=>mandatoryPrereg(o)&&mandatoryAbstract(o)&&isPast(mandatoryAbstract(o))&&!["abstract-filed","paper-filed","done"].includes(local[o.id])).length;
 $("stats").textContent=chosen.length+" shown / "+all.length+" distinct track records · "+verified+" with an officially sourced dated milestone · "+unknown+" without an actionable dated milestone · "+risk+" mandatory-abstract records needing personal status confirmation · "+blocked+" explicitly marked missed (device-local).";
 }
 function exportStatuses(){const lines=["CS_CONF_PRIVATE_DECISIONS v1","Task: cs-confs-deadline-tracker-repair-20261028-001","Generated: "+new Date().toISOString(),"Status changes (private; do not post to public repository):"];
