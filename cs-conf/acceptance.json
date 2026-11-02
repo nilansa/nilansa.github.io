@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-11-02",
+  "policy": "Acceptance rate is historical and scoped to the named year and track. Parent main-track rate does not imply a demo, industry, workshop, challenge or student-track rate. Unknown remains N/A; never choose solely by historical rate.",
+  "records": [
+    {
+      "venueKey": "CVPR",
+      "year": 2026,
+      "track": "Main research",
+      "accepted": 4089,
+      "submissions": 16092,
+      "percent": 25.41,
+      "source": "https://cvpr.thecvf.com/Conferences/2026/News/Closing",
+      "denominator": "total submissions",
+      "note": "Official CVPR 2026 technical program counts."
+    },
+    {
+      "venueKey": "ICLR",
+      "year": 2026,
+      "track": "Main research",
+      "accepted": 5355,
+      "submissions": 19525,
+      "percent": 27.43,
+      "source": "https://blog.iclr.cc/2026/03/31/a-retrospective-on-the-iclr-2026-review-process/",
+      "denominator": "valid format-compliant submissions",
+      "note": "Reported 27.4% of valid submissions; excludes none of submitted papers from denominator despite withdrawals. 5,355 accepted per retrospective."
+    },
+    {
+      "venueKey": "NeurIPS",
+      "year": 2025,
+      "track": "Main research",
+      "accepted": 5290,
+      "submissions": 21575,
+      "percent": 24.52,
+      "source": "https://blog.neurips.cc/category/2025-conference/page/2/",
+      "denominator": "valid main-track submissions",
+      "note": "Latest historically sourced main-track baseline selected for comparisons, not 2027 forecast."
+    }
+  ]
+}
