@@ -55,7 +55,9 @@ footer{border-top:1px solid #aaa;margin:30px 0 0;padding:12px 0}
 <a href="#projects" data-view="projects">Projects</a> |
 <a href="#meetings" data-view="meetings">Meetings</a> |
 <a href="#all" data-view="all">All</a> |
-<a href="#archive" data-view="archive">Archive</a> |\n<a href="/cs-conf/">CS Conf</a>
+<a href="#archive" data-view="archive">Archive</a> |
+<a href="/cs-conf/">90-day submissions</a> |
+<a href="/cs-conf/competitions.html">ML competitions</a>
 </nav><hr>
 </header>
 <main>
@@ -98,12 +100,13 @@ footer{border-top:1px solid #aaa;margin:30px 0 0;padding:12px 0}
 </details>
 
 <section id="conference-calendar" aria-labelledby="conference-title">
-<h2 id="conference-title">Conference tracker</h2>\n<p><small><strong><a href="/cs-conf/">CS Conf — research opportunities and idea index</a></strong> · Research questions, venue-specific AI rules, source links, and a separate evolving paper portfolio.</small></p>
-<p><small>Upcoming submission deadlines, event dates and workshops. Rolling monthly/two-monthly view across AI, NLP, vision, systems, security, databases, theory and developer events. Verified organizer-source snapshot: <strong>26 October 2026</strong>; manual updates, not a live feed.</small></p>
+<h2 id="conference-title">Conference tracker · rolling 90 days</h2>
+<p class="notice"><small><strong><a href="/cs-conf/">Open the main 90-day submission planner</a></strong> for abstract/ARR gates, track-level eligibility, historical acceptance rates, a 10-submission shortlist, and <strong><a href="/cs-conf/competitions.html">ML competitions + conference-paper routes</a></strong>. This compact list is a supplementary legacy calendar.</small></p>
+<p><small>Upcoming submission deadlines, event dates and workshops. Rolling 30/60/90-day view across AI, NLP, vision, systems, security, databases, theory and developer events. Verified organizer-source snapshot: <strong>26 October 2026</strong>; manual updates, not a live feed.</small></p>
 <p class="notice"><small><strong><a href="https://colm.cc/" target="_blank" rel="noopener noreferrer">COLM — Conference on Language Modeling</a></strong> is permanently tracked. Its 2026 event was 6–9 October; <strong>COLM 2027 conference, CFP and workshop deadlines are not yet officially announced (TBA)</strong>. No speculative date is shown.</small></p>
 <div class="conf-controls">
 <label>Type<select id="conf-type"><option value="deadline">Submission deadlines</option><option value="event">Event dates</option><option value="workshop">Workshops</option></select></label>
-<label>Window<select id="conf-window"><option value="30">30 days</option><option value="60" selected>60 days</option></select></label>
+<label>Window<select id="conf-window"><option value="30">30 days</option><option value="60">60 days</option><option value="90" selected>90 days</option></select></label>
 <label>Area<select id="conf-area"><option value="all">All CS</option><option>AI/ML</option><option>NLP</option><option>Vision</option><option>Systems</option><option>Security</option><option>Data/IR</option><option>Theory/PL</option><option>Graphics/HCI</option><option>Industry</option></select></label>
 <label>Search<input type="search" id="conf-search" placeholder="e.g. CVPR or workshop"></label>
 </div>
@@ -184,7 +187,7 @@ if(editId){updateTask(editId,Object.assign({},p,{demo:false,source:"manual"}));}
 cancel();});
 $("cancel-edit").addEventListener("click",cancel);
 window.addEventListener("hashchange",function(){if(TABS[location.hash.slice(1)])view=location.hash.slice(1);render();});
-document.querySelectorAll("nav a").forEach(function(a){a.addEventListener("click",function(){view=a.dataset.view;render();});});
+document.querySelectorAll("nav a[data-view]").forEach(function(a){a.addEventListener("click",function(){view=a.dataset.view;render();});});
 function syncMessage(s,err){$("sync-message").textContent=s;$("sync-message").className=err?"error":"";}
 function encode(s){var a=new TextEncoder().encode(s),v="";for(var i=0;i<a.length;i+=8000)v+=String.fromCharCode.apply(null,a.slice(i,i+8000));return btoa(v);}
 function decode(s){var x=atob(s.replace(/\s/g,"")),a=new Uint8Array(x.length);for(var i=0;i<x.length;i++)a[i]=x.charCodeAt(i);return new TextDecoder().decode(a);}
