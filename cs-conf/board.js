@@ -110,7 +110,7 @@ function drawConference(o,s,today,root){
 }
 function renderBoard(){
  const table=$("conference-rows");if(!table)return;
- const now=ist(),end=addDays(now,Number($("window").value)==9999?36500:Number($("window").value));
+ const now=ist(),mode=$("window").value,end=addDays(now,mode==="all"||mode==="archive"?36500:Number(mode));
  const area=$("area").value,kind=$("kind").value,q=$("search").value.trim().toLowerCase(),view=$("window").value,only=$("shortlisted").checked;
  const all=opps.map(o=>({o,s:chooseStage(o,now)}));
  const visible=all.filter(({o,s})=>{
