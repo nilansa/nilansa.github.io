@@ -9,34 +9,29 @@
 <link rel="stylesheet" href="./board.css">
 <script src="./board.js" defer></script>
 </head>
-<body>
-<header>
-<h1>CS Conf <span class="muted">/ 90-day submission board</span></h1>
-<p>Turn 30–40 conference and workshop routes into <strong>10 distinct, evidence-backed submission attempts</strong> per three-month cycle. Sort by what can still be filed—not by conference event dates. Mandatory abstracts, ARR reviews and company-author rules are not optional.</p>
-<nav aria-label="CS conference tracker sections">
-<a href="./" aria-current="page">90-day conference board</a>
-<a href="./competitions.html">ML competitions + paper routes</a>
-<a href="./opportunities.html">All track milestones + gates</a>
-<a href="./research.html">Research ideas + CS rankings</a>
-<a href="./hub/">CVPR Research Hub</a>
-<a href="/tracker/">Private tasks / Today</a>
-</nav>
-</header>
+<body class="deadline-page">
+<header class="site-header">
+<div class="brandline"><a class="brand" href="./">CS Conf / Research planner</a><span class="aside">Curated submission deadlines</span></div>
+<nav aria-label="CS Conf navigation">
+<a href="./" aria-current="page">Paper deadlines</a>
+<a href="./competitions.html">Challenges & shared tasks</a>
+<a href="./opportunities.html">All tracks & requirements</a>
+<a href="./research.html">Research atlas</a>
+<a href="/tracker/">My private tasks</a>
+</nav></header>
 <main>
-<div class="banner important" role="note">
-<strong>Submission rule:</strong> An abstract + its paper = <em>one attempt</em>, not two. ARR commitment is only possible with qualifying reviews. A shared-task score does not automatically earn a conference paper. Research and industry tracks have different evidence and authorship rules. Historical main-track acceptance does not predict workshop or industry-track acceptance.
-</div>
-<section aria-label="90-day planning summary" class="kpis">
-<div class="kpi"><strong id="target-count">— / 10</strong><span>Selected distinct submission routes · in this browser</span></div>
-<div class="kpi"><strong id="candidate-count">—</strong><span>Focused 40-route eligible candidate pool · next 90 days</span></div>
-<div class="kpi"><strong id="deadline-stat">—</strong><span>Upcoming submission/action gates · next 30 days</span></div>
-<div class="kpi"><strong id="contest-stat">—</strong><span>ML competition deadlines · next 90 days</span></div>
+<section class="hero"><p class="page-kicker">Rolling 90-day planner</p><h1>Deadlines worth acting on.</h1><p class="lede">Find research papers, industry tracks, demos and workshops by their next submission stage. Mandatory abstracts, ARR prerequisites and author rules are checked separately.</p></section>
+<section aria-label="90-day planning summary" class="metrics-inline">
+<span class="metric"><strong id="deadline-stat">—</strong> submission gates within 30 days</span>
+<span class="metric"><strong id="target-count">— / 10</strong> selected routes (this browser)</span>
+<span class="metric"><strong id="candidate-count">—</strong> suggested routes</span>
+<span class="metric"><strong id="contest-stat">—</strong> challenge deadlines</span>
 </section>
-<h2>Priority watchlist</h2>
-<p class="muted">Organizer-facing deadlines. Closed calls stay visibly closed; unannounced 2027 calls remain TBA.</p>
+<h2>Next verified deadlines</h2>
+<p class="muted">Earliest upcoming official stages. Open the CFP to confirm the cutoff before submitting.</p>
 <div id="watch-list" class="watch" aria-label="Priority conferences"></div>
 
-<h2 id="conference-list-title">Rolling conference submissions</h2>
+<h2 id="conference-list-title">Paper, demo & workshop routes</h2>
 <div class="controls" aria-label="Filter candidate paper routes">
 <label>Deadline window
 <select id="window">
@@ -75,7 +70,7 @@
 <label>Find conference / track
 <input id="search" type="search" autocomplete="off" placeholder="NAACL, CVPR, PAKDD, speech…">
 </label>
-<label><input id="focus-pool" type="checkbox" checked> Focus on 40 promising routes</label>
+<label><input id="focus-pool" type="checkbox"> Focus on 40 suggested routes</label>
 <label><input id="shortlisted" type="checkbox"> Show my targets only</label>
 </div>
 <p class="summaryline" id="count-label" aria-live="polite">Loading source-backed opportunities…</p>
@@ -88,23 +83,12 @@
 <tbody id="slate-rows"><tr><td colspan="5">Loading candidate slate…</td></tr></tbody>
 </table></div>
 </details>
-<div class="scroll">
+<div class="scroll responsive-table">
 <table aria-labelledby="conference-list-title">
-<thead><tr>
-<th scope="col">My plan</th>
-<th scope="col">Next action / days</th>
-<th scope="col">Conference · track</th>
-<th scope="col">Mandatory prior gate</th>
-<th scope="col">Paper / demo deadline</th>
-<th scope="col">Acceptance history</th>
-<th scope="col">Academic-only eligible?</th>
-<th scope="col">Competition + paper?</th>
-<th scope="col">Source</th>
-</tr></thead>
-<tbody id="conference-rows"><tr><td colspan="9">Loading verified calls…</td></tr></tbody>
-</table>
-</div>
-<p class="table-key">Dates are organizer-local or AoE where specified, not interchangeable with your local time. “TBA” and “verify” never mean submission is open. Each named 2027 track is a separate route; pick 10 attempts across genuinely distinct paper ideas, respecting multiple-submission and dual-submission restrictions.</p>
+<thead><tr><th scope="col">Conference & track</th><th scope="col">Next cutoff</th><th scope="col">Submission</th><th scope="col">Before submitting</th><th scope="col">My plan</th><th scope="col">Official source</th></tr></thead>
+<tbody id="conference-rows"><tr><td colspan="6">Loading verified calls…</td></tr></tbody>
+</table></div>
+<p class="table-key">Each row is one conference submission route. AoE deadlines may fall on the next day in India; VERIFY means your prerequisite is unconfirmed, not necessarily missed. Selection is saved only on this device.</p>
 
 <div class="hint-list" aria-label="Planning controls">
 <div>
@@ -120,13 +104,13 @@
 </div>
 </div>
 
-<h2 id="contest-preview-title">ML competitions that could lead to papers</h2>
+<details class="secondary-disclosure"><summary id="contest-preview-title">Competitions that could lead to papers</summary>
 <p>Prioritize tasks that provide a research story as well as leaderboard performance. A winner invitation, system description, technical report and <em>archival accepted paper</em> are different outcomes.</p>
 <div class="scroll"><table aria-labelledby="contest-preview-title">
 <thead><tr><th>Deadline</th><th>Competition</th><th>Required action</th><th>Paper pathway</th><th>Details</th></tr></thead>
 <tbody id="contest-preview"><tr><td colspan="5">Loading…</td></tr></tbody>
 </table></div>
-<p><a href="./competitions.html">See all competition tracks, SemEval tasks, registration gates and conference-paper conditions</a></p>
+<p><a href="./competitions.html">Explore challenges and SemEval task families</a></p></details>
 
 <details style="margin:18px 0;padding:11px;border:1px solid #d9dfe8;border-radius:5px">
 <summary style="font-weight:700;font-size:13px">Historical acceptance-rate comparison — verified main-track data only</summary>
