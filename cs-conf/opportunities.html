@@ -22,12 +22,15 @@ details{margin-top:5px}details summary{cursor:pointer;color:#0645ad}.milestones{
 @media(max-width:760px){body{margin:10px auto}h1{font-size:23px}table{font-size:11px}.checklists{grid-template-columns:1fr}input[type=search]{width:130px}}
 </style><link rel="stylesheet" href="./board.css">
 <style>
+.opportunity-page .filters{display:flex;align-items:end;flex-wrap:wrap;gap:10px;background:#fbfcfe;border:1px solid #dce4eb;border-radius:8px;padding:11px;margin:12px 0}
+.opportunity-page .filters label{display:block;color:#536779;font-size:12px;margin:0}
+.opportunity-page .filters label select,.opportunity-page .filters label input{display:block;margin-top:4px;padding:7px;border-radius:5px}
 .opportunity-page .responsive-table table{min-width:0}
 .opportunity-page .track-name{font-size:13px}
 .opportunity-page .muted-row{text-decoration:none;opacity:.58}
 .opportunity-page .muted-row .track-name{text-decoration:line-through}
 .opportunity-page .status-select{width:145px;max-width:100%}
-@media(max-width:760px){.opportunity-page .responsive-table tbody td[data-label="My status"],.opportunity-page .responsive-table tbody td[data-label="Eligibility & prerequisites"]{grid-column:1/-1}.opportunity-page .status-select{width:100%}}
+@media(max-width:760px){.opportunity-page .filters label{flex:1 1 43%;min-width:0}.opportunity-page .filters label:last-child{flex-basis:100%}.opportunity-page .filters input[type=search]{width:100%;max-width:100%}.opportunity-page .responsive-table tbody td[data-label="My status"],.opportunity-page .responsive-table tbody td[data-label="Eligibility & prerequisites"]{grid-column:1/-1}.opportunity-page .status-select{width:100%}}
 </style></head>
 <body class="opportunity-page">
 <header class="site-header"><div class="brandline"><a class="brand" href="./">CS Conf / Research planner</a><span class="aside">Detailed prerequisites</span></div>
