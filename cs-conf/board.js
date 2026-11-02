@@ -152,15 +152,34 @@ function renderBoard(){
  if($("target-count"))$("target-count").textContent=planned.length+" / 10";
  if($("deadline-stat"))$("deadline-stat").textContent=String(all.filter(({s})=>s&&s.date<=addDays(now,30)).length);
  if($("contest-stat"))$("contest-stat").textContent=String(comps.filter(c=>c.deadline&&c.deadline>=now&&c.deadline<=addDays(now,90)).length);
- if($("count-label"))$("count-label").textContent=visible.length+" visible of "+opps.length+" tracked routes. Focused pool "+pool.size+" of "+candidates.length+" eligible candidate routes within 90 days; not submitted papers.";
+ if($("count-label"))$("count-label").textContent=visible.length+" routes shown · "+opps.length+" track records monitored · "+pool.size+" suggested short-list routes. Browser selections are not submissions.";
  if($("plan-note"))$("plan-note").textContent=planned.length<10?"Select "+(10-planned.length)+" more DISTINCT targets to plan 10 submissions; an abstract + its paper count once.":planned.length===10?"10 target routes selected. Verify every prerequisite and eliminate overlapping submissions.":"More than 10 targets selected. Consider narrowing the plan to a feasible 10.";
  renderPreview();renderSlate();
 }
 function renderPreview(){
- const root=$("contest-preview");if(!root)return;root.replaceChildren();const t=ist(),list=comps.filter(c=>c.deadline&&c.deadline>=t).sort((a,b)=>a.deadline.localeCompare(b.deadline)).slice(0,6);
- for(const c of list){const tr=el("tr",null,root);el("td",fdate(c.deadline),tr,"date");const td=el("td",null,tr);link(c.title,c.source,td);el("td",c.stage||"Challenge",tr);el("td",c.paperRouteStatus||"No verified paper route",tr);const last=el("td",null,tr);link("Details","./competitions.html",last);}
+ const root=$("contest-preview");if(!root)return;root.replaceChildren();
+ const now=ist(),upcoming=comps.filter(c=>c.deadline&&c.deadline>=now);
+ const items=upcoming.filter(c=>c.series!=="SemEval 2027").map(c=>({c,when:c.registrationDeadline&&c.registrationDeadline>=now&&c.registrationDeadline<c.deadline?c.registrationDeadline:c.deadline}));
+ const sem=upcoming.filter(c=>c.series==="SemEval 2027");
+ if(sem.length)items.push({family:sem,when:sem.map(c=>c.registrationDeadline||c.deadline).sort()[0]});
+ items.sort((a,b)=>a.when.localeCompare(b.when));
+ for(const item of items.slice(0,6)){
+  const tr=el("tr",null,root);
+  el("td",fdate(item.when),tr,"date");
+  const title=el("td",null,tr);
+  if(item.family){
+   link("SemEval 2027 · 12 task family","./semeval.html",title);
+   el("td","Choose individual shared task and verify its registration gate",tr);
+   el("td","System-description papers; separate submission (tentative Feb)",tr);
+   link("Task directory","./semeval.html",el("td",null,tr));
+  }else{
+   const c=item.c;link(c.title,c.source,title);
+   el("td",c.stage||"Challenge",tr);
+   el("td",c.paperRouteStatus||"No verified paper route",tr);
+   link("Details","./competitions.html",el("td",null,tr));
+  }
+ }
 }
-
 const slate=[
  ["legacy-wsdm-2027","IR / short research paper · verify exact short-track CFP and evidence"],
  ["legacy-pakdd-2027","Applied data science · retrieval / entity resolution with practical validation"],
