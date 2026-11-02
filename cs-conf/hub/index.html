@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="description" content="Search CVPR papers and turn evidence from two papers into an untested research hypothesis.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; worker-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="theme-color" content="#f4f5f1">
+<title>CVPR Research Hypothesis Hub</title>
+<link rel="stylesheet" href="style.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <a class="wordmark" href="#top" aria-label="CVPR Research Hypothesis Hub home"><span class="mark" aria-hidden="true">H</span><span>CVPR <b>Research Hub</b></span></a>
+  <nav aria-label="Main navigation">
+    <a href="#search">Search</a><a href="#collection">Paper collection</a><a href="#idea-lab">Idea Lab</a><a href="#provenance">Provenance</a>
+    <a class="back-link" href="../">CS Conf <span aria-hidden="true">↗</span></a>
+  </nav>
+</header>
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="eyebrow-dot"></span> A searchable CVPR paper archive · 2022–2026</p>
+      <h1 id="hero-title">Find the problem<br>worth solving.</h1>
+      <p class="hero-intro">Search paper titles, authors, and abstracts. Then connect evidence from two different research clusters and shape a testable idea.</p>
+      <a class="hero-cta" href="#search">Explore the papers <span aria-hidden="true">↓</span></a>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+      <span class="orb orb-a"></span><span class="orb orb-b"></span><span class="orb orb-c"></span>
+      <div class="art-label label-problem"><span>01</span> Problem</div>
+      <div class="art-label label-method"><span>02</span> Method</div>
+      <div class="art-core"><span>?</span><small>test a link</small></div>
+    </div>
+    <div class="hero-foot"><span id="hero-count">Loading corpus counts…</span><span>Metadata and abstracts only · PDFs stay at CVF</span></div>
+  </section>
+
+  <section class="section search-section" id="search" aria-labelledby="search-title">
+    <div class="section-heading">
+      <div><p class="eyebrow">01 / Search</p><h2 id="search-title">Start with a question.</h2></div>
+      <p>Use a few clear terms. Put exact phrases in quotation marks. Add years or a topic to narrow the results.</p>
+    </div>
+    <form id="search-form" role="search">
+      <label class="search-box" for="query"><span class="search-icon" aria-hidden="true">⌕</span><input id="query" type="search" placeholder="Try: robust 3D reconstruction" autocomplete="off" aria-describedby="query-help"></label>
+      <button class="button button-dark" type="submit">Search papers <span aria-hidden="true">↗</span></button>
+    </form>
+    <p id="query-help" class="assistive-note">Search uses title, author, and abstract words. Exact phrases and adjacent word pairs receive a ranking boost.</p>
+    <div class="filter-grid">
+      <fieldset class="filter-block"><legend>Years</legend><div id="year-filters" class="year-options" aria-label="Filter by publication year"></div></fieldset>
+      <fieldset class="filter-block"><legend>Topic clusters <span class="legend-note">keyword labels</span></legend><div id="topic-filters" class="topic-options"></div></fieldset>
+      <label class="sort-label" for="sort-order">Sort by
+        <select id="sort-order"><option value="relevance">Best match</option><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="title">Title A–Z</option></select>
+      </label>
+    </div>
+    <div class="load-row"><p id="search-status" role="status" aria-live="polite">Choose a topic or enter a search. Year files load only when needed.</p><div id="load-progress" class="progress-wrap" hidden><progress id="progress" max="5" value="0"></progress><span id="progress-label"></span></div></div>
+  </section>
+
+  <section class="section collection-section" id="collection" aria-labelledby="collection-title">
+    <div class="section-heading collection-heading">
+      <div><p class="eyebrow">02 / Paper collection</p><h2 id="collection-title">Read the evidence.</h2></div>
+      <div class="collection-tools"><span id="result-count" class="result-count">No search yet</span><button id="export-pins" class="button button-small" type="button">Export pins</button><label class="button button-small import-button" for="import-pins">Import pins<input id="import-pins" type="file" accept="application/json,.json"></label></div>
+    </div>
+    <details class="pins-panel"><summary>My pinned papers <span id="pin-count">0</span> <span class="local-tag">Saved in this browser</span></summary><div id="pinned-papers" class="pinned-list"><p class="empty-note">No pinned papers yet.</p></div></details>
+    <div id="results" class="results-grid"><div class="empty-state"><span class="empty-symbol" aria-hidden="true">⌕</span><h3>Your next question starts here.</h3><p>Search a phrase or choose a topic. The paper files are fetched one year at a time.</p></div></div>
+    <div class="more-row"><button id="more-results" class="button button-outline" type="button" hidden>Show more papers <span aria-hidden="true">↓</span></button></div>
+  </section>
+
+  <section class="section idea-section" id="idea-lab" aria-labelledby="idea-title">
+    <div class="idea-heading">
+      <div><p class="eyebrow">03 / Research workbench</p><h2 id="idea-title">Idea Lab</h2></div>
+      <p>Choose a problem paper and a method paper from different topic clusters. A falsification step is a test that could show the idea is wrong. This tool extracts sentences with simple word patterns. It does not use an LLM.</p>
+    </div>
+    <div class="idea-layout">
+      <div class="idea-picks">
+        <div class="pick-card"><span class="pick-number">01</span><div><p class="pick-label">Problem paper</p><p id="problem-pick" class="pick-empty">Choose from a search result.</p><button id="clear-problem" class="text-button" type="button" hidden>Clear</button></div></div>
+        <div class="pick-connector" aria-hidden="true">+</div>
+        <div class="pick-card"><span class="pick-number">02</span><div><p class="pick-label">Method paper</p><p id="method-pick" class="pick-empty">Choose from a search result.</p><button id="clear-method" class="text-button" type="button" hidden>Clear</button></div></div>
+        <p id="idea-status" class="idea-status" role="status" aria-live="polite">Select papers in the search results. Their cluster labels must differ.</p>
+      </div>
+      <article id="hypothesis-card" class="hypothesis-card" aria-live="polite">
+        <div class="hypothesis-placeholder"><span class="placeholder-mark" aria-hidden="true">↗</span><h3>Your evidence packet will appear here.</h3><p>It will include source sentences, paper links, a controlled comparison, and a step that can disprove the idea.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section provenance-section" id="provenance" aria-labelledby="provenance-title">
+    <div class="section-heading"><div><p class="eyebrow">04 / Provenance</p><h2 id="provenance-title">Know what the archive can say.</h2></div><p>Paper abstracts help find a direction. They do not prove that a method works or that a new combination is novel.</p></div>
+    <div class="provenance-grid">
+      <article class="provenance-card"><span class="provenance-icon">A</span><h3>Source and attribution</h3><p>Metadata comes from the <a href="https://huggingface.co/datasets/choucsan/CVPR_Papers" target="_blank" rel="noopener">CVPR_Papers dataset</a> (MIT license). Paper and PDF links are matched to the <a href="https://openaccess.thecvf.com/" target="_blank" rel="noopener">Computer Vision Foundation Open Access</a> listings. Six PDF links returned HTTP 404 to a HEAD check; details link to their year listing. Paper rights remain with their authors or other rights holders.</p></article>
+      <article class="provenance-card"><span class="provenance-icon">B</span><h3>Track labels</h3><p>A dataset label of “CVPR” is not enough to verify a main-track acceptance. The hub marks uncertain records as <strong>CVPR main candidate</strong>. A CVF URL or BibTeX field can confirm main or workshop status.</p></article>
+      <article class="provenance-card"><span class="provenance-icon">C</span><h3>What “cluster” means</h3><p>Clusters are simple keyword labels for discovery. They are not official subject areas. Two different labels do not prove that two methods are compatible or new.</p></article>
+      <article class="provenance-card"><span class="provenance-icon">D</span><h3>What a hypothesis means</h3><p>An “UNTESTED” card is a question to evaluate. It contains no model results or verified baseline. Accepted papers are useful examples, not a guarantee of future acceptance.</p></article>
+    </div>
+    <details class="integrity-panel"><summary>Corpus counts and file checksums</summary><div id="integrity-content" class="integrity-content"><p>Loading verified corpus metadata…</p></div></details>
+    <p class="privacy-note"><span aria-hidden="true">◈</span> Pins are stored in local browser storage. This site sends no search, pin, or idea data to a server.</p>
+  </section>
+</main>
+<footer class="site-footer"><a href="#top">CVPR Research Hub</a><span>Static files · no build step · no external scripts or fonts</span><a href="../">Back to CS Conf ↑</a></footer>
+
+<dialog id="paper-dialog" class="paper-dialog" aria-labelledby="detail-title">
+  <div class="dialog-top"><span class="eyebrow">PAPER DETAILS</span><button id="close-dialog" class="close-button" type="button" aria-label="Close paper details">×</button></div>
+  <div id="dialog-body"></div>
+</dialog>
+</body>
+</html>
