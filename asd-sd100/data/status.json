@@ -879,5 +879,20 @@
       "native_acknowledgement_since_failure": "not verified",
       "protocol_action": "STOP; no GPU attempt, retries, teacher/reader calls or scoring authorized under frozen PROTOCOL_S2.md"
     }
+  },
+  "operational_check_2026_11_02_1709": {
+    "checked_at_ist": "2026-11-02 17:09 IST",
+    "native_service": "Original Claude Science localhost port 8775 is listening. An unauthenticated HTTP request returned 401; this confirms a responding protected service, not a successful user login.",
+    "original_p1_frame": "Completed; native handoff acknowledgement verified at 09:15 IST on 2 November. The separate transfer index is still Codex-owned and staged on disk.",
+    "original_p5_frame": "Completed; last native message at 09:49 IST. No native acknowledgement of the 11:15 CPU timeout was found in this check.",
+    "p5_stage2": "BLOCKED_CPU: frozen 21,100-document ColBERTv2/PLAID CPU index exceeded 5,400 seconds on 2 November, with no completed index or comparative retrieval scores. DISCo retrieval and teacher/reader scoring were not run. No GPU fallback is authorized by this protocol.",
+    "ada_queue": "One read-only squeue for nilan and vramanrs returned zero rows during this check. Point-in-time observation only; no allocation or Slurm write.",
+    "handoff_integrity": "Separate P1 decision artifact and revision-1 index hashes match their stated checksums. Main ASD scratch revision-2 index discrepancy remains unresolved; no new cross-surface handoff was made.",
+    "source_hashes": {
+      "P5 frozen Stage-2 protocol (SHA-256)": "9fcce344cefc933852ca9375bda365121e2cbc048e0bca5097e84cdc0c7863c0",
+      "P5 terminal stage step record (SHA-256)": "7e3ed8f1dd0e2368f9818e608d0979167f77daea0112841fbbcecf533db5a1c6",
+      "P5 native stage status (SHA-256)": "43d6445d79e31deb4e48bb23b10c52b9108c8ab6d1dd2eaddf269a0cc2de6aab"
+    },
+    "privacy_note": "Only sanitized status and checksums are public; no private files or full logs are published."
   }
 }
