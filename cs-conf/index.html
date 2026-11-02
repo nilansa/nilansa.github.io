@@ -27,7 +27,7 @@
 </div>
 <section aria-label="90-day planning summary" class="kpis">
 <div class="kpi"><strong id="target-count">— / 10</strong><span>Selected distinct submission routes · in this browser</span></div>
-<div class="kpi"><strong id="candidate-count">—</strong><span>Paper/demo/industry/workshop candidate routes · next 90 days</span></div>
+<div class="kpi"><strong id="candidate-count">—</strong><span>Focused 40-route eligible candidate pool · next 90 days</span></div>
 <div class="kpi"><strong id="deadline-stat">—</strong><span>Upcoming submission/action gates · next 30 days</span></div>
 <div class="kpi"><strong id="contest-stat">—</strong><span>ML competition deadlines · next 90 days</span></div>
 </section>
@@ -74,10 +74,19 @@
 <label>Find conference / track
 <input id="search" type="search" autocomplete="off" placeholder="NAACL, CVPR, PAKDD, speech…">
 </label>
+<label><input id="focus-pool" type="checkbox" checked> Focus on 40 promising routes</label>
 <label><input id="shortlisted" type="checkbox"> Show my targets only</label>
 </div>
 <p class="summaryline" id="count-label" aria-live="polite">Loading source-backed opportunities…</p>
 <p class="summaryline" id="plan-note" aria-live="polite"></p>
+<details id="proposed-slate" style="margin:11px 0 15px;padding:9px 11px;border:1px solid #d9dfe8;border-radius:5px">
+<summary style="font-weight:700;font-size:13px">Show a proposed 10-route submission slate (not a claim that papers are ready)</summary>
+<p class="muted">Based on retrieval, NLP, speech, physical AI and tool/system research directions. These are <strong>candidate destinations</strong>, not the same work submitted 10 times. Every paper needs distinct novelty, sound evaluation, venue fit, and a checked gate. Click Add target to count that route in your browser-only plan.</p>
+<div class="scroll"><table aria-label="Ten distinct draft submission-route suggestions">
+<thead><tr><th>Venue · track</th><th>Next action</th><th>Research fit</th><th>Prerequisite</th><th>Plan</th></tr></thead>
+<tbody id="slate-rows"><tr><td colspan="5">Loading candidate slate…</td></tr></tbody>
+</table></div>
+</details>
 <div class="scroll">
 <table aria-labelledby="conference-list-title">
 <thead><tr>
@@ -99,7 +108,7 @@
 <div class="hint-list" aria-label="Planning controls">
 <div>
 <h2>Monthly 30-day review</h2>
-<p>Recheck the official CFP for every target, extensions, the abstract gate, eligible coauthors, available experiment evidence and the actual route to proceedings. Retire stale targets; replace them from the larger watchlist. A review marker here is <strong>local-only</strong> and is not a scheduled background check.</p>
+<p>Recheck the official CFP for every target, extensions, the abstract gate, eligible coauthors, available experiment evidence and the actual route to proceedings. Retire stale targets; replace them from the larger watchlist. A separate <strong>30-day ChatGPT review</strong> has been scheduled beginning 2 December 2026. The button here only marks what you personally reviewed on this browser; it does not record that the scheduled review ran successfully.</p>
 <p id="review-due" class="muted"></p>
 <button id="review-button" type="button">Mark monthly review completed here</button>
 </div>
