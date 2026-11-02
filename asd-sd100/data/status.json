@@ -910,5 +910,21 @@
     "unresolved_cause": "Whether the CPU worker hung or was simply slow remains unproven because the progress log lacks timestamps.",
     "cost": "5400.117 seconds for fourth CPU indexing attempt; zero added GPU allocations, teacher calls, reader calls or holdout evaluations.",
     "next_step": "Retain frozen metrics and STOP this protocol. Any smaller subset or instrumentation trial would require a separate approval and protocol, and is not reported as launched."
+  },
+  "job_state_staleness_2026_11_02_2015": {
+    "checked_at": "2026-11-02T20:15:54+05:30",
+    "assessment": "Historical intermediate RUN_STATE.json files are stale; they are not evidence of active training. The frozen final gate files and later completed run records control the scientific verdict.",
+    "observations": [
+      "C5 intermediate D3 31 Oct 10:33 IST state still says running/fitting_pairs for job 50071; later C5 D4 seed states (jobs 50088 and 50089) say complete at 10:53 and 11:00 IST, and the final three-seed G5 gate is FAIL.",
+      "C6 earlier 31 Oct 11:02 IST state says RUNNING; final collected state at 14:22 IST is COMPLETE and the frozen full-gold gate is FAIL.",
+      "One restrained read-only Ada squeue at this check returned zero rows for nilan or vramanrs. This is a point-in-time queue observation, not a historical claim that the earlier jobs never ran.",
+      "Original P1 and P5 Science frames remain completed at 09:15 and 19:16 IST respectively. No new retrieval experiment, teacher call or GPU offload was observed."
+    ],
+    "safety": "Do not duplicate or restart old Slurm jobs based on stale intermediate status files. No new work was launched and no native process was interrupted.",
+    "audit_source_hashes": {
+      "historical C5 D3 RUN_STATE SHA-256": "22d4970d623f82f22b97b23c860f2f83ada835fd189babff35958fb12ab5a992",
+      "historical C6 RUN_STATE SHA-256": "68ca8fc725f9471e1dcba30d740822d0dd30b8b8af213a2a85d8f9209b97deae",
+      "final C6 RUN_STATE SHA-256": "7681a7d89a2e7dcf67009b6283ee9664a87fa14c32461f9ec62792ce2f4eefc8"
+    }
   }
 }
