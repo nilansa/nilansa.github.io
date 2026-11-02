@@ -55,6 +55,17 @@ function gateCell(o,s,today,tr){
  }else if(last){el("span","Last deadline closed · "+last.label,td,"flag alert");}else el("span","Next CFP not verified",td,"flag warn");
  return td;
 }
+function renderRates(){
+ const root=$("rate-rows");if(!root)return;root.replaceChildren();
+ rates.slice().sort((a,b)=>b.percent-a.percent).forEach(x=>{
+ const tr=el("tr",null,root);
+ el("td",x.venueKey+" · "+x.year,tr,"row-strong");
+ el("td",x.track+" (NOT industry, demo or workshop)",tr);
+ el("td",x.accepted.toLocaleString()+" / "+x.submissions.toLocaleString(),tr,"date");
+ el("td",x.percent.toFixed(1)+"%",tr,"row-strong");
+ const td=el("td",null,tr);link("Source",x.source,td);if(x.note)el("div",x.note,td,"line");
+ });
+}
 function renderWatch(){
  const root=$("watch-list");if(!root)return;root.replaceChildren();
  const items=[
@@ -211,7 +222,7 @@ function attach(){
    const text="PRIVATE planning list — DO NOT publish\nReview "+ist()+"\n"+records.join("\n");
    try{await navigator.clipboard.writeText(text);$("copy-notice").textContent="Copied planned routes. Save only in your private GitHub repository.";}catch(_){$("copy-notice").textContent="Clipboard unavailable; use your browser's site permissions.";}
   });
-  renderBoard();showReview();
+  renderBoard();renderRates();showReview();
  }
  if($("competition-rows")){["comp-window","comp-field","comp-paper","comp-query"].forEach(id=>$(id).addEventListener(id==="comp-query"?"input":"change",renderCompetition));renderCompetition();}
 }
