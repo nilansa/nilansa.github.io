@@ -3664,6 +3664,233 @@
           "verification": "official"
         }
       ]
+    },
+    {
+      "venue": "IJCAI 2027",
+      "year": 2027,
+      "category": "AI / ML / science / healthcare",
+      "kind": "research",
+      "source": "https://2027.ijcai.org/ijcai-2027-call-for-papers-main-track/",
+      "discover": "Official main-track CFP (Nov 2 check)",
+      "academicEligibility": "✓",
+      "prereg": "mandatory-abstract",
+      "stages": [
+        {
+          "kind": "abstract",
+          "date": "2027-01-04",
+          "label": "MANDATORY abstract registration (prerequisite for Jan 11 paper)",
+          "at": "2027-01-04T23:59:00-12:00",
+          "cutoff": "23:59 AoE",
+          "verification": "official"
+        },
+        {
+          "kind": "paper",
+          "date": "2027-01-11",
+          "label": "Full research paper (requires Jan 4 abstract and author information)",
+          "at": "2027-01-11T23:59:00-12:00",
+          "cutoff": "23:59 AoE",
+          "requires": "abstract",
+          "verification": "official"
+        },
+        {
+          "kind": "notification",
+          "date": "2027-04-21",
+          "label": "Acceptance decision",
+          "verification": "official"
+        },
+        {
+          "kind": "camera-ready",
+          "date": "2027-05-07",
+          "label": "Camera-ready",
+          "verification": "official"
+        }
+      ],
+      "id": "ijcai27-main",
+      "track": "Main research papers",
+      "notes": "Original AI research. Mandatory abstract Jan 4 then complete paper Jan 11. Reciprocal reviewer required unless exempt; first paper per author group free, subsequent non-primary submission incurs USD 100 (see CFP). 7 paper pages + 2 references; double-blind; IJCAI forbids formally published dual submissions."
+    },
+    {
+      "venue": "IJCAI 2027",
+      "year": 2027,
+      "category": "AI / ML / science / healthcare",
+      "kind": "research",
+      "source": "https://2027.ijcai.org/ijcai-2027-call-for-papers-main-track/",
+      "discover": "Official main-track CFP (Nov 2 check)",
+      "academicEligibility": "✓",
+      "prereg": "mandatory-abstract",
+      "stages": [
+        {
+          "kind": "abstract",
+          "date": "2027-01-04",
+          "label": "MANDATORY abstract registration (prerequisite for Jan 11 paper)",
+          "at": "2027-01-04T23:59:00-12:00",
+          "cutoff": "23:59 AoE",
+          "verification": "official"
+        },
+        {
+          "kind": "paper",
+          "date": "2027-01-11",
+          "label": "Full research paper (requires Jan 4 abstract and author information)",
+          "at": "2027-01-11T23:59:00-12:00",
+          "cutoff": "23:59 AoE",
+          "requires": "abstract",
+          "verification": "official"
+        },
+        {
+          "kind": "notification",
+          "date": "2027-04-21",
+          "label": "Acceptance decision",
+          "verification": "official"
+        },
+        {
+          "kind": "camera-ready",
+          "date": "2027-05-07",
+          "label": "Camera-ready",
+          "verification": "official"
+        }
+      ],
+      "id": "ijcai27-ai4science",
+      "track": "AI4Science special track (track CFP pending)",
+      "notes": "Organizer explicitly schedules four special tracks with the SAME Jan 4 abstract and Jan 11 paper cutoffs; the AI4Science-specific CFP is not yet separately verified. Eligible concept must suit the track; do not submit the same paper to main and special."
+    },
+    {
+      "venue": "IJCAI 2027",
+      "year": 2027,
+      "category": "AI / ML / science / healthcare",
+      "kind": "research",
+      "source": "https://2027.ijcai.org/ijcai-2027-call-for-papers-main-track/",
+      "discover": "Official main-track CFP (Nov 2 check)",
+      "academicEligibility": "✓",
+      "prereg": "mandatory-abstract",
+      "stages": [
+        {
+          "kind": "abstract",
+          "date": "2027-01-04",
+          "label": "MANDATORY abstract registration (prerequisite for Jan 11 paper)",
+          "at": "2027-01-04T23:59:00-12:00",
+          "cutoff": "23:59 AoE",
+          "verification": "official"
+        },
+        {
+          "kind": "paper",
+          "date": "2027-01-11",
+          "label": "Full research paper (requires Jan 4 abstract and author information)",
+          "at": "2027-01-11T23:59:00-12:00",
+          "cutoff": "23:59 AoE",
+          "requires": "abstract",
+          "verification": "official"
+        },
+        {
+          "kind": "notification",
+          "date": "2027-04-21",
+          "label": "Acceptance decision",
+          "verification": "official"
+        },
+        {
+          "kind": "camera-ready",
+          "date": "2027-05-07",
+          "label": "Camera-ready",
+          "verification": "official"
+        }
+      ],
+      "id": "ijcai27-health",
+      "track": "AI and Health special track (track CFP pending)",
+      "notes": "Organizer confirms common deadlines, but special-track-specific rules need separate verification. Cannot double submit identical work."
+    },
+    {
+      "venue": "IJCAI 2027",
+      "year": 2027,
+      "category": "AI / ML / science / healthcare",
+      "kind": "research",
+      "source": "https://2027.ijcai.org/ijcai-2027-call-for-papers-main-track/",
+      "discover": "Official main-track CFP (Nov 2 check)",
+      "academicEligibility": "✓",
+      "prereg": "mandatory-abstract",
+      "stages": [
+        {
+          "kind": "abstract",
+          "date": "2027-01-04",
+          "label": "MANDATORY abstract registration (prerequisite for Jan 11 paper)",
+          "at": "2027-01-04T23:59:00-12:00",
+          "cutoff": "23:59 AoE",
+          "verification": "official"
+        },
+        {
+          "kind": "paper",
+          "date": "2027-01-11",
+          "label": "Full research paper (requires Jan 4 abstract and author information)",
+          "at": "2027-01-11T23:59:00-12:00",
+          "cutoff": "23:59 AoE",
+          "requires": "abstract",
+          "verification": "official"
+        },
+        {
+          "kind": "notification",
+          "date": "2027-04-21",
+          "label": "Acceptance decision",
+          "verification": "official"
+        },
+        {
+          "kind": "camera-ready",
+          "date": "2027-05-07",
+          "label": "Camera-ready",
+          "verification": "official"
+        }
+      ],
+      "id": "ijcai27-art",
+      "track": "AI, the Arts and Creativity special track (track CFP pending)",
+      "notes": "Organizer confirms same Jan 4 and Jan 11 dates; track-specific CFP remains pending."
+    },
+    {
+      "venue": "IJCAI 2027",
+      "year": 2027,
+      "category": "AI / ML / science / healthcare",
+      "kind": "research",
+      "source": "https://2027.ijcai.org/ijcai-2027-call-for-papers-main-track/",
+      "discover": "Official main-track CFP (Nov 2 check)",
+      "academicEligibility": "✓",
+      "prereg": "mandatory-abstract",
+      "stages": [
+        {
+          "kind": "abstract",
+          "date": "2027-01-04",
+          "label": "MANDATORY abstract registration (prerequisite for Jan 11 paper)",
+          "at": "2027-01-04T23:59:00-12:00",
+          "cutoff": "23:59 AoE",
+          "verification": "official"
+        },
+        {
+          "kind": "paper",
+          "date": "2027-01-11",
+          "label": "Full research paper (requires Jan 4 abstract and author information)",
+          "at": "2027-01-11T23:59:00-12:00",
+          "cutoff": "23:59 AoE",
+          "requires": "abstract",
+          "verification": "official"
+        },
+        {
+          "kind": "notification",
+          "date": "2027-04-21",
+          "label": "Acceptance decision",
+          "verification": "official"
+        },
+        {
+          "kind": "camera-ready",
+          "date": "2027-05-07",
+          "label": "Camera-ready",
+          "verification": "official"
+        }
+      ],
+      "id": "ijcai27-social",
+      "track": "AI for Social Good special track (track CFP pending)",
+      "notes": "Organizer confirms same Jan 4 and Jan 11 dates; track-specific CFP remains pending."
     }
-  ]
+  ],
+  "priorityVerifiedAt": "2026-11-02",
+  "priorityVerifiedSources": [
+    "https://2027.ijcai.org/ijcai-2027-call-for-papers-main-track/",
+    "https://cvpr.thecvf.com/Conferences/2027/CallForPapers",
+    "https://semeval.github.io/SemEval2027/tasks.html"
+  ],
+  "priorityCaveat": "2026-11-02 manual check covers only highlighted organizers; checkedAt 2026-10-30 remains the full track-catalogue review. IJCAI special-track call pages not separately available and are marked CFP pending."
 }
