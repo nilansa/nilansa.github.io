@@ -32,3 +32,9 @@ main{max-width:1320px;margin:0 auto;padding:0 28px}.hero{position:relative;min-h
 .field-group .subarea-title:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 .field-group .field-actions{gap:10px;white-space:nowrap}
 @media(max-width:680px){.field-group legend{align-items:baseline}.field-group .subarea[open] .field-chips{padding-left:1px}}
+
+/* Ten-year column view: 2017–2021 remain visibly unavailable until ingested. */
+.coverage-row{grid-template-columns:minmax(70px,1fr) repeat(10,minmax(21px,1fr));gap:3px}
+.coverage-matrix{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:920px){.coverage-matrix{grid-template-columns:1fr}}
+@media(max-width:680px){.coverage-row{grid-template-columns:minmax(67px,1fr) repeat(10,minmax(18px,1fr));gap:2px}}
