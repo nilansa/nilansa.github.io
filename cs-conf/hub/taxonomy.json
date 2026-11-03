@@ -1,0 +1,349 @@
+{
+  "schema": "cs-conf-research-taxonomy-v1",
+  "last_reviewed": "2026-11-03",
+  "description": "Independently authored conference discovery taxonomy. Area membership is navigational and is neither an official ranking nor proof of track or paper subject.",
+  "source_policy": "Conference abbreviations and research-area labels are independent descriptive facts; no CSRankings ranking data or code is copied.",
+  "areas": [
+    {
+      "id": "ai",
+      "label": "AI, ML & Information",
+      "subareas": [
+        {
+          "id": "artificial-intelligence",
+          "label": "Artificial Intelligence",
+          "venues": [
+            "AAAI",
+            "IJCAI",
+            "AAMAS"
+          ]
+        },
+        {
+          "id": "machine-learning",
+          "label": "Machine Learning",
+          "venues": [
+            "NeurIPS",
+            "ICML",
+            "ICLR",
+            "AISTATS",
+            "COLT",
+            "MLSys"
+          ]
+        },
+        {
+          "id": "computer-vision",
+          "label": "Computer Vision & 3D",
+          "venues": [
+            "CVPR",
+            "ICCV",
+            "ECCV",
+            "WACV"
+          ]
+        },
+        {
+          "id": "nlp",
+          "label": "NLP & Language",
+          "venues": [
+            "ACL",
+            "EMNLP",
+            "NAACL",
+            "EACL",
+            "COLING"
+          ]
+        },
+        {
+          "id": "information-retrieval",
+          "label": "Information Retrieval & Web",
+          "venues": [
+            "SIGIR",
+            "WSDM",
+            "CIKM",
+            "WWW",
+            "RecSys",
+            "KDD"
+          ]
+        },
+        {
+          "id": "speech",
+          "label": "Speech & Audio",
+          "venues": [
+            "ICASSP",
+            "Interspeech",
+            "ASRU"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "systems",
+      "label": "Systems & Software",
+      "subareas": [
+        {
+          "id": "architecture",
+          "label": "Computer Architecture",
+          "venues": [
+            "ISCA",
+            "MICRO",
+            "ASPLOS",
+            "HPCA"
+          ]
+        },
+        {
+          "id": "operating-systems",
+          "label": "Operating Systems",
+          "venues": [
+            "SOSP",
+            "OSDI",
+            "EuroSys",
+            "USENIX ATC"
+          ]
+        },
+        {
+          "id": "networks",
+          "label": "Computer Networks",
+          "venues": [
+            "SIGCOMM",
+            "NSDI",
+            "CoNEXT",
+            "INFOCOM"
+          ]
+        },
+        {
+          "id": "security",
+          "label": "Security & Privacy",
+          "venues": [
+            "IEEE S&P",
+            "USENIX Security",
+            "CCS",
+            "NDSS",
+            "PETS"
+          ]
+        },
+        {
+          "id": "databases",
+          "label": "Databases",
+          "venues": [
+            "SIGMOD",
+            "VLDB",
+            "ICDE",
+            "PODS",
+            "EDBT"
+          ]
+        },
+        {
+          "id": "distributed-systems",
+          "label": "Distributed & Cloud Systems",
+          "venues": [
+            "SOSP",
+            "OSDI",
+            "NSDI",
+            "SoCC",
+            "DISC",
+            "PODC"
+          ]
+        },
+        {
+          "id": "programming-languages",
+          "label": "Programming Languages",
+          "venues": [
+            "POPL",
+            "PLDI",
+            "OOPSLA",
+            "ICFP"
+          ]
+        },
+        {
+          "id": "software-engineering",
+          "label": "Software Engineering",
+          "venues": [
+            "ICSE",
+            "FSE",
+            "ASE",
+            "ISSTA"
+          ]
+        },
+        {
+          "id": "hpc",
+          "label": "High-Performance Computing",
+          "venues": [
+            "SC",
+            "PPoPP",
+            "HPDC"
+          ]
+        },
+        {
+          "id": "embedded",
+          "label": "Embedded & Real-Time Systems",
+          "venues": [
+            "RTSS",
+            "EMSOFT",
+            "SenSys",
+            "IPSN"
+          ]
+        },
+        {
+          "id": "performance",
+          "label": "Performance & Measurement",
+          "venues": [
+            "SIGMETRICS",
+            "IMC"
+          ]
+        },
+        {
+          "id": "design-automation",
+          "label": "Design Automation",
+          "venues": [
+            "DAC",
+            "ICCAD"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "theory",
+      "label": "Theory & Foundations",
+      "subareas": [
+        {
+          "id": "algorithms",
+          "label": "Algorithms & Complexity",
+          "venues": [
+            "STOC",
+            "FOCS",
+            "SODA",
+            "ICALP"
+          ]
+        },
+        {
+          "id": "cryptography",
+          "label": "Cryptography",
+          "venues": [
+            "CRYPTO",
+            "EUROCRYPT",
+            "TCC"
+          ]
+        },
+        {
+          "id": "logic-verification",
+          "label": "Logic & Verification",
+          "venues": [
+            "CAV",
+            "LICS",
+            "TACAS"
+          ]
+        },
+        {
+          "id": "learning-theory",
+          "label": "Learning Theory",
+          "venues": [
+            "COLT",
+            "ALT"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "interdisciplinary",
+      "label": "Interdisciplinary & Applications",
+      "subareas": [
+        {
+          "id": "robotics",
+          "label": "Robotics & Embodied AI",
+          "venues": [
+            "ICRA",
+            "IROS",
+            "RSS",
+            "CoRL"
+          ]
+        },
+        {
+          "id": "hci",
+          "label": "Human-Computer Interaction",
+          "venues": [
+            "CHI",
+            "UIST",
+            "CSCW",
+            "UbiComp"
+          ]
+        },
+        {
+          "id": "graphics",
+          "label": "Computer Graphics",
+          "venues": [
+            "SIGGRAPH",
+            "SIGGRAPH Asia",
+            "Eurographics"
+          ]
+        },
+        {
+          "id": "visualization",
+          "label": "Visualization",
+          "venues": [
+            "IEEE VIS",
+            "EuroVis"
+          ]
+        },
+        {
+          "id": "computational-biology",
+          "label": "Computational Biology",
+          "venues": [
+            "ISMB",
+            "RECOMB"
+          ]
+        },
+        {
+          "id": "biomedical-ai",
+          "label": "Biomedical & Medical AI",
+          "venues": [
+            "MICCAI",
+            "MIDL"
+          ]
+        },
+        {
+          "id": "computational-social",
+          "label": "Computational Social Science",
+          "venues": [
+            "ICWSM",
+            "FAccT"
+          ]
+        },
+        {
+          "id": "cs-education",
+          "label": "CS Education",
+          "venues": [
+            "SIGCSE",
+            "ITiCSE"
+          ]
+        },
+        {
+          "id": "economics-computation",
+          "label": "Economics & Computation",
+          "venues": [
+            "EC",
+            "WINE"
+          ]
+        }
+      ]
+    }
+  ],
+  "aliases": {
+    "USENIX ATC": [
+      "ATC"
+    ],
+    "IEEE S&P": [
+      "S&P",
+      "Oakland"
+    ],
+    "WWW": [
+      "The Web Conference"
+    ],
+    "VLDB": [
+      "PVLDB"
+    ],
+    "FSE": [
+      "ESEC/FSE"
+    ]
+  },
+  "notes": [
+    "A conference may belong to more than one subarea. A venue with no indexed years in catalog.json is visible as not yet indexed, not as zero accepted papers.",
+    "Publication track, source license, and paper topic are separate metadata dimensions."
+  ]
+}
