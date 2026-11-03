@@ -1,4 +1,12 @@
 {
+  "operational_update_20261103_1303": {
+    "checked_at_ist": "2026-11-03T13:03:00+05:30",
+    "finding": "Authorized read-only Ada SSH connection and one squeue call succeeded; the queue returned zero job rows for the two authorized research identities. This checks queued/running jobs for those identities, not total cluster GPU occupancy.",
+    "source": "Authenticated cluster shell Slurm squeue (one query), direct read-only original native Science frame database, and SHA-256 verified original-frame artifacts.",
+    "science": "No new retrieval result. P1 original Science frame failed after a separate host-access investigation; frozen C5/C6 gates unchanged. P5 original frame completed; Stage-1 BM25 only, Stage-2 CPU timeout still BLOCKED_CPU with no ColBERT/DISCo score.",
+    "integrity": "23/23 P1 and 10/10 P5 latest original-frame artifacts reverified by size and SHA-256; no new local or native experiments, GPU allocation, teacher calls, holdout access, or transfer-index edits.",
+    "limitations": "Four historical local P5 multiprocessing helper processes remain; no live main P5 indexer was found. Host research-folder open stalls and native Science folder grants remain unresolved."
+  },
   "read_only_operational_diagnostic_20261103_0604": {
     "checked_at_ist": "2026-11-03T06:04:32+05:30",
     "evidence": "Read-only macOS filesystem probes and original native Claude Science frame/artifact records; private raw logs remain local.",
