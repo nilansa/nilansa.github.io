@@ -22,3 +22,13 @@ main{max-width:1320px;margin:0 auto;padding:0 28px}.hero{position:relative;min-h
 .field-group .field-actions{margin-left:auto}
 @media(min-width:681px){.hero{min-height:320px;margin-top:15px;padding-top:32px;padding-bottom:38px}.hero h1{font-size:clamp(48px,5.3vw,67px)}.hero-art{height:220px;width:285px}.orbit-one{width:252px;height:154px}.orbit-two{width:184px;height:232px}.art-core{width:94px;height:94px}.section{padding-top:42px}}
 @media(max-width:680px){.hero{min-height:330px;padding:28px 20px 50px}.hero h1{font-size:clamp(38px,10vw,48px)}.hero-intro{max-width:100%;overflow-wrap:anywhere}.hero-art{display:none}.section{padding-top:35px}.field-group{padding:13px}.field-group legend{gap:12px;flex-wrap:wrap}.field-actions{margin-left:0!important}}
+
+/* Expanded discipline navigator: collapsed subareas prevent a 100+ venue wall. */
+.field-group .subarea{margin:8px 0 0;border-top:1px solid var(--line)}
+.field-group .subarea-title{padding:9px 3px;color:var(--ink);font-size:11px;font-weight:650;cursor:pointer;list-style-position:inside}
+.field-group .subarea[open] .field-chips{padding:2px 0 8px 10px}
+.field-group .year-option.unindexed span{opacity:.55;cursor:not-allowed}
+.field-group .year-option.unindexed span:hover{border-color:var(--line);color:var(--muted)}
+.field-group .subarea-title:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.field-group .field-actions{gap:10px;white-space:nowrap}
+@media(max-width:680px){.field-group legend{align-items:baseline}.field-group .subarea[open] .field-chips{padding-left:1px}}
