@@ -16,7 +16,7 @@
 <header class="site-head">
   <a class="wordmark" href="#top" aria-label="CS Conference Research Hub home"><span class="mark" aria-hidden="true">H</span><span>CS Conference <b>Research Hub</b></span></a>
   <nav aria-label="Main navigation">
-    <a href="#search">Search</a><a href="#collection">Paper collection</a><a href="#idea-lab">Idea Lab</a><a href="#provenance">Provenance</a>
+    <a href="#search">Search</a><a href="#collection">Paper collection</a><a href="#idea-lab">Compare papers</a><a href="#provenance">Provenance</a>
     <a class="back-link" href="../">CS Conf <span aria-hidden="true">↗</span></a>
   </nav>
 </header>
@@ -72,18 +72,18 @@
 
   <section class="section idea-section" id="idea-lab" aria-labelledby="idea-title">
     <div class="idea-heading">
-      <div><p class="eyebrow">03 / Research workbench</p><h2 id="idea-title">Idea Lab</h2></div>
-      <p>Choose evidence from any two papers, including papers from different conferences and similar fields. A falsification step is a test that could show the idea is wrong. This tool extracts sentences with simple word patterns. It does not use an LLM.</p>
+      <div><p class="eyebrow">03 / Research workbench</p><h2 id="idea-title">Compare research evidence</h2></div>
+      <p>Choose any two papers, including across conferences. Compare attributed abstract excerpts and investigate differences in assumptions, benchmarks and evidence. No method pairing, compatibility claim or novelty result is generated; full papers still require review.</p>
     </div>
     <div class="idea-layout">
       <div class="idea-picks">
-        <div class="pick-card"><span class="pick-number">01</span><div><p class="pick-label">Problem paper</p><p id="problem-pick" class="pick-empty">Choose from a search result.</p><button id="clear-problem" class="text-button" type="button" hidden>Clear</button></div></div>
+        <div class="pick-card"><span class="pick-number">01</span><div><p class="pick-label">Paper A</p><p id="problem-pick" class="pick-empty">Choose from a search result.</p><button id="clear-problem" class="text-button" type="button" hidden>Clear</button></div></div>
         <div class="pick-connector" aria-hidden="true">+</div>
-        <div class="pick-card"><span class="pick-number">02</span><div><p class="pick-label">Method paper</p><p id="method-pick" class="pick-empty">Choose from a search result.</p><button id="clear-method" class="text-button" type="button" hidden>Clear</button></div></div>
+        <div class="pick-card"><span class="pick-number">02</span><div><p class="pick-label">Paper B</p><p id="method-pick" class="pick-empty">Choose from a search result.</p><button id="clear-method" class="text-button" type="button" hidden>Clear</button></div></div>
         <p id="idea-status" class="idea-status" role="status" aria-live="polite">Select papers in the search results. The papers must be different. Cross-conference pairs are welcome.</p>
       </div>
       <article id="hypothesis-card" class="hypothesis-card" aria-live="polite">
-        <div class="hypothesis-placeholder"><span class="placeholder-mark" aria-hidden="true">↗</span><h3>Your evidence packet will appear here.</h3><p>It will include source sentences, paper links, a controlled comparison, and a step that can disprove the idea.</p></div>
+        <div class="hypothesis-placeholder"><span class="placeholder-mark" aria-hidden="true">↗</span><h3>Your research comparison will appear here.</h3><p>It will include source excerpts, publisher links and questions to investigate, without automatic method mixing.</p></div>
       </article>
     </div>
   </section>
@@ -94,7 +94,7 @@
       <article class="provenance-card"><span class="provenance-icon">A</span><h3>Source and attribution</h3><p>New venue/year metadata comes from the <a href="https://huggingface.co/datasets/ai-conferences" target="_blank" rel="noopener">ai-conferences datasets</a>. Existing CVPR files retain their earlier <a href="https://huggingface.co/datasets/choucsan/CVPR_Papers" target="_blank" rel="noopener">CVPR_Papers</a> source and attribution. The catalog lists each revision, checksum, license declaration, and original publisher URL. Paper rights remain with their authors or other rights holders.</p></article>
       <article class="provenance-card"><span class="provenance-icon">B</span><h3>Track labels</h3><p>These are curated venue records. A source track label is shown with its source attribution; it is not an independent check of main-track status. Missing track details remain unverified.</p></article>
       <article class="provenance-card"><span class="provenance-icon">C</span><h3>What a field label means</h3><p>Field and topic labels come from source metadata or keyword fallbacks. They help discovery. They are not official rankings, acceptance predictions, or proof that two methods are compatible.</p></article>
-      <article class="provenance-card"><span class="provenance-icon">D</span><h3>What a hypothesis means</h3><p>An “UNTESTED” card is a question to evaluate. It contains no model results or verified baseline. Accepted papers are useful examples, not a guarantee of future acceptance.</p></article>
+      <article class="provenance-card"><span class="provenance-icon">D</span><h3>What a comparison means</h3><p>Source-selected excerpts are discovery aids, not full-paper evidence reviews or proof that two methods are compatible. They do not establish novelty, benchmark parity or verified results.</p></article>
     </div>
     <details class="integrity-panel"><summary>Corpus counts and file checksums</summary><div id="integrity-content" class="integrity-content"><p>Loading verified corpus metadata…</p></div></details>
     <p class="privacy-note"><span aria-hidden="true">◈</span> Pins are stored in local browser storage. This site sends no search, pin, or idea data to a server.</p>
