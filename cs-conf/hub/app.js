@@ -1,6 +1,6 @@
 (() => {
   "use strict";
-  const years=[2022,2023,2024,2025,2026];
+  const years=[2017,2018,2019,2020,2021,2022,2023,2024,2025,2026];
   let taxonomy={"areas":[{"id":"ai","label":"AI & Data","subareas":[{"id":"vision","label":"Vision","venues":["CVPR","ICCV","ECCV"]},{"id":"ml","label":"Machine Learning","venues":["NeurIPS","ICML","ICLR","AAAI"]},{"id":"nlp","label":"NLP","venues":["ACL","EMNLP","NAACL"]}]},{"id":"systems","label":"Systems","subareas":[]},{"id":"interdisciplinary","label":"Robotics & Speech","subareas":[{"id":"robotics","label":"Robotics","venues":["ICRA"]},{"id":"speech","label":"Speech","venues":["ICASSP"]}]}]};
   const hosts={CVPR:["openaccess.thecvf.com"],ICCV:["openaccess.thecvf.com"],ECCV:["openaccess.thecvf.com","ecva.net","www.ecva.net","eccv.ecva.net","eccv2024.ecva.net","eccv2022.ecva.net"],NeurIPS:["openreview.net","proceedings.neurips.cc"],ICML:["openreview.net","proceedings.mlr.press"],ICLR:["openreview.net"],AAAI:["ojs.aaai.org"],ACL:["aclanthology.org"],EMNLP:["aclanthology.org"],NAACL:["aclanthology.org"],ICRA:["ieeexplore.ieee.org","doi.org"],ICASSP:["ieeexplore.ieee.org","doi.org","cmsworkshops.com"]};
   const pinKey="cs-conference-hub-pins-v1", oldPinKey="cvpr-research-hub-pins-v1", $=s=>document.querySelector(s);
@@ -18,7 +18,7 @@
       return u.protocol==="https:"&&hosts[venue]?.includes(u.hostname)&&!u.username&&!u.password&&!u.hash&&(!u.search||listing||forum||icassp)&&(!ext||u.pathname.toLowerCase().endsWith(ext)||listing||aaaiPdf)?u.href:"";
     }catch{return ""}
   }
-  function cleanPaper(p){if(!p||typeof p.id!=="string"||typeof p.title!=="string"||!Number.isInteger(p.year)||p.year<2022||p.year>2026)return null;const venue=p.venue||"CVPR",paperUrl=safeUrl(p.paper_url||p.cvf_url,venue)||safeUrl(p.paper_url||p.cvf_url,venue,".html"),pdf=safeUrl(p.pdf_url,venue,".pdf");if(!hosts[venue]||!paperUrl)return null;return {...p,venue,paper_url:paperUrl,cvf_url:paperUrl,pdf_url:pdf,authors:String(p.authors||""),abstract:String(p.abstract||""),cluster:String(p.cluster||p.primary_area||"Other"),source:String(p.source||"Curated venue record"),track_status:String(p.track_status||"Curated venue record; track not independently verified")}}
+  function cleanPaper(p){if(!p||typeof p.id!=="string"||typeof p.title!=="string"||!Number.isInteger(p.year)||p.year<2017||p.year>2026)return null;const venue=p.venue||"CVPR",paperUrl=safeUrl(p.paper_url||p.cvf_url,venue)||safeUrl(p.paper_url||p.cvf_url,venue,".html"),pdf=safeUrl(p.pdf_url,venue,".pdf");if(!hosts[venue]||!paperUrl)return null;return {...p,venue,paper_url:paperUrl,cvf_url:paperUrl,pdf_url:pdf,authors:String(p.authors||""),abstract:String(p.abstract||""),cluster:String(p.cluster||p.primary_area||"Other"),source:String(p.source||"Curated venue record"),track_status:String(p.track_status||"Curated venue record; track not independently verified")}}
   function loadPins(){try{const x=JSON.parse(localStorage.getItem(pinKey)||localStorage.getItem(oldPinKey)||"[]");return Array.isArray(x)?x.map(cleanPaper).filter(Boolean).slice(0,500):[]}catch{return []}}
   function persistPins(){try{localStorage.setItem(pinKey,JSON.stringify(pins))}catch{e.status.textContent="Browser storage is full. Export pins, then remove some."}renderPins()}
   function checked(selector){return [...document.querySelectorAll(selector+":checked")].map(x=>x.value)}
