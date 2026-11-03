@@ -1,6 +1,6 @@
 # CS Conference Research Hub
 
-A static, no-backend paper search and research workbench for conference records from 2022–2026. It uses plain HTML, CSS, JavaScript, Web Workers, and Python build tools. The published site has no runtime package, paid API, embedding asset, external script, or PDF download.
+A static, no-backend paper discovery and evidence-comparison workbench. Current indexed records cover 2022–2026; the ten-year selector also shows 2017–2021 as not yet indexed. It uses plain HTML, CSS, JavaScript, Web Workers, and Python build tools. The published site has no runtime package, paid API, embedding asset, external script, or PDF download.
 
 ## Use the site
 
@@ -10,9 +10,9 @@ Serve this directory over HTTP, for example:
 python3 -m http.server 8000 --directory cs-conf/hub
 ```
 
-Choose one or more fields, conferences, years, and an optional source topic or area label. CVPR 2026 is selected by default. The coverage table marks source years that are unavailable. Search loads only selected shards, one at a time. A worker scans title, author, and abstract text, scores lexical and phrase matches, and retains at most 200 results from each shard. If the transfer estimate exceeds 30 MB, the page warns and lets you continue. No shard is silently truncated during scanning.
+Use the independently authored `taxonomy.json` to expand AI, Systems, Theory or Interdisciplinary into 31 subfields and select any of 105 listed venues. Only the 12 venues with existing metadata are selectable; unindexed venues are clearly disabled, not shown as zero papers. CVPR is selected by default, with up to five available years preselected. The coverage table marks source years that are unavailable. Search loads only selected shards, one at a time. A worker scans title, author, and abstract text, scores lexical and phrase matches, and retains at most 200 results from each shard. If the transfer estimate exceeds 30 MB, the page warns and lets you continue. No shard is silently truncated during scanning.
 
-Pins stay in browser storage; old CVPR pins using `cvpr-research-hub-pins-v1` remain readable. Search text and Idea Lab packets are not sent to a server. Idea Lab accepts papers from different venues even when they share a field. Every packet is labelled **UNTESTED** and cites each paper's venue and original source.
+Pins stay in browser storage; old CVPR pins using `cvpr-research-hub-pins-v1` remain readable. Search text and paper-comparison packets are not sent to a server. The **Compare papers** workbench accepts any two papers, generates cited abstract excerpts and research questions, and explicitly avoids automatically mixing a method paper with a problem paper. Excerpts are unverified; the workbench is not an LLM or a novelty evaluator.
 
 ## Corpus and build
 
@@ -44,3 +44,35 @@ The old CVPR snapshots retain their own provenance in `provenance.json`. See `ca
 ## Release QA
 
 Run Python unit tests, JavaScript syntax checks and the Node worker security tests under the tests folder. The Node test checks stored URLs against browser/worker allowlists and checks topic-only filtering. Search ranking is approximate: the Python CLI uses the original CVPR BM25-style scorer, while the browser uses a bounded per-shard lexical scorer, so score scales and result order may differ. Full-text similarity and independent novelty verification are not implemented.
+
+
+## Research discovery foundation (development branch, 2026-11-03)
+
+The taxonomy is independently written and is **not a CSRankings ranking or a redistribution of its non-derivative-licensed dataset**. A venue may appear in multiple areas; its papers do not automatically inherit all those subject labels. New venues (such as SIGMOD, SOSP, OSDI, SIGCOMM, CCS, CHI and STOC) are presently **navigation entries, not indexed papers**.
+
+- `taxonomy.json`: Four top-level areas, 31 subareas and 105 distinct venue labels, with aliases and multi-area placement.
+- `paper.schema.v2.json`: Forward-compatible research metadata contract separating official fields, provenance, task, method, domain, dataset, evaluation and application. It is **not** retroactively applied to existing v1 records.
+- `tools/paper_identity.py`: Conservative stable paper keys, preferring DOI, OpenReview and Anthology identifiers before normalized title+venue+year.
+- `tools/research_query.py`: Offline, JSON-speaking research retrieval across indexed venue/year shards, with explicit missing fields, source-attributed links and metadata checksum, plus transparent "unindexed" venue warnings. This is lexical retrieval only.
+- `DATA_SOURCES.md`: Evidence-based source/API/rights comparison, ingestion precedence, missing-year logic and publication/reuse safety gates.
+- `tests/test_research_discovery.py`: Registry, multi-venue, identity, provenance and negative-path contract tests.
+
+### Agent-facing retrieval examples
+
+```sh
+python3 cs-conf/hub/tools/research_query.py "retrieval adaptation" --venue CVPR --venue ACL --year-from 2022 --year-to 2026 --limit 15
+python3 cs-conf/hub/tools/research_query.py "query performance" --area databases --year-from 2017 --year-to 2026 --require-abstract
+python3 cs-conf/hub/tools/research_query.py "memory" --venue NeurIPS --author Chen --limit 10
+```
+
+The second command correctly reports that SIGMOD/PVLDB/ICDE etc. have **not yet been ingested**; it must not fabricate a results set. A connected agent can read the JSON through a permitted local command/file integration. This work does **not** imply ChatGPT or Claude Science has already connected to the index. No public API server or paid dependency is introduced.
+
+For release and tests:
+
+```sh
+python3 -m unittest discover -s cs-conf/hub/tests -p "test_*.py"
+node --check cs-conf/hub/app.js
+node --check cs-conf/hub/search-worker.js
+```
+
+New source ingestion must follow the content-rights gates in `DATA_SOURCES.md`. Existing non-CVPR dataset cards often declare no license, so this branch does not re-publish new abstracts or mirror PDFs. The original CVPR files and all venue/year JSON shards remain untouched.
