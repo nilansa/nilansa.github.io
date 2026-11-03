@@ -1,0 +1,30 @@
+name: CS Hub research branch checks
+
+on:
+  push:
+    branches:
+      - cs-conf/research-discovery-v1-20261103
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  offline-corpus-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Python syntax check
+        run: python3 -m compileall -q cs-conf/hub/tools cs-conf/hub/tests
+      - name: Python corpus and research tests
+        run: python3 -m unittest discover -s cs-conf/hub/tests -p "test_*.py" -v
+      - name: JavaScript syntax check
+        run: |
+          node --check cs-conf/hub/app.js
+          node --check cs-conf/hub/search-worker.js
+      - name: Validate JSON discovery contracts
+        run: |
+          python3 -m json.tool cs-conf/hub/taxonomy.json >/dev/null
+          python3 -m json.tool cs-conf/hub/paper.schema.v2.json >/dev/null
+          python3 -m json.tool cs-conf/hub/catalog.json >/dev/null
