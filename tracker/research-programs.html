@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="description" content="Official-source European paid research internships and funded research paths for international Master's students: rolling 90 days and one-year horizon.">
+<title>Research Programs · Europe · 90-day & 12-month tracker</title>
+<style>
+:root{color-scheme:light;--ink:#14223a;--muted:#5d6b80;--line:#dbe3ee;--accent:#21599c;--paper:#fff;--mist:#f5f8fc}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:14px/1.48 system-ui,-apple-system,Segoe UI,sans-serif}
+a{color:#175893}a:hover{text-decoration-thickness:2px}
+header,main,footer{max-width:1220px;margin:auto;padding:0 20px}
+header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:20px;padding-bottom:14px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.brand{font-weight:750;font-size:16px;color:var(--ink);text-decoration:none}nav{display:flex;gap:15px;flex-wrap:wrap;font-size:12px}nav a[aria-current]{font-weight:700;text-decoration:none;color:var(--ink)}
+.hero{padding:32px 0 24px;border-bottom:1px solid var(--line)}
+.eyebrow{color:#326797;text-transform:uppercase;font-size:11px;font-weight:750;letter-spacing:.13em;margin:0 0 8px}
+h1{font:700 clamp(29px,4vw,45px)/1.13 Georgia,serif;max-width:780px;letter-spacing:-.02em;margin:0 0 12px}
+.lede{font-size:16px;max-width:850px;color:var(--muted);margin:0}
+.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:18px 0 28px}
+.metric{padding:14px 16px;background:var(--mist);border:1px solid var(--line);border-radius:9px}
+.metric strong{font-size:25px;display:block;line-height:1.3;letter-spacing:-.03em}
+.metric span{font-size:12px;color:var(--muted)}
+h2{font:700 24px/1.2 Georgia,serif;margin:24px 0 7px}
+.description{color:var(--muted);max-width:940px;margin:0 0 13px}
+.controls{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;margin:16px 0 12px}
+label{font-size:11px;font-weight:700;color:#3f5066;display:flex;flex-direction:column;gap:4px}
+button,select,input{font:inherit;color:var(--ink);border:1px solid #adbdcf;background:white;border-radius:6px;padding:9px 10px}
+button{cursor:pointer}button:hover{background:#f0f5fb}
+.segment{display:flex;gap:4px;background:#eef3f8;padding:3px;border-radius:9px;flex-wrap:wrap}
+.segment button{font-size:12px;border:0;background:transparent;padding:7px 10px}
+.segment button[aria-pressed="true"]{background:white;box-shadow:0 1px 3px #adbbce77;font-weight:700}
+input[type=search]{min-width:205px;max-width:100%}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:9px}
+table{border-collapse:collapse;width:100%;min-width:1020px;font-size:12.5px}
+th,td{text-align:left;padding:11px 12px;vertical-align:top;border-bottom:1px solid var(--line)}
+th{background:#edf3f8;font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:#425670}
+tr:last-child td{border-bottom:0}tbody tr:hover{background:#f9fbfd}
+.program{font-weight:700;font-size:13px}.secondary{color:var(--muted);font-size:11px;margin-top:4px}
+.pill{font-weight:700;font-size:10px;padding:3px 7px;border-radius:20px;display:inline-block;border:1px solid #ced9e5;white-space:nowrap}
+.pill.good{color:#28644e;background:#e7f4ed;border-color:#bcdcca}
+.pill.warn{color:#8a510d;background:#fff5df;border-color:#e5ca98}
+.pill.neutral{color:#465873;background:#eef2f8}
+.deadline{white-space:nowrap;font-weight:750}
+.small{font-size:11px;color:var(--muted)}
+.apply{font-weight:700;white-space:nowrap}
+.stage{font-size:11px;width:105px;padding:5px 6px}
+#message{margin:10px 0;font-size:12px;color:var(--muted)}
+.watchgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:12px 0 26px}
+.watch{border:1px solid var(--line);border-radius:8px;padding:13px;background:#fbfcff}
+.watch strong{font-size:13px}.watch p{margin:6px 0;font-size:12px;color:var(--muted)}
+.calendar{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:14px 0 24px}
+.month{border:1px solid var(--line);border-radius:8px;padding:11px;min-height:135px}
+.month h3{font-size:13px;margin:0 0 4px}.month strong{font-size:11px;color:#527095}
+.month ul{margin:8px 0 0;padding-left:18px;font-size:12px}
+.month li{margin-bottom:5px}
+.roadmap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:24px}
+.roadmap section{border:1px solid var(--line);background:var(--mist);border-radius:8px;padding:13px}
+.roadmap h3{margin:0 0 5px;font-size:13px}.roadmap p{margin:0;color:var(--muted);font-size:12px}
+.note{background:#f7f9fc;border-left:3px solid #7a91ad;padding:12px 14px;color:#4d5c72;margin:18px 0}
+footer{border-top:1px solid var(--line);font-size:12px;color:var(--muted);padding-top:18px;padding-bottom:25px}
+[hidden]{display:none!important}
+@media(max-width:770px){.metrics{grid-template-columns:repeat(2,1fr)}.watchgrid,.calendar,.roadmap{grid-template-columns:repeat(2,1fr)}header,main,footer{padding-left:14px;padding-right:14px}}
+@media(max-width:440px){.calendar,.watchgrid,.roadmap{grid-template-columns:1fr}.hero{padding-top:20px}.metrics{gap:7px}.metric{padding:11px}}
+</style>
+</head>
+<body>
+<header>
+<a class="brand" href="/tracker/">Tracker / Research programs</a>
+<nav aria-label="Tracker navigation">
+<a href="/tracker/">My tasks</a>
+<a href="/cs-conf/">90-day papers</a>
+<a href="/cs-conf/competitions.html">ML competitions</a>
+<a href="./research-programs.html" aria-current="page">Paid European research</a>
+</nav>
+</header>
+<main>
+<section class="hero"><p class="eyebrow">Europe / Master's / Funded research</p>
+<h1>Build a research year, not just a deadline list.</h1>
+<p class="lede">Official-source internships, research assistantships, fellowships and funded research training in Europe. Covers every AI/ML field. The next 90 days are for applications; the next 12 months are for planning. All dates and eligibility rules require final organizer confirmation.</p></section>
+<div class="metrics" aria-label="Program counts">
+<div class="metric"><strong id="metric-90">—</strong><span>due in rolling 90 days</span></div>
+<div class="metric"><strong id="metric-30">—</strong><span>due in 30 days</span></div>
+<div class="metric"><strong id="metric-watch">—</strong><span>rolling or unannounced</span></div>
+<div class="metric"><strong id="metric-checked">—</strong><span>last checked (source snapshot)</span></div>
+</div>
+<section aria-labelledby="title-current">
+<h2 id="title-current">Paid research program tracker</h2>
+<p class="description">Eligibility means preliminary fit for a current Master's student, <em>not</em> that an application has been submitted or accepted. Nationality, graduation date, internship enrolment, visa and group funding can change the decision.</p>
+<div class="controls">
+<div class="segment" aria-label="Time horizon" id="horizon">
+<button type="button" data-days="90" aria-pressed="true">Next 90 days</button>
+<button type="button" data-days="365" aria-pressed="false">12 months</button>
+<button type="button" data-days="all" aria-pressed="false">All dates</button>
+</div>
+<label>Domain
+<select id="domain"><option value="">Every ML domain</option></select>
+</label>
+<label>Country
+<select id="country"><option value="">All of Europe</option></select>
+</label>
+<label>Type
+<select id="type"><option value="">Any funded program</option></select>
+</label>
+<label>Search
+<input type="search" id="search" placeholder="e.g. speech, ETH, robotics">
+</label></div>
+<p id="message" aria-live="polite">Loading program records…</p>
+<div class="scroll"><table aria-label="European paid research opportunity list">
+<thead><tr>
+<th style="width:105px">Deadline</th>
+<th style="width:205px">Program and host</th>
+<th style="width:120px">Research domains</th>
+<th style="width:175px">Funding</th>
+<th style="width:185px">MS eligibility</th>
+<th style="width:120px">My application</th>
+<th>Official source</th>
+</tr></thead>
+<tbody id="rows"><tr><td colspan="7">Loading…</td></tr></tbody>
+</table></div>
+<p class="small">Personal application selections are stored only in this browser and are not synced to your private tasks. Public GitHub Pages never contains your application documents, nationality, grades, personal notes or submission history.</p>
+</section>
+<section aria-labelledby="watch-title">
+<h2 id="watch-title">Continuous calls and upcoming announcements</h2>
+<p class="description">No invented application deadline. We retain rolling programs and upcoming calls for daily verification.</p>
+<div class="watchgrid" id="watchlist"></div>
+</section>
+<section aria-labelledby="year-title">
+<h2 id="year-title">12-month application calendar</h2>
+<p class="description">This calendar groups actual known deadlines; a blank month does not mean no opportunities exist. It reveals discovery gaps for the daily search.</p>
+<div class="calendar" id="calendar"></div>
+<h2>Research-year strategy</h2>
+<div class="roadmap" aria-label="Four planning phases">
+<section><h3>Nov–Jan · Apply</h3><p>Build one strong academic CV, transcripts, a research portfolio and referee list. Tailor motivation to each lab; prioritize the earliest hard cutoffs.</p></section>
+<section><h3>Feb–Apr · Interview & secure</h3><p>Prepare research discussions, track decisions, confirm paid terms and handle institute onboarding, visa and travel documentation.</p></section>
+<section><h3>May–Aug · Do research</h3><p>Target a defined research problem, clear baselines, reproducible experiments, mentor feedback and—when realistic—a paper or project report.</p></section>
+<section><h3>Sep–Oct · Convert experience</h3><p>Publish permitted work, collect references and identify the following cycle of research internships, RA positions and fully funded training pathways.</p></section>
+</div>
+<div class="note"><strong>Financial eligibility:</strong> Paid does not always mean fully financed. Some positions offer a salary or stipend, others provide room and travel reimbursement; taxes, accommodation, visa rules and outside funding restrictions differ. All program dates, pay, and openings should be confirmed on the organizer site before an application decision.</div>
+</section>
+</main>
+<footer><span id="source-date">Source data loading.</span> · <a href="./research-programs.json">Structured public source catalogue</a> · <a href="https://github.com/nilansa/nilansa.github.io/tree/main/tracker">Site source code</a><p>This page publishes no personal application statuses. Application submissions are never made automatically.</p></footer>
+<script>
+(()=>{"use strict";
+const $=id=>document.getElementById(id),DAY=86400000;let data=null,days="90",stage={};
+const make=(tag,parent,content,className)=>{const x=document.createElement(tag);if(content!=null)x.textContent=String(content);if(className)x.className=className;if(parent)parent.append(x);return x;};
+const today=()=>new Date().toISOString().slice(0,10),todayMs=()=>Date.parse(today()+"T12:00:00Z");
+const diff=date=>Math.round((Date.parse(date+"T12:00:00Z")-todayMs())/DAY);
+const format=date=>date?new Intl.DateTimeFormat("en-GB",{timeZone:"UTC",day:"numeric",month:"short",year:"numeric"}).format(new Date(date+"T12:00:00Z")):"Date TBA";
+const getSelected=()=>{try{return JSON.parse(localStorage.getItem("tracker-europe-research-stage-v1")||"{}")||{};}catch{return {};}};
+const saveSelected=()=>{try{localStorage.setItem("tracker-europe-research-stage-v1",JSON.stringify(stage));}catch{}};
+const addLink=(parent,label,url)=>{const a=make("a",parent,label);if(/^https:\/\//.test(url||"")){a.href=url;a.target="_blank";a.rel="noopener noreferrer";}return a;};
+function setupOptions(id,values){const o=$(id);[...new Set(values)].filter(Boolean).sort().forEach(v=>{const op=make("option",o,v);op.value=v;});o.addEventListener("change",render);}
+function allowed(p){const q=$("search").value.trim().toLowerCase();
+if(q&&!([p.name,p.host,p.country,p.type,p.funding,p.eligibilityDetail,p.action,...p.domains].join(" ").toLowerCase().includes(q)))return false;
+if($("domain").value&&!p.domains.includes($("domain").value))return false;
+if($("country").value&&p.country!==$("country").value)return false;
+if($("type").value&&p.type!==$("type").value)return false;
+if(!p.deadline)return days==="all";
+const delta=diff(p.deadline);
+return days==="all"||(delta>=0&&delta<=Number(days));
+}
+function fillTable(items){const b=$("rows");b.replaceChildren();
+if(!items.length){const tr=make("tr",b);make("td",tr,"No matching dated programs. Select All dates to see TBA / rolling opportunities.").colSpan=7;return;}
+items.forEach(p=>{
+const tr=make("tr",b),d=make("td",tr),pr=make("td",tr),dom=make("td",tr),fund=make("td",tr),elig=make("td",tr),mine=make("td",tr),src=make("td",tr);
+make("div",d,format(p.deadline),"deadline");make("div",d,p.deadline?diff(p.deadline)>=0?diff(p.deadline)+" days left":"Deadline passed":"Rolling / TBA","small");
+if(p.review!=="official")make("span",d,p.review==="annual-rule"?"Annual rule":"Recheck date","pill warn");
+make("div",pr,p.name,"program");make("div",pr,p.host+" · "+p.country,"secondary");make("div",pr,p.type+" · "+p.period,"secondary");
+make("div",dom,p.domains.join(" · "));make("div",fund,p.funding);make("span",elig,p.eligibility,"pill "+(p.eligibility==="Potential match"?"good":"warn"));make("div",elig,p.eligibilityDetail,"secondary");
+const sel=make("select",mine,null,"stage");sel.setAttribute("aria-label","Application stage for "+p.name);
+["Not selected","Interested","Preparing","Applied","Declined","Not eligible"].forEach(s=>{const op=make("option",sel,s);op.value=s;});sel.value=stage[p.id]||"Not selected";
+sel.addEventListener("change",()=>{stage[p.id]=sel.value;saveSelected();});
+addLink(src,"Open official page",p.officialUrl).classList.add("apply");make("div",src,p.action,"secondary");
+});}
+function renderWatch(){const root=$("watchlist");root.replaceChildren();data.records.filter(p=>!p.deadline).filter(p=>allowedWatch(p)).forEach(p=>{
+const box=make("article",root,null,"watch");make("strong",box,p.name+" · "+p.country);make("p",box,p.deadlineNote);make("p",box,p.funding);addLink(box,"Organizer details",p.officialUrl);
+});if(!root.children.length)make("p",root,"No undated opportunities match your current filters.");}
+function allowedWatch(p){const q=$("search").value.trim().toLowerCase();
+return (!$("domain").value||p.domains.includes($("domain").value))&&(!$("country").value||p.country===$("country").value)&&(!$("type").value||p.type===$("type").value)&&(!q||[p.name,p.host,p.country,p.type,p.funding,p.eligibilityDetail,p.action,...p.domains].join(" ").toLowerCase().includes(q));}
+function renderCalendar(){const root=$("calendar");root.replaceChildren();const now=new Date(today()+"T12:00:00Z");
+for(let i=0;i<12;i++){const start=new Date(Date.UTC(now.getUTCFullYear(),now.getUTCMonth()+i,1)),last=new Date(Date.UTC(now.getUTCFullYear(),now.getUTCMonth()+i+1,0));
+const a=start.toISOString().slice(0,10),b=last.toISOString().slice(0,10);
+const entries=data.records.filter(p=>p.deadline&&p.deadline>=a&&p.deadline<=b);
+const el=make("article",root,null,"month");
+make("h3",el,new Intl.DateTimeFormat("en-GB",{month:"long",year:"numeric",timeZone:"UTC"}).format(start));
+make("strong",el,entries.length+" dated program"+(entries.length===1?"":"s"));
+if(entries.length){const list=make("ul",el);entries.forEach(p=>{const li=make("li",list);addLink(li,p.name,p.officialUrl);make("span",li," · "+p.deadline.slice(8)+" "+new Intl.DateTimeFormat("en-GB",{month:"short",timeZone:"UTC"}).format(start));});}
+else make("p",el,"No verified dated call yet · discovery watch","small");
+}}
+function render(){if(!data)return;const all=data.records;const visible=all.filter(allowed).sort((a,b)=>(a.deadline||"9999").localeCompare(b.deadline||"9999")||a.name.localeCompare(b.name));
+fillTable(visible);renderWatch();renderCalendar();
+$("message").textContent=visible.length+" records shown · "+all.length+" total tracked · sorted by next known deadline. Dates are verified snapshots, not a live application feed.";
+document.querySelectorAll("#horizon button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.days===days)));
+}
+document.querySelectorAll("#horizon button").forEach(b=>b.addEventListener("click",()=>{days=b.dataset.days;render();}));
+$("search").addEventListener("input",render);
+fetch("./research-programs.json",{cache:"no-cache"}).then(r=>{if(!r.ok)throw Error("Source catalogue unavailable");return r.json();}).then(doc=>{
+if(!doc||!Array.isArray(doc.records))throw Error("Invalid source catalogue");data=doc;stage=getSelected();
+setupOptions("domain",data.domains);setupOptions("country",data.records.map(p=>p.country));setupOptions("type",data.records.map(p=>p.type));
+$("metric-90").textContent=data.records.filter(p=>p.deadline&&diff(p.deadline)>=0&&diff(p.deadline)<=90).length;
+$("metric-30").textContent=data.records.filter(p=>p.deadline&&diff(p.deadline)>=0&&diff(p.deadline)<=30).length;
+$("metric-watch").textContent=data.records.filter(p=>!p.deadline).length;
+$("metric-checked").textContent=doc.asOf.slice(5);
+$("source-date").textContent="Public program facts checked: "+doc.asOf+"; data is periodically reverified against official organizer pages.";
+render();
+}).catch(e=>{$("message").textContent="Could not load the program catalogue: "+e.message;});
+})();
+</script></body></html>
