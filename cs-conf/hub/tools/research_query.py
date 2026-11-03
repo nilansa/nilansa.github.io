@@ -154,7 +154,7 @@ def search(root, *, query="", venues=None, areas=None, year_from=2022, year_to=2
                 # Deduplicate on the final selected results, not across the entire corpus.
                 # A future importer must keep a full persistent equivalence table.
                 order = (relevance, year, venue, str(p.get("title") or ""))
-                row = (order, identity, present(p, entry, venue, year, relevance))
+                row = (order, scanned, identity, present(p, entry, venue, year, relevance))
                 if len(heap) < limit:
                     heapq.heappush(heap, row)
                 elif order > heap[0][0]:
@@ -162,7 +162,7 @@ def search(root, *, query="", venues=None, areas=None, year_from=2022, year_to=2
     hits = sorted(heap, key=lambda x: x[0], reverse=True)
     # Do not invent missing rows to compensate for collisions.
     deduped = []
-    for _, identity, record in hits:
+    for _, _, identity, record in hits:
         if identity not in used:
             used.add(identity)
             deduped.append(record)
