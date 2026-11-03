@@ -19,6 +19,8 @@ jobs:
         run: python3 -m compileall -q cs-conf/hub/tools cs-conf/hub/tests
       - name: Python corpus and research tests
         run: python3 -m unittest discover -s cs-conf/hub/tests -p "test_*.py" -v
+      - name: Audit original corpus without mutation
+        run: python3 cs-conf/hub/tools/audit_corpus.py
       - name: JavaScript syntax check
         run: |
           node --check cs-conf/hub/app.js
