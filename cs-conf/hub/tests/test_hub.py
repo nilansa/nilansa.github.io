@@ -101,7 +101,7 @@ class CorpusTests(unittest.TestCase):
 
     def test_basic_ui_markup(self):
         html = (HUB / "index.html").read_text(encoding="utf-8")
-        for marker in ("Find the problem", "id=\"search\"", "id=\"collection\"", "id=\"idea-lab\"", "id=\"provenance\"", "UNTESTED"):
+        for marker in ("Explore research", "id=\"search\"", "id=\"collection\"", "id=\"idea-lab\"", "id=\"provenance\"", "Compare research evidence"):
             self.assertIn(marker, html)
         self.assertTrue((HUB / "style.css").is_file())
         self.assertTrue((HUB / "app.js").is_file())
