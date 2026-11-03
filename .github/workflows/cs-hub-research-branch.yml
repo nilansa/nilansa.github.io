@@ -23,6 +23,8 @@ jobs:
         run: |
           node --check cs-conf/hub/app.js
           node --check cs-conf/hub/search-worker.js
+      - name: Worker URL safety and topic matching regression
+        run: node cs-conf/hub/tests/test_worker.js
       - name: Validate JSON discovery contracts
         run: |
           python3 -m json.tool cs-conf/hub/taxonomy.json >/dev/null
