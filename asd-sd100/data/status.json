@@ -53,8 +53,8 @@
     "disk_context_20261103": "Research files reside on the local macOS Data APFS volume, with about 622 GiB available at the check. File has allocated blocks and zero stat flags (not an obvious dataless placeholder). These observations do not establish the mechanism or exclude other filesystem/permissions failures.",
     "fresh_evidence_20261103": "Original P1/P5 native frames and their latest 23/23 and 10/10 artifacts passed a fresh size/SHA-256 check; the frozen C5 and C6 gate JSON files also matched their SHA-256 hashes. No new scientific outcome, GPU job, reader/teacher call or native Science action."
   },
-  "snapshot_ist": "3 November 2026, late afternoon IST — P1 native P0-prime design saved but not executed; prior P0 invalid and all frozen gates unchanged",
-  "verified_at": "2026-11-03T16:57:39+05:30",
+  "snapshot_ist": "3 November 2026, 21:54 IST — P1 P0′ design failed independent methods review; not executed; P1 PARK and frozen gates unchanged",
+  "verified_at": "2026-11-03T21:58:45+05:30",
   "source": "Original native Claude Science P1 frame (final scientific decision, 19:09 IST), original native P5 frame (19:24 scientific scout and new 21:06-21:08 CPU Stage-1 execution, assistant acknowledgement and output in existing frame), frozen C5/C6 gate files, P5 B3R pilot, Stage-1 source code and saved predictions independently recomputed. Source data and full local outputs remain private. One restrained read-only Ada check at 21:06 IST showed no jobs for authorized identities. Update 2 Nov 09:15 IST: read-only direct inspection of both original native Science frames and execution records, 24/24 P1 and 10/10 P5 artifact byte-size/SHA256 validation, P1 native transfer acknowledgement, P5 native CPU feasibility worker acceptance, and connected GitHub blob checks. No new retrieval outcome reported. Additional direct 2 Nov 10:03 IST check: native P5 frame messages, execution records, Stage-2 protocol/deviation files, live process and indexer progress, qrel adapter row count and gold file permissions. 24/24 P1 and 10/10 P5 latest native artifacts independently verified against recorded sizes and SHA-256; no private logs published. At 2 Nov 12:02 IST, read-only verification of the original two native frame DB records, 24/24 P1 and 10/10 P5 latest artifact bytes/SHA256, actual native P5 Stage-2 STATUS.md and steps.jsonl, indexer logs, output tree, gold file mode and live processes confirmed CPU timeout at 11:15 IST, no produced ColBERT/DISCo scores, and no continuing main worker. No private raw data or logs published.",
   "p1_summary": "P1 original native Claude Science scientific reset COMPLETED at 15:12 IST. Decision: NO-GO for original teacher-budget selection / full-gold KD as an A*-paper direction. Frozen C5 full-gold KD +0.005255 [−0.008486,+0.018968] FAIL. C6 full-gold KD +0.003430 [−0.002713,+0.009672] FAIL on pooled 971 official test queries; 10%-gold KD +0.066617 [+0.054264,+0.079109] formal PASS, but G10 worsens against the untouched student and K10 sees additional teacher-scored queries. A teacher-content effect at matched query exposure is NOT established. P1 recommends stopping teacher budget selection; a teacher-versus-exposure control is conditional on reopening the program. On 2 Nov 09:15 IST the existing native P1 frame explicitly ACKNOWLEDGED the separate P1 handoff and verified its 7,862-byte artifact SHA-256 and revision-1 index SHA-256; the index itself remains staged until Codex records the acknowledgement.",
   "p5_summary": "P5 Stage-1 CPU BM25 on the frozen 150 MuSiQue DEV questions and 21,100 DEV-derived paragraphs remains complete-support@2/3/5 = 8/17/23. Its original native Claude Science session launched ColBERTv2/PLAID CPU Stage 2 on 2 Nov at 09:45 IST, but the fourth pre-scoring attempt TIMED OUT at 11:15 IST (5400.12 seconds). The main worker exited, the index was not completed, and there are NO ColBERT/DISCo retrieval comparisons, paired intervals, or new reader/teacher/GPU outcomes. The CPU timeout is an engineering feasibility failure, not a scientific negative retrieval result. Prior 200-query set-aware teacher pilot was worse than random and used ~29% more teacher input tokens. The pre-registered CPU feasibility gate explicitly prohibits GPU attempts following this failure; the current Stage-2 run is closed as BLOCKED_CPU. At 19:16 IST on 2 Nov the ORIGINAL native P5 Science frame completed a read-only closeout and acknowledged BLOCKED_CPU/STOP (no GPU). Gold/frozen manifests and absence of an active main worker were checked; no new retrieval scores were produced.",
@@ -113,7 +113,7 @@
   "p1_gate": "C5 G5 frozen three-seed full-gold KD−gold +0.005255 [−0.008486,+0.018968] FAIL, SciFact 200 spent queries. C6 H6a pooled K100−G100 +0.003430 [−0.002713,+0.009672] FAIL; H6b pooled K10−G10 +0.066617 [+0.054264,+0.079109] PASS over 971 untouched test queries. K10−G100 −0.016034 [−0.024914,−0.007258]. Post-hoc G10−untouched −0.0441 [−0.0585,−0.0295], K10−untouched +0.0225 [+0.0127,+0.0324]: possible low-gold overfitting, and extra query exposure confounds the apparent teacher benefit. Native Science: original contribution NO-GO; label-scarce hypothesis not yet publication-ready.",
   "p5_gate": "B3R set-aware−random FS@2 200-DEV effect −0.025 [−0.058,+0.010] at 2 labels/q and −0.027 [−0.057,−0.000] at 5, with ~29% more teacher input tokens for set-aware at 5. Larger 4742-DEV2 off-the-shelf reranking comparison shows a descriptive bridge gain for BGE conditioning but comparison-question regression; no sealed holdout or new method.",
   "notes": "P1 full-gold C5/C6 gates remain negative; the positive C6 low-gold comparison is exposure-confounded. P5 frozen BM25 is a weak DEV-derived closed-corpus baseline. Its first ColBERTv2/PLAID CPU index attempt series ended at 11:15 IST, 2 Nov, with a 90-minute timed-out fourth run and no valid comparative scores. Do not treat encoder batch progress, a dead worker, or a timeout as measured retrieval performance.",
-  "latest_result": "2 Nov 12:02 IST audit: Original native P5 Stage-2 run 4 began 09:45:23 IST; the 21,100-document CPU ColBERTv2/PLAID indexer processed several encoding passes but was terminated by the frozen 5400-second feasibility limit at 11:15:23 IST. outputs/logs/steps.jsonl reports plaid_baseline_index exit_code=timeout (5400.117 s); the run wrapper exited 1 and the original indexer PID 52739 is no longer active. The target index directory has no usable completed index (0 bytes). Only Stage-1 BM25 predictions exist; no DISCo, ColBERT, paired CI, teacher, reader or GPU result. Existing eval gold SHA256 is unchanged and file mode restored to 0600; a second bookkeeping error ('GOLD_RESTORED.sha256 already exists') was reported on timeout cleanup. Two pairs of orphaned Python multiprocessing support processes were observed from failed attempts; they were not terminated. At 19:16 IST the original P5 native Science session explicitly acknowledged and closed the timeout read-only; no new metrics or experiments. P1 scientific conclusions unchanged. PROTOCOL_S2.md explicitly requires STOP with no GPU attempt on F-CPU failure; that condition has been honored.",
+  "latest_result": "3 Nov 21:54 IST: Original native P1 Science completed independent P0′ design referee; FAIL due to reproducibility ambiguities, fold-resampling leakage risk, invalid controls, label-access isolation, decision thresholds and unmeasured runtime. P0′ was NOT executed; P1 remains PARK/INSUFFICIENT_EVIDENCE with frozen C5/C6 full-gold NO-GO. P5 remains BM25 8/17/23 complete-support hits of 150 at K=2/3/5; ColBERTv2/DISCo Stage 2 stopped at the 5400-second CPU indexing gate with no comparative scores. 29/29 P1 and 10/10 P5 native artifact SHA-256/size checks passed. No fresh GPU occupancy check or new jobs.",
   "gpu_verified": {
     "partition": "u22",
     "qos": "research/medium",
@@ -1017,16 +1017,43 @@
     ]
   },
   "latest_operational_check": {
-    "checked_at_ist": "2026-11-03T04:03:50.320+05:30",
+    "checked_at_ist": "2026-11-03T21:58:45+05:30",
     "task_id": "ire-asd-sd100-20261031-001",
-    "p1_original_frame_status": "failed",
-    "p1_failure_time_ist": "2026-11-03T03:04:05+05:30",
-    "p1_failure_scope": "Separate read-only cached-score/harness review; host-folder grants did not include the requested research-harness location; no new scientific result",
-    "p5_original_frame_status": "completed; Stage-2 BLOCKED_CPU previously acknowledged",
-    "gpu_current_occupancy": "Not rechecked in this pass; do not infer live GPU availability",
-    "source": "Original native Science frame records; read-only frozen C5/C6 gate files and native P5 baseline artifact; current GitHub file SHAs",
-    "local_read_limit": "Some Documents-folder diagnostic reads stalled and were not treated as fresh protocol or worker verification",
-    "handoff": "Original P1 handoff/index byte SHA-256 verified; Codex-owned index still staged; ASD local index and listed artifact bytes matched but reconciliation status not changed",
-    "new_scientific_result": false
+    "p1_original_frame_status": "COMPLETED; independent P0′ design review FAIL at 21:54 IST, no P0′ run",
+    "p5_original_frame_status": "COMPLETED; frozen CPU ColBERTv2/PLAID index BLOCKED_CPU, no comparable rankings",
+    "native_artifact_integrity": "29/29 P1 and 10/10 P5 latest native artifact checksums and byte sizes match",
+    "codex_state": "Historical P5 Codex running marker known stale; current offload not freshly inspected, no state edit",
+    "gpu_current_occupancy": "Not rechecked in this pass; last queue observation is historical and no live occupancy assertion is made",
+    "cross_surface": "No handoff and no Codex-owned TRANSFER_INDEX.json changes",
+    "new_measured_scientific_result": false,
+    "new_independent_methods_decision": "P0′ design failed independent reviewer, no experiment authorized"
+  },
+  "p1_p0prime_methods_referee_2026_11_03_2154": {
+    "checked_at_ist": "2026-11-03T21:54:46+05:30",
+    "task_id": "ire-asd-sd100-20261031-001",
+    "event": "Original native Claude Science Project 1 completed an independent read-only methods-referee review of its saved P0′ design; the native lead accepted the FAIL verdict.",
+    "decision": "DESIGN FAIL / DO NOT EXECUTE; PARK / INSUFFICIENT_EVIDENCE",
+    "evidence_type": "Independent review of a preregistration, NOT a new experiment or positive retrieval result",
+    "scope": "Existing cached SciFact TRAIN 448-query gradient-alignment diagnostic; frozen C5/C6 gates and P5 unchanged. No teacher scores acquired, model fits, labels evaluated or GPU jobs launched.",
+    "native_artifact_integrity": "Fresh read-only comparison of all 29 P1 and 10 P5 latest native saved artifact versions against exact byte lengths and SHA-256; all matched.",
+    "design_sha256": "d0fe21509f7c5670ecb88d58aa536619e5bc905578ca694156d8969476580b5a",
+    "design_bytes": 8597,
+    "referee_report_sha256_reported_by_native_science": "1a77cff8697215ef66a20fccfc67a15457a616e25aaeac253f4fb2a52136e998",
+    "blocking_defects": [
+      "Contradictory null-shuffle draw ranges and inconsistent bootstrap resample streams prevent exact reproducibility.",
+      "Bootstrap duplicate query groups can leak across the held-out gold direction unless folds are preserved; five folds reuse the same 448 queries and are not independent replications.",
+      "Shuffled-teacher and entropy-matched student controls do not uniquely isolate query-specific teacher information; planted negative control is inadequate.",
+      "Reading an ID column from a label-bearing FiQA file still accesses its rows; an authorized ID-only manifest is needed.",
+      "Uncalibrated 0.01 minimum and equivalence thresholds, overlapping GO/conflict rules, undefined edge cases and unmeasured CPU-time budget."
+    ],
+    "scientific_interpretation": "P0 initial-point gradient diagnostics cannot establish actual student learning or novel teacher-transfer mechanisms. Earlier P0 shuffled-teacher negative control failed. Distinct R, C or U causal labels remain unproven. The methods referee did NOT determine that teacher feedback is universally useless.",
+    "frozen_metrics": "C5 KD minus gold +0.005255 nDCG@10, CI [-0.008486,+0.018968] FAIL; C6 full-gold +0.003430, CI [-0.002713,+0.009672] FAIL; C6 low-gold +0.066617 formally positive but unequal query exposure weakens attribution. P5 BM25 complete-support 8/150,17/150,23/150 at K=2,3,5. No ColBERTv2/DISCo comparison after 5400-second CPU index timeout.",
+    "next_gate": "Leave P1 parked. Only consider an additive corrected design after an independent methods rereview and separate authorization; no new P1 training, teacher calls or holdout access. P5 frozen STOP/no GPU remains binding.",
+    "source_identification": "Original authenticated native Claude Science Project 1 final response, 3 Nov 2026 21:54 IST; original native P5 saved protocol, metrics and completed CPU closeout; private source files are not published.",
+    "public_prior_art": [
+      "https://arxiv.org/abs/2607.11465",
+      "https://aclanthology.org/2025.acl-long.861/",
+      "https://github.com/structlearning/DISCo"
+    ]
   }
 }
