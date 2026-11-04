@@ -163,17 +163,33 @@ function fillTable(items){const b=$("rows");b.replaceChildren();
 if(!items.length){const tr=make("tr",b);make("td",tr,"No matching dated programs. Select All dates to see TBA / rolling opportunities.").colSpan=7;return;}
 items.forEach(p=>{
 const tr=make("tr",b),d=make("td",tr),pr=make("td",tr),dom=make("td",tr),fund=make("td",tr),elig=make("td",tr),mine=make("td",tr),src=make("td",tr);
-make("div",d,format(p.deadline),"deadline");make("div",d,p.deadline?diff(p.deadline)>=0?diff(p.deadline)+" days left":"Deadline passed":"Rolling / TBA","small");
+make("div",d,format(p.deadline),"deadline");
+make("div",d,p.deadline?diff(p.deadline)>=0?diff(p.deadline)+" days left":"Deadline passed":"Rolling / TBA","small");
+if(p.deadlineTime||p.deadlineTimezone)make("div",d,[p.deadlineTime,p.deadlineTimezone].filter(Boolean).join(" · "),"secondary");
+if(p.deadline&&diff(p.deadline)>=0&&diff(p.deadline)<=14)make("span",d,"URGENT ≤14d","pill warn");
+if(p.deadlineNote)make("div",d,p.deadlineNote,"secondary");
 if(p.review!=="official")make("span",d,p.review==="annual-rule"?"Annual rule":"Recheck date","pill warn");
 make("div",pr,p.name,"program");make("div",pr,p.host+" · "+p.country,"secondary");make("div",pr,p.type+" · "+p.period,"secondary");
-make("div",dom,p.domains.join(" · "));make("div",fund,p.funding);make("span",elig,p.eligibility,"pill "+(p.eligibility==="Potential match"?"good":"warn"));make("div",elig,p.eligibilityDetail,"secondary");
+make("div",dom,p.domains.join(" · "));
+make("div",fund,p.funding);
+if(p.fundingCaveats)make("div",fund,"Important: "+p.fundingCaveats,"secondary");
+make("span",elig,p.eligibility,"pill "+(p.eligibility==="Potential match"?"good":"warn"));
+make("div",elig,p.eligibilityDetail,"secondary");
+if(p.openStatus)make("div",elig,"Call status: "+p.openStatus,"secondary");
 const sel=make("select",mine,null,"stage");sel.setAttribute("aria-label","Application stage for "+p.name);
 ["Not selected","Interested","Preparing","Applied","Declined","Not eligible"].forEach(s=>{const op=make("option",sel,s);op.value=s;});sel.value=stage[p.id]||"Not selected";
 sel.addEventListener("change",()=>{stage[p.id]=sel.value;saveSelected();});
-addLink(src,"Open official page",p.officialUrl).classList.add("apply");make("div",src,p.action,"secondary");
+addLink(src,"Open official page",p.officialUrl).classList.add("apply");
+if(p.action)make("div",src,p.action,"secondary");
+if(p.applicationDocuments&&p.applicationDocuments.length)make("div",src,"Documents: "+p.applicationDocuments.join("; "),"secondary");
+make("div",src,"Checked: "+p.verifiedAt,"small");
 });}
 function renderWatch(){const root=$("watchlist");root.replaceChildren();data.records.filter(p=>!p.deadline).filter(p=>allowedWatch(p)).forEach(p=>{
-const box=make("article",root,null,"watch");make("strong",box,p.name+" · "+p.country);make("p",box,p.deadlineNote);make("p",box,p.funding);addLink(box,"Organizer details",p.officialUrl);
+const box=make("article",root,null,"watch");make("strong",box,p.name+" · "+p.country);make("p",box,p.deadlineNote);make("p",box,p.funding);
+if(p.openStatus)make("p",box,"Status: "+p.openStatus);
+if(p.fundingCaveats)make("p",box,"Budget caution: "+p.fundingCaveats);
+if(p.action)make("p",box,p.action);
+addLink(box,"Organizer details",p.officialUrl);
 });if(!root.children.length)make("p",root,"No undated opportunities match your current filters.");}
 function allowedWatch(p){const q=$("search").value.trim().toLowerCase();
 return (!$("domain").value||p.domains.includes($("domain").value))&&(!$("country").value||p.country===$("country").value)&&(!$("type").value||p.type===$("type").value)&&(!q||[p.name,p.host,p.country,p.type,p.funding,p.eligibilityDetail,p.action,...p.domains].join(" ").toLowerCase().includes(q));}
@@ -189,7 +205,7 @@ else make("p",el,"No verified dated call yet · discovery watch","small");
 }}
 function render(){if(!data)return;const all=data.records;const visible=all.filter(allowed).sort((a,b)=>(a.deadline||"9999").localeCompare(b.deadline||"9999")||a.name.localeCompare(b.name));
 fillTable(visible);renderWatch();renderCalendar();
-$("message").textContent=visible.length+" records shown · "+all.length+" total tracked · sorted by next known deadline. Dates are verified snapshots, not a live application feed.";
+$("message").textContent=visible.length+" records shown · "+all.length+" total tracked · sorted by next known deadline. Dates include explicit organizer cutoffs and clearly flagged annual-rule estimates; they are not a live application feed.";
 document.querySelectorAll("#horizon button").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.days===days)));
 }
 document.querySelectorAll("#horizon button").forEach(b=>b.addEventListener("click",()=>{days=b.dataset.days;render();}));
