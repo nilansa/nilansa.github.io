@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOf": "2026-11-03",
+  "asOf": "2026-11-04",
   "heading": "Europe-wide paid AI/ML research opportunities for international Master's students",
   "scope": "European universities and research institutes; paid employment, stipend or funded living costs; all AI/ML fields. Program admission and visa rules always prevail.",
   "safety": "Public program facts only. No applicant identity, application status, documents or private notes. A source-backed candidate is not an application or eligibility approval.",
@@ -8,8 +8,10 @@
     "nextWindowDays": 90,
     "planningWindowDays": 365,
     "unknownDeadlines": "separate watchlist",
-    "sourcePrecedence": "official organizer pages only; recheck before relying on a cutoff",
-    "eligibility": "conditional until graduation date, nationality, current enrolment and project rules are checked"
+    "sourcePrecedence": "Current official program page over aggregators; explicitly flag conflicts with old organizer portals and subpages",
+    "eligibility": "conditional until graduation date, nationality, current enrolment and project rules are checked",
+    "deadlineTimezone": "Exact time only when published; unknown remains null/TBA",
+    "verification": "Organizer pages checked 2026-11-04; program detail and application portal may differ. Evidence URLs stored per record."
   },
   "domains": [
     "Speech & audio",
@@ -41,17 +43,31 @@
         "Neuroscience"
       ],
       "deadline": "2026-11-16",
-      "deadlineNote": "2027 call published",
+      "deadlineNote": "Official 2027 landing page: 16 Nov 2026 (time not specified). WARNING: old registration URL /cactus-2026 says applications closed/next 2028; confirm the correct 2027 submission form on current program site.",
       "period": "July–September 2027",
-      "funding": "Fully funded for 3 months; stipend plus travel and accommodation support",
+      "funding": "Paid stipend for 3 months plus travel and accommodation assistance; exact official amount and exclusions not confirmed",
       "eligibility": "Potential match",
-      "eligibilityDetail": "Open to enrolled or recent BSc/MSc students worldwide; especially encourages candidates facing barriers and those from lower/middle income countries.",
+      "eligibilityDetail": "BSc/MSc students worldwide, enrolled or recently graduated, AI/cognition focus; especially intended to support applicants facing personal, financial, regional or societal barriers. Project-specific continued-enrolment rules may apply.",
       "officialUrl": "https://projects.tuebingen.mpg.de/",
       "priority": "urgent",
-      "action": "Prepare CV, academic evidence and interest statement now.",
-      "review": "official",
-      "opening": null,
-      "verifiedAt": "2026-11-03"
+      "action": "URGENT: 12 days until advertised deadline. Locate valid 2027 portal via official homepage; do not use the stale /cactus-2026 link; prepare project-specific research statement.",
+      "review": "recheck",
+      "opening": "2026-10-21",
+      "verifiedAt": "2026-11-04",
+      "deadlineTime": null,
+      "deadlineTimezone": "Not published",
+      "fundingCaveats": "Official landing page promises full stipend and assistance; does not expressly guarantee free lodging, visa fees or fixed stipend amount. Confirm actual package before accepting.",
+      "applicationDocuments": [
+        "CV and transcripts (confirm exact requirements in current portal)",
+        "Project selection and personal research motivation; consult official guide",
+        "Potential project-specific enrollment proof"
+      ],
+      "sourceUrls": [
+        "https://projects.tuebingen.mpg.de/",
+        "https://projects.tuebingen.mpg.de/program",
+        "https://cactus-apply.tue.mpg.de/registration/cactus-2026"
+      ],
+      "openStatus": "Conflicting portal status: 2027 landing page says open but indexed old registration page says closed"
     },
     {
       "id": "epfl-summer27",
@@ -67,17 +83,30 @@
         "Robotics"
       ],
       "deadline": "2026-11-29",
-      "deadlineNote": "Date derived from official recurring rule: Sunday nearest 1 December; check 2027 application portal",
+      "deadlineNote": "29 Nov 2026 calculated from EPFL's recurring rule (Sunday closest to 1 December). Portal may open only 2 weeks before deadline. Official 2027 portal date not separately published.",
       "period": "May–September 2027, typically 2–3 months",
       "funding": "CHF 1,800 per month + eligible travel reimbursement",
       "eligibility": "Conditional",
-      "eligibilityDetail": "Open worldwide to BSc/BTech/MSc/MTech in CS/CE/Telecom/EE; MUST remain enrolled during summer fellowship.",
+      "eligibilityDetail": "Worldwide non-EPFL BSc/BTech/MSc/MTech CS/Computer Engineering/EE/Telecom students; must remain enrolled during fellowship, not just at application; graduate-before-summer applicants are ineligible.",
       "officialUrl": "https://summer.epfl.ch/",
       "priority": "urgent",
-      "action": "Confirm graduation date and prepare CV, transcripts, motivation letter.",
+      "action": "Prepare CV, complete BSc + MSc transcripts and letter now. Recheck the application portal from mid-November; no references.",
       "review": "annual-rule",
       "opening": null,
-      "verifiedAt": "2026-11-03"
+      "verifiedAt": "2026-11-04",
+      "deadlineTime": null,
+      "deadlineTimezone": "Not separately posted; check application portal",
+      "applicationDocuments": [
+        "PDF CV",
+        "PDF transcripts from all university years",
+        "PDF motivation letter, ideally 1 page, max 2; no reference letters allowed"
+      ],
+      "fundingCaveats": "Accommodation is not provided for free. CHF 1,800 per month is a living allowance; check Lausanne housing cost and reimbursable economy travel limits.",
+      "openStatus": "2027 application window not verified open",
+      "sourceUrls": [
+        "https://summer.epfl.ch/",
+        "https://summer.epfl.ch/apply.html"
+      ]
     },
     {
       "id": "cispa-csr27",
@@ -91,17 +120,33 @@
         "Privacy & security"
       ],
       "deadline": "2026-11-30",
-      "deadlineNote": "Search-indexed 2027 call lists 30 Nov 2026 AoE; official page cache also showed 2026, reconfirm live portal",
+      "deadlineNote": "LIVE official CSR 2027 page: 30 Nov 2026 at 23:59 Anywhere on Earth (UTC−12), applications open.",
       "period": "May–September 2027, 2–3 months",
-      "funding": "Approx. €2,569–€2,672 gross/month (program-published rate)",
+      "funding": "€2,568.80–€2,671.89 gross/month depending on qualifications",
       "eligibility": "Conditional",
-      "eligibilityDetail": "MSc/BTech etc in CS-related field; must remain student during internship; international applicants welcome; verify 2027 round.",
+      "eligibilityDetail": "Current bachelor's/master's students in CS, CE, EE, telecom or equivalent worldwide; at least four completed university semesters; MUST stay enrolled throughout 2–3 month internship. Home institution recognition may matter for visa. Not for Master's graduates looking for PhD.",
       "officialUrl": "https://career.cispa.de/internship",
       "priority": "high",
-      "action": "Reopen the 2027 application portal, verify it is live, then prepare application.",
-      "review": "recheck",
+      "action": "Open now: prepare English transcripts, bachelor's certificate, CV, motivation and English assessment/statement. Confirm enrollment through internship.",
+      "review": "official",
       "opening": null,
-      "verifiedAt": "2026-11-03"
+      "verifiedAt": "2026-11-04",
+      "deadlineTime": "23:59",
+      "deadlineTimezone": "AoE (UTC−12)",
+      "openStatus": "Open",
+      "fundingCaveats": "Gross before German taxes; travel, housing and visa cost coverage not published on main CSR page. Check net budget.",
+      "applicationDocuments": [
+        "CV (ideal 1 page, max 2)",
+        "Motivation letter (ideal 1 page, max 2)",
+        "Complete English transcript as one PDF",
+        "English language assessment OR statement of English study/work experience",
+        "Bachelor's certificate if a Master's applicant",
+        "Optional reference contacts"
+      ],
+      "sourceUrls": [
+        "https://career.cispa.de/internship",
+        "https://career.cispa.de/faq"
+      ]
     },
     {
       "id": "eth-ssrf27",
@@ -118,17 +163,32 @@
         "Privacy & security"
       ],
       "deadline": "2026-12-16",
-      "deadlineNote": "16 Dec 2026 at 13:00 CET, per official SiROP listing",
+      "deadlineNote": "Official SiROP fellowship 2027 advert specifies 16 Dec 2026, 13:00 Central European Time; older ETH how-to-apply page still displays 2025 and APPLICATION CLOSED (stale copy).",
       "period": "1 July–31 August 2027",
       "funding": "CHF 4,000 total for 2 months; travel and visa support",
       "eligibility": "Graduation check",
-      "eligibilityDetail": "Crucial: expected graduation earliest in spring semester 2028 (year AFTER the 2027 fellowship); open worldwide except ETH students.",
+      "eligibilityDetail": "Worldwide BSc/MSc CS or closely related (not ETH-enrolled), 2 years studies complete by summer; graduation earliest spring semester 2028. Must be present for ALL of July–August 2027. English working proficiency, no formal language certificate required.",
       "officialUrl": "https://inf.ethz.ch/studies/summer-research-fellowship.html",
       "priority": "high",
-      "action": "Verify MSc graduation year first; if 2028+, prepare CV, transcript and letter.",
+      "action": "Only prioritize if MSc graduation is spring 2028 or later. SiROP 2027 has live dated call; ETH explanatory page still shows prior-year details.",
       "review": "official",
-      "opening": null,
-      "verifiedAt": "2026-11-03"
+      "opening": "2026-11-01",
+      "verifiedAt": "2026-11-04",
+      "deadlineTime": "13:00",
+      "deadlineTimezone": "CET (UTC+1)",
+      "fundingCaveats": "CHF 4,000 total intended for housing/living for 2 months; housing may be deducted; visa and travel costs reimbursed/covered per official ETH guidance.",
+      "applicationDocuments": [
+        "English CV as PDF",
+        "University transcript including bachelor if new Master's student; official translations as required",
+        "English motivation letter (≤1 page)",
+        "Application through official SiROP"
+      ],
+      "sourceUrls": [
+        "https://sirop.org/app/1535d3bf-c2ef-4c74-8870-cb5bc17cb4da",
+        "https://inf.ethz.ch/studies/summer-research-fellowship/how-to-apply.html",
+        "https://inf.ethz.ch/studies/summer-research-fellowship/program-structure.html"
+      ],
+      "openStatus": "2027 SiROP advert exists; live submit status should be checked"
     },
     {
       "id": "rc-trust27",
@@ -143,17 +203,28 @@
         "Interdisciplinary AI"
       ],
       "deadline": "2026-12-31",
-      "deadlineNote": "Official 2027 summer-round deadline",
+      "deadlineNote": "Confirmed annual 2027 deadline 31 Dec 2026; online application form still being prepared.",
       "period": "Summer 2027, up to 90 days",
       "funding": "Living, housing and travel costs fully covered",
       "eligibility": "Potential match",
-      "eligibilityDetail": "Worldwide applicants; primarily Master's and PhD level; strong CS/statistics/security background. Apply through online form once available; email alone is not accepted.",
+      "eligibilityDetail": "Worldwide applicants, primarily master's and PhD students; CS/statistics/psychology/security background, excellent academic record; English working language. Master's completion date not explicitly restricted on organizer FAQ.",
       "officialUrl": "https://rc-trust.ai/career/internship-program",
       "priority": "high",
-      "action": "Select specific research group and watch for online application form.",
+      "action": "Find matching trustworthy ML, NLP, safe RL or HCI group. Watch for official online form; email applications NOT accepted.",
       "review": "official",
       "opening": null,
-      "verifiedAt": "2026-11-03"
+      "verifiedAt": "2026-11-04",
+      "deadlineTime": null,
+      "deadlineTimezone": "Not stated",
+      "openStatus": "Not yet open: application form coming soon",
+      "applicationDocuments": [
+        "Online form only (details/document list not yet published)",
+        "Group/research-interest choice likely required; confirm form once available"
+      ],
+      "fundingCaveats": "Travel, accommodation and living costs covered. Exact allowance, visa fees, insurance and reimbursement procedure not given; ask after selection.",
+      "sourceUrls": [
+        "https://rc-trust.ai/career/internship-program"
+      ]
     },
     {
       "id": "aalto-asci27",
@@ -170,17 +241,33 @@
         "Data-centric ML"
       ],
       "deadline": "2027-01-31",
-      "deadlineNote": "31 Jan 2027 at 23:59 UTC+2; applications open 7 Jan",
+      "deadlineNote": "Confirmed 7–31 Jan 2027, closes 31 Jan 23:59 UTC+2; projects expected ~10 Dec 2026.",
       "period": "June–August 2027, around 12 weeks",
-      "funding": "From €2,000/month salary + €800 non-Europe travel bonus",
+      "funding": "From €2,000/month gross salary + €400 within-Europe / €800 outside-Europe travel bonus",
       "eligibility": "Potential match",
-      "eligibilityDetail": "Open to Bachelor's and Master's students worldwide; paid employment in assigned research group. Specific projects published mid-December.",
+      "eligibilityDetail": "Worldwide BSc/MSc students; exceptional PhD applicants considered. Full-time on-site employment for ~12 weeks; individual project and hiring/visa requirements apply.",
       "officialUrl": "https://www.aalto.fi/en/aalto-university-science-institute-asci/aalto-university-science-institute-international-summer-research-programme",
       "priority": "high",
-      "action": "Review research projects when published in December; select up to three.",
+      "action": "Request a reference letter early, review projects ~10 Dec 2026, apply Jan 7–31 (up to 3 projects; one combined PDF).",
       "review": "official",
       "opening": "2027-01-07",
-      "verifiedAt": "2026-11-03"
+      "verifiedAt": "2026-11-04",
+      "deadlineTime": "23:59",
+      "deadlineTimezone": "UTC+2 (Finland; as explicitly published for Jan 2027)",
+      "openStatus": "Not yet open; projects published mid-Dec",
+      "fundingCaveats": "Aalto assists finding student housing but doesn't promise free accommodation. Travel bonus is not full airfare reimbursement. Salary taxation depends on Finnish rules.",
+      "applicationDocuments": [
+        "One combined PDF: tailored 1–2-page motivation letter",
+        "CV",
+        "University transcript and grading scale",
+        "MANDATORY reference letter (included in file or emailed by referee by deadline)",
+        "English proficiency evidence (English-medium study statement accepted; TOEFL/IELTS recommended but not mandatory)",
+        "Choose 1–3 specific projects; one application form only"
+      ],
+      "sourceUrls": [
+        "https://www.aalto.fi/en/aalto-university-science-institute-asci/aalto-university-science-institute-international-summer-research-programme",
+        "https://www.aalto.fi/en/aalto-university-science-institute-asci/how-to-apply-for-the-asci-international-summer-research-programme"
+      ]
     },
     {
       "id": "cern-openlab27",
@@ -195,17 +282,29 @@
         "AI for science"
       ],
       "deadline": null,
-      "deadlineNote": "Call announced for November 2026; 2027 deadline not yet shown",
+      "deadlineNote": "Organizer says 2027 applications open in November 2026 but currently displays Applications Closed. No 2027 application deadline published.",
       "period": "June–August 2027, 9 weeks",
       "funding": "CHF 94 per calendar day + travel allowance and health coverage",
       "eligibility": "Potential match",
-      "eligibilityDetail": "Master's students with strong computing profile; 3 years full-time university study by summer; applicants of any nationality. Confirm graduation/enrolment details in 2027 FAQ.",
+      "eligibilityDetail": "BSc/MSc CS, mathematics, engineering or physics with strong computing profile; at least 3 university years completed by June 2027; international eligibility per CERN program rules/FAQ.",
       "officialUrl": "https://openlab.web.cern.ch/cern-openlab-summer-student-programme/",
       "priority": "high",
-      "action": "Monitor official career opening; prepare CV, transcripts and academic reference.",
+      "action": "Prepare academic referee now; CERN page says applications will open in Nov 2026, deadline remains TBA.",
       "review": "official",
       "opening": null,
-      "verifiedAt": "2026-11-03"
+      "verifiedAt": "2026-11-04",
+      "openStatus": "Announced, not yet open",
+      "fundingCaveats": "CHF 94 daily allowance and separate end-of-stay lump-sum travel allowance; CERN health insurance; assistance FINDING accommodation, not paid accommodation. Check availability of visa eligibility and any nationality constraints.",
+      "applicationDocuments": [
+        "CV in English",
+        "Official transcript",
+        "MANDATORY academic reference letter less than 12 months old",
+        "Optional motivation letter",
+        "All in PDF, English or French; no document additions after submission"
+      ],
+      "sourceUrls": [
+        "https://openlab.web.cern.ch/cern-openlab-summer-student-programme/"
+      ]
     },
     {
       "id": "ista-year-round",
@@ -221,17 +320,29 @@
         "Robotics"
       ],
       "deadline": null,
-      "deadlineNote": "Rolling; recommend contact ≥4 months before preferred start",
+      "deadlineNote": "Rolling year-round; contact target lab ≥4 months before preferred start; portal registration at least 2 months before internship.",
       "period": "2–12 months, individually arranged",
       "funding": "At least €1,583 gross/month salary, contingent on group funding and approval",
       "eligibility": "Potential match",
-      "eligibilityDetail": "Current or recent bachelor's/master's degree in sciences/CS/math; sponsor group and two-month minimum. Cannot simultaneously be employed/funded elsewhere.",
+      "eligibilityDetail": "Current or recent BSc/MSc in computer/natural science, mathematics or related, good English and research group fit; placement depends on faculty funding, approval and research security rules.",
       "officialUrl": "https://phd.ist.ac.at/scientific-internships/",
       "priority": "medium",
-      "action": "Identify matching groups and send tailored expressions of interest; verify faculty funding.",
+      "action": "Target relevant faculty and request non-summer start ≥4 months out. Do not confuse with paused ISTernship Summer Fellowship (paused for 2026 and 2027).",
       "review": "official",
       "opening": null,
-      "verifiedAt": "2026-11-03"
+      "verifiedAt": "2026-11-04",
+      "openStatus": "Rolling professor-initiated lab contact",
+      "fundingCaveats": "€1,583 gross/month minimum 2026 salary; individual host funding required; paid housing/travel not promised. Cannot be employed/funded elsewhere concurrently.",
+      "applicationDocuments": [
+        "Direct email to group leader or staff scientist with concise background and lab-specific motivation",
+        "CV PDF",
+        "Preferred dates at least two months ahead"
+      ],
+      "sourceUrls": [
+        "https://phd.ist.ac.at/scientific-internships/",
+        "https://phd.ist.ac.at/funding-and-awards/",
+        "https://phd.ist.ac.at/internships/"
+      ]
     },
     {
       "id": "maxplanck-cs-rolling",
@@ -248,17 +359,28 @@
         "AI safety & security"
       ],
       "deadline": null,
-      "deadlineNote": "Summer 2027 central deadline was 1 Nov 2026 (passed); non-summer starts rolling ≥5 months ahead",
+      "deadlineNote": "1 Nov 2026 CENTRAL summer-2027 deadline HAS PASSED. For non-summer starts (Jan–Apr or Sep–Dec) applications are rolling and recommended ≥5 months ahead.",
       "period": "Typically 12–14 weeks; non-summer 2027 openings",
       "funding": "Stipend + housing + round-trip travel costs fully covered",
       "eligibility": "Potential match",
-      "eligibilityDetail": "Open worldwide to strong bachelor's/master's/doctoral CS students; research placement dependent on group capacity.",
+      "eligibilityDetail": "Excellent BSc/MSc/PhD-level CS applicants worldwide; institutional research fit; participating MPI Informatics, MPI Software Systems, MPI Security & Privacy (NOT MPI Intelligent Systems).",
       "officialUrl": "https://www.cis.mpg.de/internships/",
       "priority": "medium",
-      "action": "Consider September–December 2027 non-summer internship; submit ≥5 months ahead.",
+      "action": "Apply for Sep–Dec 2027 or Jan–Apr placement ≥5 months ahead. Summer 2027 centralized cutoff was Nov 1 (already passed).",
       "review": "official",
       "opening": null,
-      "verifiedAt": "2026-11-03"
+      "verifiedAt": "2026-11-04",
+      "openStatus": "Non-summer applications rolling; summer 2027 central call closed",
+      "applicationDocuments": [
+        "Online application",
+        "CV",
+        "Transcripts (unofficial acceptable)",
+        "Contact information for at least one reference",
+        "Optional motivation letter and faculty preferences"
+      ],
+      "sourceUrls": [
+        "https://www.cis.mpg.de/internships/"
+      ]
     },
     {
       "id": "charpak-summer27",
@@ -275,17 +397,29 @@
         "AI for science"
       ],
       "deadline": null,
-      "deadlineNote": "2027 deadline not yet verified; host invitation required before scholarship application",
+      "deadlineNote": "Campus France officially says 2026 session closed; 2027 opening and cutoff not yet published.",
       "period": "Typically May–August, 1–2 funded months",
       "funding": "€700/month for at most 2 months; visa fee waiver, NOT travel/accommodation",
       "eligibility": "Nationality and funding check",
-      "eligibilityDetail": "Restricted to Indian nationals resident in India, ≤30 years, enrolled in Indian bachelor's/master's; requires French lab invitation. Partial cost coverage only.",
+      "eligibilityDetail": "ONLY Indian nationals residing in India, age ≤30, enrolled at an INDIAN BSc/MSc institution, possessing French lab invitation; at least one-month project. Students studying outside India are excluded by eligibility.",
       "officialUrl": "https://www.inde.campusfrance.org/france-excellence-charpak-summer-training-scholarship",
       "priority": "medium",
-      "action": "Build list of 5 French labs and seek invitation; verify citizenship, age, costs and 2027 call.",
+      "action": "Only track if citizenship, residence, university enrolment in India and financial shortfall match; first secure a French lab invitation and home-university NOC.",
       "review": "official",
       "opening": null,
-      "verifiedAt": "2026-11-03"
+      "verifiedAt": "2026-11-04",
+      "openStatus": "2027 not announced",
+      "fundingCaveats": "Only €700/month for max 2 months; NO travel, insurance, medical costs or accommodation covered. Visa/Campus France fees may be waived; longer stay at applicant's cost.",
+      "applicationDocuments": [
+        "French lab invitation with dates (or evidence invitation forthcoming)",
+        "Indian university NOC/permission",
+        "CV up to 2 pages",
+        "Passport, academic marksheets and degree certificates",
+        "Statement of purpose; optional faculty recommendation and French certificate"
+      ],
+      "sourceUrls": [
+        "https://www.inde.campusfrance.org/france-excellence-charpak-summer-training-scholarship"
+      ]
     },
     {
       "id": "edinburgh-responsible-nlp27",
@@ -302,15 +436,25 @@
       "deadline": "2026-11-30",
       "deadlineNote": "Stage 1 mandatory deadline, 23:59 GMT; separate invited Stage 2 in January",
       "period": "PhD training from September 2027",
-      "funding": "Tuition covered + standard UKRI stipend for overseas applicants; home-only enhanced rate",
+      "funding": "Four years: all tuition covered + standard UKRI overseas stipend (£21,805/year reference for 2026/27); Home applicants may get £30,000/year",
       "eligibility": "Post-MS pathway",
-      "eligibilityDetail": "International applicants considered; requires suitability for PhD training rather than a summer internship. Admission and graduation timeline must be checked.",
+      "eligibilityDetail": "Funded four-year integrated PhD pathway in NLP, not a temporary research internship. Overseas applicants considered at standard UKRI stipend and waived tuition; Home-status applicants eligible for enhanced £30k/year pilot.",
       "officialUrl": "https://responsiblenlp.org/2027-studentships/",
       "priority": "optional",
-      "action": "Consider only if a paid PhD/research training move is desired.",
+      "action": "Optional post-MS PhD path, NOT a summer internship. Stage 1 by 30 Nov 23:59 GMT; overseas stipend is standard UKRI rate.",
       "review": "official",
       "opening": null,
-      "verifiedAt": "2026-11-03"
+      "verifiedAt": "2026-11-04",
+      "deadlineTime": "23:59",
+      "deadlineTimezone": "GMT (UTC+0)",
+      "fundingCaveats": "Overseas-status applicants NOT eligible for enhanced Home stipend; standard future-year UKRI rate not finalized. Travel/research support grant is for program activities, not a personal stipend.",
+      "applicationDocuments": [
+        "Mandatory Stage-1 interest/application by 30 Nov; successful candidates invited to Stage-2 full application Jan 2027",
+        "Confirm documents on current official How to Apply page"
+      ],
+      "sourceUrls": [
+        "https://responsiblenlp.org/2027-studentships/"
+      ]
     },
     {
       "id": "mpi-infection-bio27",
@@ -323,18 +467,287 @@
         "Data-centric ML",
         "Computational biology"
       ],
-      "deadline": null,
-      "deadlineNote": "2027 cycle known; confirm deadline and availability of ML-relevant host projects",
+      "deadline": "2026-11-27",
+      "deadlineNote": "NEW confirmed official deadline 27 Nov 2026 for Sep–Nov 2027 stay; applications begin Nov 2026.",
       "period": "September–November 2027, 3 months",
-      "funding": "€1,400 monthly stipend + accommodation and travel support",
+      "funding": "€1,400 stipend (official page does not specify payment frequency) + travel compensation and accommodation",
       "eligibility": "Research-fit check",
-      "eligibilityDetail": "International bachelor's/master's students. Projects primarily infection biology; only pursue if relevant computational/AI project exists.",
+      "eligibilityDetail": "International BSc/MSc students; MUST still be enrolled for visa; available for ALL Sep 1–Nov 30 2027; voluntary internship only (NOT mandatory course credits). Strong biological research relevance and barriers to access central to program. ML fit only if actual project computational.",
       "officialUrl": "https://www.mpiib-berlin.mpg.de/mpiib-isi",
       "priority": "optional",
-      "action": "Check whether 2027 host projects include computational biology or ML.",
+      "action": "Deadline 27 Nov: inspect actual 2027 projects before considering; main focus infection biology, not generic AI.",
       "review": "official",
       "opening": null,
-      "verifiedAt": "2026-11-03"
+      "verifiedAt": "2026-11-04",
+      "deadlineTime": null,
+      "deadlineTimezone": "Not specified",
+      "openStatus": "Opening during Nov 2026; official page does not show open form yet",
+      "fundingCaveats": "Official page says €1,400 stipend for living expenses but does not specify monthly vs total. Check with institute; do not infer monthly amount. Must be voluntary non-credit internship.",
+      "applicationDocuments": [
+        "Academic record",
+        "Research/project motivation",
+        "Proof of ongoing enrollment for 2027 stay",
+        "English skills; exact application packet not yet stated"
+      ],
+      "sourceUrls": [
+        "https://www.mpiib-berlin.mpg.de/mpiib-isi"
+      ]
+    },
+    {
+      "id": "epfl-sv-srp27",
+      "name": "EPFL Life Sciences Summer Research Program 2027",
+      "host": "EPFL School of Life Sciences",
+      "country": "Switzerland",
+      "type": "Summer research fellowship",
+      "domains": [
+        "AI for science",
+        "Neuroscience",
+        "Vision & multimodal",
+        "Robotics",
+        "Interdisciplinary AI"
+      ],
+      "deadline": "2026-11-15",
+      "deadlineTime": "23:59",
+      "deadlineTimezone": "CET (UTC+1)",
+      "deadlineNote": "NEW official 2027 open call; closes 15 Nov 2026 at 23:59 CET",
+      "opening": null,
+      "period": "5 July–27 August 2027 (8 weeks fixed)",
+      "funding": "CHF 3,600 total incl. housing; up to CHF 1,000 overseas or CHF 500 other airfare reimbursement",
+      "fundingCaveats": "Housing cost deducted from stipend before arrival; organizer says ~CHF 1,700 remains for daily life. Flight reimbursements after program. Personal weekend travel not covered.",
+      "eligibility": "First-year MSc + life-science fit only",
+      "eligibilityDetail": "Currently enrolled through summer 2027; must be at MOST first-year Master's by program start, life science/bioinformatics or related background, GPA approximately ≥3.75/4.0 or top 5%, foundational life science courses. Only pursue NeuroAI/biomedical/robotics lab matches if biology background.",
+      "applicationDocuments": [
+        "BSc & MSc transcript / course list",
+        "Short personal and scientific essays about up to 3 labs; no standard CV/motivation letter",
+        "MANDATORY academic referee to upload letter via organizer link before deadline",
+        "One-sitting online form (cannot save halfway); English certificate not mandatory"
+      ],
+      "officialUrl": "https://www.epfl.ch/schools/sv/education/summer-research-program/how-to-apply/",
+      "sourceUrls": [
+        "https://www.epfl.ch/schools/sv/education/summer-research-program/",
+        "https://www.epfl.ch/schools/sv/education/summer-research-program/how-to-apply/",
+        "https://www.epfl.ch/schools/sv/education/summer-research-program/program-description/",
+        "https://www.epfl.ch/schools/sv/education/summer-research-program/faqs/"
+      ],
+      "openStatus": "Open",
+      "priority": "urgent-conditional",
+      "review": "official",
+      "action": "URGENT 11 days. Only if first-year MSc plus life-science courses; choose labs e.g. NeuroAI, computational neuroscience, biomedical imaging; secure referee NOW.",
+      "verifiedAt": "2026-11-04"
+    },
+    {
+      "id": "nxai-cycle4-2027",
+      "name": "NXAI Research Internship Cycle 4 (MSc)",
+      "host": "NXAI GmbH (industry research lab)",
+      "country": "Austria",
+      "type": "Industry research internship",
+      "domains": [
+        "Foundation models",
+        "Core ML",
+        "Systems",
+        "NLP & LLMs",
+        "AI for science"
+      ],
+      "deadline": "2026-11-30",
+      "deadlineTime": null,
+      "deadlineTimezone": "Not published",
+      "deadlineNote": "NEW official active MSc research internship posting; 30 Nov 2026 deadline",
+      "opening": null,
+      "period": "Starts Jan–Aug 2027; six-month proposed project; 20 h/week",
+      "funding": "Advertised €2,547/month; exact part-time pay basis should be confirmed",
+      "fundingCaveats": "20 h/week is advertised alongside €2,547/month; clarify whether amount is actual internship pay or full-time equivalent before accepting. No published housing/travel or visa funding.",
+      "eligibility": "Conditional",
+      "eligibilityDetail": "Current MSc AI, CS, DS, mathematics, physics or related; at least one completed term of MSc coursework. Hybrid research in Linz; no blanket international relocation/visa guarantee on advert.",
+      "applicationDocuments": [
+        "CV",
+        "Cover letter with a proposed AI research project and rough six-month schedule",
+        "Start date of Master's program",
+        "Answers about ML tools and prior research"
+      ],
+      "officialUrl": "https://career.nx-ai.com/o/research-internship-masters-level-cycle-4-start-feb2027",
+      "sourceUrls": [
+        "https://career.nx-ai.com/o/research-internship-masters-level-cycle-4-start-feb2027"
+      ],
+      "openStatus": "Open",
+      "priority": "optional",
+      "review": "official",
+      "action": "Optional INDUSTRY research lead (not a university). Requires one completed MSc term and a proposed six-month xLSTM/foundation-model project.",
+      "verifiedAt": "2026-11-04"
+    },
+    {
+      "id": "inria-ockham-flow2027",
+      "name": "Inria Lyon: ML, inverse problems & flow-matching internship",
+      "host": "Inria Lyon OCKHAM team / ENS de Lyon",
+      "country": "France",
+      "type": "Research internship (specific project)",
+      "domains": [
+        "Vision & multimodal",
+        "Core ML",
+        "Foundation models",
+        "AI for science"
+      ],
+      "deadline": "2026-11-16",
+      "deadlineTime": null,
+      "deadlineTimezone": "Not published",
+      "deadlineNote": "NEW specific paid MSc internship, official job posting 2026-10626; closes 16 Nov 2026",
+      "opening": null,
+      "period": "1 March–July 2027 (5 months)",
+      "funding": "€4.50 gross/hour (French internship gratuity), not fully funded",
+      "fundingCaveats": "No housing or full airfare; only partial local transit reimbursement. France mandatory internship agreement and visa cost may be significant. This is a low-stipend research internship, not a fully funded fellowship.",
+      "eligibility": "Internship agreement / visa check",
+      "eligibilityDetail": "Master's-level applicant with optimization, generative ML, PyTorch; French internship convention required; access to restricted ZRR site subject to French defense-security authorization (may restrict some applicants).",
+      "applicationDocuments": [
+        "Formal online Inria application",
+        "Degree evidence/MSc enrollment and internship agreement (confirm with host)",
+        "Relevant research CV and motivation (check online form)"
+      ],
+      "officialUrl": "https://recrutement.inria.fr/public/classic/en/offres/2026-10626",
+      "sourceUrls": [
+        "https://recrutement.inria.fr/public/classic/en/offres/2026-10626"
+      ],
+      "openStatus": "Open",
+      "priority": "urgent-conditional",
+      "review": "official",
+      "action": "URGENT 12 days. Excellent generative vision research fit but underfunded and likely requires home-university internship agreement plus ZRR review.",
+      "verifiedAt": "2026-11-04"
+    },
+    {
+      "id": "ista-phd-2027",
+      "name": "ISTA 2027 fully funded PhD admission",
+      "host": "Institute of Science and Technology Austria",
+      "country": "Austria",
+      "type": "Funded doctoral training",
+      "domains": [
+        "Core ML",
+        "Foundation models",
+        "Vision & multimodal",
+        "Neuroscience",
+        "Systems",
+        "AI for science",
+        "Interdisciplinary AI"
+      ],
+      "deadline": "2027-01-08",
+      "deadlineTime": "15:00",
+      "deadlineTimezone": "CET (UTC+1)",
+      "deadlineNote": "NEW official 2027 PhD admissions open; applicant deadline 8 Jan 2027 15:00 CET; referee letters due 12 Jan at 23:59 CET",
+      "opening": "2026-10",
+      "period": "PhD starting 15 September 2027; multiple years",
+      "funding": "Fully employed funded PhD; 2026 gross monthly salaries €3,053–€3,673 paid 14 times/year (2027 rate TBA)",
+      "fundingCaveats": "Doctoral program, NOT a 2–3 month internship or visiting MS RA. 2027 salaries may differ from published 2026 reference. Eligibility to start September 2027 subject to required degree and admission.",
+      "eligibility": "Post-MS pathway only",
+      "eligibilityDetail": "Global applicants holding or expecting BSc/MSc by Sept 2027; PhD across CS, data science, scientific computing, neuroscience, etc. Very selective; only groups recruiting in 2027 visible in application portal.",
+      "applicationDocuments": [
+        "CV",
+        "SoP with research track and group interests",
+        "Responses about 3 groups, a cited ISTA faculty paper and own past research",
+        "Transcripts/diplomas in original and English",
+        "Contact details for 3 referees; letters due 12 Jan 2027"
+      ],
+      "officialUrl": "https://phd.pages.ista.ac.at/phd-application-admission/",
+      "sourceUrls": [
+        "https://phd.pages.ista.ac.at/phd-application-admission/",
+        "https://phd.ist.ac.at/funding-and-awards/"
+      ],
+      "openStatus": "Open",
+      "priority": "optional",
+      "review": "official",
+      "action": "Optional 2027 paid PhD path. Apply only if transitioning to doctorate in Sep 2027 and can arrange THREE academic referees.",
+      "verifiedAt": "2026-11-04"
+    },
+    {
+      "id": "epfl-erip-2027",
+      "name": "EPFL Excellence Research Internship Program 2027 (ERIP)",
+      "host": "EPFL International Office",
+      "country": "Switzerland",
+      "type": "Partner-restricted paid research fellowship",
+      "domains": [
+        "Core ML",
+        "Vision & multimodal",
+        "Robotics",
+        "AI for science",
+        "Interdisciplinary AI"
+      ],
+      "deadline": "2026-11-30",
+      "deadlineTime": null,
+      "deadlineTimezone": "Not published",
+      "deadlineNote": "NEW confirmed 2027 application deadline 30 Nov 2026; partner university restriction",
+      "opening": null,
+      "period": "Approximately 3 months, lab-dependent (Feb–Aug 2027)",
+      "funding": "CHF 1,800/month living scholarship for up to 3 months; no guaranteed travel funding",
+      "fundingCaveats": "Housing must be found/paid by fellow with EPFL assistance. Scholarship covers max 90 days, even if internship extends. Cannot simultaneously receive overlapping ThinkSwiss scholarship.",
+      "eligibility": "Partner-only / nomination required",
+      "eligibilityDetail": "Only students of listed North American/Singapore partner institutions or expressly confirmed newly eligible institution. Listed Singapore partner: NTU. Top 10% and remain enrolled for full placement; home-university nomination typically mandatory, except McGill/Toronto. Do NOT assume eligible on basis of living in Singapore.",
+      "applicationDocuments": [
+        "Home-university international-office nomination (unless exception)",
+        "CV, transcripts, ≤800-word motivation",
+        "Two academic referees (letters due 6 Dec)",
+        "Passport scan",
+        "Three target EPFL labs"
+      ],
+      "officialUrl": "https://www.epfl.ch/education/international/en/coming-to-epfl/research-internships/eligibility-and-application/",
+      "sourceUrls": [
+        "https://www.epfl.ch/education/international/en/coming-to-epfl/research-internships/eligibility-and-application/",
+        "https://www.epfl.ch/education/international/en/coming-to-epfl/research-internships/practical-information/"
+      ],
+      "openStatus": "Open; ONLY for home-institution-qualified applicants",
+      "priority": "restricted",
+      "review": "official",
+      "action": "Only apply if your university is an eligible listed partner AND your international office nominates you (except listed exceptions).",
+      "verifiedAt": "2026-11-04"
+    },
+    {
+      "id": "epfl-e3-2027-closed",
+      "name": "EPFL E3 Engineering Research Internship 2027 (closed)",
+      "host": "EPFL School of Engineering",
+      "country": "Switzerland",
+      "type": "Summer research internship",
+      "domains": [
+        "Core ML",
+        "Vision & multimodal",
+        "Robotics",
+        "AI for science",
+        "Interdisciplinary AI"
+      ],
+      "deadline": "2026-11-01",
+      "deadlineTime": null,
+      "deadlineTimezone": "Not published",
+      "deadlineNote": "2027 application deadline was 1 Nov 2026; already passed as of 4 Nov",
+      "opening": null,
+      "period": "Summer 2027 (8–12 weeks)",
+      "funding": "Living allowance plus travel reimbursement, exact amount not published in press announcement",
+      "fundingCaveats": "Housing and stipend numbers unconfirmed; applications for 2027 already past deadline.",
+      "eligibility": "Closed for 2027",
+      "eligibilityDetail": "2027 call was open to BSc/MSc engineering/science applicants worldwide with at least two years undergraduate study; no longer accepts on-time applications.",
+      "applicationDocuments": [
+        "Not actionable for 2027; watch autumn 2027 for 2028 call (date not yet published)"
+      ],
+      "officialUrl": "https://actu.epfl.ch/news/apply-to-the-e3-epfl-excellence-in-engineering-p-6/",
+      "sourceUrls": [
+        "https://actu.epfl.ch/news/apply-to-the-e3-epfl-excellence-in-engineering-p-6/"
+      ],
+      "openStatus": "Deadline passed",
+      "priority": "closed",
+      "review": "official",
+      "action": "Do not apply for 2027; keep as next-cycle discovery lead.",
+      "verifiedAt": "2026-11-04"
     }
-  ]
+  ],
+  "lastResearchSummary": {
+    "checkedAt": "2026-11-04",
+    "newIds": [
+      "epfl-sv-srp27",
+      "nxai-cycle4-2027",
+      "inria-ockham-flow2027",
+      "ista-phd-2027",
+      "epfl-erip-2027",
+      "epfl-e3-2027-closed"
+    ],
+    "materialCorrections": [
+      "MPI Infection Biology 2027 deadline is 27 Nov 2026 (previously TBA); €1,400 frequency not stated",
+      "CISPA CSR 2027 applications are open; 30 Nov 2026 AoE",
+      "CaCTüS 2027 listing deadline 16 Nov 2026 but stale application portal says closed; needs manual link verification",
+      "ISTA ISTernship summer fellowship paused 2026 and 2027; year-round scientific internships still active"
+    ],
+    "nonActionable": "EPFL E3 closed 1 Nov; EPFL ERIP limited to partner universities and nominations; some campus scholarships require bachelor-only status."
+  }
 }
