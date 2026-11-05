@@ -306,7 +306,9 @@
       ],
       "sourceUrls": [
         "https://openlab.web.cern.ch/cern-openlab-summer-student-programme/"
-      ]
+      ],
+      "deadlineTime": null,
+      "deadlineTimezone": "TBA / rolling"
     },
     {
       "id": "ista-year-round",
@@ -343,7 +345,9 @@
       "sourceUrls": [
         "https://phd.ist.ac.at/scientific-internships/",
         "https://phd.ist.ac.at/funding-and-awards/"
-      ]
+      ],
+      "deadlineTime": null,
+      "deadlineTimezone": "TBA / rolling"
     },
     {
       "id": "maxplanck-cs-rolling",
@@ -364,24 +368,26 @@
       "period": "Typically 12–14 weeks; non-summer 2027 openings",
       "funding": "Stipend + housing + round-trip travel costs fully covered",
       "eligibility": "Potential match",
-      "eligibilityDetail": "Excellent BSc/MSc/PhD-level CS applicants worldwide; institutional research fit; participating MPI Informatics, MPI Software Systems, MPI Security & Privacy (NOT MPI Intelligent Systems).",
+      "eligibilityDetail": "Exceptional BSc/MSc/PhD CS researchers worldwide; CS fundamentals equivalent to about first three years of BSc and strong grades; current students and recent BSc/MSc graduates eligible. Participating institutes: Informatics, Software Systems, Security and Privacy. Non-summer applications competitive and group-dependent.",
       "officialUrl": "https://www.cis.mpg.de/internships/",
       "priority": "medium",
-      "action": "Apply for Sep–Dec 2027 or Jan–Apr placement ≥5 months ahead. Summer 2027 centralized cutoff was Nov 1 (already passed).",
+      "action": "2027 summer centralized application CLOSED Nov 1, 2026. Apply for Sep–Dec 2027 non-summer starts at least five months in advance via official online form; provide a reference CONTACT (not necessarily a letter).",
       "review": "official",
       "opening": null,
-      "verifiedAt": "2026-11-04",
+      "verifiedAt": "2026-11-05",
       "openStatus": "Non-summer applications rolling; summer 2027 central call closed",
       "applicationDocuments": [
-        "Online application",
         "CV",
-        "Transcripts (unofficial acceptable)",
-        "Contact information for at least one reference",
-        "Optional motivation letter and faculty preferences"
+        "University transcripts (unofficial acceptable; self-translated English combined with originals acceptable)",
+        "At least one academic/professional reference name and contact information (letter requested only if needed)",
+        "Optional motivation letter; preferred host faculty and internship dates"
       ],
       "sourceUrls": [
         "https://www.cis.mpg.de/internships/"
-      ]
+      ],
+      "deadlineTime": null,
+      "deadlineTimezone": "TBA / rolling",
+      "fundingCaveats": "Monthly stipend for living expenses PLUS covered accommodation and round-trip travel. Visa fee may be reimbursable case-by-case upon acceptance but is NOT guaranteed. Salary/stipend amount not publicly specified."
     },
     {
       "id": "charpak-summer27",
@@ -420,7 +426,9 @@
       ],
       "sourceUrls": [
         "https://www.inde.campusfrance.org/france-excellence-charpak-summer-training-scholarship"
-      ]
+      ],
+      "deadlineTime": null,
+      "deadlineTimezone": "TBA / rolling"
     },
     {
       "id": "edinburgh-responsible-nlp27",
@@ -949,7 +957,8 @@
       "MPI Infection Biology official FAQ confirms stipend is approximately €1,400 PER MONTH; prior program landing page ambiguous.",
       "CERN openlab 2027 has NOT opened on its official site yet and deadline is still TBA.",
       "Summer@EPFL 2026-11-29 remains a deduction from annual rule, NOT organizer-issued 2027 fixed cutoff.",
-      "Added separate lab-industry and fixed-term employed research roles distinctly labelled from student research fellowships and PhD positions."
+      "Added separate lab-industry and fixed-term employed research roles distinctly labelled from student research fellowships and PhD positions.",
+      "Max Planck CS rolling internships: official FAQ confirms no mandatory letter upload (one referee contact is needed), visa-fee coverage case-by-case, and eligibility for some graduates."
     ],
     "scopeNote": "International MSc eligibility cannot be guaranteed without applicant degree, graduation date, visas and current enrollment. No applications submitted."
   }
