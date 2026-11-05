@@ -1,0 +1,392 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nilansa.github.io/cs-conf/hub/api-contract.json",
+  "title": "CS Research Discovery Hub — local API v1",
+  "description": "Versioned contracts for the optional localhost read-only API. The published GitHub Pages site serves static catalog.json and data shards, not /api/v1 routes.",
+  "type": "object",
+  "properties": {
+    "api_version": {
+      "const": "1.0.0"
+    },
+    "contracts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "api_version",
+    "contracts"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "Paper": {
+      "type": "object",
+      "description": "Normalized search record. Unavailable abstract/links are empty strings, never invented. Acceptance and track metadata remain source-attributed.",
+      "required": [
+        "id",
+        "venue",
+        "year",
+        "title",
+        "authors",
+        "abstract",
+        "abstract_status",
+        "paper_url",
+        "pdf_url",
+        "source",
+        "track_status",
+        "score"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "venue": {
+          "type": "string",
+          "minLength": 2
+        },
+        "year": {
+          "type": "integer",
+          "minimum": 1900,
+          "maximum": 2100
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "authors": {
+          "type": "string"
+        },
+        "abstract": {
+          "type": "string"
+        },
+        "abstract_status": {
+          "enum": [
+            "available",
+            "missing in source metadata"
+          ]
+        },
+        "paper_url": {
+          "type": "string",
+          "description": "Original source link, if trusted; otherwise empty. HTTPS only."
+        },
+        "pdf_url": {
+          "type": "string",
+          "description": "Trusted publisher-hosted PDF link where known, otherwise empty."
+        },
+        "source": {
+          "type": "string",
+          "description": "Dataset or proceedings provenance, not a verification of acceptance."
+        },
+        "track_status": {
+          "type": "string",
+          "description": "As supplied; not necessarily verified."
+        },
+        "cluster": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "primary_area": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "doi": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "score": {
+          "type": "number",
+          "minimum": 0
+        },
+        "source_verification": {
+          "enum": [
+            "dataset_metadata",
+            "publisher_verified",
+            "unverified"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "SearchRequest": {
+      "type": "object",
+      "required": [
+        "q"
+      ],
+      "properties": {
+        "q": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "venue": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true,
+          "maxItems": 12
+        },
+        "year": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 2017,
+            "maximum": 2026
+          },
+          "uniqueItems": true
+        },
+        "limit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 50,
+          "default": 20
+        },
+        "offset": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 200,
+          "default": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "SearchResponse": {
+      "type": "object",
+      "required": [
+        "api_version",
+        "query",
+        "results",
+        "meta"
+      ],
+      "properties": {
+        "api_version": {
+          "const": "1.0.0"
+        },
+        "query": {
+          "$ref": "#/$defs/SearchRequest"
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Paper"
+          }
+        },
+        "meta": {
+          "type": "object",
+          "required": [
+            "matched_records",
+            "scanned_records",
+            "selected_shards",
+            "returned_records",
+            "missing_abstracts",
+            "limitations"
+          ],
+          "properties": {
+            "matched_records": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "scanned_records": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "selected_shards": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "returned_records": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "missing_abstracts": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "limitations": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "HypothesisPacket": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "status",
+        "question",
+        "evidence",
+        "mechanism",
+        "baseline",
+        "falsification",
+        "resource_cap",
+        "novelty_status"
+      ],
+      "properties": {
+        "schema_version": {
+          "const": "1.0.0"
+        },
+        "status": {
+          "const": "UNTESTED"
+        },
+        "question": {
+          "type": "string"
+        },
+        "evidence": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "object",
+            "required": [
+              "paper_id",
+              "venue",
+              "year",
+              "url",
+              "role"
+            ],
+            "properties": {
+              "paper_id": {
+                "type": "string"
+              },
+              "venue": {
+                "type": "string"
+              },
+              "year": {
+                "type": "integer"
+              },
+              "url": {
+                "type": "string"
+              },
+              "role": {
+                "enum": [
+                  "problem",
+                  "method",
+                  "evaluation",
+                  "prior_art"
+                ]
+              },
+              "abstract_verification": {
+                "enum": [
+                  "provided",
+                  "missing",
+                  "fulltext_checked"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "mechanism": {
+          "type": "string"
+        },
+        "counterhypothesis": {
+          "type": "string"
+        },
+        "baseline": {
+          "type": "string"
+        },
+        "falsification": {
+          "type": "string"
+        },
+        "metric": {
+          "type": "string"
+        },
+        "split": {
+          "type": "string"
+        },
+        "resource_cap": {
+          "type": "string"
+        },
+        "novelty_status": {
+          "enum": [
+            "unchecked",
+            "possible_overlap",
+            "checked_not_proven",
+            "rejected"
+          ]
+        },
+        "model_provenance": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Do not claim consultation until an actual model response is saved."
+        }
+      },
+      "additionalProperties": false
+    },
+    "APIError": {
+      "type": "object",
+      "required": [
+        "error",
+        "api_version"
+      ],
+      "properties": {
+        "api_version": {
+          "const": "1.0.0"
+        },
+        "error": {
+          "type": "object",
+          "required": [
+            "code",
+            "message"
+          ],
+          "properties": {
+            "code": {
+              "type": "string"
+            },
+            "message": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "Catalog": {
+      "type": "object",
+      "description": "Read-through of the existing source catalog.json. Each venue has available_years, missing_years, years[year] (count,file,bytes,sha256,source_url,revision,abstract_count,abstract_coverage,license) and total_records; preserve source metadata without reclassification.",
+      "required": [
+        "schema",
+        "taxonomy",
+        "venues"
+      ],
+      "properties": {
+        "schema": {
+          "type": "string"
+        },
+        "taxonomy": {
+          "type": "object"
+        },
+        "venues": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "api_version": "1.0.0",
+  "contracts": [
+    "Paper",
+    "SearchRequest",
+    "SearchResponse",
+    "HypothesisPacket",
+    "APIError",
+    "Catalog"
+  ]
+}
