@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOf": "2026-11-04",
+  "asOf": "2026-11-05",
   "heading": "Europe-wide paid AI/ML research opportunities for international Master's students",
   "scope": "European universities and research institutes; paid employment, stipend or funded living costs; all AI/ML fields. Program admission and visa rules always prevail.",
   "safety": "Public program facts only. No applicant identity, application status, documents or private notes. A source-backed candidate is not an application or eligibility approval.",
@@ -11,7 +11,7 @@
     "sourcePrecedence": "Current official program page over aggregators; explicitly flag conflicts with old organizer portals and subpages",
     "eligibility": "conditional until graduation date, nationality, current enrolment and project rules are checked",
     "deadlineTimezone": "Exact time only when published; unknown remains null/TBA",
-    "verification": "Organizer pages checked 2026-11-04; program detail and application portal may differ. Evidence URLs stored per record."
+    "verification": "Official organizer/university pages individually rechecked 2026-11-05. Annual-rule deadlines must not be mistaken for a live application portal."
   },
   "domains": [
     "Speech & audio",
@@ -45,26 +45,28 @@
       "deadline": "2026-11-16",
       "deadlineNote": "Official 2027 landing page: 16 Nov 2026 (time not specified). WARNING: old registration URL /cactus-2026 says applications closed/next 2028; confirm the correct 2027 submission form on current program site.",
       "period": "July–September 2027",
-      "funding": "Paid stipend for 3 months plus travel and accommodation assistance; exact official amount and exclusions not confirmed",
+      "funding": "Approximately €1,350 per month for July–September 2027, intended to cover housing, living expenses and health insurance; travel compensated",
       "eligibility": "Potential match",
-      "eligibilityDetail": "BSc/MSc students worldwide, enrolled or recently graduated, AI/cognition focus; especially intended to support applicants facing personal, financial, regional or societal barriers. Project-specific continued-enrolment rules may apply.",
+      "eligibilityDetail": "Worldwide BSc/MSc students and some graduates who have NOT begun a PhD, with relevant ML/neuroscience/cognition and demonstrated barriers to research access. Full July–September 2027 availability; voluntary only (no course-credit requirement). Projects 1–4 require university enrollment January–October 2027. Good English; TOEFL/IELTS certificate NOT required.",
       "officialUrl": "https://projects.tuebingen.mpg.de/",
       "priority": "urgent",
-      "action": "URGENT: 12 days until advertised deadline. Locate valid 2027 portal via official homepage; do not use the stale /cactus-2026 link; prepare project-specific research statement.",
+      "action": "URGENT 11 days: follow current program's official application link; prepare research statement in your own words, CV/transcripts and choose up to 2 projects. Do not submit to old /cactus-2026 registration; confirm correct 2027 URL.",
       "review": "recheck",
       "opening": "2026-10-21",
-      "verifiedAt": "2026-11-04",
+      "verifiedAt": "2026-11-05",
       "deadlineTime": null,
       "deadlineTimezone": "Not published",
-      "fundingCaveats": "Official landing page promises full stipend and assistance; does not expressly guarantee free lodging, visa fees or fixed stipend amount. Confirm actual package before accepting.",
+      "fundingCaveats": "Housing is organized but paid from the salary, NOT free additional funding. Visa/embassy fees and related travel are NOT reimbursed. Exact net sum/tax/insurance terms must be confirmed.",
       "applicationDocuments": [
-        "CV and transcripts (confirm exact requirements in current portal)",
-        "Project selection and personal research motivation; consult official guide",
-        "Potential project-specific enrollment proof"
+        "CV max. 2 pages",
+        "Transcripts for all completed BSc/MSc terms and any degree certificates (English translations allowed)",
+        "Motivational statement: scientific goals, prior project, up to 2 preferred research projects, access barriers",
+        "One optional reference letter (referee uses portal email link)"
       ],
       "sourceUrls": [
         "https://projects.tuebingen.mpg.de/",
         "https://projects.tuebingen.mpg.de/program",
+        "https://projects.tuebingen.mpg.de/faq",
         "https://cactus-apply.tue.mpg.de/registration/cactus-2026"
       ],
       "openStatus": "Conflicting portal status: 2027 landing page says open but indexed old registration page says closed"
@@ -83,17 +85,17 @@
         "Robotics"
       ],
       "deadline": "2026-11-29",
-      "deadlineNote": "29 Nov 2026 calculated from EPFL's recurring rule (Sunday closest to 1 December). Portal may open only 2 weeks before deadline. Official 2027 portal date not separately published.",
+      "deadlineNote": "OFFICIAL recurrence rule: Sunday closest to 1 December each year, which implies 29 Nov 2026. The 2027 portal does NOT separately confirm this exact date yet; treat as PROVISIONAL / annual-rule, not independently confirmed deadline.",
       "period": "May–September 2027, typically 2–3 months",
       "funding": "CHF 1,800 per month + eligible travel reimbursement",
       "eligibility": "Conditional",
       "eligibilityDetail": "Worldwide non-EPFL BSc/BTech/MSc/MTech CS/Computer Engineering/EE/Telecom students; must remain enrolled during fellowship, not just at application; graduate-before-summer applicants are ineligible.",
       "officialUrl": "https://summer.epfl.ch/",
       "priority": "urgent",
-      "action": "Prepare CV, complete BSc + MSc transcripts and letter now. Recheck the application portal from mid-November; no references.",
+      "action": "Prepare all available BSc/MSc transcripts, CV and motivation (max 2 pages); NO recommendation letters (organizer says not considered). Application portal may only open 1–2 weeks before annual cutoff.",
       "review": "annual-rule",
       "opening": null,
-      "verifiedAt": "2026-11-04",
+      "verifiedAt": "2026-11-05",
       "deadlineTime": null,
       "deadlineTimezone": "Not separately posted; check application portal",
       "applicationDocuments": [
@@ -130,7 +132,7 @@
       "action": "Open now: prepare English transcripts, bachelor's certificate, CV, motivation and English assessment/statement. Confirm enrollment through internship.",
       "review": "official",
       "opening": null,
-      "verifiedAt": "2026-11-04",
+      "verifiedAt": "2026-11-05",
       "deadlineTime": "23:59",
       "deadlineTimezone": "AoE (UTC−12)",
       "openStatus": "Open",
@@ -163,17 +165,17 @@
         "Privacy & security"
       ],
       "deadline": "2026-12-16",
-      "deadlineNote": "Official SiROP fellowship 2027 advert specifies 16 Dec 2026, 13:00 Central European Time; older ETH how-to-apply page still displays 2025 and APPLICATION CLOSED (stale copy).",
-      "period": "1 July–31 August 2027",
+      "deadlineNote": "Current official ETH application page now displays OPEN 2027 cycle, 1 Nov–16 Dec 2026 at 13:00 CET (updated from the stale 2025 text seen on prior scan).",
+      "period": "2 July–27 August 2027 (on-site for full summer fellowship)",
       "funding": "CHF 4,000 total for 2 months; travel and visa support",
       "eligibility": "Graduation check",
       "eligibilityDetail": "Worldwide BSc/MSc CS or closely related (not ETH-enrolled), 2 years studies complete by summer; graduation earliest spring semester 2028. Must be present for ALL of July–August 2027. English working proficiency, no formal language certificate required.",
       "officialUrl": "https://inf.ethz.ch/studies/summer-research-fellowship.html",
       "priority": "high",
-      "action": "Only prioritize if MSc graduation is spring 2028 or later. SiROP 2027 has live dated call; ETH explanatory page still shows prior-year details.",
+      "action": "Official ETH 2027 application page now lists current dates and SiROP link. Apply ONLY if current MSc/BSc graduation is spring 2028 or later; prepare Europass CV, official university-issued transcripts, one-page motivation (no faculty cold emails).",
       "review": "official",
       "opening": "2026-11-01",
-      "verifiedAt": "2026-11-04",
+      "verifiedAt": "2026-11-05",
       "deadlineTime": "13:00",
       "deadlineTimezone": "CET (UTC+1)",
       "fundingCaveats": "CHF 4,000 total intended for housing/living for 2 months; housing may be deducted; visa and travel costs reimbursed/covered per official ETH guidance.",
@@ -184,11 +186,11 @@
         "Application through official SiROP"
       ],
       "sourceUrls": [
-        "https://sirop.org/app/1535d3bf-c2ef-4c74-8870-cb5bc17cb4da",
         "https://inf.ethz.ch/studies/summer-research-fellowship/how-to-apply.html",
-        "https://inf.ethz.ch/studies/summer-research-fellowship/program-structure.html"
+        "https://inf.ethz.ch/studies/summer-research-fellowship/program-structure.html",
+        "https://inf.ethz.ch/studies/summer-research-fellowship.html"
       ],
-      "openStatus": "2027 SiROP advert exists; live submit status should be checked"
+      "openStatus": "2027 official application period listed and SiROP application link present"
     },
     {
       "id": "rc-trust27",
@@ -213,10 +215,10 @@
       "action": "Find matching trustworthy ML, NLP, safe RL or HCI group. Watch for official online form; email applications NOT accepted.",
       "review": "official",
       "opening": null,
-      "verifiedAt": "2026-11-04",
+      "verifiedAt": "2026-11-05",
       "deadlineTime": null,
       "deadlineTimezone": "Not stated",
-      "openStatus": "Not yet open: application form coming soon",
+      "openStatus": "Official form not yet available on Nov 5; date confirmed for Dec 31 only",
       "applicationDocuments": [
         "Online form only (details/document list not yet published)",
         "Group/research-interest choice likely required; confirm form once available"
@@ -251,7 +253,7 @@
       "action": "Request a reference letter early, review projects ~10 Dec 2026, apply Jan 7–31 (up to 3 projects; one combined PDF).",
       "review": "official",
       "opening": "2027-01-07",
-      "verifiedAt": "2026-11-04",
+      "verifiedAt": "2026-11-05",
       "deadlineTime": "23:59",
       "deadlineTimezone": "UTC+2 (Finland; as explicitly published for Jan 2027)",
       "openStatus": "Not yet open; projects published mid-Dec",
@@ -282,17 +284,17 @@
         "AI for science"
       ],
       "deadline": null,
-      "deadlineNote": "Organizer says 2027 applications open in November 2026 but currently displays Applications Closed. No 2027 application deadline published.",
+      "deadlineNote": "Organizer confirms opening in November 2026 but application page still says 'Applications Closed' as of Nov 5; precise 2027 deadline and open date TBA.",
       "period": "June–August 2027, 9 weeks",
       "funding": "CHF 94 per calendar day + travel allowance and health coverage",
       "eligibility": "Potential match",
       "eligibilityDetail": "BSc/MSc CS, mathematics, engineering or physics with strong computing profile; at least 3 university years completed by June 2027; international eligibility per CERN program rules/FAQ.",
       "officialUrl": "https://openlab.web.cern.ch/cern-openlab-summer-student-programme/",
       "priority": "high",
-      "action": "Prepare academic referee now; CERN page says applications will open in Nov 2026, deadline remains TBA.",
+      "action": "Prepare current transcripts, CV, and an academic letter dated within 12 months. Revisit CERN career portal this month; opening and deadline still unconfirmed.",
       "review": "official",
       "opening": null,
-      "verifiedAt": "2026-11-04",
+      "verifiedAt": "2026-11-05",
       "openStatus": "Announced, not yet open",
       "fundingCaveats": "CHF 94 daily allowance and separate end-of-stay lump-sum travel allowance; CERN health insurance; assistance FINDING accommodation, not paid accommodation. Check availability of visa eligibility and any nationality constraints.",
       "applicationDocuments": [
@@ -330,9 +332,9 @@
       "action": "Target relevant faculty and request non-summer start ≥4 months out. Do not confuse with paused ISTernship Summer Fellowship (paused for 2026 and 2027).",
       "review": "official",
       "opening": null,
-      "verifiedAt": "2026-11-04",
+      "verifiedAt": "2026-11-05",
       "openStatus": "Rolling professor-initiated lab contact",
-      "fundingCaveats": "€1,583 gross/month minimum 2026 salary; individual host funding required; paid housing/travel not promised. Cannot be employed/funded elsewhere concurrently.",
+      "fundingCaveats": "Salary is minimum €1,583 gross/month; campus housing is subject to availability and is paid separately. Must not receive simultaneous employment or outside funding; research security review and visa apply.",
       "applicationDocuments": [
         "Direct email to group leader or staff scientist with concise background and lab-specific motivation",
         "CV PDF",
@@ -340,8 +342,7 @@
       ],
       "sourceUrls": [
         "https://phd.ist.ac.at/scientific-internships/",
-        "https://phd.ist.ac.at/funding-and-awards/",
-        "https://phd.ist.ac.at/internships/"
+        "https://phd.ist.ac.at/funding-and-awards/"
       ]
     },
     {
@@ -470,19 +471,19 @@
       "deadline": "2026-11-27",
       "deadlineNote": "NEW confirmed official deadline 27 Nov 2026 for Sep–Nov 2027 stay; applications begin Nov 2026.",
       "period": "September–November 2027, 3 months",
-      "funding": "€1,400 stipend (official page does not specify payment frequency) + travel compensation and accommodation",
+      "funding": "About €1,400 per MONTH to cover housing and living costs, plus travel to/from Berlin and supported accommodation arrangements",
       "eligibility": "Research-fit check",
-      "eligibilityDetail": "International BSc/MSc students; MUST still be enrolled for visa; available for ALL Sep 1–Nov 30 2027; voluntary internship only (NOT mandatory course credits). Strong biological research relevance and barriers to access central to program. ML fit only if actual project computational.",
+      "eligibilityDetail": "International BSc/MSc student; MUST remain enrolled throughout Sep–Nov 2027; full-time voluntary internship that cannot count for required credits. Strong biology/medicine/infection research fit and preference for barriers to scientific access. Only ML-compatible where proposed project is explicitly computational.",
       "officialUrl": "https://www.mpiib-berlin.mpg.de/mpiib-isi",
       "priority": "optional",
       "action": "Deadline 27 Nov: inspect actual 2027 projects before considering; main focus infection biology, not generic AI.",
       "review": "official",
       "opening": null,
-      "verifiedAt": "2026-11-04",
+      "verifiedAt": "2026-11-05",
       "deadlineTime": null,
       "deadlineTimezone": "Not specified",
       "openStatus": "Opening during Nov 2026; official page does not show open form yet",
-      "fundingCaveats": "Official page says €1,400 stipend for living expenses but does not specify monthly vs total. Check with institute; do not infer monthly amount. Must be voluntary non-credit internship.",
+      "fundingCaveats": "Monthly amount confirmed by organizer FAQ. Visa fees are NOT covered; accommodation is affordable/arranged, not universally free. Must pay own visa costs.",
       "applicationDocuments": [
         "Academic record",
         "Research/project motivation",
@@ -490,7 +491,8 @@
         "English skills; exact application packet not yet stated"
       ],
       "sourceUrls": [
-        "https://www.mpiib-berlin.mpg.de/mpiib-isi"
+        "https://www.mpiib-berlin.mpg.de/mpiib-isi",
+        "https://www.mpiib-berlin.mpg.de/2155085/mpiib-isi-faq"
       ]
     },
     {
@@ -730,24 +732,225 @@
       "review": "official",
       "action": "Do not apply for 2027; keep as next-cycle discovery lead.",
       "verifiedAt": "2026-11-04"
+    },
+    {
+      "id": "oxford-ai-cancer-ra-189247",
+      "name": "Oxford Research Assistant: AI Scientist & Computational Cancer Biology",
+      "host": "University of Oxford, Nuffield Department of Medicine",
+      "country": "United Kingdom",
+      "type": "Fixed-term employed research assistantship (NOT summer internship)",
+      "domains": [
+        "AI for science",
+        "Interdisciplinary AI",
+        "AI agents & memory",
+        "Data-centric ML",
+        "Foundation models"
+      ],
+      "deadline": "2026-11-09",
+      "deadlineNote": "University of Oxford LIVE official vacancy 189247, closes 9 Nov 2026 at 12:00 GMT. Full-time employment until 30 Sep 2030, not a summer student fellowship.",
+      "period": "Full-time research employment, fixed-term until 30 September 2030; start by arrangement",
+      "funding": "£35,681–£41,636 gross/year (discretionary scale to £46,476, including Oxford weighting); salaried research job",
+      "eligibility": "Full-time work / degree / immigration check",
+      "eligibilityDetail": "Must already hold relevant Bachelor's degree and specialist AI or computational biology skills with experience in biological/large-scale data, ML models or agents. MSc student may apply but full-time ongoing employment may conflict with degree; UK right-to-work / sponsorship NOT confirmed. No claim of automatic eligibility for overseas students.",
+      "officialUrl": "https://my.corehr.com/pls/uoxrecruit/erq_jobspec_version_4.display_form?p_applicant_no=&p_company=10&p_display_apply_ind=Y&p_display_in_irish=N&p_form_profile_detail=&p_internal_external=E&p_process_type=&p_recruitment_id=189247&p_refresh_search=Y",
+      "priority": "conditional-urgent",
+      "action": "URGENT 4 days: only for a candidate able to work full-time in the UK. Prepare CV and supporting statement demonstrating each selection criterion; confirm work authorization/sponsorship and student status with employer.",
+      "review": "official",
+      "opening": "2026-10-27",
+      "verifiedAt": "2026-11-05",
+      "deadlineTime": "12:00",
+      "deadlineTimezone": "GMT (UTC+0)",
+      "fundingCaveats": "Salary requires full-time employment; relocation, accommodation, visa fees and sponsorship are NOT stated as funded. Not an internship or portable stipend.",
+      "applicationDocuments": [
+        "CV",
+        "Supporting statement addressing each selection criterion; employer says no extra uploads"
+      ],
+      "sourceUrls": [
+        "https://my.corehr.com/pls/uoxrecruit/erq_jobspec_version_4.display_form?p_applicant_no=&p_company=10&p_display_apply_ind=Y&p_display_in_irish=N&p_form_profile_detail=&p_internal_external=E&p_process_type=&p_recruitment_id=189247&p_refresh_search=Y"
+      ],
+      "openStatus": "Vacancy listed in current official University of Oxford recruiting system"
+    },
+    {
+      "id": "robotac-physical-ai-intern-nov26",
+      "name": "RoboTac / BMW Munich: World Models for Robotics Internship",
+      "host": "RoboTac Lab & BMW AI-Robotics Lab",
+      "country": "Germany",
+      "type": "Industrial-laboratory research internship (NOT university program)",
+      "domains": [
+        "Robotics",
+        "Vision & multimodal",
+        "Foundation models",
+        "RL & decision-making",
+        "Core ML"
+      ],
+      "deadline": "2026-11-15",
+      "deadlineNote": "Lab's official 'Open Positions' notice, updated October 2026, says email application by 15 Nov 2026. No cutoff hour/timezone published. Distinct PhD positions advertised on same page.",
+      "period": "Expected start December 2026, duration not stated; Munich on site",
+      "funding": "Official lab advert calls positions fully funded and promises attractive remuneration; exact internship salary, travel and visa coverage NOT stated",
+      "eligibility": "Technical research / employer verification",
+      "eligibilityDetail": "Currently enrolled OR graduated MSc in EE, CS, mathematics, systems/control or related, with strong practical robotics and deep learning, PyTorch and English; IsaacLab/MuJoCo desirable. Industry-laboratory internship in BMW Munich; work permit/sponsorship not stated. The lab also lists separate PhD positions.",
+      "officialUrl": "https://www.robotac.eu/open-positions",
+      "priority": "conditional-urgent",
+      "action": "URGENT 10 days: if strong robotics + PyTorch fit, verify employer identity and compensation/immigration arrangements; apply only if interested in industrial research. CV with photo, one-page cover letter, BSc/MSc transcripts in one PDF via lab's published email (not sent by tracker).",
+      "review": "official",
+      "opening": null,
+      "verifiedAt": "2026-11-05",
+      "deadlineTime": null,
+      "deadlineTimezone": "Not published",
+      "fundingCaveats": "Source is the research lab's own website, not an independently verified BMW/TU Eindhoven HR job advertisement. 'Fully funded' and 'attractive remuneration' are unquantified. Housing in BMW apartment subject to availability; visa/travel unknown.",
+      "applicationDocuments": [
+        "CV with photo (as requested by employer)",
+        "Cover letter max 1 page",
+        "BSc/MSc university transcripts",
+        "Publication list if any; two recommendation contacts requested only for PhD role",
+        "One combined PDF by 15 Nov sent to lab email"
+      ],
+      "sourceUrls": [
+        "https://www.robotac.eu/open-positions"
+      ],
+      "openStatus": "October 2026 lab notice currently advertises 15 Nov cutoff"
+    },
+    {
+      "id": "imprs-is-phd27",
+      "name": "IMPRS Intelligent Systems 2027 doctoral positions",
+      "host": "Max Planck Institute for Intelligent Systems / Universities of Tübingen & Stuttgart",
+      "country": "Germany",
+      "type": "Funded doctoral training (PhD, NOT internship)",
+      "domains": [
+        "Core ML",
+        "NLP & LLMs",
+        "Vision & multimodal",
+        "Robotics",
+        "Neuroscience",
+        "AI & cognition",
+        "RL & decision-making",
+        "Interdisciplinary AI"
+      ],
+      "deadline": "2026-11-15",
+      "deadlineNote": "Official portal: 15 Nov 2026 End of Day Anywhere on Earth (AoE, UTC−12); interviews 18–26 Feb 2027. The notice's cohort-year wording contains stale text but 2027 hiring round is explicit.",
+      "period": "Start February 2027 or later as agreed; PhD training, initially 3-year employment contract",
+      "funding": "Fully salaried doctoral employment; initial contract at least 75% of German TVöD/TV-L E13 rate, exact gross amount varies by host and year",
+      "eligibility": "Post-MS / doctoral pathway",
+      "eligibilityDetail": "Master's conferred OR expected soon in CS, engineering, robotics, cognitive science, math, physics, etc.; needs research direction, faculty fit, three referees and English evidence (TOEFL or English-medium training alternative). Worldwide eligible in principle. NOT a temporary internship; home university enrollment/PhD transfer must be arranged.",
+      "officialUrl": "https://imprs.is.mpg.de/application",
+      "priority": "conditional-urgent",
+      "action": "URGENT 10 days: apply only if aiming to join a PhD from 2027. Requires CV, all transcripts, two-page motivation, preferred supervisors, THREE reference contacts and English proficiency evidence. Written research ideas must be applicant's own work.",
+      "review": "official",
+      "opening": "2026-09",
+      "verifiedAt": "2026-11-05",
+      "deadlineTime": "23:59",
+      "deadlineTimezone": "AoE (UTC−12)",
+      "fundingCaveats": "Exact annual salary not provided; regular German employment taxes and student fees may apply. Paid doctoral track, not a fellowship for current MS study.",
+      "applicationDocuments": [
+        "CV with research/projects/publications",
+        "All university transcripts (unofficial allowed)",
+        "Two-page research motivation, preferred faculty",
+        "Three academic referees and timely reference letters",
+        "TOEFL or alternative English proficiency evidence; GRE optional"
+      ],
+      "sourceUrls": [
+        "https://imprs.is.mpg.de/application",
+        "https://imprs.is.mpg.de/faqs",
+        "https://imprs.is.mpg.de/news/imprs-is-now-accepting-applications-for-2027"
+      ],
+      "openStatus": "Application portal open for 2027 hiring"
+    },
+    {
+      "id": "eth-robotx-phd27",
+      "name": "ETH RobotX 2027 PhD Fellowship",
+      "host": "ETH Zurich / RobotX Center for Robotics",
+      "country": "Switzerland",
+      "type": "Funded doctoral employment (PhD, NOT internship)",
+      "domains": [
+        "Robotics",
+        "Vision & multimodal",
+        "RL & decision-making",
+        "Core ML",
+        "AI for science",
+        "Interdisciplinary AI"
+      ],
+      "deadline": "2026-11-27",
+      "deadlineNote": "Official ETH vacancies page confirms deadline 27 Nov 2026, exact time and timezone not specified.",
+      "period": "Doctorate starting by agreement in 2027; full-time ETH employment",
+      "funding": "Fully funded doctoral employee at ETH doctoral salary rate with full social benefits; specific salary amount not stated in vacancy",
+      "eligibility": "Post-MS only; graduation by Aug 2027",
+      "eligibilityDetail": "Relevant MSc degree COMPLETED by August 2027 in CS, robotics, electrical/mechanical engineering, bioengineering, materials or close fields; strong real-robot hardware/project experience, English, demonstrable research fit. International applications considered; right-to-work/visa is institution-dependent.",
+      "officialUrl": "https://www.jobs.ethz.ch/job/view/JOPG_ethz_zBtPwWHnM0fumyTFso",
+      "priority": "conditional",
+      "action": "Choose up to three ETH RobotX professors; prepare single merged application PDF under 10 MB: cover letter, CV, Bachelor/Master transcripts with grading scale, three references including phone, best publication/thesis/project report.",
+      "review": "official",
+      "opening": null,
+      "verifiedAt": "2026-11-05",
+      "deadlineTime": null,
+      "deadlineTimezone": "Not published",
+      "fundingCaveats": "Full doctoral salary as ETH employee but not short-term MSc intern stipend; relocation, housing, visa and research funding details must be checked. Must finish MSc by Aug 2027.",
+      "applicationDocuments": [
+        "Cover letter with research groups",
+        "CV and publications",
+        "BSc/MSc transcripts including local grade scale",
+        "Three references with phone and email",
+        "One thesis/project/publication in single PDF under 10 MB"
+      ],
+      "sourceUrls": [
+        "https://www.jobs.ethz.ch/job/view/JOPG_ethz_zBtPwWHnM0fumyTFso"
+      ],
+      "openStatus": "Official ETH job advertisement active"
+    },
+    {
+      "id": "brunel-climabuild-ra26",
+      "name": "Brunel CLIMABUILD: Research Assistant / Fellow",
+      "host": "Brunel University of London",
+      "country": "United Kingdom",
+      "type": "Fixed-term employed research assistantship (NOT summer internship)",
+      "domains": [
+        "NLP & LLMs",
+        "AI for science",
+        "Data-centric ML",
+        "Interdisciplinary AI",
+        "Core ML"
+      ],
+      "deadline": "2026-12-01",
+      "deadlineNote": "Current official university vacancy 17110 / ref 5258, closes 1 Dec 2026; precise hour/timezone not stated.",
+      "period": "Full-time fixed-term employment, start/duration not specified in vacancy",
+      "funding": "Research Assistant: £37,810–£39,877 gross/year incl. London weighting (potential rise to £40,956); Research Fellow requires PhD and pays higher",
+      "eligibility": "Full-time work / immigration check",
+      "eligibilityDetail": "Relevant degree in CS, environmental/civil/building engineering or similar; Python or analogous programming and climate/sustainability/lifecycle assessment skills, plus familiarity with LLMs, RAG and knowledge graphs. Research Assistant grade possible without PhD, Research Fellow grade needs doctorate. Working in UK full-time may conflict with current MS enrollment; visa/sponsorship NOT confirmed.",
+      "officialUrl": "https://careers.brunel.ac.uk/vacancy/research-assistant-research-fellow-17110-622606.html",
+      "priority": "conditional",
+      "action": "For candidate able to take a UK research job: review official job description, submit required university employment application; verify UK work authorization and full-time availability.",
+      "review": "official",
+      "opening": "2026-11-03",
+      "verifiedAt": "2026-11-05",
+      "deadlineTime": null,
+      "deadlineTimezone": "Not published",
+      "fundingCaveats": "Research JOB salary rather than MSc placement funding; travel, housing, relocation and visa sponsorship not confirmed. Full-time commitment.",
+      "applicationDocuments": [
+        "Employer's application form",
+        "CV / statement per attached research assistant description; verify required supporting documents"
+      ],
+      "sourceUrls": [
+        "https://careers.brunel.ac.uk/vacancy/research-assistant-research-fellow-17110-622606.html"
+      ],
+      "openStatus": "Official university careers page lists vacancy as open"
     }
   ],
   "lastResearchSummary": {
-    "checkedAt": "2026-11-04",
-    "newIds": [
-      "epfl-sv-srp27",
-      "nxai-cycle4-2027",
-      "inria-ockham-flow2027",
-      "ista-phd-2027",
-      "epfl-erip-2027",
-      "epfl-e3-2027-closed"
+    "date": "2026-11-05",
+    "newRecordIDs": [
+      "oxford-ai-cancer-ra-189247",
+      "robotac-physical-ai-intern-nov26",
+      "imprs-is-phd27",
+      "eth-robotx-phd27",
+      "brunel-climabuild-ra26"
     ],
-    "materialCorrections": [
-      "MPI Infection Biology 2027 deadline is 27 Nov 2026 (previously TBA); €1,400 frequency not stated",
-      "CISPA CSR 2027 applications are open; 30 Nov 2026 AoE",
-      "CaCTüS 2027 listing deadline 16 Nov 2026 but stale application portal says closed; needs manual link verification",
-      "ISTA ISTernship summer fellowship paused 2026 and 2027; year-round scientific internships still active"
+    "materialChanges": [
+      "ETH SSRF official 2027 how-to-apply page now shows current dates 1 Nov–16 Dec 2026 13:00 CET, and fellowship 2 July–27 Aug 2027; replaces earlier stale copy.",
+      "CaCTüS official program detail confirms approximately €1,350/month salary, own visa fees, voluntary project requirements and Jan–Oct enrollment for projects 1–4.",
+      "MPI Infection Biology official FAQ confirms stipend is approximately €1,400 PER MONTH; prior program landing page ambiguous.",
+      "CERN openlab 2027 has NOT opened on its official site yet and deadline is still TBA.",
+      "Summer@EPFL 2026-11-29 remains a deduction from annual rule, NOT organizer-issued 2027 fixed cutoff.",
+      "Added separate lab-industry and fixed-term employed research roles distinctly labelled from student research fellowships and PhD positions."
     ],
-    "nonActionable": "EPFL E3 closed 1 Nov; EPFL ERIP limited to partner universities and nominations; some campus scholarships require bachelor-only status."
+    "scopeNote": "International MSc eligibility cannot be guaranteed without applicant degree, graduation date, visas and current enrollment. No applications submitted."
   }
 }
