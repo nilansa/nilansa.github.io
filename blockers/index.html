@@ -34,7 +34,7 @@ footer{font-size:13px;color:#555;margin-top:26px}
 <body>
 <header>
 <h1>Blockers</h1>
-<p class="subtle">Last reviewed: 7 November 2026, 02:10 IST · Tracking ID: blocker-tracker-20261106-001</p>
+<p class="subtle">Last reviewed: 07 November 2026 03:44 IST · Tracking ID: blocker-tracker-20261106-001</p>
 <p>Each item tells you <strong>what is blocked</strong>, <strong>who acts</strong>, and the <strong>next exact steps</strong>. <strong>Confirmed</strong> means checked; <strong>Reported</strong> means someone observed it but a fresh check is still needed; <strong>Verify</strong> means completion is not established.</p>
 <nav aria-label="Page sections"><a href="#your-actions">Your actions</a><a href="#agent-actions">Agent or service</a><a href="#new-blocker">Add a blocker</a><a href="/tracker/">Main tracker</a></nav>
 </header>
@@ -106,6 +106,17 @@ CLAUDE_CONFIG_DIR="$HOME/.claude-science" claude auth status</pre>
 <li>Check for an explicit approval or access notification. Until confirmed, keep the status <strong>Verify</strong>; if the corrected form was submitted but access is still denied, reply to the official <em>EEG-sAAD Grand Challenge</em> organizer email with the non-secret registration status.</li>
 </ol>
 <p><a href="https://2027.ieeeicassp.org/sp-grand-challenges/">IEEE ICASSP 2027 grand challenges and official schedule</a> · <a href="https://www.codabench.org/competitions/17856/">CoDaBench challenge</a> · <a href="https://table.nju.edu.cn/dtable/forms/da668b8e-1bcc-4802-ac59-152b091b6d22/">Organizer registration form</a></p>
+</section>
+<section class="item" id="B-009">
+<h3>B-009 · ICASSP 2027 DOSE-I CoDaBench participation approval to verify</h3>
+<p><strong>Project:</strong> ICASSP 2027 DOSE-I Grand Challenge. <strong>Confirmed:</strong> In an organizer email dated 3 Nov 2026, the team registration (both members) was accepted. The organizer requires one nominated CoDaBench account and a request to join the competition before the organizer can approve participation. <strong>Reported:</strong> A team reply dated 6 Nov identified the intended account and said a join request would be made. <strong>Verify:</strong> No subsequent join-request receipt or approval was established from connected inbox checks through 7 Nov 2026; this does not prove the request was not sent. A read-only public check on 7 Nov showed an HTTP 200 browser-verification page, not authenticated account status. <strong>Owner:</strong> HUMAN for signed-in account access and a join request <em>only if still missing</em>; AGENT for approval and submission-access verification. The currently published final submission deadline is <strong>1 Dec 2026</strong>; an extension was proposed but not confirmed in the organizer email.</p>
+<ol>
+<li>Open the <a href="https://www.codabench.org/competitions/18100/">official DOSE-I CoDaBench competition</a> in your normal signed-in browser. Complete any site-provided verification normally; do not bypass it. Use the team's <strong>one intended submission account</strong>, not multiple accounts.</li>
+<li>Check the existing participant or join-request state first. If participation is already approved, save the non-secret confirmation privately and take no duplicate action. If the request is missing, select the competition's normal <strong>Join / Participate</strong> action once, then check whether it is pending or approved.</li>
+<li>The team already emailed the intended account to the organizers. If the join request is pending, use the existing organizer correspondence (find via <a href="https://mail.google.com/mail/u/0/#search/DOSE-I">Gmail search: DOSE-I</a>) to ask for approval; do not submit a second team registration or publish account details, verification links, passwords, or cookies.</li>
+<li><strong>AGENT:</strong> After explicit organizer or participant-page approval, verify challenge access and the submission interface. Mark this item resolved only with the actual confirmation, not an HTTP 200 or public page title.</li>
+</ol>
+<p><a href="https://safe-ai-research.github.io/DOSE-I-Challenge/">Official DOSE-I challenge rules</a> · <a href="https://www.codabench.org/competitions/18100/">Competition participation page</a> · <a href="https://2027.ieeeicassp.org/sp-grand-challenges/">IEEE ICASSP challenge schedule</a></p>
 </section>
 <h2 id="agent-actions">Agent or service blockers (do not require blind approval)</h2>
 <section class="item" id="B-004">
