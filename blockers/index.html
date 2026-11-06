@@ -34,7 +34,7 @@ footer{font-size:13px;color:#555;margin-top:26px}
 <body>
 <header>
 <h1>Blockers</h1>
-<p class="subtle">Last reviewed: 6 November 2026 (IST) · Tracking ID: blocker-tracker-20261106-001</p>
+<p class="subtle">Last reviewed: 6 November 2026, 10:04 IST · Tracking ID: blocker-tracker-20261106-001</p>
 <p>Each item tells you <strong>what is blocked</strong>, <strong>who acts</strong>, and the <strong>next exact steps</strong>. <strong>Confirmed</strong> means checked; <strong>Reported</strong> means someone observed it but a fresh check is still needed; <strong>Verify</strong> means completion is not established.</p>
 <nav aria-label="Page sections"><a href="#your-actions">Your actions</a><a href="#agent-actions">Agent or service</a><a href="#new-blocker">Add a blocker</a><a href="/tracker/">Main tracker</a></nav>
 </header>
@@ -92,6 +92,17 @@ CLAUDE_CONFIG_DIR="$HOME/.claude-science" claude auth status</pre>
 <li>If an organizer approval request is visibly pending, follow the competition's own approval flow or contact the organizer; otherwise it is an agent/service issue, not a phone approval task.</li>
 </ol>
 <p><a href="https://www.codabench.org/competitions/17828/">Open PAIEC on CoDaBench</a> · <a href="https://aims.stanford.edu/competition/">Official rules and contacts</a></p>
+</section>
+<section class="item" id="B-005">
+<h3>B-005 · CVPR 2027 research sprint: independent review path unavailable</h3>
+<p><strong>Project:</strong> CVPR research sprint. <strong>Status:</strong> Confirmed from local project status checkpoints dated 5–6 Nov 2026: the configured independent-review attempt returned <code>DAEMON_UNAVAILABLE</code>; the later checkpoint still reported the critique pending. This is <em>not</em> evidence of a currently displayed macOS permission dialog. <strong>Owner:</strong> AGENT (configuration and retry). HUMAN only if a genuine interactive sign-in is subsequently requested.</p>
+<ol>
+<li><strong>Agent:</strong> Inspect the existing review integration's current service availability and configured account using its supported status check. Do not assume a missing reviewer is a Mac Privacy &amp; Security permission.</li>
+<li><strong>Agent:</strong> Restore the approved service connection or select an already-authorized independent reviewer. Retry the bounded critique once and record the result privately. Do not invent a review verdict or bypass authorization.</li>
+<li><strong>Only if prompted to sign in:</strong> On your Mac, open the trusted app and follow its native sign-in prompt for the intended account. Do not share login codes or tokens; the agent should independently verify service readiness afterward.</li>
+<li>Before proposing a paper enrollment, check <a href="https://cvpr.thecvf.com/Conferences/2027/AuthorGuidelines">CVPR's author-profile and reciprocal-reviewer rules</a>. The <a href="https://cvpr.thecvf.com/Conferences/2027/Dates">registration deadline is 10 Nov 2026 AoE</a>; there is no confirmed paper submission in this sprint.</li>
+</ol>
+<p><a href="/cs-conf/">Research and submission tracker</a> · <a href="https://cvpr.thecvf.com/Conferences/2027/Dates">Official CVPR deadlines</a> · <a href="https://cvpr.thecvf.com/Conferences/2027/AuthorGuidelines">Official author guidelines</a></p>
 </section>
 <!-- BLOCKERS-END -->
 <h2 id="new-blocker">Add or update a blocker</h2>
