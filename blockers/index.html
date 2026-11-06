@@ -34,7 +34,7 @@ footer{font-size:13px;color:#555;margin-top:26px}
 <body>
 <header>
 <h1>Blockers</h1>
-<p class="subtle">Last reviewed: 6 November 2026, 11:16 IST · Tracking ID: blocker-tracker-20261106-001</p>
+<p class="subtle">Last reviewed: 6 November 2026, 11:18 IST · Tracking ID: blocker-tracker-20261106-001</p>
 <p>Each item tells you <strong>what is blocked</strong>, <strong>who acts</strong>, and the <strong>next exact steps</strong>. <strong>Confirmed</strong> means checked; <strong>Reported</strong> means someone observed it but a fresh check is still needed; <strong>Verify</strong> means completion is not established.</p>
 <nav aria-label="Page sections"><a href="#your-actions">Your actions</a><a href="#agent-actions">Agent or service</a><a href="#new-blocker">Add a blocker</a><a href="/tracker/">Main tracker</a></nav>
 </header>
@@ -103,16 +103,6 @@ CLAUDE_CONFIG_DIR="$HOME/.claude-science" claude auth status</pre>
 <li>Before proposing a paper enrollment, check <a href="https://cvpr.thecvf.com/Conferences/2027/AuthorGuidelines">CVPR's author-profile and reciprocal-reviewer rules</a>. The <a href="https://cvpr.thecvf.com/Conferences/2027/Dates">registration deadline is 10 Nov 2026 AoE</a>; there is no confirmed paper submission in this sprint.</li>
 </ol>
 <p><a href="/cs-conf/">Research and submission tracker</a> · <a href="https://cvpr.thecvf.com/Conferences/2027/Dates">Official CVPR deadlines</a> · <a href="https://cvpr.thecvf.com/Conferences/2027/AuthorGuidelines">Official author guidelines</a></p>
-</section>
-<section class="item" id="B-006">
-<h3>B-006 · Blocker checklist latest changes not publishing to GitHub Pages</h3>
-<p><strong>Project:</strong> Public blocker tracker. <strong>Status:</strong> Confirmed 6 Nov 2026: the live <a href="https://nilansa.github.io/blockers/">blocker page</a> responds HTTP 200 but is <strong>stale</strong> (shows B-001 to B-004, not the newer B-005). The GitHub Pages deployment for commit <code>64bc47b</code> timed out, and the one failed-jobs retry also timed out. Both attempts built successfully but failed during Pages deployment status polling; do not confuse this with a missing HTML file. <strong>Owner:</strong> AGENT / GitHub Pages service. No macOS approval is indicated.</p>
-<ol>
-<li><strong>Agent:</strong> Compare <a href="https://github.com/nilansa/nilansa.github.io/blob/main/blockers/index.html">GitHub's current checklist source</a> against the <a href="https://nilansa.github.io/blockers/">published checklist</a>. Verify the new blocker ID really appears in public HTML before announcing success.</li>
-<li><strong>Agent:</strong> Inspect the <a href="https://github.com/nilansa/nilansa.github.io/actions/runs/42163427158">failed GitHub Pages deployment and logs</a>. A failed-jobs rerun was already attempted once and failed; do not keep retrying it blindly or cancel an in-progress run.</li>
-<li><strong>Agent:</strong> Examine any new Pages run triggered by a legitimate content change. Check <a href="https://www.githubstatus.com/">GitHub status</a> for an incident. If persistent, escalate the run log and deployment ID through GitHub's official support route; keep the existing functional older page available.</li>
-<li><strong>Human:</strong> Until an updated deployment succeeds, use the <a href="https://github.com/nilansa/nilansa.github.io/blob/main/blockers/index.html">GitHub source as the current version</a>. No sign-in, app permission, or blind approval is required to view it.</li>
-</ol>
 </section>
 <!-- BLOCKERS-END -->
 <h2 id="new-blocker">Add or update a blocker</h2>
