@@ -34,7 +34,7 @@ footer{font-size:13px;color:#555;margin-top:26px}
 <body>
 <header>
 <h1>Blockers</h1>
-<p class="subtle">Last reviewed: 6 November 2026, 20:22 IST · Tracking ID: blocker-tracker-20261106-001</p>
+<p class="subtle">Last reviewed: 6 November 2026, 22:07 IST · Tracking ID: blocker-tracker-20261106-001</p>
 <p>Each item tells you <strong>what is blocked</strong>, <strong>who acts</strong>, and the <strong>next exact steps</strong>. <strong>Confirmed</strong> means checked; <strong>Reported</strong> means someone observed it but a fresh check is still needed; <strong>Verify</strong> means completion is not established.</p>
 <nav aria-label="Page sections"><a href="#your-actions">Your actions</a><a href="#agent-actions">Agent or service</a><a href="#new-blocker">Add a blocker</a><a href="/tracker/">Main tracker</a></nav>
 </header>
@@ -43,14 +43,14 @@ footer{font-size:13px;color:#555;margin-top:26px}
 <!-- BLOCKERS-START -->
 <section class="item" id="B-001">
 <h3>B-001 · Claude Science command-line sign-in on Mac</h3>
-<p><strong>Status:</strong> <strong>Confirmed CLI sign-in regression</strong> by repeated read-only checks on 6 Nov 2026 at 20:20–20:22 IST from the connected Mac terminal: with <code>CLAUDE_CONFIG_DIR</code> cleared, the normal Claude CLI profile now reports <code>loggedIn=false</code> (it reported <code>loggedIn=true</code> at 16:14 IST). Separately configured Claude Science and connected-agent team CLI profiles also report <code>loggedIn=false</code>. The agent shell normally selects the team profile, so the normal profile was explicitly checked without that override. This only describes CLI sign-in, <em>not</em> Claude Science or Claude Desktop GUI sign-in, and is not evidence of any current macOS approval popup. <strong>Owner:</strong> HUMAN for interactive sign-in to the actual CLI profile needed by a task; AGENT for identifying the required profile, verifying authentication, and retrying that task.</p>
+<p><strong>Project:</strong> Claude Science / Claude Code CLI on the connected Mac. <strong>Status:</strong> <strong>Confirmed profile-specific CLI authentication state</strong> from repeated read-only checks on 6 Nov 2026, 22:06–22:07 IST: the normal CLI profile (with <code>CLAUDE_CONFIG_DIR</code> unset) reports <code>loggedIn=false</code>, and the separate Claude Science CLI profile reports <code>loggedIn=false</code>. By contrast, the connected-agent team CLI profile (using its own configuration override) now reports <code>loggedIn=true</code> on two consecutive checks, a verified improvement from its earlier signed-out state. The normal CLI profile previously reported <code>loggedIn=true</code> at 16:14 IST before its observed regression. These checks do <em>not</em> establish the Claude Science or Claude Desktop GUI sign-in state and are not evidence of any current macOS approval popup. <strong>Owner:</strong> HUMAN for interactive sign-in of the normal or Claude Science CLI profile only when the affected task requires it; AGENT for choosing the intended profile, verifying status, and retrying the task. The connected-agent CLI currently needs no human sign-in.</p>
 <ol>
 <li>On the Mac, open Terminal under your usual macOS user and check which Claude account is intended for the <strong>Claude Science CLI</strong>. Confirm the intended account and profile before sign-in; do not log out another working profile or desktop app.</li>
 <li>For the separate Claude Science CLI configuration, run the first command below and complete the trusted Claude browser or SSO sign-in. Do not paste authentication codes or tokens into the tracker.</li>
 <li>Run the second command below and verify <code>loggedIn=true</code>. The agent should then retry only the affected Claude Science task.</li>
 <li>If authentication stalls or requests a manual login code, use the linked official troubleshooting instructions. Desktop/GUI session status must be checked separately.</li>
 <li>If the normal CLI profile is needed, clear the team-specific override before the official sign-in flow, using the <code>env -u CLAUDE_CONFIG_DIR</code> commands below. Do not assume its earlier successful authentication is still valid.</li>
-<li>If the separate team CLI profile used by the connected agent is required, select that exact intended profile and complete the same official <code>claude auth login</code> and <code>claude auth status</code> checks. Keep every unrelated CLI or GUI profile unchanged.</li>
+<li>The connected-agent team CLI profile was <strong>signed in</strong> at the latest check. Before retrying an affected task, the AGENT should verify that same intended profile with <code>claude auth status</code>. Do not sign in again or change working profiles unless a new authentication failure is verified.</li>
 </ol>
 <pre># Normal profile (only if needed by the blocked task):
 env -u CLAUDE_CONFIG_DIR claude auth login
