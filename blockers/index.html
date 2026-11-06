@@ -34,7 +34,7 @@ footer{font-size:13px;color:#555;margin-top:26px}
 <body>
 <header>
 <h1>Blockers</h1>
-<p class="subtle">Last reviewed: 6 November 2026, 11:58 IST · Tracking ID: blocker-tracker-20261106-001</p>
+<p class="subtle">Last reviewed: 6 November 2026, 13:24 IST · Tracking ID: blocker-tracker-20261106-001</p>
 <p>Each item tells you <strong>what is blocked</strong>, <strong>who acts</strong>, and the <strong>next exact steps</strong>. <strong>Confirmed</strong> means checked; <strong>Reported</strong> means someone observed it but a fresh check is still needed; <strong>Verify</strong> means completion is not established.</p>
 <nav aria-label="Page sections"><a href="#your-actions">Your actions</a><a href="#agent-actions">Agent or service</a><a href="#new-blocker">Add a blocker</a><a href="/tracker/">Main tracker</a></nav>
 </header>
@@ -80,24 +80,24 @@ CLAUDE_CONFIG_DIR="$HOME/.claude-science" claude auth status</pre>
 </section>
 <section class="item" id="B-006">
 <h3>B-006 · PAIEC participant login/access needed before final submission</h3>
-<p><strong>Status:</strong> Confirmed missing approved CoDaBench credential in the authorized local workflow on 6 Nov 2026; no verified authenticated participant session or final submission ID. The public CoDaBench page currently also returns HTTP 500 (see B-004). This is an <em>access and submission verification</em> blocker, not a request to share any password or token. <strong>Urgency:</strong> 7 Nov 2026, 17:29 IST (6 Nov, 23:59 AoE). <strong>Owner:</strong> HUMAN for the official interactive login/verification; AGENT for post-login submission checks and a single reconciled upload.</p>
+<p><strong>Status:</strong> <strong>Verify</strong> — no approved authenticated competition participant session or official final submission ID is confirmed as of 6 Nov 2026, 13:24 IST. The public competition HTML now responds with HTTP 200 from the Mac, but a separate Windows/independent fetch received an Anubis anti-bot challenge; neither proves that participant login or submission is functioning. A previous authorized submission check returned HTTP 403 for missing credentials. <strong>Urgency:</strong> 7 Nov 2026, 17:29 IST (6 Nov, 23:59 AoE). <strong>Owner:</strong> HUMAN for trusted interactive sign-in and challenge completion; AGENT for post-login checks and a single reconciled upload.</p>
 <ol>
-<li>Open <a href="https://www.codabench.org/">CoDaBench</a> using the intended competition participant account and complete official sign-in if the service permits it. Check that you are actually authorized for the <a href="https://www.codabench.org/competitions/17828/">PAIEC competition</a>.</li>
-<li>Check the registered team and existing submission history, if accessible. A Google Forms team-registration receipt exists, but organizer approval and an actual final ZIP receipt have not been established.</li>
-<li>If the page still gives HTTP 500 or bot verification, do <strong>not</strong> bypass the check. Use the <a href="https://aims.stanford.edu/competition/">official organizer support instructions</a> to request restored submission access and explain that the deadline is imminent.</li>
-<li>Once access is confirmed, the submission agent should reconcile any existing attempt, submit the intended final ZIP only if genuinely missing, and store the submission ID. Then verify the separate OpenReview and author-form tasks in B-003.</li>
+<li>In a modern browser with JavaScript enabled, open <a href="https://www.codabench.org/competitions/17828/">the official PAIEC competition</a>. Complete any normal site-provided human/bot verification without automation or bypass, then sign in with the intended registered participant account.</li>
+<li>Check whether the team is approved and whether a final submission ID already exists. A team-registration form receipt is not proof of organizer approval or uploaded ZIP acceptance.</li>
+<li>If the browser challenge does not finish, login cannot complete, or the competition remains inaccessible, follow the <a href="https://aims.stanford.edu/competition/">organizer instructions</a> immediately and report the issue before the deadline. Do not send passwords, codes, or session tokens.</li>
+<li>After participant access is actually verified, the AGENT should reconcile existing submissions, submit the intended final ZIP only if genuinely missing, record the official submission ID privately, and verify the separate OpenReview and individual author forms in B-003.</li>
 </ol>
-<p><a href="https://www.codabench.org/competitions/17828/">Open PAIEC competition</a> · <a href="https://aims.stanford.edu/competition/">Organizer instructions and contact</a></p>
+<p><a href="https://www.codabench.org/competitions/17828/">Open PAIEC competition</a> · <a href="https://aims.stanford.edu/competition/">Official competition information</a></p>
 </section>
 <h2 id="agent-actions">Agent or service blockers (do not require blind approval)</h2>
 <section class="item" id="B-004">
-<h3>B-004 · PAIEC CoDaBench competition and API return HTTP 500</h3>
-<p><strong>Status:</strong> <strong>Confirmed</strong> by fresh unauthenticated HTTP checks from the authorized Mac on 6 Nov 2026, 11:58 IST: both the public competition page and the competition API URL returned HTTP 500. An HTTP 500 is a server/request-processing error, <em>not</em> a Mac permission dialog. A successful final ZIP receipt or submission ID is not yet verified. <strong>Owner:</strong> AGENT for service diagnosis, bounded retry, and receipt reconciliation; CoDaBench support for a persistent server failure. HUMAN sign-in action is tracked separately as B-006.</p>
+<h3>B-004 · PAIEC CoDaBench access is inconsistent; API and submission still unverified</h3>
+<p><strong>Status:</strong> <strong>Confirmed, partially changed</strong> on 6 Nov 2026, 13:24 IST. The public PAIEC competition page returned HTTP 200 with the expected competition title from the authorized Mac; its earlier HTTP 500 was <em>not</em> reproduced in that check. A separate Windows/independent fetch received an Anubis anti-bot page (also HTTP 200), while a Mac probe of the competition API timed out. Neither a successful authenticated API request nor a final ZIP submission receipt is established. HTTP 200 on an anti-bot page does <em>not</em> mean submission access is restored. <strong>Owner:</strong> AGENT for status differentiation and receipt reconciliation; SERVICE/organizer for server or API failure; HUMAN interactive login is in B-006.</p>
 <ol>
-<li>Recheck <a href="https://www.codabench.org/competitions/17828/">the official PAIEC CoDaBench page</a> and whether the competition API provides valid responses; distinguish service HTTP 500, anti-bot verification, and login expiry.</li>
-<li>Once an authorized participant session becomes available, check submissions and team membership <strong>before</strong> uploading. An earlier HTTP 500 does not prove an upload was never received.</li>
-<li>If the exact intended ZIP is absent, validate the required archive contract and use the approved submission workflow once, recording the returned submission ID and status privately.</li>
-<li>If HTTP 500 persists, report the timestamp, non-secret request diagnostics, and competition URL to the organizers through the <a href="https://aims.stanford.edu/competition/">official competition contact page</a>. Do not post credentials, cookies, or private upload artifacts.</li>
+<li>Check the <a href="https://www.codabench.org/competitions/17828/">official competition URL</a> and distinguish genuine PAIEC content, the site's Anubis browser verification, HTTP 500, and API timeouts. Do not bypass anti-bot controls or assume a public response proves an authenticated session.</li>
+<li>When a legitimate participant browser session is established (B-006), inspect team eligibility and existing submission history before any upload. Treat earlier failed HTTP requests as <em>unknown</em> receipt status, not proof that no submission exists.</li>
+<li>Only if the official final ZIP is absent, validate its required format and submit using an authorized workflow once; record the actual competition submission ID and processing status privately.</li>
+<li>If challenge, API, or server errors persist, give the organizers the time, public URL, error class, and non-secret diagnostics via the <a href="https://aims.stanford.edu/competition/">official contact route</a>. Do not publish tokens or submission files.</li>
 </ol>
 <p><a href="https://www.codabench.org/competitions/17828/">CoDaBench PAIEC</a> · <a href="https://aims.stanford.edu/competition/">Official competition and support information</a></p>
 </section>
@@ -111,6 +111,17 @@ CLAUDE_CONFIG_DIR="$HOME/.claude-science" claude auth status</pre>
 <li>Before proposing a paper enrollment, check <a href="https://cvpr.thecvf.com/Conferences/2027/AuthorGuidelines">CVPR's author-profile and reciprocal-reviewer rules</a>. The <a href="https://cvpr.thecvf.com/Conferences/2027/Dates">registration deadline is 10 Nov 2026 AoE</a>; there is no confirmed paper submission in this sprint.</li>
 </ol>
 <p><a href="/cs-conf/">Research and submission tracker</a> · <a href="https://cvpr.thecvf.com/Conferences/2027/Dates">Official CVPR deadlines</a> · <a href="https://cvpr.thecvf.com/Conferences/2027/AuthorGuidelines">Official author guidelines</a></p>
+</section>
+<section class="item" id="B-007">
+<h3>B-007 · CVPR research handoff: Codex integration returned HTTP 401</h3>
+<p><strong>Project:</strong> CVPR 2027 research sprint. <strong>Status:</strong> <strong>Confirmed from the completed 6 Nov 2026 sprint checkpoint</strong>: an authorized Codex handoff returned HTTP 401 Unauthorized, so the new local artifacts were staged but not accepted into the shared transfer index. A later read-only Mac <code>codex login status</code> reported <em>Logged in using ChatGPT</em>. Local CLI sign-in does <strong>not</strong> prove that the separate handoff integration has valid credentials; no successful handoff retry has been verified. <strong>Owner:</strong> AGENT for connector authentication diagnosis, index reconciliation, and transfer retry; HUMAN only if the trusted integration explicitly requests interactive sign-in.</p>
+<ol>
+<li><strong>Agent:</strong> Check the specific Codex integration used by the handoff, its approved account and non-secret authentication status. Distinguish its HTTP 401 from the separately authenticated local Codex CLI. Do not read out or copy credentials into other apps.</li>
+<li><strong>If native sign-in is requested:</strong> HUMAN signs in through the trusted Codex/ChatGPT interface, following the <a href="https://learn.chatgpt.com/docs/auth">official authentication documentation</a>; the agent should then recheck the originally failing operation. Do not use browser file uploads or improvised authentication workarounds.</li>
+<li><strong>After authentication:</strong> Codex, as the sole transfer-index writer, reconciles the existing task scratch and its last verified index revision. Verify existing artifact hashes, accept only matching staged items, and write the next index revision; publish byte-identical verified index snapshots only to already-active approved stores.</li>
+<li>Do not claim the pending research review or file handoff completed until the Codex-side receipt and updated index hashes have actually been checked. Avoid duplicate transfer or silent overwrite.</li>
+</ol>
+<p><a href="https://learn.chatgpt.com/docs/auth">Codex authentication guidance</a> · <a href="https://learn.chatgpt.com/docs/codex/cli">Codex CLI documentation</a></p>
 </section>
 <!-- BLOCKERS-END -->
 <h2 id="new-blocker">Add or update a blocker</h2>
