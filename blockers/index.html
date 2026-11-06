@@ -34,7 +34,7 @@ footer{font-size:13px;color:#555;margin-top:26px}
 <body>
 <header>
 <h1>Blockers</h1>
-<p class="subtle">Last reviewed: 6 November 2026, 16:40 IST · Tracking ID: blocker-tracker-20261106-001</p>
+<p class="subtle">Last reviewed: 6 November 2026, 18:59 IST · Tracking ID: blocker-tracker-20261106-001</p>
 <p>Each item tells you <strong>what is blocked</strong>, <strong>who acts</strong>, and the <strong>next exact steps</strong>. <strong>Confirmed</strong> means checked; <strong>Reported</strong> means someone observed it but a fresh check is still needed; <strong>Verify</strong> means completion is not established.</p>
 <nav aria-label="Page sections"><a href="#your-actions">Your actions</a><a href="#agent-actions">Agent or service</a><a href="#new-blocker">Add a blocker</a><a href="/tracker/">Main tracker</a></nav>
 </header>
@@ -90,10 +90,21 @@ CLAUDE_CONFIG_DIR="$HOME/.claude-science" claude auth status</pre>
 </ol>
 <p><a href="https://www.codabench.org/competitions/17828/">Open PAIEC competition</a> · <a href="https://aims.stanford.edu/competition/">Official competition information</a></p>
 </section>
+<section class="item" id="B-008">
+<h3>B-008 · ICASSP 2027 EEG-sAAD challenge registration does not match CoDaBench</h3>
+<p><strong>Project:</strong> ICASSP 2027 EEG-sAAD Grand Challenge. <strong>Status:</strong> <strong>Confirmed organizer action request</strong> dated 5 Nov 2026: the organizers received an application in CoDaBench but could not match its participant username and email to the separate registration form. <strong>Verify:</strong> no later registration approval or corrected-form confirmation was established in the connected inboxes as of 6 Nov. Without matching records, challenge resource access may be delayed. <strong>Owner:</strong> HUMAN for correct CoDaBench participation and form completion; AGENT for verifying later organizer approval. The official ICASSP schedule lists testing from 1 Nov and a submission deadline of 1 Dec 2026, 23:55 UTC.</p>
+<ol>
+<li>Open the <a href="https://www.codabench.org/competitions/17856/">official EEG-sAAD CoDaBench challenge</a>, sign in with the intended participant account, and under <strong>My Submission</strong> check that you actually applied to participate. Record privately the exact CoDaBench <strong>username and account email</strong>; do not publish them here.</li>
+<li>Open the <a href="https://table.nju.edu.cn/dtable/forms/da668b8e-1bcc-4802-ac59-152b091b6d22/">EEG-sAAD organizer registration form</a>, confirmed to display the official challenge registration title. As requested in the organizer's 5 Nov email, submit a new form using the <strong>same username and email</strong> as the CoDaBench application.</li>
+<li>Enter each team member's actual name, affiliation and email as required by the organizers. Keep team details and form confirmations private. Do not add or split members casually; the organizers warn such changes receive strict review.</li>
+<li>Check for an explicit approval or access notification. Until confirmed, keep the status <strong>Verify</strong>; if the corrected form was submitted but access is still denied, reply to the official <em>EEG-sAAD Grand Challenge</em> organizer email with the non-secret registration status.</li>
+</ol>
+<p><a href="https://2027.ieeeicassp.org/sp-grand-challenges/">IEEE ICASSP 2027 grand challenges and official schedule</a> · <a href="https://www.codabench.org/competitions/17856/">CoDaBench challenge</a> · <a href="https://table.nju.edu.cn/dtable/forms/da668b8e-1bcc-4802-ac59-152b091b6d22/">Organizer registration form</a></p>
+</section>
 <h2 id="agent-actions">Agent or service blockers (do not require blind approval)</h2>
 <section class="item" id="B-004">
 <h3>B-004 · PAIEC CoDaBench access is inconsistent; API and submission still unverified</h3>
-<p><strong>Status:</strong> <strong>Confirmed public service recovery but authenticated submission still blocked</strong> on 6 Nov 2026, 16:38–16:40 IST: the competition page returned HTTP 200 from two connected computers and showed the actual PAIEC title on the Mac; its public competition API endpoint returned HTTP 200 with JSON metadata in a fresh Mac check. Earlier checks by the guarded worker intermittently returned HTTP 500 and then a browser verification/non-JSON response, so reliability is still uncertain. The guarded worker is running; its expected locally approved API token is absent, and there is still no verified authenticated submission ID or final ZIP receipt. <strong>Owner:</strong> AGENT for non-secret diagnostics, correct authorized CLI authentication and receipt reconciliation; HUMAN for official participant sign-in/credential authorization and organizer escalation when needed (B-006).</p>
+<p><strong>Status:</strong> <strong>Confirmed public service recovery but authenticated submission still blocked</strong> on 6 Nov 2026, 16:38–16:40 IST: the competition page returned HTTP 200 from two connected computers and showed the actual PAIEC title on the Mac; its public competition API endpoint returned HTTP 200 with JSON metadata in a fresh Mac check. Earlier checks by the guarded worker intermittently returned HTTP 500 and then a browser verification/non-JSON response, so reliability is still uncertain. The guarded worker is running; its expected locally approved API token is absent, and there is still no verified authenticated submission ID or final ZIP receipt. Separately, an authorized GitHub Actions attempt on 6 Nov 2026 at 16:08 IST failed its read-only authentication preflight because the required encrypted CoDaBench credential was missing; the guarded upload step was skipped. This does not establish that any other submission workflow succeeded. <strong>Owner:</strong> AGENT for non-secret diagnostics, correct authorized CLI authentication and receipt reconciliation; HUMAN for official participant sign-in/credential authorization and organizer escalation when needed (B-006).</p>
 <ol>
 <li>Check the <a href="https://www.codabench.org/competitions/17828/">official competition URL</a> and distinguish genuine PAIEC content, the site's Anubis browser verification, HTTP 500, and API timeouts. Do not bypass anti-bot controls or assume a public response proves an authenticated session.</li>
 <li>When a legitimate participant browser session is established (B-006), inspect team eligibility and existing submission history before any upload. Treat earlier failed HTTP requests as <em>unknown</em> receipt status, not proof that no submission exists.</li>
@@ -113,18 +124,12 @@ CLAUDE_CONFIG_DIR="$HOME/.claude-science" claude auth status</pre>
 </ol>
 <p><a href="/cs-conf/">Research and submission tracker</a> · <a href="https://cvpr.thecvf.com/Conferences/2027/Dates">Official CVPR deadlines</a> · <a href="https://cvpr.thecvf.com/Conferences/2027/AuthorGuidelines">Official author guidelines</a></p>
 </section>
-<section class="item" id="B-007">
-<h3>B-007 · CVPR research handoff: Codex integration returned HTTP 401</h3>
-<p><strong>Project:</strong> CVPR 2027 research sprint. <strong>Status:</strong> <strong>Confirmed from the completed 6 Nov 2026 sprint checkpoint</strong>: an authorized Codex handoff returned HTTP 401 Unauthorized, so the new local artifacts were staged but not accepted into the shared transfer index. A later read-only Mac <code>codex login status</code> reported <em>Logged in using ChatGPT</em>. Local CLI sign-in does <strong>not</strong> prove that the separate handoff integration has valid credentials; no successful handoff retry has been verified. <strong>Owner:</strong> AGENT for connector authentication diagnosis, index reconciliation, and transfer retry; HUMAN only if the trusted integration explicitly requests interactive sign-in.</p>
-<ol>
-<li><strong>Agent:</strong> Check the specific Codex integration used by the handoff, its approved account and non-secret authentication status. Distinguish its HTTP 401 from the separately authenticated local Codex CLI. Do not read out or copy credentials into other apps.</li>
-<li><strong>If native sign-in is requested:</strong> HUMAN signs in through the trusted Codex/ChatGPT interface, following the <a href="https://learn.chatgpt.com/docs/auth">official authentication documentation</a>; the agent should then recheck the originally failing operation. Do not use browser file uploads or improvised authentication workarounds.</li>
-<li><strong>After authentication:</strong> Codex, as the sole transfer-index writer, reconciles the existing task scratch and its last verified index revision. Verify existing artifact hashes, accept only matching staged items, and write the next index revision; publish byte-identical verified index snapshots only to already-active approved stores.</li>
-<li>Do not claim the pending research review or file handoff completed until the Codex-side receipt and updated index hashes have actually been checked. Avoid duplicate transfer or silent overwrite.</li>
-</ol>
-<p><a href="https://learn.chatgpt.com/docs/auth">Codex authentication guidance</a> · <a href="https://learn.chatgpt.com/docs/codex/cli">Codex CLI documentation</a></p>
-</section>
 <!-- BLOCKERS-END -->
+<h2 id="resolved">Recently verified resolved</h2>
+<section class="item" id="B-007">
+<h3>B-007 · CVPR Codex research handoff completed</h3>
+<p><strong>Project:</strong> CVPR 2027 research sprint. <strong>Status: Resolved for this task, verified 6 Nov 2026 at 18:58 IST.</strong> A completed Codex handoff was reported by the research sprint and independently checked against the local <code>TRANSFER_INDEX.json</code>: revision 6 and SHA-256 <code>b126fd951ea69a5c9050d60e6dc91025ffa52f295edcca1f791e2700c369267b</code> match. Nine previously staged/new artifacts were accepted with no overwrites. The <em>previous separate connector's</em> HTTP 401 authentication condition was not independently retested, so its credentials remain unverified if that connector is used again. <strong>Owner:</strong> AGENT for any future connector diagnosis; no new human action established.</p>
+</section>
 <h2 id="new-blocker">Add or update a blocker</h2>
 <p><a href="https://github.com/nilansa/nilansa.github.io/edit/main/blockers/index.html">Edit this page in GitHub</a> (sign in; edit only the relevant entry), or <a href="https://github.com/nilansa/nilanjan-tracker-data/issues/new">open a private blocker issue</a> (sign in to GitHub). Include the affected app/project, exact blocker text, what approval or login is requested, device, one safe source link, and the next step. Never paste credentials or private login URLs.</p>
 <p><strong>On mobile:</strong> hyperlinks let you open a sign-in page or read instructions, but <strong>this public page cannot approve native macOS security dialogs</strong>. Those require the appropriate trusted interaction on the Mac. For faster phone notifications, a separately authenticated push channel can link you to the relevant blocker; no remote approval service is installed by this page.</p>
