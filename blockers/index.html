@@ -34,7 +34,7 @@ footer{font-size:13px;color:#555;margin-top:26px}
 <body>
 <header>
 <h1>Blockers</h1>
-<p class="subtle">Last reviewed: 6 November 2026, 11:18 IST · Tracking ID: blocker-tracker-20261106-001</p>
+<p class="subtle">Last reviewed: 6 November 2026, 11:58 IST · Tracking ID: blocker-tracker-20261106-001</p>
 <p>Each item tells you <strong>what is blocked</strong>, <strong>who acts</strong>, and the <strong>next exact steps</strong>. <strong>Confirmed</strong> means checked; <strong>Reported</strong> means someone observed it but a fresh check is still needed; <strong>Verify</strong> means completion is not established.</p>
 <nav aria-label="Page sections"><a href="#your-actions">Your actions</a><a href="#agent-actions">Agent or service</a><a href="#new-blocker">Add a blocker</a><a href="/tracker/">Main tracker</a></nav>
 </header>
@@ -42,21 +42,17 @@ footer{font-size:13px;color:#555;margin-top:26px}
 <h2 id="your-actions">Needs your action</h2>
 <!-- BLOCKERS-START -->
 <section class="item" id="B-001">
-<h3>B-001 · Claude Code command-line sign-in on Mac</h3>
-<p><strong>Status:</strong> Confirmed by direct check on 6 Nov: the Mac user&#39;s default and Claude Science CLI configuration directories reported <code>loggedIn=false</code>. A separate remote-agent CLI profile reported <code>loggedIn=true</code>; these are different configuration directories, so that does not resolve the Mac user&#39;s CLI sign-in. This does <em>not</em> establish whether the Claude Desktop or Claude Science GUI is signed out. <strong>Owner:</strong> You, for the interactive account sign-in.</p>
+<h3>B-001 · Claude Science command-line sign-in on Mac</h3>
+<p><strong>Status:</strong> Confirmed by direct read-only CLI checks on 6 Nov 2026, 11:58 IST: the Mac user's <em>default</em> Claude CLI profile now reports <code>loggedIn=true</code>, so its previous sign-in blocker is resolved. The separately configured <em>Claude Science</em> CLI profile still reports <code>loggedIn=false</code>. This check does not establish whether the Claude Science GUI or Claude Desktop is signed in. <strong>Owner:</strong> HUMAN for the remaining interactive Claude Science CLI sign-in; AGENT for verification afterward.</p>
 <ol>
-<li>On the <strong>Mac</strong> (not this phone), open <strong>Terminal</strong> via Spotlight. Choose the intended account and verify the browser account shown before authorizing.</li>
-<li>For the default Claude Code session, run <code>claude auth login</code>. Complete the official browser/SSO sign-in. For separately configured Claude Code profiles, use the intended <code>CLAUDE_CONFIG_DIR</code>, such as the examples below, <em>one profile at a time</em>.</li>
-<li>Run <code>claude auth status</code> (using the same configuration directory) and ensure it now reports <code>loggedIn=true</code>. Then retry the blocked job, not every job.</li>
-<li>If the login browser hangs or says waiting for authentication, follow the official manual code flow. Never share an authentication code, cookie, or session token on this page.</li>
+<li>On the Mac, open Terminal under your usual macOS user and check which Claude account is intended for the <strong>Claude Science CLI</strong>. Do not log out the functioning default Claude profile.</li>
+<li>For the separate Claude Science CLI configuration, run the first command below and complete the trusted Claude browser or SSO sign-in. Do not paste authentication codes or tokens into the tracker.</li>
+<li>Run the second command below and verify <code>loggedIn=true</code>. The agent should then retry only the affected Claude Science task.</li>
+<li>If authentication stalls or requests a manual login code, use the linked official troubleshooting instructions. Desktop/GUI session status must be checked separately.</li>
 </ol>
-<pre>claude auth login
-claude auth status
-
-# Only for a separate, intended CLI profile:
-CLAUDE_CONFIG_DIR="$HOME/.claude-science" claude auth login
+<pre>CLAUDE_CONFIG_DIR="$HOME/.claude-science" claude auth login
 CLAUDE_CONFIG_DIR="$HOME/.claude-science" claude auth status</pre>
-<p><a href="https://code.claude.com/docs/en/cli-reference">Claude Code login and status commands</a> · <a href="https://support.claude.com/en/articles/14552646-troubleshoot-claude-code-installation-and-authentication">Fix authentication problems</a></p>
+<p><a href="https://code.claude.com/docs/en/cli-reference">Claude CLI authentication commands</a> · <a href="https://support.claude.com/en/articles/14552646-troubleshoot-claude-code-installation-and-authentication">Official authentication troubleshooting</a></p>
 </section>
 <section class="item" id="B-002">
 <h3>B-002 · macOS permission or approval dialogs stopping an agent</h3>
@@ -71,27 +67,39 @@ CLAUDE_CONFIG_DIR="$HOME/.claude-science" claude auth status</pre>
 <p><a href="https://support.apple.com/guide/mac-help/mh43185/mac">Apple: Accessibility permissions</a> · <a href="https://support.apple.com/guide/mac-help/control-access-screen-system-audio-recording-mchld6aa7d23/mac">Apple: Screen recording permissions</a> · <a href="https://support.apple.com/en-au/guide/mac-help/mchl211c911f/mac">Apple: Privacy &amp; Security settings</a></p>
 </section>
 <section class="item" id="B-003">
-<h3>B-003 · PAIEC author form and OpenReview submission gate</h3>
-<p><strong>Status:</strong> Verify — completion has not been confirmed. <strong>Urgency:</strong> Organizer deadline reported for 6 Nov 2026, 23:59 AoE (7 Nov, 17:29 IST). <strong>Owner:</strong> Each author for their own form; submission owner for the report.</p>
+<h3>B-003 · PAIEC OpenReview report and per-author form still unverified</h3>
+<p><strong>Status:</strong> Team-registration <em>form receipt confirmed</em> by a Google Forms confirmation email on 6 Nov 2026; that proves a response was submitted, not that the organizers approved team membership. Separate <strong>Author Info &amp; Reviewer Interest</strong> form responses and an authenticated OpenReview submission are still <strong>Verify</strong> (not confirmed). <strong>Urgency:</strong> Official extended final deadline: 6 Nov 2026 at 23:59 Anywhere on Earth (7 Nov, 17:29 IST). <strong>Owner:</strong> HUMAN for each person's required form and any interactive OpenReview sign-in; AGENT/submission owner for the report, ZIP, and receipt.</p>
 <ol>
-<li>Open the <a href="https://openreview.net/group?id=NeurIPS.cc%2F2026%2FWorkshop%2FPAIEC">PAIEC OpenReview venue</a>, sign in, and locate the team's <strong>existing</strong> submission. If present, edit it rather than creating a duplicate.</li>
-<li>Confirm the report uses the required template and the supplementary file includes the reproducible CoDaBench ZIP, instructions, and submission ID, within the venue's size limit.</li>
-<li>Find the organizers' email through <a href="https://mail.google.com/mail/u/0/#search/PAIEC">Gmail search: PAIEC</a> (choose the correct inbox). Open the actual <strong>Author Info &amp; Reviewer Interest</strong> form link in that message; each author completes their own response.</li>
-<li>Verify the saved OpenReview record and each form's confirmation. If completed, mark this blocker resolved in the tracker.</li>
+<li>Do <strong>not</strong> submit the team-registration form again merely because approval is unconfirmed; retain the existing confirmation receipt. Separately verify that the organizers accepted the registered team.</li>
+<li>Open the <a href="https://openreview.net/group?id=NeurIPS.cc%2F2026%2FWorkshop%2FPAIEC">PAIEC OpenReview venue</a>, sign in, and check the team's <strong>existing</strong> submission. Edit the existing entry if found; do not create a duplicate.</li>
+<li>Confirm that the report uses the required template, with the reproducible CoDaBench ZIP, instructions, and competition submission ID in the supplementary materials, within the venue size limit. No successful final archive receipt is yet verified.</li>
+<li>Find the organizer's email via <a href="https://mail.google.com/mail/u/0/#search/PAIEC">Gmail search: PAIEC</a>, open its authentic <strong>Author Info &amp; Reviewer Interest</strong> form, and have each author submit their own response. The <em>team-registration</em> receipt is not proof that this other form was completed.</li>
+<li>Preserve the OpenReview submission receipt and each author-form confirmation; mark this blocker resolved only when these separate requirements are verified.</li>
 </ol>
-<p><a href="https://aims.stanford.edu/competition/">Official PAIEC competition information</a> · <a href="https://openreview.net/group?id=NeurIPS.cc%2F2026%2FWorkshop%2FPAIEC">OpenReview venue</a></p>
+<p><a href="https://aims.stanford.edu/competition/">Official PAIEC rules and deadline</a> · <a href="https://openreview.net/group?id=NeurIPS.cc%2F2026%2FWorkshop%2FPAIEC">OpenReview PAIEC venue</a></p>
+</section>
+<section class="item" id="B-006">
+<h3>B-006 · PAIEC participant login/access needed before final submission</h3>
+<p><strong>Status:</strong> Confirmed missing approved CoDaBench credential in the authorized local workflow on 6 Nov 2026; no verified authenticated participant session or final submission ID. The public CoDaBench page currently also returns HTTP 500 (see B-004). This is an <em>access and submission verification</em> blocker, not a request to share any password or token. <strong>Urgency:</strong> 7 Nov 2026, 17:29 IST (6 Nov, 23:59 AoE). <strong>Owner:</strong> HUMAN for the official interactive login/verification; AGENT for post-login submission checks and a single reconciled upload.</p>
+<ol>
+<li>Open <a href="https://www.codabench.org/">CoDaBench</a> using the intended competition participant account and complete official sign-in if the service permits it. Check that you are actually authorized for the <a href="https://www.codabench.org/competitions/17828/">PAIEC competition</a>.</li>
+<li>Check the registered team and existing submission history, if accessible. A Google Forms team-registration receipt exists, but organizer approval and an actual final ZIP receipt have not been established.</li>
+<li>If the page still gives HTTP 500 or bot verification, do <strong>not</strong> bypass the check. Use the <a href="https://aims.stanford.edu/competition/">official organizer support instructions</a> to request restored submission access and explain that the deadline is imminent.</li>
+<li>Once access is confirmed, the submission agent should reconcile any existing attempt, submit the intended final ZIP only if genuinely missing, and store the submission ID. Then verify the separate OpenReview and author-form tasks in B-003.</li>
+</ol>
+<p><a href="https://www.codabench.org/competitions/17828/">Open PAIEC competition</a> · <a href="https://aims.stanford.edu/competition/">Organizer instructions and contact</a></p>
 </section>
 <h2 id="agent-actions">Agent or service blockers (do not require blind approval)</h2>
 <section class="item" id="B-004">
-<h3>B-004 · PAIEC CoDaBench submission returned HTTP 500</h3>
-<p><strong>Status:</strong> Reported; no successful retry confirmed here. HTTP 500 is a server or request-processing failure, <strong>not</strong> a macOS permission request. <strong>Owner:</strong> Submission agent / CoDaBench support. You only act if sign-in or organizer approval is actually requested.</p>
+<h3>B-004 · PAIEC CoDaBench competition and API return HTTP 500</h3>
+<p><strong>Status:</strong> <strong>Confirmed</strong> by fresh unauthenticated HTTP checks from the authorized Mac on 6 Nov 2026, 11:58 IST: both the public competition page and the competition API URL returned HTTP 500. An HTTP 500 is a server/request-processing error, <em>not</em> a Mac permission dialog. A successful final ZIP receipt or submission ID is not yet verified. <strong>Owner:</strong> AGENT for service diagnosis, bounded retry, and receipt reconciliation; CoDaBench support for a persistent server failure. HUMAN sign-in action is tracked separately as B-006.</p>
 <ol>
-<li>Open <a href="https://www.codabench.org/competitions/17828/">PAIEC CoDaBench</a> and confirm that the correct account can see the competition and the team is approved.</li>
-<li>Check whether the intended ZIP appears under submissions and whether its processing status is queued, failed, or successful. Do not assume a 500 means the submission was not received.</li>
-<li>If it is absent or failed, the agent should check ZIP contract, submit endpoint, HTTP response and request ID (if provided), then retry carefully to avoid duplicates.</li>
-<li>If an organizer approval request is visibly pending, follow the competition's own approval flow or contact the organizer; otherwise it is an agent/service issue, not a phone approval task.</li>
+<li>Recheck <a href="https://www.codabench.org/competitions/17828/">the official PAIEC CoDaBench page</a> and whether the competition API provides valid responses; distinguish service HTTP 500, anti-bot verification, and login expiry.</li>
+<li>Once an authorized participant session becomes available, check submissions and team membership <strong>before</strong> uploading. An earlier HTTP 500 does not prove an upload was never received.</li>
+<li>If the exact intended ZIP is absent, validate the required archive contract and use the approved submission workflow once, recording the returned submission ID and status privately.</li>
+<li>If HTTP 500 persists, report the timestamp, non-secret request diagnostics, and competition URL to the organizers through the <a href="https://aims.stanford.edu/competition/">official competition contact page</a>. Do not post credentials, cookies, or private upload artifacts.</li>
 </ol>
-<p><a href="https://www.codabench.org/competitions/17828/">Open PAIEC on CoDaBench</a> · <a href="https://aims.stanford.edu/competition/">Official rules and contacts</a></p>
+<p><a href="https://www.codabench.org/competitions/17828/">CoDaBench PAIEC</a> · <a href="https://aims.stanford.edu/competition/">Official competition and support information</a></p>
 </section>
 <section class="item" id="B-005">
 <h3>B-005 · CVPR 2027 research sprint: independent review path unavailable</h3>
