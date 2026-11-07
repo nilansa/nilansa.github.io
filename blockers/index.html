@@ -34,7 +34,7 @@ footer{font-size:13px;color:#555;margin-top:26px}
 <body>
 <header>
 <h1>Blockers</h1>
-<p class="subtle">Last reviewed: 07 November 2026 08:27 IST · Tracking ID: blocker-tracker-20261106-001</p>
+<p class="subtle">Last reviewed: 07 November 2026 13:05 IST (public site and connected-agent checks; Mac CLI unavailable) · Tracking ID: blocker-tracker-20261106-001</p>
 <p>Each item tells you <strong>what is blocked</strong>, <strong>who acts</strong>, and the <strong>next exact steps</strong>. <strong>Confirmed</strong> means checked; <strong>Reported</strong> means someone observed it but a fresh check is still needed; <strong>Verify</strong> means completion is not established.</p>
 <nav aria-label="Page sections"><a href="#your-actions">Your actions</a><a href="#agent-actions">Agent or service</a><a href="#new-blocker">Add a blocker</a><a href="/tracker/">Main tracker</a></nav>
 </header>
@@ -118,6 +118,18 @@ CLAUDE_CONFIG_DIR="$HOME/.claude-science" claude auth status</pre>
 <li><strong>AGENT:</strong> After explicit organizer or participant-page approval, verify challenge access and the submission interface. Mark this item resolved only with the actual confirmation, not an HTTP 200 or public page title.</li>
 </ol>
 <p><a href="https://safe-ai-research.github.io/DOSE-I-Challenge/">Official DOSE-I challenge rules</a> · <a href="https://www.codabench.org/competitions/18100/">Competition participation page</a> · <a href="https://2027.ieeeicassp.org/sp-grand-challenges/">IEEE ICASSP challenge schedule</a></p>
+</section>
+
+<section class="item" id="B-010">
+<h3>B-010 · Mac remote-agent connection unavailable</h3>
+<p><strong>Project:</strong> Claude Science / Claude Code / Codex and Mac-hosted research or competition tasks. <strong>Status:</strong> <strong>Confirmed remote connectivity blocker</strong> on 7 Nov 2026 at approximately 13:04–13:08 IST: the Mac was reported offline from all six connected Desktop Commander accounts; attempted read-only Mac commands could not start. An independent connected Windows computer's Tailscale status also reported the Mac offline, and a remote SSH port check did not connect. The most recent Desktop Commander heartbeat was roughly 19 minutes old. This <strong>does not prove</strong> the Mac is powered off, that any CLI session is signed out, that a macOS approval dialog is pending, or that a running research job has stopped. <strong>Owner:</strong> HUMAN to check Mac wake/network/app connection if physical or GUI access is needed; AGENT to verify connectivity and affected jobs once the Mac returns.</p>
+<ol>
+<li><strong>HUMAN:</strong> From the Mac itself or an already trusted working remote-control interface, check that it is awake, powered, and connected to the internet. Do not grant unrelated macOS permissions or change credentials.</li>
+<li>Open the existing <strong>Tailscale</strong> app on the Mac and check whether it is connected to the intended account/network. If disconnected, reconnect through its normal trusted UI; do not create a new account or share login codes. <a href="https://tailscale.com/download/macos">Official Tailscale for macOS</a>.</li>
+<li>Open <strong>Desktop Commander Remote</strong> on the Mac and ensure its existing agent is running and signed in. Verify that the Mac becomes <strong>Online</strong> in <a href="https://mcp.desktopcommander.app/">Desktop Commander device management</a>. If a real permission prompt appears, inspect the exact requesting app and grant only the needed permission using B-002.</li>
+<li><strong>AGENT:</strong> When the Mac is reachable again, rerun a harmless connectivity check and fresh, read-only authentication/status checks for the relevant Claude and Codex profiles; inspect affected tasks without automatically restarting or duplicating submissions. Mark this item resolved only after remote execution actually succeeds.</li>
+<li><strong>Time-sensitive PAIEC fallback:</strong> While the Mac is inaccessible, HUMAN can use a different already trusted browser to check <a href="https://www.codabench.org/competitions/17828/">the official PAIEC participant page</a> and <a href="https://openreview.net/group?id=NeurIPS.cc%2F2026%2FWorkshop%2FPAIEC">the official OpenReview venue</a>. Follow B-003 and B-006; do not assume an upload or form is missing without checking the account first. The published final deadline is 7 Nov 2026 at 17:29 IST.</li>
+</ol>
 </section>
 <h2 id="agent-actions">Agent or service blockers (do not require blind approval)</h2>
 <section class="item" id="B-004">
