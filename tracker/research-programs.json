@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOf": "2026-11-06",
+  "asOf": "2026-11-07",
   "heading": "Europe-wide paid AI/ML research opportunities for international Master's students",
   "scope": "European universities and research institutes; paid employment, stipend or funded living costs; all AI/ML fields. Program admission and visa rules always prevail.",
   "safety": "Public program facts only. No applicant identity, application status, documents or private notes. A source-backed candidate is not an application or eligibility approval.",
@@ -11,7 +11,7 @@
     "sourcePrecedence": "Current official program page over aggregators; explicitly flag conflicts with old organizer portals and subpages",
     "eligibility": "conditional until graduation date, nationality, current enrolment and project rules are checked",
     "deadlineTimezone": "Exact time only when published; unknown remains null/TBA",
-    "verification": "Official organizer/university pages individually rechecked 2026-11-05. Annual-rule deadlines must not be mistaken for a live application portal."
+    "verification": "Catalog refresh 2026-11-07; verifiedAt is per-record last confirmed official-source review. A dated listing or salary is not proof of individual immigration or enrollment eligibility; preserve old snapshots when not rechecked."
   },
   "domains": [
     "Speech & audio",
@@ -43,7 +43,7 @@
         "Neuroscience"
       ],
       "deadline": "2026-11-16",
-      "deadlineNote": "Official 2027 landing page: 16 Nov 2026 (time not specified). WARNING: old registration URL /cactus-2026 says applications closed/next 2028; confirm the correct 2027 submission form on current program site.",
+      "deadlineNote": "Official 2027 timeline: portal opened 21 Oct 2026, closes 16 Nov 2026 (cutoff time/timezone not stated). Some page copy still mentions 2026 internships; rely on dated 2027 timeline.",
       "period": "July–September 2027",
       "funding": "Approximately €1,350 per month for July–September 2027, intended to cover housing, living expenses and health insurance; travel compensated",
       "eligibility": "Potential match",
@@ -53,7 +53,7 @@
       "action": "URGENT 11 days: follow current program's official application link; prepare research statement in your own words, CV/transcripts and choose up to 2 projects. Do not submit to old /cactus-2026 registration; confirm correct 2027 URL.",
       "review": "recheck",
       "opening": "2026-10-21",
-      "verifiedAt": "2026-11-05",
+      "verifiedAt": "2026-11-07",
       "deadlineTime": null,
       "deadlineTimezone": "Not published",
       "fundingCaveats": "Housing is organized but paid from the salary, NOT free additional funding. Visa/embassy fees and related travel are NOT reimbursed. Exact net sum/tax/insurance terms must be confirmed.",
@@ -64,10 +64,7 @@
         "One optional reference letter (referee uses portal email link)"
       ],
       "sourceUrls": [
-        "https://projects.tuebingen.mpg.de/",
-        "https://projects.tuebingen.mpg.de/program",
-        "https://projects.tuebingen.mpg.de/faq",
-        "https://cactus-apply.tue.mpg.de/registration/cactus-2026"
+        "https://projects.tuebingen.mpg.de/"
       ],
       "openStatus": "Conflicting portal status: 2027 landing page says open but indexed old registration page says closed"
     },
@@ -85,7 +82,7 @@
         "Robotics"
       ],
       "deadline": "2026-11-29",
-      "deadlineNote": "OFFICIAL recurrence rule: Sunday closest to 1 December each year, which implies 29 Nov 2026. The 2027 portal does NOT separately confirm this exact date yet; treat as PROVISIONAL / annual-rule, not independently confirmed deadline.",
+      "deadlineNote": "29 Nov 2026 derived from annual EPFL rule 'Sunday closest to 1 December'; 2027-specific application date is NOT confirmed on official main/apply pages. Do not treat as verified portal deadline.",
       "period": "May–September 2027, typically 2–3 months",
       "funding": "CHF 1,800 per month + eligible travel reimbursement",
       "eligibility": "Conditional",
@@ -95,7 +92,7 @@
       "action": "Prepare all available BSc/MSc transcripts, CV and motivation (max 2 pages); NO recommendation letters (organizer says not considered). Application portal may only open 1–2 weeks before annual cutoff.",
       "review": "annual-rule",
       "opening": null,
-      "verifiedAt": "2026-11-05",
+      "verifiedAt": "2026-11-07",
       "deadlineTime": null,
       "deadlineTimezone": "Not separately posted; check application portal",
       "applicationDocuments": [
@@ -132,10 +129,10 @@
       "action": "Open now: prepare English transcripts, bachelor's certificate, CV, motivation and English assessment/statement. Confirm enrollment through internship.",
       "review": "official",
       "opening": null,
-      "verifiedAt": "2026-11-06",
+      "verifiedAt": "2026-11-07",
       "deadlineTime": "23:59",
       "deadlineTimezone": "AoE (UTC−12)",
-      "openStatus": "Open",
+      "openStatus": "Applications open for summer research 2027",
       "fundingCaveats": "Gross before German taxes; travel, housing and visa cost coverage not published on main CSR page. Check net budget.",
       "applicationDocuments": [
         "CV (ideal 1 page, max 2)",
@@ -165,7 +162,7 @@
         "Privacy & security"
       ],
       "deadline": "2026-12-16",
-      "deadlineNote": "Prior official 2027 listing confirmed deadline 16 Dec 2026, 13:00 CET; on 6 Nov a fresh retrieval of ETH's how-to-apply page returned stale 2025 content, while the organizer's program/structure pages confirm the continuing fellowship and graduation rule. Confirm the 2027 SiROP portal before relying on the cutoff.",
+      "deadlineNote": "2027 official SiROP index shows the fellowship with July–Aug 2027 dates; ETH How-to-Apply page still displays 2025/26 closed info. 16 Dec 2026 at 13:00 CET is reported for 2027 elsewhere but not independently confirmed in accessible live ETH 2027 deadline page. Keep provisional and verify SiROP listing before relying on cutoff.",
       "period": "2 July–27 August 2027 (on-site for full summer fellowship)",
       "funding": "CHF 4,000 total for 2 months; travel and visa support",
       "eligibility": "Graduation check",
@@ -175,7 +172,7 @@
       "action": "2027 cutoff recorded from earlier official organizer snapshot, but official how-to-apply fetch has stale 2025 dates. Verify live SiROP and graduation no earlier than spring 2028 before applying.",
       "review": "recheck",
       "opening": "2026-11-01",
-      "verifiedAt": "2026-11-06",
+      "verifiedAt": "2026-11-07",
       "deadlineTime": "13:00",
       "deadlineTimezone": "CET (UTC+1)",
       "fundingCaveats": "CHF 4,000 total intended for housing/living for 2 months; housing may be deducted; visa and travel costs reimbursed/covered per official ETH guidance.",
@@ -186,9 +183,9 @@
         "Application through official SiROP"
       ],
       "sourceUrls": [
+        "https://inf.ethz.ch/studies/summer-research-fellowship.html",
         "https://inf.ethz.ch/studies/summer-research-fellowship/how-to-apply.html",
-        "https://inf.ethz.ch/studies/summer-research-fellowship/program-structure.html",
-        "https://inf.ethz.ch/studies/summer-research-fellowship.html"
+        "https://sirop.org/app/page/computingsciences"
       ],
       "openStatus": "2027 official application period listed and SiROP application link present"
     },
@@ -215,10 +212,10 @@
       "action": "Find matching trustworthy ML, NLP, safe RL or HCI group. Watch for official online form; email applications NOT accepted.",
       "review": "official",
       "opening": null,
-      "verifiedAt": "2026-11-06",
+      "verifiedAt": "2026-11-07",
       "deadlineTime": null,
       "deadlineTimezone": "Not stated",
-      "openStatus": "Official form not yet available on Nov 5; date confirmed for Dec 31 only",
+      "openStatus": "2027 form still being prepared as of 7 Nov 2026; official page says apply online only, no email",
       "applicationDocuments": [
         "Online form only (details/document list not yet published)",
         "Group/research-interest choice likely required; confirm form once available"
@@ -253,7 +250,7 @@
       "action": "Request a reference letter early, review projects ~10 Dec 2026, apply Jan 7–31 (up to 3 projects; one combined PDF).",
       "review": "official",
       "opening": "2027-01-07",
-      "verifiedAt": "2026-11-06",
+      "verifiedAt": "2026-11-07",
       "deadlineTime": "23:59",
       "deadlineTimezone": "UTC+2 (Finland; as explicitly published for Jan 2027)",
       "openStatus": "Not yet open; projects published mid-Dec",
@@ -294,9 +291,9 @@
       "action": "NEW OPENING: prepare one recent referee letter, student certificate and complete official 2027 portal. Strong AI systems/ML for science opportunity.",
       "review": "official",
       "opening": "2026-11-06",
-      "verifiedAt": "2026-11-06",
-      "openStatus": "OPEN NOW – official Apply Now visible",
-      "fundingCaveats": "CHF 94/day includes health-insurance contribution; CERN assists FINDING accommodation, not paying it; conditional travel allowance. Visa support subject to nationality. No holiday entitlement in 9-week program.",
+      "verifiedAt": "2026-11-07",
+      "openStatus": "CERN official page titled 2027 and displays Apply now (URL retains 2026 slug)",
+      "fundingCaveats": "CHF 94 per calendar day net allowance with health cover; travel depends on circumstances, accommodation search assistance only (housing not included), requires 6 semesters completed and student enrollment throughout.",
       "applicationDocuments": [
         "CV (English) PDF",
         "Official transcripts in English/French, PDF",
@@ -305,12 +302,10 @@
         "Optional motivation letter; documents cannot be added after completion"
       ],
       "sourceUrls": [
-        "https://careers.cern/jobs/cern-openlab-summer-student-programme-2026/",
-        "https://openlab.cern/cern-openlab-summer-student-programme/",
-        "https://openlab.cern/faqs-summer-student-programme/"
+        "https://careers.cern/jobs/cern-openlab-summer-student-programme-2026/"
       ],
       "deadlineTime": "23:59",
-      "deadlineTimezone": "Europe/Zurich (Geneva local time; CET UTC+1 in January)"
+      "deadlineTimezone": "Europe/Zurich (CET in January)"
     },
     {
       "id": "ista-year-round",
@@ -336,8 +331,8 @@
       "action": "Target relevant faculty and request non-summer start ≥4 months out. Do not confuse with paused ISTernship Summer Fellowship (paused for 2026 and 2027).",
       "review": "official",
       "opening": null,
-      "verifiedAt": "2026-11-05",
-      "openStatus": "Rolling professor-initiated lab contact",
+      "verifiedAt": "2026-11-07",
+      "openStatus": "Rolling direct contact with PI, appointments subject to host group funding and approval",
       "fundingCaveats": "Salary is minimum €1,583 gross/month; campus housing is subject to availability and is paid separately. Must not receive simultaneous employment or outside funding; research security review and visa apply.",
       "applicationDocuments": [
         "Direct email to group leader or staff scientist with concise background and lab-specific motivation",
@@ -345,8 +340,7 @@
         "Preferred dates at least two months ahead"
       ],
       "sourceUrls": [
-        "https://phd.ist.ac.at/scientific-internships/",
-        "https://phd.ist.ac.at/funding-and-awards/"
+        "https://phd.ist.ac.at/scientific-internships/"
       ],
       "deadlineTime": null,
       "deadlineTimezone": "TBA / rolling"
@@ -366,7 +360,7 @@
         "AI safety & security"
       ],
       "deadline": null,
-      "deadlineNote": "1 Nov 2026 CENTRAL summer-2027 deadline HAS PASSED. For non-summer starts (Jan–Apr or Sep–Dec) applications are rolling and recommended ≥5 months ahead.",
+      "deadlineNote": "Summer 2027 cutoff (1 Nov 2026) is PASSED. Non-summer internships accept applications year-round; apply at least 5 months before the proposed start.",
       "period": "Typically 12–14 weeks; non-summer 2027 openings",
       "funding": "Stipend + housing + round-trip travel costs fully covered",
       "eligibility": "Potential match",
@@ -376,8 +370,8 @@
       "action": "2027 summer centralized application CLOSED Nov 1, 2026. Apply for Sep–Dec 2027 non-summer starts at least five months in advance via official online form; provide a reference CONTACT (not necessarily a letter).",
       "review": "official",
       "opening": null,
-      "verifiedAt": "2026-11-05",
-      "openStatus": "Non-summer applications rolling; summer 2027 central call closed",
+      "verifiedAt": "2026-11-07",
+      "openStatus": "Non-summer rolling applications only for 2027; summer 2027 central deadline passed",
       "applicationDocuments": [
         "CV",
         "University transcripts (unofficial acceptable; self-translated English combined with originals acceptable)",
@@ -520,7 +514,7 @@
       ],
       "deadline": "2026-11-15",
       "deadlineTime": "23:59",
-      "deadlineTimezone": "CET (UTC+1)",
+      "deadlineTimezone": "CET",
       "deadlineNote": "NEW official 2027 open call; closes 15 Nov 2026 at 23:59 CET",
       "opening": null,
       "period": "5 July–27 August 2027 (8 weeks fixed)",
@@ -536,16 +530,14 @@
       ],
       "officialUrl": "https://www.epfl.ch/schools/sv/education/summer-research-program/how-to-apply/",
       "sourceUrls": [
-        "https://www.epfl.ch/schools/sv/education/summer-research-program/",
         "https://www.epfl.ch/schools/sv/education/summer-research-program/how-to-apply/",
-        "https://www.epfl.ch/schools/sv/education/summer-research-program/program-description/",
         "https://www.epfl.ch/schools/sv/education/summer-research-program/faqs/"
       ],
-      "openStatus": "Open",
+      "openStatus": "2027 applications open",
       "priority": "urgent-conditional",
       "review": "official",
       "action": "URGENT 11 days. Only if first-year MSc plus life-science courses; choose labs e.g. NeuroAI, computational neuroscience, biomedical imaging; secure referee NOW.",
-      "verifiedAt": "2026-11-06"
+      "verifiedAt": "2026-11-07"
     },
     {
       "id": "nxai-cycle4-2027",
@@ -566,15 +558,16 @@
       "deadlineNote": "NEW official active MSc research internship posting; 30 Nov 2026 deadline",
       "opening": null,
       "period": "Starts Jan–Aug 2027; six-month proposed project; 20 h/week",
-      "funding": "Advertised €2,547/month; exact part-time pay basis should be confirmed",
-      "fundingCaveats": "20 h/week is advertised alongside €2,547/month; clarify whether amount is actual internship pay or full-time equivalent before accepting. No published housing/travel or visa funding.",
+      "funding": "Advertised €2,547 per month for a 20-hour/week part-time research internship; confirm contractual interpretation (gross/net and pro-rating)",
+      "fundingCaveats": "Public job page lists €2,547/month and 20 h/week; gross/net basis, taxes, relocation/visa and any pro-rating not clarified. Hybrid in Linz, Austria.",
       "eligibility": "Conditional",
       "eligibilityDetail": "Current MSc AI, CS, DS, mathematics, physics or related; at least one completed term of MSc coursework. Hybrid research in Linz; no blanket international relocation/visa guarantee on advert.",
       "applicationDocuments": [
-        "CV",
-        "Cover letter with a proposed AI research project and rough six-month schedule",
-        "Start date of Master's program",
-        "Answers about ML tools and prior research"
+        "CV/resume",
+        "Cover letter",
+        "Project idea with rough 6-month plan",
+        "MSc start date and background questions",
+        "GitHub/publication references optional"
       ],
       "officialUrl": "https://career.nx-ai.com/o/research-internship-masters-level-cycle-4-start-feb2027",
       "sourceUrls": [
@@ -584,7 +577,7 @@
       "priority": "optional",
       "review": "official",
       "action": "Optional INDUSTRY research lead (not a university). Requires one completed MSc term and a proposed six-month xLSTM/foundation-model project.",
-      "verifiedAt": "2026-11-04"
+      "verifiedAt": "2026-11-07"
     },
     {
       "id": "inria-ockham-flow2027",
@@ -847,21 +840,20 @@
       "action": "URGENT 10 days: apply only if aiming to join a PhD from 2027. Requires CV, all transcripts, two-page motivation, preferred supervisors, THREE reference contacts and English proficiency evidence. Written research ideas must be applicant's own work.",
       "review": "official",
       "opening": "2026-09",
-      "verifiedAt": "2026-11-06",
+      "verifiedAt": "2026-11-07",
       "deadlineTime": "23:59",
       "deadlineTimezone": "AoE (UTC−12)",
-      "fundingCaveats": "Exact annual salary not provided; regular German employment taxes and student fees may apply. Paid doctoral track, not a fellowship for current MS study.",
+      "fundingCaveats": "Funded doctoral employment; compensation amount not published. School states applicant ideas must be their own; AI may be used only for language clarity, not novel substantive content.",
       "applicationDocuments": [
-        "CV with research/projects/publications",
-        "All university transcripts (unofficial allowed)",
-        "Two-page research motivation, preferred faculty",
-        "Three academic referees and timely reference letters",
-        "TOEFL or alternative English proficiency evidence; GRE optional"
+        "Academic CV",
+        "University transcripts",
+        "Two-page motivation letter",
+        "Three referees with submitted letters",
+        "English proficiency evidence or English-medium education statement",
+        "Optional GRE, thesis and portfolio"
       ],
       "sourceUrls": [
-        "https://imprs.is.mpg.de/application",
-        "https://imprs.is.mpg.de/faqs",
-        "https://imprs.is.mpg.de/news/imprs-is-now-accepting-applications-for-2027"
+        "https://imprs.is.mpg.de/application"
       ],
       "openStatus": "Application portal open for 2027 hiring"
     },
@@ -958,12 +950,12 @@
       ],
       "deadline": "2027-01-21",
       "deadlineTime": "23:59",
-      "deadlineTimezone": "Europe/Zurich (Geneva local time, CET UTC+1 in January)",
+      "deadlineTimezone": "Europe/Zurich (CET in January)",
       "deadlineNote": "CERN official SUMM-2027 posting: before 21 Jan 2027 at 23:59 Geneva time; portal open.",
       "opening": null,
       "period": "Summer 2027 (CERN listing: 2-month contract, start target 14 June 2027)",
       "funding": "CHF 94 net per calendar day; CERN health insurance and conditional travel allowance",
-      "fundingCaveats": "Accommodation is not paid or guaranteed—CERN assists finding it. Travel reimbursement depends on circumstances. CHF 94/day subsistence is not an additional salary; some national-funding arrangements have different insurance conditions.",
+      "fundingCaveats": "CHF 94/calendar day net with health coverage; travel support conditional, accommodation search assistance only; full-time enrollment throughout summer.",
       "eligibility": "Potential match",
       "eligibilityDetail": "BSc/MSc worldwide incl CERN non-member countries (as advertised); >=6 semesters full-time relevant study by summer 2027, remain full-time enrolled throughout, no prior CERN summer studentship or >3 months previous CERN work; PhD candidates excluded.",
       "applicationDocuments": [
@@ -980,7 +972,7 @@
       "priority": "high",
       "review": "official",
       "action": "Apply separately from CERN openlab only if eligible and interested in broader scientific computing; referee letter and enrolment certificate compulsory.",
-      "verifiedAt": "2026-11-06"
+      "verifiedAt": "2026-11-07"
     },
     {
       "id": "inria-2026-10674",
@@ -1386,6 +1378,153 @@
       "review": "official",
       "action": "Long-range lead after the 90-day horizon; strong vision + medical AI + inverse problems fit, but contracting needs clarification.",
       "verifiedAt": "2026-11-06"
+    },
+    {
+      "id": "inria-2026-10514",
+      "name": "Inria MAKUTU: Neural operators for 3D gravimetric inverse problems (MSc internship)",
+      "host": "Inria Centre at Université de Bordeaux / MAKUTU & Orano",
+      "country": "France",
+      "type": "Master's research internship",
+      "domains": [
+        "Core ML",
+        "AI for science",
+        "Data-centric ML"
+      ],
+      "deadline": "2026-12-03",
+      "deadlineNote": "Inria official job 2026-10514, application deadline; time/timezone not published. Description says 6-month MSc project while contract metadata says 7 months; clarify length before accepting.",
+      "period": "Starting 1 March 2027; advertised contract metadata: 7 months (description: 6 months)",
+      "funding": "Paid internship allowance; amount not published",
+      "fundingCaveats": "No published stipend amount or travel/accommodation coverage; French internship convention and visa requirements may apply. Restricted research zone (ZRR) security clearance may be required.",
+      "eligibility": "Conditional MSc / internship agreement",
+      "eligibilityDetail": "Inria states Master's or equivalent and Internship agreement contract. Candidates need mathematical inverse problems, scientific Python and neural operators/Fourier neural operators; non-EU internship access and home-university convention must be checked. ZRR access may be refused.",
+      "officialUrl": "https://jobs.inria.fr/public/classic/en/offres/2026-10514",
+      "priority": "medium",
+      "action": "Prepare CV and cover letter; get MSc internship agreement and compensation/visa confirmation; reconcile stated project vs contract length.",
+      "review": "official",
+      "opening": null,
+      "verifiedAt": "2026-11-07",
+      "deadlineTime": null,
+      "deadlineTimezone": "TBA (France)",
+      "applicationDocuments": [
+        "CV",
+        "Cover letter",
+        "University internship convention (required for contract, verify procedure)"
+      ],
+      "sourceUrls": [
+        "https://jobs.inria.fr/public/classic/en/offres/2026-10514"
+      ],
+      "openStatus": "Posted on official Inria jobs portal"
+    },
+    {
+      "id": "inria-2026-10608",
+      "name": "Inria IROKO PhD: Scientific AI/PINNs for spatiotemporal biodiversity modelling",
+      "host": "Inria IROKO / PEPR DynaBiod",
+      "country": "France",
+      "type": "Funded PhD (post-MS pathway)",
+      "domains": [
+        "AI for science",
+        "Core ML",
+        "Data-centric ML",
+        "Interdisciplinary AI"
+      ],
+      "deadline": "2026-11-13",
+      "deadlineNote": "Official Inria job 2026-10608; posted deadline exact day only, clock/timezone not specified.",
+      "period": "Starting 1 February 2027; 3-year fixed-term doctoral contract",
+      "funding": "€2,300 gross per month, fixed-term PhD employment",
+      "fundingCaveats": "Gross amount; taxation and relocation/housing expenses not stated; restricted research zone (ZRR) security permission may apply.",
+      "eligibility": "Post-MS pathway; MSc/M2 required",
+      "eligibilityDetail": "Requires Master's year 2 or engineering degree in CS/AI/applied mathematics or equivalent, English scientific proficiency; Python, optimization and scientific ML; relevant to PINNs, ecological modelling and spatiotemporal data. No specific citizenship restriction stated, but visa/permit and ZRR check.",
+      "officialUrl": "https://jobs.inria.fr/public/classic/en/offres/2026-10608",
+      "priority": "high",
+      "action": "Only pursue as a paid PhD after MS degree completion; prepare academic CV, research statement and potential supervisor discussion; verify graduation by February 2027.",
+      "review": "official",
+      "opening": null,
+      "verifiedAt": "2026-11-07",
+      "deadlineTime": null,
+      "deadlineTimezone": "TBA (France)",
+      "applicationDocuments": [
+        "Academic CV",
+        "Academic records/degree",
+        "Other Inria portal documents as requested; exact checklist not published"
+      ],
+      "sourceUrls": [
+        "https://jobs.inria.fr/public/classic/en/offres/2026-10608"
+      ],
+      "openStatus": "Posted on official Inria portal"
+    },
+    {
+      "id": "inria-2026-10599",
+      "name": "Inria MARIANNE PhD: Human–LLM misinformation, reasoning and multi-agent detection",
+      "host": "Inria Université Côte d’Azur / MARIANNE & I3S",
+      "country": "France",
+      "type": "Funded PhD (post-MS pathway)",
+      "domains": [
+        "NLP & LLMs",
+        "AI agents & memory",
+        "AI safety & security",
+        "Interdisciplinary AI"
+      ],
+      "deadline": "2026-11-13",
+      "deadlineNote": "Official Inria 2026-10599 deadline is 13 November 2026, BUT advertised start date 1 January 2026 is already in the past (listing inconsistency). Verify start and actual availability before relying on call.",
+      "period": "Advertised four-year PhD contract; start-date metadata appears erroneous (1 January 2026)",
+      "funding": "€2,300 gross per month (doctoral employment contract)",
+      "fundingCaveats": "Gross pay; housing/travel not specified. ZRR security clearance possibly required. Stated start date is inconsistent with November 2026 deadline.",
+      "eligibility": "Post-MS; timeline inconsistent",
+      "eligibilityDetail": "Graduate degree or equivalent in data science/AI with machine learning and NLP; English and French mentioned; citizenship/visa not explicitly addressed. Interdisciplinary multi-agent and misinformation research, not an internship.",
+      "officialUrl": "https://jobs.inria.fr/public/classic/en/offres/2026-10599",
+      "priority": "optional",
+      "action": "Seek clarification of the already-past start date before investing in application; doctoral route only.",
+      "review": "recheck",
+      "opening": null,
+      "verifiedAt": "2026-11-07",
+      "deadlineTime": null,
+      "deadlineTimezone": "TBA (France)",
+      "applicationDocuments": [
+        "Academic CV",
+        "Degree/transcript",
+        "Inria portal supporting documents; verify exact checklist"
+      ],
+      "sourceUrls": [
+        "https://jobs.inria.fr/public/classic/en/offres/2026-10599"
+      ],
+      "openStatus": "Official Inria portal published, but start date conflict"
+    },
+    {
+      "id": "inria-2026-10601",
+      "name": "Inria SIERRA / ERC DYNASTY: ML Generalization Theory Research Engineer",
+      "host": "Inria Paris / SIERRA, ERC DYNASTY",
+      "country": "France",
+      "type": "Research engineer (fixed-term job, not internship)",
+      "domains": [
+        "Core ML",
+        "Theoretical ML",
+        "Systems",
+        "Data-centric ML"
+      ],
+      "deadline": "2026-11-13",
+      "deadlineNote": "Official Inria job 2026-10601; deadline time/timezone not provided.",
+      "period": "Starting 1 December 2026; 2-year fixed-term employment",
+      "funding": "Salaried research engineering position; amount not published",
+      "fundingCaveats": "Full-time employee role, not a Master's research internship. Gross salary, relocation, sponsorship and contract specifics not published.",
+      "eligibility": "Employment / degree / visa check",
+      "eligibilityDetail": "Graduate degree or equivalent, recently graduated preferred; PyTorch, generalization bounds and scientific Python; may require completed degree by employment start. Visa/security ZRR authorization check for non-EU applicants.",
+      "officialUrl": "https://jobs.inria.fr/public/classic/en/offres/2026-10601",
+      "priority": "optional",
+      "action": "Treat as research engineering employment, not a student fellowship; clarify degree completion, work permission and salary before applying.",
+      "review": "official",
+      "opening": null,
+      "verifiedAt": "2026-11-07",
+      "deadlineTime": null,
+      "deadlineTimezone": "TBA (France)",
+      "applicationDocuments": [
+        "CV",
+        "Cover letter",
+        "Degree or equivalent documentation; verify portal requirements"
+      ],
+      "sourceUrls": [
+        "https://jobs.inria.fr/public/classic/en/offres/2026-10601"
+      ],
+      "openStatus": "Posted on official Inria portal"
     }
   ],
   "lastResearchSummary": {
