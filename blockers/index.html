@@ -34,7 +34,7 @@ footer{font-size:13px;color:#555;margin-top:26px}
 <body>
 <header>
 <h1>Blockers</h1>
-<p class="subtle">Last reviewed: 07 November 2026 14:07 IST (live Desktop Commander commands on two Macs, read-only CLI checks, inbox review, and public site verification) · Tracking ID: blocker-tracker-20261106-001</p>
+<p class="subtle">Last reviewed: 07 November 2026 15:02 IST (connected Mac read-only checks, Tailscale status rechecks, competition public access, email, GitHub source and Pages checks) · Tracking ID: blocker-tracker-20261106-001</p>
 <p>Each item tells you <strong>what is blocked</strong>, <strong>who acts</strong>, and the <strong>next exact steps</strong>. <strong>Confirmed</strong> means checked; <strong>Reported</strong> means someone observed it but a fresh check is still needed; <strong>Verify</strong> means completion is not established.</p>
 <nav aria-label="Page sections"><a href="#your-actions">Your actions</a><a href="#agent-actions">Agent or service</a><a href="#new-blocker">Add a blocker</a><a href="/tracker/">Main tracker</a></nav>
 </header>
@@ -120,18 +120,7 @@ CLAUDE_CONFIG_DIR="$HOME/.claude-science" claude auth status</pre>
 <p><a href="https://safe-ai-research.github.io/DOSE-I-Challenge/">Official DOSE-I challenge rules</a> · <a href="https://www.codabench.org/competitions/18100/">Competition participation page</a> · <a href="https://2027.ieeeicassp.org/sp-grand-challenges/">IEEE ICASSP challenge schedule</a></p>
 </section>
 
-<section class="item" id="B-010">
-<h3>B-010 · Mac remote-agent access restored; Tailscale remains disconnected</h3>
-<p><strong>Project:</strong> Claude Science / Claude Code / Codex and Mac-hosted research or competition tasks. <strong>Status: Confirmed partial recovery on 7 Nov 2026 at 14:05–14:07 IST.</strong> Desktop Commander now lists Macs online across the connected accounts, and fresh harmless read-only commands completed successfully on two separately connected Macs (including an independent account check). The earlier 13:04–13:08 IST remote-agent outage is therefore <strong>resolved for Desktop Commander access</strong>. Separately, Tailscale on the research Mac returned <code>BackendState=NoState</code> and <code>Self.Online=false</code>; a second connected Mac also did not have a working Tailscale CLI connection. This does <strong>not</strong> prove an active job is blocked by Tailscale, that any macOS approval dialog is pending, or that all remote services and GUI sessions are healthy. On the research Mac, fresh CLI checks also showed the normal Claude and Codex profiles signed in, but the separate Claude Science and Raman CLI profiles signed out; see B-001. Authentication differs between machines, so no other Mac's CLI state should be inferred. <strong>Owner:</strong> AGENT to determine whether an active workflow actually needs the Tailscale route and retest it; HUMAN only if the trusted Tailscale app requires an interactive reconnection or sign-in.</p>
-<ol>
-<li><strong>AGENT:</strong> Continue read-only diagnostics through the now-working Desktop Commander connection. Check each affected job and its existing outputs before any restart or retry; do not duplicate competition submissions.</li>
-<li><strong>AGENT:</strong> Check whether the current workflow specifically requires a Tailscale network connection, SSH route, or Tailscale-hosted service. The Tailscale CLI currently reports a disconnected state; do not interpret that alone as a new macOS permission request.</li>
-<li><strong>HUMAN, only if a needed route is unavailable:</strong> On the Mac open the existing <strong>Tailscale</strong> app, check the intended existing account and network, and reconnect using its official trusted interface. If the app explicitly requests sign-in, complete that sign-in locally; never share login codes, keys, or private device details. <a href="https://tailscale.com/download/macos">Official Tailscale for macOS</a>.</li>
-<li><strong>AGENT:</strong> Verify the actual dependent connection works, then recheck the relevant Claude/Codex CLI profile under its existing configuration (B-001). If a macOS permission prompt really appears, first identify its requesting app and follow B-002; do not grant blanket access.</li>
-<li><strong>PAIEC deadline fallback:</strong> The official deadline is 7 Nov 2026 at 17:29 IST. If authenticated competition access is still missing, HUMAN should check <a href="https://www.codabench.org/competitions/17828/">the official participant page</a> and <a href="https://openreview.net/group?id=NeurIPS.cc%2F2026%2FWorkshop%2FPAIEC">the official OpenReview venue</a> from an already trusted browser and follow B-003/B-006. Do not assume a submission was not accepted without checking its existing receipt.</li>
-</ol>
-<p><a href="https://mcp.desktopcommander.app/">Desktop Commander device management</a> · <a href="https://tailscale.com/download/macos">Tailscale for macOS</a></p>
-</section>
+
 <h2 id="agent-actions">Agent or service blockers (do not require blind approval)</h2>
 <section class="item" id="B-004">
 <h3>B-004 · PAIEC CoDaBench access is inconsistent; API and submission still unverified</h3>
@@ -157,6 +146,17 @@ CLAUDE_CONFIG_DIR="$HOME/.claude-science" claude auth status</pre>
 </section>
 <!-- BLOCKERS-END -->
 <h2 id="resolved">Recently verified resolved</h2>
+<section class="item" id="B-010">
+<h3>B-010 · Mac remote-agent and Tailscale connections recovered</h3>
+<p><strong>Project:</strong> Claude Science / Claude Code / Codex and Mac-hosted research and competition tasks. <strong>Status: Resolved for remote-agent access and local Tailscale online state, verified on 7 Nov 2026 at 15:00–15:02 IST.</strong> Connected Desktop Commander targets completed independent read-only commands. Two connected Mac checks, repeated separately, now report Tailscale <code>BackendState=Running</code> and <code>Self.Online=true</code>. This supersedes the earlier <code>NoState</code>/offline observation at 14:07 IST. The previous Desktop Commander outage is also resolved. This verification does <strong>not</strong> establish reachability of every individual SSH peer, healthy research services, GUI authentication, or a pending macOS permission dialog. <strong>Owner:</strong> AGENT for checking any specific dependent connection before restarting work; HUMAN only if a new, actual interactive sign-in or permission request appears.</p>
+<ol>
+<li><strong>AGENT:</strong> Before resuming a task that requires SSH or Tailscale, test its <em>specific existing, authorized route</em> with a safe read-only command. Check previous job results before retries; never duplicate competition submissions.</li>
+<li><strong>AGENT:</strong> If a route fails again, distinguish a peer-specific SSH/service error from Tailscale being offline. Verify local <code>tailscale status</code> and the selected authorized service, then record the non-secret failure and check time.</li>
+<li><strong>HUMAN, only after a genuine new request:</strong> If Tailscale requires interactive authentication, use the existing <a href="https://tailscale.com/download/macos">official Tailscale app</a> to verify the intended account and sign in locally. If macOS displays a permission dialog, identify its exact requesting app and follow B-002; never share codes, keys, private device identifiers, or grant blanket access.</li>
+<li><strong>AGENT:</strong> Validate the relevant Claude/Codex profile separately before running research work (B-001). Remote network health does not prove any particular CLI or GUI session is authenticated.</li>
+</ol>
+<p><a href="https://mcp.desktopcommander.app/">Desktop Commander device management</a> · <a href="https://tailscale.com/download/macos">Tailscale for macOS</a></p>
+</section>
 <section class="item" id="B-007">
 <h3>B-007 · CVPR Codex research handoff completed</h3>
 <p><strong>Project:</strong> CVPR 2027 research sprint. <strong>Status: Resolved for this task, verified 6 Nov 2026 at 18:58 IST.</strong> A completed Codex handoff was reported by the research sprint and independently checked against the local <code>TRANSFER_INDEX.json</code>: revision 6 and SHA-256 <code>b126fd951ea69a5c9050d60e6dc91025ffa52f295edcca1f791e2700c369267b</code> match. Nine previously staged/new artifacts were accepted with no overwrites. The <em>previous separate connector's</em> HTTP 401 authentication condition was not independently retested, so its credentials remain unverified if that connector is used again. <strong>Owner:</strong> AGENT for any future connector diagnosis; no new human action established.</p>
