@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOf": "2026-11-08",
+  "asOf": "2026-11-09",
   "heading": "Europe-wide paid AI/ML research opportunities for international Master's students",
   "scope": "European universities and research institutes; paid employment, stipend or funded living costs; all AI/ML fields. Program admission and visa rules always prevail.",
   "safety": "Public program facts only. No applicant identity, application status, documents or private notes. A source-backed candidate is not an application or eligibility approval.",
@@ -11,7 +11,7 @@
     "sourcePrecedence": "Current official program page over aggregators; explicitly flag conflicts with old organizer portals and subpages",
     "eligibility": "conditional until graduation date, nationality, current enrolment and project rules are checked",
     "deadlineTimezone": "Exact time only when published; unknown remains null/TBA",
-    "verification": "Catalog refreshed 2026-11-08: official posting source checks per updated records; old records retain their prior verifiedAt. Do not assume a position is personally eligible, fully funded or open solely from its presence. Deadline timezone and funding unknown unless published."
+    "verification": "2026-11-09: Rechecked 12 previously tracked active leads against organizer pages. Original records outside that set retain earlier verifiedAt values. All dates are application cutoff dates, except explicitly TBA/rolling. Treat funding unverified and employment/PhD classifications literally."
   },
   "domains": [
     "Speech & audio",
@@ -43,7 +43,7 @@
         "Neuroscience"
       ],
       "deadline": "2026-11-16",
-      "deadlineNote": "Official 2027 timeline: portal opened 21 Oct 2026, closes 16 Nov 2026 (cutoff time/timezone not stated). Some page copy still mentions 2026 internships; rely on dated 2027 timeline.",
+      "deadlineNote": "2027 official timeline confirms portal opened 21 Oct, closes 16 Nov 2026 (exact time/timezone not stated), 1 Jul–30 Sep 2027 internship. Generic introduction still says 2026; follow 2027-specific timeline.",
       "period": "July–September 2027",
       "funding": "Approximately €1,350 per month for July–September 2027, intended to cover housing, living expenses and health insurance; travel compensated",
       "eligibility": "Potential match",
@@ -53,7 +53,7 @@
       "action": "URGENT 11 days: follow current program's official application link; prepare research statement in your own words, CV/transcripts and choose up to 2 projects. Do not submit to old /cactus-2026 registration; confirm correct 2027 URL.",
       "review": "recheck",
       "opening": "2026-10-21",
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-09",
       "deadlineTime": null,
       "deadlineTimezone": "Not published",
       "fundingCaveats": "Housing is organized but paid from the salary, NOT free additional funding. Visa/embassy fees and related travel are NOT reimbursed. Exact net sum/tax/insurance terms must be confirmed.",
@@ -82,7 +82,7 @@
         "Robotics"
       ],
       "deadline": "2026-11-29",
-      "deadlineNote": "29 Nov 2026 calculated from EPFL recurring 'Sunday closest to 1 December' rule; NOT yet independently confirmed by 2027-specific portal. No recommendation letter required by Summer@EPFL FAQ.",
+      "deadlineNote": "2027 date 29 Nov 2026 is an INFERENCE from the official recurring rule (Sunday nearest 1 Dec). The 2027 application page has not published a distinct closing timestamp. NO recommendation letters are wanted; active enrollment required in fellowship summer.",
       "period": "May–September 2027, typically 2–3 months",
       "funding": "CHF 1,800 per month + eligible travel reimbursement",
       "eligibility": "Conditional",
@@ -92,14 +92,14 @@
       "action": "Prepare all available BSc/MSc transcripts, CV and motivation (max 2 pages); NO recommendation letters (organizer says not considered). Application portal may only open 1–2 weeks before annual cutoff.",
       "review": "annual-rule",
       "opening": null,
-      "verifiedAt": "2026-11-08",
+      "verifiedAt": "2026-11-09",
       "deadlineTime": null,
       "deadlineTimezone": "Not separately posted; check application portal",
       "applicationDocuments": [
         "CV",
-        "All university transcripts",
-        "Motivation letter (1–2 pages)",
-        "No recommendation letter required by Summer@EPFL FAQ"
+        "Full BSc and MSc transcripts",
+        "Motivation statement (up to 2 pages)",
+        "No recommendation letters"
       ],
       "fundingCaveats": "Accommodation is not provided for free. CHF 1,800 per month is a living allowance; check Lausanne housing cost and reimbursable economy travel limits.",
       "openStatus": "2027 application window not verified open",
@@ -130,17 +130,17 @@
       "action": "Open now: prepare English transcripts, bachelor's certificate, CV, motivation and English assessment/statement. Confirm enrollment through internship.",
       "review": "official",
       "opening": null,
-      "verifiedAt": "2026-11-08",
+      "verifiedAt": "2026-11-09",
       "deadlineTime": "23:59",
       "deadlineTimezone": "AoE (UTC−12)",
       "openStatus": "Applications open for summer research 2027",
       "fundingCaveats": "Gross before German taxes; travel, housing and visa cost coverage not published on main CSR page. Check net budget.",
       "applicationDocuments": [
-        "CV (ideal 1 page, max 2)",
-        "Motivation letter (ideal 1 page, max 2)",
-        "Complete English transcript as one PDF",
-        "English language assessment OR statement of English study/work experience",
-        "Bachelor's certificate if a Master's applicant",
+        "1–2 page motivation letter",
+        "1–2 page CV",
+        "Latest complete transcript in English (single PDF)",
+        "English language test OR English-medium study/work statement",
+        "Bachelor's degree certificate for Master's applicants",
         "Optional reference contacts"
       ],
       "sourceUrls": [
@@ -202,7 +202,7 @@
         "Interdisciplinary AI"
       ],
       "deadline": "2026-12-31",
-      "deadlineNote": "Official 2027 cutoff 31 Dec 2026; program description still says application form is being prepared, BUT a distinct /career/internship-program/application-form page now embeds a JS-based form. Direct form backend functionality is unverified.",
+      "deadlineNote": "Official deadline 31 Dec 2026; organizer homepage says online form under preparation yet links a distinct application-form page. Form backend acceptance remains unverified; email submissions explicitly NOT accepted.",
       "period": "Summer 2027, up to 90 days",
       "funding": "Living, housing and travel costs fully covered",
       "eligibility": "Potential match",
@@ -212,7 +212,7 @@
       "action": "Inspect the online form in a normal browser and confirm that 2027 submissions are accepted; do not treat a visible form shell as proof the backend works.",
       "review": "recheck",
       "opening": null,
-      "verifiedAt": "2026-11-08",
+      "verifiedAt": "2026-11-09",
       "deadlineTime": null,
       "deadlineTimezone": "Not stated",
       "openStatus": "2027 form still being prepared as of 7 Nov 2026; official page says apply online only, no email",
@@ -251,18 +251,17 @@
       "action": "Request a reference letter early, review projects ~10 Dec 2026, apply Jan 7–31 (up to 3 projects; one combined PDF).",
       "review": "official",
       "opening": "2027-01-07",
-      "verifiedAt": "2026-11-08",
+      "verifiedAt": "2026-11-09",
       "deadlineTime": "23:59",
       "deadlineTimezone": "UTC+2 (Finland; as explicitly published for Jan 2027)",
       "openStatus": "Not yet open; projects published mid-Dec",
       "fundingCaveats": "Aalto assists finding student housing but doesn't promise free accommodation. Travel bonus is not full airfare reimbursement. Salary taxation depends on Finnish rules.",
       "applicationDocuments": [
-        "One combined PDF: tailored 1–2-page motivation letter",
-        "CV",
-        "University transcript and grading scale",
-        "MANDATORY reference letter (included in file or emailed by referee by deadline)",
-        "English proficiency evidence (English-medium study statement accepted; TOEFL/IELTS recommended but not mandatory)",
-        "Choose 1–3 specific projects; one application form only"
+        "Academic CV",
+        "Transcripts",
+        "Motivation letter",
+        "Recommendation letter",
+        "Project selections (up to 3)"
       ],
       "sourceUrls": [
         "https://www.aalto.fi/en/aalto-university-science-institute-asci/aalto-university-science-institute-international-summer-research-programme",
@@ -283,7 +282,7 @@
       ],
       "deadline": "2027-01-21",
       "deadlineNote": "CERN official SUM-OPENLAB-2027 application deadline 21 Jan 2027 at 23:59 Geneva time; international applicants eligible, must remain enrolled for fellowship; verify portal instructions.",
-      "period": "Nine weeks; starting 21 or 28 June 2027",
+      "period": "2 months; ideal start 21 June 2027, fully onsite",
       "funding": "CHF 94 NET per calendar day; CERN health insurance; conditional travel support",
       "eligibility": "Conditional",
       "eligibilityDetail": "Bachelor/Master in CS, mathematics, engineering or physics, strong computing profile, 6 semesters completed by summer 2027, English, no prior CERN summer studentship or >3 months CERN service. CERN FAQ explicitly welcomes ALL nationalities incl non-member-state countries. CAREERS listing requires full-time enrolment throughout; FAQ allows candidates graduating in European summer 2027 (from May)—resolve this difference if graduation occurs in summer.",
@@ -292,15 +291,15 @@
       "action": "NEW OPENING: prepare one recent referee letter, student certificate and complete official 2027 portal. Strong AI systems/ML for science opportunity.",
       "review": "official",
       "opening": "2026-11-06",
-      "verifiedAt": "2026-11-08",
+      "verifiedAt": "2026-11-09",
       "openStatus": "CERN official page titled 2027 and displays Apply now (URL retains 2026 slug)",
       "fundingCaveats": "CHF 94 per calendar day net allowance with health cover; travel depends on circumstances, accommodation search assistance only (housing not included), requires 6 semesters completed and student enrollment throughout.",
       "applicationDocuments": [
-        "CV (English) PDF",
-        "Official transcripts in English/French, PDF",
-        "Academic reference letter dated within the last 12 months",
-        "Enrolment certificate",
-        "Optional motivation letter; documents cannot be added after completion"
+        "CV",
+        "Academic reference letter",
+        "Enrollment certificate",
+        "Official transcripts",
+        "Optional supporting evidence"
       ],
       "sourceUrls": [
         "https://careers.cern/jobs/cern-openlab-summer-student-programme-2026/"
@@ -332,7 +331,7 @@
       "action": "Target relevant faculty and request non-summer start ≥4 months out. Do not confuse with paused ISTernship Summer Fellowship (paused for 2026 and 2027).",
       "review": "official",
       "opening": null,
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-09",
       "openStatus": "Rolling direct contact with PI, appointments subject to host group funding and approval",
       "fundingCaveats": "Salary is minimum €1,583 gross/month; campus housing is subject to availability and is paid separately. Must not receive simultaneous employment or outside funding; research security review and visa apply.",
       "applicationDocuments": [
@@ -484,7 +483,7 @@
       "action": "Deadline 27 Nov: inspect actual 2027 projects before considering; main focus infection biology, not generic AI.",
       "review": "official",
       "opening": null,
-      "verifiedAt": "2026-11-05",
+      "verifiedAt": "2026-11-09",
       "deadlineTime": null,
       "deadlineTimezone": "Not specified",
       "openStatus": "Opening during Nov 2026; official page does not show open form yet",
@@ -524,10 +523,10 @@
       "eligibility": "First-year MSc + life-science fit only",
       "eligibilityDetail": "Currently enrolled through summer 2027; must be at MOST first-year Master's by program start, life science/bioinformatics or related background, GPA approximately ≥3.75/4.0 or top 5%, foundational life science courses. Only pursue NeuroAI/biomedical/robotics lab matches if biology background.",
       "applicationDocuments": [
-        "BSc & MSc transcript / course list",
-        "Short personal and scientific essays about up to 3 labs; no standard CV/motivation letter",
-        "MANDATORY academic referee to upload letter via organizer link before deadline",
-        "One-sitting online form (cannot save halfway); English certificate not mandatory"
+        "Bachelor and current Master's transcripts",
+        "Short personal/scientific essays",
+        "One recommendation letter",
+        "Life-sciences background/top 5% or GPA equivalent ≥3.75/4"
       ],
       "officialUrl": "https://www.epfl.ch/schools/sv/education/summer-research-program/how-to-apply/",
       "sourceUrls": [
@@ -538,7 +537,7 @@
       "priority": "urgent-conditional",
       "review": "official",
       "action": "URGENT 11 days. Only if first-year MSc plus life-science courses; choose labs e.g. NeuroAI, computational neuroscience, biomedical imaging; secure referee NOW.",
-      "verifiedAt": "2026-11-07"
+      "verifiedAt": "2026-11-09"
     },
     {
       "id": "nxai-cycle4-2027",
@@ -577,7 +576,7 @@
       "priority": "optional",
       "review": "official",
       "action": "Prepare cover letter and a concrete six-month research proposal; clarify whether €2,547 per month is a gross 20h/week stipend and any adjustment.",
-      "verifiedAt": "2026-11-08"
+      "verifiedAt": "2026-11-09"
     },
     {
       "id": "inria-ockham-flow2027",
@@ -614,7 +613,7 @@
       "priority": "urgent-conditional",
       "review": "official",
       "action": "URGENT 12 days. Excellent generative vision research fit but underfunded and likely requires home-university internship agreement plus ZRR review.",
-      "verifiedAt": "2026-11-04"
+      "verifiedAt": "2026-11-09"
     },
     {
       "id": "ista-phd-2027",
@@ -953,16 +952,17 @@
       "deadlineTimezone": "Europe/Zurich (CET in January)",
       "deadlineNote": "CERN official SUMM-2027 posting: before 21 Jan 2027 at 23:59 Geneva time; portal open.",
       "opening": null,
-      "period": "Summer 2027 (CERN listing: 2-month contract, start target 14 June 2027)",
+      "period": "2 months; ideal start 14 June 2027, fully onsite",
       "funding": "CHF 94 net per calendar day; CERN health insurance and conditional travel allowance",
       "fundingCaveats": "CHF 94/calendar day net with health coverage; travel support conditional, accommodation search assistance only; full-time enrollment throughout summer.",
       "eligibility": "Potential match",
       "eligibilityDetail": "BSc/MSc worldwide incl CERN non-member countries (as advertised); >=6 semesters full-time relevant study by summer 2027, remain full-time enrolled throughout, no prior CERN summer studentship or >3 months previous CERN work; PhD candidates excluded.",
       "applicationDocuments": [
-        "CV in English or French",
+        "CV",
         "Academic reference letter",
-        "University enrolment certificate",
-        "Official transcripts in English or French"
+        "Enrollment certificate",
+        "Official transcripts",
+        "Optional supporting evidence"
       ],
       "officialUrl": "https://careers.cern/jobs/cern-summer-student-programme-2026-member-and-non-member-state/",
       "sourceUrls": [
@@ -972,7 +972,7 @@
       "priority": "high",
       "review": "official",
       "action": "Apply separately from CERN openlab only if eligible and interested in broader scientific computing; referee letter and enrolment certificate compulsory.",
-      "verifiedAt": "2026-11-07"
+      "verifiedAt": "2026-11-09"
     },
     {
       "id": "inria-2026-10674",
@@ -1974,33 +1974,335 @@
         "https://www.kcl.ac.uk/study/funding/funding-opportunities/diffusionllm-powered-generative-ai-with-healthcare-applications"
       ],
       "openStatus": "Official organizer posting found on 8 Nov 2026; application completion not attempted"
+    },
+    {
+      "id": "cerco-bees-neuroai-ms27",
+      "name": "CERCO Toulouse: Deep Neural Models of Visual Learning in Bees (M2/PhD)",
+      "host": "CNRS CERCO / University of Toulouse",
+      "country": "France",
+      "type": "Funded M2 research internship",
+      "domains": [
+        "Core ML",
+        "Vision & multimodal",
+        "Neuroscience",
+        "AI for science"
+      ],
+      "deadline": null,
+      "deadlineNote": "Official ENS-PSL MSc internship board posted 21 Oct 2026. No deadline published; linked project PDF is named 2026 and 2027 availability has NOT been reconfirmed.",
+      "period": "About 5 months (M2 placement; exact dates TBA)",
+      "funding": "Official ENS-PSL listing calls both CERCO positions 'fully funded'; compensation amount, travel, housing and insurance coverage NOT disclosed.",
+      "eligibility": "Conditional — host confirmation",
+      "eligibilityDetail": "M2 research project for a Master's-level student; PhD track also advertised separately. Supervising professor Timothée Masquelier. French M2/internship-agreement equivalence and residence permissions require confirmation.",
+      "officialUrl": "https://master-cogsci.ens.psl.eu/en/internships/offers/",
+      "priority": "medium",
+      "action": "Email supervisor with tailored CV and planned MSc internship dates only if application invitation still active; verify funding package before acceptance.",
+      "review": "recheck",
+      "opening": null,
+      "verifiedAt": "2026-11-09",
+      "applicationDocuments": [
+        "CV and research-fit statement (not officially listed; confirm with supervisor)"
+      ],
+      "fundingStatus": "claimed-funded-unquantified",
+      "officialEvidence": "ENS-PSL Masters official board, CERCO M2/PhD offers posted 21 Oct 2026"
+    },
+    {
+      "id": "cerco-spiking-neural-sequences-ms27",
+      "name": "CERCO Toulouse: Spiking Neural Networks for Temporal Neural Coding (M2)",
+      "host": "CNRS CERCO / University of Toulouse",
+      "country": "France",
+      "type": "Funded M2 research internship",
+      "domains": [
+        "Core ML",
+        "Neuroscience",
+        "AI for science"
+      ],
+      "deadline": null,
+      "deadlineNote": "Official ENS-PSL listing posted 21 Oct 2026 and links CerCo_M2_Offer_2027.pdf. No hard application deadline published; supervisor must confirm vacancy.",
+      "period": "About 5 months (2027 academic semester; exact dates TBA)",
+      "funding": "Official university listing calls both CERCO positions 'fully funded'; actual stipend, travel, housing and insurance support not quantified.",
+      "eligibility": "Conditional — host confirmation",
+      "eligibilityDetail": "Master's M2-level computational neuroscience/neuroAI; contact supervisor Timothée Masquelier. Requires fit for spiking neural models; university internship agreement and visa policy unknown.",
+      "officialUrl": "https://master-cogsci.ens.psl.eu/en/internships/offers/",
+      "priority": "medium",
+      "action": "Check if an external MSc researcher can register and obtain a written funding offer.",
+      "review": "recheck",
+      "opening": null,
+      "verifiedAt": "2026-11-09",
+      "fundingStatus": "claimed-funded-unquantified",
+      "officialEvidence": "ENS-PSL Masters official board, 2027 spiking-neural-sequences linked offer"
+    },
+    {
+      "id": "ibm-zurich-pde-2026-031",
+      "name": "IBM Research Zurich: AI, Neural Operators and Quantum Algorithms for PDEs",
+      "host": "IBM Research Europe Zurich",
+      "country": "Switzerland",
+      "type": "Research internship (pay not verified)",
+      "domains": [
+        "Core ML",
+        "Foundation models",
+        "AI for science",
+        "Systems"
+      ],
+      "deadline": null,
+      "deadlineNote": "Official IBM Research Zurich recruitment page and active application form (ref 2026_031); no closing date, exact pay or stipend published. NOT A CONFIRMED PAID opportunity.",
+      "period": "3–6 months, timing arranged",
+      "funding": "COMPENSATION NOT PUBLISHED; do not classify as confirmed paid or funded. Travel, visa and housing assistance also unknown.",
+      "eligibility": "Funding and enrolment check",
+      "eligibilityDetail": "Open to enrolled MSc or PhD students in CS, ML, physics or applied math; must remain enrolled throughout. PhD preferred; universities abroad explicitly welcome. Swiss visa/work-permit questions shown on application form.",
+      "officialUrl": "https://www.zurich.ibm.com/careers/2026_031.html",
+      "priority": "watch",
+      "action": "Verify whether MSc internship is paid and whether non-Swiss residence/work permit sponsorship is possible before treating as an eligible funded target.",
+      "review": "recheck",
+      "opening": null,
+      "verifiedAt": "2026-11-09",
+      "applicationDocuments": [
+        "CV",
+        "Application letter",
+        "Diploma/certificates",
+        "2–3 reference contacts",
+        "Research/project links recommended"
+      ],
+      "fundingStatus": "unverified",
+      "officialEvidence": "IBM Research Europe Zurich official 2026_031 posting and application form"
+    },
+    {
+      "id": "inria-2026-10562",
+      "name": "Inria VIRTUS: Crowd Vision, Trajectories and Data-driven Simulation (Research Engineer)",
+      "host": "Inria Rennes, VIRTUS",
+      "country": "France",
+      "type": "Salaried research engineer employment",
+      "domains": [
+        "Vision & multimodal",
+        "Core ML",
+        "Data-centric ML",
+        "Robotics",
+        "Interdisciplinary AI"
+      ],
+      "deadline": "2026-12-31",
+      "deadlineNote": "Official Inria ref 2026-10562 deadline 31 Dec 2026, no clock/timezone listed. Listed start 1 Jan 2027 one day later: timeline needs employer reconfirmation.",
+      "period": "Two-year full-time contract, start shown 1 Jan 2027",
+      "funding": "Starting from €2,695 gross/month; housing, relocation, travel and visa not covered in stated offer.",
+      "eligibility": "Completed MSc / full-time work check",
+      "eligibilityDetail": "Recently graduated Master's or equivalent; research-engineering role supporting video capture, pedestrian tracking, simulation, ML/data pipelines. ZRR restricted-area security authorization may apply for non-EU nationals; work authorization unspecified.",
+      "officialUrl": "https://jobs.inria.fr/public/classic/en/offres/2026-10562",
+      "priority": "medium",
+      "action": "Check if the December deadline and January start can accommodate visa/relocation; apply via Inria portal with CV and cover letter.",
+      "review": "official",
+      "opening": null,
+      "verifiedAt": "2026-11-09",
+      "applicationDocuments": [
+        "CV",
+        "Cover letter",
+        "Optional recommendation letters"
+      ],
+      "fundingStatus": "salaried-research-employment",
+      "officialEvidence": "Inria official vacancy 2026-10562"
+    },
+    {
+      "id": "inria-2026-10633",
+      "name": "Inria DEVINE: AI+Formal Methods / LLM Systems Research Engineer",
+      "host": "Inria Rennes / MERCE FRAIME collaboration",
+      "country": "France",
+      "type": "Salaried research engineer employment",
+      "domains": [
+        "NLP & LLMs",
+        "AI safety & security",
+        "Systems",
+        "Core ML"
+      ],
+      "deadline": "2026-12-31",
+      "deadlineNote": "Official Inria vacancy 2026-10633 deadline 31 Dec 2026, no clock posted; listed start 1 Dec 2026 is BEFORE the application deadline, so reconfirm availability.",
+      "period": "12-month full-time research engineering employment, advertised start 1 Dec 2026",
+      "funding": "About €2,695 gross/month (according to diploma and experience); no explicit travel/housing/visa funding.",
+      "eligibility": "Completed MSc / 3–5 years' experience",
+      "eligibilityDetail": "Requires Master's/equivalent, 3–5 years experience indicated. Skills: LLM/SLM, RAG, LoRA/PEFT, agentic systems, evaluation and formal methods. Non-EU work authorization and restricted area (ZRR) approval are unconfirmed.",
+      "officialUrl": "https://jobs.inria.fr/public/classic/en/offres/2026-10633",
+      "priority": "medium",
+      "action": "Deprioritize for full-time current MSc; consider if degree and experience requirements satisfied; verify inconsistent start date.",
+      "review": "recheck",
+      "opening": null,
+      "verifiedAt": "2026-11-09",
+      "applicationDocuments": [
+        "CV",
+        "Cover letter",
+        "Optional references"
+      ],
+      "fundingStatus": "salaried-research-employment",
+      "officialEvidence": "Inria official vacancy 2026-10633"
+    },
+    {
+      "id": "inria-2026-10640",
+      "name": "Inria PentestIA: AI Agent Evaluation and Security Benchmarks Engineer",
+      "host": "Inria Rennes / national AI safety evaluation platform",
+      "country": "France",
+      "type": "Salaried AI evaluation engineer employment",
+      "domains": [
+        "AI safety & security",
+        "NLP & LLMs",
+        "AI agents & memory",
+        "Systems"
+      ],
+      "deadline": "2026-12-20",
+      "deadlineNote": "Official Inria vacancy 2026-10640 deadline 20 Dec 2026, but advertised starting date 1 Feb 2026 is in the past; require employer reconfirmation before relying on the application.",
+      "period": "Two years; official advertised start is inconsistent",
+      "funding": "From €2,695 gross/month; relocation, housing and visa expenses not guaranteed.",
+      "eligibility": "Completed degree / date conflict",
+      "eligibilityDetail": "Research-engineering role in controlled agent evaluation and LLM cyber capability benchmarking. Master/graduate equivalent; requires Python, Linux, Git; French-language notice, English requirement not explicit. Restricted-area clearance may apply.",
+      "officialUrl": "https://jobs.inria.fr/public/classic/en/offres/2026-10640",
+      "priority": "medium",
+      "action": "Verify actual start date and current recruitment status; job not a student internship.",
+      "review": "recheck",
+      "opening": null,
+      "verifiedAt": "2026-11-09",
+      "applicationDocuments": [
+        "CV",
+        "Cover letter"
+      ],
+      "fundingStatus": "salaried-research-employment",
+      "officialEvidence": "Inria official vacancy 2026-10640"
+    },
+    {
+      "id": "inria-2026-10645",
+      "name": "Inria TARAN: Energy-efficient AI Accelerator Research Engineer / MSc-to-PhD Option",
+      "host": "Inria Rennes, TARAN",
+      "country": "France",
+      "type": "Salaried research role (possible student internship transition)",
+      "domains": [
+        "Systems",
+        "Core ML",
+        "AI for science"
+      ],
+      "deadline": "2026-11-29",
+      "deadlineNote": "Official vacancy 2026-10645 closes 29 Nov 2026; start listed 1 Nov 2026 (already passed). Employer notes final-year Master's students may start as six-month interns then transition to PhD, but internship pay terms are NOT given.",
+      "period": "Six-month contract as advertised; possible subsequent PhD",
+      "funding": "Research engineer salary about €2,695 gross/month; proposed MSc-internship variant has no separate verified compensation.",
+      "eligibility": "HW background / date conflict",
+      "eligibilityDetail": "Requires hardware design (VHDL/Verilog, ASIC/FPGA), C/C++ and ML; Master's completed for research engineer, talented final-year MSc students may be considered as interns. Security authorization, visa and agreement not confirmed.",
+      "officialUrl": "https://jobs.inria.fr/public/classic/en/offres/2026-10645",
+      "priority": "medium",
+      "action": "Assess hardware preparation and request details on whether the MSc intern route is still open; do not equate salary with internship pay.",
+      "review": "recheck",
+      "opening": null,
+      "verifiedAt": "2026-11-09",
+      "fundingStatus": "salaried-employment;intern-pay-unknown",
+      "officialEvidence": "Inria official vacancy 2026-10645"
+    },
+    {
+      "id": "inria-2026-10684",
+      "name": "Inria STARS PhD: Synthetic Video Generation and Self-Supervised Visual Learning",
+      "host": "Inria Sophia Antipolis, STARS",
+      "country": "France",
+      "type": "Funded PhD research employment",
+      "domains": [
+        "Vision & multimodal",
+        "Core ML",
+        "Foundation models",
+        "AI safety & security"
+      ],
+      "deadline": "2026-12-06",
+      "deadlineNote": "Official Inria vacancy 2026-10684 closes 6 Dec 2026 (time/timezone unspecified); expected doctoral start 1 Jan 2027.",
+      "period": "Three-year funded PhD, starts 1 January 2027",
+      "funding": "€2,300 gross/month, contracted PhD employment; transport partially reimbursed; no confirmed travel/housing/visa support.",
+      "eligibility": "Post-MS only; graduate by start",
+      "eligibilityDetail": "Must hold Master's or equivalent by Jan 2027. Research: controllable human-centric video generation, synthetic training data, self-supervised/continual learning, joint generated-video/deepfake detection. ZRR clearance may apply.",
+      "officialUrl": "https://jobs.inria.fr/public/classic/en/offres/2026-10684",
+      "priority": "medium",
+      "action": "Prioritize only as PhD pathway if MSc complete by January; visa processing may be infeasible with stated start date.",
+      "review": "official",
+      "opening": null,
+      "verifiedAt": "2026-11-09",
+      "applicationDocuments": [
+        "CV and research materials per official Inria portal (detailed requirements to verify)"
+      ],
+      "fundingStatus": "salaried-phd",
+      "officialEvidence": "Inria official vacancy 2026-10684"
+    },
+    {
+      "id": "inria-2026-10685",
+      "name": "Inria STARS PhD: Audio-Visual Deepfake Detection and Generalization",
+      "host": "Inria Sophia Antipolis, STARS",
+      "country": "France",
+      "type": "Funded PhD research employment",
+      "domains": [
+        "Vision & multimodal",
+        "Speech & audio",
+        "AI safety & security",
+        "Core ML"
+      ],
+      "deadline": "2026-12-06",
+      "deadlineNote": "Official Inria vacancy 2026-10685 closes 6 Dec 2026, cutoff clock not stated; advertised 1 Jan 2027 start. Headline says PhD/Postdoc but contract is marked doctoral, avoid treating it as generic postdoc.",
+      "period": "Three-year research PhD contract, expected start 1 Jan 2027",
+      "funding": "€2,300 gross/month for doctoral contract, not necessarily postdoc salary; housing/relocation not guaranteed.",
+      "eligibility": "Post-MS only; graduate by start",
+      "eligibilityDetail": "Must hold MSc or equivalent by Jan 2027; work on generalizable deepfake detectors, lip-reading embeddings and audio-visual/temporal consistency, synthetic-data robustness and calibration. ZRR clearance may apply.",
+      "officialUrl": "https://jobs.inria.fr/public/classic/en/offres/2026-10685",
+      "priority": "medium",
+      "action": "Consider only if ready for Jan 2027 doctoral start and eligible for work/visa; verify applicant contract level.",
+      "review": "official",
+      "opening": null,
+      "verifiedAt": "2026-11-09",
+      "fundingStatus": "salaried-phd",
+      "officialEvidence": "Inria official vacancy 2026-10685"
+    },
+    {
+      "id": "ellis-best-social-rl-phd27",
+      "name": "Toulouse MSCA BEST: Social Reinforcement Learning for Agroecology PhD",
+      "host": "INRAE Toulouse / IIIA-CSIC Barcelona; University of Toulouse",
+      "country": "France",
+      "type": "Funded PhD (MSCA COFUND)",
+      "domains": [
+        "RL & decision-making",
+        "Core ML",
+        "AI agents & memory",
+        "AI for science",
+        "Interdisciplinary AI"
+      ],
+      "deadline": "2026-11-23",
+      "deadlineNote": "ELLIS official job board and University of Toulouse BEST scheme: 23 Nov 2026 at 12:00 CET; MSc or equivalent MUST BE HELD on 23 Nov, not simply expected by Sept 2027 start.",
+      "period": "Three-year PhD expected to start September 2027",
+      "funding": "Official ELLIS notice describes the project as fully funded under MSCA COFUND BEST; salary/allowances not quoted in posting.",
+      "eligibility": "Usually ineligible until MSc finished",
+      "eligibilityDetail": "Application requires ALREADY completed Master's by 23 Nov 2026; no PhD; France mobility rule: ≤12 months residence/main activity in France in preceding 36 months. Research jointly supervised in Toulouse and Barcelona. Non-EU eligibility subject to work/visa checks.",
+      "officialUrl": "https://ellis.eu/research/jobs/2026-11-23-fully-funded-phd-on-social-reinforcement-learning-to-support-the",
+      "priority": "low",
+      "action": "Do not apply unless Master's already awarded by 23 Nov 2026; apply only through designated Toulouse platform, not email.",
+      "review": "official",
+      "opening": null,
+      "verifiedAt": "2026-11-09",
+      "applicationDocuments": [
+        "University of Toulouse BEST platform materials; consult programme details"
+      ],
+      "fundingStatus": "fully-funded-phd",
+      "officialEvidence": "ELLIS official job board, BEST program link"
     }
   ],
   "lastResearchSummary": {
-    "date": "2026-11-08",
+    "date": "2026-11-09",
     "newRecordIDs": [
-      "inria-2026-10525",
-      "inria-2026-10649",
-      "inria-2026-10607",
-      "inria-2026-10630",
-      "inria-2026-10667",
-      "inria-2026-10643",
-      "inria-2026-10614",
-      "inria-2026-10454",
-      "inria-2026-10352",
-      "oxford-ubs-ai-systems-dphil27",
-      "edinburgh-ai4bi-cdt27",
-      "kcl-horizon-genai-health27"
+      "cerco-bees-neuroai-ms27",
+      "cerco-spiking-neural-sequences-ms27",
+      "ibm-zurich-pde-2026-031",
+      "inria-2026-10562",
+      "inria-2026-10633",
+      "inria-2026-10640",
+      "inria-2026-10645",
+      "inria-2026-10684",
+      "inria-2026-10685",
+      "ellis-best-social-rl-phd27"
     ],
     "materialChanges": [
-      "ETH Zurich Student Summer Research Fellowship 2027 official SiROP listing corroborates 16 Dec 2026 13:00 CET; generic ETH application page is stale, must use 2027 SiROP rather than treating date as unverified.",
-      "RC Trust 2027 application subpage now has a JS form shell and direct-form link, despite main page saying form being prepared; backend functionality not independently confirmed.",
-      "New UK fully funded international doctoral opportunities: Oxford–UBS AI systems DPhil, closes 2 Dec at noon GMT, one overseas award; Edinburgh UKRI AI4BI CDT, closes 20 Jan 13:00 GMT with ≥12 funded studentships for all nationalities.",
-      "King's College London GenAI healthcare PhD covers only home-rate tuition; overseas applicant must fund fee gap. Overseas deadlines Feb 1 / Apr 21, not website headline July18.",
-      "New Inria paid low-gratuity internships on heuristics and conditional stipend-unverified video/neuroimaging tracks, plus salaried research engineering and post-MSc PhD positions. Do not conflate salary employment and internships.",
-      "ESA AI Data Science internship is nationality restricted (ESA member-country nationals) and excluded from this MSc-wide shortlist; CERN 2027 Summer Student Programme is separately open to non-member-state applicants.",
-      "No applications, emails, registrations or private applicant information processed."
+      "Two funded CNRS CERCO NeuroAI M2 internship themes, neural bee vision and spiking temporal coding, appeared in the ENS-PSL Master's official 21 Oct board; openings/dates/pay amounts not confirmed, so undated watchlist only.",
+      "IBM Research Zurich 2026_031 is an active MSc-eligible AI4Science research internship recruiting internationally, but compensation and deadline are not published; provisional UNVERIFIED FUNDING, not a confirmed paid recommendation.",
+      "New funded Inria STARS PhD calls in synthetic video generation and audiovisual deepfake detection, both close 6 Dec 2026 and pay €2,300 gross/month; graduation by 1 Jan 2027 required.",
+      "New Inria research engineer jobs cover crowd motion, LLM/formal methods and AI-agent evaluation, but require degree/employment eligibility and include internally inconsistent past/near-immediate start dates.",
+      "ELLIS advertises Toulouse/Barcelona MSCA-funded social RL doctoral opening closing 23 Nov noon CET, but Master's must already be awarded BY DEADLINE and French mobility rule applies; exclude from current-MS top choices unless degree completed.",
+      "Roche Germany ML signal-data internship appeared in search cache with €2,268/month but live employer URL on 9 Nov explicitly says job is no longer available; excluded from catalog, do not present as open.",
+      "TUM computational neuroscience lab says external students are not offered financial support; excluded from paid recommendations.",
+      "2027 Summer@EPFL deadline remains annual-rule inference, not a separately confirmed 2027-specific closing notice; do not call confirmed. Official FAQ says no recommendation letter.",
+      "CERN openlab and regular summer 2027 program remain LIVE (21 Jan 2027, 23:59 Geneva time) at CHF 94 net/calendar day; are two distinct application programs.",
+      "Public GitHub Pages could not be independently loaded by browser-based web tool; only repository content can be verified.",
+      "No personal information, applications, registrations, emails, or other applicant material were processed."
     ],
-    "scopeNote": "As of 2026-11-08, public official-sourced program facts only, no personal records. Newly discovered listings are not proof of newly opened calls. Existing HTML/UI is unchanged."
+    "scopeNote": "Official-source public records. New entries marked with funding verification and applicant eligibility requirements; research engineer and PhD roles are not internships."
   }
 }
