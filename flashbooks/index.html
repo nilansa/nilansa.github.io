@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="description" content="Flashbooks — a compact personal reading catalog for computer science, mathematics, and artificial intelligence.">
+<title>Flashbooks · Reading catalog</title>
+<style>
+:root{color-scheme:light;--ink:#19272d;--muted:#647278;--line:#e4e9e9;--bg:#fafaf8;--accent:#175e5d;--chip:#eaf5f0}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+button,input{font:inherit}a{color:var(--accent);text-underline-offset:3px}a:hover{text-decoration-thickness:2px}
+.site{max-width:1000px;margin:auto;padding:30px clamp(20px,5vw,56px) 85px}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding-bottom:20px}
+.brand{font-weight:800;letter-spacing:-.05em;font-size:21px;color:var(--ink);text-decoration:none}
+.brand em{font-style:normal;color:var(--accent)}.kind{font-size:12px;color:var(--muted);letter-spacing:.13em;text-transform:uppercase}
+.hero{padding:70px 0 34px}.eyebrow{color:var(--accent);font-size:11px;letter-spacing:.16em;font-weight:800;text-transform:uppercase}
+h1{font-size:clamp(38px,6vw,64px);line-height:1.07;letter-spacing:-.06em;max-width:740px;margin:13px 0 16px;font-weight:760}
+.lede{font-size:17px;color:var(--muted);max-width:660px;line-height:1.7;margin:0}.stats{display:flex;gap:16px;align-items:center;margin-top:24px;color:var(--muted);font-size:13px}.stats b{color:var(--ink);font-size:17px}
+.toolbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:32px 0 28px}
+.search{background:#fff;border:1px solid #cdd9d9;border-radius:10px;color:var(--ink);padding:12px 14px;min-width:220px;flex:1;max-width:440px}
+.search:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid #80b9b0;outline-offset:3px}
+.filters{display:flex;gap:7px;flex-wrap:wrap}
+.filters button{background:#fff;border:1px solid var(--line);border-radius:100px;padding:9px 13px;color:#405058;cursor:pointer;font-size:12px;font-weight:700}
+.filters button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+#status{min-height:25px;color:var(--muted);font-size:13px;margin:0 0 15px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.book{background:#fff;border:1px solid var(--line);border-radius:14px;padding:23px 25px;display:flex;flex-direction:column;min-height:235px;box-shadow:0 5px 21px #1b292b05}
+.book:hover{border-color:#afc8c4}.book .tag{font-size:10px;color:var(--accent);font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.book h2{font-size:20px;line-height:1.28;letter-spacing:-.03em;font-weight:740;margin:11px 0 5px}
+.byline{font-size:13px;color:var(--muted);margin:0 0 12px}
+.topic{font-size:13px;color:#2c4547;margin:0 0 15px}.bottom{margin-top:auto;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.pill{font-size:11px;color:#2f5c50;background:var(--chip);padding:5px 9px;border-radius:100px;font-weight:750}
+details{border-top:1px solid var(--line);margin-top:17px;padding-top:12px;font-size:13px;color:#3b515a}
+summary{cursor:pointer;font-size:12px;font-weight:800;color:var(--accent)}details p{margin:8px 0}details .links{display:flex;gap:15px;flex-wrap:wrap}
+.empty{display:none;padding:42px 0;color:var(--muted)}footer{margin-top:56px;border-top:1px solid var(--line);padding-top:21px;color:var(--muted);font-size:12px;line-height:1.75}
+footer a{color:var(--muted)}.muted{color:var(--muted)}
+@media(max-width:690px){.site{padding-top:18px}.hero{padding-top:48px}.grid{grid-template-columns:1fr}.book{min-height:0}.toolbar{align-items:stretch}.search{max-width:none;width:100%}}
+</style>
+</head>
+<body>
+<div class="site">
+<header><a class="brand" href="./" aria-label="Flashbooks homepage">flash<em>books</em><span aria-hidden="true">.</span></a><span class="kind">Personal book index</span></header>
+<main>
+<section class="hero">
+  <div class="eyebrow">Books / Notes / References</div>
+  <h1>A small library of ideas worth keeping.</h1>
+  <p class="lede">An evolving reading catalog spanning computer science, mathematics, and artificial intelligence. Publisher pages and authorized previews are linked where available.</p>
+  <div class="stats"><span><b id="bookCount">8</b> books cataloged</span><span aria-hidden="true">·</span><span><b>3</b> subject shelves</span></div>
+</section>
+<div class="toolbar">
+<label for="search" class="muted" style="position:absolute;clip:rect(0,0,0,0);width:1px;height:1px;overflow:hidden">Search books</label>
+<input id="search" class="search" type="search" placeholder="Search title, author, topic…" autocomplete="off">
+<nav class="filters" id="filters" aria-label="Filter by subject">
+<button type="button" aria-pressed="true" data-filter="All">All</button>
+<button type="button" aria-pressed="false" data-filter="Computer Science">Computer Science</button>
+<button type="button" aria-pressed="false" data-filter="Mathematics">Mathematics</button>
+<button type="button" aria-pressed="false" data-filter="Artificial Intelligence">AI</button>
+</nav>
+</div>
+<p id="status" role="status" aria-live="polite">Loading catalog…</p>
+<div class="grid" id="grid"></div>
+<p class="empty" id="empty">No matching books. Try a different search or shelf.</p>
+<noscript><p>This catalog needs JavaScript for searching. The plain catalog is also available as <a href="./books.json">books.json</a>.</p></noscript>
+</main>
+<footer>
+  <div>Flashbooks · A personal reading index, not a repository of copyrighted books. PDF/preview links point to official or author-authorized sources only.</div>
+  <div>Publisher and preview availability may change. No analytics, accounts or tracking. Last catalog refresh: <span id="updated">November 2026</span>.</div>
+</footer>
+</div>
+<script>
+"use strict";
+let books=[],active="All";
+const $=id=>document.getElementById(id);
+function node(tag,cls,txt){const e=document.createElement(tag);if(cls)e.className=cls;if(txt!==undefined)e.textContent=txt;return e}
+function appendLink(parent,text,url){if(!url)return;const a=node("a",null,text);a.href=url;a.target="_blank";a.rel="noopener noreferrer";parent.append(a)}
+function draw(){
+ const term=$("search").value.trim().toLowerCase();
+ const found=books.filter(b=>(active==="All"||b.category===active)&&[b.title,b.creator,b.topic,(b.tags||[]).join(" ")].join(" ").toLowerCase().includes(term));
+ const grid=$("grid");grid.replaceChildren();
+ for(const b of found){
+   const card=node("article","book");
+   card.append(node("div","tag",b.category));
+   card.append(node("h2",null,b.title));
+   card.append(node("p","byline",[b.creator,b.year||b.edition].filter(Boolean).join(" · ")));
+   card.append(node("p","topic",b.topic));
+   const bottom=node("div","bottom");bottom.append(node("span","pill",b.status||"In collection"));card.append(bottom);
+   const details=node("details");details.append(node("summary",null,"Why read this & sources"));
+   details.append(node("p",null,b.why||""));
+   if(b.availability)details.append(node("p","muted",b.availability));
+   const links=node("div","links");
+   appendLink(links,"Official page",b.publisherUrl);
+   if(b.pdfUrl)appendLink(links,b.availability==="Publisher online preview only"?"Publisher preview":"Authorized PDF / excerpt",b.pdfUrl);
+   details.append(links);card.append(details);grid.append(card)
+ }
+ $("status").textContent=found.length+" of "+books.length+" books shown";
+ $("empty").style.display=found.length?"none":"block";
+}
+document.querySelectorAll("[data-filter]").forEach(b=>b.addEventListener("click",()=>{
+ active=b.dataset.filter;
+ document.querySelectorAll("[data-filter]").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));draw()
+}));
+$("search").addEventListener("input",draw);
+fetch("./books.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("Catalog request failed");return r.json()}).then(data=>{
+ if(!data||!Array.isArray(data.books))throw Error("Invalid catalog");
+ books=data.books;$("bookCount").textContent=String(books.length);
+ if(data.updated)$("updated").textContent=data.updated;
+ draw()
+}).catch(()=>{$("status").textContent="Catalog unavailable right now. ";const a=node("a",null,"Open the raw book list.");a.href="./books.json";$("status").append(a)});
+</script>
+</body>
+</html>
