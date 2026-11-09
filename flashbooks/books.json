@@ -1,0 +1,159 @@
+{
+  "name": "Flashbooks",
+  "version": 1,
+  "updated": "2026-11-09",
+  "categories": [
+    "Computer Science",
+    "Mathematics",
+    "Artificial Intelligence"
+  ],
+  "books": [
+    {
+      "slug": "principles-of-visual-information-retrieval",
+      "title": "Principles of Visual Information Retrieval",
+      "creator": "Michael S. Lew (editor)",
+      "year": 2001,
+      "edition": "1st edition",
+      "category": "Computer Science",
+      "topic": "Visual information retrieval",
+      "tags": [
+        "Computer vision",
+        "Image search",
+        "Pattern recognition",
+        "Multimedia IR"
+      ],
+      "status": "To read",
+      "availability": "No verified free full PDF",
+      "publisherUrl": "https://link.springer.com/book/10.1007/978-1-4471-3702-3",
+      "pdfUrl": null,
+      "why": "A foundational view of how images and video are represented, compared, ranked and retrieved: colour, texture, shape, similarity, feature selection, feedback, video indexing and semantics.",
+      "note": "Photographed 9 November 2026. Historical pre-deep-learning methods; compare with modern vision embeddings.",
+      "isbn": "9781852333812"
+    },
+    {
+      "slug": "book-of-proof",
+      "title": "Book of Proof",
+      "creator": "Richard Hammack",
+      "year": 2025,
+      "edition": "3rd edition, rev. 3.4",
+      "category": "Mathematics",
+      "topic": "Proofs and logic",
+      "tags": [
+        "Logic",
+        "Discrete mathematics"
+      ],
+      "status": "To read",
+      "availability": "Free authorized full PDF",
+      "publisherUrl": "https://richardhammack.github.io/BookOfProof/",
+      "pdfUrl": "https://richardhammack.github.io/BookOfProof/Main.pdf",
+      "why": "A practical introduction to mathematical reasoning and proof techniques."
+    },
+    {
+      "slug": "proofs-long-form",
+      "title": "Proofs: A Long-Form Mathematics Textbook",
+      "creator": "Jay Cummings",
+      "year": null,
+      "edition": "Edition not verified",
+      "category": "Mathematics",
+      "topic": "Proof writing",
+      "tags": [
+        "Logic",
+        "Discrete mathematics"
+      ],
+      "status": "To read",
+      "availability": "Authorized sample PDF only",
+      "publisherUrl": "https://longformmath.com/proofs-book/",
+      "pdfUrl": "https://longformmath.com/wp-content/uploads/2025/01/proofsscannedsample.pdf",
+      "why": "A long-form teaching approach to constructing and understanding proofs."
+    },
+    {
+      "slug": "real-analysis-long-form",
+      "title": "Real Analysis: A Long-Form Mathematics Textbook",
+      "creator": "Jay Cummings",
+      "year": null,
+      "edition": "Second edition",
+      "category": "Mathematics",
+      "topic": "Real analysis",
+      "tags": [
+        "Analysis",
+        "Calculus"
+      ],
+      "status": "To read",
+      "availability": "Authorized sample PDF only",
+      "publisherUrl": "https://longformmath.com/real-analysis-book/",
+      "pdfUrl": "https://longformmath.com/wp-content/uploads/2025/01/scannedsampleanalysis.pdf",
+      "why": "Develops rigorous understanding of limits, continuity and analysis."
+    },
+    {
+      "slug": "math-history-long-form",
+      "title": "Math History: A Long-Form Mathematics Textbook",
+      "creator": "Jay Cummings",
+      "year": 2025,
+      "edition": "2025",
+      "category": "Mathematics",
+      "topic": "History of mathematics",
+      "tags": [
+        "History"
+      ],
+      "status": "To read",
+      "availability": "Authorized contents PDF only",
+      "publisherUrl": "https://longformmath.com/math-history-book/",
+      "pdfUrl": "https://longformmath.com/wp-content/uploads/2025/02/History-of-Math-copy-dragged-2.pdf",
+      "why": "Places mathematical ideas in their historical context."
+    },
+    {
+      "slug": "linear-algebra-and-its-applications",
+      "title": "Linear Algebra and Its Applications",
+      "creator": "Gilbert Strang",
+      "year": null,
+      "edition": "Fifth edition (as pictured)",
+      "category": "Mathematics",
+      "topic": "Linear algebra",
+      "tags": [
+        "Matrices",
+        "Machine learning foundations"
+      ],
+      "status": "To read",
+      "availability": "No verified free full PDF",
+      "publisherUrl": "https://math.mit.edu/~gs/papers/papers.html",
+      "pdfUrl": null,
+      "why": "A conceptual and applied introduction to linear algebra; the link is to the author's resources, not a free textbook copy."
+    },
+    {
+      "slug": "how-to-prove-it",
+      "title": "How to Prove It: A Structured Approach",
+      "creator": "Daniel J. Velleman",
+      "year": 2019,
+      "edition": "Third edition",
+      "category": "Mathematics",
+      "topic": "Proof writing",
+      "tags": [
+        "Logic",
+        "Theoretical CS"
+      ],
+      "status": "To read",
+      "availability": "Authorized excerpt PDF only",
+      "publisherUrl": "https://www.cambridge.org/highereducation/books/how-to-prove-it/6D2965D625C6836CD4A785A2C843B3DA",
+      "pdfUrl": "https://assets.cambridge.org/97811084/39534/excerpt/9781108439534_excerpt.pdf",
+      "why": "Teaches how to unpack definitions and build mathematical proofs."
+    },
+    {
+      "slug": "crack-any-codebase-with-ai",
+      "title": "Crack Any Codebase with AI",
+      "creator": "Zachary Huang",
+      "year": 2026,
+      "edition": "Manning Early Access",
+      "category": "Artificial Intelligence",
+      "topic": "AI-assisted software engineering",
+      "tags": [
+        "Software engineering",
+        "Code comprehension"
+      ],
+      "status": "To read",
+      "availability": "Publisher online preview only",
+      "publisherUrl": "https://www.manning.com/books/crack-any-codebase-with-ai",
+      "pdfUrl": "https://www.manning.com/preview/crack-any-codebase-with-ai/chapter-1",
+      "why": "Practical techniques for exploring unfamiliar codebases with AI tools."
+    }
+  ]
+}
