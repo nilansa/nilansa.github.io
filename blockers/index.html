@@ -34,7 +34,7 @@ footer{font-size:13px;color:#555;margin-top:26px}
 <body>
 <header>
 <h1>Blockers</h1>
-<p class="subtle">Last reviewed: 09 November 2026 at 15:04 IST (new agent-owned NVIDIA video-inference preflight blocker from the 09:13 UTC local project checkpoint; live GitHub source, public page, Mac CLI authentication, connected agents and two competition inboxes checked; registration, personal consent and final acceptance remain unverified) · Tracking ID: blocker-tracker-20261106-001</p>
+<p class="subtle">Last reviewed: 09 November 2026 at 16:44 IST (live GitHub source, independent public page, six remote-agent account inventories and two competition inboxes checked; new Mac remote-access interruption confirmed, but direct Mac CLI, permission and project state could not be reverified) · Tracking ID: blocker-tracker-20261106-001</p>
 <p>Each item tells you <strong>what is blocked</strong>, <strong>who acts</strong>, and the <strong>next exact steps</strong>. <strong>Confirmed</strong> means checked; <strong>Reported</strong> means someone observed it but a fresh check is still needed; <strong>Verify</strong> means completion is not established.</p>
 <nav aria-label="Page sections"><a href="#your-actions">Your actions</a><a href="#agent-actions">Agent or service</a><a href="#new-blocker">Add a blocker</a><a href="/tracker/">Main tracker</a></nav>
 </header>
@@ -177,6 +177,18 @@ footer{font-size:13px;color:#555;margin-top:26px}
 <li><strong>AGENT:</strong> Check the <a href="https://nvidia-av-causal-scenario-retrieval-challenge.hf.space/participate">official participant dashboard</a> for an actual accepted submission and evaluation result. Resolve this item only with a verified compatible preflight or submission receipt; do not mistake a local proxy result for an official score.</li>
 </ol>
 <p><a href="https://huggingface.co/spaces/nvidia/AV-Causal-Scenario-Retrieval-Challenge">Official challenge instructions</a> · <a href="https://nvidia-av-causal-scenario-retrieval-challenge.hf.space/participate">Participant portal</a></p>
+</section>
+
+<section class="item" id="B-015">
+<h3>B-015 · Mac research-agent access newly unavailable</h3>
+<p><strong>Project:</strong> Claude Science / Claude Code / Codex and Mac-hosted competition and research projects. <strong>Confirmed (9 Nov 2026 at 16:44 IST):</strong> Across six connected Desktop Commander account inventories, the current Mac remote-agent entries were <strong>offline</strong>, most recently seen approximately 44–45 minutes before the check, while separate authorized Windows agents remained online. A separate connected local-computer tool also reported that its tunnel client had not connected for at least 300 seconds. A fresh Mac CLI authentication, macOS permission, or project-worker check therefore could <em>not</em> be performed through these routes. <strong>Verify:</strong> The cause is unknown; this does not prove a Mac shutdown, lost Tailscale connection, expired login, or pending macOS permission approval. <strong>Owner:</strong> AGENT for read-only reconnection diagnosis and subsequent verification; HUMAN only if the Mac must be woken or a genuine trusted-app interaction is needed.</p>
+<ol>
+<li><strong>AGENT:</strong> Recheck the already-connected Mac entries in <a href="https://mcp.desktopcommander.app/">Desktop Commander device management</a> and the existing authorized alternate connector. Confirm whether a read-only Mac command works before treating this as an ongoing outage. Do not reinstall tools, change account settings or grant permissions speculatively.</li>
+<li><strong>AGENT:</strong> If still offline, distinguish the remote-agent service, Mac network availability and a specific task connection using only already-authorized, read-only diagnostics from available devices. Record the error class and check time privately. Do not infer a missing Claude or Codex sign-in from the agent being unreachable.</li>
+<li><strong>HUMAN, only if the Mac remains unreachable:</strong> Physically wake or power on the Mac and verify it has network access. On the Mac itself, open the existing trusted remote-agent app and check its connected/sign-in state; restart that <em>existing</em> app through its normal controls only if stopped. If it requests an interactive account login, complete that request in the trusted app without sharing codes, passwords or callbacks. For an actual macOS security prompt, identify the exact requesting app and follow <a href="#B-002">B-002</a>; do not enable blanket permissions.</li>
+<li><strong>AGENT:</strong> Require a successful fresh Mac read-only command before marking connectivity restored. Then verify the specific affected CLI profile, inspect pending job results before retries, and resume tasks without duplicating competition submissions. The earlier verified recovery in <a href="#B-010">B-010</a> was historical, not proof that this newer interruption is resolved.</li>
+</ol>
+<p><a href="https://mcp.desktopcommander.app/">Connected-device status</a> · <a href="#B-002">macOS permission guidance</a></p>
 </section>
 <!-- BLOCKERS-END -->
 <h2 id="resolved">Recently verified resolved</h2>
