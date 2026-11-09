@@ -749,23 +749,23 @@
         "Foundation models"
       ],
       "deadline": "2026-11-09",
-      "deadlineNote": "University of Oxford LIVE official vacancy 189247, closes 9 Nov 2026 at 12:00 GMT. Full-time employment until 30 Sep 2030, not a summer student fellowship.",
+      "deadlineNote": "CLOSES TODAY 9 Nov 2026 at 12:00 GMT (University Oxford vacancy ID 189247); full-time contracted employment, requires a previously completed degree; this is not a student internship.",
       "period": "Full-time research employment, fixed-term until 30 September 2030; start by arrangement",
       "funding": "£35,681–£41,636 gross/year (discretionary scale to £46,476, including Oxford weighting); salaried research job",
       "eligibility": "Full-time work / degree / immigration check",
-      "eligibilityDetail": "Must already hold relevant Bachelor's degree and specialist AI or computational biology skills with experience in biological/large-scale data, ML models or agents. MSc student may apply but full-time ongoing employment may conflict with degree; UK right-to-work / sponsorship NOT confirmed. No claim of automatic eligibility for overseas students.",
+      "eligibilityDetail": "Requires completed degree in CS/AI/biomedically related area and full-time Oxford on-site employment; work visa/sponsorship not confirmed. Research assistant job, not an MSc fellowship.",
       "officialUrl": "https://my.corehr.com/pls/uoxrecruit/erq_jobspec_version_4.display_form?p_applicant_no=&p_company=10&p_display_apply_ind=Y&p_display_in_irish=N&p_form_profile_detail=&p_internal_external=E&p_process_type=&p_recruitment_id=189247&p_refresh_search=Y",
       "priority": "conditional-urgent",
       "action": "URGENT 4 days: only for a candidate able to work full-time in the UK. Prepare CV and supporting statement demonstrating each selection criterion; confirm work authorization/sponsorship and student status with employer.",
       "review": "official",
       "opening": "2026-10-27",
-      "verifiedAt": "2026-11-05",
+      "verifiedAt": "2026-11-09",
       "deadlineTime": "12:00",
       "deadlineTimezone": "GMT (UTC+0)",
       "fundingCaveats": "Salary requires full-time employment; relocation, accommodation, visa fees and sponsorship are NOT stated as funded. Not an internship or portable stipend.",
       "applicationDocuments": [
         "CV",
-        "Supporting statement addressing each selection criterion; employer says no extra uploads"
+        "Supporting statement demonstrating selection criteria"
       ],
       "sourceUrls": [
         "https://my.corehr.com/pls/uoxrecruit/erq_jobspec_version_4.display_form?p_applicant_no=&p_company=10&p_display_apply_ind=Y&p_display_in_irish=N&p_form_profile_detail=&p_internal_external=E&p_process_type=&p_recruitment_id=189247&p_refresh_search=Y"
@@ -786,9 +786,9 @@
         "Core ML"
       ],
       "deadline": "2026-11-15",
-      "deadlineNote": "Lab's official 'Open Positions' notice, updated October 2026, says email application by 15 Nov 2026. No cutoff hour/timezone published. Distinct PhD positions advertised on same page.",
+      "deadlineNote": "15 Nov 2026 application deadline, no hour/timezone given, official RoboTac BMW AI-Robotics Lab Open Positions page (updated Oct 2026). Applicants apply by EMAIL (not via application portal).",
       "period": "Expected start December 2026, duration not stated; Munich on site",
-      "funding": "Official lab advert calls positions fully funded and promises attractive remuneration; exact internship salary, travel and visa coverage NOT stated",
+      "funding": "Lab advert calls fully funded research internships and says 'attractive & fair remuneration' and possible BMW apartment subject to availability; actual internship pay and visa/travel terms undisclosed.",
       "eligibility": "Technical research / employer verification",
       "eligibilityDetail": "Currently enrolled OR graduated MSc in EE, CS, mathematics, systems/control or related, with strong practical robotics and deep learning, PyTorch and English; IsaacLab/MuJoCo desirable. Industry-laboratory internship in BMW Munich; work permit/sponsorship not stated. The lab also lists separate PhD positions.",
       "officialUrl": "https://www.robotac.eu/open-positions",
@@ -796,16 +796,16 @@
       "action": "URGENT 10 days: if strong robotics + PyTorch fit, verify employer identity and compensation/immigration arrangements; apply only if interested in industrial research. CV with photo, one-page cover letter, BSc/MSc transcripts in one PDF via lab's published email (not sent by tracker).",
       "review": "official",
       "opening": null,
-      "verifiedAt": "2026-11-05",
+      "verifiedAt": "2026-11-09",
       "deadlineTime": null,
       "deadlineTimezone": "Not published",
       "fundingCaveats": "Source is the research lab's own website, not an independently verified BMW/TU Eindhoven HR job advertisement. 'Fully funded' and 'attractive remuneration' are unquantified. Housing in BMW apartment subject to availability; visa/travel unknown.",
       "applicationDocuments": [
-        "CV with photo (as requested by employer)",
+        "CV with photo (as required by advert)",
         "Cover letter max 1 page",
-        "BSc/MSc university transcripts",
-        "Publication list if any; two recommendation contacts requested only for PhD role",
-        "One combined PDF by 15 Nov sent to lab email"
+        "BSc and MSc transcripts",
+        "Publication list if available",
+        "Single PDF with materials; two referees specifically requested for PhD track"
       ],
       "sourceUrls": [
         "https://www.robotac.eu/open-positions"
@@ -829,7 +829,7 @@
         "Interdisciplinary AI"
       ],
       "deadline": "2026-11-15",
-      "deadlineNote": "Official portal: 15 Nov 2026 End of Day Anywhere on Earth (AoE, UTC−12); interviews 18–26 Feb 2027. The notice's cohort-year wording contains stale text but 2027 hiring round is explicit.",
+      "deadlineNote": "15 Nov 2026 End of Day Anywhere on Earth (UTC−12), confirmed via IMPRS-IS official 2027 call; PhD not MSc internship. May use AI only for language clarity, not to generate substantive application ideas per published rules.",
       "period": "Start February 2027 or later as agreed; PhD training, initially 3-year employment contract",
       "funding": "Fully salaried doctoral employment; initial contract at least 75% of German TVöD/TV-L E13 rate, exact gross amount varies by host and year",
       "eligibility": "Post-MS / doctoral pathway",
@@ -839,17 +839,18 @@
       "action": "URGENT 10 days: apply only if aiming to join a PhD from 2027. Requires CV, all transcripts, two-page motivation, preferred supervisors, THREE reference contacts and English proficiency evidence. Written research ideas must be applicant's own work.",
       "review": "official",
       "opening": "2026-09",
-      "verifiedAt": "2026-11-07",
+      "verifiedAt": "2026-11-09",
       "deadlineTime": "23:59",
       "deadlineTimezone": "AoE (UTC−12)",
       "fundingCaveats": "Funded doctoral employment; compensation amount not published. School states applicant ideas must be their own; AI may be used only for language clarity, not novel substantive content.",
       "applicationDocuments": [
-        "Academic CV",
-        "University transcripts",
-        "Two-page motivation letter",
-        "Three referees with submitted letters",
-        "English proficiency evidence or English-medium education statement",
-        "Optional GRE, thesis and portfolio"
+        "CV including full publications list if applicable",
+        "All university transcripts",
+        "Two-page motivation/research statement",
+        "Three referee contact emails and timely letters",
+        "English-proficiency evidence (test or English-medium study/work)",
+        "GRE optional",
+        "Portfolio/thesis optional"
       ],
       "sourceUrls": [
         "https://imprs.is.mpg.de/application"
@@ -2301,7 +2302,9 @@
       "2027 Summer@EPFL deadline remains annual-rule inference, not a separately confirmed 2027-specific closing notice; do not call confirmed. Official FAQ says no recommendation letter.",
       "CERN openlab and regular summer 2027 program remain LIVE (21 Jan 2027, 23:59 Geneva time) at CHF 94 net/calendar day; are two distinct application programs.",
       "Public GitHub Pages could not be independently loaded by browser-based web tool; only repository content can be verified.",
-      "No personal information, applications, registrations, emails, or other applicant material were processed."
+      "No personal information, applications, registrations, emails, or other applicant material were processed.",
+      "IMPRS-IS official 2027 applicant rules: deadline 15 Nov 2026 AoE; three referees and two-page research statement. AI assistance may improve language but cannot generate substantive original application ideas.",
+      "Oxford vacancy 189247 deadline is TODAY 9 Nov noon GMT; full-time salaried research employment requires previously completed degree."
     ],
     "scopeNote": "Official-source public records. New entries marked with funding verification and applicant eligibility requirements; research engineer and PhD roles are not internships."
   }
