@@ -34,7 +34,7 @@ footer{font-size:13px;color:#555;margin-top:26px}
 <body>
 <header>
 <h1>Blockers</h1>
-<p class="subtle">Last reviewed: 09 November 2026 at 18:18 IST (live GitHub source, independent HTTP 200 public page, six remote-agent inventories, alternate Mac connection and two competition inboxes checked; DOSE-I organizer deadline extension verified; Mac CLI, native permissions and active Mac project workers still not directly reverified) · Tracking ID: blocker-tracker-20261106-001</p>
+<p class="subtle">Last reviewed: 09 November 2026 at 20:14 IST (live GitHub source, independent public HTTP 200 and content checks, six remote-agent account inventories, alternate Mac connector, two competition inboxes and current competition run checkpoints checked; Mac CLI, local permissions and worker state remain unavailable while the Mac is offline) · Tracking ID: blocker-tracker-20261106-001</p>
 <p>Each item tells you <strong>what is blocked</strong>, <strong>who acts</strong>, and the <strong>next exact steps</strong>. <strong>Confirmed</strong> means checked; <strong>Reported</strong> means someone observed it but a fresh check is still needed; <strong>Verify</strong> means completion is not established.</p>
 <nav aria-label="Page sections"><a href="#your-actions">Your actions</a><a href="#agent-actions">Agent or service</a><a href="#new-blocker">Add a blocker</a><a href="/tracker/">Main tracker</a></nav>
 </header>
@@ -190,6 +190,17 @@ footer{font-size:13px;color:#555;margin-top:26px}
 <li><strong>AGENT:</strong> Require a successful fresh Mac read-only command before marking connectivity restored. Then verify the specific affected CLI profile, inspect pending job results before retries, and resume tasks without duplicating competition submissions. The earlier verified recovery in <a href="#B-010">B-010</a> was historical, not proof that this newer interruption is resolved.</li>
 </ol>
 <p><a href="https://mcp.desktopcommander.app/">Connected-device status</a> · <a href="#B-002">macOS permission guidance</a></p>
+</section>
+<section class="item" id="B-016">
+<h3>B-016 · Gemma 4 Developer Agent: Kaggle participation status must be checked</h3>
+<p><strong>Project:</strong> Google Gemma 4 Developer Agent Competition on Kaggle. <strong>Reported:</strong> The project iteration recorded an HTTP <code>403 Forbidden</code> during an account-access check on <strong>8 Nov 2026</strong>; its exact cause and endpoint are not established here. <strong>Confirmed for this review (9 Nov 2026):</strong> The Mac research agent remains unreachable through the authorized connectors, so current Kaggle account membership, rule acceptance, submission quota and any later recovery could not be independently checked. A previous 403 is <em>not</em> proof that a registration request is pending or that rules were not accepted. <strong>Official deadlines:</strong> Optional research paper <strong>12 Nov 2026</strong>; main competition entry and rules acceptance <strong>25 Nov 2026</strong>; final submission <strong>2 Dec 2026</strong>, each at <strong>23:59 UTC</strong>. <strong>Owner:</strong> AGENT for reconnection and read-only account/competition diagnosis; HUMAN only to personally join and accept competition rules if the signed-in account actually still requires that action.</p>
+<ol>
+<li><strong>AGENT:</strong> First verify the Mac connection under <a href="#B-015">B-015</a>, then inspect the intended Kaggle account's existing competition membership and previous submissions using only authorized tools. Check the exact API/browser operation that previously returned 403 and distinguish a signed-out session, account eligibility, missing rule acceptance and a transient access error. Do not treat the old response as current.</li>
+<li><strong>HUMAN, only if the authenticated challenge page confirms that you have not joined:</strong> Open the <a href="https://www.kaggle.com/competitions/gemma-4-developer-agent">official Kaggle competition</a> in your normal signed-in browser, select <strong>Join Competition</strong> if offered, read the rules and personally accept them <em>only if you agree</em>. Check membership before taking that action; do not create a duplicate account or accept terms on another person's behalf.</li>
+<li><strong>AGENT:</strong> Recheck membership and allowed submission status, then validate any existing private agent package against the official rules before attempting a nonduplicate submission. Keep project files, unpublished model details, credentials, session cookies and account identifiers off this public page.</li>
+<li><strong>AGENT:</strong> Track the entry deadline separately from the optional research-paper deadline. Mark this blocker resolved only after fresh evidence establishes competition eligibility and the relevant submission access; if a 403 persists, record its non-secret error class and time privately for escalation via the official Kaggle competition interface.</li>
+</ol>
+<p><a href="https://www.kaggle.com/competitions/gemma-4-developer-agent">Official Kaggle competition, rules and deadlines</a> · <a href="#B-015">Mac agent connectivity</a></p>
 </section>
 <!-- BLOCKERS-END -->
 <h2 id="resolved">Recently verified resolved</h2>
