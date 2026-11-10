@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOf": "2026-11-09",
+  "asOf": "2026-11-10",
   "heading": "Europe-wide paid AI/ML research opportunities for international Master's students",
   "scope": "European universities and research institutes; paid employment, stipend or funded living costs; all AI/ML fields. Program admission and visa rules always prevail.",
   "safety": "Public program facts only. No applicant identity, application status, documents or private notes. A source-backed candidate is not an application or eligibility approval.",
@@ -679,8 +679,8 @@
       "period": "Approximately 3 months, lab-dependent (Feb–Aug 2027)",
       "funding": "CHF 1,800/month living scholarship for up to 3 months; no guaranteed travel funding",
       "fundingCaveats": "Housing must be found/paid by fellow with EPFL assistance. Scholarship covers max 90 days, even if internship extends. Cannot simultaneously receive overlapping ThinkSwiss scholarship.",
-      "eligibility": "Partner-only / nomination required",
-      "eligibilityDetail": "Only students of listed North American/Singapore partner institutions or expressly confirmed newly eligible institution. Listed Singapore partner: NTU. Top 10% and remain enrolled for full placement; home-university nomination typically mandatory, except McGill/Toronto. Do NOT assume eligible on basis of living in Singapore.",
+      "eligibility": "Partner-only: North America/Singapore, not India-based MS",
+      "eligibilityDetail": "Official 2027 ERIP application requires enrollment through placement at a named partner university in North America or Singapore (NTU Singapore, McGill/UBC/Toronto/Waterloo, CMU/Georgia Tech/JHU/UCSD/UIUC); most require institutional nomination, plus top-10% standing. Universities in India are not listed as partners. Referee letters due 6 Dec 2026.",
       "applicationDocuments": [
         "Home-university international-office nomination (unless exception)",
         "CV, transcripts, ≤800-word motivation",
@@ -690,14 +690,13 @@
       ],
       "officialUrl": "https://www.epfl.ch/education/international/en/coming-to-epfl/research-internships/eligibility-and-application/",
       "sourceUrls": [
-        "https://www.epfl.ch/education/international/en/coming-to-epfl/research-internships/eligibility-and-application/",
-        "https://www.epfl.ch/education/international/en/coming-to-epfl/research-internships/practical-information/"
+        "https://www.epfl.ch/education/international/en/coming-to-epfl/research-internships/eligibility-and-application/"
       ],
       "openStatus": "Open; ONLY for home-institution-qualified applicants",
       "priority": "restricted",
       "review": "official",
-      "action": "Only apply if your university is an eligible listed partner AND your international office nominates you (except listed exceptions).",
-      "verifiedAt": "2026-11-06"
+      "action": "Exclude from generic India-based MSc shortlist; only consider if enrolled at a named partner institution and nominated when required.",
+      "verifiedAt": "2026-11-10"
     },
     {
       "id": "epfl-e3-2027-closed",
@@ -755,11 +754,11 @@
       "eligibility": "Full-time work / degree / immigration check",
       "eligibilityDetail": "Requires completed degree in CS/AI/biomedically related area and full-time Oxford on-site employment; work visa/sponsorship not confirmed. Research assistant job, not an MSc fellowship.",
       "officialUrl": "https://my.corehr.com/pls/uoxrecruit/erq_jobspec_version_4.display_form?p_applicant_no=&p_company=10&p_display_apply_ind=Y&p_display_in_irish=N&p_form_profile_detail=&p_internal_external=E&p_process_type=&p_recruitment_id=189247&p_refresh_search=Y",
-      "priority": "conditional-urgent",
-      "action": "URGENT 4 days: only for a candidate able to work full-time in the UK. Prepare CV and supporting statement demonstrating each selection criterion; confirm work authorization/sponsorship and student status with employer.",
+      "priority": "closed",
+      "action": "Deadline passed on 9 Nov 2026 at 12:00 GMT; do not list as open. This is full-time research employment, not an MS internship.",
       "review": "official",
       "opening": "2026-10-27",
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-10",
       "deadlineTime": "12:00",
       "deadlineTimezone": "GMT (UTC+0)",
       "fundingCaveats": "Salary requires full-time employment; relocation, accommodation, visa fees and sponsorship are NOT stated as funded. Not an internship or portable stipend.",
@@ -2275,37 +2274,270 @@
       ],
       "fundingStatus": "fully-funded-phd",
       "officialEvidence": "ELLIS official job board, BEST program link"
+    },
+    {
+      "id": "gresearch-ml-research-intern-2027",
+      "name": "G-Research: Machine Learning Research Internship, Summer 2027",
+      "host": "G-Research, London",
+      "country": "United Kingdom",
+      "type": "Private-sector research internship",
+      "domains": [
+        "Core ML",
+        "RL & decision-making",
+        "NLP & LLMs",
+        "Data-centric ML",
+        "Systems"
+      ],
+      "deadline": null,
+      "deadlineNote": "Employer's live application page does not publish a closing date. ELLIS advertises 30 April 2027; NOT confirmed by employer and potentially later than selection. Apply early; rolling/open now.",
+      "period": "21 June–27 August 2027, 10 weeks in London",
+      "funding": "Employer confirms competitive paid compensation (amount undisclosed) PLUS accommodation and international relocation/immigration costs covered. Do not invent stipend. Housing arrangements should be confirmed in contract.",
+      "eligibility": "High competition / postgraduate qualification check",
+      "eligibilityDetail": "The official role asks for a completed postgraduate degree OR commercial ML research experience, and explicitly considers outstanding data-science/Kaggle competition track records; PhD is preferred. Current MS enrollment alone is not sufficient evidence of eligibility. Immigration costs and relocation are funded, but employer must approve visa.",
+      "officialUrl": "https://www.gresearch.com/vacancies/machine-learning-research-internship/",
+      "priority": "high",
+      "action": "Consider due to quantitative ML/research and competition experience. Prepare CV, original research portfolio, and clarify whether incomplete MSc is accepted.",
+      "review": "official",
+      "opening": null,
+      "verifiedAt": "2026-11-10",
+      "fundingStatus": "confirmed-paid-amount-undisclosed",
+      "sourceUrls": [
+        "https://www.gresearch.com/vacancies/machine-learning-research-internship/",
+        "https://ellis.eu/research/jobs/2027-04-30-machine-learning-research-intern-computer-science-machine-lea"
+      ],
+      "applicationDocuments": [
+        "CV/resume",
+        "Employer application form (additional documents check in employer portal)"
+      ]
+    },
+    {
+      "id": "gresearch-nlp-research-intern-2027",
+      "name": "G-Research: Natural Language Processing Research Internship, Summer 2027",
+      "host": "G-Research, London",
+      "country": "United Kingdom",
+      "type": "Private-sector research internship",
+      "domains": [
+        "NLP & LLMs",
+        "Core ML",
+        "Foundation models",
+        "Data-centric ML"
+      ],
+      "deadline": null,
+      "deadlineNote": "Employer's live NLP application lists no deadline. ELLIS job listing uses 30 April 2027; not authoritative as a firm employer deadline. Employer asks applicants to APPLY TO ONLY ONE research internship.",
+      "period": "21 June–27 August 2027, 10 weeks",
+      "funding": "Competitive paid internship; exact amount not published. Accommodation, relocation and immigration costs covered for eligible relocations.",
+      "eligibility": "High competition / postgraduate qualification check",
+      "eligibilityDetail": "Employer seeks postgraduate degree or equivalent commercial experience, preferring PhD, but may consider strong Kaggle competition history. International travel/visa funded where selected; confirm actual MSc-in-progress admission with recruiter.",
+      "officialUrl": "https://www.gresearch.com/vacancies/natural-language-processing-internship/",
+      "priority": "high",
+      "action": "Choose EITHER this NLP internship OR G-Research ML internship; the employer explicitly requests only one research internship application.",
+      "review": "official",
+      "opening": null,
+      "verifiedAt": "2026-11-10",
+      "fundingStatus": "confirmed-paid-amount-undisclosed",
+      "sourceUrls": [
+        "https://www.gresearch.com/vacancies/natural-language-processing-internship/",
+        "https://ellis.eu/research/jobs/2027-04-30-natural-language-processing-intern-computer-science-computati"
+      ],
+      "applicationDocuments": [
+        "CV/resume",
+        "Employer application form"
+      ]
+    },
+    {
+      "id": "google-emea-student-researcher-2027",
+      "name": "Google Student Researcher 2027 (EMEA enrolment restricted)",
+      "host": "Google Research / DeepMind / Google Cloud: Zurich, Berlin, Munich, Paris, Grenoble, Amsterdam, Stockholm, London",
+      "country": "Multiple European countries",
+      "type": "Private-sector student research placement",
+      "domains": [
+        "NLP & LLMs",
+        "Vision & multimodal",
+        "Core ML",
+        "Foundation models",
+        "Robotics",
+        "Systems",
+        "AI for science",
+        "Data-centric ML"
+      ],
+      "deadline": "2026-12-13",
+      "deadlineNote": "Employer application: complete BEFORE 13 December 2026; closing clock not specified. Application reviews rolling.",
+      "period": "Flexible placement in 2027, part-time or full-time, project-dependent",
+      "funding": "Salaried student research engagement. Official posting publishes annual salary bands by location and degree, e.g. €71,000 for Master's band Germany/Netherlands; actual internship pay is duration/location-adjusted and NOT €71k guaranteed for a placement. No explicit travel/housing coverage.",
+      "eligibility": "Restricted: EMEA enrollment; not suitable for India-based MS",
+      "eligibilityDetail": "Official program explicitly INTENDED for students enrolled in a degree at an EMEA institution and who remain students during the placement; requires local work authorisation/immigration eligibility. Current MS enrollment outside EMEA, including India, does not satisfy this posting's stated institutional geography. Multi-country European placements listed.",
+      "officialUrl": "https://www.google.com/about/careers/applications/jobs/results/86733690079453894-student-researcher-2027",
+      "priority": "low",
+      "action": "Do not treat as an India-based MSc opportunity. Consider only if enrolled at an EMEA institution and qualified to work in a listed destination.",
+      "review": "official",
+      "opening": null,
+      "verifiedAt": "2026-11-10",
+      "fundingStatus": "salaried-actual-amount-depends-on-contract",
+      "deadlineTime": null,
+      "deadlineTimezone": "Not stated",
+      "applicationDocuments": [
+        "Updated CV or resume",
+        "Current official or unofficial transcript in English"
+      ],
+      "sourceUrls": [
+        "https://www.google.com/about/careers/applications/jobs/results/86733690079453894-student-researcher-2027"
+      ]
+    },
+    {
+      "id": "prosus-causality-research-intern-2027",
+      "name": "Prosus MSc/PhD AI Research Intern: Causal Inference, LLMs & Optimization",
+      "host": "Prosus AI",
+      "country": "Netherlands",
+      "type": "Private-sector AI research internship",
+      "domains": [
+        "Core ML",
+        "NLP & LLMs",
+        "RL & decision-making",
+        "Data-centric ML"
+      ],
+      "deadline": "2026-11-16",
+      "deadlineNote": "ELLIS official research job board lists 16 Nov 2026. Employer Ashby listing does not independently show an exact deadline/time; provisional, must recheck.",
+      "period": "6–12 months, at least 3 office days/week in Amsterdam",
+      "funding": "Employer says 'competitive junior engineer compensation' but specific rate and housing/travel aid not published. Paid employment implied; compensation must be confirmed.",
+      "eligibility": "EU citizenship or Dutch-university enrollment required",
+      "eligibilityDetail": "OFFICIAL employer explicitly restricts to candidates currently university enrolled AND either EU citizens OR studying in the Netherlands; employer cannot sponsor visas for applicants outside those criteria. For non-EU MSc students enrolled in India, NOT eligible, notwithstanding broad MSc/PhD job title.",
+      "officialUrl": "https://jobs.ashbyhq.com/prosus/016c6c82-8f34-4f2d-94cd-6392b6cf2c43",
+      "priority": "low",
+      "action": "Exclude for non-EU MSc enrolled outside Netherlands; only reconsider if stated citizenship/university criteria met.",
+      "review": "recheck",
+      "opening": null,
+      "verifiedAt": "2026-11-10",
+      "fundingStatus": "paid-amount-not-disclosed",
+      "deadlineTimezone": "Not published",
+      "sourceUrls": [
+        "https://jobs.ashbyhq.com/prosus/016c6c82-8f34-4f2d-94cd-6392b6cf2c43",
+        "https://ellis.eu/research/jobs/2026-11-16-2-x-ai-research-internships-at-prosus-causality-w-llms-opt"
+      ],
+      "applicationDocuments": [
+        "Employer Ashby application form; exact required fields not independently established"
+      ]
+    },
+    {
+      "id": "prosus-llm-ml-engineering-intern-2027",
+      "name": "Prosus ML Engineering Intern: LLM Research & Development",
+      "host": "Prosus AI",
+      "country": "Netherlands",
+      "type": "Private-sector ML engineering research internship",
+      "domains": [
+        "NLP & LLMs",
+        "Foundation models",
+        "Systems"
+      ],
+      "deadline": "2026-11-16",
+      "deadlineNote": "ELLIS research board marks 16 Nov 2026 for Prosus's two internships; employer does not independently state closing time/date.",
+      "period": "6–12 months, at least 3 office days/week in Amsterdam",
+      "funding": "Employer promises competitive junior engineer compensation, no exact amount; housing/visa/travel funding not published.",
+      "eligibility": "EU citizenship or Dutch-university enrollment required",
+      "eligibilityDetail": "OFFICIAL employer explicitly states candidates must be enrolled at a university and either hold EU citizenship or study in the Netherlands. No visa sponsorship for other international applicants. More applied ML engineering than basic research; non-EU India-based MSc not eligible.",
+      "officialUrl": "https://jobs.ashbyhq.com/prosus/eeb0e0d9-9d3f-4321-8acd-11558dde7c7d",
+      "priority": "low",
+      "action": "Exclude unless EU citizen or enrolled in the Netherlands; research is applied LLM deployment.",
+      "review": "recheck",
+      "opening": null,
+      "verifiedAt": "2026-11-10",
+      "fundingStatus": "paid-amount-not-disclosed",
+      "deadlineTimezone": "Not published",
+      "sourceUrls": [
+        "https://jobs.ashbyhq.com/prosus/eeb0e0d9-9d3f-4321-8acd-11558dde7c7d",
+        "https://ellis.eu/research/jobs/2026-11-16-2-x-ai-research-internships-at-prosus-causality-w-llms-opt"
+      ],
+      "applicationDocuments": [
+        "Employer Ashby application form; required fields unknown"
+      ]
+    },
+    {
+      "id": "inria-2026-10623",
+      "name": "Inria MAGNET: Federated/Decentralized Learning for Neuroscience Research Engineer",
+      "host": "Inria University of Lille, MAGNET",
+      "country": "France",
+      "type": "Salaried research engineering employment",
+      "domains": [
+        "Core ML",
+        "Privacy & security",
+        "Systems",
+        "Neuroscience",
+        "AI for science"
+      ],
+      "deadline": "2026-11-18",
+      "deadlineNote": "Official Inria job 2026-10623, deadline 18 Nov 2026, clock/timezone not published.",
+      "period": "Two-year fixed-term position starting 1 March 2027",
+      "funding": "Salaried fixed-term research engineer job with full French employment benefits; employer does not state the wage in this vacancy. Housing/relocation/visa coverage not promised.",
+      "eligibility": "Completed degree and 3–5 years experience preferred",
+      "eligibilityDetail": "Graduate degree or equivalent and 3–5 years of experience shown; implements decentralized/federated learning on EEG/fMRI datasets and privacy. Not a student internship and may not accommodate ongoing full-time MS enrolment; work authorization and ZRR security clearance required.",
+      "officialUrl": "https://jobs.inria.fr/public/classic/en/offres/2026-10623",
+      "priority": "medium",
+      "action": "Only apply if qualified for full-time research employment and experienced in distributed ML; otherwise retain as post-MS pathway.",
+      "review": "official",
+      "opening": null,
+      "verifiedAt": "2026-11-10",
+      "fundingStatus": "salaried-amount-not-disclosed",
+      "applicationDocuments": [
+        "Apply through Inria portal; exact CV/cover-letter requirements check form"
+      ],
+      "sourceUrls": [
+        "https://jobs.inria.fr/public/classic/en/offres/2026-10623"
+      ]
+    },
+    {
+      "id": "inria-2026-10588",
+      "name": "Inria HUCEBOT: Human-Autonomous-Robot Interaction M1/M2 Internship",
+      "host": "Inria University of Lorraine, HUCEBOT",
+      "country": "France",
+      "type": "Paid M1/M2 research internship",
+      "domains": [
+        "Robotics",
+        "Vision & multimodal",
+        "Interdisciplinary AI"
+      ],
+      "deadline": "2026-11-15",
+      "deadlineNote": "Official Inria job 2026-10588: 15 Nov 2026, exact clock/timezone not published.",
+      "period": "Six months from 1 February 2027",
+      "funding": "€4.50 per attendance hour, plus partial public-transport reimbursement; no paid housing/travel/visa assistance stated. Not fully funded.",
+      "eligibility": "Psychology / ergonomics Master's required",
+      "eligibilityDetail": "Official posting targets M1/M2 psychology (cognitive/work) or ergonomics students, plus quantitative and qualitative experimental research. Although the system includes a VLM-based robot, this is a human-robot INTERACTION acceptance study, not core VLM training; CS-only MSc unlikely to qualify. French internship agreement and possible ZRR clearance.",
+      "officialUrl": "https://jobs.inria.fr/public/classic/fr/offres/2026-10588",
+      "priority": "low",
+      "action": "Only pursue with relevant human factors or cognitive psychology background and a valid French internship agreement.",
+      "review": "official",
+      "opening": null,
+      "verifiedAt": "2026-11-10",
+      "fundingStatus": "partial-internship-allowance",
+      "applicationDocuments": [
+        "Apply through Inria portal; check CV/motivation and internship agreement requirements"
+      ],
+      "sourceUrls": [
+        "https://jobs.inria.fr/public/classic/fr/offres/2026-10588"
+      ]
     }
   ],
   "lastResearchSummary": {
-    "date": "2026-11-09",
+    "date": "2026-11-10",
     "newRecordIDs": [
-      "cerco-bees-neuroai-ms27",
-      "cerco-spiking-neural-sequences-ms27",
-      "ibm-zurich-pde-2026-031",
-      "inria-2026-10562",
-      "inria-2026-10633",
-      "inria-2026-10640",
-      "inria-2026-10645",
-      "inria-2026-10684",
-      "inria-2026-10685",
-      "ellis-best-social-rl-phd27"
+      "gresearch-ml-research-intern-2027",
+      "gresearch-nlp-research-intern-2027",
+      "google-emea-student-researcher-2027",
+      "prosus-causality-research-intern-2027",
+      "prosus-llm-ml-engineering-intern-2027",
+      "inria-2026-10623",
+      "inria-2026-10588"
     ],
     "materialChanges": [
-      "Two funded CNRS CERCO NeuroAI M2 internship themes, neural bee vision and spiking temporal coding, appeared in the ENS-PSL Master's official 21 Oct board; openings/dates/pay amounts not confirmed, so undated watchlist only.",
-      "IBM Research Zurich 2026_031 is an active MSc-eligible AI4Science research internship recruiting internationally, but compensation and deadline are not published; provisional UNVERIFIED FUNDING, not a confirmed paid recommendation.",
-      "New funded Inria STARS PhD calls in synthetic video generation and audiovisual deepfake detection, both close 6 Dec 2026 and pay €2,300 gross/month; graduation by 1 Jan 2027 required.",
-      "New Inria research engineer jobs cover crowd motion, LLM/formal methods and AI-agent evaluation, but require degree/employment eligibility and include internally inconsistent past/near-immediate start dates.",
-      "ELLIS advertises Toulouse/Barcelona MSCA-funded social RL doctoral opening closing 23 Nov noon CET, but Master's must already be awarded BY DEADLINE and French mobility rule applies; exclude from current-MS top choices unless degree completed.",
-      "Roche Germany ML signal-data internship appeared in search cache with €2,268/month but live employer URL on 9 Nov explicitly says job is no longer available; excluded from catalog, do not present as open.",
-      "TUM computational neuroscience lab says external students are not offered financial support; excluded from paid recommendations.",
-      "2027 Summer@EPFL deadline remains annual-rule inference, not a separately confirmed 2027-specific closing notice; do not call confirmed. Official FAQ says no recommendation letter.",
-      "CERN openlab and regular summer 2027 program remain LIVE (21 Jan 2027, 23:59 Geneva time) at CHF 94 net/calendar day; are two distinct application programs.",
-      "Public GitHub Pages could not be independently loaded by browser-based web tool; only repository content can be verified.",
-      "No personal information, applications, registrations, emails, or other applicant material were processed.",
-      "IMPRS-IS official 2027 applicant rules: deadline 15 Nov 2026 AoE; three referees and two-page research statement. AI assistance may improve language but cannot generate substantive original application ideas.",
-      "Oxford vacancy 189247 deadline is TODAY 9 Nov noon GMT; full-time salaried research employment requires previously completed degree."
+      "New live G-Research London summer 2027 paid ML and NLP RESEARCH internships offer accommodation and international visa/relocation funding; closing dates NOT independently stated by employer and PhD is preferred. Employer explicitly asks applicants to apply to only ONE research role.",
+      "Google Student Researcher 2027 employer lists December 13, 2026 deadline and multiple European research locations, but expressly limits this posting to students ENROLLED at an EMEA institution. Thus an India-enrolled MSc does not meet its intended eligibility despite worldwide nationality not being explicitly restricted. Salary bands appear annualised by location and degree and are not guaranteed internship totals.",
+      "Prosus Amsterdam two research internships appear on the ELLIS 16 November job board. Employer confirms both require EU citizenship OR current enrollment at a Netherlands institution, and explicitly cannot sponsor other interns. Both should be EXCLUDED for non-EU students enrolled in India.",
+      "Inria MAGNET neuroscience/federated learning 18 Nov job requires graduate-level skills and roughly 3-5 years experience; salaried JOB not MSc internship. New HUCEBOT 15 Nov 2026 research internship pays €4.50/hour but requires cognitive-psychology/ergonomics background; not general CS MSc.",
+      "RC Trust 2027 internship remains fully funded with 31 Dec 2026 deadline but official application form still marked coming soon on 10 November; do not claim open.",
+      "CaCTüS official 2027 timeline still says 16 Nov; CISPA 30 Nov 23:59 AoE; CERN openlab 21 Jan 2027 23:59 Geneva; Aalto 7-31 Jan 2027, positions published around 10 Dec.",
+      "Previously tracked Oxford research assistant deadline of 9 Nov has passed, now explicitly marked closed; remaining old dates must be treated as passed in dynamic 90-day view.",
+      "EPFL ERIP eligibility clarified as partner university in North America/Singapore plus nomination; Indian institutions are not on listed partner roster. Remains a separate restricted opportunity from Summer@EPFL.",
+      "New employer source pages were checked on 2026-11-10; academic PhD tracks remain separate from internships and salaried employment.",
+      "GitHub edit is not a public deployment check; no private applicant data, applications or emails were handled."
     ],
-    "scopeNote": "Official-source public records. New entries marked with funding verification and applicant eligibility requirements; research engineer and PhD roles are not internships."
+    "scopeNote": "Employer/official source verified; records with employer-unconfirmed deadlines or restrictive requirements explicitly flagged. New added research internships span UK, Netherlands and France, plus geographically restricted Google EMEA student research call."
   }
 }
