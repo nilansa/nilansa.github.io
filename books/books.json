@@ -1,7 +1,7 @@
 {
   "name": "Books",
   "version": 2,
-  "updated": "2026-11-09",
+  "updated": "2026-11-10",
   "categories": [
     "CS Fundamentals",
     "Systems CS",
@@ -252,6 +252,59 @@
       "pdfUrl": "https://www.dropbox.com/s/38p0j6ds5q9c8oe/10290.pdf?dl=1",
       "why": "A rigorous graduate-level framework for understanding generalization, PAC learning, capacity, kernels, boosting, model selection and algorithmic stability, with useful proofs and exercises.",
       "note": "Photographed 9 November 2026. Official author page: https://cs.nyu.edu/~mohri/mlbook/; MIT Press 2018."
+    },
+    {
+      "slug": "neural-networks-and-learning-machines-haykin",
+      "title": "Neural Networks and Learning Machines",
+      "creator": "Simon Haykin",
+      "year": 2009,
+      "edition": "Third edition (Pearson)",
+      "category": "ML Theory",
+      "topic": "Neural networks and learning algorithms",
+      "tags": [
+        "Neural networks",
+        "Backpropagation",
+        "Perceptrons",
+        "Kernel methods",
+        "Support vector machines",
+        "Regularization",
+        "Learning machines",
+        "Neurodynamics"
+      ],
+      "status": "To read",
+      "availability": "No verified authorized free full PDF",
+      "publisherUrl": "https://www.pearson.com/en-us/subject-catalog/p/neural-networks-and-learningmachines/P200000003278?view=educator",
+      "pdfUrl": null,
+      "why": "A classic engineering-focused treatment connecting neuron models, multilayer networks, backpropagation, kernel machines, regularization, PCA, self-organizing maps and recurrent dynamics. Useful for understanding the mathematical and signal-processing roots of modern deep learning.",
+      "note": "Third edition originally published in 2008 (copyright 2009); Pearson India also lists a 2016 printing.",
+      "isbn": "9780131471399"
+    },
+    {
+      "slug": "neural-networks-a-systematic-introduction-rojas",
+      "title": "Neural Networks: A Systematic Introduction",
+      "creator": "Raúl Rojas",
+      "year": 1996,
+      "edition": "First English edition",
+      "category": "ML Theory",
+      "topic": "Foundations and mathematics of neural networks",
+      "tags": [
+        "Neural networks",
+        "Threshold logic",
+        "Perceptrons",
+        "Backpropagation",
+        "Hopfield networks",
+        "Kohonen maps",
+        "Statistical mechanics",
+        "Learning theory"
+      ],
+      "status": "To read",
+      "availability": "Free authorized full PDF from author's university",
+      "publisherUrl": "https://link.springer.com/book/10.1007/978-3-642-61068-4",
+      "pdfUrl": "https://www.inf.fu-berlin.de/inst/ag-ki/rojas_home/documents/1996/NeuralNetworks/neuron.pdf",
+      "companionUrl": "https://dcmlr.inf.fu-berlin.de/rojas/index.html%3Fp%3D652.html",
+      "why": "Builds neural-network theory systematically from threshold logic and perceptrons through backpropagation, statistical learning, associative memory, Hopfield and Kohonen networks. Especially good for a rigorous view of classical connectionist models.",
+      "note": "Springer 1996. Complete PDF verified on the author's Free University of Berlin website.",
+      "isbn": "9783540605058"
     },
     {
       "slug": "fluent-python-2nd-edition",
