@@ -1,7 +1,7 @@
 {
   "name": "Books",
   "version": 2,
-  "updated": "2026-11-10",
+  "updated": "2026-11-11",
   "categories": [
     "CS Fundamentals",
     "Systems CS",
@@ -32,6 +32,29 @@
       "why": "A foundational view of how images and video are represented, compared, ranked and retrieved: colour, texture, shape, similarity, feature selection, feedback, video indexing and semantics.",
       "note": "Photographed 9 November 2026. Historical pre-deep-learning methods; compare with modern vision embeddings.",
       "isbn": "9781852333812"
+    },
+    {
+      "slug": "video-mining-rosenfeld-doermann-dementhon",
+      "title": "Video Mining",
+      "creator": "Azriel Rosenfeld, David Doermann and Daniel DeMenthon (editors)",
+      "year": 2003,
+      "edition": "First edition; Springer/Kluwer",
+      "category": "CS Fundamentals",
+      "topic": "Video analysis, search, and mining",
+      "tags": [
+        "Computer vision",
+        "Video mining",
+        "Multimedia retrieval",
+        "Video indexing",
+        "Activity analysis"
+      ],
+      "status": "To read",
+      "availability": "ResearchGate lists full-text PDF, but direct download returned HTTP 403; full PDF not verified in Drive",
+      "publisherUrl": "https://link.springer.com/book/10.1007/978-1-4757-6928-9",
+      "pdfUrl": null,
+      "why": "A historical foundation for video search and video understanding, connecting video indexing, content analysis, and extraction of meaningful events.",
+      "note": "Photographed 11 November 2026. ResearchGate book page: https://www.researchgate.net/publication/321600652_Video_Mining. Full-book direct download not verified; no PDF uploaded to Drive.",
+      "isbn": "9781475769289"
     },
     {
       "slug": "book-of-proof",
@@ -157,6 +180,29 @@
       "publisherUrl": "https://www.manning.com/books/crack-any-codebase-with-ai",
       "pdfUrl": "https://www.manning.com/preview/crack-any-codebase-with-ai/chapter-1",
       "why": "Practical techniques for exploring unfamiliar codebases with AI tools."
+    },
+    {
+      "slug": "visual-question-answering-wu-2022",
+      "title": "Visual Question Answering: From Theory to Application",
+      "creator": "Qi Wu, Peng Wang, Xin Wang, Xiaodong He and Wenwu Zhu",
+      "year": 2022,
+      "edition": "First edition; Springer Singapore",
+      "category": "ML Theory",
+      "topic": "Vision-language and video question answering",
+      "tags": [
+        "Computer vision",
+        "Vision-language models",
+        "Visual question answering",
+        "Video question answering",
+        "Multimodal reasoning"
+      ],
+      "status": "To read",
+      "availability": "No verified freely available full-book PDF; publisher subscription",
+      "publisherUrl": "https://link.springer.com/book/10.1007/978-981-19-0964-1",
+      "pdfUrl": null,
+      "why": "A survey-style textbook on VQA across images and videos, with chapters on video representation learning, advanced video QA, and grounded multimodal reasoning.",
+      "note": "Photographed 11 November 2026. Research article by Qi Wu and collaborators available open access separately; do not confuse an article with the book. No full-book PDF uploaded to Drive.",
+      "isbn": "9789811909641"
     },
     {
       "slug": "applied-machine-learning-forsyth",
