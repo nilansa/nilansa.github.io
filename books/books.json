@@ -26,9 +26,9 @@
         "Multimedia IR"
       ],
       "status": "To read",
-      "availability": "No verified free full PDF",
+      "availability": "Personal research PDF in private Google Drive (access restricted)",
       "publisherUrl": "https://link.springer.com/book/10.1007/978-1-4471-3702-3",
-      "pdfUrl": null,
+      "pdfUrl": "https://drive.google.com/file/d/1etVK9hH8vuVLowJWgg7-zhMi4LdD6rxZ/view",
       "why": "A foundational view of how images and video are represented, compared, ranked and retrieved: colour, texture, shape, similarity, feature selection, feedback, video indexing and semantics.",
       "note": "Photographed 9 November 2026. Historical pre-deep-learning methods; compare with modern vision embeddings.",
       "isbn": "9781852333812"
@@ -49,11 +49,11 @@
         "Activity analysis"
       ],
       "status": "To read",
-      "availability": "ResearchGate lists full-text PDF, but direct download returned HTTP 403; full PDF not verified in Drive",
+      "availability": "Personal research PDF in private Google Drive (access restricted)",
       "publisherUrl": "https://link.springer.com/book/10.1007/978-1-4757-6928-9",
-      "pdfUrl": null,
+      "pdfUrl": "https://drive.google.com/file/d/1YPaEXwut28jvB2v_GhFVkGx7XMgpPx7g/view",
       "why": "A historical foundation for video search and video understanding, connecting video indexing, content analysis, and extraction of meaningful events.",
-      "note": "Photographed 11 November 2026. ResearchGate book page: https://www.researchgate.net/publication/321600652_Video_Mining. Full-book direct download not verified; no PDF uploaded to Drive.",
+      "note": "Photographed 11 November 2026. ResearchGate book page: https://www.researchgate.net/publication/321600652_Video_Mining. Personal PDF stored in ramforzero Drive.",
       "isbn": "9781475769289"
     },
     {
@@ -197,11 +197,11 @@
         "Multimodal reasoning"
       ],
       "status": "To read",
-      "availability": "No verified freely available full-book PDF; publisher subscription",
+      "availability": "Personal research PDF in private Google Drive (access restricted)",
       "publisherUrl": "https://link.springer.com/book/10.1007/978-981-19-0964-1",
-      "pdfUrl": null,
+      "pdfUrl": "https://drive.google.com/file/d/1pTq8L7RxlV3DKgI5srNV8CKkeKqRbUbV/view",
       "why": "A survey-style textbook on VQA across images and videos, with chapters on video representation learning, advanced video QA, and grounded multimodal reasoning.",
-      "note": "Photographed 11 November 2026. Research article by Qi Wu and collaborators available open access separately; do not confuse an article with the book. No full-book PDF uploaded to Drive.",
+      "note": "Photographed 11 November 2026. Research article by Qi Wu and collaborators available open access separately; do not confuse an article with the book. Personal PDF stored in ramforzero Drive.",
       "isbn": "9789811909641"
     },
     {
