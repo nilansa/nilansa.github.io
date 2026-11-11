@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOf": "2026-11-10",
+  "asOf": "2026-11-11",
   "heading": "Europe-wide paid AI/ML research opportunities for international Master's students",
   "scope": "European universities and research institutes; paid employment, stipend or funded living costs; all AI/ML fields. Program admission and visa rules always prevail.",
   "safety": "Public program facts only. No applicant identity, application status, documents or private notes. A source-backed candidate is not an application or eligibility approval.",
@@ -43,17 +43,17 @@
         "Neuroscience"
       ],
       "deadline": "2026-11-16",
-      "deadlineNote": "2027 official timeline confirms portal opened 21 Oct, closes 16 Nov 2026 (exact time/timezone not stated), 1 Jul–30 Sep 2027 internship. Generic introduction still says 2026; follow 2027-specific timeline.",
+      "deadlineNote": "2027-specific official timeline: opens 21 Oct, closes 16 Nov 2026; no exact clock/timezone published; generic landing description still says summer 2026.",
       "period": "July–September 2027",
       "funding": "Approximately €1,350 per month for July–September 2027, intended to cover housing, living expenses and health insurance; travel compensated",
       "eligibility": "Potential match",
       "eligibilityDetail": "Worldwide BSc/MSc students and some graduates who have NOT begun a PhD, with relevant ML/neuroscience/cognition and demonstrated barriers to research access. Full July–September 2027 availability; voluntary only (no course-credit requirement). Projects 1–4 require university enrollment January–October 2027. Good English; TOEFL/IELTS certificate NOT required.",
       "officialUrl": "https://projects.tuebingen.mpg.de/",
       "priority": "urgent",
-      "action": "URGENT 11 days: follow current program's official application link; prepare research statement in your own words, CV/transcripts and choose up to 2 projects. Do not submit to old /cactus-2026 registration; confirm correct 2027 URL.",
+      "action": "URGENT (16 Nov): official 2027-specific portal says open, but 2026 generic text remains on the site. Check project enrollment through Oct 2027, availability and correct official 2027 submission form. CV, transcripts and personal research statement needed.",
       "review": "recheck",
       "opening": "2026-10-21",
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-11",
       "deadlineTime": null,
       "deadlineTimezone": "Not published",
       "fundingCaveats": "Housing is organized but paid from the salary, NOT free additional funding. Visa/embassy fees and related travel are NOT reimbursed. Exact net sum/tax/insurance terms must be confirmed.",
@@ -66,7 +66,7 @@
       "sourceUrls": [
         "https://projects.tuebingen.mpg.de/"
       ],
-      "openStatus": "Conflicting portal status: 2027 landing page says open but indexed old registration page says closed"
+      "openStatus": "Official 2027 homepage says apply now; conflicting generic 2026 copy persists"
     },
     {
       "id": "epfl-summer27",
@@ -127,13 +127,13 @@
       "eligibilityDetail": "Current bachelor's/master's students in CS, CE, EE, telecom or equivalent worldwide; at least four completed university semesters; MUST stay enrolled throughout 2–3 month internship. Home institution recognition may matter for visa. Not for Master's graduates looking for PhD.",
       "officialUrl": "https://career.cispa.de/internship",
       "priority": "high",
-      "action": "Open now: prepare English transcripts, bachelor's certificate, CV, motivation and English assessment/statement. Confirm enrollment through internship.",
+      "action": "Applications OPEN. Prepare English transcripts, bachelor's certificate, 1–2 page CV and motivation, and an English assessment or statement. Check continued summer 2027 enrollment.",
       "review": "official",
       "opening": null,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-11",
       "deadlineTime": "23:59",
       "deadlineTimezone": "AoE (UTC−12)",
-      "openStatus": "Applications open for summer research 2027",
+      "openStatus": "Official 2027 page currently explicitly says applications open",
       "fundingCaveats": "Gross before German taxes; travel, housing and visa cost coverage not published on main CSR page. Check net budget.",
       "applicationDocuments": [
         "1–2 page motivation letter",
@@ -202,20 +202,20 @@
         "Interdisciplinary AI"
       ],
       "deadline": "2026-12-31",
-      "deadlineNote": "Official deadline 31 Dec 2026; organizer homepage says online form under preparation yet links a distinct application-form page. Form backend acceptance remains unverified; email submissions explicitly NOT accepted.",
+      "deadlineNote": "2027 deadline 31 Dec 2026 confirmed. Public landing page says form still being prepared, despite accessible linked form shell. Direct form backend inaccessible to automated read; do not assert open.",
       "period": "Summer 2027, up to 90 days",
       "funding": "Living, housing and travel costs fully covered",
       "eligibility": "Potential match",
       "eligibilityDetail": "Worldwide applicants, primarily master's and PhD students; CS/statistics/psychology/security background, excellent academic record; English working language. Master's completion date not explicitly restricted on organizer FAQ.",
       "officialUrl": "https://rc-trust.ai/career/internship-program",
       "priority": "high",
-      "action": "Inspect the online form in a normal browser and confirm that 2027 submissions are accepted; do not treat a visible form shell as proof the backend works.",
+      "action": "Organizer says online form only, no email. Open https://rc-trust.ai/career/internship-program/application-form yourself to check acceptance of 2027 submissions; official parent page text is inconsistent and remote backend could not be tested.",
       "review": "recheck",
       "opening": null,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-11",
       "deadlineTime": null,
       "deadlineTimezone": "Not stated",
-      "openStatus": "2027 form still being prepared as of 7 Nov 2026; official page says apply online only, no email",
+      "openStatus": "Official 2027 page still says online form under preparation BUT has linked an application form page. Page embeds a JS external PHP form which returned 403 to automated reading; submission readiness UNVERIFIED.",
       "applicationDocuments": [
         "Online form only (details/document list not yet published)",
         "Group/research-interest choice likely required; confirm form once available"
@@ -251,10 +251,10 @@
       "action": "Request a reference letter early, review projects ~10 Dec 2026, apply Jan 7–31 (up to 3 projects; one combined PDF).",
       "review": "official",
       "opening": "2027-01-07",
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-11",
       "deadlineTime": "23:59",
       "deadlineTimezone": "UTC+2 (Finland; as explicitly published for Jan 2027)",
-      "openStatus": "Not yet open; projects published mid-Dec",
+      "openStatus": "2027 projects expected ~10 Dec 2026; official application portal opens 7 Jan 2027 and closes 31 Jan 23:59 UTC+2.",
       "fundingCaveats": "Aalto assists finding student housing but doesn't promise free accommodation. Travel bonus is not full airfare reimbursement. Salary taxation depends on Finnish rules.",
       "applicationDocuments": [
         "Academic CV",
@@ -291,8 +291,8 @@
       "action": "NEW OPENING: prepare one recent referee letter, student certificate and complete official 2027 portal. Strong AI systems/ML for science opportunity.",
       "review": "official",
       "opening": "2026-11-06",
-      "verifiedAt": "2026-11-09",
-      "openStatus": "CERN official page titled 2027 and displays Apply now (URL retains 2026 slug)",
+      "verifiedAt": "2026-11-11",
+      "openStatus": "Official SUM-OPENLAB-2027 careers page shows 'Apply now'; posted before 21 Jan 2027 23:59 Geneva time.",
       "fundingCaveats": "CHF 94 per calendar day net allowance with health cover; travel depends on circumstances, accommodation search assistance only (housing not included), requires 6 semesters completed and student enrollment throughout.",
       "applicationDocuments": [
         "CV",
@@ -2330,10 +2330,10 @@
       "eligibilityDetail": "Employer seeks postgraduate degree or equivalent commercial experience, preferring PhD, but may consider strong Kaggle competition history. International travel/visa funded where selected; confirm actual MSc-in-progress admission with recruiter.",
       "officialUrl": "https://www.gresearch.com/vacancies/natural-language-processing-internship/",
       "priority": "high",
-      "action": "Choose EITHER this NLP internship OR G-Research ML internship; the employer explicitly requests only one research internship application.",
+      "action": "Employer confirms 2027 applications open, competitive paid research internship 21 June–27 Aug. Apply to ONE G-Research research stream only; PhD preferred and MSc eligibility unconfirmed.",
       "review": "official",
       "opening": null,
-      "verifiedAt": "2026-11-10",
+      "verifiedAt": "2026-11-11",
       "fundingStatus": "confirmed-paid-amount-undisclosed",
       "sourceUrls": [
         "https://www.gresearch.com/vacancies/natural-language-processing-internship/",
@@ -2513,31 +2513,292 @@
       "sourceUrls": [
         "https://jobs.inria.fr/public/classic/fr/offres/2026-10588"
       ]
+    },
+    {
+      "id": "inria-2026-10556",
+      "name": "Inria BONUS: Gray-Box Multi-Objective Optimization (M2 Research Internship)",
+      "host": "Inria Lille / BONUS, Villeneuve-d'Ascq",
+      "country": "France",
+      "type": "Paid Master's research internship",
+      "domains": [
+        "Core ML",
+        "RL & decision-making",
+        "Systems"
+      ],
+      "deadline": "2026-12-31",
+      "deadlineNote": "Official Inria 2026-10556 posting: 31 Dec 2026 deadline; exact time/timezone not published. MSc internship agreement required.",
+      "period": "Six months beginning 1 March 2027",
+      "funding": "€4.50 gross per attendance hour, subsidized meals and partial public-transport reimbursement; accommodation, flights, visa and relocation not covered by posted offer.",
+      "eligibility": "Conditional / M2",
+      "eligibilityDetail": "Master's or equivalent degree level, good programming and theoretical/empirical optimization skills; international applications not specifically prohibited, but must arrange compatible internship agreement and any French visa/ZRR clearance.",
+      "officialUrl": "https://recrutement.inria.fr/public/classic/en/offres/2026-10556",
+      "priority": "medium",
+      "action": "Consider for optimization/theoretical ML research if a French-compatible university internship agreement and independent living-cost support are feasible.",
+      "review": "official",
+      "opening": null,
+      "verifiedAt": "2026-11-11",
+      "deadlineTime": null,
+      "deadlineTimezone": "Not published",
+      "fundingStatus": "partial-internship-allowance",
+      "fundingCaveats": "€4.50/hour is statutory internship allowance, not a living wage or fully funded stay.",
+      "applicationDocuments": [
+        "CV",
+        "Cover letter",
+        "Online Inria application; university internship agreement for placement"
+      ],
+      "sourceUrls": [
+        "https://recrutement.inria.fr/public/classic/en/offres/2026-10556"
+      ]
+    },
+    {
+      "id": "inria-2026-10620",
+      "name": "Inria HUCEBOT: Computer Vision for Physical/Cognitive State and Social Robotics",
+      "host": "Inria Université de Lorraine / HUCEBOT",
+      "country": "France",
+      "type": "Paid Master's research internship",
+      "domains": [
+        "Vision & multimodal",
+        "Robotics",
+        "Neuroscience",
+        "Interdisciplinary AI",
+        "AI for science"
+      ],
+      "deadline": "2026-11-19",
+      "deadlineNote": "Official Inria posting 2026-10620 closes 19 Nov 2026; no closing clock or timezone stated.",
+      "period": "Posted 7 months from 1 February 2027; narrative describes indicative 6-month plan (confirm exact duration).",
+      "funding": "€4.50 per attendance hour plus subsidized meals and partial local-transport reimbursement. No guaranteed housing, airfare, visa or relocation funding.",
+      "eligibility": "Conditional / relevant Master's",
+      "eligibilityDetail": "Master's-level research internship involving markerless RGB/RGB-D movement estimation, multimodal physiological sensing, classification/regression of attention/fatigue and robot reactions. Relevant robotics, cognitive science, bioengineering, movement analysis, human factors or related studies; excellent English. French internship agreement, possible ZRR clearance.",
+      "officialUrl": "https://recrutement.inria.fr/public/classic/en/offres/2026-10620",
+      "priority": "medium",
+      "action": "URGENT: CV must detail school-to-university academic history including institution, city and country; submit all undergraduate and master's transcripts. Confirm internship agreement and dates.",
+      "review": "official",
+      "opening": null,
+      "verifiedAt": "2026-11-11",
+      "deadlineTime": null,
+      "deadlineTimezone": "Not published",
+      "fundingStatus": "partial-internship-allowance",
+      "fundingCaveats": "Not fully funded; confirm with host whether seven months of physical attendance is possible within home MS schedule and visa rules.",
+      "applicationDocuments": [
+        "CV covering academic education starting from secondary school with institution, city and country",
+        "All university transcripts in PDF",
+        "Online application; later university internship agreement"
+      ],
+      "sourceUrls": [
+        "https://recrutement.inria.fr/public/classic/en/offres/2026-10620"
+      ]
+    },
+    {
+      "id": "inria-2026-10634",
+      "name": "Inria HUCEBOT: Adaptive Mixed-Reality Serious Games and User Fatigue",
+      "host": "Inria Université de Lorraine / HUCEBOT",
+      "country": "France",
+      "type": "Paid Master's research internship",
+      "domains": [
+        "Robotics",
+        "Vision & multimodal",
+        "Interdisciplinary AI"
+      ],
+      "deadline": "2026-11-20",
+      "deadlineNote": "Official Inria offer 2026-10634 deadline 20 Nov 2026; exact closing clock/timezone not supplied.",
+      "period": "Six months beginning 1 February 2027",
+      "funding": "€4.50 gross per hour plus subsidized meals and partial public-transport reimbursement; no housing/airfare/visa costs promised.",
+      "eligibility": "Conditional / interdisciplinary Master's",
+      "eligibilityDetail": "Master's-level research involving Unity mixed reality, online attention/fatigue detection, sensors, physiological measurements, gamification and human-participant experiments. Primarily cognitive science, bioengineering, rehabilitation/biomechanics or related background; excellent English. Not a broad foundation-model training post.",
+      "officialUrl": "https://recrutement.inria.fr/public/classic/en/offres/2026-10634",
+      "priority": "low",
+      "action": "Consider only with strong mixed-reality/robotics/user-study research interest; attach full academic-history CV and transcripts. Check French internship agreement.",
+      "review": "official",
+      "opening": null,
+      "verifiedAt": "2026-11-11",
+      "deadlineTime": null,
+      "deadlineTimezone": "Not published",
+      "fundingStatus": "partial-internship-allowance",
+      "fundingCaveats": "Not fully funded; additional financial support would be needed for international relocation.",
+      "applicationDocuments": [
+        "CV with academic institutions from secondary school onward including cities/countries",
+        "All undergraduate and postgraduate transcripts",
+        "Online Inria form and university internship agreement"
+      ],
+      "sourceUrls": [
+        "https://recrutement.inria.fr/public/classic/en/offres/2026-10634"
+      ]
+    },
+    {
+      "id": "inria-2026-10638",
+      "name": "Inria PRIVATICS PhD: Privacy Risks of Healthcare AI and Clinical Language Models",
+      "host": "Inria / INSA Lyon / AP-HP collaboration",
+      "country": "France",
+      "type": "Funded PhD doctoral research employment",
+      "domains": [
+        "AI safety & security",
+        "Privacy & security",
+        "NLP & LLMs",
+        "AI for science",
+        "Interdisciplinary AI"
+      ],
+      "deadline": "2026-11-20",
+      "deadlineNote": "Official 2026-10638 posting closes 20 Nov 2026; exact time/timezone not listed; nominal start 1 Dec 2026, unusually soon, confirm flexibility.",
+      "period": "Three-year funded doctorate, planned start 1 December 2026",
+      "funding": "€2,300 gross per month salaried French PhD contract; no airfare/housing/visa support specified.",
+      "eligibility": "Post-MS doctorate / completed degree check",
+      "eligibilityDetail": "Graduate degree or equivalent required for doctoral enrollment, privacy attacks, de-identification of LLMs, multimodal personal data leakage and clinical NLP. Current MS students only if master's completion and immediate starting date are possible; French visa/ZRR authorization may be required.",
+      "officialUrl": "https://recrutement.inria.fr/public/classic/en/offres/2026-10638",
+      "priority": "low",
+      "action": "Pursue only as a funded PhD pathway after confirming master's completion and feasible start/visa timeline.",
+      "review": "recheck",
+      "opening": null,
+      "verifiedAt": "2026-11-11",
+      "deadlineTime": null,
+      "deadlineTimezone": "Not published",
+      "fundingStatus": "confirmed-salaried-doctorate",
+      "fundingCaveats": "Gross wage, not net; living, housing and travel costs not separately funded in listing.",
+      "applicationDocuments": [
+        "Online Inria application; exact CV/research materials not specified in listing"
+      ],
+      "sourceUrls": [
+        "https://recrutement.inria.fr/public/classic/en/offres/2026-10638"
+      ]
+    },
+    {
+      "id": "inria-2026-10625",
+      "name": "Inria ROMA PhD: Exascale HPC Graph/Mesh Partitioning for FEniCS",
+      "host": "Inria Lyon / ROMA / EuroHPC FEniCS Lighthouse",
+      "country": "France",
+      "type": "Funded PhD doctoral research employment",
+      "domains": [
+        "Systems",
+        "Core ML",
+        "AI for science"
+      ],
+      "deadline": "2026-11-19",
+      "deadlineNote": "Official Inria posting deadline 19 Nov 2026, time/timezone not published; initial start 1 Feb 2027.",
+      "period": "Three-year PhD starting 1 February 2027",
+      "funding": "€2,300 gross/month for all three years of a fixed-term doctoral contract; housing/flight/visa benefits not specified.",
+      "eligibility": "Post-MS doctorate / systems-heavy",
+      "eligibilityDetail": "Requires graduate degree or equivalent before doctoral appointment; mesh/graph partitioning, numerical analysis/FEM and supercomputing, Python/C++ with MPI/OpenMP/GPU expertise advantageous. Primarily HPC algorithms, not a regular ML internship. Nationality not excluded in posting, but visa and restricted-site security clearance may apply.",
+      "officialUrl": "https://recrutement.inria.fr/public/classic/en/offres/2026-10625",
+      "priority": "low",
+      "action": "Keep as a post-MS systems/theoretical computing doctoral possibility; verify completed MSc and actual fit with HPC numerical solvers.",
+      "review": "official",
+      "opening": null,
+      "verifiedAt": "2026-11-11",
+      "deadlineTime": null,
+      "deadlineTimezone": "Not published",
+      "fundingStatus": "confirmed-salaried-doctorate",
+      "fundingCaveats": "Gross salary; no separate travel or housing promise.",
+      "applicationDocuments": [
+        "Online Inria application; exact documents not listed in posting"
+      ],
+      "sourceUrls": [
+        "https://recrutement.inria.fr/public/classic/en/offres/2026-10625"
+      ]
+    },
+    {
+      "id": "telit-edge-ai-academy-2027",
+      "name": "Telit Cinterion Edge AI Academy 2027, Trieste",
+      "host": "Telit Cinterion R&D Center",
+      "country": "Italy",
+      "type": "Fully supported industry applied-R&D internship (NOT academic fellowship)",
+      "domains": [
+        "Systems",
+        "Vision & multimodal",
+        "Robotics",
+        "Core ML",
+        "Data-centric ML"
+      ],
+      "deadline": "2026-11-30",
+      "deadlineNote": "Employer official Edge AI Academy site: applications close 30 Nov 2026, decision by 31 Dec; exact clock/timezone not supplied.",
+      "period": "1 March–31 May 2027, 12 weeks on-site Monday–Friday, 09:00–18:00",
+      "funding": "Industry program provides a scholarship/financial support (amount not published), housing, approved travel and local transport, meal reimbursements, required visa fees and invitation letter.",
+      "eligibility": "Potential match / international MSc",
+      "eligibilityDetail": "Explicitly open to international Bachelor, Master, doctoral students AND graduates in AI/ML/CS/engineering or related areas. Technical English required; must be available full-time on-site in Trieste for 12 weeks. Practical IoT Edge AI prototypes and engineering validation, NOT a university research or publication fellowship.",
+      "officialUrl": "https://www.telit.com/edge-ai-academy/",
+      "priority": "medium",
+      "action": "Prepare statement of interest, transcripts, AI coursework/experience description, CV and thesis summary if any. Employer instructs email application to academy address; DRAFT-ONLY user personally sends. Verify amount of scholarship before acceptance.",
+      "review": "official",
+      "opening": null,
+      "verifiedAt": "2026-11-11",
+      "deadlineTime": null,
+      "deadlineTimezone": "Not published",
+      "fundingStatus": "funded-amount-undisclosed",
+      "fundingCaveats": "Exact scholarship amount not public; company funds accommodation, approved travel, local transport and required visa fees; verify any personal expenses not covered.",
+      "applicationDocuments": [
+        "Statement of interest",
+        "Academic transcript",
+        "AI coursework/experience description",
+        "CV if available",
+        "Thesis/thesis summary if available"
+      ],
+      "sourceUrls": [
+        "https://www.telit.com/edge-ai-academy/"
+      ]
+    },
+    {
+      "id": "helmholtz-munich-epigenetics-ai27",
+      "name": "Helmholtz Munich: Epigenetics Without Barriers, AI & Computational Biology 2027",
+      "host": "Helmholtz Munich / Epigenetics Summer Internship",
+      "country": "Germany",
+      "type": "Partially funded scientific summer research internship",
+      "domains": [
+        "AI for science",
+        "Neuroscience",
+        "Vision & multimodal",
+        "Interdisciplinary AI"
+      ],
+      "deadline": null,
+      "deadlineNote": "2027 call NOT YET OPEN and no 2027 deadline published; official page says applications will open late 2026. Do not infer deadline from past years.",
+      "period": "Typically 1 July–31 August 2027, 2 months",
+      "funding": "€450/month total allowance for travel/living expenses; organizer-arranged paid accommodation (clarify whether organizer bears housing cost), not full travel coverage; interns procure own health insurance.",
+      "eligibility": "Restricted research background / first-year MSc caution",
+      "eligibilityDetail": "Official overview targets undergraduate and first-year master's students with biology, bioinformatics or closely related experience; FAQ requires proof of summer enrollment and English, not just current MS. Published eligibility bullets emphasize undergraduates, creating ambiguity for MSc candidates: confirm first-year MSc participation before applying. Non-EU applicants face degree recognition, German residence/visa timing potentially up to 3 months.",
+      "officialUrl": "https://www.helmholtz-munich.de/cross-disciplinary-initiatives/epigenetics/summer-internship",
+      "priority": "low",
+      "action": "Watch for the late-2026 opening, request M.Sc.-specific eligibility clarification, and review computational AI host projects. Not recommended as fully funded due to low €450/month allowance.",
+      "review": "recheck",
+      "opening": null,
+      "verifiedAt": "2026-11-11",
+      "deadlineTime": null,
+      "deadlineTimezone": "Not published",
+      "fundingStatus": "partial-internship-allowance",
+      "fundingCaveats": "Official FAQ says €450/month total; health insurance not provided, flight limits and whether accommodation is free need confirmation.",
+      "applicationDocuments": [
+        "Proof of current and July–August 2027 enrolment",
+        "Academic transcripts from bachelor/master",
+        "CV in English max 2 pages",
+        "One-page motivation naming 3 lab preferences",
+        "MSc thesis summary when applicable",
+        "Single combined PDF upload after portal opens"
+      ],
+      "sourceUrls": [
+        "https://www.helmholtz-munich.de/cross-disciplinary-initiatives/epigenetics/summer-internship",
+        "https://www.helmholtz-munich.de/en/cross-disciplinary-initiatives/epigenetics/summer-internship/frequently-asked-questions",
+        "https://www.helmholtz-munich.de/cross-disciplinary-initiatives/epigenetics/summer-internship/required-documents"
+      ]
     }
   ],
   "lastResearchSummary": {
-    "date": "2026-11-10",
+    "date": "2026-11-11",
     "newRecordIDs": [
-      "gresearch-ml-research-intern-2027",
-      "gresearch-nlp-research-intern-2027",
-      "google-emea-student-researcher-2027",
-      "prosus-causality-research-intern-2027",
-      "prosus-llm-ml-engineering-intern-2027",
-      "inria-2026-10623",
-      "inria-2026-10588"
+      "inria-2026-10556",
+      "inria-2026-10620",
+      "inria-2026-10634",
+      "inria-2026-10638",
+      "inria-2026-10625",
+      "telit-edge-ai-academy-2027",
+      "helmholtz-munich-epigenetics-ai27"
     ],
     "materialChanges": [
-      "New live G-Research London summer 2027 paid ML and NLP RESEARCH internships offer accommodation and international visa/relocation funding; closing dates NOT independently stated by employer and PhD is preferred. Employer explicitly asks applicants to apply to only ONE research role.",
-      "Google Student Researcher 2027 employer lists December 13, 2026 deadline and multiple European research locations, but expressly limits this posting to students ENROLLED at an EMEA institution. Thus an India-enrolled MSc does not meet its intended eligibility despite worldwide nationality not being explicitly restricted. Salary bands appear annualised by location and degree and are not guaranteed internship totals.",
-      "Prosus Amsterdam two research internships appear on the ELLIS 16 November job board. Employer confirms both require EU citizenship OR current enrollment at a Netherlands institution, and explicitly cannot sponsor other interns. Both should be EXCLUDED for non-EU students enrolled in India.",
-      "Inria MAGNET neuroscience/federated learning 18 Nov job requires graduate-level skills and roughly 3-5 years experience; salaried JOB not MSc internship. New HUCEBOT 15 Nov 2026 research internship pays €4.50/hour but requires cognitive-psychology/ergonomics background; not general CS MSc.",
-      "RC Trust 2027 internship remains fully funded with 31 Dec 2026 deadline but official application form still marked coming soon on 10 November; do not claim open.",
-      "CaCTüS official 2027 timeline still says 16 Nov; CISPA 30 Nov 23:59 AoE; CERN openlab 21 Jan 2027 23:59 Geneva; Aalto 7-31 Jan 2027, positions published around 10 Dec.",
-      "Previously tracked Oxford research assistant deadline of 9 Nov has passed, now explicitly marked closed; remaining old dates must be treated as passed in dynamic 90-day view.",
-      "EPFL ERIP eligibility clarified as partner university in North America/Singapore plus nomination; Indian institutions are not on listed partner roster. Remains a separate restricted opportunity from Summer@EPFL.",
-      "New employer source pages were checked on 2026-11-10; academic PhD tracks remain separate from internships and salaried employment.",
-      "GitHub edit is not a public deployment check; no private applicant data, applications or emails were handled."
+      "New 2027 European opportunity not in prior catalog: Telit Cinterion Edge AI Academy, Trieste Italy, 30 Nov 2026 deadline, explicitly accepts international Master's and graduates; employer provides housing, approved travel, visa fee support and scholarship but no numerical stipend. This is an INDUSTRY APPLIED-R&D TRAINING program, NOT academic research.",
+      "New Helmholtz Munich 2027 epigenetics/AI summer research watchlist opportunity: call still closed, expected late-2026 opening, no exact 2027 deadline; official FAQ pays €450/month with housing arrangements, health insurance excluded, MSc biology-background/first-year eligibility ambiguous. Not fully funded.",
+      "Five official Inria postings newly verified: 10556 paid M2 gray-box multiobjective optimization to 31 Dec (€4.50/hr), 10620 paid vision/robotics/cognition internship to 19 Nov (€4.50/hr), 10634 adaptive MR rehabilitation to 20 Nov (€4.50/hr), 10638 funded health-NLP privacy PhD to 20 Nov (€2,300 gross/month), and 10625 funded EuroHPC numerical systems PhD to 19 Nov (€2,300 gross/month). Two PhD tracks separated from MSc internships.",
+      "Inria 10644 vision-language surveillance R&D job pays at least €2,692 gross/month and closes 22 Nov but explicitly REQUIRES A PhD, so excluded from current-MSc opportunity additions.",
+      "EMBL-EBI / Netherlands Embassy paid master's internship closes 30 Nov but only eligible for students enrolled at a Dutch HEI receiving Dutch student finance; excluded for India-enrolled MSc.",
+      "RC Trust confirmed 31 Dec 2026 and all travel, housing, living cost coverage. Online application-form page now linked, but parent program page still says form is being prepared and underlying form endpoint returned 403 in this automated read: acceptance state NOT VERIFIED.",
+      "Rechecked official CaCTüS 2027 deadline 16 Nov, CISPA 30 Nov 23:59 AoE with applications open, CERN openlab 21 Jan 2027 23:59 Geneva time, and Aalto 7–31 Jan 2027 deadline with projects ~10 Dec. Summer@EPFL annual-rule 29 Nov remains UNCONFIRMED for 2027.",
+      "Do not rank low-pay French statutory intern allowances as fully funded stays, nor doctoral/full-time roles as student internships; graduation, work authorization, research fit, finance and required host agreements remain conditional.",
+      "All data in publicly published catalog are program-only. No private student details, files, emails, applications, registrations or submissions involved."
     ],
-    "scopeNote": "Employer/official source verified; records with employer-unconfirmed deadlines or restrictive requirements explicitly flagged. New added research internships span UK, Netherlands and France, plus geographically restricted Google EMEA student research call."
+    "scopeNote": "Daily official-source verification across universities and research institutes in Germany, Switzerland, Finland, France, UK and Italy. 90-day window is dynamic in existing UI; rolling 12-month calendar preserved, undated/rolling leads kept outside confirmed-dated count."
   }
 }
