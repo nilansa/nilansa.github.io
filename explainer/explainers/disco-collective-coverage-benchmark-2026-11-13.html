@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="A grounded research notebook on collective evidence retrieval for long-running organizational agent memories, with a reproducible dataset blueprint and controlled baseline protocol.">
+<title>When one memory isn't enough — DISCo evidence retrieval study</title>
+<style>
+:root{--paper:#f8f7f4;--ink:#171717;--muted:#5d5e5b;--rule:#d7d5d0;--blue:#1e3af5;--soft:#e9edff;--dark:#111f64}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{background:var(--paper);color:var(--ink);margin:0;font:15.5px/1.65 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--dark);text-decoration-color:var(--blue);text-underline-offset:3px}a:hover{color:var(--blue)}
+.shell{max-width:1140px;margin:0 auto;padding:0 clamp(22px,5vw,76px)}
+header{border-bottom:1px solid var(--ink)}.top{min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:24px;font:600 11px/1.4 sans-serif;letter-spacing:.09em;text-transform:uppercase}.top a{color:inherit;text-decoration:none}
+.eyebrow{font:600 11px/1.5 sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.hero{padding:clamp(58px,9vw,124px) 0 68px;border-bottom:1px solid var(--rule)}.hero h1{font:500 clamp(46px,7.7vw,105px)/.99 Georgia,"Times New Roman",serif;letter-spacing:-.056em;max-width:930px;margin:18px 0 28px}
+.hero .deck{font:clamp(19px,2.45vw,28px)/1.35 Georgia,serif;max-width:870px}.hero .meta{display:flex;align-items:center;flex-wrap:wrap;gap:10px 26px;margin-top:30px;color:var(--muted);font-size:12px}.status{border:1px solid var(--rule);padding:5px 10px;font-weight:600;color:var(--blue)}
+nav.contents{padding:25px 0 32px;border-bottom:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:11px 22px;font-size:12px}nav.contents a{text-decoration:none;color:var(--ink)}nav.contents a:hover{color:var(--blue)}
+section{padding:66px 0;border-bottom:1px solid var(--rule)}h2{font:500 clamp(30px,4vw,49px)/1.14 Georgia,serif;letter-spacing:-.035em;max-width:850px;margin:8px 0 24px}h3{font-weight:650;font-size:17px;margin:30px 0 12px;letter-spacing:-.012em}p{max-width:820px;margin:13px 0;color:#262724}
+.lead{font:clamp(17px,2vw,21px)/1.5 Georgia,serif;max-width:850px}.note{border-left:3px solid var(--blue);padding:3px 0 3px 20px;margin:28px 0;max-width:860px}.note p{margin:6px 0}
+.small{font-size:12px;color:var(--muted)}.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,3vw,34px);margin:28px 0}.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:28px 0}.mini{padding:19px 20px;border:1px solid var(--rule);background:#fff}.mini strong{font-size:13px}.mini p{font-size:13px;margin:8px 0 0;color:var(--muted)}
+.figure{border:1px solid var(--rule);background:#fff;padding:clamp(18px,3vw,36px);margin:28px 0;overflow-x:auto}.figure svg{display:block;width:100%;max-width:990px;height:auto;margin:auto}.caption{font-size:12px;color:var(--muted);margin:16px 0 0}
+.chat{max-width:860px;background:#fff;border:1px solid var(--rule);margin:28px 0}.message{padding:16px 22px;border-bottom:1px solid #ededeb}.message:last-child{border-bottom:none}.message .who{display:flex;gap:18px;justify-content:space-between;color:var(--muted);font-size:11px;letter-spacing:.02em}.message .who b{color:var(--ink)}.message p{font-size:14px;margin:7px 0 0}.message.current{border-left:4px solid var(--blue);padding-left:18px}
+.question{background:var(--soft);padding:20px 24px;border:1px solid #cbd5ff;margin:20px 0 26px;max-width:860px}.question b{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}.question p{font:19px/1.45 Georgia,serif;margin:8px 0 0}
+table{border-collapse:collapse;width:100%;min-width:570px;font-size:13px;background:#fff}th,td{vertical-align:top;text-align:left;padding:14px 15px;border-bottom:1px solid #e4e4e2}th{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:650;background:#f6f6f5}td:first-child{font-weight:600}.tablewrap{overflow:auto;margin:24px 0;border:1px solid var(--rule)}.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.93em}
+ol,ul{padding-left:22px;max-width:840px}li{margin:9px 0}footer{padding:32px 0 56px;font-size:12px;color:var(--muted);display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap}
+.faint{color:var(--muted)}.stepnum{font:600 11px/1.4 sans-serif;color:var(--blue);letter-spacing:.08em}.metricwrap{margin-top:28px}.metricwrap .empty{border:1px dashed #b6b8bf;padding:24px;background:#fff;color:#52555d}.metricwrap table{margin-top:18px}.results-heading{display:flex;align-items:baseline;gap:15px;flex-wrap:wrap}#results-state{font-size:12px;color:var(--blue);font-weight:600}
+@media(max-width:720px){.grid2,.three{grid-template-columns:1fr}.hero{padding-top:58px}.hero h1{font-size:49px}.figure{padding:15px}section{padding:51px 0}.top{font-size:10px}.message{padding:14px}.message.current{padding-left:10px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header><div class="shell top"><a href="../index.html">Research explainers</a><span>Memory agents · 13 November 2026</span></div></header>
+<main class="shell">
+<section class="hero" aria-labelledby="title">
+<div class="eyebrow">Research notebook 01 · Evidence-first</div>
+<h1 id="title">When one memory isn't enough.</h1>
+<p class="deck">A test of whether retrieving <em>different, complementary pieces of evidence</em> works better than simply retrieving the individually most similar messages.</p>
+<div class="meta"><span class="status" id="top-status">Pilot in progress</span><span>DISCo · Collective query coverage</span><span>Prototype / not a publication claim</span></div>
+</section>
+<nav class="contents" aria-label="On this page"><a href="#idea">The problem</a><a href="#example">Example</a><a href="#method">How the methods differ</a><a href="#dataset">Dataset design</a><a href="#controls">Fair comparison</a><a href="#results">Measured results</a><a href="#limits">Limitations</a><a href="#sources">Sources</a></nav>
+
+<section id="idea"><div class="eyebrow">01 · The question</div><h2>Relevant is not the same as sufficient.</h2>
+<p class="lead">Imagine asking a research assistant: “Is the next software release ready?” The answer may require the latest deployment region, the rollback rule, and the security approval. No single chat message contains all three.</p>
+<p>A standard retriever usually scores every message against the question and returns the highest-ranked messages. In a busy project, several messages may repeat the same release detail. The assistant sees three relevant messages but still misses an essential fact.</p>
+<p><a href="https://proceedings.iclr.cc/paper_files/paper/2026/hash/6ded182245f8e4db3963d2027174133d-Abstract-Conference.html">DISCo (ICLR 2026)</a> studies the alternative: select a <strong>set</strong> of documents whose token-level representations together cover a complex query. Its official technique uses a dense subset index, successive probes, and iterative editing of the remaining query representation.</p>
+<div class="note"><p><strong>The hypothesis.</strong> Collective coverage should help most when a question needs several distinct facts, when many similar messages compete for a limited retrieval budget.</p><p><strong>Not assumed.</strong> DISCo does not automatically know which decision is newest or authoritative. Time and authority are separate experimental factors.</p></div>
+</section>
+
+<section id="example"><div class="eyebrow">02 · Illustrative example</div><h2>A release decision spread across channels.</h2>
+<div class="chat" aria-label="Fictional example conversation">
+<div class="message"><div class="who"><b>Platform · #release-plan</b><span>Mon 09:10</span></div><p>We can run a small US-east beta. The broader region rollout stays on hold until the checkout retry audit.</p></div>
+<div class="message"><div class="who"><b>Product · #launch</b><span>Tue 11:25</span></div><p>Still planning the US-east beta. Marketing notes and partner communications should describe that limited region only.</p></div>
+<div class="message"><div class="who"><b>Platform · #release-plan</b><span>Wed 15:10</span></div><p>Reconfirming the US-east pilot. The wider release is not in this change window.</p></div>
+<div class="message current"><div class="who"><b>SRE · #operations</b><span>Thu 09:40</span></div><p>Rollback if payment failures exceed 0.8% for ten consecutive minutes. On-call has checked the dashboard alert.</p></div>
+<div class="message current"><div class="who"><b>Security · #signoff</b><span>Thu 16:20</span></div><p>Maya will provide the final security sign-off once the access-control exception is closed.</p></div>
+</div>
+<div class="question"><b>Later question</b><p>For this release, which region is enabled, what triggers rollback, and who must sign off?</p></div>
+<p class="small">Illustrative fictional example, not an independently evaluated dataset item. A correct retrieval set needs the region, rollback and approval messages. Repeated region messages should not crowd out the other two facts.</p>
+<div class="figure"><svg viewBox="0 0 930 315" role="img" aria-labelledby="covtitle covdesc"><title id="covtitle">Similarity ranking versus complementary evidence selection</title><desc id="covdesc">A dense top four list can contain three near-duplicate region messages, while a coverage-aware set aims to retrieve one region, one rollback and one approval message.</desc>
+<text x="18" y="30" font-size="18" font-weight="600" fill="#171717">Ordinary similarity ranking</text><text x="494" y="30" font-size="18" font-weight="600" fill="#171717">Coverage-aware selection</text>
+<text x="18" y="55" font-size="12" fill="#656565">High individual relevance; duplicated topic</text><text x="494" y="55" font-size="12" fill="#656565">Marginal value: what is still missing?</text>
+<g font-size="14" font-family="Arial,sans-serif"><rect x="18" y="84" width="420" height="46" rx="3" fill="#dce4ff"/><text x="35" y="113" fill="#17245a">1 · US-east region</text>
+<rect x="18" y="139" width="420" height="46" rx="3" fill="#dce4ff"/><text x="35" y="168" fill="#17245a">2 · US-east marketing note</text>
+<rect x="18" y="194" width="420" height="46" rx="3" fill="#dce4ff"/><text x="35" y="223" fill="#17245a">3 · US-east confirmation</text>
+<rect x="18" y="249" width="420" height="46" rx="3" fill="#f5e2e2"/><text x="35" y="278" fill="#702424">4 · Rollback rule (approval missing)</text>
+<rect x="494" y="84" width="418" height="46" rx="3" fill="#dce4ff"/><text x="511" y="113" fill="#17245a">1 · Region</text>
+<rect x="494" y="139" width="418" height="46" rx="3" fill="#d9eedc"/><text x="511" y="168" fill="#21552b">2 · Rollback rule</text>
+<rect x="494" y="194" width="418" height="46" rx="3" fill="#fff0d0"/><text x="511" y="223" fill="#69480e">3 · Security sign-off</text>
+<rect x="494" y="249" width="418" height="46" rx="3" fill="#f4f4f4"/><text x="511" y="278" fill="#555">4 · Extra context if useful</text></g></svg><p class="caption">Figure 1. A conceptual illustration, not measured output. Coverage-based ranking may prefer an item about an uncovered topic even if its individual relevance score is lower.</p></div>
+</section>
+
+<section id="method"><div class="eyebrow">03 · Method distinction</div><h2>Coverage is different from freshness.</h2>
+<div class="grid2"><div class="mini"><div class="stepnum">QUESTION COVERAGE</div><h3>Did we retrieve every distinct ingredient?</h3><p>A set-valued scoring rule rewards messages that add missing evidence. This is the part DISCo directly addresses.</p></div><div class="mini"><div class="stepnum">TEMPORAL CORRECTNESS</div><h3>Is each ingredient still valid?</h3><p>An old approval may have been withdrawn. Version tracking and authority resolution are separate from the retrieval coverage objective.</p></div></div>
+<div class="figure"><svg viewBox="0 0 940 170" role="img" aria-labelledby="timetitle"><title id="timetitle">A decision can be updated after initial approval</title><line x1="84" y1="82" x2="848" y2="82" stroke="#b6b6b6" stroke-width="3"/>
+<circle cx="138" cy="82" r="11" fill="#9ba7dd"/><circle cx="467" cy="82" r="11" fill="#9ba7dd"/><circle cx="798" cy="82" r="11" fill="#1e3af5"/>
+<text x="79" y="42" font-size="17" fill="#222">Proposal</text><text x="401" y="42" font-size="17" fill="#222">Approval</text><text x="707" y="42" font-size="17" font-weight="600" fill="#1e3af5">Supersession</text>
+<text x="63" y="122" font-size="13" fill="#555">US-east only</text><text x="380" y="122" font-size="13" fill="#555">Pilot approved</text><text x="694" y="122" font-size="13" fill="#333">Pilot paused</text>
+<text x="63" y="148" font-size="11" fill="#777">Earlier</text><text x="732" y="148" font-size="11" fill="#777">Latest current state</text></svg><p class="caption">Figure 2. The last authoritative decision can contradict an earlier relevant message. A coverage retriever must be evaluated separately from a temporal filter or conflict resolver.</p></div>
+</section>
+
+<section id="dataset"><div class="eyebrow">04 · Dataset blueprint</div><h2>First build a world. Then generate conversations.</h2>
+<p>A valid benchmark needs plausible causes for each message. We first define an organization's projects, participants, decisions and event timeline. The dialogues are generated from that latent world, across channels and days. Questions and gold evidence are derived from the same event graph <em>but checked for wording leakage</em>.</p>
+<div class="figure"><svg viewBox="0 0 1020 200" role="img" aria-labelledby="pipelinetitle"><title id="pipelinetitle">Dataset generation and evaluation pipeline</title>
+<g font-family="Arial,sans-serif" font-size="14" text-anchor="middle"><rect x="4" y="47" width="167" height="102" rx="5" fill="#f3f3f1" stroke="#d1d1ce"/><text x="88" y="82" fill="#222">World state</text><text x="88" y="106" font-size="11" fill="#666">Projects, people</text><text x="88" y="122" font-size="11" fill="#666">decisions</text>
+<rect x="214" y="47" width="167" height="102" rx="5" fill="#f3f3f1" stroke="#d1d1ce"/><text x="298" y="82" fill="#222">Event timeline</text><text x="298" y="106" font-size="11" fill="#666">Discuss, decide</text><text x="298" y="122" font-size="11" fill="#666">supersede</text>
+<rect x="424" y="47" width="167" height="102" rx="5" fill="#e9edff" stroke="#bfcaff"/><text x="508" y="82" fill="#182b91">Conversations</text><text x="508" y="106" font-size="11" fill="#485b93">Speakers, channels</text><text x="508" y="122" font-size="11" fill="#485b93">sessions, noise</text>
+<rect x="634" y="47" width="167" height="102" rx="5" fill="#f3f3f1" stroke="#d1d1ce"/><text x="718" y="82" fill="#222">Gold questions</text><text x="718" y="106" font-size="11" fill="#666">Required evidence</text><text x="718" y="122" font-size="11" fill="#666">and valid state</text>
+<rect x="844" y="47" width="171" height="102" rx="5" fill="#e6efe7" stroke="#c6dcc8"/><text x="929" y="82" fill="#22582b">Same evaluation</text><text x="929" y="106" font-size="11" fill="#54715a">All methods, same</text><text x="929" y="122" font-size="11" fill="#54715a">budget and corpus</text></g>
+<g stroke="#666" stroke-width="1.5" fill="none"><path d="M176 98h33m-8 -7l8 7-8 7"/><path d="M386 98h33m-8 -7l8 7-8 7"/><path d="M596 98h33m-8 -7l8 7-8 7"/><path d="M806 98h33m-8 -7l8 7-8 7"/></g></svg><p class="caption">Figure 3. Ground-truth event construction prevents arbitrary fact changes and makes updates auditable. Independent realism and evidence checks remain necessary.</p></div>
+<div class="tablewrap"><table><thead><tr><th>Controlled axis</th><th>Levels</th><th>Purpose</th></tr></thead><tbody>
+<tr><td>Required evidence</td><td>1, 2, 3 or 4 distinct messages</td><td>Tests whether gains grow with the number of needed facts</td></tr>
+<tr><td>Similar distractors</td><td>Few to many repeated-topic messages</td><td>Tests whether relevance ranking crowds out missing facets</td></tr>
+<tr><td>Supersession</td><td>None / one update / multiple updates</td><td>Separates collective coverage from latest-truth tracking</td></tr>
+<tr><td>Language match</td><td>Near-verbatim / paraphrased</td><td>Exposes shortcuts based on copied wording</td></tr>
+<tr><td>Evidence presence</td><td>Answerable / insufficient or absent evidence</td><td>Checks abstention and valid partial answers</td></tr>
+<tr><td>Conversation structure</td><td>Channels, speakers, days and domains</td><td>Tests transfer beyond one chat template</td></tr></tbody></table></div>
+<p><strong>Minimum pilot target:</strong> hundreds of independent workplace scenarios across software, product, infrastructure and operations. Longer, LLM-realized dialogues and human checks are a second stage. Generated items are synthetic; they are never presented as authentic company conversations.</p>
+</section>
+
+<section id="controls"><div class="eyebrow">05 · Experiment contract</div><h2>We cannot move the goalposts after seeing the scores.</h2>
+<p>Every retrieval method receives the same snapshot of the corpus, query and permitted candidate budget. It must not see the answer key. When comparing full document retrieval and short messages, report both message-count and token-budget results.</p>
+<div class="tablewrap"><table><thead><tr><th>Method</th><th>Purpose</th><th>Interpretation</th></tr></thead><tbody>
+<tr><td>Chronological / recency</td><td>Trivial workplace baseline</td><td>Tests whether recent chat already solves the task</td></tr>
+<tr><td>BM25</td><td>Exact term matching</td><td>Strong low-cost sparse baseline</td></tr>
+<tr><td>TF-IDF cosine and LSA</td><td>Relevance ranking controls</td><td>Proxies only; LSA is not a modern neural retriever</td></tr>
+<tr><td>Neural dense top-k</td><td>Strong semantic search</td><td>Required for a definitive dense-retrieval claim; not presumed complete</td></tr>
+<tr><td>MMR</td><td>Relevance with diversity</td><td>Tests whether ordinary diversification suffices</td></tr>
+<tr><td>Hybrid BM25 + dense / RRF</td><td>Combined retrieval paths</td><td>Strong static alternative</td></tr>
+<tr><td>Exact marginal coverage greedy</td><td>Set-valued selection</td><td>DISCo-inspired objective-level proxy, <strong>not</strong> the DISCo index</td></tr>
+<tr><td>Official DISCo</td><td>Original lifted-vector index and query editing</td><td>Publish as an official result only after reproduction is verified</td></tr>
+<tr><td>Temporal filter + retriever</td><td>Latest-valid-evidence control</td><td>Tests freshness independently from the retrieval algorithm</td></tr>
+<tr><td>Gold-evidence oracle</td><td>Upper bound</td><td>Diagnostic only, never a fair deployable baseline</td></tr></tbody></table></div>
+<div class="grid2"><div><h3>Primary outcome</h3><p><strong>Complete evidence @ k:</strong> the fraction of answerable questions for which every required gold evidence item is in the retrieved set. This is stricter than merely finding one relevant message.</p><p>Secondary: evidence recall@k, precision@k, answer validity, duplicated-topic retrieval, query latency, index build cost and token budget.</p></div><div><h3>How to trust a gain</h3><p>Use held-out scenario families, paired differences and cluster bootstrap confidence intervals. Pre-register a practically meaningful improvement (for example ten percentage points versus the strongest static baseline), then report the interval, all strata and failures. The target is not an achieved result.</p></div></div>
+<div class="note"><p><strong>Stop condition:</strong> If the model-level dense baseline, alternative valid evidence annotations, or equal token-budget comparison is missing, the pilot can still inform implementation—but cannot establish that DISCo beats strong retrieval systems.</p></div>
+</section>
+
+<section id="results"><div class="eyebrow">06 · Evidence ledger</div><div class="results-heading"><h2>What has actually been measured?</h2><span id="results-state">Pilot measurements not yet verified</span></div>
+<p>The table below is connected to a separately versioned benchmark-result record. It must be populated by a real experiment run with a fixed evaluation set. Until then, this page makes no superiority claim.</p>
+<div id="metrics" class="metricwrap"><div class="empty">No verified comparison scores published yet. The experiment protocol and dataset implementation are under audit.</div></div>
+<p class="small" id="results-provenance">When available, the record will include a data hash, implementation label, run time, method versions, bootstrap intervals and known limitations. Do not compare scores produced with different corpora, readers or retrieval budgets.</p>
+</section>
+
+<section id="limits"><div class="eyebrow">07 · Skeptical checklist</div><h2>What could make the result misleading?</h2>
+<div class="three"><div class="mini"><strong>Template shortcuts</strong><p>If every query copies the same exact words as its answer, a model may exploit a generator artifact.</p></div><div class="mini"><strong>Missing valid evidence</strong><p>One question may have several equally valid evidence sets. A single reference set can unfairly penalize retrieval.</p></div><div class="mini"><strong>Cheap baselines</strong><p>Beating TF-IDF alone does not establish success against ColBERT, strong neural retrieval or modern hybrid systems.</p></div></div>
+<ol><li>Review a stratified sample of generated conversations for realism, contradictory facts, and minimal evidence sufficiency.</li><li>Check that scores are stable after independent paraphrasing and distractor resampling.</li><li>Report results where collective coverage hurts: one-hop questions, exact-ID lookup, temporally superseded facts, and low retrieval budgets.</li><li>Separate objective quality from runtime/index-efficiency claims; exact greedy set selection is not the full DISCo implementation.</li><li>Compare against relevant existing benchmarks, rather than claiming that synthetic group conversations are new.</li></ol>
+</section>
+
+<section id="sources"><div class="eyebrow">08 · Prior art and references</div><h2>What this work builds upon.</h2>
+<div class="tablewrap"><table><thead><tr><th>Reference</th><th>What it establishes</th><th>What we still need to test</th></tr></thead><tbody>
+<tr><td><a href="https://proceedings.iclr.cc/paper_files/paper/2026/hash/6ded182245f8e4db3963d2027174133d-Abstract-Conference.html">DISCo · ICLR 2026</a></td><td>Submodular collective coverage; dense subset indexing with residual query edits</td><td>Does its official implementation help on conversational decision evidence?</td></tr>
+<tr><td><a href="https://github.com/structlearning/DISCo">DISCo source repository</a></td><td>Reference implementation and reproduction setup</td><td>Dependency-complete reproduction and same-budget baseline comparison</td></tr>
+<tr><td><a href="https://aclanthology.org/2024.acl-long.747/">LoCoMo · ACL 2024</a></td><td>Long-running generated conversations and human verification</td><td>External realism and multi-session generalization</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2410.10813">LongMemEval · ICLR 2025</a></td><td>Knowledge updating, temporal and multi-session questions</td><td>How freshness impacts evidence-set retrieval</td></tr>
+<tr><td><a href="https://github.com/UCSB-NLP-Chang/GroupMemBench">GroupMemBench · 2026</a></td><td>Multi-party, multi-channel conversations with ambiguity and updates</td><td>Complementary evidence coverage as a controlled primary factor</td></tr>
+<tr><td><a href="https://arxiv.org/abs/2606.29328">GeoRAG · 2026</a></td><td>Information-demand coverage with a submodular objective</td><td>Comparison against another coverage-based retrieval family</td></tr>
+</tbody></table></div>
+<div class="note"><p><strong>Novelty boundary.</strong> Neither coverage-aware retrieval nor synthetic group conversation generation is new by itself. A defensible contribution would be an independently validated benchmark that isolates when different memory-retrieval objectives are appropriate, with transparent controls and reproducible evidence.</p></div>
+</section>
+</main>
+<footer class="shell"><span>Memory Agents · Evidence-first research note · v0.1</span><span>Public explanation only. No private meeting transcripts or user memory data.</span><span><a href="../index.html">Explainer index</a></span></footer>
+<script>
+(function(){
+const s=document.getElementById('results-state'), top=document.getElementById('top-status'), root=document.getElementById('metrics'), prov=document.getElementById('results-provenance');
+fetch('../data/disco-coverage-results-2026-11-13.json',{cache:'no-store'}).then(function(r){if(!r.ok)throw Error('No result record');return r.json();}).then(function(d){
+ if(!d||d.status!=='verified' || !Array.isArray(d.rows) || !d.rows.length){s.textContent='No verified scores published'; return;}
+ s.textContent='Verified pilot · '+(d.run_date||'date recorded');top.textContent='Measured pilot available';
+ root.replaceChildren(); const w=document.createElement('div');w.className='tablewrap';const t=document.createElement('table');
+ const th=document.createElement('thead'),tr=document.createElement('tr');['Method','Complete @5','Complete @10','Evidence recall @10','Role'].forEach(function(v){let x=document.createElement('th');x.textContent=v;tr.appendChild(x);});th.appendChild(tr);t.appendChild(th);
+ const body=document.createElement('tbody');d.rows.forEach(function(row){const tr=document.createElement('tr');[row.method,row.complete5,row.complete10,row.recall10,row.role].forEach(function(v){const td=document.createElement('td');td.textContent=(v===null||v===undefined)?'not measured':String(v);tr.appendChild(td);});body.appendChild(tr);});t.appendChild(body);w.appendChild(t);root.appendChild(w);
+ prov.textContent='Evidence: '+(d.dataset_hash||'dataset hash not supplied')+' · '+(d.provenance||'check machine-readable record')+' · Limitations: '+(d.limitations||'not specified');
+ }).catch(function(){s.textContent='No verified scores published';});
+})();
+</script>
+</body></html>
