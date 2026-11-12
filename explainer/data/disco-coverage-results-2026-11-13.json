@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "study": "DISCo collective query coverage in organizational memory",
+  "status": "in_progress",
+  "date": "2026-11-13",
+  "run_date": null,
+  "official_disco_executed": false,
+  "notes": "No verified experiment scores were available when this page was published. A DISCo-inspired coverage-greedy proxy must not be labeled as official DISCo.",
+  "rows": [],
+  "dataset_hash": null,
+  "provenance": null,
+  "limitations": "Experimental results and official DISCo reproduction pending independent checks."
+}
