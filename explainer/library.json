@@ -1,5 +1,25 @@
 [
   {
+    "id": "disco-coverage-benchmark-20261113",
+    "title": "DISCo — When One Memory Isn't Enough: Evidence Coverage Benchmark",
+    "description": "ASD-STE100-style grounded explainer: conceptual visuals, multi-channel memory dataset blueprint, DISCo-versus-dense method distinction, strong baseline and token-budget controls, live status for reproducible pilot results.",
+    "project": "Memory Agents — DISCo Coverage",
+    "category": "Experimental research explainer",
+    "tags": [
+      "Memory Agents",
+      "DISCo",
+      "collective query coverage",
+      "agent memory",
+      "benchmark",
+      "submodular retrieval",
+      "research audit",
+      "ASD-STE100"
+    ],
+    "url": "./explainers/disco-collective-coverage-benchmark-2026-11-13.html",
+    "date": "2026-11-13",
+    "indexed_at": "2026-11-12T22:34:42.094Z"
+  },
+  {
     "id": "ire-asd-sd100-research-explainer-20261031",
     "title": "ASD-STE100 — IRE Research Explainer (Projects 1 & 5)",
     "description": "Evidence-led status of feedback-budgeted retriever learning and minimal sufficient evidence retrieval: baselines, paired confidence intervals, negative results, novelty limits, compute progress and unfinished tests.",
