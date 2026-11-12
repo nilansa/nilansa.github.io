@@ -20,6 +20,7 @@ Canonical registry for the public pages linked at [nilansa.github.io/personal-li
 ## Reading and study
 
 - [Books](https://nilansa.github.io/books/) — Reading catalog: CS, machine learning, mathematics.
+- [BookHub](https://nilansa.github.io/books/hub/) — Source-grounded book, chapter, concept, and conference-paper research workspace.
 - [Explainers](https://nilansa.github.io/explainer/) — Research and course explainers.
 - [ASD-STE100](https://nilansa.github.io/asd-sd100/) — Research explainer in simplified technical English.
 
