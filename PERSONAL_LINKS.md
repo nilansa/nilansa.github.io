@@ -21,6 +21,8 @@ Canonical registry for the public pages linked at [nilansa.github.io/personal-li
 
 ## Reading and study
 
+- [Counterfactual ranking survey](https://nilansa.github.io/explainer/explainers/ire-counterfactual-ranking-survey-2026-10-31.html) — Individual IRE survey: 15-paper reading sequence, tutorials, preparation checklist and viva practice.
+
 - [Books](https://nilansa.github.io/books/) — Reading catalog: CS, machine learning, mathematics.
 - [BookHub](https://nilansa.github.io/books/hub/) — Source-grounded book, chapter, concept, and conference-paper research workspace.
 - [Explainers](https://nilansa.github.io/explainer/) — Research and course explainers.
@@ -36,3 +38,4 @@ Canonical registry for the public pages linked at [nilansa.github.io/personal-li
 6. Check internal navigation and GitHub Pages deployment before calling it live.
 
 Last updated: 2026-11-13 (Asia/Kolkata).
+
