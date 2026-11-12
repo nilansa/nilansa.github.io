@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex">
+<meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="theme-color" content="#f6f5f1">
+<meta name="description" content="A book-centered research workspace. Explore sources, concepts and conference papers without uploading private books.">
+<title>BookHub — Books</title>
+<link rel="stylesheet" href="./hub.css">
+<script src="./hub.js" defer></script>
+</head>
+<body>
+<a href="#main" class="skip">Skip to content</a>
+<div class="page">
+<header class="masthead">
+  <a class="brand" href="../">Books<span class="brand-period">.</span></a>
+  <span class="edition">Knowledge hub <span class="edition-small">2026</span></span>
+  <nav aria-label="Site navigation">
+    <a href="../">Library</a><a href="../../cs-conf/hub/">ConfHub</a><a href="../../personal-links/">Personal links</a>
+  </nav>
+</header>
+<main id="main">
+  <section class="hero">
+    <div class="hero-top"><p class="overline">Your research library, connected</p><span class="hero-tag">Open reading desk</span></div>
+    <h1>Read beyond<br><em>the book.</em></h1>
+    <div class="hero-bottom">
+      <p>From a chapter to an idea. From an idea to its foundations. Build a map of what you know—and what you still need to test.</p>
+      <div class="hero-index"><span class="index-number">01—04</span><span>Discover<br>Connect<br>Study<br>Investigate</span></div>
+    </div>
+    <div id="summary" class="stats" role="status" aria-live="polite">Loading the collection…</div>
+  </section>
+  <section id="discover" class="section">
+    <div class="section-top"><span class="section-index">01</span><h2>Discover.</h2><p>Search the public book catalog, verified chapter titles, curated concepts and your local ConfHub pins.</p></div>
+    <div class="search-panel">
+      <label for="search" class="small-label">Search the collection</label>
+      <div class="search-line"><input id="search" type="search" placeholder="Try: video retrieval, attention, summarization…" autocomplete="off" spellcheck="false"><span aria-hidden="true">↵</span></div>
+      <div class="filter-line" role="group" aria-label="Result type">
+        <button type="button" data-filter="all" aria-pressed="true">Everything</button>
+        <button type="button" data-filter="book" aria-pressed="false">Books</button>
+        <button type="button" data-filter="chapter" aria-pressed="false">Chapters</button>
+        <button type="button" data-filter="concept" aria-pressed="false">Concepts</button>
+        <button type="button" data-filter="paper" aria-pressed="false">Pinned papers</button>
+      </div>
+      <div class="result-meta"><span id="result-count">Loading…</span><button id="clear-search" class="plain-button" type="button">Clear search</button></div>
+      <div id="results" class="result-list" aria-live="polite"></div>
+      <button id="show-more" class="show-more" type="button" hidden>Show more results <span aria-hidden="true">↓</span></button>
+    </div>
+  </section>
+  <section id="connect" class="section">
+    <div class="section-top"><span class="section-index">02</span><h2>Connect.</h2><p>A navigable conceptual map. Lines show an editorial learning relationship—not proof of causality or novelty.</p></div>
+    <div class="map-layout">
+      <div class="map-pane"><p class="small-label">Video understanding / foundations</p><div id="graph-visual" class="graph-visual" role="group" aria-label="Interactive concepts map"></div><p class="map-key">Select a node to inspect the associated chapters and learning questions.</p><div id="concepts-list" class="concepts-list" aria-label="All concept nodes"></div></div>
+      <article id="concept-detail" class="concept-detail"><p class="small-label">Concept details</p><p class="muted">Select a concept to inspect it.</p></article>
+    </div>
+  </section>
+  <section id="desk" class="section">
+    <div class="section-top"><span class="section-index">03</span><h2>Your desk.</h2><p>Keep selected books, chapters, concepts and papers together. Notes stay in this browser unless you export them.</p></div>
+    <div class="desk-layout">
+      <div class="desk-main">
+        <label for="workspace-select" class="small-label">Current workspace</label>
+        <select id="workspace-select" aria-label="Choose a workspace"></select>
+        <div class="desk-actions">
+          <button id="new-workspace" type="button">New workspace</button><button id="rename-workspace" type="button">Rename</button><button id="delete-workspace" type="button">Delete</button>
+        </div>
+        <label for="workspace-notes" class="small-label notes-label">Research notes</label>
+        <textarea id="workspace-notes" rows="9" placeholder="Question, assumptions, competing explanations, a falsifiable test…"></textarea>
+        <p id="save-status" class="save-status" role="status">Stored only in this browser. Export to retain a copy.</p>
+      </div>
+      <aside class="desk-sidebar">
+        <div class="aside-head"><p class="small-label">Reading stack</p><span id="stack-count">0 saved</span></div>
+        <div id="saved-items" class="saved-items"></div>
+        <div class="desk-export">
+          <button id="copy-brief" type="button">Copy study brief</button>
+          <button id="export-workspace" type="button">Export JSON</button>
+          <label class="import-label" for="import-workspace">Import JSON<input id="import-workspace" type="file" accept=".json,application/json"></label>
+        </div>
+        <p class="local-warning">Private by default on this device, not across devices. Do not use a shared browser for confidential notes. This site has no account or server-side storage.</p>
+      </aside>
+    </div>
+  </section>
+  <section id="methods" class="section methods">
+    <div class="section-top"><span class="section-index">04</span><h2>Investigate.</h2><p>Keep foundations and new evidence distinct. A textbook maps the domain; conference research tests what changed.</p></div>
+    <div class="methods-grid">
+      <div><span class="method-no">A</span><h3>Understand a concept</h3><p>Read its chapter, write a one-sentence explanation, then answer a question that would reveal a misunderstanding.</p></div>
+      <div><span class="method-no">B</span><h3>Find the modern work</h3><p>Use ConfHub to locate recent papers and explicitly compare assumptions, objectives and evaluation protocols.</p><a href="../../cs-conf/hub/">Search ConfHub <span aria-hidden="true">↗</span></a></div>
+      <div><span class="method-no">C</span><h3>Mark your uncertainty</h3><p>Separate what a source states, what you inferred, what needs verification, and what experiment could prove you wrong.</p></div>
+    </div>
+    <details class="methodology"><summary>Sources, provenance and limitations <span aria-hidden="true">+</span></summary><p>The chapter index comes from the tables of contents of three privately stored books: <i>Principles of Visual Information Retrieval</i> (2001), <i>Video Mining</i> (2003), and <i>Visual Question Answering: From Theory to Application</i> (2022). Page labels are printed book pages, not PDF viewer page numbers. Concepts and edges are editorial study aids, not verified empirical claims. Other catalog titles are searchable by metadata only until chapter extraction is completed. No copyrighted book text or private PDFs are hosted here.</p><p>Search is lexical and limited to the local catalog and the papers previously pinned in ConfHub on this browser. It is not semantic full-text retrieval, an AI answer generator, or a server-side knowledge graph. You can export a workspace as JSON or copy an explicit study brief for your preferred research agent.</p></details>
+  </section>
+</main>
+<footer class="footer"><div><strong>BookHub.</strong><span>Books are the starting point, not the endpoint.</span></div><div><a href="../">Books</a><a href="../../cs-conf/hub/">ConfHub</a><a href="../../personal-links/">Personal links</a></div><span class="footer-note">No tracking · No external scripts · No public PDF hosting</span></footer>
+</div>
+</body>
+</html>
