@@ -1,0 +1,469 @@
+{
+  "schema": "bookhub-atlas-v1",
+  "updated": "2026-11-13",
+  "methodology": "Chapter titles and printed starting page numbers transcribed from the three private books' tables of contents. Summaries, concept labels and all graph edges are editorial learning guides, not verbatim extracts, verified scientific results or novelty claims. Chapters without page numbers are intentionally left null.",
+  "chapters": [
+    {
+      "id": "lev-1",
+      "book": "principles-of-visual-information-retrieval",
+      "number": 1,
+      "title": "Visual Information Retrieval: Paradigms, Applications, and Research Issues",
+      "page": 3,
+      "concepts": [
+        "retrieval"
+      ]
+    },
+    {
+      "id": "lev-2",
+      "book": "principles-of-visual-information-retrieval",
+      "number": 2,
+      "title": "Color-Based Retrieval",
+      "page": 11,
+      "concepts": [
+        "descriptors"
+      ]
+    },
+    {
+      "id": "lev-3",
+      "book": "principles-of-visual-information-retrieval",
+      "number": 3,
+      "title": "Texture Features for Content-Based Retrieval",
+      "page": 51,
+      "concepts": [
+        "descriptors"
+      ]
+    },
+    {
+      "id": "lev-7",
+      "book": "principles-of-visual-information-retrieval",
+      "number": 7,
+      "title": "Video indexing",
+      "page": null,
+      "concepts": [
+        "segmentation",
+        "retrieval"
+      ]
+    },
+    {
+      "id": "min-1",
+      "book": "video-mining-rosenfeld-doermann-dementhon",
+      "number": 1,
+      "title": "Efficient Video Browsing",
+      "page": 1,
+      "concepts": [
+        "browsing"
+      ]
+    },
+    {
+      "id": "min-2",
+      "book": "video-mining-rosenfeld-doermann-dementhon",
+      "number": 2,
+      "title": "Beyond Key-Frames: The Physical Setting as a Video Mining Primitive",
+      "page": 31,
+      "concepts": [
+        "browsing",
+        "segmentation"
+      ]
+    },
+    {
+      "id": "min-3",
+      "book": "video-mining-rosenfeld-doermann-dementhon",
+      "number": 3,
+      "title": "Temporal Video Boundaries",
+      "page": 61,
+      "concepts": [
+        "segmentation"
+      ]
+    },
+    {
+      "id": "min-4",
+      "book": "video-mining-rosenfeld-doermann-dementhon",
+      "number": 4,
+      "title": "Video Summarization using MPEG-7 Motion Activity and Audio Descriptors",
+      "page": 91,
+      "concepts": [
+        "summarization"
+      ]
+    },
+    {
+      "id": "min-5",
+      "book": "video-mining-rosenfeld-doermann-dementhon",
+      "number": 5,
+      "title": "Movie Content Analysis, Indexing and Skimming Via Multimodal Information",
+      "page": 123,
+      "concepts": [
+        "multimodal",
+        "summarization"
+      ]
+    },
+    {
+      "id": "min-6",
+      "book": "video-mining-rosenfeld-doermann-dementhon",
+      "number": 6,
+      "title": "Video OCR: A Survey and Practitioner's Guide",
+      "page": 155,
+      "concepts": [
+        "multimodal"
+      ]
+    },
+    {
+      "id": "min-7",
+      "book": "video-mining-rosenfeld-doermann-dementhon",
+      "number": 7,
+      "title": "Video Categorization Using Semantics and Semiotics",
+      "page": 185,
+      "concepts": [
+        "semantics"
+      ]
+    },
+    {
+      "id": "min-8",
+      "book": "video-mining-rosenfeld-doermann-dementhon",
+      "number": 8,
+      "title": "Understanding the Semantics of Media",
+      "page": 219,
+      "concepts": [
+        "semantics"
+      ]
+    },
+    {
+      "id": "min-9",
+      "book": "video-mining-rosenfeld-doermann-dementhon",
+      "number": 9,
+      "title": "Statistical Techniques for Video Analysis and Searching",
+      "page": 253,
+      "concepts": [
+        "retrieval",
+        "statistics"
+      ]
+    },
+    {
+      "id": "min-10",
+      "book": "video-mining-rosenfeld-doermann-dementhon",
+      "number": 10,
+      "title": "Mining Statistical Video Structures",
+      "page": 279,
+      "concepts": [
+        "statistics",
+        "representation"
+      ]
+    },
+    {
+      "id": "min-11",
+      "book": "video-mining-rosenfeld-doermann-dementhon",
+      "number": 11,
+      "title": "Pseudo-Relevance Feedback for Multimedia Retrieval",
+      "page": 309,
+      "concepts": [
+        "feedback",
+        "retrieval"
+      ]
+    },
+    {
+      "id": "vqa-3",
+      "book": "visual-question-answering-wu-2022",
+      "number": 3,
+      "title": "Question Answering (QA) Basics",
+      "page": 27,
+      "concepts": [
+        "question-answering"
+      ]
+    },
+    {
+      "id": "vqa-4",
+      "book": "visual-question-answering-wu-2022",
+      "number": 4,
+      "title": "Classical Visual Question Answering",
+      "page": 35,
+      "concepts": [
+        "question-answering",
+        "attention"
+      ]
+    },
+    {
+      "id": "vqa-5",
+      "book": "visual-question-answering-wu-2022",
+      "number": 5,
+      "title": "Knowledge-Based VQA",
+      "page": 73,
+      "concepts": [
+        "question-answering",
+        "knowledge"
+      ]
+    },
+    {
+      "id": "vqa-6",
+      "book": "visual-question-answering-wu-2022",
+      "number": 6,
+      "title": "Vision-and-Language Pretraining for VQA",
+      "page": 91,
+      "concepts": [
+        "attention",
+        "representation"
+      ]
+    },
+    {
+      "id": "vqa-7",
+      "book": "visual-question-answering-wu-2022",
+      "number": 7,
+      "title": "Video Representation Learning",
+      "page": 111,
+      "concepts": [
+        "representation"
+      ]
+    },
+    {
+      "id": "vqa-8",
+      "book": "visual-question-answering-wu-2022",
+      "number": 8,
+      "title": "Video Question Answering",
+      "page": 119,
+      "concepts": [
+        "video-qa"
+      ]
+    },
+    {
+      "id": "vqa-9",
+      "book": "visual-question-answering-wu-2022",
+      "number": 9,
+      "title": "Advanced Models for Video Question Answering",
+      "page": 135,
+      "concepts": [
+        "video-qa",
+        "attention"
+      ]
+    },
+    {
+      "id": "vqa-14",
+      "book": "visual-question-answering-wu-2022",
+      "number": 14,
+      "title": "Visual Dialogue",
+      "page": 199,
+      "concepts": [
+        "question-answering"
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "id": "descriptors",
+      "title": "Visual descriptors",
+      "definition": "Represent an image or a frame using measurable properties such as color and texture. The 2001 text describes classical representations, not current vision embeddings.",
+      "question": "What is lost when a frame is represented only by a histogram?",
+      "route": "Find the representation assumptions before comparing systems."
+    },
+    {
+      "id": "segmentation",
+      "title": "Temporal boundaries",
+      "definition": "Partition continuous video into meaningful units such as shots or scenes; the boundary definition affects every downstream index.",
+      "question": "Can a fixed shot boundary capture an action spanning a cut?",
+      "route": "Separate shot-change detection from semantic event boundaries."
+    },
+    {
+      "id": "browsing",
+      "title": "Video browsing",
+      "definition": "Design a way to navigate long video efficiently using summaries, key frames, or physical-setting cues.",
+      "question": "When does a key-frame view hide information that a full sequence contains?",
+      "route": "Start with user task and time-to-find metrics."
+    },
+    {
+      "id": "summarization",
+      "title": "Video summarization",
+      "definition": "Select or compress video information while retaining signals relevant to a task.",
+      "question": "Does a short summary preserve the evidence needed for a later question?",
+      "route": "Define an observable downstream objective."
+    },
+    {
+      "id": "multimodal",
+      "title": "Multimodal cues",
+      "definition": "Use more than image frames: audio, captions and detected text can help index and search video.",
+      "question": "Which modality can recover information missing from vision alone?",
+      "route": "Compare features at identical retrieval budgets."
+    },
+    {
+      "id": "retrieval",
+      "title": "Visual information retrieval",
+      "definition": "Match a user query with relevant images or video by representing, indexing, scoring and ranking candidates.",
+      "question": "Does a retrieval improvement persist when queries shift from objects to events?",
+      "route": "Define corpus, relevance criteria and ranking metric."
+    },
+    {
+      "id": "feedback",
+      "title": "Relevance feedback",
+      "definition": "Update retrieval using judgments or pseudo-labels from prior results.",
+      "question": "When does pseudo-relevance feedback amplify an early false positive?",
+      "route": "Measure per-round accuracy, not just final rank."
+    },
+    {
+      "id": "semantics",
+      "title": "Media semantics",
+      "definition": "Move from low-level signals to meaning: categories, events and context; historical methods vary in what they call semantics.",
+      "question": "How is a semantic label operationally validated?",
+      "route": "Require a stated label space and evaluation method."
+    },
+    {
+      "id": "statistics",
+      "title": "Statistical video structure",
+      "definition": "Model regularities and latent structure in temporal multimedia data.",
+      "question": "Which statistical assumptions fail under a distribution shift?",
+      "route": "Separate observed structure from interpretation."
+    },
+    {
+      "id": "representation",
+      "title": "Video representations",
+      "definition": "Encode temporal and visual information for learning or downstream reasoning.",
+      "question": "Does frame pooling discard the ordering needed by the task?",
+      "route": "Test time-order sensitivity explicitly."
+    },
+    {
+      "id": "question-answering",
+      "title": "Visual question answering",
+      "definition": "Answer a natural-language question about visual content; the question determines what is relevant.",
+      "question": "What changes when the question is not known at indexing time?",
+      "route": "Trace question, evidence type and answer policy."
+    },
+    {
+      "id": "attention",
+      "title": "Attention and memory",
+      "definition": "Learned selection and memory mechanisms can direct a model toward relevant visual information.",
+      "question": "Can a model answer correctly while attending to an irrelevant signal?",
+      "route": "Test input perturbations instead of assuming interpretability."
+    },
+    {
+      "id": "knowledge",
+      "title": "Knowledge-based VQA",
+      "definition": "Combine visual content with external knowledge rather than relying on image content alone.",
+      "question": "How do you separate a fact derived from pixels from external world knowledge?",
+      "route": "Track provenance for each answer."
+    },
+    {
+      "id": "video-qa",
+      "title": "Video question answering",
+      "definition": "Answer questions about video; temporal order, scene changes and motion can matter.",
+      "question": "Which questions become impossible if frames are shuffled?",
+      "route": "Create controlled temporal perturbation tests."
+    }
+  ],
+  "edges": [
+    {
+      "from": "descriptors",
+      "to": "retrieval",
+      "relation": "foundation",
+      "evidence": "curated learning relationship; not a claim of empirical validation"
+    },
+    {
+      "from": "segmentation",
+      "to": "browsing",
+      "relation": "supports",
+      "evidence": "curated learning relationship; not a claim of empirical validation"
+    },
+    {
+      "from": "segmentation",
+      "to": "summarization",
+      "relation": "supports",
+      "evidence": "curated learning relationship; not a claim of empirical validation"
+    },
+    {
+      "from": "descriptors",
+      "to": "multimodal",
+      "relation": "extends",
+      "evidence": "curated learning relationship; not a claim of empirical validation"
+    },
+    {
+      "from": "browsing",
+      "to": "retrieval",
+      "relation": "supports",
+      "evidence": "curated learning relationship; not a claim of empirical validation"
+    },
+    {
+      "from": "multimodal",
+      "to": "retrieval",
+      "relation": "supports",
+      "evidence": "curated learning relationship; not a claim of empirical validation"
+    },
+    {
+      "from": "statistics",
+      "to": "representation",
+      "relation": "informs",
+      "evidence": "curated learning relationship; not a claim of empirical validation"
+    },
+    {
+      "from": "retrieval",
+      "to": "feedback",
+      "relation": "improves",
+      "evidence": "curated learning relationship; not a claim of empirical validation"
+    },
+    {
+      "from": "representation",
+      "to": "semantics",
+      "relation": "enables",
+      "evidence": "curated learning relationship; not a claim of empirical validation"
+    },
+    {
+      "from": "multimodal",
+      "to": "semantics",
+      "relation": "supports",
+      "evidence": "curated learning relationship; not a claim of empirical validation"
+    },
+    {
+      "from": "representation",
+      "to": "question-answering",
+      "relation": "supports",
+      "evidence": "curated learning relationship; not a claim of empirical validation"
+    },
+    {
+      "from": "question-answering",
+      "to": "video-qa",
+      "relation": "extends",
+      "evidence": "curated learning relationship; not a claim of empirical validation"
+    },
+    {
+      "from": "representation",
+      "to": "video-qa",
+      "relation": "supports",
+      "evidence": "curated learning relationship; not a claim of empirical validation"
+    },
+    {
+      "from": "attention",
+      "to": "video-qa",
+      "relation": "supports",
+      "evidence": "curated learning relationship; not a claim of empirical validation"
+    },
+    {
+      "from": "knowledge",
+      "to": "question-answering",
+      "relation": "extends",
+      "evidence": "curated learning relationship; not a claim of empirical validation"
+    },
+    {
+      "from": "retrieval",
+      "to": "video-qa",
+      "relation": "potential connection",
+      "evidence": "curated learning relationship; not a claim of empirical validation"
+    },
+    {
+      "from": "summarization",
+      "to": "video-qa",
+      "relation": "potential connection",
+      "evidence": "curated learning relationship; not a claim of empirical validation"
+    },
+    {
+      "from": "feedback",
+      "to": "retrieval",
+      "relation": "loop",
+      "evidence": "curated learning relationship; not a claim of empirical validation"
+    }
+  ],
+  "starter": {
+    "name": "Video understanding",
+    "description": "A private reading desk seeded from the three foundational books.",
+    "items": [
+      "book:principles-of-visual-information-retrieval",
+      "book:video-mining-rosenfeld-doermann-dementhon",
+      "book:visual-question-answering-wu-2022",
+      "concept:retrieval",
+      "concept:segmentation",
+      "concept:video-qa"
+    ]
+  }
+}
