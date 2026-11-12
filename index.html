@@ -2,24 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
   <meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet">
+  <meta name="theme-color" content="#f8f7f4">
   <meta name="description" content="Nilanjan Sarkar · MS by Research student at IIIT Hyderabad.">
   <title>Nilanjan Sarkar</title>
   <style>
-    :root { color-scheme: light; }
-    * { box-sizing: border-box; }
-    body { margin: 0; min-height: 100vh; background: #fff; color: #1c2430; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-    main { max-width: 780px; margin: 0 auto; padding: clamp(120px, 24vh, 240px) 28px 80px; }
-    h1 { margin: 0 0 16px; font-size: clamp(2.1rem, 4.8vw, 3.4rem); font-weight: 600; letter-spacing: -.045em; line-height: 1.12; }
-    p { margin: 0; font-size: clamp(1rem, 2.2vw, 1.2rem); color: #596473; line-height: 1.65; }
+    :root{color-scheme:light;--paper:#f8f7f4;--ink:#191919;--sub:#62615e;--rule:#d8d5cf}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;background:var(--paper);color:var(--ink);font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+    .wrap{max-width:1100px;margin:auto;min-height:100vh;padding:0 clamp(24px,5vw,72px);display:flex;flex-direction:column}
+    .masthead{min-height:82px;display:flex;align-items:center;border-bottom:1.5px solid var(--ink);font-size:12px;letter-spacing:.04em}
+    main{flex:1;display:flex;flex-direction:column;justify-content:center;padding:100px 0}
+    h1{margin:0 0 23px;font-size:clamp(46px,8.5vw,112px);font-weight:600;letter-spacing:-.075em;line-height:.99}
+    p{margin:0;font:clamp(18px,2.4vw,27px)/1.4 Georgia,"Times New Roman",serif;color:var(--sub);letter-spacing:-.01em}
+    nav{margin-top:64px;padding-top:18px;border-top:1px solid var(--rule);max-width:450px}
+    nav a{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px 0;color:var(--ink);text-decoration:none;font-size:17px}
+    nav a:hover span:first-child{text-decoration:underline;text-underline-offset:5px}
+    nav a:focus-visible{outline:2px solid var(--ink);outline-offset:6px}
+    .arrow{font-size:19px;font-weight:300}
+    footer{border-top:1px solid var(--rule);padding:22px 0 35px;color:var(--sub);font-size:12px}
+    @media(max-width:600px){.masthead{min-height:65px}main{padding:90px 0 75px}nav{margin-top:55px}}
   </style>
 </head>
 <body>
-  <main>
-    <h1>Nilanjan Sarkar</h1>
-    <p>MS by Research student at IIIT Hyderabad.</p>
-  </main>
+  <div class="wrap">
+    <header class="masthead">NILANJAN SARKAR</header>
+    <main>
+      <h1>Nilanjan<br>Sarkar.</h1>
+      <p>MS by Research student at IIIT Hyderabad.</p>
+      <nav aria-label="Site navigation"><a href="/personal-links/"><span>Personal links</span><span class="arrow" aria-hidden="true">↗</span></a></nav>
+    </main>
+    <footer>IIIT Hyderabad</footer>
+  </div>
 </body>
 </html>
