@@ -36,7 +36,7 @@ ol,ul{padding-left:22px;max-width:840px}li{margin:9px 0}footer{padding:32px 0 56
 <div class="eyebrow">Research notebook 01 · Evidence-first</div>
 <h1 id="title">When one memory isn't enough.</h1>
 <p class="deck">A test of whether retrieving <em>different, complementary pieces of evidence</em> works better than simply retrieving the individually most similar messages.</p>
-<div class="meta"><span class="status" id="top-status">Pilot in progress</span><span>DISCo · Collective query coverage</span><span>Prototype / not a publication claim</span></div>
+<div class="meta"><span class="status" id="top-status">Dataset generated · evaluation pending</span><span>DISCo · Collective query coverage</span><span>Prototype / not a publication claim</span></div>
 </section>
 <nav class="contents" aria-label="On this page"><a href="#idea">The problem</a><a href="#example">Example</a><a href="#method">How the methods differ</a><a href="#dataset">Dataset design</a><a href="#controls">Fair comparison</a><a href="#results">Measured results</a><a href="#limits">Limitations</a><a href="#sources">Sources</a></nav>
 
@@ -95,7 +95,7 @@ ol,ul{padding-left:22px;max-width:840px}li{margin:9px 0}footer{padding:32px 0 56
 <tr><td>Language match</td><td>Near-verbatim / paraphrased</td><td>Exposes shortcuts based on copied wording</td></tr>
 <tr><td>Evidence presence</td><td>Answerable / insufficient or absent evidence</td><td>Checks abstention and valid partial answers</td></tr>
 <tr><td>Conversation structure</td><td>Channels, speakers, days and domains</td><td>Tests transfer beyond one chat template</td></tr></tbody></table></div>
-<p><strong>Minimum pilot target:</strong> hundreds of independent workplace scenarios across software, product, infrastructure and operations. Longer, LLM-realized dialogues and human checks are a second stage. Generated items are synthetic; they are never presented as authentic company conversations.</p>
+<p><strong>Dataset v0.1 generated:</strong> 240 synthetic conversations, 3,840 chat messages and 960 questions from 120 project families across four domains. Family-disjoint splits reserve 192 test questions. The generator has passed structural integrity checks, but these are still templates, not independently reviewed natural conversations. LLM-realized dialogue and human checks remain a second stage.</p>
 </section>
 
 <section id="controls"><div class="eyebrow">05 · Experiment contract</div><h2>We cannot move the goalposts after seeing the scores.</h2>
@@ -116,7 +116,7 @@ ol,ul{padding-left:22px;max-width:840px}li{margin:9px 0}footer{padding:32px 0 56
 </section>
 
 <section id="results"><div class="eyebrow">06 · Evidence ledger</div><div class="results-heading"><h2>What has actually been measured?</h2><span id="results-state">Pilot measurements not yet verified</span></div>
-<p>The table below is connected to a separately versioned benchmark-result record. It must be populated by a real experiment run with a fixed evaluation set. Until then, this page makes no superiority claim.</p>
+<p>The dataset has been generated and its source-evidence references checked. Its SHA-256 dataset fingerprint starts with <span class="mono">e9bfd73fb33762b7</span>. The table below is connected to a separately versioned result record and will be populated only by verified comparisons with a fixed evaluation set. Until then, this page makes no superiority claim.</p>
 <div id="metrics" class="metricwrap"><div class="empty">No verified comparison scores published yet. The experiment protocol and dataset implementation are under audit.</div></div>
 <p class="small" id="results-provenance">When available, the record will include a data hash, implementation label, run time, method versions, bootstrap intervals and known limitations. Do not compare scores produced with different corpora, readers or retrieval budgets.</p>
 </section>
