@@ -11,7 +11,8 @@ Book-centered research workbench for the existing Books catalog and CS Conferenc
 - Lexical search over books, verified chapter headings, curated concept descriptions, and previously pinned ConfHub papers from the same browser origin.
 - Concept map with verified *book/chapter source associations* and **editorially curated** learning relationships. Edges are NOT claims of empirical validation, novelty, or historical priority.
 - Separate, locally persisted workspaces with notes, collections, export/import of JSON, and a Markdown brief for an external agent.
-- ConfHub deep-link to a concept search; ConfHub `app.js` accepts `?q=` and searches its existing selected venue/year shards.
+- A self-assessed active-recall queue for saved concepts. Answer a diagnostic question, check the source, then mark needs work (review tomorrow) or explained-and-checked (review in seven days). Dates are **simple reminders**, not automated grading or a validated spaced repetition scheduler.
+- Bidirectional search handoff: BookHub concepts link to ConfHub `?q=` and the ConfHub search box offers to search the same query in BookHub. Each search engine retains its own scope.
 - Entry points from /books/, /personal-links/, and /cs-conf/hub/. /PERSONAL_LINKS.md is synchronized.
 
 ## Intended architecture
@@ -89,7 +90,7 @@ Confirmed from the **tables of contents in the connected private Drive PDFs** (s
 3. Versioned knowledge graph with typed, evidence-backed edges and contradiction tracking. Require a source location on all claims.
 4. Protected, opt-in multi-device workspace synchronization; never store private full text in this public Pages repo.
 5. Read-only MCP tools for agents: `search_books`, `list_chapters`, `explain_concept_with_sources`, `neighbor_concepts`, `related_confhub_papers`. Do not label a tool as installed until tested.
-6. Optional spaced repetition and study checks based on chapters; retain a source-grounded answer key and do not mistake an unverified model answer for truth.
+6. Improve the basic self-rated review reminders into a well-tested spaced-retrieval schedule with optional private source-grounded answer keys and conceptual transfer questions. No model-generated answer should count as established fact without source verification.
 
 ## QA checklist
 
@@ -98,6 +99,7 @@ Confirmed from the **tables of contents in the connected private Drive PDFs** (s
 - Search for `video`; switch to Chapters and Concepts.
 - Select **Video representations** node and verify chapter source links.
 - Add a concept to a workspace, edit notes, reload, and verify persistence; export/import a test workspace.
+- Open an active recall question, self-rate it and confirm the next review date persists across reload.
 - Follow the ConfHub search from a concept (pre-filled query).
 - Verify links in /books/, /personal-links/ and ConfHub.
 - Test on mobile and keyboard-only access.
