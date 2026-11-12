@@ -1,13 +1,24 @@
 {
   "schema_version": "1.0",
   "study": "DISCo collective query coverage in organizational memory",
-  "status": "in_progress",
+  "status": "dataset_generated_unscored",
   "date": "2026-11-13",
-  "run_date": null,
+  "run_date": "2026-11-13",
   "official_disco_executed": false,
   "notes": "No verified experiment scores were available when this page was published. A DISCo-inspired coverage-greedy proxy must not be labeled as official DISCo.",
   "rows": [],
-  "dataset_hash": null,
-  "provenance": null,
-  "limitations": "Experimental results and official DISCo reproduction pending independent checks."
+  "dataset_hash": "e9bfd73fb33762b7a4f7364eb1941e52e96bdd27bf6b061a5a90221138e176a0",
+  "provenance": "Deterministic synthetic generator seed 20261113; no neural DISCo reproduction or benchmark results verified",
+  "limitations": "Template-generated synthetic messages, not human-reviewed; independent alternative support labels not yet assessed; official DISCo and neural baselines not yet run; scores pending.",
+  "dataset_counts": {
+    "conversations": 240,
+    "messages": 3840,
+    "queries": 960,
+    "families": 120,
+    "domains": 4,
+    "train_questions": 576,
+    "dev_questions": 192,
+    "test_questions": 192
+  },
+  "dataset_integrity": "structural checks passed: unique ids, label containment, session chronology, family split, generator reproducibility"
 }
