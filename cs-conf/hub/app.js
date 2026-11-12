@@ -8,6 +8,10 @@
   const params = new URLSearchParams(location.search);
   const bookhubQuery = params.get("q");
   if (bookhubQuery && bookhubQuery.length <= 160) e.query.value = bookhubQuery;
+  const bookhubLink=$("#bookhub-search");
+  function updateBookhubLink(){if(!bookhubLink)return;const q=e.query.value.trim();bookhubLink.href="../../books/hub/"+(q?"?q="+encodeURIComponent(q.slice(0,150)):"");}
+  e.query.addEventListener("input",updateBookhubLink);
+  updateBookhubLink();
   const pins=loadPins();
   function node(tag,cls,text){const n=document.createElement(tag);if(cls)n.className=cls;if(text!==undefined)n.textContent=text;return n}
   function safeUrl(value,venue,ext=""){
