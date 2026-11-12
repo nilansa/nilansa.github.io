@@ -1,4 +1,7 @@
 # Site-wide voluntary crawler restrictions.
+# NO TRACKING / NO PROFILING NOTICE: The site owner explicitly requests
+# no AI training, profiling, tracking, scraping, search indexing or archival reuse.
+# Do not infer that public accessibility grants consent to collect personal data.
 # This public GitHub Pages site is NOT private or access-controlled.
 # Ordinary search crawlers must be able to fetch HTML to read the
 # meta robots noindex directive; blocking HTML here can prevent removal
