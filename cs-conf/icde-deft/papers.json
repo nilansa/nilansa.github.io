@@ -1,0 +1,261 @@
+{
+  "schema_version": 1,
+  "updated_utc": "2026-11-12T22:30:00Z",
+  "scope": "Official ICDE DEFT/special track accepted-program paper lists, 2023–2026. The source programs do NOT distinguish Vision Papers from Expanding the Landscape. Themes and relevance are independent research-oriented editorial tags, NOT official ICDE classifications.",
+  "source_urls": {
+    "2023": "https://icde2023.ics.uci.edu/detailed-program/",
+    "2024": "https://icde2024.github.io/DEFT.html",
+    "2025": "https://ieee-icde.org/2025/future-technology/",
+    "2026": "https://icde2026.github.io/deft-papers.html"
+  },
+  "expected_papers": 30,
+  "papers": [
+    {
+      "year": 2026,
+      "title": "Efficient Neural-Symbolic Data System via Multi-Agent Collaboration",
+      "official_url": "https://icde2026.github.io/deft-papers.html",
+      "theme": "Agentic data systems",
+      "relevance": "direct",
+      "why_relevant": "Multi-agent coordination for neural-symbolic reasoning over data; compare against memory and query orchestration.",
+      "paper_url": "https://doi.org/10.1109/ICDE65706.2026.00331"
+    },
+    {
+      "year": 2026,
+      "title": "VPS: Rethinking OLTP Database Performance Evaluation through Transactional Value",
+      "official_url": "https://icde2026.github.io/deft-papers.html"
+    },
+    {
+      "year": 2026,
+      "title": "Living Databases: A Unified Model for Continuous Schema Evolution, Versioning, and Transformations",
+      "official_url": "https://icde2026.github.io/deft-papers.html",
+      "theme": "Evolving databases",
+      "relevance": "direct",
+      "why_relevant": "Unifies schema evolution, versioning, lineage/provenance and change propagation; explores Prolly-tree-based implementation.",
+      "paper_url": "https://arxiv.org/abs/2605.00676"
+    },
+    {
+      "year": 2026,
+      "title": "Green or Greedy? An Ecological Analysis of Datacenter GPU Replacements",
+      "official_url": "https://icde2026.github.io/deft-papers.html"
+    },
+    {
+      "year": 2026,
+      "title": "GenIE: Simulator-Driven Iterative Data Exploration for Scientific Discovery",
+      "official_url": "https://icde2026.github.io/deft-papers.html",
+      "theme": "Agentic data systems",
+      "relevance": "adjacent",
+      "why_relevant": "Iterative exploration and system-supported discovery; useful when considering learning agents over changing data."
+    },
+    {
+      "year": 2026,
+      "title": "Towards a Hybrid Quantum-Classical Computing Framework for Database Optimization Problems in Real Time Setup",
+      "official_url": "https://icde2026.github.io/deft-papers.html"
+    },
+    {
+      "year": 2025,
+      "title": "Training Data Distribution Estimation for Optimized Pre-training Data Management",
+      "official_url": "https://ieee-icde.org/2025/future-technology/"
+    },
+    {
+      "year": 2025,
+      "title": "Beyond Bandwidth Doubling: Embrace Bit-Flips & Unlock Processing-in-NAND",
+      "official_url": "https://ieee-icde.org/2025/future-technology/"
+    },
+    {
+      "year": 2025,
+      "title": "Unify: An Unstructured Data Analytics System",
+      "official_url": "https://ieee-icde.org/2025/future-technology/",
+      "theme": "Multimodal and unstructured data",
+      "relevance": "direct",
+      "why_relevant": "Building blocks for querying and analyzing unstructured information, relevant to agent retrieval over text and media.",
+      "paper_url": "https://for0nething.github.io/publications/"
+    },
+    {
+      "year": 2024,
+      "title": "SQL++: We Can Finally Relax!",
+      "official_url": "https://icde2024.github.io/DEFT.html"
+    },
+    {
+      "year": 2024,
+      "title": "Data Flow Architectures for Data Processing on Modern Hardware",
+      "official_url": "https://icde2024.github.io/DEFT.html"
+    },
+    {
+      "year": 2024,
+      "title": "Personal Manifold: Management of Personal Data in the Age of Large Language Models",
+      "official_url": "https://icde2024.github.io/DEFT.html",
+      "theme": "Agent memory",
+      "relevance": "direct",
+      "why_relevant": "The closest DEFT precedent to organizing personal context and memories for LLM-based applications.",
+      "paper_url": "https://doi.org/10.1109/ICDE60146.2024.00440"
+    },
+    {
+      "year": 2024,
+      "title": "Applications and Challenges for Large Language Models: From Data Management Perspective",
+      "official_url": "https://icde2024.github.io/DEFT.html",
+      "theme": "Agentic data systems",
+      "relevance": "adjacent",
+      "why_relevant": "Identifies data management opportunities and challenges around language models."
+    },
+    {
+      "year": 2024,
+      "title": "Routing with Massive Trajectory Data",
+      "official_url": "https://icde2024.github.io/DEFT.html"
+    },
+    {
+      "year": 2024,
+      "title": "When Data Pricing Meets Non-cooperative Game Theory",
+      "official_url": "https://icde2024.github.io/DEFT.html"
+    },
+    {
+      "year": 2024,
+      "title": "Secure Normal Form: Mediation Among Cross Cryptographic Leakages in Encrypted Databases",
+      "official_url": "https://icde2024.github.io/DEFT.html"
+    },
+    {
+      "year": 2024,
+      "title": "Reactive Knowledge Management",
+      "official_url": "https://icde2024.github.io/DEFT.html",
+      "theme": "Evolving databases",
+      "relevance": "direct",
+      "why_relevant": "Reactive rules across linked knowledge hubs enable graph knowledge to evolve as facts and domains change.",
+      "paper_url": "https://annabernasconi.faculty.polimi.it/our-paper-reactive-knowledge-management-accepted-at-ieee-icde-2024-future-technologies-special-session/"
+    },
+    {
+      "year": 2024,
+      "title": "LakeHarbor: Making Structures First-Class Citizens in Data Lakes",
+      "official_url": "https://icde2024.github.io/DEFT.html",
+      "theme": "Graph and index structures",
+      "relevance": "adjacent",
+      "why_relevant": "Treats structure as an explicit data-layer concern; relevant to mixed-format structured memories."
+    },
+    {
+      "year": 2024,
+      "title": "A CXL-Powered Database System: Opportunities and Challenges",
+      "official_url": "https://icde2024.github.io/DEFT.html"
+    },
+    {
+      "year": 2024,
+      "title": "Bifrost: A Future Graph Database Runtime",
+      "official_url": "https://icde2024.github.io/DEFT.html",
+      "theme": "Graph and index structures",
+      "relevance": "direct",
+      "why_relevant": "Graph query runtime that adapts to evolving graph topology without fixed schemas.",
+      "paper_url": "https://jimwebber.org/publication/2024-icde/"
+    },
+    {
+      "year": 2024,
+      "title": "V2V: Efficiently Synthesizing Video Results for Video Queries",
+      "official_url": "https://icde2024.github.io/DEFT.html",
+      "theme": "Multimodal and unstructured data",
+      "relevance": "direct",
+      "why_relevant": "Database view of video querying and result composition; bridge to video memory and retrieval."
+    },
+    {
+      "year": 2024,
+      "title": "Higher-Order SQL Lambda Functions",
+      "official_url": "https://icde2024.github.io/DEFT.html"
+    },
+    {
+      "year": 2023,
+      "title": "The Metaverse Data Deluge: What Can We Do About It?",
+      "official_url": "https://icde2023.ics.uci.edu/detailed-program/"
+    },
+    {
+      "year": 2023,
+      "title": "Relational Fabric: Transparent Data Transformation",
+      "official_url": "https://icde2023.ics.uci.edu/detailed-program/",
+      "theme": "Evolving databases",
+      "relevance": "adjacent",
+      "why_relevant": "Transparent data transformations motivate traceable derived representations, including evolving memory views."
+    },
+    {
+      "year": 2023,
+      "title": "Analytical Engines With Context-Rich Processing: Towards Efficient Next-Generation Analytics",
+      "official_url": "https://icde2023.ics.uci.edu/detailed-program/"
+    },
+    {
+      "year": 2023,
+      "title": "Nested Loops Revisited Again",
+      "official_url": "https://icde2023.ics.uci.edu/detailed-program/"
+    },
+    {
+      "year": 2023,
+      "title": "Understanding the Price of Data in Commercial Data Marketplaces",
+      "official_url": "https://icde2023.ics.uci.edu/detailed-program/"
+    },
+    {
+      "year": 2023,
+      "title": "Amalur: Data Integration Meets Machine Learning",
+      "official_url": "https://icde2023.ics.uci.edu/detailed-program/",
+      "theme": "Agentic data systems",
+      "relevance": "adjacent",
+      "why_relevant": "Data integration plus learning, relevant to multi-source memory ingestion and consistency."
+    },
+    {
+      "year": 2023,
+      "title": "SPA: Economical and Workload-Driven Indexing for Data Analytics in the Cloud",
+      "official_url": "https://icde2023.ics.uci.edu/detailed-program/",
+      "theme": "Graph and index structures",
+      "relevance": "adjacent",
+      "why_relevant": "Workload-driven indexing offers a database systems comparison for adaptive agent-memory indexes."
+    },
+    {
+      "year": 2023,
+      "title": "Automated Data Cleaning Can Hurt Fairness in ML-based Decision Making",
+      "official_url": "https://icde2023.ics.uci.edu/detailed-program/"
+    }
+  ],
+  "related_other_icde_tracks": [
+    {
+      "year": 2026,
+      "title": "TAPE: A Temporal Graph-based Memory System for Personal LLM Agents",
+      "track": "Demonstrations",
+      "why_relevant": "Direct prior art: temporal graph representation of an evolving personal-agent memory.",
+      "url": "https://icde2026.github.io/demo-papers.html"
+    },
+    {
+      "year": 2026,
+      "title": "Schema-GraphRAG: Bridging Hybrid Search and Graph Traversal for Complex Retrieval Tasks",
+      "track": "Demonstrations",
+      "why_relevant": "A practical hybrid-search-plus-graph system useful for reasoning about memory retrieval.",
+      "url": "https://icde2026.github.io/demo-papers.html"
+    },
+    {
+      "year": 2026,
+      "title": "LazyVLM: Neuro-Symbolic Approach to Video Analytics",
+      "track": "Demonstrations",
+      "why_relevant": "Closest demo for a database-style video query or video memory system.",
+      "url": "https://icde2026.github.io/demo-papers.html"
+    },
+    {
+      "year": 2026,
+      "title": "Data-Centric Foundations of Agentic AI",
+      "track": "Tutorial",
+      "why_relevant": "Survey/tutorial of memory, agentic RAG, multiagent systems and self-evolving agents; not an accepted research or DEFT paper.",
+      "url": "https://icde2026.github.io/tutorials.html"
+    },
+    {
+      "year": 2026,
+      "title": "AGRAG: Advanced Graph-based Retrieval-Augmented Generation for LLMs",
+      "track": "Regular research",
+      "why_relevant": "Graph-based retrieval augmented generation, relevant for a strong database prior-art review.",
+      "url": "https://icde2026.github.io/accepted-papers.html"
+    },
+    {
+      "year": 2026,
+      "title": "PRO-HNSW: Proactive Repair and Optimization for High-Performance Dynamic HNSW Indexes",
+      "track": "Regular research",
+      "why_relevant": "Maintaining a rapidly changing vector index—important for update-heavy memory systems.",
+      "url": "https://icde2026.github.io/program_details.html"
+    }
+  ],
+  "icde_2027": {
+    "deft_abstract_due": "2026-11-15T23:59:00-12:00",
+    "deft_full_paper_due": "2026-11-22T23:59:00-12:00",
+    "demo_due": "2026-12-07T23:59:00-12:00",
+    "deft_cfp": "https://icde2027.github.io/cf-future.html",
+    "demo_cfp": "https://icde2027.github.io/cf-demonstrations.html"
+  },
+  "quality_note": "2023 official program shows 8 papers in two special track sessions. Covers presented papers, not all submissions/acceptances ever announced; titles normalized for punctuation and typos."
+}
