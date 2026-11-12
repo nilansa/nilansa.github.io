@@ -15,6 +15,7 @@ Canonical registry for the public pages linked at [nilansa.github.io/personal-li
 - [CS Conf](https://nilansa.github.io/cs-conf/) — Conference and submission deadlines.
 - [Live Trackers](https://nilansa.github.io/cs-conf/trackers.html) — Original AI, CS, workshop and ML competition trackers with live upstream links.
 - [Conference Hub](https://nilansa.github.io/cs-conf/hub/) — Research paper discovery and exploration (ConfHub).
+- [ICDE DEFT archive](https://nilansa.github.io/cs-conf/icde-deft/) — 2023–2026 accepted-paper list and agent-memory / evolving-database research selection.
 - [Research Atlas](https://nilansa.github.io/cs-conf/research.html) — Conference-focused research landscape.
 - [Submission Tracks](https://nilansa.github.io/cs-conf/opportunities.html) — Opportunities and submission requirements.
 
