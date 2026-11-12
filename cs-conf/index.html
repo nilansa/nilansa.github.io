@@ -7,6 +7,9 @@
 <meta name="description" content="90-day CS / AI / ML research conference submission planner with prerequisite gates, source deadlines, rankings and competition-to-paper routes.">
 <title>CS Conf · 90-day submission planner</title>
 <link rel="stylesheet" href="./board.css">
+<style>
+.source-rail{padding:21px 0 27px;border-bottom:1px solid #d9dfe8;margin-bottom:24px}.source-rail h2{margin:0 0 5px;font-size:22px}.source-rail p{margin:0 0 15px;color:#59677a}.source-links{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}.source-links a{display:block;padding:15px 13px;border:1px solid #cfd7e2;border-radius:5px;color:#172238;text-decoration:none;background:#fafbfc}.source-links a:hover{border-color:#172238;background:#fff}.source-links strong{display:block;font-size:14px}.source-links span{display:block;margin-top:4px;font-size:12px;color:#59677a}@media(max-width:800px){.source-links{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:420px){.source-links{grid-template-columns:1fr}}
+</style>
 <script src="./board.js" defer></script>
 </head>
 <body class="deadline-page">
@@ -14,6 +17,7 @@
 <div class="brandline"><a class="brand" href="./">CS Conf / Research planner</a><span class="aside">Curated submission deadlines</span></div>
 <nav aria-label="CS Conf navigation">
 <a href="./" aria-current="page">Paper deadlines</a>
+<a href="./trackers.html">Live trackers</a>
 <a href="./competitions.html">Challenges & shared tasks</a>
 <a href="./opportunities.html">All tracks & requirements</a>
 <a href="./research.html">Research atlas</a>
@@ -22,6 +26,16 @@
 </nav></header>
 <main>
 <section class="hero"><p class="page-kicker">Rolling 90-day planner</p><h1>Deadlines worth acting on.</h1><p class="lede">Find research papers, industry tracks, demos and workshops by their next submission stage. Mandatory abstracts, ARR prerequisites and author rules are checked separately.</p></section>
+<section class="source-rail" aria-labelledby="source-rail-title">
+<h2 id="source-rail-title">Live trackers from the original maintainers</h2>
+<p>These are live external directories, not copies of this planner's checked submission snapshots. <a href="./trackers.html">Browse the full directory</a> for all CS, AI/vision, workshops and ML competitions.</p>
+<div class="source-links">
+<a href="https://huggingface.co/spaces/huggingface/ai-deadlines" target="_blank" rel="noopener noreferrer"><strong>Hugging Face AI Deadlines ↗</strong><span>AI, ML and vision conferences</span></a>
+<a href="https://ccfddl.com/" target="_blank" rel="noopener noreferrer"><strong>CCFDDL ↗</strong><span>Broad computer science</span></a>
+<a href="https://aiworkshoptracker.com/" target="_blank" rel="noopener noreferrer"><strong>AI Workshop Tracker ↗</strong><span>ML and vision workshops</span></a>
+<a href="https://mlcontests.com/" target="_blank" rel="noopener noreferrer"><strong>ML Contests ↗</strong><span>Challenges and competitions</span></a>
+</div>
+</section>
 <section aria-label="90-day planning summary" class="metrics-inline">
 <span class="metric"><strong id="deadline-stat">—</strong> submission gates within 30 days</span>
 <span class="metric"><strong id="target-count">— / 10</strong> selected routes (this browser)</span>
