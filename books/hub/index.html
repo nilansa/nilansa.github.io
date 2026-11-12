@@ -69,6 +69,11 @@
         <label for="workspace-notes" class="small-label notes-label">Research notes</label>
         <textarea id="workspace-notes" rows="9" placeholder="Question, assumptions, competing explanations, a falsifiable test…"></textarea>
         <p id="save-status" class="save-status" role="status">Stored only in this browser. Export to retain a copy.</p>
+        <section class="review-panel" aria-label="Active recall queue">
+          <div class="study-queue-head"><p class="small-label">Active recall</p><span id="due-count">Checking review dates…</span></div>
+          <p class="review-context">Answer the concept question from memory. Check the original chapter before rating yourself; this does not grade your understanding.</p>
+          <div id="review-list" class="review-list" aria-live="polite"></div>
+        </section>
       </div>
       <aside class="desk-sidebar">
         <div class="aside-head"><p class="small-label">Reading stack</p><span id="stack-count">0 saved</span></div>
