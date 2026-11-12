@@ -92,7 +92,14 @@ function normalizeSpace(s) {
      ps[k]={type:"paper",title:goodText(v.title,400),subtitle:goodText(v.subtitle,240),description:goodText(v.description,1500),url};
    }
  }
- return {id:goodText(s.id,100),name,notes:goodText(s.notes,50000),items:[...new Set(items)],paperSnapshots:ps};
+ const reviews={};
+ if(s.reviews&&typeof s.reviews==="object")for(const [key,v] of Object.entries(s.reviews).slice(0,120)){
+   if(!atlas.concepts.some(c=>c.id===key)||!v||typeof v!=="object")continue;
+   const due=goodText(v.due,10),reviewed=goodText(v.reviewed,10);
+   if(!/^\d{4}-\d{2}-\d{2}$/.test(due))continue;
+   reviews[key]={due,reviewed:/^\d{4}-\d{2}-\d{2}$/.test(reviewed)?reviewed:"",rating:v.rating==="needs-work"?"needs-work":"self-reviewed",attempts:Math.min(999,Math.max(0,Number(v.attempts)||0))};
+ }
+ return {id:goodText(s.id,100),name,notes:goodText(s.notes,50000),items:[...new Set(items)],paperSnapshots:ps,reviews};
 }
 function loadSpaces() {
  try{
@@ -100,7 +107,7 @@ function loadSpaces() {
    const valid=raw?.schema==="bookhub-workspaces-v1"?safeArray(raw.spaces,35).map(normalizeSpace).filter(Boolean):[];
    if(valid.length)return valid;
  }catch{}
- return [{id:"video-understanding",name:atlas.starter.name,notes:"Research question:\n\nWhat connects video retrieval, video mining and video question answering?\n\nAssumptions to check:\n\nPossible falsification test:\n",items:atlas.starter.items.slice(),paperSnapshots:{}}];
+ return [{id:"video-understanding",name:atlas.starter.name,notes:"Research question:\n\nWhat connects video retrieval, video mining and video question answering?\n\nAssumptions to check:\n\nPossible falsification test:\n",items:atlas.starter.items.slice(),paperSnapshots:{},reviews:{}}];
 }
 function filters() {
  for(const b of document.querySelectorAll("[data-filter]"))b.setAttribute("aria-pressed",String(b.dataset.filter===activeFilter));
@@ -150,17 +157,40 @@ function renderDesk(){
    del.type="button";del.setAttribute("aria-label","Remove "+(r?.title||id));del.addEventListener("click",()=>toggleItem(id));
    row.append(main,del);root.append(row);
  }
+ renderReviewQueue();
+}
+function localDay(offset=0){const d=new Date();d.setHours(12,0,0,0);d.setDate(d.getDate()+offset);return [d.getFullYear(),String(d.getMonth()+1).padStart(2,"0"),String(d.getDate()).padStart(2,"0")].join("-");}
+function markReview(id,rating){
+ const s=current(),key="concept:"+id;if(!s)return;
+ if(!s.items.includes(key)){if(s.items.length>=120){setStatus("Reading stack is full. Remove an item first.");return;}s.items.push(key);}
+ if(!s.reviews)s.reviews={};
+ const prev=s.reviews[id];s.reviews[id]={rating,reviewed:localDay(),due:localDay(rating==="needs-work"?1:7),attempts:(prev?.attempts||0)+1};
+ save();renderDesk();renderSearch();renderDetail();
+}
+function renderReviewQueue(){
+ const s=current(),root=$("#review-list"),count=$("#due-count");if(!root||!count||!s)return;
+ root.replaceChildren();const today=localDay();
+ const concepts=s.items.filter(id=>id.startsWith("concept:")).map(id=>atlas.concepts.find(c=>c.id===id.slice(8))).filter(Boolean);
+ const due=concepts.filter(c=>!s.reviews?.[c.id]||s.reviews[c.id].due<=today);
+ count.textContent=due.length+" to check · "+concepts.length+" tracked";
+ if(!concepts.length){root.append(el("p","aside-empty","Save a concept from the map to begin a review queue."));return;}
+ const ranked=concepts.sort((a,b)=>((s.reviews?.[a.id]?.due||"0000")>(s.reviews?.[b.id]?.due||"0000")?1:-1));
+ for(const c of ranked){const v=s.reviews?.[c.id],row=el("div","review-row"),summary=el("div"),btn=el("button",null,"Practice ↗");
+   summary.append(el("strong",null,c.title),el("span",null,!v?"Not assessed":v.due<=today?"Review due": "Next check "+v.due));
+   btn.type="button";btn.setAttribute("aria-label","Practice "+c.title);
+   btn.addEventListener("click",()=>{selectConcept(c.id);$("#connect").scrollIntoView({behavior:"smooth"});});row.append(summary,btn);root.append(row);
+ }
 }
 function ensureName(value){return typeof value==="string"?value.trim().replace(/\s+/g," ").slice(0,80):"";}
 function newSpace(){
  if(spaces.length>=30){setStatus("Limit reached: export or remove a workspace.");return;}
  const name=ensureName(prompt("Name the new research workspace:","New research question"));if(!name)return;
- const s={id:"ws-"+Date.now()+"-"+Math.random().toString(36).slice(2,8),name,notes:"Research question:\n\nSources to compare:\n\nWhat would falsify this idea?\n",items:[],paperSnapshots:{}};
+ const s={id:"ws-"+Date.now()+"-"+Math.random().toString(36).slice(2,8),name,notes:"Research question:\n\nSources to compare:\n\nWhat would falsify this idea?\n",items:[],paperSnapshots:{},reviews:{}};
  spaces.push(s);selected=s.id;save();renderDesk();renderSearch();
 }
 function renameSpace(){const s=current();if(!s)return;const name=ensureName(prompt("Rename this workspace:",s.name));if(!name)return;s.name=name;save();renderDesk();}
 function deleteSpace(){const s=current();if(!s)return;if(!confirm('Delete the workspace "'+s.name+'"? Export it first if you need the notes.'))return;
- if(spaces.length===1){spaces=[{id:"empty-"+Date.now(),name:"New research workspace",notes:"",items:[],paperSnapshots:{}}];}
+ if(spaces.length===1){spaces=[{id:"empty-"+Date.now(),name:"New research workspace",notes:"",items:[],paperSnapshots:{},reviews:{}}];}
  else spaces=spaces.filter(x=>x.id!==s.id);
  selected=spaces[0].id;save();renderDesk();renderSearch();
 }
@@ -194,8 +224,8 @@ function brief(){
    if(!r){lines.push("- "+id+" (source not found in this catalog)");continue;}
    lines.push("- ["+r.type+"] "+r.title+" — "+r.subtitle+(r.url?" — "+r.url:""));
    if(r.type==="concept"){
-     const c=atlas.concepts.find(x=>x.id===id.slice(8));
-     if(c)lines.push("  - Learning check: "+c.question);
+     const c=atlas.concepts.find(x=>x.id===id.slice(8)),v=s.reviews?.[id.slice(8)];
+     if(c)lines.push("  - Learning check: "+c.question+(v?" | Self-rating: "+v.rating+", next review "+v.due:" | Not self-assessed"));
    }
  }
  lines.push("","## Required research method","1. Separate direct source evidence from editorial study notes and hypotheses.","2. Verify printed book page numbers against the source; they differ from PDF page offsets.","3. Find newer related papers in ConfHub. Compare assumptions, dataset, baselines and evaluation.","4. Mark unsupported conclusions as unverified. Design a test that could falsify the hypothesis.","","BookHub export: metadata and user notes only; full PDF text not included.");
@@ -252,6 +282,11 @@ function renderDetail(){
  btn.type="button";btn.addEventListener("click",()=>toggleItem("concept:"+c.id));
  const linkToPapers=el("a",null,"Find papers in ConfHub ↗");linkToPapers.href="../../cs-conf/hub/?q="+encodeURIComponent(c.title);linkToPapers.title="Prefill a ConfHub search with this concept";
  actions.append(btn,linkToPapers);target.append(actions);
+ const self=el("div","self-check"),label=el("h4",null,"Active recall"),instruction=el("p",null,"Answer the question without looking at the chapter, then verify your explanation. Self-rate only after checking; no AI grades this.");
+ const rate=el("div","detail-actions");for(const [kind,name] of [["needs-work","Needs another pass · tomorrow"],["self-reviewed","Explained and checked · 7 days"]]){
+   const b=el("button",null,name);b.type="button";b.addEventListener("click",()=>markReview(c.id,kind));rate.append(b);
+ }
+ const v=current()?.reviews?.[c.id];self.append(label,instruction,rate,el("p","review-state",v?"Last self-rating: "+v.rating+" · review on "+v.due:"No review scheduled yet."));target.append(self);
  target.append(el("p","curation-note","Learning relation, not an empirical or novelty claim. The book sources indicate where a topic is discussed; read the chapter before citing a specific claim."));
 }
 function wire(){
