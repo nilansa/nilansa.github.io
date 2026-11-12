@@ -4,6 +4,8 @@ Book-centered research workbench for the existing Books catalog and CS Conferenc
 
 **Published website:** https://nilansa.github.io/books/hub/
 
+**Formal architecture and evaluated learning/research tools:** [RESEARCH.md](./RESEARCH.md).
+
 ## What runs today (2026-11-13)
 
 - Responsive, static A24-inspired site: `index.html`, `hub.css`, `hub.js`.
