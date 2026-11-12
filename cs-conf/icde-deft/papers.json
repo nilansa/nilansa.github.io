@@ -202,7 +202,7 @@
     },
     {
       "year": 2023,
-      "title": "Automated Data Cleaning Can Hurt Fairness in ML-based Decision Making",
+      "title": "Automated Data Cleaning Can Hurt Fairness in Machine Learning-Based Decision Making",
       "official_url": "https://icde2023.ics.uci.edu/detailed-program/"
     }
   ],
@@ -257,5 +257,7 @@
     "deft_cfp": "https://icde2027.github.io/cf-future.html",
     "demo_cfp": "https://icde2027.github.io/cf-demonstrations.html"
   },
-  "quality_note": "2023 official program shows 8 papers in two special track sessions. Covers presented papers, not all submissions/acceptances ever announced; titles normalized for punctuation and typos."
+  "2023_chairs_report": "https://ir.cwi.nl/pub/33313/33313.pdf",
+  "2023_proceedings_toc": "https://www.proceedings.com/content/069/069836webtoc.pdf",
+  "quality_note": "2023 conference chairs reported 9 papers selected, but the final official program and IEEE proceedings table of contents identify 8 published special-track papers. This dataset includes the 8 identifiable published papers; the missing ninth selection is not inferred. Titles normalized for punctuation and typos."
 }
