@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+  <meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet">
+  <meta name="theme-color" content="#f8f7f4">
+  <meta name="description" content="Source-backed ICDE Data Engineering Future Technologies accepted-paper archive, 2023–2026, with a separate agent-memory and evolving-databases reading list.">
+  <title>ICDE DEFT · Accepted papers and agent memory</title>
+  <style>
+    :root{color-scheme:light;--paper:#f8f7f4;--ink:#20201e;--quiet:#686761;--rule:#d9d7d1;--surface:#eeece7;--blue:#293cc7}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+    a{color:inherit;text-underline-offset:3px}a:hover{color:var(--blue)}
+    .shell{max-width:1130px;margin:auto;padding:0 32px}
+    header{display:flex;justify-content:space-between;align-items:center;padding:26px 0 22px;border-bottom:1px solid var(--rule);gap:18px}
+    .brand{font-size:13px;font-weight:650;letter-spacing:-.01em;text-decoration:none}
+    nav{display:flex;flex-wrap:wrap;gap:19px;font-size:12px;color:var(--quiet)}
+    nav a{text-decoration:none}nav a[aria-current]{color:var(--ink);font-weight:700}
+    .eyebrow{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--quiet);font-weight:650}
+    .hero{padding:74px 0 45px;border-bottom:1px solid var(--rule)}
+    h1{font:normal clamp(46px,7.5vw,82px)/1.05 Georgia,"Times New Roman",serif;letter-spacing:-.05em;margin:15px 0 22px;max-width:900px}
+    .lead{font:normal 19px/1.55 Georgia,"Times New Roman",serif;max-width:760px;margin:0 0 25px}
+    .caveat{max-width:800px;margin:0;color:var(--quiet);font-size:13px}
+    .numbers{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin:36px 0 0}
+    .numbers div{padding-top:14px;border-top:1px solid var(--rule)}
+    .numbers strong{display:block;font:normal 34px/1.25 Georgia,serif}
+    .numbers span{font-size:12px;color:var(--quiet)}
+    main section{padding:55px 0;border-bottom:1px solid var(--rule)}
+    .sectionhead{display:flex;align-items:end;justify-content:space-between;gap:24px;margin:0 0 26px}
+    h2{font:normal clamp(29px,4vw,42px)/1.12 Georgia,serif;letter-spacing:-.03em;margin:8px 0 0}
+    h3{font:normal 20px/1.25 Georgia,serif;letter-spacing:-.02em;margin:0}
+    .note{color:var(--quiet);font-size:13px;max-width:680px;margin:0}
+    .controls{display:flex;flex-wrap:wrap;align-items:end;gap:13px;margin:25px 0}
+    label{font-size:12px;color:var(--quiet);display:flex;flex-direction:column;gap:5px}
+    select,input[type="search"]{border:1px solid var(--rule);background:#fff;padding:10px 11px;border-radius:0;color:var(--ink);font:inherit;font-size:13px;min-height:43px}
+    select{min-width:140px}input[type="search"]{width:min(380px,74vw)}
+    label.check{display:flex;flex-direction:row;align-items:center;gap:9px;min-height:43px;color:var(--ink)}
+    .result-count{font-size:12px;color:var(--quiet);margin:0 0 12px}
+    .paper{border-top:1px solid var(--rule);padding:19px 0;display:grid;grid-template-columns:82px minmax(0,1fr) auto;gap:16px;align-items:start}
+    .paper:last-child{border-bottom:1px solid var(--rule)}
+    .year{color:var(--quiet);font-size:12px;font-variant-numeric:tabular-nums}
+    .paper-title{font-size:16px;font-weight:560;line-height:1.4;text-decoration:none}
+    .paper-title:hover{text-decoration:underline}
+    .meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:8px}
+    .tag{font-size:11px;padding:3px 7px;border:1px solid var(--rule);color:var(--quiet)}
+    .reason{font-size:13px;color:var(--quiet);margin:9px 0 0;max-width:700px;line-height:1.55}
+    .source{font-size:12px;color:var(--quiet);white-space:nowrap}
+    .source a{text-decoration:none;border-bottom:1px solid var(--rule)}
+    .archive .paper{padding:13px 0}.archive .paper-title{font-size:14px}
+    .archive .paper .reason{font-size:12px}
+    .year-summary{font-size:12px;color:var(--quiet);margin:10px 0}
+    .othertrack .paper{grid-template-columns:100px minmax(0,1fr) auto}
+    .source-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 40px;margin:22px 0}
+    .source-grid a{font-size:14px}
+    .links{display:flex;flex-wrap:wrap;gap:15px 25px;margin-top:18px;font-size:13px}
+    footer{padding:28px 0 48px;color:var(--quiet);font-size:12px}
+    @media(max-width:720px){
+      .shell{padding:0 21px}.hero{padding:55px 0 36px}
+      header{align-items:flex-start;flex-direction:column}
+      .numbers{grid-template-columns:repeat(2,1fr);gap:15px}
+      .sectionhead{flex-direction:column;align-items:start}
+      .paper,.othertrack .paper{grid-template-columns:58px 1fr;gap:10px}
+      .source{grid-column:2}.source-grid{grid-template-columns:1fr}
+      main section{padding:38px 0}
+    }
+  </style>
+</head>
+<body>
+<div class="shell">
+  <header>
+    <a class="brand" href="/cs-conf/">CS Conf</a>
+    <nav aria-label="Research navigation">
+      <a href="/cs-conf/">Deadlines</a>
+      <a href="/cs-conf/hub/">Conference Hub</a>
+      <a href="/cs-conf/icde-deft/" aria-current="page">ICDE DEFT archive</a>
+      <a href="/personal-links/">Personal links</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="eyebrow">ICDE / Data Engineering Future Technologies / 2023–2026</div>
+      <h1 id="hero-title">The database<br>of tomorrow.</h1>
+      <p class="lead">A complete source-backed list of papers published in ICDE's Data Engineering Future Technologies special track, and a second, focused list on agent memory, evolving knowledge, dynamic databases, graph structures and video retrieval.</p>
+      <p class="caveat"><strong>Classification matters.</strong> ICDE's public accepted-paper programs list DEFT papers, but do not distinguish the <em>Vision Papers</em> and <em>Expanding the Landscape</em> submission categories. Research themes below are editorial reading labels, not official acceptance-track labels.</p>
+      <div class="numbers">
+        <div><strong id="stat-total">30</strong><span>Official DEFT papers</span></div>
+        <div><strong>4</strong><span>Proceedings years</span></div>
+        <div><strong id="stat-focus">—</strong><span>Related DEFT papers</span></div>
+        <div><strong id="stat-other">—</strong><span>Other ICDE precedents</span></div>
+      </div>
+    </section>
+    <section aria-labelledby="focus-title">
+      <div class="sectionhead">
+        <div><div class="eyebrow">01 / Research lens</div><h2 id="focus-title">Agent memory and evolving data.</h2></div>
+        <p class="note">Direct precedents appear first; adjacent papers suggest database mechanisms to compare. Each entry links to the paper when verified, otherwise to the official conference list.</p>
+      </div>
+      <div id="focus-list"><p class="note">Loading the research selection…</p></div>
+    </section>
+    <section aria-labelledby="other-title" class="othertrack">
+      <div class="sectionhead">
+        <div><div class="eyebrow">02 / Cross-track precedents</div><h2 id="other-title">Do not overlook the demos.</h2></div>
+        <p class="note">These are ICDE 2026 papers or tutorials outside DEFT. They must not be counted as Vision or DEFT papers.</p>
+      </div>
+      <div id="other-list"><p class="note">Loading related ICDE papers…</p></div>
+    </section>
+    <section aria-labelledby="all-title" class="archive">
+      <div class="sectionhead">
+        <div><div class="eyebrow">03 / Complete accepted-paper archive</div><h2 id="all-title">All 30 DEFT papers.</h2></div>
+        <p class="note">Official program listings, newest first. The 2023 session was named “Special Track”; later programs call it DEFT or Future Technologies.</p>
+      </div>
+      <div class="controls">
+        <label for="year-filter">Year<select id="year-filter"><option value="all">All years</option><option>2026</option><option>2025</option><option>2024</option><option>2023</option></select></label>
+        <label for="theme-filter">Research theme<select id="theme-filter"><option value="all">All themes</option><option value="Agent memory">Agent memory</option><option value="Evolving databases">Evolving databases</option><option value="Graph and index structures">Graph and index structures</option><option value="Agentic data systems">Agentic data systems</option><option value="Multimodal and unstructured data">Multimodal and unstructured data</option></select></label>
+        <label for="search-filter">Search paper title<input type="search" id="search-filter" placeholder="Search the 30 paper titles"></label>
+        <label class="check"><input type="checkbox" id="focus-only"> Relevant to memory / databases</label>
+      </div>
+      <p id="archive-count" class="result-count" aria-live="polite">Loading paper archive…</p>
+      <div id="archive-list"></div>
+    </section>
+    <section aria-labelledby="sources-title">
+      <div class="eyebrow">04 / Provenance</div><h2 id="sources-title">Original sources.</h2>
+      <p class="note">The bibliography is verified against each conference's official published program, not a guessed list of “Vision” papers. Some paper titles have normalized punctuation; descriptions are brief research annotations rather than statements of unverified experimental results.</p>
+      <div class="source-grid">
+        <div><span class="year">2026 · 6 DEFT papers</span><div><a href="https://icde2026.github.io/deft-papers.html">Official accepted-paper list</a></div></div>
+        <div><span class="year">2025 · 3 DEFT papers</span><div><a href="https://ieee-icde.org/2025/future-technology/">Official Future Technology program</a></div></div>
+        <div><span class="year">2024 · 13 DEFT papers</span><div><a href="https://icde2024.github.io/DEFT.html">Official accepted-paper list</a></div></div>
+        <div><span class="year">2023 · 8 published session papers</span><div><a href="https://icde2023.ics.uci.edu/detailed-program/">Official special-track program</a></div></div>
+      </div>
+      <div class="links">
+        <a href="https://icde2027.github.io/cf-future.html">ICDE 2027 DEFT call</a>
+        <a href="https://icde2027.github.io/cf-demonstrations.html">ICDE 2027 demonstration call</a>
+        <a href="./papers.json">Machine-readable bibliography (JSON)</a>
+      </div>
+      <p class="note" style="margin-top:24px">DEFT 2027: mandatory abstract due 15 November 2026 (AoE), full paper due 22 November. Demonstrations: proposal due 7 December 2026 (AoE), with 4-page accompanying paper. Consult each official CFP before acting.</p>
+    </section>
+  </main>
+  <footer>CS Conf · Literature and venue research · Public bibliography only · Updated 13 November 2026</footer>
+</div>
+<script>
+(function(){
+  "use strict";
+  const archive=document.getElementById("archive-list");
+  const focus=document.getElementById("focus-list");
+  const other=document.getElementById("other-list");
+  const year=document.getElementById("year-filter");
+  const theme=document.getElementById("theme-filter");
+  const search=document.getElementById("search-filter");
+  const focusOnly=document.getElementById("focus-only");
+  let papers=[];
+  function E(tag,cls,txt){const x=document.createElement(tag);if(cls)x.className=cls;if(txt!==undefined)x.textContent=txt;return x;}
+  function addPaper(p,compact){
+    const article=E("article","paper");
+    article.append(E("div","year",String(p.year)));
+    const main=E("div");
+    const anchor=E("a","paper-title",p.title);
+    anchor.href=p.paper_url||p.official_url;
+    anchor.target="_blank";anchor.rel="noopener noreferrer";
+    main.append(anchor);
+    if(p.theme){
+      const meta=E("div","meta");
+      meta.append(E("span","tag",p.theme));
+      if(p.relevance==="direct")meta.append(E("span","tag","Close precedent"));
+      main.append(meta);
+      if(!compact&&p.why_relevant)main.append(E("p","reason",p.why_relevant));
+    }
+    article.append(main);
+    const source=E("div","source");
+    const link=E("a","", "Official list");link.href=p.official_url;link.target="_blank";link.rel="noopener noreferrer";source.append(link);article.append(source);
+    return article;
+  }
+  function draw(){
+    const q=search.value.trim().toLowerCase();
+    const hits=papers.filter(p=>(year.value==="all"||String(p.year)===year.value)&&(theme.value==="all"||p.theme===theme.value)&&(!focusOnly.checked||!!p.theme)&&(!q||p.title.toLowerCase().includes(q)));
+    archive.replaceChildren(...hits.map(p=>addPaper(p,true)));
+    if(!hits.length)archive.append(E("p","note","No papers match the filters."));
+    document.getElementById("archive-count").textContent=hits.length+" of "+papers.length+" accepted DEFT papers";
+  }
+  [year,theme,search,focusOnly].forEach(input=>input.addEventListener(input===search?"input":"change",draw));
+  fetch("./papers.json",{credentials:"same-origin"})
+    .then(r=>{if(!r.ok)throw Error("Bibliography HTTP "+r.status);return r.json();})
+    .then(data=>{
+      if(!Array.isArray(data.papers)||data.papers.length!==30)throw Error("Incomplete bibliography");
+      papers=data.papers;
+      document.getElementById("stat-total").textContent=String(papers.length);
+      const selected=papers.filter(p=>!!p.theme).sort((a,b)=>a.relevance===b.relevance?b.year-a.year:a.relevance==="direct"?-1:1);
+      document.getElementById("stat-focus").textContent=String(selected.length);
+      focus.replaceChildren(...selected.map(p=>addPaper(p,false)));
+      const cross=data.related_other_icde_tracks||[];
+      document.getElementById("stat-other").textContent=String(cross.length);
+      other.replaceChildren(...cross.map(p=>{
+        const row=E("article","paper");
+        row.append(E("div","year",p.track));
+        const center=E("div");const link=E("a","paper-title",p.title);link.href=p.url;link.rel="noopener noreferrer";link.target="_blank";
+        center.append(link,E("p","reason",p.why_relevant));row.append(center);
+        const src=E("div","source");const a=E("a","", "Conference list");a.href=p.url;a.rel="noopener noreferrer";a.target="_blank";src.append(a);row.append(src);
+        return row;
+      }));
+      draw();
+    }).catch(err=>{
+      focus.textContent="Unable to load the bibliography; use the official year-by-year links below.";
+      other.textContent="Unable to load the cross-track list.";
+      archive.textContent="Unable to load papers.json: "+err.message;
+      document.getElementById("archive-count").textContent="Data unavailable";
+    });
+})();
+</script>
+</body>
+</html>
