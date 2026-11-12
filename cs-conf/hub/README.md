@@ -44,3 +44,7 @@ The old CVPR snapshots retain their own provenance in `provenance.json`. See `ca
 ## Release QA
 
 Run Python unit tests, JavaScript syntax checks and the Node worker security tests under the tests folder. The Node test checks stored URLs against browser/worker allowlists and checks topic-only filtering. Search ranking is approximate: the Python CLI uses the original CVPR BM25-style scorer, while the browser uses a bounded per-shard lexical scorer, so score scales and result order may differ. Full-text similarity and independent novelty verification are not implemented.
+
+## Research assistant (local, opt-in)
+
+The archival website remains static. A separate, testable CLI can search Cito or Semantic Scholar, export selected hub pins to a private source manifest, and use an authenticated NotebookLM CLI to ask source-grounded questions. Optional local semantic retrieval (BM25 + BGE + RRF) is available as a prototype; its index must be built separately. See [RESEARCH_ASSISTANT.md](RESEARCH_ASSISTANT.md) and [SEMANTIC_RETRIEVAL.md](SEMANTIC_RETRIEVAL.md). The site does **not** claim deployed full-text semantic retrieval or AI chat.

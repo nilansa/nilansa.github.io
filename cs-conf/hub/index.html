@@ -16,7 +16,7 @@
 <header class="site-head">
   <a class="wordmark" href="#top" aria-label="CS Conference Research Hub home"><span class="mark" aria-hidden="true">H</span><span>CS Conference <b>Research Hub</b></span></a>
   <nav aria-label="Main navigation">
-    <a href="#search">Search</a><a href="#collection">Paper collection</a><a href="#idea-lab">Idea Lab</a><a href="#provenance">Provenance</a><a href="../icde-deft/">ICDE DEFT archive</a>
+    <a href="#search">Search</a><a href="#collection">Paper collection</a><a href="#idea-lab">Idea Lab</a><a href="#research-assistant">Research assistant</a><a href="#provenance">Provenance</a><a href="../icde-deft/">ICDE DEFT archive</a>
     <a href="../../books/hub/">BookHub</a><a class="back-link" href="../">CS Conf <span aria-hidden="true">↗</span></a>
   </nav>
 </header>
@@ -88,8 +88,22 @@
     </div>
   </section>
 
+  <section class="section research-section" id="research-assistant" aria-labelledby="research-assistant-title">
+    <div class="section-heading">
+      <div><p class="eyebrow">04 / Local research bridge</p><h2 id="research-assistant-title">Ask about the evidence.</h2></div>
+      <p>Keep your selected papers and research questions in your own workspace. This public page is a metadata archive, not a hosted LLM or NotebookLM login.</p>
+    </div>
+    <div class="provenance-grid">
+      <article class="provenance-card"><span class="provenance-icon">01</span><h3>Discover the literature</h3><p>Use the existing conference search, then local hybrid retrieval or external scholarly discovery from Cito and Semantic Scholar. External queries have their own provider privacy policies and rate limits.</p></article>
+      <article class="provenance-card"><span class="provenance-icon">02</span><h3>Choose what to read</h3><p>Pin papers and use <strong>Export pins</strong>. An optional local CLI checks trusted publisher URLs and builds a private, selected-source manifest. This browser does not upload your pins.</p></article>
+      <article class="provenance-card"><span class="provenance-icon">03</span><h3>Ask exact questions</h3><p>An authenticated NotebookLM CLI can ingest sources you explicitly selected, then provide source-linked answers. It is <strong>not</strong> connected to this public page or available here as an online chat.</p></article>
+      <article class="provenance-card"><span class="provenance-icon">04</span><h3>Test proposed research</h3><p>Compare the evidence, identify acknowledged limitations, and propose falsifiable experiments. Do not confuse metadata matches, LLM inferences, or untested ideas with confirmed novelty.</p></article>
+    </div>
+    <p class="privacy-note">Local agent setup, usage and limitations: <a href="https://github.com/nilansa/nilansa.github.io/tree/main/cs-conf/hub">Conference Hub source and documentation</a>. Private PDFs, notebooks and API credentials are not published here.</p>
+  </section>
+
   <section class="section provenance-section" id="provenance" aria-labelledby="provenance-title">
-    <div class="section-heading"><div><p class="eyebrow">04 / Provenance</p><h2 id="provenance-title">Know what the archive can say.</h2></div><p>Paper abstracts and source area labels help find a direction. They do not prove that a method works or that a new combination is novel.</p></div>
+    <div class="section-heading"><div><p class="eyebrow">05 / Provenance</p><h2 id="provenance-title">Know what the archive can say.</h2></div><p>Paper abstracts and source area labels help find a direction. They do not prove that a method works or that a new combination is novel.</p></div>
     <div class="provenance-grid">
       <article class="provenance-card"><span class="provenance-icon">A</span><h3>Source and attribution</h3><p>New venue/year metadata comes from the <a href="https://huggingface.co/datasets/ai-conferences" target="_blank" rel="noopener">ai-conferences datasets</a>. Existing CVPR files retain their earlier <a href="https://huggingface.co/datasets/choucsan/CVPR_Papers" target="_blank" rel="noopener">CVPR_Papers</a> source and attribution. The catalog lists each revision, checksum, license declaration, and original publisher URL. Paper rights remain with their authors or other rights holders.</p></article>
       <article class="provenance-card"><span class="provenance-icon">B</span><h3>Track labels</h3><p>These are curated venue records. A source track label is shown with its source attribution; it is not an independent check of main-track status. Missing track details remain unverified.</p></article>
