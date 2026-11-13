@@ -1,15 +1,65 @@
 {
   "schema_version": "1.0",
   "study": "DISCo collective query coverage in organizational memory",
-  "status": "dataset_generated_unscored",
+  "status": "verified",
   "date": "2026-11-13",
   "run_date": "2026-11-13",
   "official_disco_executed": false,
-  "notes": "No verified experiment scores were available when this page was published. A DISCo-inspired coverage-greedy proxy must not be labeled as official DISCo.",
-  "rows": [],
+  "notes": "Negative pilot result. The lexical-coverage proxy did NOT outperform TF-IDF+MMR or BM25 at complete evidence@10; no official DISCo or neural baseline was run. Synthetic labels contain unresolved temporal ambiguities. No production or paper-level superiority claim is justified.",
+  "rows": [
+    {
+      "method": "TF-IDF + MMR",
+      "complete5": "6.2%",
+      "complete10": "58.3%",
+      "recall10": "87.2%",
+      "role": "Strong classical diversity comparator"
+    },
+    {
+      "method": "BM25",
+      "complete5": "14.6%",
+      "complete10": "33.3%",
+      "recall10": "73.4%",
+      "role": "Lexical relevance baseline"
+    },
+    {
+      "method": "BM25 + hashed TF-IDF (RRF)",
+      "complete5": "4.2%",
+      "complete10": "33.3%",
+      "recall10": "74.0%",
+      "role": "Hybrid baseline"
+    },
+    {
+      "method": "TF-IDF cosine",
+      "complete5": "2.1%",
+      "complete10": "18.8%",
+      "recall10": "62.7%",
+      "role": "Lexical similarity baseline"
+    },
+    {
+      "method": "Lexical coverage greedy (proxy)",
+      "complete5": "4.2%",
+      "complete10": "16.7%",
+      "recall10": "60.4%",
+      "role": "DISCo-inspired proxy; NOT official DISCo"
+    },
+    {
+      "method": "Hashed TF-IDF cosine",
+      "complete5": "2.1%",
+      "complete10": "14.6%",
+      "recall10": "60.8%",
+      "role": "Preregistered lexical comparator; NOT neural dense retrieval"
+    },
+    {
+      "method": "Static recency",
+      "complete5": "0.0%",
+      "complete10": "0.0%",
+      "recall10": "0.0%",
+      "role": "Negative control"
+    }
+  ],
   "dataset_hash": "e9bfd73fb33762b7a4f7364eb1941e52e96bdd27bf6b061a5a90221138e176a0",
-  "provenance": "Deterministic synthetic generator seed 20261113; no neural DISCo reproduction or benchmark results verified",
-  "limitations": "Template-generated synthetic messages, not human-reviewed; independent alternative support labels not yet assessed; official DISCo and neural baselines not yet run; scores pending.",
+  "provenance": "Synthetic dataset SHA-256 e9bfd73fb33762b7a4f7364eb1941e52e96bdd27bf6b061a5a90221138e176a0; CPU rerun-5 under frozen preregistration rev 6; 10 tests passed; 48 held-out collective queries; independent read-only aggregation replay.",
+  "limitations": "Exploratory template-based synthetic pilot; score aggregates verified against saved query rows, not independent raw ranking replay. Temporal gold ambiguity and template cues; no human annotation; 24 project-family clusters in the held-out sample; unequal word/token budgets and compute; no official DISCo, neural dense baseline, ANN or indexing experiment; lexical coverage proxy loses to BM25 and MMR.",
   "dataset_counts": {
     "conversations": 240,
     "messages": 3840,
@@ -20,5 +70,58 @@
     "dev_questions": 192,
     "test_questions": 192
   },
-  "dataset_integrity": "structural checks passed: unique ids, label containment, session chronology, family split, generator reproducibility"
+  "dataset_integrity": "structural checks passed: unique ids, label containment, session chronology, family split, generator reproducibility",
+  "verification_scope": "Saved CPU-pilot results independently checked by recomputing category aggregates from per-query CSV and rerunning 10 unit tests; evidence label validity, neural retrieval, and algorithm equivalence remain unverified.",
+  "run_id": "disco-evidence-bench-20261113-cpu-rerun-5",
+  "task_id": "disco-evidence-bench-20261113-a1",
+  "index_revision": 2,
+  "index_sha256": "8657d03d48753025af3394cf81f683650affcf0c4cb76ca598875203a2cfa71f",
+  "source_repository_commit": "53df0b192a80165135d850c015e1755b6a165136",
+  "preregistration_revision": 6,
+  "test_scope": {
+    "queries": 192,
+    "collective_queries": 48,
+    "conversations": 48,
+    "project_families": 24,
+    "candidate_messages": 3840
+  },
+  "primary_comparison": {
+    "metric": "complete-evidence@10 on 48 test collective questions",
+    "coverage_proxy": "8/48 (16.7%)",
+    "preregistered_hashed_tfidf": "7/48 (14.6%)",
+    "difference_percentage_points": 2.0833,
+    "conversation_clustered_ci_95_percentage_points": [
+      -6.25,
+      12.5
+    ],
+    "decision": "Fails preregistered +3 percentage point threshold with lower CI bound > 0"
+  },
+  "posthoc_robustness": {
+    "method": "Independent aggregate replay, 10,000 paired family-cluster bootstrap resamples; exploratory, NOT preregistered",
+    "coverage_proxy_minus_mmr": {
+      "difference_percentage_points": -41.67,
+      "ci_95_percentage_points": [
+        -56.25,
+        -29.17
+      ]
+    },
+    "coverage_proxy_minus_bm25": {
+      "difference_percentage_points": -16.67,
+      "ci_95_percentage_points": [
+        -27.08,
+        -8.33
+      ]
+    },
+    "coverage_proxy_minus_hashed_tfidf": {
+      "difference_percentage_points": 2.08,
+      "ci_95_percentage_points": [
+        -6.25,
+        10.42
+      ]
+    }
+  },
+  "equal_item_budget": true,
+  "equal_token_budget": false,
+  "neural_dense_baseline_executed": false,
+  "unreviewed_paper_skill": true
 }
