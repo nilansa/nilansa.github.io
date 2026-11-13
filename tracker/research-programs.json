@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOf": "2026-11-12",
+  "asOf": "2026-11-13",
   "heading": "Europe-wide paid AI/ML research opportunities for international Master's students",
   "scope": "European universities and research institutes; paid employment, stipend or funded living costs; all AI/ML fields. Program admission and visa rules always prevail.",
   "safety": "Public program facts only. No applicant identity, application status, documents or private notes. A source-backed candidate is not an application or eligibility approval.",
@@ -43,7 +43,7 @@
         "Neuroscience"
       ],
       "deadline": "2026-11-16",
-      "deadlineNote": "2027-specific official timeline: opens 21 Oct, closes 16 Nov 2026; no exact clock/timezone published; generic landing description still says summer 2026.",
+      "deadlineNote": "Official 2027 timeline confirms 21 Oct 2026 opening, 16 Nov 2026 application cutoff, 1 Jul–30 Sep 2027 internship. Generic site copy still says summer 2026. Deadline exact hour NOT published.",
       "period": "July–September 2027",
       "funding": "Approximately €1,350 per month for July–September 2027, intended to cover housing, living expenses and health insurance; travel compensated",
       "eligibility": "Potential match",
@@ -53,7 +53,7 @@
       "action": "URGENT (16 Nov): official 2027-specific portal says open, but 2026 generic text remains on the site. Check project enrollment through Oct 2027, availability and correct official 2027 submission form. CV, transcripts and personal research statement needed.",
       "review": "recheck",
       "opening": "2026-10-21",
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "deadlineTime": null,
       "deadlineTimezone": "Not published",
       "fundingCaveats": "Housing is organized but paid from the salary, NOT free additional funding. Visa/embassy fees and related travel are NOT reimbursed. Exact net sum/tax/insurance terms must be confirmed.",
@@ -82,7 +82,7 @@
         "Robotics"
       ],
       "deadline": "2026-11-29",
-      "deadlineNote": "2027 date 29 Nov 2026 is an INFERENCE from the official recurring rule (Sunday nearest 1 Dec). The 2027 application page has not published a distinct closing timestamp. NO recommendation letters are wanted; active enrollment required in fellowship summer.",
+      "deadlineNote": "Official annual rule says applications close Sunday nearest 1 December; 29 November 2026 is calculated by calendar, NOT a separately announced 2027 deadline. Check 2027 portal before relying on it.",
       "period": "May–September 2027, typically 2–3 months",
       "funding": "CHF 1,800 per month + eligible travel reimbursement",
       "eligibility": "Conditional",
@@ -92,7 +92,7 @@
       "action": "Prepare all available BSc/MSc transcripts, CV and motivation (max 2 pages); NO recommendation letters (organizer says not considered). Application portal may only open 1–2 weeks before annual cutoff.",
       "review": "annual-rule",
       "opening": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "deadlineTime": null,
       "deadlineTimezone": "Not separately posted; check application portal",
       "applicationDocuments": [
@@ -130,10 +130,10 @@
       "action": "Applications OPEN. Prepare English transcripts, bachelor's certificate, 1–2 page CV and motivation, and an English assessment or statement. Check continued summer 2027 enrollment.",
       "review": "official",
       "opening": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "deadlineTime": "23:59",
       "deadlineTimezone": "AoE (UTC−12)",
-      "openStatus": "Official 2027 page currently explicitly says applications open",
+      "openStatus": "Official 2027 organizer page explicitly says applications are OPEN on 13 November 2026; closes 30 November 2026 at 23:59 AoE.",
       "fundingCaveats": "Gross before German taxes; travel, housing and visa cost coverage not published on main CSR page. Check net budget.",
       "applicationDocuments": [
         "1–2 page motivation letter",
@@ -212,10 +212,10 @@
       "action": "Check the actual online form before relying on availability; official parent text says under preparation and direct PHP backend returned 403 to automation. E-mail applications are NOT accepted.",
       "review": "recheck",
       "opening": null,
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "deadlineTime": null,
       "deadlineTimezone": "Not stated",
-      "openStatus": "Official page links to JS-loaded form, but parent text still says form is being prepared. Direct PHP endpoint refused automated read (403); cannot confirm actual submission flow.",
+      "openStatus": "Direct online application-form link exists but PHP endpoint returned HTTP 403 to automated fetch on 13 November 2026; main official program page still says form under preparation. Submission functionality NOT confirmed.",
       "applicationDocuments": [
         "Online form only (details/document list not yet published)",
         "Group/research-interest choice likely required; confirm form once available"
@@ -251,7 +251,7 @@
       "action": "Request a reference letter early, review projects ~10 Dec 2026, apply Jan 7–31 (up to 3 projects; one combined PDF).",
       "review": "official",
       "opening": "2027-01-07",
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "deadlineTime": "23:59",
       "deadlineTimezone": "UTC+2 (Finland; as explicitly published for Jan 2027)",
       "openStatus": "2027 projects expected ~10 Dec 2026; official application portal opens 7 Jan 2027 and closes 31 Jan 23:59 UTC+2.",
@@ -291,7 +291,7 @@
       "action": "NEW OPENING: prepare one recent referee letter, student certificate and complete official 2027 portal. Strong AI systems/ML for science opportunity.",
       "review": "official",
       "opening": "2026-11-06",
-      "verifiedAt": "2026-11-12",
+      "verifiedAt": "2026-11-13",
       "openStatus": "Official CERN careers page has Apply now, 2027 call confirmed open",
       "fundingCaveats": "CHF 94 per calendar day net allowance with health cover; travel depends on circumstances, accommodation search assistance only (housing not included), requires 6 semesters completed and student enrollment throughout.",
       "applicationDocuments": [
@@ -2980,29 +2980,230 @@
         "University internship agreement",
         "French language fluency and education/psychology research background"
       ]
+    },
+    {
+      "id": "imec-2026-int-316-worldmodels",
+      "name": "imec: Foundation Models, World Models & Continual Learning for Semiconductor Imaging (MSc thesis)",
+      "host": "imec, Leuven",
+      "country": "Belgium",
+      "type": "Funded Master's thesis research internship — applied AI/ML",
+      "domains": [
+        "Foundation models",
+        "Vision & multimodal",
+        "Core ML",
+        "Data-centric ML",
+        "AI for science"
+      ],
+      "deadline": null,
+      "deadlineNote": "Advertised as available immediately; no application cutoff or specified opening date. Rolling while vacancy remains.",
+      "period": "Six months on site, extendable to nine months subject to progress",
+      "funding": "Fully funded internship scholarship subject to conditions, for up to 9 months; imec allowance specifically available for students enrolled at non-Belgian universities. Exact monthly amount NOT published.",
+      "eligibility": "Potential match",
+      "eligibilityDetail": "BSc completed or MSc currently enrolled in CS, Computer Engineering or Physics, with solid modern ML/PyTorch/JAX; research thesis expected. No published nationality ban, but scholarship conditions and Belgian visa/internship agreement must be individually confirmed. Fluency in English required.",
+      "officialUrl": "https://www.imec-int.com/en/work-at-imec/job-opportunities/foundation-models-world-models-and-continual-learning-semiconductor",
+      "priority": "high",
+      "action": "High-priority research match: direct research-thesis vacancy on JEPA, world models, representation learning, multimodal uncertainty and few-shot detection; prepare 2-page CV, research SoP and transcript. Employer specifies application by email; NO email has been drafted or sent.",
+      "review": "official",
+      "opening": null,
+      "verifiedAt": "2026-11-13",
+      "deadlineTime": null,
+      "deadlineTimezone": "Not published — rolling/available immediately",
+      "openStatus": "Organizer lists MSc vacancy available immediately; no deadline shown",
+      "fundingStatus": "scholarship-confirmed-amount-undisclosed-subject-to-conditions",
+      "fundingCaveats": "Scholarship is conditioned and amount unknown. Non-Belgian students receive imec allowance according to employer; housing, visa, health insurance, airfare, stipend disbursement and ability to combine with home MS thesis are not disclosed.",
+      "applicationDocuments": [
+        "Research SoP emphasizing topic, background and proposed direction",
+        "Academic résumé, maximum 2 pages",
+        "Latest degree transcript",
+        "GRE/TOEFL optional, not mandatory",
+        "Publications/code links if available",
+        "Reference code 2026-INT-316"
+      ],
+      "sourceUrls": [
+        "https://www.imec-int.com/en/work-at-imec/job-opportunities/foundation-models-world-models-and-continual-learning-semiconductor"
+      ]
+    },
+    {
+      "id": "sap-458128-privacy-ai-agents",
+      "name": "SAP Research Associate Intern: Privacy-Aware Oversight for Enterprise AI Agents",
+      "host": "SAP Secure Development Center of Excellence, Mougins",
+      "country": "France",
+      "type": "Paid corporate AI research internship (MSc)",
+      "domains": [
+        "AI agents & memory",
+        "NLP & LLMs",
+        "AI safety & security",
+        "Privacy & security"
+      ],
+      "deadline": null,
+      "deadlineNote": "Official vacancy published 3 Nov 2026; no closing date or exact time stated.",
+      "period": "Six months, starting January–February 2027",
+      "funding": "Paid under SAP France internship remuneration/gratification scale; exact amount NOT published. No travel, housing or visa coverage promised.",
+      "eligibility": "Conditional",
+      "eligibilityDetail": "Student in FINAL year of Master's/MSc in CS or similar, strong Python/NLP/agentic AI and fluent English. Requires French student internship eligibility/contract or relevant employer sponsorship, not specified; university enrollment conditions must be confirmed.",
+      "officialUrl": "https://careers.sap.com/job/Mougins-Cedex-Internship-Research-Associate-Privacy-Aware-Oversight-for-Enterprise-AI-Agents-MF-06254/1453810933/",
+      "priority": "high",
+      "action": "Apply through the SAP career portal if current final-year MS status and French internship agreement/visa criteria fit. Focus research CV on LLM privacy leakage and agent oversight; no outreach or application performed.",
+      "review": "official",
+      "opening": "2026-11-03",
+      "verifiedAt": "2026-11-13",
+      "deadlineTime": null,
+      "deadlineTimezone": "Not published — listing open on evidence check",
+      "openStatus": "Official SAP vacancy active at evidence check",
+      "fundingStatus": "paid-internship-amount-undisclosed",
+      "fundingCaveats": "Advertiser states paid according to SAP gratification grid but publishes no euro amount; no confirmed housing/travel/visa assistance.",
+      "applicationDocuments": [
+        "Research-focused CV",
+        "Academic record and current MSc enrollment",
+        "Application via SAP portal",
+        "Other requested details not specified on public vacancy"
+      ],
+      "sourceUrls": [
+        "https://careers.sap.com/job/Mougins-Cedex-Internship-Research-Associate-Privacy-Aware-Oversight-for-Enterprise-AI-Agents-MF-06254/1453810933/"
+      ]
+    },
+    {
+      "id": "togetherai-5238466007-amsterdam-ml27",
+      "name": "Together AI Model Shaping Research Internship (Summer 2027, Amsterdam)",
+      "host": "Together AI, Amsterdam",
+      "country": "Netherlands",
+      "type": "Paid industry foundation-model research internship",
+      "domains": [
+        "Foundation models",
+        "NLP & LLMs",
+        "Core ML",
+        "RL & decision-making",
+        "Systems"
+      ],
+      "deadline": null,
+      "deadlineNote": "2027 internship actively advertised; official employer gives no application deadline.",
+      "period": "12–14 weeks in summer 2027; either 17 May–6 Aug or 14 Jun–3 Sep",
+      "funding": "Competitive compensation and housing stipend; US pay figure $58–70/hour applies to US, NOT confirmed Netherlands rate. Amsterdam pay amount and housing stipend amount unpublished.",
+      "eligibility": "Conditional — Dutch work authorization",
+      "eligibilityDetail": "Open to currently enrolled BSc/MSc/PhD students in CS, EE or related fields. Official form asks Netherlands work authorization and sponsorship need; support for India-enrolled non-EU applicants is NOT confirmed.",
+      "officialUrl": "https://job-boards.greenhouse.io/togetherai/jobs/5238466007",
+      "priority": "high",
+      "action": "Strong post-training / RL / evaluation / efficient ML research fit. Confirm whether sponsor handles Dutch work permit before spending time on application; submit at most six Together AI applications in any 90-day window.",
+      "review": "official",
+      "opening": null,
+      "verifiedAt": "2026-11-13",
+      "deadlineTime": null,
+      "deadlineTimezone": "Not published",
+      "openStatus": "Employer vacancy and application form live; 2027 deadline not stated",
+      "fundingStatus": "paid-and-housing-stipend-amount-undisclosed-in-Netherlands",
+      "fundingCaveats": "Published $58–70 per hour is US-only, should NOT be misrepresented as Amsterdam compensation. No specific Netherlands amount or visa sponsorship guarantee.",
+      "applicationDocuments": [
+        "Resume/CV",
+        "LinkedIn profile",
+        "Academic degree and expected graduation month/year",
+        "Amsterdam office availability and Dutch work authorization/sponsorship declarations",
+        "Optional cover letter"
+      ],
+      "sourceUrls": [
+        "https://job-boards.greenhouse.io/togetherai/jobs/5238466007"
+      ]
+    },
+    {
+      "id": "imc-4912874101-dl27",
+      "name": "IMC Deep Learning Research Internship Summer 2027 (Amsterdam)",
+      "host": "IMC Trading, Amsterdam",
+      "country": "Netherlands",
+      "type": "Paid applied deep-learning research internship",
+      "domains": [
+        "Core ML",
+        "Foundation models",
+        "RL & decision-making",
+        "Data-centric ML"
+      ],
+      "deadline": null,
+      "deadlineNote": "Employer application form open; no official application deadline.",
+      "period": "Nine weeks, in person from last week of June 2027",
+      "funding": "Highly competitive paid compensation, accommodations included. Exact euro stipend, visa/travel support not stated.",
+      "eligibility": "Graduation check — 2028 required",
+      "eligibilityDetail": "MSc or PhD student in CS/ML/AI/math/statistics/engineering, explicitly graduating in 2028. Requires substantial Python + DL experience. Immigration support restricted for some nationalities/enrollments; work permit details for other non-EU applicants need confirmation. Not eligible if MS graduation occurs in 2027.",
+      "officialUrl": "https://job-boards.greenhouse.io/imc/jobs/4912874101",
+      "priority": "medium",
+      "action": "Do not prioritize unless MS graduation is in 2028 and work authorization can be addressed. For qualifying students, strong DL research and included housing; official page contains a real live application form.",
+      "review": "official",
+      "opening": null,
+      "verifiedAt": "2026-11-13",
+      "deadlineTime": null,
+      "deadlineTimezone": "Not published",
+      "openStatus": "Official employer application form currently active",
+      "fundingStatus": "paid-salary-unspecified-accommodation-included",
+      "fundingCaveats": "Advertises accommodations included but no € stipend amount; restrictions on immigration sponsorship exist for specified citizenship/residence combinations. No blanket confirmation for Indian or other non-EU students.",
+      "applicationDocuments": [
+        "CV",
+        "Enrollment, degree, expected graduation MONTH AND YEAR",
+        "Examples of publications/open-source DL research helpful",
+        "Dutch work authorization declarations"
+      ],
+      "sourceUrls": [
+        "https://job-boards.greenhouse.io/imc/jobs/4912874101"
+      ]
+    },
+    {
+      "id": "northumbria-ccai-cdt-2027",
+      "name": "Northumbria Citizen-Centred AI UKRI CDT 2027 (funded PhD)",
+      "host": "Northumbria University / Citizen-Centred AI CDT, Newcastle",
+      "country": "United Kingdom",
+      "type": "Funded doctoral training (PhD, interdisciplinary AI)",
+      "domains": [
+        "AI safety & security",
+        "Interdisciplinary AI",
+        "AI agents & memory",
+        "Core ML"
+      ],
+      "deadline": "2027-01-11",
+      "deadlineNote": "Official 2027 call: applications close 11 Jan 2027 at 17:00 GMT. Optional pre-application proposal feedback cutoff 11 Dec 2026.",
+      "period": "Four-year funded PhD starting 21 September 2027",
+      "funding": "Tuition fees + standard UKRI PhD stipend + research training grant funded for eligible international and home candidates. Enhanced £30,000/year TechFirst stipend is HOME-fee-only, not international rate.",
+      "eligibility": "Conditional — PhD pathway",
+      "eligibilityDetail": "Worldwide applicants (including international) considered; Master's qualification requirements and English evidence depend on university admissions. Interdisciplinary backgrounds welcome. Research proposal and degree evidence required; not a short MSc internship.",
+      "officialUrl": "https://ccai-cdt.ac.uk/apply/",
+      "priority": "medium",
+      "action": "Keep separate PhD track; 11 Dec proposal-feedback deadline, 11 Jan full application (17:00 GMT). Review funded international-place availability and graduate-study fit.",
+      "review": "official",
+      "opening": "2026-10-12",
+      "verifiedAt": "2026-11-13",
+      "deadlineTime": "17:00",
+      "deadlineTimezone": "GMT (UTC+0)",
+      "openStatus": "2027 official PhD cohort application open",
+      "fundingStatus": "funded-phd-tuition-stipend-training-UKRI-international-eligible",
+      "fundingCaveats": "£30,000 enhanced stipend is home-fee only; international applicants receive applicable UKRI standard rate and funding/fees depend on award. UK visa/relocation support not explicitly quantified.",
+      "applicationDocuments": [
+        "2-page academic CV",
+        "Research proposal using required template",
+        "Degree certificates and transcripts",
+        "English proficiency evidence if required",
+        "Optional personal/EDI statement"
+      ],
+      "sourceUrls": [
+        "https://ccai-cdt.ac.uk/apply/"
+      ]
     }
   ],
   "lastResearchSummary": {
-    "date": "2026-11-12",
+    "date": "2026-11-13",
     "newRecordIDs": [
-      "maxplanck-bmai-phd-2027",
-      "oxford-intelligent-earth-cdt-2027",
-      "inria-2026-10610",
-      "inria-2026-10648",
-      "inria-2026-10696"
+      "imec-2026-int-316-worldmodels",
+      "sap-458128-privacy-ai-agents",
+      "togetherai-5238466007-amsterdam-ml27",
+      "imc-4912874101-dl27",
+      "northumbria-ccai-cdt-2027"
     ],
     "materialChanges": [
-      "Five new official-source records: 25 funded Max Planck Biomedical AI doctoral positions (1 Dec 2026; references 10 Dec); Oxford Intelligent Earth AI-for-environment funded DPhil (6 Jan 2027 noon GMT, very limited international-funded places); Inria quantum/HPC runtime research internship 10610 (30 Nov, €1,867.02 gross/month); Inria medical multimodal foundation-model research engineer 10648 (22 Nov, salary unpublished and inconsistent start date); and Inria Reachy-Mini social-robotics internship 10696 (10 Dec, €4.50/hour, fluent French and psychology/education degree REQUIRED; poor fit for English-only CS MSc).",
-      "Rechecked CISPA 2027: applications OPEN, 30 Nov 23:59 Anywhere on Earth; €2,568.80–€2,671.89 gross/month, MSc enrolled throughout internship, one/two-page motivation/CV, transcripts, bachelor's certificate and English evidence.",
-      "Rechecked official CaCTüS 2027 timeline: opens 21 Oct, deadline 16 Nov, 1 July–30 Sep 2027, no official exact clock time; generic landing text still mentions 2026.",
-      "Rechecked RC Trust 31 Dec with travel, accommodation and living costs fully covered; website inconsistently links to an application page while saying form under preparation, and direct PHP form disallowed automated read; NOT confirmed submittable.",
-      "Rechecked Summer@EPFL annual Sunday-nearest-Dec-1 rule; 29 Nov 2026 remains rule-derived, not a separately verified 2027 notice.",
-      "Rechecked Aalto AScI 7–31 Jan 2027 applications, closing 23:59 UTC+2, projects mid-Dec, international MSc eligibility; no newly advanced opening.",
-      "Reverified both CERN summer 2027 official call pages: openlab and general Summer Students close 21 Jan 2027 at 23:59 Geneva time; both pay CHF 94 NET/day, conditionally support travel, offer CERN health scheme, require full-time student enrollment through placement and academic reference, student/enrollment certificates and transcripts.",
-      "New official CERN 2027 SHORT TERM Data Science internships exist but require CERN Member/Associate Member State citizenship; a typical India-only national (India is not a CERN Member or Associate State) is ineligible. Excluded from general MSc target. Separately existing CERN openlab and general Summer Student 2027 calls remain eligible subject to different nationality rules.",
-      "New DataIA Paris-Saclay international mobility funding only for students enrolled at Paris-Saclay programs, therefore excluded for MS enrolled in India.",
-      "Public program-only data, no personal information; no applications/registrations/emails/transfers. No change to tracker HTML/UI."
+      "Added 5 genuinely distinct official-source candidates: imec Leuven world models / JEPA / ML for high-NA EUV master's thesis, conditional fully funded scholarship (6–9 months, rolling); SAP France paid LLM agent privacy research internship (six months, deadline TBA); Together AI Amsterdam paid Model Shaping research internship (May–Sep 2027, deadline TBA, EU visa sponsorship unverified); IMC Amsterdam deep learning research internship (9 weeks, deadline TBA, explicitly requires graduation in 2028); and Northumbria UKRI Citizen-Centred AI doctoral training (11 Jan 2027 17:00 GMT; international-fee funding potentially available).",
+      "imec separate computer-vision defect-inspection project advert contradicts its own 'fully funded scholarship' line with 'Only for self-supporting students'; did not add as CONFIRMED funded, flagged for manual verification and exclusion from recommended funded leads.",
+      "ESA 2027 AI internships published 1 Nov with closing 30 Nov are restricted to eligible ESA Member/Cooperating State nationalities, excluding candidates who hold only Indian nationality; NOT added as generally accessible international MSc internship leads.",
+      "IMC Amsterdam is a genuine paid deep-learning research role with accommodation included, but 2028 expected graduation is mandatory and non-EU work authorization must be verified. Together AI Amsterdam US $58–70/hour pay applies ONLY to US roles; no Netherlands amount asserted.",
+      "CISPA official 2027 page still confirms open, 30 Nov 23:59 AoE, €2,568.80–€2,671.89 gross monthly, enrolled throughout placement, English-medium statement can meet language evidence.",
+      "CaCTüS 2027 dates official: application deadline 16 Nov, no exact clock published; generic 2026 text remains in description.",
+      "RC Trust 31 Dec fully funded up to 90 days. Landing page says form pending; linked JS form exists but direct application endpoint returned 403. Cannot confirm submission readiness.",
+      "Summer@EPFL annual rule-derived 29 Nov remains unconfirmed as a separately announced 2027 application date; Aalto 7–31 Jan and CERN openlab 21 Jan verified unchanged.",
+      "Three previously cataloged Inria research/doctoral job deadlines are today, 13 Nov 2026; their posted closing time is not known. Additional EPFL Life Sciences/RoboTac/IMPRS close 15 Nov and CaCTüS/Inria flow-matching close 16 Nov. Research/salaried employment/PhD routes must remain distinct.",
+      "Only official public program information recorded. No application, email, registration, spending, student documents or personal information written. No tracker HTML/UI edits."
     ],
-    "scopeNote": "Verified official Max Planck Schools, Oxford, Inria, CISPA, EPFL, Aalto, RC Trust and CERN pages. New future 90-day count includes eligibility-restricted and doctoral/full-time records; not confirmed personalized opportunities."
+    "scopeNote": "As-of 13 Nov 2026, official-source verification limited to newly added five programs and selected active priorities; prior entries retain their earlier timestamps. No assurance that unrefreshed vacancies remain open."
   }
 }
