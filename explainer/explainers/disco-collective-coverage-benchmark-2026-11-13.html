@@ -121,6 +121,18 @@ ol,ul{padding-left:22px;max-width:840px}li{margin:9px 0}footer{padding:32px 0 56
 <p class="small" id="results-provenance">When available, the record will include a data hash, implementation label, run time, method versions, bootstrap intervals and known limitations. Do not compare scores produced with different corpora, readers or retrieval budgets.</p>
 </section>
 
+<section id="neural-20261113">
+<div class="eyebrow">06A · Exploratory CPU replay · 13 November 2026</div>
+<h2>A pretrained neural baseline was tested. It did not win.</h2>
+<p>A separate offline experiment used the cached <strong>all-MiniLM-L6-v2</strong> sentence-embedding model on CPU. Four methods saw the same 3,840 candidate messages and 48 held-out multi-evidence questions. The limit was at most 10 whole messages and 256 MiniLM-tokenizer tokens per answer context. Metrics below were independently recomputed from 2,304 saved method–query–budget records; four local checks passed. The test contains only 24 project families.</p>
+<div class="tablewrap"><table><thead><tr><th>Retriever</th><th>Complete evidence @10</th><th>Mean evidence recall</th><th>Mean tokens used</th></tr></thead><tbody>
+<tr><td>BM25 + lexical MMR</td><td>29/48 · 60.4%</td><td>84.4%</td><td>239.6</td></tr>
+<tr><td>BM25</td><td>17/48 · 35.4%</td><td>72.9%</td><td>228.9</td></tr>
+<tr><td>Pretrained MiniLM cosine</td><td>0/48 · 0.0%</td><td>24.7%</td><td>244.5</td></tr>
+<tr><td>MiniLM cosine + MMR</td><td>0/48 · 0.0%</td><td>6.4%</td><td>237.2</td></tr></tbody></table></div>
+<p class="small"><strong>Uncertainty and interpretation.</strong> BM25 + lexical MMR exceeded BM25 by 25.0 percentage points (exploratory paired 95% CI +6.2 to +43.8, clustered by 24 project families). The pretrained neural methods performed poorly on these synthetic, heavily templated conversations; this may reflect poor project-identity discrimination or dataset artifacts rather than a general defect in neural retrieval. The experiment used a MiniLM tokenizer budget, not a downstream answer-model budget. Historical-decision labels remain ambiguous and were excluded; a blind human evidence audit is prepared but not complete. <strong>The official DISCo index, token-vector coverage method and query editing have NOT been run. The earlier lexical coverage proxy is not DISCo.</strong> No superiority claim for DISCo is supported.</p>
+</section>
+
 <section id="limits"><div class="eyebrow">07 · Skeptical checklist</div><h2>What could make the result misleading?</h2>
 <div class="three"><div class="mini"><strong>Template shortcuts</strong><p>If every query copies the same exact words as its answer, a model may exploit a generator artifact.</p></div><div class="mini"><strong>Missing valid evidence</strong><p>One question may have several equally valid evidence sets. A single reference set can unfairly penalize retrieval.</p></div><div class="mini"><strong>Cheap baselines</strong><p>Beating TF-IDF alone does not establish success against ColBERT, strong neural retrieval or modern hybrid systems.</p></div></div>
 <ol><li>Review a stratified sample of generated conversations for realism, contradictory facts, and minimal evidence sufficiency.</li><li>Check that scores are stable after independent paraphrasing and distractor resampling.</li><li>Report results where collective coverage hurts: one-hop questions, exact-ID lookup, temporally superseded facts, and low retrieval budgets.</li><li>Separate objective quality from runtime/index-efficiency claims; exact greedy set selection is not the full DISCo implementation.</li><li>Compare against relevant existing benchmarks, rather than claiming that synthetic group conversations are new.</li></ol>
