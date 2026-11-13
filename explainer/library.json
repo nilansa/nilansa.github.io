@@ -1,5 +1,23 @@
 [
   {
+    "id": "india-fourier-visualizer-20261113",
+    "title": "India Fourier Visualizer — Rotating Circles Draw a Country",
+    "description": "Interactive Fourier-series demonstration: resample an India outline, recover discrete Fourier coefficients, change K from 1 to 128, scrub the angle, and watch the reconstructed border emerge.",
+    "project": "Mathematics and Visual Computing",
+    "category": "Interactive mathematics explainer",
+    "tags": [
+      "Fourier series",
+      "DFT",
+      "epicycles",
+      "geometry",
+      "India",
+      "ASD-STE100"
+    ],
+    "url": "./explainers/india-fourier-visualizer-2026-11-13.html",
+    "date": "2026-11-13",
+    "indexed_at": "2026-11-13T15:12:09.508Z"
+  },
+  {
     "id": "disco-coverage-benchmark-20261113",
     "title": "DISCo — When One Memory Isn't Enough: Evidence Coverage Benchmark",
     "description": "ASD-STE100-style grounded explainer: conceptual visuals, multi-channel memory dataset blueprint, DISCo-versus-dense method distinction, strong baseline and token-budget controls, live status for reproducible pilot results.",

@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex">
+<meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet,noimageindex">
+<meta name="theme-color" content="#f7f7f3">
+<title>India Fourier Visualizer | Drawing with rotating circles</title>
+<meta name="description" content="Watch rotating Fourier vectors reconstruct India's simplified outline. Change the harmonic count and rotation angle.">
+<style>
+:root{--paper:#f7f7f3;--white:#fff;--ink:#171b22;--sub:#636b72;--rule:#d8dad7;--blue:#2447e8;--pale:#e9edff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.5 "Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+button,input,select{font:inherit}button{cursor:pointer}a{color:inherit}button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.page{max-width:1500px;margin:auto;padding:0 clamp(20px,4.3vw,70px)}
+.top{height:76px;display:flex;align-items:center;justify-content:space-between;gap:15px;border-bottom:1px solid var(--ink)}
+.top a{text-decoration:none;font-weight:600}.top a:hover{text-decoration:underline;text-underline-offset:4px}
+.kicker{font-size:11px;text-transform:uppercase;letter-spacing:.13em;font-weight:700;color:var(--sub)}
+.hero{display:grid;grid-template-columns:1.5fr .65fr;align-items:end;gap:25px;padding:80px 0 52px}
+.hero h1{font-size:clamp(60px,8.6vw,140px);font-weight:600;letter-spacing:-.083em;line-height:.93;margin:15px 0 0}
+.hero h1 em{font-family:Georgia,serif;font-weight:400}
+.hero p{font:clamp(20px,2vw,26px)/1.4 Georgia,serif;letter-spacing:-.02em;color:#485058;max-width:380px;margin:0}
+.hero strong{color:var(--blue)}
+.workspace{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(315px,.76fr);gap:14px;align-items:stretch}
+.viz,.panel{background:var(--white);border:1px solid var(--rule)}
+.viz{display:flex;flex-direction:column;min-width:0}
+.viz-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:20px 23px;border-bottom:1px solid var(--rule)}
+.viz-head small{color:var(--sub);font-size:12px}
+.canvas-wrap{position:relative;flex:1;min-height:590px;background:radial-gradient(circle at center,#fff 8%,#f7f8f5 83%)}
+canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.canvas-note{position:absolute;left:18px;bottom:14px;color:#777e84;font-size:11px;pointer-events:none}
+.legend{display:flex;gap:18px;flex-wrap:wrap;padding:16px 23px;border-top:1px solid var(--rule);font-size:12px;color:#677078}
+.legend i{display:inline-block;width:17px;height:3px;background:var(--blue);vertical-align:middle;margin-right:6px}
+.legend .gray{background:#bbc0bd}.legend .dark{background:#8b9195;height:1px}
+.sidebar{display:flex;flex-direction:column;gap:14px}
+.panel{padding:24px}
+.panel h2{font-size:21px;letter-spacing:-.045em;margin:8px 0 21px}
+.krow{display:flex;justify-content:space-between;align-items:end;gap:14px}
+.kbig{font-size:78px;letter-spacing:-.085em;line-height:1;font-weight:600}
+.kdetail{font-size:12px;color:var(--sub);text-align:right}
+input[type=range]{width:100%;accent-color:var(--blue);cursor:pointer;margin:19px 0 8px}
+.scale{display:flex;justify-content:space-between;font:11px ui-monospace,monospace;color:var(--sub)}
+.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:21px}
+.btn{min-height:42px;padding:10px 13px;border:1px solid var(--ink);color:var(--ink);background:transparent;border-radius:0;font-size:13px;font-weight:600}
+.btn:hover{background:#f1f2ef}.btn.primary{background:var(--blue);border-color:var(--blue);color:white}.btn.primary:hover{background:#1739cf}
+.stat{border-top:1px solid var(--rule);padding-top:15px;margin-top:18px;display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.stat span{font-size:12px;color:var(--sub)}.stat strong{font-size:25px;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.note{font-size:12px;color:var(--sub);margin:13px 0 0}
+.speedrow{display:flex;align-items:center;justify-content:space-between;gap:15px}
+select{background:#fff;border:1px solid var(--rule);padding:8px}
+.angle-value{font-weight:700;color:var(--blue);font-variant-numeric:tabular-nums}
+.toggles{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:15px;color:var(--sub);font-size:12px}
+.toggles label{display:inline-flex;align-items:center;gap:5px;cursor:pointer}.toggles input{accent-color:var(--blue)}
+.pair{background:var(--pale);display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:16px 22px}
+.pair small{display:block;color:#646a99;text-transform:uppercase;letter-spacing:.07em;font-size:10px}
+.pair strong{font:12px ui-monospace,Consolas,monospace;white-space:nowrap}
+.coeffs{border:1px solid var(--rule);background:#fff}
+.coeffs header{padding:22px}.coeffs h2{font-size:21px;letter-spacing:-.04em;margin:5px 0}
+.coeffs header p{font-size:12px;color:var(--sub);margin:0}
+.table-scroll{overflow:auto;max-height:320px}
+table{border-collapse:collapse;width:100%;white-space:nowrap;font:12px ui-monospace,Consolas,monospace;text-align:right;font-variant-numeric:tabular-nums}
+td,th{padding:8px 10px;border-top:1px solid #e9eae7}
+th{font:11px Arial,sans-serif;color:var(--sub);background:#f8f8f5;position:sticky;top:0}
+td:first-child,th:first-child{text-align:left;padding-left:22px}td:last-child,th:last-child{padding-right:22px}
+tr.new{background:#f1f3ff}.csv{margin:15px 22px 20px}
+.section-title{display:flex;justify-content:space-between;gap:25px;align-items:baseline;margin:85px 0 25px;padding-top:19px;border-top:1px solid var(--ink)}
+.section-title h2{font-size:clamp(30px,4vw,52px);letter-spacing:-.065em;line-height:1.1;margin:0}
+.section-title p{color:var(--sub);max-width:380px;margin:0;font-size:13px}
+.stages{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.stage{border:1px solid var(--rule);background:#fff;text-align:left;padding:12px;color:var(--ink);min-width:0}
+.stage:hover,.stage[aria-pressed=true]{border-color:var(--blue)}.stage[aria-pressed=true]{background:#f0f3ff}
+.stage svg{width:100%;aspect-ratio:1;display:block}.stage div{display:flex;justify-content:space-between;gap:8px;border-top:1px solid var(--rule);padding:12px 4px 2px}
+.stage b{font-size:18px}.stage span{font-size:11px;color:var(--sub)}
+.story{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:35px;margin:30px 0 90px}
+.story article{padding:25px 0;border-top:1px solid var(--rule)}.story .number{font-size:12px;color:var(--blue);font-weight:700}
+.story h3{font-size:25px;letter-spacing:-.05em;margin:18px 0 11px}.story p{color:#545e66;line-height:1.7;font-size:15px}
+.formula{overflow-x:auto;white-space:nowrap;background:#ebede8;padding:16px;font:15px Georgia,serif}
+.footer{border-top:1px solid var(--ink);padding:25px 0 60px;display:flex;justify-content:space-between;gap:28px;color:var(--sub);font-size:12px}
+.footer p{margin:0;max-width:710px}.footer a{text-decoration:underline;text-underline-offset:3px}
+@media(max-width:1100px){.workspace{grid-template-columns:1fr}.sidebar{display:grid;grid-template-columns:1fr 1fr}.coeffs{grid-row:span 2}.canvas-wrap{height:560px;min-height:560px}}
+@media(max-width:750px){.top{height:64px}.hero{grid-template-columns:1fr;padding:55px 0 38px}.hero h1{font-size:clamp(56px,13.5vw,100px)}.canvas-wrap{height:380px;min-height:380px}.sidebar{display:flex}.stages{grid-template-columns:repeat(2,minmax(0,1fr))}.stage:last-child{grid-column:span 2}.stage:last-child svg{max-height:200px}.section-title{display:block}.section-title p{margin-top:12px}.story{display:block;margin-bottom:55px}.footer{display:block}.footer p+p{margin-top:20px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="top"><a href="/personal-links/">← Personal links</a><span class="kicker">Interactive experiment · 01</span></header>
+  <section class="hero"><div><span class="kicker">Fourier series / Geometry</span><h1>India, in<br><em>frequencies.</em></h1></div><p>Can rotating circles draw the shape of a country? <strong>Yes.</strong> Begin with one frequency. Add more. Watch the outline emerge.</p></section>
+  <main>
+  <section class="workspace" aria-label="Fourier reconstruction laboratory">
+    <div class="viz"><header class="viz-head"><span class="kicker">01 / The drawing machine</span><small id="status">1 harmonic · 3 Fourier terms</small></header>
+      <div class="canvas-wrap"><canvas id="map" role="img" aria-label="Fourier epicycles tracing a simplified outline of India"></canvas><span class="canvas-note">Generalized outline · Not an official political map</span></div>
+      <div class="legend"><span><i></i>Reconstruction</span><span><i class="gray"></i>Reference</span><span><i class="dark"></i>Rotating circles</span></div>
+    </div>
+    <aside class="sidebar">
+      <section class="panel"><span class="kicker">02 / Add detail</span><h2>Harmonic order</h2>
+        <div class="krow"><output id="kOut" class="kbig">1</output><span class="kdetail"><strong id="terms">3 terms</strong><br>from −K to +K</span></div>
+        <label for="k" class="kicker">Maximum frequency K</label><input id="k" type="range" min="1" max="128" step="1" value="1"><div class="scale"><span>K = 1</span><span>K = 128</span></div>
+        <div class="actions"><button class="btn" id="prev" type="button">− 1</button><button class="btn" id="next" type="button">+ 1</button><button class="btn primary" id="build" type="button">Build India ↗</button></div>
+        <div class="stat"><span>RMS outline error<br>(% of reference diagonal)</span><strong id="error">—</strong></div>
+        <p class="note">Increasing K adds two coefficients: c₊ₖ and c₋ₖ. More terms bring back small border details.</p>
+      </section>
+      <section class="panel"><div class="speedrow"><span class="kicker">03 / Rotate</span><select id="speed" aria-label="Rotation speed"><option value=".25">0.25×</option><option value=".5">0.5×</option><option value="1" selected>1× speed</option><option value="2">2×</option></select></div>
+        <div class="actions"><button type="button" class="btn primary" id="play">Pause rotation</button><button type="button" class="btn" id="reset">Reset angle</button></div>
+        <div class="speedrow" style="margin-top:22px"><label for="theta" class="kicker">Angle θ / Scrub</label><output for="theta" class="angle-value" id="thetaValue">0°</output></div>
+        <input id="theta" type="range" min="0" max="360" step=".5" value="0">
+        <div class="toggles"><label><input type="checkbox" id="circles" checked>Circles</label><label><input type="checkbox" id="reference" checked>Reference</label><label><input type="checkbox" id="trace" checked>Traced path</label></div>
+        <p class="note">The Fourier constants do not change with θ. Only the live angle of each vector changes.</p>
+      </section>
+      <section class="coeffs"><header><span class="kicker">04 / Inspect the values</span><h2>Constants & angles</h2><p>Real and imaginary parts are fixed. The final column changes as the circles turn.</p></header>
+        <div id="pair" class="pair"></div>
+        <div class="table-scroll"><table><thead><tr><th>n</th><th>Re(cₙ)</th><th>Im(cₙ)</th><th>|cₙ|</th><th>live ∠</th></tr></thead><tbody id="rows"></tbody></table></div>
+        <button class="btn csv" id="csv" type="button">Download coefficients CSV ↓</button>
+      </section>
+    </aside>
+  </section>
+  <section aria-labelledby="compare-heading"><header class="section-title"><h2 id="compare-heading">Five resolutions.<br>One boundary.</h2><p>Click a frame to load its harmonic count. Every frame is reconstructed from exactly the same source.</p></header><div id="stages" class="stages"></div></section>
+  <section aria-labelledby="why-heading"><header class="section-title"><h2 id="why-heading">How does it work?</h2><p>Three steps. One equation for each step. No manually drawn approximation.</p></header>
+    <div class="story">
+      <article><span class="number">01 / SAMPLE</span><h3>Turn a border into points.</h3><p>Follow the closed outline and resample it into 768 equal-distance locations. Each point has coordinates x and y. Treat x + iy as one complex-valued signal.</p><div class="formula">zⱼ = xⱼ + iyⱼ, &nbsp;j = 0,…,767</div></article>
+      <article><span class="number">02 / TRANSFORM</span><h3>Discover the circles.</h3><p>A discrete Fourier transform gives a coefficient cₙ for each frequency n. Its magnitude is the vector length, and its argument is the starting angle.</p><div class="formula">cₙ = (1/N) Σⱼ zⱼ e⁻ⁱⁿ²πʲ/ᴺ</div></article>
+      <article><span class="number">03 / RECONSTRUCT</span><h3>Rotate, then add.</h3><p>A term with frequency n rotates through angle arg(cₙ) + nθ. Add all terms from −K to +K. Larger K follows the original curve more closely.</p><div class="formula">zₖ(θ) = c₀ + Σₙ₌₁…ₖ (cₙeⁱⁿᶿ + c₋ₙe⁻ⁱⁿᶿ)</div></article>
+    </div>
+  </section>
+  </main>
+  <footer class="footer"><p>Outline source: <a href="https://github.com/datasets/geo-boundaries-world-110m" rel="noopener noreferrer" target="_blank">Natural Earth at 1:110m, via geo-boundaries-world-110m</a>, ODC-PDDL. The source is generalized, does not include island groups, and uses its own boundary conventions. This is a geometry experiment, not an official map or statement on disputed boundaries.</p><p><a href="/explainer/">Explainer index</a> · <a href="/personal-links/">Personal links</a><br>November 2026</p></footer>
+</div>
+<script>
+'use strict';
+const boundary=[[77.83745,35.49401],[78.91227,34.32194],[78.81109,33.5062],[79.20889,32.99439],[79.17613,32.48378],[78.45845,32.61816],[78.73889,31.51591],[79.72137,30.88271],[81.11126,30.18348],[80.47672,29.72987],[80.08842,28.79447],[81.0572,28.4161],[81.99999,27.92548],[83.30425,27.36451],[84.67502,27.2349],[85.25178,26.7262],[86.02439,26.63098],[87.22747,26.3979],[88.06024,26.41462],[88.1748,26.81041],[88.04313,27.44582],[88.12044,27.87654],[88.73033,28.08686],[88.81425,27.29932],[88.83564,27.09897],[89.74453,26.7194],[90.37327,26.87572],[91.21751,26.80865],[92.03348,26.83831],[92.10371,27.45261],[91.69666,27.77174],[92.50312,27.89688],[93.41335,28.64063],[94.56599,29.27744],[95.4048,29.03172],[96.11768,29.4528],[96.58659,28.83098],[96.24883,28.41103],[97.32711,28.26158],[97.40256,27.88254],[97.05199,27.69906],[97.134,27.08377],[96.41937,27.26459],[95.12477,26.57357],[95.15515,26.00131],[94.60325,25.1625],[94.55266,24.67524],[94.10674,23.85074],[93.32519,24.07856],[93.28633,23.04366],[93.06029,22.70311],[93.16613,22.27846],[92.67272,22.04124],[92.14603,23.6275],[91.86993,23.62435],[91.70648,22.98526],[91.15896,23.50353],[91.46773,24.07264],[91.91509,24.13041],[92.3762,24.97669],[91.7996,25.14743],[90.87221,25.1326],[89.92069,25.26975],[89.83248,25.96508],[89.35509,26.01441],[88.56305,26.44653],[88.20979,25.76807],[88.93155,25.23869],[88.30637,24.86608],[88.08442,24.50166],[88.69994,24.23371],[88.52977,23.63114],[88.87631,22.87915],[89.03196,22.05571],[88.88877,21.69059],[88.2085,21.70317],[86.9757,21.49556],[87.03317,20.74331],[86.49935,20.15164],[85.06027,19.47858],[83.94101,18.30201],[83.18922,17.67122],[82.19279,17.01664],[82.19124,16.55666],[81.69272,16.31022],[80.792,15.95197],[80.3249,15.89918],[80.02507,15.13641],[80.23327,13.83577],[80.28629,13.00626],[79.86255,12.05622],[79.858,10.35728],[79.34051,10.30885],[78.88535,9.54614],[79.18972,9.21654],[78.27794,8.93305],[77.94117,8.25296],[77.5399,7.96553],[76.59298,8.89928],[76.13006,10.29963],[75.74647,11.30825],[75.3961,11.78125],[74.86482,12.74194],[74.61672,13.99258],[74.44386,14.61722],[73.5342,15.99065],[73.11991,17.92857],[72.82091,19.20823],[72.82448,20.4195],[72.63053,21.35601],[71.17527,20.75744],[70.47046,20.87733],[69.16413,22.0893],[69.64493,22.45077],[69.3496,22.84318],[68.17665,23.69197],[68.8426,24.35913],[71.04324,24.35652],[70.8447,25.2151],[70.28287,25.72223],[70.16893,26.49187],[69.51439,26.94097],[70.6165,27.9892],[71.77767,27.91318],[72.82375,28.96159],[73.45064,29.97641],[74.42138,30.97981],[74.40593,31.69264],[75.25864,32.27111],[74.45156,32.7649],[74.10429,33.44147],[73.74995,34.3177],[74.2402,34.74889],[75.75706,34.50492],[76.87172,34.65354]];
+const TAU=2*Math.PI, RAD=Math.PI/180, N=768, MAX=128;
+const $=id=>document.getElementById(id);
+const canvas=$('map'),ctx=canvas.getContext('2d');
+let k=1,theta=0,play=!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches),auto=false,idx=0,stageAt=0,previous=0,curve=[];
+const buildSequence=[1,2,3,5,8,12,20,35,64,96,128];
+const miniKs=[1,3,8,24,96];
+function normalize(coords){
+  const latitudeScale=Math.cos(21*RAD);
+  const pts=coords.map(v=>[v[0]*latitudeScale,-v[1]]);
+  const x=pts.map(v=>v[0]),y=pts.map(v=>v[1]);
+  const minx=Math.min(...x),maxx=Math.max(...x),miny=Math.min(...y),maxy=Math.max(...y);
+  const scale=1.9/Math.max(maxx-minx,maxy-miny);
+  return pts.map(v=>[(v[0]-(minx+maxx)/2)*scale,(v[1]-(miny+maxy)/2)*scale]);
+}
+function resample(points,count){
+  const d=[0];
+  for(let j=0;j<points.length;j++){
+    const a=points[j],b=points[(j+1)%points.length];
+    d.push(d[j]+Math.hypot(b[0]-a[0],b[1]-a[1]));
+  }
+  let seg=0;const out=[];
+  for(let j=0;j<count;j++){
+    const dist=d[d.length-1]*j/count;
+    while(seg<points.length-1&&d[seg+1]<dist)seg++;
+    const a=points[seg],b=points[(seg+1)%points.length],u=(dist-d[seg])/(d[seg+1]-d[seg]||1);
+    out.push([a[0]+u*(b[0]-a[0]),a[1]+u*(b[1]-a[1])]);
+  }
+  return out;
+}
+const source=resample(normalize(boundary),N);
+const x=source.map(p=>p[0]),y=source.map(p=>p[1]);
+const diag=Math.hypot(Math.max(...x)-Math.min(...x),Math.max(...y)-Math.min(...y));
+function transform(points,max){
+  const map=new Map();
+  for(let n=-max;n<=max;n++){
+    let re=0,im=0;
+    for(let j=0;j<points.length;j++){
+      const angle=-n*TAU*j/points.length,c=Math.cos(angle),s=Math.sin(angle);
+      re+=points[j][0]*c-points[j][1]*s;
+      im+=points[j][0]*s+points[j][1]*c;
+    }
+    re/=points.length;im/=points.length;
+    map.set(n,{n,re,im,magnitude:Math.hypot(re,im),phase:Math.atan2(im,re)});
+  }
+  return map;
+}
+const coeff=transform(source,MAX);
+function vector(n,t){
+  const a=coeff.get(n),c=Math.cos(n*t),s=Math.sin(n*t);
+  return [a.re*c-a.im*s,a.re*s+a.im*c];
+}
+function point(t,limit){
+  let px=coeff.get(0).re,py=coeff.get(0).im;
+  for(let n=1;n<=limit;n++){
+    const a=vector(n,t),b=vector(-n,t);
+    px+=a[0]+b[0];py+=a[1]+b[1];
+  }
+  return [px,py];
+}
+function rebuild(limit,count=N){
+  return Array.from({length:count},(_,i)=>point(i*TAU/count,limit));
+}
+function errorPercent(points){
+  let ss=0;
+  for(let i=0;i<N;i++){
+    const dx=points[i][0]-source[i][0],dy=points[i][1]-source[i][1];ss+=dx*dx+dy*dy;
+  }
+  return 100*Math.sqrt(ss/N)/diag;
+}
+function drawPath(points,color,width,close,dash){
+  if(!points.length)return;
+  ctx.beginPath();ctx.moveTo(points[0][0],points[0][1]);
+  for(let i=1;i<points.length;i++)ctx.lineTo(points[i][0],points[i][1]);
+  if(close)ctx.closePath();
+  ctx.lineWidth=width;ctx.strokeStyle=color;ctx.setLineDash(dash?[.012,.013]:[]);ctx.stroke();ctx.setLineDash([]);
+}
+function paint(){
+  const box=canvas.getBoundingClientRect(),w=box.width,h=box.height,dpr=Math.min(window.devicePixelRatio||1,2);
+  if(!w||!h)return;
+  const W=Math.round(w*dpr),H=Math.round(h*dpr);
+  if(canvas.width!==W||canvas.height!==H){canvas.width=W;canvas.height=H}
+  ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);
+  ctx.translate(w*.5,h*.51);ctx.scale(Math.min((w-40)/2.55,(h-40)/2.32),Math.min((w-40)/2.55,(h-40)/2.32));
+  if($('reference').checked)drawPath(source,'#c7cbc7',.008,true,true);
+  drawPath(curve,'rgba(36,71,232,.43)',.009,true,false);
+  if($('trace').checked){
+    const end=Math.floor(theta/TAU*N);
+    if(end>0)drawPath(curve.slice(0,end+1),'#2447e8',.013,false,false);
+    if(end>=0&&end<N-1)drawPath([curve[end],point(theta,k)],'#2447e8',.013,false,false);
+  }
+  let px=coeff.get(0).re,py=coeff.get(0).im;
+  if($('circles').checked){
+    for(let n=1;n<=k;n++)for(const f of [n,-n]){
+      const c=coeff.get(f),v=vector(f,theta);
+      ctx.beginPath();ctx.arc(px,py,c.magnitude,0,TAU);ctx.lineWidth=n===k?.005:.003;
+      ctx.strokeStyle=n===k?'rgba(36,71,232,.31)':'rgba(60,69,75,.13)';ctx.stroke();
+      ctx.beginPath();ctx.moveTo(px,py);ctx.lineTo(px+v[0],py+v[1]);
+      ctx.lineWidth=n===k?.007:.004;ctx.strokeStyle=n===k?'rgba(36,71,232,.75)':'rgba(37,42,50,.32)';ctx.stroke();
+      px+=v[0];py+=v[1];
+    }
+  }else{const p=point(theta,k);px=p[0];py=p[1]}
+  ctx.beginPath();ctx.arc(px,py,.015,0,TAU);ctx.fillStyle='#2447e8';ctx.fill();
+}
+function fmt(v){return (Math.abs(v)<.00005?0:v).toFixed(4)}
+function degrees(r){return ((r*180/Math.PI)%360+360)%360}
+function complex(c){return fmt(c.re)+(c.im<0?' − ':' + ')+fmt(Math.abs(c.im))+'i'}
+function pair(){
+  const a=coeff.get(k),b=coeff.get(-k);
+  $('pair').innerHTML='<div><small>New constant c<sub>+'+k+'</sub></small><strong>'+complex(a)+'</strong><small>initial angle '+degrees(a.phase).toFixed(1)+'°</small></div>'+
+    '<div><small>New constant c<sub>−'+k+'</sub></small><strong>'+complex(b)+'</strong><small>initial angle '+degrees(b.phase).toFixed(1)+'°</small></div>';
+}
+function table(){
+  const terms=[0];
+  for(let i=1;i<=Math.min(k,4);i++)terms.push(i,-i);
+  if(k>4){if(k>6)terms.push(k-1,1-k);terms.push(k,-k);}
+  $('rows').innerHTML=[...new Set(terms)].map(n=>{
+    const c=coeff.get(n);
+    return '<tr class="'+(Math.abs(n)===k?'new':'')+'"><td>'+(n>0?'+':'')+n+'</td><td>'+fmt(c.re)+'</td><td>'+fmt(c.im)+'</td><td>'+fmt(c.magnitude)+'</td><td class="live" data-n="'+n+'"></td></tr>';
+  }).join('');
+  updateAngles();
+}
+function updateAngles(){
+  $('theta').value=degrees(theta).toFixed(1);$('thetaValue').textContent=degrees(theta).toFixed(1)+'°';
+  document.querySelectorAll('td.live').forEach(td=>{
+    const n=Number(td.dataset.n);td.textContent=degrees(coeff.get(n).phase+n*theta).toFixed(1)+'°';
+  });
+}
+function stopAuto(){auto=false;$('build').textContent='Build India ↗'}
+function syncStages(){document.querySelectorAll('.stage').forEach(e=>e.setAttribute('aria-pressed',String(Number(e.dataset.k)===k)))}
+function setK(value){
+  k=Math.max(1,Math.min(MAX,Math.round(Number(value)||1)));curve=rebuild(k);
+  $('k').value=k;$('kOut').textContent=k;$('terms').textContent=(2*k+1)+' terms';
+  $('status').textContent=k+' harmonic'+(k===1?'':'s')+' · '+(2*k+1)+' Fourier terms';
+  $('error').textContent=errorPercent(curve).toFixed(3)+'%';
+  pair();table();syncStages();paint();
+}
+function setPlay(v){play=Boolean(v);$('play').textContent=play?'Pause rotation':'Play rotation'}
+function svgPath(points){return points.map((v,i)=>(i?'L':'M')+v[0].toFixed(3)+' '+v[1].toFixed(3)).join(' ')+'Z'}
+function snapshots(){
+  const outline=svgPath(source);
+  $('stages').innerHTML=miniKs.map((value,i)=>{
+    return '<button class="stage" type="button" data-k="'+value+'" aria-pressed="false" aria-label="Show K '+value+'">'+
+    '<svg viewBox="-1.25 -1.22 2.5 2.44" aria-hidden="true"><path d="'+outline+'" stroke="#cfd2cd" stroke-width=".013" stroke-dasharray=".03 .018" fill="none"/>'+
+    '<path d="'+svgPath(rebuild(value,256))+'" stroke="#2447e8" stroke-width=".018" stroke-linejoin="round" fill="none"/></svg>'+
+    '<div><b>K = '+value+'</b><span>'+['Simple','Emerging','Recognizable','Detailed','Fine'][i]+'</span></div></button>';
+  }).join('');
+  document.querySelectorAll('.stage').forEach(b=>b.addEventListener('click',()=>{stopAuto();setK(Number(b.dataset.k))}));
+}
+$('k').addEventListener('input',e=>{stopAuto();setK(e.target.value)});
+$('prev').addEventListener('click',()=>{stopAuto();setK(k-1)});
+$('next').addEventListener('click',()=>{stopAuto();setK(k+1)});
+$('theta').addEventListener('input',e=>{setPlay(false);theta=Number(e.target.value)*RAD;updateAngles();paint()});
+$('play').addEventListener('click',()=>setPlay(!play));
+$('reset').addEventListener('click',()=>{setPlay(false);theta=0;updateAngles();paint()});
+for(const id of ['circles','reference','trace'])$(id).addEventListener('change',paint);
+$('build').addEventListener('click',()=>{
+  if(auto){stopAuto();return}
+  auto=true;idx=0;stageAt=performance.now();$('build').textContent='Stop build';setK(1);setPlay(true);
+});
+$('csv').addEventListener('click',()=>{
+  const out=['frequency,real,imaginary,magnitude,initial_angle_degrees,current_angle_degrees'];
+  for(let n=-k;n<=k;n++){
+    const c=coeff.get(n);out.push([n,c.re,c.im,c.magnitude,degrees(c.phase),degrees(c.phase+n*theta)].join(','));
+  }
+  const url=URL.createObjectURL(new Blob([out.join('\n')+'\n'],{type:'text/csv;charset=utf-8'}));
+  const a=document.createElement('a');a.href=url;a.download='india-fourier-K'+k+'.csv';document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),500);
+});
+function frame(now){
+  if(!previous)previous=now;
+  const dt=Math.min(.1,(now-previous)/1000);previous=now;
+  if(play){theta=(theta+dt*TAU*Number($('speed').value)/12)%TAU;updateAngles()}
+  if(auto&&now-stageAt>=1200){
+    idx++;stageAt=now;if(idx===buildSequence.length)stopAuto();else setK(buildSequence[idx]);
+  }
+  paint();requestAnimationFrame(frame);
+}
+snapshots();setK(1);setPlay(play);updateAngles();requestAnimationFrame(frame);
+</script>
+</body>
+</html>

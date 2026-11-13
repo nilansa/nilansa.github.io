@@ -21,6 +21,8 @@ Canonical registry for the public pages linked at [nilansa.github.io/personal-li
 
 ## Reading and study
 
+- [India Fourier Visualizer](https://nilansa.github.io/india-fourier/) — Fourier reconstruction of a simplified India outline with rotating vectors, a K slider, stages, and a coefficient table.
+
 - [Counterfactual ranking survey](https://nilansa.github.io/explainer/explainers/ire-counterfactual-ranking-survey-2026-10-31.html) — Individual IRE survey: 15-paper reading sequence, tutorials, preparation checklist and viva practice.
 
 - [Books](https://nilansa.github.io/books/) — Reading catalog: CS, machine learning, mathematics.
