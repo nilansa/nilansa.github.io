@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOf": "2026-11-13",
+  "asOf": "2026-11-14",
   "heading": "Europe-wide paid AI/ML research opportunities for international Master's students",
   "scope": "European universities and research institutes; paid employment, stipend or funded living costs; all AI/ML fields. Program admission and visa rules always prevail.",
   "safety": "Public program facts only. No applicant identity, application status, documents or private notes. A source-backed candidate is not an application or eligibility approval.",
@@ -11,7 +11,7 @@
     "sourcePrecedence": "Current official program page over aggregators; explicitly flag conflicts with old organizer portals and subpages",
     "eligibility": "conditional until graduation date, nationality, current enrolment and project rules are checked",
     "deadlineTimezone": "Exact time only when published; unknown remains null/TBA",
-    "verification": "2026-11-09: Rechecked 12 previously tracked active leads against organizer pages. Original records outside that set retain earlier verifiedAt values. All dates are application cutoff dates, except explicitly TBA/rolling. Treat funding unverified and employment/PhD classifications literally."
+    "verification": "2026-11-14: Reread GitHub catalog + SHA; fresh official-source rechecks of CISPA CSR, CaCTüS, CERN openlab/general, RC Trust, Aalto, EPFL Summer@EPFL, Life Sciences SRP, Excellence Research Internship (partner-only), CYD fellowships, and new Inria Scool/MAGNET research-engineering vacancies. Prior records retain earlier verifiedAt when unreviewed. Deadlines beyond 90 days/rolling kept separately. Date-based closure doesn't prove portal disabled."
   },
   "domains": [
     "Speech & audio",
@@ -53,7 +53,7 @@
       "action": "URGENT (16 Nov): official 2027-specific portal says open, but 2026 generic text remains on the site. Check project enrollment through Oct 2027, availability and correct official 2027 submission form. CV, transcripts and personal research statement needed.",
       "review": "recheck",
       "opening": "2026-10-21",
-      "verifiedAt": "2026-11-13",
+      "verifiedAt": "2026-11-14",
       "deadlineTime": null,
       "deadlineTimezone": "Not published",
       "fundingCaveats": "Housing is organized but paid from the salary, NOT free additional funding. Visa/embassy fees and related travel are NOT reimbursed. Exact net sum/tax/insurance terms must be confirmed.",
@@ -92,7 +92,7 @@
       "action": "Prepare all available BSc/MSc transcripts, CV and motivation (max 2 pages); NO recommendation letters (organizer says not considered). Application portal may only open 1–2 weeks before annual cutoff.",
       "review": "annual-rule",
       "opening": null,
-      "verifiedAt": "2026-11-13",
+      "verifiedAt": "2026-11-14",
       "deadlineTime": null,
       "deadlineTimezone": "Not separately posted; check application portal",
       "applicationDocuments": [
@@ -212,7 +212,7 @@
       "action": "Check the actual online form before relying on availability; official parent text says under preparation and direct PHP backend returned 403 to automation. E-mail applications are NOT accepted.",
       "review": "recheck",
       "opening": null,
-      "verifiedAt": "2026-11-13",
+      "verifiedAt": "2026-11-14",
       "deadlineTime": null,
       "deadlineTimezone": "Not stated",
       "openStatus": "Direct online application-form link exists but PHP endpoint returned HTTP 403 to automated fetch on 13 November 2026; main official program page still says form under preparation. Submission functionality NOT confirmed.",
@@ -251,7 +251,7 @@
       "action": "Request a reference letter early, review projects ~10 Dec 2026, apply Jan 7–31 (up to 3 projects; one combined PDF).",
       "review": "official",
       "opening": "2027-01-07",
-      "verifiedAt": "2026-11-13",
+      "verifiedAt": "2026-11-14",
       "deadlineTime": "23:59",
       "deadlineTimezone": "UTC+2 (Finland; as explicitly published for Jan 2027)",
       "openStatus": "2027 projects expected ~10 Dec 2026; official application portal opens 7 Jan 2027 and closes 31 Jan 23:59 UTC+2.",
@@ -291,7 +291,7 @@
       "action": "NEW OPENING: prepare one recent referee letter, student certificate and complete official 2027 portal. Strong AI systems/ML for science opportunity.",
       "review": "official",
       "opening": "2026-11-06",
-      "verifiedAt": "2026-11-13",
+      "verifiedAt": "2026-11-14",
       "openStatus": "Official CERN careers page has Apply now, 2027 call confirmed open",
       "fundingCaveats": "CHF 94 per calendar day net allowance with health cover; travel depends on circumstances, accommodation search assistance only (housing not included), requires 6 semesters completed and student enrollment throughout.",
       "applicationDocuments": [
@@ -537,7 +537,7 @@
       "priority": "urgent-conditional",
       "review": "official",
       "action": "URGENT 11 days. Only if first-year MSc plus life-science courses; choose labs e.g. NeuroAI, computational neuroscience, biomedical imaging; secure referee NOW.",
-      "verifiedAt": "2026-11-09"
+      "verifiedAt": "2026-11-14"
     },
     {
       "id": "nxai-cycle4-2027",
@@ -696,7 +696,7 @@
       "priority": "restricted",
       "review": "official",
       "action": "Exclude from generic India-based MSc shortlist; only consider if enrolled at a named partner institution and nominated when required.",
-      "verifiedAt": "2026-11-10"
+      "verifiedAt": "2026-11-14"
     },
     {
       "id": "epfl-e3-2027-closed",
@@ -1435,8 +1435,8 @@
       "eligibility": "Post-MS pathway; MSc/M2 required",
       "eligibilityDetail": "Requires Master's year 2 or engineering degree in CS/AI/applied mathematics or equivalent, English scientific proficiency; Python, optimization and scientific ML; relevant to PINNs, ecological modelling and spatiotemporal data. No specific citizenship restriction stated, but visa/permit and ZRR check.",
       "officialUrl": "https://jobs.inria.fr/public/classic/en/offres/2026-10608",
-      "priority": "high",
-      "action": "Only pursue as a paid PhD after MS degree completion; prepare academic CV, research statement and potential supervisor discussion; verify graduation by February 2027.",
+      "priority": "closed",
+      "action": "Deadline passed as of 14 Nov 2026. Only pursue as a paid PhD after MS degree completion; prepare academic CV, research statement and potential supervisor discussion; verify graduation by February 2027.",
       "review": "official",
       "opening": null,
       "verifiedAt": "2026-11-07",
@@ -1450,7 +1450,7 @@
       "sourceUrls": [
         "https://jobs.inria.fr/public/classic/en/offres/2026-10608"
       ],
-      "openStatus": "Posted on official Inria portal"
+      "openStatus": "Posted application deadline has passed by 14 Nov 2026; portal acceptance not separately tested"
     },
     {
       "id": "inria-2026-10599",
@@ -1472,8 +1472,8 @@
       "eligibility": "Post-MS; timeline inconsistent",
       "eligibilityDetail": "Graduate degree or equivalent in data science/AI with machine learning and NLP; English and French mentioned; citizenship/visa not explicitly addressed. Interdisciplinary multi-agent and misinformation research, not an internship.",
       "officialUrl": "https://jobs.inria.fr/public/classic/en/offres/2026-10599",
-      "priority": "optional",
-      "action": "Seek clarification of the already-past start date before investing in application; doctoral route only.",
+      "priority": "closed",
+      "action": "Deadline passed as of 14 Nov 2026. Seek clarification of the already-past start date before investing in application; doctoral route only.",
       "review": "recheck",
       "opening": null,
       "verifiedAt": "2026-11-07",
@@ -1487,7 +1487,7 @@
       "sourceUrls": [
         "https://jobs.inria.fr/public/classic/en/offres/2026-10599"
       ],
-      "openStatus": "Official Inria portal published, but start date conflict"
+      "openStatus": "Posted application deadline has passed by 14 Nov 2026; portal acceptance not separately tested"
     },
     {
       "id": "inria-2026-10601",
@@ -1509,8 +1509,8 @@
       "eligibility": "Employment / degree / visa check",
       "eligibilityDetail": "Graduate degree or equivalent, recently graduated preferred; PyTorch, generalization bounds and scientific Python; may require completed degree by employment start. Visa/security ZRR authorization check for non-EU applicants.",
       "officialUrl": "https://jobs.inria.fr/public/classic/en/offres/2026-10601",
-      "priority": "optional",
-      "action": "Treat as research engineering employment, not a student fellowship; clarify degree completion, work permission and salary before applying.",
+      "priority": "closed",
+      "action": "Deadline passed as of 14 Nov 2026. Treat as research engineering employment, not a student fellowship; clarify degree completion, work permission and salary before applying.",
       "review": "official",
       "opening": null,
       "verifiedAt": "2026-11-07",
@@ -1524,7 +1524,7 @@
       "sourceUrls": [
         "https://jobs.inria.fr/public/classic/en/offres/2026-10601"
       ],
-      "openStatus": "Posted on official Inria portal"
+      "openStatus": "Posted application deadline has passed by 14 Nov 2026; portal acceptance not separately tested"
     },
     {
       "id": "inria-2026-10525",
@@ -3181,29 +3181,186 @@
       "sourceUrls": [
         "https://ccai-cdt.ac.uk/apply/"
       ]
+    },
+    {
+      "id": "inria-2026-10637",
+      "name": "Inria Scool: Reinforcement Learning for Industrial Stabilization (Research Engineer)",
+      "host": "Inria Scool team, University of Lille",
+      "country": "France",
+      "type": "Fixed-term salaried scientific engineer — research employment, NOT student internship",
+      "domains": [
+        "RL & decision-making",
+        "Core ML",
+        "Systems",
+        "Theoretical ML"
+      ],
+      "deadline": "2026-11-19",
+      "deadlineTime": null,
+      "deadlineTimezone": "Not published",
+      "deadlineNote": "Official Inria vacancy reference 2026-10637 gives 19 Nov 2026; no cutoff hour specified.",
+      "opening": null,
+      "period": "Six-month fixed-term research-engineering job; listed start 1 December 2026",
+      "funding": "Salaried fixed-term research employment; exact gross salary NOT disclosed on official vacancy.",
+      "fundingStatus": "salaried-amount-undisclosed",
+      "fundingCaveats": "No travel/housing/visa relocation support indicated; full-time job likely conflicts with concurrent full-time MS studies.",
+      "eligibility": "Conditional — graduate-level research employment",
+      "eligibilityDetail": "Official advert requires a graduate degree/equivalent; early-career applicant with JAX and reinforcement-learning software skills. India-based applicant may apply in principle but employer visa sponsorship/work authorization not confirmed. Must verify degree completion before listed start; mere current MS enrollment is NOT sufficient.",
+      "officialUrl": "https://jobs.inria.fr/public/classic/en/offres/2026-10637",
+      "sourceUrls": [
+        "https://jobs.inria.fr/public/classic/en/offres/2026-10637"
+      ],
+      "applicationDocuments": [
+        "Online application through official Inria portal",
+        "Specific required attachments not stated on public vacancy"
+      ],
+      "priority": "conditional",
+      "action": "Research-engineering alternative only: JAX RL experiments, publication-oriented evaluation. Verify completed degree and French work authorization, listed 1 Dec start and salary before treating as accessible.",
+      "review": "official",
+      "verifiedAt": "2026-11-14",
+      "openStatus": "Official research employment advert with future 19 Nov application deadline"
+    },
+    {
+      "id": "inria-2026-10659",
+      "name": "Inria MAGNET: Fair and Private Machine Learning Research Engineer",
+      "host": "Inria MAGNET, University of Lille",
+      "country": "France",
+      "type": "Fixed-term salaried AI research engineer — employment, NOT student internship",
+      "domains": [
+        "AI safety & security",
+        "Core ML",
+        "Data-centric ML",
+        "Privacy & security",
+        "Theoretical ML"
+      ],
+      "deadline": "2026-11-27",
+      "deadlineTime": null,
+      "deadlineTimezone": "Not published",
+      "deadlineNote": "Official posting 2026-10659 lists 27 Nov 2026; cutoff clock time unpublished.",
+      "opening": null,
+      "period": "18-month research-engineering contract, listed start 1 March 2027",
+      "funding": "Salaried scientific engineer; amount depending on profile, exact amount NOT published.",
+      "fundingStatus": "salaried-amount-undisclosed",
+      "fundingCaveats": "Employer lists subsidized meals, partial public-transport reimbursement and social coverage; housing, airfare, French visa/work permit funding not specified.",
+      "eligibility": "Conditional — completed graduate degree by employment",
+      "eligibilityDetail": "Graduate degree or equivalent, recently graduated, strong Python, mathematics, ML statistics and experiments; English required; fairness/privacy experience desirable. Not an MSc student internship. India-based/non-EU work-permit sponsorship and university leave not guaranteed.",
+      "officialUrl": "https://jobs.inria.fr/public/classic/en/offres/2026-10659",
+      "sourceUrls": [
+        "https://jobs.inria.fr/public/classic/en/offres/2026-10659",
+        "https://team.inria.fr/magnet/how-to-apply/"
+      ],
+      "applicationDocuments": [
+        "Apply on Inria posting",
+        "Follow MAGNET team's application-file instructions; specific required documents not itemized in vacancy"
+      ],
+      "priority": "conditional",
+      "action": "Excellent fairness/privacy research match if graduation timing permits full-time job, but NOT an internship. Confirm work authorization and team document requirements before applying.",
+      "review": "official",
+      "verifiedAt": "2026-11-14",
+      "openStatus": "Official open recruitment page lists future 27 Nov cutoff"
+    },
+    {
+      "id": "epfl-cyd-masters-thesis-rolling",
+      "name": "EPFL CYD Campus Master Thesis Fellowship (Swiss-enrollment restricted)",
+      "host": "EPFL / Swiss Cyber-Defence Campus",
+      "country": "Switzerland",
+      "type": "Rolling funded Master's thesis fellowship — Swiss enrolled students only",
+      "domains": [
+        "AI safety & security",
+        "Privacy & security",
+        "Data-centric ML",
+        "Core ML"
+      ],
+      "deadline": null,
+      "deadlineTime": null,
+      "deadlineTimezone": "Rolling call (no fixed deadline)",
+      "deadlineNote": "Official CYD Master Thesis call is open year-round; no annual cutoff.",
+      "opening": null,
+      "period": "Six months of Swiss master-thesis research",
+      "funding": "CHF 2,500 monthly living allowance for up to six months; research support up to CHF 1,500 subject to approval.",
+      "fundingStatus": "confirmed-allowance-restricted-institution",
+      "fundingCaveats": "Cannot access stipend while enrolled only at an India-based institution; Swiss higher-education enrollment and supervising professor required. Travel, relocation, visas and housing not separately funded. EPFL student payment is salary subject to contributions.",
+      "eligibility": "Not eligible for India-enrolled-only MSc",
+      "eligibilityDetail": "Any nationality, but applicant MUST be enrolled in a Master's program at a university or university of applied sciences IN SWITZERLAND and have a supervisor employed at that Swiss institution. Requires Swiss academic host and project acceptance.",
+      "officialUrl": "https://www.epfl.ch/research/funding/epfl-programmes/cyd/cyd-master/",
+      "sourceUrls": [
+        "https://www.epfl.ch/research/funding/epfl-programmes/cyd/cyd-master/",
+        "https://www.epfl.ch/research/funding/epfl-programmes/cyd/"
+      ],
+      "applicationDocuments": [
+        "English online application via the CYD funding platform",
+        "Stage 1 candidate and topic information; further supervisor endorsement for Stage 2",
+        "Consult official application toolkit for exact attachments"
+      ],
+      "priority": "restricted",
+      "action": "Watch for future Swiss MSc enrollment only; not an accessible external India-enrolled internship. Do not treat all-nationality wording as removing the Swiss institution requirement.",
+      "review": "official",
+      "verifiedAt": "2026-11-14",
+      "openStatus": "Rolling applications open; restricted to Swiss-enrolled MSc candidates"
+    },
+    {
+      "id": "epfl-cyd-doctoral-15th-2027",
+      "name": "EPFL CYD Campus 15th Call: Funded Cyber-Defence PhD Fellowship",
+      "host": "EPFL / Swiss Cyber-Defence Campus and Swiss higher education host",
+      "country": "Switzerland",
+      "type": "Funded doctoral research fellowship — four-year PhD, NOT MSc internship",
+      "domains": [
+        "AI safety & security",
+        "Privacy & security",
+        "Data-centric ML",
+        "Core ML"
+      ],
+      "deadline": "2027-02-25",
+      "deadlineTime": "17:00",
+      "deadlineTimezone": "CET (UTC+1)",
+      "deadlineNote": "Official Stage 1 deadline 25 February 2027 at 17:00 CET; OUTSIDE 90-day window ending 12 February 2027. 15th call opens 3 Dec 2026. Stage 2 date not yet supplied.",
+      "opening": "2026-12-03",
+      "period": "Four years, possible one-year extension",
+      "funding": "Salary contribution based on Swiss host institution pay scale (amount unannounced), research support up to CHF 3,000/year and conference support up to CHF 5,000/year.",
+      "fundingStatus": "funded-phd-host-conditions",
+      "fundingCaveats": "Swiss university doctoral enrollment and professor's endorsement required by Stage 2; doctoral admission, salary level and Swiss visa/relocation are not guaranteed. 15th-call toolkits will be released on 3 Dec 2026.",
+      "eligibility": "Conditional future PhD route — Swiss doctoral enrollment/supervisor",
+      "eligibilityDetail": "Any nationality; eligible applicants must arrange Swiss doctoral enrollment and professor endorsement by Stage 2. Applicants at beginning of or before PhD favored, but MSc enrollment alone does not confer eligibility.",
+      "officialUrl": "https://www.epfl.ch/research/funding/epfl-programmes/cyd/cyd-phd/",
+      "sourceUrls": [
+        "https://www.epfl.ch/research/funding/epfl-programmes/cyd/cyd-phd/",
+        "https://www.epfl.ch/research/funding/epfl-programmes/cyd/"
+      ],
+      "applicationDocuments": [
+        "Stage 1 English pre-proposal and candidate application via official platform",
+        "Updated 15th-call toolkit from 3 Dec 2026",
+        "Supervisor endorsement and Swiss doctoral enrollment confirmation for Stage 2",
+        "Stage 2 full research proposal if shortlisted"
+      ],
+      "priority": "watchlist",
+      "action": "Long-range planning only, not short MSc internship. Watch 3 Dec opening; secure Swiss doctoral host before Stage 2. Stage 1 closes 25 Feb 2027 17:00 CET.",
+      "review": "official",
+      "verifiedAt": "2026-11-14",
+      "openStatus": "Confirmed upcoming call, not open until 3 December 2026"
     }
   ],
   "lastResearchSummary": {
-    "date": "2026-11-13",
+    "date": "2026-11-14",
     "newRecordIDs": [
-      "imec-2026-int-316-worldmodels",
-      "sap-458128-privacy-ai-agents",
-      "togetherai-5238466007-amsterdam-ml27",
-      "imc-4912874101-dl27",
-      "northumbria-ccai-cdt-2027"
+      "inria-2026-10637",
+      "inria-2026-10659",
+      "epfl-cyd-masters-thesis-rolling",
+      "epfl-cyd-doctoral-15th-2027"
     ],
     "materialChanges": [
-      "Added 5 genuinely distinct official-source candidates: imec Leuven world models / JEPA / ML for high-NA EUV master's thesis, conditional fully funded scholarship (6–9 months, rolling); SAP France paid LLM agent privacy research internship (six months, deadline TBA); Together AI Amsterdam paid Model Shaping research internship (May–Sep 2027, deadline TBA, EU visa sponsorship unverified); IMC Amsterdam deep learning research internship (9 weeks, deadline TBA, explicitly requires graduation in 2028); and Northumbria UKRI Citizen-Centred AI doctoral training (11 Jan 2027 17:00 GMT; international-fee funding potentially available).",
-      "imec separate computer-vision defect-inspection project advert contradicts its own 'fully funded scholarship' line with 'Only for self-supporting students'; did not add as CONFIRMED funded, flagged for manual verification and exclusion from recommended funded leads.",
-      "ESA 2027 AI internships published 1 Nov with closing 30 Nov are restricted to eligible ESA Member/Cooperating State nationalities, excluding candidates who hold only Indian nationality; NOT added as generally accessible international MSc internship leads.",
-      "IMC Amsterdam is a genuine paid deep-learning research role with accommodation included, but 2028 expected graduation is mandatory and non-EU work authorization must be verified. Together AI Amsterdam US $58–70/hour pay applies ONLY to US roles; no Netherlands amount asserted.",
-      "CISPA official 2027 page still confirms open, 30 Nov 23:59 AoE, €2,568.80–€2,671.89 gross monthly, enrolled throughout placement, English-medium statement can meet language evidence.",
-      "CaCTüS 2027 dates official: application deadline 16 Nov, no exact clock published; generic 2026 text remains in description.",
-      "RC Trust 31 Dec fully funded up to 90 days. Landing page says form pending; linked JS form exists but direct application endpoint returned 403. Cannot confirm submission readiness.",
-      "Summer@EPFL annual rule-derived 29 Nov remains unconfirmed as a separately announced 2027 application date; Aalto 7–31 Jan and CERN openlab 21 Jan verified unchanged.",
-      "Three previously cataloged Inria research/doctoral job deadlines are today, 13 Nov 2026; their posted closing time is not known. Additional EPFL Life Sciences/RoboTac/IMPRS close 15 Nov and CaCTüS/Inria flow-matching close 16 Nov. Research/salaried employment/PhD routes must remain distinct.",
-      "Only official public program information recorded. No application, email, registration, spending, student documents or personal information written. No tracker HTML/UI edits."
+      "Added Inria Scool RL/JAX research engineer (19 Nov 2026, salaried amount undisclosed, completed graduate degree generally expected): labeled research employment, NOT MSc internship.",
+      "Added Inria MAGNET fairness/privacy ML research engineer (27 Nov 2026, salaried amount undisclosed, completed graduate degree generally expected): labeled research employment, NOT MSc internship.",
+      "Added EPFL CYD rolling Master's thesis fellowship (CHF 2,500/month up to 6 months) with decisive Swiss-university Master's enrollment and Swiss professor requirements: India-enrolled-only MSc INELIGIBLE, despite any-nationality policy.",
+      "Added EPFL CYD 15th-call funded doctoral fellowship: opens 3 Dec 2026, Stage 1 deadline 25 Feb 2027 17:00 CET; outside next 90 days and requires Swiss PhD enrollment/professor endorsement by Stage 2.",
+      "Confirmed CERN openlab and general summer student 2027 both close 21 Jan 2027 at 23:59 Geneva time; CHF 94 net/calendar day, university enrollment for entire summer and academic reference mandatory.",
+      "Confirmed EPFL Life Sciences SRP closes 15 Nov 2026 at 23:59 CET; eligibility limited through first-year MSc in life-sciences related fields, continued enrollment through 5 Jul–27 Aug 2027; essays replace formal CV/motivation.",
+      "Rechecked CaCTüS (16 Nov, clock unpublished, 2027 timeline specific) and CISPA (30 Nov, 23:59 AoE, €2,568.80–€2,671.89/month gross); both require individualized graduation/enrollment checks.",
+      "RC Trust deadline 31 Dec 2026 confirmed fully funded, but landing still says online form being prepared; do not assert applications can be submitted.",
+      "EPFL ERIP 30 Nov 2026 official application open but restricted to specific North American/Singapore partner universities and institutional nomination; India-only enrolment NOT eligible.",
+      "Summer@EPFL remains annual-rule-derived 29 Nov, NOT independently confirmed 2027 portal deadline; 2027 year visible but application timing not separately posted.",
+      "ETH SSRF generic instruction page still displays 2025 deadline, so rely only on verified specific 2027 SiROP record and flag conflict; eligibility requires graduation in 2028 or later.",
+      "EPFL E3 2027 organizer confirms closed (deadline 1 Nov); Max Planck CS summer-start deadline 1 Nov also passed. Exclude from active recommended options.",
+      "Marked 3 previously dated opportunities as closed-by-posted-date; do NOT infer live application portal has been disabled."
     ],
-    "scopeNote": "As-of 13 Nov 2026, official-source verification limited to newly added five programs and selected active priorities; prior entries retain their earlier timestamps. No assurance that unrefreshed vacancies remain open."
+    "scopeNote": "Evidence checked 2026-11-14 against cited official organizers for new records and listed priorities; not all existing 85 records fully revalidated. Official pages do not establish personal eligibility. No application, email, registration, spending, private-data collection or UI edit."
   }
 }
