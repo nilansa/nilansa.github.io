@@ -34,7 +34,7 @@ footer{font-size:13px;color:#555;margin-top:26px}
 <body>
 <header>
 <h1>Blockers</h1>
-<p class="subtle">Last reviewed: 2026-11-15T04:58:32.215Z (GitHub main and served public HTTP 200 checklist/robots.txt checked; current remote Mac read-only access verified through two authorized connections, normal Mac-user Claude/Codex authentication distinguished from isolated agent profiles, and separate desktop/organizer correspondence checked. B-032 marked resolved on verified remote-access restoration only. GUI sessions, native permission prompts, individual research jobs and authenticated competition-submission status remain unverified. Other entries retain their dated evidence.)</p>
+<p class="subtle">Last reviewed: 2026-11-15T09:33:50.115Z (GitHub source and separate public HTTP 200 checklist/robots.txt verified. Two existing Mac remote connections timed out and later reported offline; another established Mac terminal service could not reach its tunnel client. A separate connected desktop was reachable and its Codex CLI authenticated. B-033 records the currently confirmed remote-inspection interruption without inferring a pending HUMAN approval, a stopped research job, or a Mac login failure. Other blockers retain their own dated evidence; authenticated competition dashboards and Mac-local GUI prompts remain unverified.)</p>
 <p>Each item tells you <strong>what is blocked</strong>, <strong>who acts</strong>, and the <strong>next exact steps</strong>. <strong>Confirmed</strong> means checked; <strong>Reported</strong> means someone observed it but a fresh check is still needed; <strong>Verify</strong> means completion is not established.</p>
 <nav aria-label="Page sections"><a href="#your-actions">Your actions</a><a href="#agent-actions">Agent or service</a><a href="#new-blocker">Add a blocker</a><a href="/tracker/">Main tracker</a></nav>
 </header>
@@ -159,6 +159,20 @@ footer{font-size:13px;color:#555;margin-top:26px}
 <p><a href="https://nvidia-av-causal-scenario-retrieval-challenge.hf.space/">Official challenge and rules</a> · <a href="https://nvidia-av-causal-scenario-retrieval-challenge.hf.space/participate">Team participation portal</a></p>
 </section>
 <h2 id="agent-actions">Agent or service blockers (do not require blind approval)</h2>
+
+<section class="item" id="B-033">
+<h3>B-033 · Mac research remote inspection unavailable again; agent reconnection check</h3>
+<p><strong>Project:</strong> Remote inspection of Mac-hosted Claude Science, Claude Code, Codex and in-flight competition/research jobs. <strong>Confirmed (15 Nov 2026, 2026-11-15T09:33:50.115Z):</strong> Fresh harmless read-only commands to two existing authorized Mac remote connections timed out. Their remote-device views subsequently reported the Mac connection offline; a separately connected terminal service reported its existing tunnel client had not checked in for more than five minutes. The separate desktop remained reachable, reported an authenticated Codex CLI, and returned HTTP 200 for this public checklist and robots.txt. <strong>Actual blocker:</strong> The AGENT cannot currently verify Mac-local process, login, permission or research-job state through these remote connections. This is a new interruption following the separately verified access restoration recorded in <a href="#B-032">B-032</a>; it does not negate that earlier historical check. <strong>Verify:</strong> Whether the Mac itself, its network, or the remote-agent relays caused the interruption, and whether any research job stopped, is unknown. No current macOS permission prompt or HUMAN sign-in request was established. <strong>Owner:</strong> AGENT for connection recovery checks; HUMAN only if a specific trusted Mac-local authorization request is subsequently verified.</p>
+<ol>
+<li><strong>AGENT:</strong> Recheck the <a href="https://mcp.desktopcommander.app/">existing authorized remote-device dashboard</a>. Use an existing Mac entry that is freshly online, not an old duplicate registration; do not create another device or reset a working account.</li>
+<li><strong>AGENT:</strong> After a fresh online status, attempt one harmless read-only command such as <code>date</code>. If it succeeds, independently check the specific active Claude Science/Claude Code/Codex session and its exact authentication, errors and job outcome. Do not infer session health solely from a heartbeat or process name.</li>
+<li><strong>AGENT:</strong> If the connection still fails, distinguish a machine/network outage from an agent-tunnel failure through other already-authorized channels. Do not restart tasks or force a login, and do not claim that a macOS privacy/security approval is pending without observing its actual prompt.</li>
+<li><strong>HUMAN, only if a concrete trusted app permission or sign-in request is verified later:</strong> Personally inspect the Mac and follow the existing <a href="#B-002">macOS permission guidance</a> or the official application's sign-in flow. Never share access codes, tokens or private callbacks.</li>
+<li><strong>AGENT:</strong> Mark this new interruption resolved only after a new successful read-only Mac command. Separately verify any affected research-job state and keep the prior <a href="#B-032">B-032 restoration</a> as dated history.</li>
+</ol>
+<p><a href="https://mcp.desktopcommander.app/">Authorized remote-device status</a> · <a href="#B-001">Claude/Codex profile-specific checks</a> · <a href="#B-002">Mac permission instructions</a> · <a href="#B-032">Earlier verified restoration</a></p>
+</section>
+
 
 
 
