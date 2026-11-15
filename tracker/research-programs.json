@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOf": "2026-11-14",
+  "asOf": "2026-11-15",
   "heading": "Europe-wide paid AI/ML research opportunities for international Master's students",
   "scope": "European universities and research institutes; paid employment, stipend or funded living costs; all AI/ML fields. Program admission and visa rules always prevail.",
   "safety": "Public program facts only. No applicant identity, application status, documents or private notes. A source-backed candidate is not an application or eligibility approval.",
@@ -11,7 +11,7 @@
     "sourcePrecedence": "Current official program page over aggregators; explicitly flag conflicts with old organizer portals and subpages",
     "eligibility": "conditional until graduation date, nationality, current enrolment and project rules are checked",
     "deadlineTimezone": "Exact time only when published; unknown remains null/TBA",
-    "verification": "2026-11-14: Reread GitHub catalog + SHA; fresh official-source rechecks of CISPA CSR, CaCTüS, CERN openlab/general, RC Trust, Aalto, EPFL Summer@EPFL, Life Sciences SRP, Excellence Research Internship (partner-only), CYD fellowships, and new Inria Scool/MAGNET research-engineering vacancies. Prior records retain earlier verifiedAt when unreviewed. Deadlines beyond 90 days/rolling kept separately. Date-based closure doesn't prove portal disabled."
+    "verification": "2026-11-15: Fresh official-source checks of university/institute research programs across UK, Switzerland, Germany, Finland and Austria. Added separate Edinburgh MLSystems, Imperial PAIR, Oxford EIT Fundamentals of AI 2027 doctoral records (distinguishing conditional funding and applications not yet open). Updated ISTA scientific internships and confirmed central ISTernship fellowship PAUSED 2027. Rechecked CaCTüS, CISPA, CERN openlab, Aalto, RC Trust, EPFL Life Sciences, IMPRS and ISTA PhD. Existing other records retain their prior verifiedAt; counts should not be described as fully confirmed personal-eligibility matches."
   },
   "domains": [
     "Speech & audio",
@@ -43,7 +43,7 @@
         "Neuroscience"
       ],
       "deadline": "2026-11-16",
-      "deadlineNote": "Official 2027 timeline confirms 21 Oct 2026 opening, 16 Nov 2026 application cutoff, 1 Jul–30 Sep 2027 internship. Generic site copy still says summer 2026. Deadline exact hour NOT published.",
+      "deadlineNote": "Official program homepage 2027 timeline says portal opened 21 Oct 2026; application closes 16 Nov 2026 (exact clock time not specified); runs 1 Jul–30 Sep 2027. Some generic description still mentions summer 2026.",
       "period": "July–September 2027",
       "funding": "Approximately €1,350 per month for July–September 2027, intended to cover housing, living expenses and health insurance; travel compensated",
       "eligibility": "Potential match",
@@ -53,7 +53,7 @@
       "action": "URGENT (16 Nov): official 2027-specific portal says open, but 2026 generic text remains on the site. Check project enrollment through Oct 2027, availability and correct official 2027 submission form. CV, transcripts and personal research statement needed.",
       "review": "recheck",
       "opening": "2026-10-21",
-      "verifiedAt": "2026-11-14",
+      "verifiedAt": "2026-11-15",
       "deadlineTime": null,
       "deadlineTimezone": "Not published",
       "fundingCaveats": "Housing is organized but paid from the salary, NOT free additional funding. Visa/embassy fees and related travel are NOT reimbursed. Exact net sum/tax/insurance terms must be confirmed.",
@@ -66,7 +66,7 @@
       "sourceUrls": [
         "https://projects.tuebingen.mpg.de/"
       ],
-      "openStatus": "Official 2027 homepage says apply now; conflicting generic 2026 copy persists"
+      "openStatus": "Official 2027 timeline confirms application open through 16 Nov 2026; generic page continues to reference 2026 places."
     },
     {
       "id": "epfl-summer27",
@@ -130,10 +130,10 @@
       "action": "Applications OPEN. Prepare English transcripts, bachelor's certificate, 1–2 page CV and motivation, and an English assessment or statement. Check continued summer 2027 enrollment.",
       "review": "official",
       "opening": null,
-      "verifiedAt": "2026-11-14",
+      "verifiedAt": "2026-11-15",
       "deadlineTime": "23:59",
       "deadlineTimezone": "AoE (UTC−12)",
-      "openStatus": "Official 2027 organizer page explicitly says applications are OPEN on 13 November 2026; closes 30 November 2026 at 23:59 AoE.",
+      "openStatus": "2027 call officially OPEN; applications close 30 Nov 2026 23:59 Anywhere on Earth.",
       "fundingCaveats": "Gross before German taxes; travel, housing and visa cost coverage not published on main CSR page. Check net budget.",
       "applicationDocuments": [
         "1–2 page motivation letter",
@@ -212,10 +212,10 @@
       "action": "Check the actual online form before relying on availability; official parent text says under preparation and direct PHP backend returned 403 to automation. E-mail applications are NOT accepted.",
       "review": "recheck",
       "opening": null,
-      "verifiedAt": "2026-11-14",
+      "verifiedAt": "2026-11-15",
       "deadlineTime": null,
       "deadlineTimezone": "Not stated",
-      "openStatus": "Direct online application-form link exists but PHP endpoint returned HTTP 403 to automated fetch on 13 November 2026; main official program page still says form under preparation. Submission functionality NOT confirmed.",
+      "openStatus": "Official parent pages as of 15 Nov 2026 still say 2027 application form 'coming soon' / under preparation. 31 Dec closing date verified; submission readiness NOT verified.",
       "applicationDocuments": [
         "Online form only (details/document list not yet published)",
         "Group/research-interest choice likely required; confirm form once available"
@@ -223,7 +223,8 @@
       "fundingCaveats": "Travel, accommodation and living costs covered. Exact allowance, visa fees, insurance and reimbursement procedure not given; ask after selection.",
       "sourceUrls": [
         "https://rc-trust.ai/career/internship-program",
-        "https://rc-trust.ai/career/internship-program/application-form"
+        "https://rc-trust.ai/career/internship-program/application-form",
+        "https://rc-trust.ai/career/internship-program-1"
       ]
     },
     {
@@ -243,7 +244,7 @@
       "deadline": "2027-01-31",
       "deadlineNote": "Official 2027 application opens 7 Jan; deadline 31 Jan 2027 at 23:59 UTC+2. Research-project list expected in December.",
       "period": "June–August 2027, around 12 weeks",
-      "funding": "From €2,000/month gross salary + €400 within-Europe / €800 outside-Europe travel bonus",
+      "funding": "Salaried 12-week full-time research-assistant employment, starting at €2,000+ per month depending on years of study; travel bonus €400 (inside Europe) / €800 (outside Europe), assistance finding low-cost housing.",
       "eligibility": "Potential match",
       "eligibilityDetail": "Worldwide BSc/MSc students; exceptional PhD applicants considered. Full-time on-site employment for ~12 weeks; individual project and hiring/visa requirements apply.",
       "officialUrl": "https://www.aalto.fi/en/aalto-university-science-institute-asci/aalto-university-science-institute-international-summer-research-programme",
@@ -251,11 +252,11 @@
       "action": "Request a reference letter early, review projects ~10 Dec 2026, apply Jan 7–31 (up to 3 projects; one combined PDF).",
       "review": "official",
       "opening": "2027-01-07",
-      "verifiedAt": "2026-11-14",
+      "verifiedAt": "2026-11-15",
       "deadlineTime": "23:59",
       "deadlineTimezone": "UTC+2 (Finland; as explicitly published for Jan 2027)",
-      "openStatus": "2027 projects expected ~10 Dec 2026; official application portal opens 7 Jan 2027 and closes 31 Jan 23:59 UTC+2.",
-      "fundingCaveats": "Aalto assists finding student housing but doesn't promise free accommodation. Travel bonus is not full airfare reimbursement. Salary taxation depends on Finnish rules.",
+      "openStatus": "2027 application opens 7 Jan and closes 31 Jan 2027 at 23:59 UTC+2; projects expected mid December 2026.",
+      "fundingCaveats": "Travel bonus is limited to €400/€800, not guaranteed full airfare reimbursement. Housing is not free, and visa/insurance costs are not explicitly promised.",
       "applicationDocuments": [
         "Academic CV",
         "Transcripts",
@@ -291,8 +292,8 @@
       "action": "NEW OPENING: prepare one recent referee letter, student certificate and complete official 2027 portal. Strong AI systems/ML for science opportunity.",
       "review": "official",
       "opening": "2026-11-06",
-      "verifiedAt": "2026-11-14",
-      "openStatus": "Official CERN careers page has Apply now, 2027 call confirmed open",
+      "verifiedAt": "2026-11-15",
+      "openStatus": "Official 2027 CERN openlab computing summer programme vacancy live, 21 Jan 2027 before 23:59 Geneva time; 94 CHF net/day, conditional travel help, enrollment throughout.",
       "fundingCaveats": "CHF 94 per calendar day net allowance with health cover; travel depends on circumstances, accommodation search assistance only (housing not included), requires 6 semesters completed and student enrollment throughout.",
       "applicationDocuments": [
         "CV",
@@ -323,24 +324,25 @@
       "deadline": null,
       "deadlineNote": "Rolling year-round; contact target lab ≥4 months before preferred start; portal registration at least 2 months before internship.",
       "period": "2–12 months, individually arranged",
-      "funding": "At least €1,583 gross/month salary, contingent on group funding and approval",
+      "funding": "ISTA scientific intern salary, only if research group funding and formal approval are available; exact amount not published",
       "eligibility": "Potential match",
-      "eligibilityDetail": "Current or recent BSc/MSc in computer/natural science, mathematics or related, good English and research group fit; placement depends on faculty funding, approval and research security rules.",
-      "officialUrl": "https://phd.ist.ac.at/scientific-internships/",
+      "eligibilityDetail": "Current or recent BSc/MSc holders in relevant sciences, mathematics or CS may seek 2–12 months of scientific research. Contact a suitable research group directly; actual employment depends on supervisor selection, salary funding and formal Academic Affairs approval. No central annual internship award is guaranteed.",
+      "officialUrl": "https://phd.ista.ac.at/scientific-internships/",
       "priority": "medium",
       "action": "Target relevant faculty and request non-summer start ≥4 months out. Do not confuse with paused ISTernship Summer Fellowship (paused for 2026 and 2027).",
       "review": "official",
       "opening": null,
-      "verifiedAt": "2026-11-09",
-      "openStatus": "Rolling direct contact with PI, appointments subject to host group funding and approval",
-      "fundingCaveats": "Salary is minimum €1,583 gross/month; campus housing is subject to availability and is paid separately. Must not receive simultaneous employment or outside funding; research security review and visa apply.",
+      "verifiedAt": "2026-11-15",
+      "openStatus": "Year-round PI-led applications; summer ISTernship fellowship is separately PAUSED for 2026 and 2027, not an alternative route.",
+      "fundingCaveats": "PI invitation, salary budget and institutional approval required. Travel, accommodation and visa expenses not established as covered.",
       "applicationDocuments": [
         "Direct email to group leader or staff scientist with concise background and lab-specific motivation",
         "CV PDF",
         "Preferred dates at least two months ahead"
       ],
       "sourceUrls": [
-        "https://phd.ist.ac.at/scientific-internships/"
+        "https://phd.ista.ac.at/scientific-internships/",
+        "https://phd.pages.ista.ac.at/internships/"
       ],
       "deadlineTime": null,
       "deadlineTimezone": "TBA / rolling"
@@ -633,7 +635,7 @@
       "deadline": "2027-01-08",
       "deadlineTime": "15:00",
       "deadlineTimezone": "CET (UTC+1)",
-      "deadlineNote": "NEW official 2027 PhD admissions open; applicant deadline 8 Jan 2027 15:00 CET; referee letters due 12 Jan at 23:59 CET",
+      "deadlineNote": "Official 2027 admissions call OPEN; candidate applications by 8 Jan 2027 15:00 CET; referee letters by 12 Jan 2027 23:59 CET.",
       "opening": "2026-10",
       "period": "PhD starting 15 September 2027; multiple years",
       "funding": "Fully employed funded PhD; 2026 gross monthly salaries €3,053–€3,673 paid 14 times/year (2027 rate TBA)",
@@ -650,13 +652,14 @@
       "officialUrl": "https://phd.pages.ista.ac.at/phd-application-admission/",
       "sourceUrls": [
         "https://phd.pages.ista.ac.at/phd-application-admission/",
-        "https://phd.ist.ac.at/funding-and-awards/"
+        "https://phd.ist.ac.at/funding-and-awards/",
+        "https://phd.pages.ista.ac.at/phd-program-overview/"
       ],
-      "openStatus": "Open",
+      "openStatus": "Official PhD 2027 portal is NOW OPEN; deadline 8 Jan 2027 15:00 CET, referees 12 Jan 2027 23:59 CET.",
       "priority": "optional",
       "review": "official",
       "action": "Optional 2027 paid PhD path. Apply only if transitioning to doctorate in Sep 2027 and can arrange THREE academic referees.",
-      "verifiedAt": "2026-11-04"
+      "verifiedAt": "2026-11-15"
     },
     {
       "id": "epfl-erip-2027",
@@ -795,7 +798,7 @@
       "action": "URGENT 10 days: if strong robotics + PyTorch fit, verify employer identity and compensation/immigration arrangements; apply only if interested in industrial research. CV with photo, one-page cover letter, BSc/MSc transcripts in one PDF via lab's published email (not sent by tracker).",
       "review": "official",
       "opening": null,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "deadlineTime": null,
       "deadlineTimezone": "Not published",
       "fundingCaveats": "Source is the research lab's own website, not an independently verified BMW/TU Eindhoven HR job advertisement. 'Fully funded' and 'attractive remuneration' are unquantified. Housing in BMW apartment subject to availability; visa/travel unknown.",
@@ -809,7 +812,7 @@
       "sourceUrls": [
         "https://www.robotac.eu/open-positions"
       ],
-      "openStatus": "October 2026 lab notice currently advertises 15 Nov cutoff"
+      "openStatus": "Posted application deadline is TODAY 15 Nov 2026; exact clock/timezone and portal status not reverified today."
     },
     {
       "id": "imprs-is-phd27",
@@ -838,7 +841,7 @@
       "action": "URGENT 10 days: apply only if aiming to join a PhD from 2027. Requires CV, all transcripts, two-page motivation, preferred supervisors, THREE reference contacts and English proficiency evidence. Written research ideas must be applicant's own work.",
       "review": "official",
       "opening": "2026-09",
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "deadlineTime": "23:59",
       "deadlineTimezone": "AoE (UTC−12)",
       "fundingCaveats": "Funded doctoral employment; compensation amount not published. School states applicant ideas must be their own; AI may be used only for language clarity, not novel substantive content.",
@@ -854,7 +857,7 @@
       "sourceUrls": [
         "https://imprs.is.mpg.de/application"
       ],
-      "openStatus": "Application portal open for 2027 hiring"
+      "openStatus": "Official doctoral 2027 call closes TODAY 15 Nov 2026 end-of-day AoE; distinct fully funded doctoral recruitment, not MSc internship."
     },
     {
       "id": "eth-robotx-phd27",
@@ -3336,31 +3339,151 @@
       "review": "official",
       "verifiedAt": "2026-11-14",
       "openStatus": "Confirmed upcoming call, not open until 3 December 2026"
+    },
+    {
+      "deadlineTime": "23:59",
+      "deadlineTimezone": "UK local time presumed; timezone abbreviation not specified on official deadline table",
+      "opening": "2026-10-05",
+      "verifiedAt": "2026-11-15",
+      "review": "official",
+      "sourceUrls": [
+        "https://informatics.ed.ac.uk/cdt-in-machine-learning-systems",
+        "https://informatics.ed.ac.uk/cdt-in-machine-learning-systems/apply/application-process-and-guidance/application-deadlines",
+        "https://informatics.ed.ac.uk/cdt-in-machine-learning-systems/apply/funding-details",
+        "https://informatics.ed.ac.uk/cdt-in-machine-learning-systems/apply/eligibility-and-entry-requirements",
+        "https://informatics.ed.ac.uk/cdt-in-machine-learning-systems/apply/application-process-and-guidance/application-guidance"
+      ],
+      "applicationDocuments": [
+        "Stage 1 online form including higher-education record, research experience and proposed research/supervisors",
+        "Stage 2 if invited: 2–5 page research proposal",
+        "Academic CV (maximum 3 pages)",
+        "Transcripts and certificates; English translations where needed",
+        "Two academic/professional references",
+        "English proficiency evidence by offer deadline if not exempt"
+      ],
+      "fundingCaveats": "International university-fee differential is covered, but visa, immigration health surcharge, flights and relocation are NOT funded. International awards are limited (~3/cohort). Enhanced TechExpert stipend is for home applicants, not assumed for overseas.",
+      "openStatus": "Official 2027 Round 1 applications OPEN; first-stage deadline 14 December 2026",
+      "id": "edinburgh-mlsystems-cdt27",
+      "name": "University of Edinburgh MLSystems CDT 2027 — International Round 1",
+      "host": "University of Edinburgh, School of Informatics / UKRI EPSRC CDT",
+      "country": "United Kingdom",
+      "type": "Fully funded doctoral training (PhD; not an MSc internship)",
+      "domains": [
+        "Core ML",
+        "Systems",
+        "Foundation models",
+        "AI safety & security",
+        "AI for science"
+      ],
+      "deadline": "2026-12-14",
+      "deadlineNote": "Official Round 1 Stage-1 form closes 14 Dec 2026 23:59; all nationalities. Only selected Stage-1 applicants submit EUCLID by 21 Jan 2027 23:59. Round 2 closes 15 Mar 2027 and is HOME-only. Source does not state timezone abbreviation for stage deadlines.",
+      "period": "September 2027 entry; four years (48 months)",
+      "funding": "UKRI-rate living stipend (£21,805/year in 2026/27), full home OR overseas tuition (Edinburgh pays international difference), and at least £6,000 research expenses; 4 years funded",
+      "eligibility": "Post-MS doctoral route; international eligible subject to admissions and limited places",
+      "eligibilityDetail": "Open to any nationality, including India-based Master's students, for PhD entry; relevant UK 2:1-equivalent degree or research experience. International students capped at a maximum of ~3 per ~12-student cohort according to official eligibility page (actual appointments may vary). English qualification required by offer stage unless an approved English-medium-degree exception applies; approved-university list applies to non-majority-English-speaking countries. Non-EU applicants may require ATAS. A current MSc alone does not guarantee admission.",
+      "officialUrl": "https://informatics.ed.ac.uk/cdt-in-machine-learning-systems/apply/application-process-and-guidance/application-deadlines",
+      "priority": "high",
+      "action": "Prepare Stage-1 research and supervisor fit by 14 Dec; if shortlisted, submit Stage-2 research proposal, CV, transcript/certificates and two references by 21 Jan. Confirm English exemption/IELTS/TOEFL conditions and fee/ATAS paperwork."
+    },
+    {
+      "deadlineTime": null,
+      "deadlineTimezone": "Not published",
+      "opening": null,
+      "verifiedAt": "2026-11-15",
+      "review": "official",
+      "sourceUrls": [
+        "https://www.imperial.ac.uk/pair-lab/join-us/",
+        "https://www.imperial.ac.uk/computing/prospective-students/courses/phd/phd-application-guidelines/"
+      ],
+      "applicationDocuments": [
+        "Imperial Computing PhD application",
+        "HRI research proposal tailored to lab's enumerated projects",
+        "Academic CV and degree transcripts (verify college application checklist)",
+        "References and English proof if required by Imperial admissions"
+      ],
+      "fundingCaveats": "The lab advertises three 'fully funded' positions but warns offers can be conditional on funding; exact overseas fee coverage, stipend, visa/IHS, flights and relocation not published. No funding for its separate visiting-student program.",
+      "openStatus": "2027 PhD recruitment advertised by official Imperial PAIR lab",
+      "id": "imperial-pair-hri-phd27",
+      "name": "Imperial PAIR Lab: Human–Robot Interaction PhD Studentships 2027",
+      "host": "Imperial College London — Personal, Assistive, and Intelligent Robotics Lab",
+      "country": "United Kingdom",
+      "type": "Potentially fully funded lab-specific doctoral positions (PhD; not a Master's internship)",
+      "domains": [
+        "Robotics",
+        "AI agents & memory",
+        "Interdisciplinary AI",
+        "Core ML"
+      ],
+      "deadline": "2026-12-01",
+      "deadlineNote": "Official lab page gives 1 Dec 2026 deadline for three fully funded HRI PhD studentships starting September 2027; exact time and timezone not published. Same page cautions that offers may be conditional on securing funding; obtain written award details.",
+      "period": "September 2027 PhD entry; duration not specified on PAIR vacancy page",
+      "funding": "Three advertised fully funded PhD opportunities; stipend amount, tuition coverage details and years of funding not stated on lab posting; admission offers may be conditional on funding",
+      "eligibility": "Post-MS doctoral route; funding confirmation required",
+      "eligibilityDetail": "Official lab says home and international applicants can apply. Research topics are group user modeling, group dynamics and social human–robot interaction, NOT general SLAM, robot control or standalone computer vision. A completed degree satisfying Imperial PhD admission and research alignment is required; an MSc is not itself eligibility proof. Visa conditions and language-test rules not specified on lab page.",
+      "officialUrl": "https://www.imperial.ac.uk/pair-lab/join-us/",
+      "priority": "conditional",
+      "action": "Read PAIR research papers, prepare original HRI PhD proposal and apply via Imperial Computing PhD route by 1 December; set Proposed Research Topic='HRI PhD Studentships' and Proposed Research Supervisor='Nicole Salomons'; confirm funding offer before committing."
+    },
+    {
+      "deadlineTime": "12:00",
+      "deadlineTimezone": "UK local time (GMT in January)",
+      "opening": null,
+      "verifiedAt": "2026-11-15",
+      "review": "official",
+      "sourceUrls": [
+        "https://www.ox.ac.uk/admissions/graduate/courses/cdt-fundamentals-of-artificial-intelligence",
+        "https://www.maths.ox.ac.uk/node/74472"
+      ],
+      "applicationDocuments": [
+        "Check revised 2027 portal when opened for mandatory references, transcripts, statements and English qualification",
+        "No application or fee payment before funding and eligibility check"
+      ],
+      "fundingCaveats": "Not every admitted student receives a fully funded award. Overseas course fee £36,260/year in 2027–28 if unfunded; living expenses, visa and IHS may be extra. 2027 scholarship amount and overseas award split not confirmed.",
+      "openStatus": "Official 2027–28 course page states Opening Soon; application not yet available",
+      "id": "oxford-eit-foai-cdt27-watch",
+      "name": "Oxford EIT Fundamentals of AI CDT 2027 (Opening Soon)",
+      "host": "University of Oxford / Ellison Institute of Technology",
+      "country": "United Kingdom",
+      "type": "Potentially fully funded research-based doctoral training (DPhil; 2027 call not yet open)",
+      "domains": [
+        "Core ML",
+        "Foundation models",
+        "Systems",
+        "AI safety & security",
+        "AI for science",
+        "Vision & multimodal",
+        "Theoretical ML"
+      ],
+      "deadline": "2027-01-06",
+      "deadlineNote": "University 2027–28 course page shows Wed 6 January 2027 12:00 UK, but says 'Opening Soon'; course description contains some 2026–27 material and will be updated when admissions open. Do NOT claim currently accepting applications.",
+      "period": "2027–28 entry, four-year DPhil",
+      "funding": "University expects majority of offer holders to also obtain full scholarships covering course fees and a living stipend; this is NOT automatic for every offer. Exact stipend not stated on 2027 page.",
+      "eligibility": "2027 admissions watchlist; MSc applicant eligibility and award contingent",
+      "eligibilityDetail": "Research-focused DPhil in AI theory, foundational models, multimodal methods, and efficient AI systems. International applicants can seek admission subject to Oxford entry and any scholarship terms; 2027 course opening is not yet live. English-language requirement is Oxford 'Higher level'. Master's enrollment itself does not establish individual eligibility.",
+      "officialUrl": "https://www.ox.ac.uk/admissions/graduate/courses/cdt-fundamentals-of-artificial-intelligence",
+      "priority": "watch",
+      "action": "Watch official 2027–28 admissions opening and current requirements; prepare academic research materials/references but do not treat course as accepting applications yet."
     }
   ],
   "lastResearchSummary": {
-    "date": "2026-11-14",
+    "date": "2026-11-15",
     "newRecordIDs": [
-      "inria-2026-10637",
-      "inria-2026-10659",
-      "epfl-cyd-masters-thesis-rolling",
-      "epfl-cyd-doctoral-15th-2027"
+      "edinburgh-mlsystems-cdt27",
+      "imperial-pair-hri-phd27",
+      "oxford-eit-foai-cdt27-watch"
     ],
     "materialChanges": [
-      "Added Inria Scool RL/JAX research engineer (19 Nov 2026, salaried amount undisclosed, completed graduate degree generally expected): labeled research employment, NOT MSc internship.",
-      "Added Inria MAGNET fairness/privacy ML research engineer (27 Nov 2026, salaried amount undisclosed, completed graduate degree generally expected): labeled research employment, NOT MSc internship.",
-      "Added EPFL CYD rolling Master's thesis fellowship (CHF 2,500/month up to 6 months) with decisive Swiss-university Master's enrollment and Swiss professor requirements: India-enrolled-only MSc INELIGIBLE, despite any-nationality policy.",
-      "Added EPFL CYD 15th-call funded doctoral fellowship: opens 3 Dec 2026, Stage 1 deadline 25 Feb 2027 17:00 CET; outside next 90 days and requires Swiss PhD enrollment/professor endorsement by Stage 2.",
-      "Confirmed CERN openlab and general summer student 2027 both close 21 Jan 2027 at 23:59 Geneva time; CHF 94 net/calendar day, university enrollment for entire summer and academic reference mandatory.",
-      "Confirmed EPFL Life Sciences SRP closes 15 Nov 2026 at 23:59 CET; eligibility limited through first-year MSc in life-sciences related fields, continued enrollment through 5 Jul–27 Aug 2027; essays replace formal CV/motivation.",
-      "Rechecked CaCTüS (16 Nov, clock unpublished, 2027 timeline specific) and CISPA (30 Nov, 23:59 AoE, €2,568.80–€2,671.89/month gross); both require individualized graduation/enrollment checks.",
-      "RC Trust deadline 31 Dec 2026 confirmed fully funded, but landing still says online form being prepared; do not assert applications can be submitted.",
-      "EPFL ERIP 30 Nov 2026 official application open but restricted to specific North American/Singapore partner universities and institutional nomination; India-only enrolment NOT eligible.",
-      "Summer@EPFL remains annual-rule-derived 29 Nov, NOT independently confirmed 2027 portal deadline; 2027 year visible but application timing not separately posted.",
-      "ETH SSRF generic instruction page still displays 2025 deadline, so rely only on verified specific 2027 SiROP record and flag conflict; eligibility requires graduation in 2028 or later.",
-      "EPFL E3 2027 organizer confirms closed (deadline 1 Nov); Max Planck CS summer-start deadline 1 Nov also passed. Exclude from active recommended options.",
-      "Marked 3 previously dated opportunities as closed-by-posted-date; do NOT infer live application portal has been disabled."
+      "Added Edinburgh Machine Learning Systems CDT: 2027 Round 1 open all nationalities; Stage 1 14 Dec 2026 23:59 (time zone not specified); Stage 2 invitation-only 21 Jan 2027. Covers international tuition + UKRI stipend + research costs, but not immigration, IHS or flights. Up to ~3 international offers per cohort under stated caps.",
+      "Added Imperial College PAIR lab 2027 HRI PhD: 3 advertised fully funded international/home openings, 1 Dec 2026; funding amount and actual award remain conditional per same lab page.",
+      "Added Oxford EIT Fundamentals of AI research-based DPhil 2027 watchlist: 6 Jan 2027 noon UK listed, 2027 course page says Opening Soon; majority but not all offers expected funded.",
+      "Official ISTA Summer ISTernship fellowship is paused for 2026 AND 2027 (one older section of the program page still mentions late 2026 future update); year-round scientific internships stay available, PI-led and subject to salary funds.",
+      "ISTA 2027 PhD officially open: 8 Jan 2027 at 15:00 CET, referees by 12 Jan 2027 at 23:59 CET.",
+      "Aalto 2027 AScI salaries confirmed from official page: €2,000+/month + limited €400/€800 travel bonus, not full relocation coverage; applications 7–31 Jan 2027.",
+      "EPFL Life Sciences applications close 15 Nov 2026 23:59 CET; for eligible LIFE SCIENCES applicants through first MSc year, not general CS-only applicants.",
+      "CaCTüS applications close 16 Nov 2026, exact time unpublished; generic site wording still says summer 2026 but 2027 timeline is clear.",
+      "CISPA 2027 and CERN openlab 2027 reverified open. RC Trust parent page still states application form coming soon despite 31 Dec 2026 deadline.",
+      "No application, email or personal information shared; GitHub Pages accessibility not confirmed."
     ],
-    "scopeNote": "Evidence checked 2026-11-14 against cited official organizers for new records and listed priorities; not all existing 85 records fully revalidated. Official pages do not establish personal eligibility. No application, email, registration, spending, private-data collection or UI edit."
+    "scopeNote": "Evidence rechecked 2026-11-15 for the listed records; not all 92 entries were individually reverified today. 71 catalog entries have posted or provisional deadlines dated 2026-11-15 through 2027-02-13, 23 within 14 days, 5 past; totals include eligibility-restricted, salary-undisclosed and doctoral programs. Closed-by-date does not establish a disabled application portal."
   }
 }
