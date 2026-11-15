@@ -11,7 +11,7 @@
     "sourcePrecedence": "Current official program page over aggregators; explicitly flag conflicts with old organizer portals and subpages",
     "eligibility": "conditional until graduation date, nationality, current enrolment and project rules are checked",
     "deadlineTimezone": "Exact time only when published; unknown remains null/TBA",
-    "verification": "2026-11-15: Fresh official-source checks of university/institute research programs across UK, Switzerland, Germany, Finland and Austria. Added separate Edinburgh MLSystems, Imperial PAIR, Oxford EIT Fundamentals of AI 2027 doctoral records (distinguishing conditional funding and applications not yet open). Updated ISTA scientific internships and confirmed central ISTernship fellowship PAUSED 2027. Rechecked CaCTüS, CISPA, CERN openlab, Aalto, RC Trust, EPFL Life Sciences, IMPRS and ISTA PhD. Existing other records retain their prior verifiedAt; counts should not be described as fully confirmed personal-eligibility matches."
+    "verification": "2026-11-15: Fresh official-source checks of university/institute research programs across UK, Switzerland, Germany, Finland and Austria. Added separate Edinburgh MLSystems, Imperial PAIR, Oxford EIT Fundamentals of AI 2027 doctoral records (distinguishing conditional funding and applications not yet open). Updated ISTA scientific internships and confirmed central ISTernship fellowship PAUSED 2027. Rechecked CaCTüS, CISPA, CERN openlab, Aalto, RC Trust, EPFL Life Sciences, IMPRS and ISTA PhD. Existing other records retain their prior verifiedAt; counts should not be described as fully confirmed personal-eligibility matches. Oxford EIT portal remains Opening Soon; Edinburgh official max-international-seat statement conflicts with its published prior recruitment statistics."
   },
   "domains": [
     "Speech & audio",
@@ -516,7 +516,7 @@
       ],
       "deadline": "2026-11-15",
       "deadlineTime": "23:59",
-      "deadlineTimezone": "CET",
+      "deadlineTimezone": "CET (UTC+1)",
       "deadlineNote": "NEW official 2027 open call; closes 15 Nov 2026 at 23:59 CET",
       "opening": null,
       "period": "5 July–27 August 2027 (8 weeks fixed)",
@@ -533,13 +533,14 @@
       "officialUrl": "https://www.epfl.ch/schools/sv/education/summer-research-program/how-to-apply/",
       "sourceUrls": [
         "https://www.epfl.ch/schools/sv/education/summer-research-program/how-to-apply/",
-        "https://www.epfl.ch/schools/sv/education/summer-research-program/faqs/"
+        "https://www.epfl.ch/schools/sv/education/summer-research-program/faqs/",
+        "https://www.epfl.ch/schools/sv/education/summer-research-program/program-description/"
       ],
-      "openStatus": "2027 applications open",
+      "openStatus": "2027 LIFE SCIENCES summer program applications OPEN as of 15 Nov 2026; deadline TODAY 15 Nov 23:59 CET. Applicant must be in specified life-science-related degree through first year of Master's; form cannot be saved midway; referee notified only after submission.",
       "priority": "urgent-conditional",
       "review": "official",
       "action": "URGENT 11 days. Only if first-year MSc plus life-science courses; choose labs e.g. NeuroAI, computational neuroscience, biomedical imaging; secure referee NOW.",
-      "verifiedAt": "2026-11-14"
+      "verifiedAt": "2026-11-15"
     },
     {
       "id": "nxai-cycle4-2027",
@@ -3342,7 +3343,7 @@
     },
     {
       "deadlineTime": "23:59",
-      "deadlineTimezone": "UK local time presumed; timezone abbreviation not specified on official deadline table",
+      "deadlineTimezone": "Not explicitly specified on official deadline table (UK university; verify portal clock)",
       "opening": "2026-10-05",
       "verifiedAt": "2026-11-15",
       "review": "official",
@@ -3351,7 +3352,8 @@
         "https://informatics.ed.ac.uk/cdt-in-machine-learning-systems/apply/application-process-and-guidance/application-deadlines",
         "https://informatics.ed.ac.uk/cdt-in-machine-learning-systems/apply/funding-details",
         "https://informatics.ed.ac.uk/cdt-in-machine-learning-systems/apply/eligibility-and-entry-requirements",
-        "https://informatics.ed.ac.uk/cdt-in-machine-learning-systems/apply/application-process-and-guidance/application-guidance"
+        "https://informatics.ed.ac.uk/cdt-in-machine-learning-systems/apply/application-process-and-guidance/application-guidance",
+        "https://informatics.ed.ac.uk/cdt-in-machine-learning-systems/apply/selection-process-and-timeline"
       ],
       "applicationDocuments": [
         "Stage 1 online form including higher-education record, research experience and proposed research/supervisors",
@@ -3361,7 +3363,7 @@
         "Two academic/professional references",
         "English proficiency evidence by offer deadline if not exempt"
       ],
-      "fundingCaveats": "International university-fee differential is covered, but visa, immigration health surcharge, flights and relocation are NOT funded. International awards are limited (~3/cohort). Enhanced TechExpert stipend is for home applicants, not assumed for overseas.",
+      "fundingCaveats": "International tuition-fee difference covered, but visa, immigration health surcharge, flights and relocation NOT funded. Official UKRI 30% cap/~3 international statement conflicts with official 2025/2026 admissions statistics showing seven international appointments; confirm current 2027 award mix.",
       "openStatus": "Official 2027 Round 1 applications OPEN; first-stage deadline 14 December 2026",
       "id": "edinburgh-mlsystems-cdt27",
       "name": "University of Edinburgh MLSystems CDT 2027 — International Round 1",
@@ -3380,10 +3382,10 @@
       "period": "September 2027 entry; four years (48 months)",
       "funding": "UKRI-rate living stipend (£21,805/year in 2026/27), full home OR overseas tuition (Edinburgh pays international difference), and at least £6,000 research expenses; 4 years funded",
       "eligibility": "Post-MS doctoral route; international eligible subject to admissions and limited places",
-      "eligibilityDetail": "Open to any nationality, including India-based Master's students, for PhD entry; relevant UK 2:1-equivalent degree or research experience. International students capped at a maximum of ~3 per ~12-student cohort according to official eligibility page (actual appointments may vary). English qualification required by offer stage unless an approved English-medium-degree exception applies; approved-university list applies to non-majority-English-speaking countries. Non-EU applicants may require ATAS. A current MSc alone does not guarantee admission.",
+      "eligibilityDetail": "Open to any nationality, including India-based Master's students, for PhD entry; relevant UK 2:1-equivalent degree or equivalent research experience. Official eligibility page quotes a UKRI international cap of 30% (~3 of ~12) per annual round, BUT the official recruitment-statistics page lists seven international appointees in each of 2025 and 2026; funding mix/cap application require clarification, so do not assume a fixed international seat count. English certificate required by offer stage unless the degree meets the exact approved-English-medium exemption; non-EU applicants may require ATAS. Current MSc enrollment alone does not guarantee admission.",
       "officialUrl": "https://informatics.ed.ac.uk/cdt-in-machine-learning-systems/apply/application-process-and-guidance/application-deadlines",
       "priority": "high",
-      "action": "Prepare Stage-1 research and supervisor fit by 14 Dec; if shortlisted, submit Stage-2 research proposal, CV, transcript/certificates and two references by 21 Jan. Confirm English exemption/IELTS/TOEFL conditions and fee/ATAS paperwork."
+      "action": "Round 1 Stage 1 by 14 Dec 23:59 (exact timezone not specified); selected applicants Stage 2 by 21 Jan 2027. Prepare proposal, CV, transcripts, two references. Check English exemption, ATAS and conflicting international-cap information."
     },
     {
       "deadlineTime": null,
@@ -3482,7 +3484,8 @@
       "EPFL Life Sciences applications close 15 Nov 2026 23:59 CET; for eligible LIFE SCIENCES applicants through first MSc year, not general CS-only applicants.",
       "CaCTüS applications close 16 Nov 2026, exact time unpublished; generic site wording still says summer 2026 but 2027 timeline is clear.",
       "CISPA 2027 and CERN openlab 2027 reverified open. RC Trust parent page still states application form coming soon despite 31 Dec 2026 deadline.",
-      "No application, email or personal information shared; GitHub Pages accessibility not confirmed."
+      "No application, email or personal information shared; GitHub Pages accessibility not confirmed.",
+      "Edinburgh MLSystems official 30% UKRI international cap (~3/cohort) conflicts with its own recruitment statistics showing seven international appointments in each of 2025 and 2026; future award allocation remains uncertain. Its published Stage-1 clock time does not label an explicit time zone."
     ],
     "scopeNote": "Evidence rechecked 2026-11-15 for the listed records; not all 92 entries were individually reverified today. 71 catalog entries have posted or provisional deadlines dated 2026-11-15 through 2027-02-13, 23 within 14 days, 5 past; totals include eligibility-restricted, salary-undisclosed and doctoral programs. Closed-by-date does not establish a disabled application portal."
   }
