@@ -10,7 +10,7 @@
   var params = new URLSearchParams(window.location.search);
   var presenter = params.get('presenter') === '1';
   var index = Math.min(slides.length - 1, Math.max(0, (parseInt(params.get('page'), 10) || 1) - 1));
-  var storageKey = 'queos-presentation-' + (deck.meta.task || 'ire');
+  var storageKey = 'coeus-presentation-' + (deck.meta.task || 'ire');
   var sourceId = 'window-' + Math.random().toString(36).slice(2) + Date.now().toString(36);
   var channel = null;
   var lastReceivedTimestamp = 0;
@@ -140,7 +140,7 @@
     return block;
   }
   function slideMeta(slide) {
-    return 'Page ' + slide.number + ' of ' + slides.length + ' · ' + slide.wordCount + ' words · About ' + Math.round(slide.secondsAt130Wpm || slide.wordCount / 130 * 60) + ' seconds at 130 words per minute';
+    return 'Page ' + slide.number + ' of ' + slides.length + ' · ' + slide.wordCount + ' words · About ' + Math.round(slide.secondsAt130Wpm || slide.wordCount / 130 * 60) + ' seconds planned';
   }
   function buildNotes() {
     var slide = slides[index];
@@ -301,7 +301,7 @@
     url.searchParams.set('presenter', '1');
     url.searchParams.set('page', String(index + 1));
     publishState();
-    presenterWindow = window.open(url.href, 'queos-ire-presenter', 'popup=yes,width=1440,height=940');
+    presenterWindow = window.open(url.href, 'coeus-ire-presenter', 'popup=yes,width=1440,height=940');
     if (presenterWindow) presenterWindow.focus();
     else byId('live-status').textContent = 'Allow the presenter window to open in your browser.';
   }
@@ -344,7 +344,7 @@
       byId('presenter-button').removeEventListener('click', openPresenter);
       byId('presenter-button').addEventListener('click', function () {
         var url = new URL(window.location.href); url.searchParams.delete('presenter');
-        window.open(url.href, 'queos-ire-audience');
+        window.open(url.href, 'coeus-ire-audience');
       });
     }
     document.querySelectorAll('[data-close]').forEach(function (button) { button.addEventListener('click', function () { closeDialog(button.dataset.close); }); });
