@@ -14,19 +14,19 @@ Twenty pages, each intended for about one minute. The spoken text is source-grou
 
 The title states the access constraint precisely: model weights stay frozen, while a query vector or external residual is optimized. A black-box teacher remains available through its relevance scores.
 
-Published results, recorded project measurements and unverified hypotheses are separately labelled. The completed SCIDOCS values come from project run reports with recorded hashes; this pass did not independently recompute the raw files. No verified TTT-Embed or complementary-selection outcome is claimed.
+Published results, reported project measurements and untested hypotheses are separately labelled. The SCIDOCS values come from project run reports with recorded hashes; the FiQA task-wise TTT pilot comes from the published working report, §4. This pass did not independently recompute either run’s raw artifacts. FiQA reports no reliable held-out gain on one previously exposed task. Neither completed measurement tests complementary selection.
 
 ## Page 01 — Frozen models. Better retrieval?
 
 **On screen:** Test-time retrieval with black-box reranker feedback and no model weight updates.
 
-**Evidence:** Research question · **Spoken words:** 125 · **Estimated delivery:** 58 seconds at 130 words/minute
+**Evidence:** Research question · **Spoken words:** 126 · **Estimated delivery:** 58 seconds at 130 words/minute
 
 **Takeaway:** Can better feedback change where we search?
 
 ### Spoken script
 
-Our project asks whether a deployed retrieval system can improve at test time while both model backbones remain frozen. We assume that the embedding service returns vectors and that a reranker returns relevance scores for selected query-document pairs. The editable object is an external query representation, so the method still learns even though it does not fine-tune either model. We will follow the progression from TOUR to ReFIT and then to the reusable state in TTT-Embed. After the published evidence, we will inspect our completed SCIDOCS attempt and its unresolved reproduction gap. Finally, can candidates covering complementary evidence teach a better residual under the same feedback budget? That last step is the hypothesis we want to test, rather than a result we can already claim.
+Our project asks whether a deployed retrieval system can improve at test time while both model backbones remain frozen. We assume that the embedding service returns vectors and that a reranker returns relevance scores for selected query-document pairs. The editable object is an external query representation, so the method still learns even though it does not fine-tune either model. We will follow the progression from TOUR to ReFIT and then to the reusable state in TTT-Embed. After the papers, we will inspect our SCIDOCS reproduction gap and the reported FiQA task-wise TTT pilot. Finally, can candidates covering complementary evidence teach a better residual under the same feedback budget? That last step is the hypothesis we want to test, rather than a result we can already claim.
 
 ### Pointer notes
 
@@ -39,9 +39,9 @@ Our project asks whether a deployed retrieval system can improve at test time wh
 - **S01.02** Source-grounded paraphrase. Sources: [TTT-I](https://arxiv.org/html/2608.12569v1#S1). Location: TTT-I: Appendix §8, PDF p.13, final paragraph on the returned-embedding and downstream-search interfaces; §2.1, p.3, opening setup paragraph.
 - **S01.03** Source-grounded paraphrase. Sources: [TTT-I](https://arxiv.org/html/2608.12569v1#S1), [TTT-M](https://arxiv.org/pdf/2608.12569v1#page=4). Location: TTT-I: Figure 1, PDF p.2, caption; TTT-M: §2.2, pp.3–4, Eqs.3–4, the residual is the optimization variable.
 - **S01.04** Presentation structure. Sources: [BRIEF](#presentation-scope). Location: BRIEF: User brief, 16 Nov 2026: Queos Labs IRE presentation; no encoder or reranker weight updates; source-backed script and proposed complementary-feedback study.
-- **S01.05** Source-grounded paraphrase. Sources: [RUN](https://github.com/nilansa/ire-project-2026/issues/3#issuecomment-6908737534), [RUN-CI](https://github.com/nilansa/ire-project-2026/issues/3#issuecomment-6909019011). Location: RUN: Completed run report, 16 Nov 2026 11:31 IST: 1,000 queries; 25,657 documents; 125,000 physical scores; metrics and frozen-checkpoint settings. Merged predictions SHA256 87a4c0fb58dcf15486ece6591a6a25c736171b2c918cc2b683cb5747c2976727; metrics SHA256 d480dd7d27925952b231cd00162adbab365d5e981a8c0d6567058987396cda8a. Values read from coordinator records, not recomputed in this presentation pass.; RUN-CI: Final issue update: 5,000 paired bootstrap resamples, ReFIT−raw +.065 pp, CI [−.180,+.325]; 22 wins/19 losses/959 ties; 100 new IDs outside top125 across 68 queries, zero judged positive.
-- **S01.06** Our hypothesis. Sources: [HYPOTHESIS](#hypothesis). Location: HYPOTHESIS: SOURCE_LEDGER.md, Hypothesis boundary. Coverage-aware selection may improve residual learning at fixed teacher budget. This combination is proposed here, not established by DISCo, TTT-Embed or our completed run.
-- **S01.07** Claim boundary. Sources: [HYPOTHESIS](#hypothesis). Location: HYPOTHESIS: SOURCE_LEDGER.md, Hypothesis boundary. Coverage-aware selection may improve residual learning at fixed teacher budget. This combination is proposed here, not established by DISCo, TTT-Embed or our completed run.
+- **S01.05** Source-grounded paraphrase. Sources: [RUN](https://github.com/nilansa/ire-project-2026/issues/3#issuecomment-6908737534), [RUN-CI](https://github.com/nilansa/ire-project-2026/issues/3#issuecomment-6909019011), [FIQA_RUN](https://github.com/nilansa/ire-project-2026/blob/main/research/CEOUS_COMPLEMENTARY_FEEDBACK_2PAGE_WORKING_20261116.md#4-completed-ceous-measurements-not-directly-comparable). Location: RUN and RUN-CI: completed SCIDOCS report and bootstrap interval. FIQA_RUN: working report §4, FiQA task-wise TTT-Embed row; this is a reported project pilot, not independently recomputed evidence.
+- **S01.06** Our hypothesis. Sources: [HYPOTHESIS](#hypothesis). Location: HYPOTHESIS: SOURCE_LEDGER.md, Hypothesis boundary. Coverage-aware selection may improve residual learning at fixed teacher budget. This combination is proposed here, not established by DISCo, TTT-Embed or our completed runs.
+- **S01.07** Claim boundary. Sources: [HYPOTHESIS](#hypothesis). Location: HYPOTHESIS: SOURCE_LEDGER.md, Hypothesis boundary. Coverage-aware selection may improve residual learning at fixed teacher budget. This combination is proposed here, not established by DISCo, TTT-Embed or our completed runs.
 
 ## Page 02 — What should expensive feedback buy us?
 
@@ -416,13 +416,13 @@ The student adds a learned residual to the original normalized query vector, the
 
 **On screen:** Published gains over raw retrieval · 15 tasks · five embedding models.
 
-**Evidence:** Published results · **Spoken words:** 128 · **Estimated delivery:** 59 seconds at 130 words/minute
+**Evidence:** Published results · **Spoken words:** 127 · **Estimated delivery:** 59 seconds at 130 words/minute
 
 **Takeaway:** Low budgets favor sharing in the paper’s tested regime.
 
 ### Spoken script
 
-These are three published operating points from Table one, not a reconstructed continuous curve. The vertical axis shows nDCG-at-ten gains on a hundred-point scale, averaged over the reported tasks and embedding models. At the smallest budget, a global state gives 1.23 points while direct reranking gives approximately zero. At ten judgments per workload query, the selected task scope gains 6.36 points against 3.21 for direct reranking. At one hundred, the selected query scope reaches 8.36 against 7.80. Both budget and scope change across columns; this is not one fixed method’s learning curve. Budget here counts scored query-document pairs averaged across the workload; it is not complete wall-clock cost. These paper averages describe the tested regime; our smaller pilot cannot promise to match them.
+These are three published operating points from Table one, not a reconstructed continuous curve. The vertical axis shows nDCG-at-ten gains on a hundred-point scale, averaged over the reported tasks and embedding models. At the smallest budget, a global state gives 1.23 points while direct reranking gives approximately zero. At ten judgments per workload query, the selected task scope gains 6.36 points against 3.21 for direct reranking. At one hundred, the selected query scope reaches 8.36 against 7.80. Both budget and scope change across columns; this is not one fixed method’s learning curve. Budget here counts scored query-document pairs averaged across the workload; it is not complete wall-clock cost. These paper averages describe another workload; our single-task, held-out pilot tests a narrower question.
 
 ### Pointer notes
 
@@ -439,35 +439,38 @@ These are three published operating points from Table one, not a reconstructed c
 - **S15.05** Source-grounded paraphrase. Sources: [TTT-B](https://arxiv.org/pdf/2608.12569v1#page=6). Location: TTT-B: Table 1 b100 Average row: query8.36 and direct7.80.
 - **S15.06** Chart interpretation. Sources: [TTT-B](https://arxiv.org/pdf/2608.12569v1#page=6). Location: TTT-B: Table 1 column headings change scope alongside budget; this is an interpretation of the selected plotted columns.
 - **S15.07** Source-grounded paraphrase. Sources: [TTT-B](https://arxiv.org/pdf/2608.12569v1#page=6). Location: TTT-B: §2.1 Eq.1 and following paragraph define B and b as feedback-pair counts, excluding base embedding and ANN costs.
-- **S15.08** Comparison boundary. Sources: [TTT-P](https://arxiv.org/pdf/2608.12569v1#page=15). Location: TTT-P: §3.1 and Appendix §12 specify the paper workload. Our statement limits extrapolation to a different pilot sample.
+- **S15.08** Comparison boundary. Sources: [TTT-P](https://arxiv.org/pdf/2608.12569v1#page=15), [FIQA_RUN](https://github.com/nilansa/ire-project-2026/blob/main/research/CEOUS_COMPLEMENTARY_FEEDBACK_2PAGE_WORKING_20261116.md#4-completed-ceous-measurements-not-directly-comparable). Location: TTT-P: §3.1 and Appendix §12 specify the paper workload. FIQA_RUN: working report §4 FiQA row specifies one task and held-out cross-fitting; the pilot does not replicate the full paper workload.
 
-## Page 16 — Where does our evidence stop?
+## Page 16 — Did the FiQA residual help held-out queries?
 
-**On screen:** Verified results and pending results must stay distinct.
+**On screen:** 648 queries · all 57,638 documents · five-fold task-wise TTT pilot.
 
-**Evidence:** Evidence boundary · **Spoken words:** 126 · **Estimated delivery:** 58 seconds at 130 words/minute
+**Evidence:** Reported project result · **Spoken words:** 122 · **Estimated delivery:** 56 seconds at 130 words/minute
 
-**Takeaway:** TTT-Embed and the complementary-feedback gain remain unverified here.
+**Takeaway:** The pilot reports no reliable held-out gain. Coverage selection is still untested.
 
 ### Spoken script
 
-We currently have a completed SCIDOCS ReFIT attempt and an earlier exploratory SciFact query-update screen. The project handover mentions TTT-Embed and a coverage pilot, but the inspected records provide no verified numerical results. That means this presentation should not say that TTT-Embed has been reproduced, beaten, or shown to fail. It also does not prove that no separate local experiment is running or has just finished. We can update the marked result slot when its run identifier, settings and metrics become available. A weak gain cannot be blamed simply on missing model-weight access, because the paper is designed for that exact interface. Before interpreting a discrepancy, we need the actual corpus, candidate selection, score calibration, scope and evaluation protocol. Those checks make the next comparison meaningful.
+Our reported FiQA pilot tests task-wise TTT on 648 queries and the full 57,638-document corpus. It uses frozen Qwen3-Embedding-0.6B and Qwen3-Reranker-4B. Five-fold cross-fitting uses eighty percent for feedback and twenty percent for unscored evaluation, with ten pairs per feedback query. Held-out nDCG at ten moves from 0.46722 to 0.46313. The source reports a change of minus 0.00408, with a ninety-five-percent interval from minus 0.01072 to plus 0.00262. Every fold improved in-sample, but the held-out interval spans zero, providing no reliable evidence of transfer to unscored queries. Prior task exposure is disclosed; the private raw artifacts were not independently recomputed for this presentation. One task does not replicate the full paper, and complementary selection remains untested.
 
 ### Pointer notes
 
-- Point first to the completed ReFIT row, then the two pending rows.
-- This is the replaceable result page for the next revision; do not read “pending” as “failed”.
+- Read the y-axis as raw nDCG@10, not percent; compare raw .46722 with adapted .46313.
+- Point to the source-reported delta −.00408 and its 95% interval [−.01072,+.00262], which spans zero.
+- Explain that feedback-query improvement did not yield a reliable held-out gain. Prior task exposure is disclosed; the raw artifacts were not recomputed here.
+
+**Technical note:** Source: working report §4, FiQA row. The displayed rounded means subtract to −.00409, while the report gives Δ−.00408; retain its reported delta and interval. This single exposed task is not the paper’s full replication and does not test complementary selection.
 
 ### Sentence provenance
 
-- **S16.01** Source-grounded paraphrase. Sources: [RUN](https://github.com/nilansa/ire-project-2026/issues/3#issuecomment-6908737534), [SCIFACT](https://github.com/nilansa/ire-project-2026/blob/c550bc0152f4264117a36024619dfb04ad02807b/experiments/inference-time-ceous-20261115/RESULTS.md). Location: RUN: completed SCIDOCS report. SCIFACT: pinned RESULTS.md, primary MedCPT screen and limitations.
-- **S16.02** Source-grounded paraphrase. Sources: [STATUS](https://github.com/nilansa/nilansa.github.io/blob/ceb196e1cde8e259e694cf8a9b55ecb30a77fbc1/explainer/explainers/ire-retrieval-feedback-global-state-2026-11-16.html). Location: STATUS: inspected published handover and issue3 comments at the stated snapshot; absence of a verified numeric result in those records only.
-- **S16.03** Evidence boundary. Sources: [STATUS](https://github.com/nilansa/nilansa.github.io/blob/ceb196e1cde8e259e694cf8a9b55ecb30a77fbc1/explainer/explainers/ire-retrieval-feedback-global-state-2026-11-16.html). Location: STATUS: evidence boundary derived from the inspected snapshot, not a verdict on the underlying TTT method.
-- **S16.04** Access boundary. Sources: [STATUS](https://github.com/nilansa/nilansa.github.io/blob/ceb196e1cde8e259e694cf8a9b55ecb30a77fbc1/explainer/explainers/ire-retrieval-feedback-global-state-2026-11-16.html). Location: STATUS: scope of access in this presentation pass; no claim that all local processes/artifacts were inspected.
-- **S16.05** Editorial decision. Sources: [DESIGN](#experiment-design). Location: DESIGN: editorial requirement for the replacement result page: identify the run, configuration and measured metrics.
-- **S16.06** Logical clarification. Sources: [TTT-I](https://arxiv.org/html/2608.12569v1#S1). Location: TTT-I: §1 parameter-access premise and Appendix §8 final paragraph. Lack of weight access is part of the intended setting, not a diagnosed failure cause.
-- **S16.07** Evaluation reasoning. Sources: [TTT-M](https://arxiv.org/pdf/2608.12569v1#page=4), [TTT-P](https://arxiv.org/pdf/2608.12569v1#page=15). Location: TTT-M: §2.2 distributions/objective. TTT-P: Appendix §12 evaluation and candidate construction. Our checklist follows the protocol dependencies.
-- **S16.08** Evaluation reasoning. Sources: [DESIGN](#experiment-design). Location: DESIGN: SOURCE_LEDGER.md, Experiment design. Sampling, controls, cost accounting and evidence requirements are proposed protocol choices, not reported findings.
+- **S16.01** Source-grounded paraphrase. Sources: [FIQA_RUN](https://github.com/nilansa/ire-project-2026/blob/main/research/CEOUS_COMPLEMENTARY_FEEDBACK_2PAGE_WORKING_20261116.md#4-completed-ceous-measurements-not-directly-comparable). Location: FIQA_RUN: working report §4, table, FiQA task-wise TTT-Embed row, Dataset and feedback column: 648 queries and 57,638 documents. Exact report Git blob dfc022cf7b12af4e198f85def4411b91de7c8a03.
+- **S16.02** Source-grounded paraphrase. Sources: [FIQA_RUN](https://github.com/nilansa/ire-project-2026/blob/main/research/CEOUS_COMPLEMENTARY_FEEDBACK_2PAGE_WORKING_20261116.md#4-completed-ceous-measurements-not-directly-comparable). Location: FIQA_RUN: §4 table, FiQA row, Experiment column names frozen Qwen3-Embedding-0.6B and Qwen3-Reranker-4B.
+- **S16.03** Source-grounded paraphrase. Sources: [FIQA_RUN](https://github.com/nilansa/ire-project-2026/blob/main/research/CEOUS_COMPLEMENTARY_FEEDBACK_2PAGE_WORKING_20261116.md#4-completed-ceous-measurements-not-directly-comparable). Location: FIQA_RUN: §4 table, FiQA row, Dataset and feedback column: 5 folds, 80% feedback/20% unscored evaluation and 10 rewarded pairs per training query.
+- **S16.04** Source-grounded paraphrase. Sources: [FIQA_RUN](https://github.com/nilansa/ire-project-2026/blob/main/research/CEOUS_COMPLEMENTARY_FEEDBACK_2PAGE_WORKING_20261116.md#4-completed-ceous-measurements-not-directly-comparable). Location: FIQA_RUN: §4 table, FiQA row, Raw → adapted column: held-out nDCG@10 .46722→.46313. Raw nDCG units, not percentages.
+- **S16.05** Source-grounded paraphrase. Sources: [FIQA_RUN](https://github.com/nilansa/ire-project-2026/blob/main/research/CEOUS_COMPLEMENTARY_FEEDBACK_2PAGE_WORKING_20261116.md#4-completed-ceous-measurements-not-directly-comparable). Location: FIQA_RUN: §4 table, FiQA row, Raw → adapted column: separately reported delta −.00408 and 95% CI [−.01072,+.00262]. The displayed rounded means subtract to −.00409; preserve the source-reported delta without inventing hidden precision.
+- **S16.06** Reported result and bounded interpretation. Sources: [FIQA_RUN](https://github.com/nilansa/ire-project-2026/blob/main/research/CEOUS_COMPLEMENTARY_FEEDBACK_2PAGE_WORKING_20261116.md#4-completed-ceous-measurements-not-directly-comparable). Location: FIQA_RUN: §4 table, FiQA row, Interpretation column says every fold improved in-sample and no reliable held-out transfer. The adjacent interval crosses zero; its bounded interpretation is stated here.
+- **S16.07** Reported limitation and review boundary. Sources: [FIQA_RUN](https://github.com/nilansa/ire-project-2026/blob/main/research/CEOUS_COMPLEMENTARY_FEEDBACK_2PAGE_WORKING_20261116.md#4-completed-ceous-measurements-not-directly-comparable). Location: FIQA_RUN: §4 table, FiQA Interpretation column discloses one exposed task. Selected references item 6 identifies the original private FiQA cross-fit run ledger. This presentation read the report, not the private raw artifacts, and did not independently recompute the result.
+- **S16.08** Evidence boundary. Sources: [FIQA_RUN](https://github.com/nilansa/ire-project-2026/blob/main/research/CEOUS_COMPLEMENTARY_FEEDBACK_2PAGE_WORKING_20261116.md#4-completed-ceous-measurements-not-directly-comparable), [TTT-P](https://arxiv.org/pdf/2608.12569v1#page=15). Location: FIQA_RUN: §4 table, FiQA Interpretation column distinguishes this one task from the paper’s 15-task replication; paragraph immediately after the table says neither experiment tests complementary pair selection. TTT-P: §3.1 and Appendix §12 define the paper’s 15-task workload.
 
 ## Page 17 — What if the next document adds missing evidence?
 
@@ -557,18 +560,18 @@ Begin with one hundred to two hundred prespecified queries, retaining the full d
 
 **On screen:** A testable direction, with clear evidence boundaries.
 
-**Evidence:** Provisional conclusion · **Spoken words:** 130 · **Estimated delivery:** 60 seconds at 130 words/minute
+**Evidence:** Provisional conclusion · **Spoken words:** 129 · **Estimated delivery:** 60 seconds at 130 words/minute
 
 **Takeaway:** Can coverage-aware feedback make each judgment more useful?
 
 ### Spoken script
 
-The literature shows that relevance scores can improve query representations without updating model weights. TTT-Embed studies persistent external states and how sharing scope interacts with the feedback budget. Our completed SCIDOCS attempt matches the raw and reranking references, but leaves the ReFIT adaptation gain unresolved. Next, we propose examining which documents supply the learning signal, rather than assuming a different update rule is enough. DISCo offers a coverage principle that may guide selection, while GQR and earlier feedback work constrain what we can claim as new. We will call the combination useful only if a controlled comparison improves retrieval under disclosed feedback and computation costs. Until verified TTT and selection results arrive, this remains a hypothesis with a concrete evaluation plan. The next experiment is designed to answer that question.
+The literature shows that relevance scores can improve query representations without updating model weights. TTT-Embed studies persistent external states and how sharing scope interacts with the feedback budget. Our SCIDOCS attempt matches the raw and reranking references, but leaves the ReFIT adaptation gain unresolved. Next, we propose examining which documents supply the learning signal, rather than assuming a different update rule is enough. DISCo offers a coverage principle that may guide selection, while GQR and earlier feedback work constrain what we can claim as new. We will call the combination useful only if a controlled comparison improves retrieval under disclosed feedback and computation costs. The FiQA pilot reports no reliable held-out gain, while coverage-aware selection still awaits a controlled test. The next experiment is designed to answer that question.
 
 ### Pointer notes
 
 - Read the three evidence lines from established to measured to proposed.
-- Finish on the question and pause; do not announce an unverified win.
+- Finish on the question and pause; do not announce a complementary-selection gain.
 
 ### Sentence provenance
 
@@ -578,7 +581,7 @@ The literature shows that relevance scores can improve query representations wit
 - **S20.04** Research direction. Sources: [HYPOTHESIS](#hypothesis). Location: HYPOTHESIS: proposed candidate-selection focus, not a causal explanation of the reproduction gap.
 - **S20.05** Our synthesis. Sources: [DISCO](https://proceedings.iclr.cc/paper_files/paper/2026/file/6ded182245f8e4db3963d2027174133d-Paper-Conference.pdf#page=3), [GQR](https://arxiv.org/abs/2510.05038v3), [REFIT-L](https://arxiv.org/html/2305.11744v2#S6.SS6.SSS1). Location: DISCO: §3.1 coverage objective. GQR: abstract complementary guidance. REFIT-L: §6.6.1 informative negatives. Our synthesis defines a narrower question.
 - **S20.06** Success criterion. Sources: [DESIGN](#experiment-design). Location: DESIGN: prospective success criterion, requiring a controlled measured gain and disclosed costs.
-- **S20.07** Claim boundary. Sources: [STATUS](https://github.com/nilansa/nilansa.github.io/blob/ceb196e1cde8e259e694cf8a9b55ecb30a77fbc1/explainer/explainers/ire-retrieval-feedback-global-state-2026-11-16.html), [HYPOTHESIS](#hypothesis). Location: STATUS: no verified TTT/selection metrics in the inspected snapshot. HYPOTHESIS: current proposed conclusion.
+- **S20.07** Claim boundary. Sources: [FIQA_RUN](https://github.com/nilansa/ire-project-2026/blob/main/research/CEOUS_COMPLEMENTARY_FEEDBACK_2PAGE_WORKING_20261116.md#4-completed-ceous-measurements-not-directly-comparable), [HYPOTHESIS](#hypothesis). Location: FIQA_RUN: §4 table, FiQA Interpretation column reports no reliable held-out transfer; paragraph immediately after the table says neither completed measurement tests complementary selection. HYPOTHESIS: the controlled selection comparison remains proposed.
 - **S20.08** Closing. Sources: [BRIEF](#presentation-scope). Location: BRIEF: User brief, 16 Nov 2026: Queos Labs IRE presentation; no encoder or reranker weight updates; source-backed script and proposed complementary-feedback study.
 
 ## Reference register
@@ -703,11 +706,11 @@ https://github.com/nilansa/ire-project-2026/issues/3#issuecomment-6909019011
 
 Final issue update: 5,000 paired bootstrap resamples, ReFIT−raw +.065 pp, CI [−.180,+.325]; 22 wins/19 losses/959 ties; 100 new IDs outside top125 across 68 queries, zero judged positive.
 
-### STATUS — Experiment status snapshot
+### FIQA_RUN — Our reported FiQA TTT pilot
 
-https://github.com/nilansa/nilansa.github.io/blob/ceb196e1cde8e259e694cf8a9b55ecb30a77fbc1/explainer/explainers/ire-retrieval-feedback-global-state-2026-11-16.html
+https://github.com/nilansa/ire-project-2026/blob/main/research/CEOUS_COMPLEMENTARY_FEEDBACK_2PAGE_WORKING_20261116.md#4-completed-ceous-measurements-not-directly-comparable
 
-Published study handover, 16 Nov 2026, plus 13 inspected comments in project issue #3. FiQA/TTT/H8 work is mentioned without a verified numeric result. This establishes only what is verified for this deck; it does not prove that no local run exists.
+Ceous two-page working report, 16 Nov 2026, §4 table, FiQA task-wise TTT-Embed row, and paragraph immediately after the table. Git blob dfc022cf7b12af4e198f85def4411b91de7c8a03. 648 queries, full 57,638-document corpus; frozen Qwen3-Embedding-0.6B and Qwen3-Reranker-4B; five-fold cross-fit, 80% feedback/20% unscored evaluation, 10 pairs per feedback query. Held-out nDCG@10 .46722→.46313; source-reported delta −.00408, 95% CI [−.01072,+.00262]. Every fold improved in-sample; prior task exposure is disclosed. Selected references item 6 says the original FiQA run ledger is private. These reported values were not independently recomputed here. The displayed means subtract to −.00409; preserve the separately reported delta without inventing its underlying precision. Neither completed measurement tests complementary selection.
 
 ### PLAN — Controlled project comparison
 
@@ -731,7 +734,7 @@ SOURCE_LEDGER.md, Mathematical explanations and original examples. Includes outp
 
 #hypothesis
 
-SOURCE_LEDGER.md, Hypothesis boundary. Coverage-aware selection may improve residual learning at fixed teacher budget. This combination is proposed here, not established by DISCo, TTT-Embed or our completed run.
+SOURCE_LEDGER.md, Hypothesis boundary. Coverage-aware selection may improve residual learning at fixed teacher budget. This combination is proposed here, not established by DISCo, TTT-Embed or our completed runs.
 
 ### DESIGN — Our evaluation design
 

@@ -29,7 +29,7 @@ Two figures are interactive: the KL explanation on page 9 and the marginal-cover
 ## Read and revise
 
 - `PRESENTATION_SCRIPT.md`: complete narration, pointing cues, technical notes and sentence provenance.
-- `SOURCE_LEDGER.md`: source register, 158-sentence provenance ledger, exact locations, equations and claim boundaries.
+- `SOURCE_LEDGER.md`: source register, sentence-level provenance ledger, exact locations, equations and claim boundaries.
 - `SOURCE_LEDGER.csv`: the same sentence ledger in an Excel-compatible table.
 - `content.json` and `content.js`: structured content. The website loads `content.js` without a network fetch.
 - `visuals.js`: exact published/project values and original SVG/HTML teaching diagrams.
@@ -47,7 +47,9 @@ The authoring script enforces 120–130 narrated words per page and validates so
 
 Published plots identify their paper and table. The SCIDOCS plot uses the completed-run reports linked in the ledger. The reported raw and direct-reranking results match the paper references at displayed precision; the ReFIT attempt leaves an unresolved reproduction gap. Recorded headline settings match ReFIT v2. The raw predictions were not recomputed during preparation of this deck.
 
-TTT-Embed and complementary-feedback numerical outcomes are **not verified in this edition**. This is not a claim that no separate run exists. Page 16 is the explicit evidence boundary. Update it only with a concrete run record.
+Page 16 includes the newly available public record of the **FiQA task-wise TTT-Embed pilot**: five-fold cross-fit over 648 queries and the full 57,638-document corpus, with ten rewarded pairs per feedback query. Reported held-out nDCG@10 is 0.46722 before and 0.46313 after adaptation; the reported delta is −0.00408 with a paired 95% interval [−0.01072, +0.00262]. The displayed endpoints and source-reported delta differ in their last digit. Prior development exposure is disclosed. This is a one-task pilot with no reliable held-out gain, not a complete paper reproduction. The source is §4 of the [Ceous working report](https://github.com/nilansa/ire-project-2026/blob/main/research/CEOUS_COMPLEMENTARY_FEEDBACK_2PAGE_WORKING_20261116.md); its private raw ledger was not inspected or recomputed here.
+
+**Complementary candidate selection remains untested in these records.** Neither completed experiment establishes the proposed selection benefit. The last pages define the hypothesis and a controlled next comparison.
 
 ## Updating results
 

@@ -19,7 +19,7 @@
     [[650,70],[705,95],[760,45],[790,125],[840,90],[900,70],[950,130],[1010,80],[1060,140],[1100,60],[710,190],[815,210],[940,230],[1050,240],[1140,200],[660,285],[790,310],[890,290],[1020,310]].forEach(([x,y],i)=>{b+=circle(x,y,i%4===0?8:5,i%4===0?INK:PALE);});
     b += `<ellipse cx="785" cy="160" rx="130" ry="110" fill="none" stroke="${PALE}" stroke-width="2" stroke-dasharray="6 8"/>`;
     b += `<ellipse cx="985" cy="205" rx="150" ry="120" fill="none" stroke="${BLUE}" stroke-width="2"/>`;
-    b += circle(740,175,11,INK)+circle(945,195,11,BLUE)+arr(s.id,755,175,928,194)+t(815,162,'+ v',36,BLUE,600)+t(708,214,'q',23,INK,500)+t(934,235,'q̃',23,BLUE,500);
+    b += circle(740,175,11,INK)+circle(945,195,11,BLUE)+arr(s.id,755,175,928,194)+t(815,162,'+ v',36,BLUE,600)+t(708,214,'q',23,INK,500)+t(966,222,'q̃',23,BLUE,500);
     b += t(0,90,'A small vector.',44,INK,500)+t(0,145,'A different search.',44,BLUE,500)+t(0,215,'Nilanjan Sarkar · Raman Rayaprolu',23)+t(0,253,'IIIT Hyderabad',22,GRAY)+t(0,305,'IRE Project · 16 November 2026',20,GRAY);
     return wrap('cover',svg(s.id,b,'Illustration: an external vector changes a query and its retrieved neighborhood, with document vectors fixed.'),'<p><strong>A small vector. A different search.</strong></p><p>Nilanjan Sarkar · Raman Rayaprolu<br>IIIT Hyderabad</p>');
   }
@@ -46,7 +46,7 @@
     const pts=[[50,110],[120,100],[175,140],[245,95],[310,130],[380,110],[450,140],[70,190],[150,220],[230,190],[290,230],[375,205],[460,235],[105,270],[325,280]];
     pts.forEach(([x,y],i)=>b+=circle(x,y,7,i<5?BLUE:PALE));
     b+=`<ellipse cx="185" cy="135" rx="150" ry="65" fill="none" stroke="${BLUE}" stroke-width="2"/>`;
-    b+=rect(437,220,30,30,BLUE,BLUE)+t(415,330,'Relevant, but missed',22,BLUE,500,'end');
+    b+=rect(437,220,30,30,BLUE,BLUE)+t(415,278,'Relevant, but missed',22,BLUE,500,'end');
     b+=arr(s.id,525,140,670,140)+t(598,109,'top K',20,GRAY,400,'middle');
     b+=t(700,70,'Reranker',30,INK,600);
     [0,1,2,3].forEach(i=>{b+=rect(705,100+i*47,235,33,i===0?'#e7eaff':PAPER,PALE)+t(725,124+i*47,['candidate B','candidate A','candidate D','candidate C'][i],21);});
@@ -70,7 +70,7 @@
     const panel=(x,label,hard)=>{
       let b=t(x,32,label,30,BLUE,600); const vals=[.6,.3,.1];
       vals.forEach((v,i)=>{const bx=x+40+i*130;b+=rect(bx,210-v*210,65,v*210,i===2&&hard?PALE:BLUE,'none')+t(bx+32,195-v*210,v.toFixed(2),20,GRAY,500,'middle')+t(bx+32,244,['A','B','C'][i],22,INK,500,'middle');});
-      if(hard)b+=`<path d="M${x+30} 260 v14 h216 v-14" fill="none" stroke="${BLUE}" stroke-width="2"/>`+t(x+138,312,'A and B selected at example threshold 0.8',19,GRAY,400,'middle');
+      if(hard)b+=`<path d="M${x+30} 260 v14 h216 v-14" fill="none" stroke="${BLUE}" stroke-width="2"/>`+t(x+30,312,'A and B selected at example threshold 0.8',19,GRAY,400);
       else b+=t(x+200,302,'Keep all three probability weights',21,GRAY,400,'middle');
       return b;
     };
@@ -156,9 +156,12 @@
     return wrap('chart',`<div class="chart-legend"><span><i style="background:${BLUE}"></i>TTT-Embed at the shown scope</span><span><i style="background:#AAABA5"></i>Direct reranking</span></div>`+svg(s.id,b,'TTT-Embed Table1 gains at three budgets: global1.23 versus rerank−.01, task6.36 versus3.21, query8.36 versus7.8.')+note('Three table entries, not a continuous curve. b = scored pairs per workload query. The left budget is exactly 150/12,263 ≈ 0.0122.'),smallTable(['Budget / scope','TTT gain','Rerank gain'],labs.map((n,i)=>[n,vals[i].toFixed(2),base[i].toFixed(2)])));
   }
   function status(s) {
-    const rows=[['SCIDOCS ReFIT','Completed run','Published adaptation gain not reproduced.'],['TTT-Embed','Metrics unverified','A numeric result is not verified for this edition.'],['Coverage feedback','Hypothesis','Controlled comparison still needs verified evidence.']];
-    let b='';rows.forEach((r,i)=>{let y=35+i*104;b+=line(0,y,1200,y,i===0?BLUE:PALE,i===0?2:1)+t(0,y+47,r[0],30,i===0?BLUE:INK,600)+t(430,y+45,r[1],25,INK,500)+t(430,y+79,r[2],21,GRAY);});
-    return wrap('status',svg(s.id,b,'Evidence status: completed SCIDOCS attempt, unverified TTT metrics, and proposed coverage feedback.'),rows.map(r=>`<p><strong>${esc(r[0])} · ${esc(r[1])}</strong><br>${esc(r[2])}</p>`).join(''));
+    const labels=['Raw retrieval','Task residual'], values=[.46722,.46313];
+    let b=t(60,22,'Held-out nDCG@10 · full FiQA corpus',20,GRAY);
+    [0,.2,.4,.6].forEach(tick=>{const y=290-tick*390;b+=line(70,y,680,y,PALE)+t(55,y+7,tick.toFixed(1),18,GRAY,400,'end');});
+    values.forEach((v,i)=>{const x=165+i*260;b+=rect(x,290-v*390,130,v*390,i?BLUE:'#9A9B96','none')+t(x+65,278-v*390,v.toFixed(5),24,i?BLUE:INK,600,'middle')+t(x+65,325,labels[i],23,INK,500,'middle');});
+    b+=t(740,87,'−0.00408',52,BLUE,600)+t(740,127,'reported held-out ΔnDCG@10',20,GRAY)+t(740,176,'95% CI  −0.01072 to +0.00262',21,GRAY)+t(740,217,'The interval spans zero.',25,INK,500)+t(740,263,'648 queries · 57,638 documents',21,GRAY)+t(740,298,'5-fold cross-fit · one exposed task',20,GRAY);
+    return wrap('chart',svg(s.id,b,'Reported FiQA task-wise TTT-Embed pilot: raw nDCG10 .46722 and adapted .46313. Reported delta minus.00408 with interval minus.01072 to plus.00262. No reliable held-out gain.',340)+note('Ceous working report, §4. The source’s rounded endpoints and stated delta differ in the last digit. Raw predictions not recomputed here. Complementary selection remains untested.'),smallTable(['FiQA held-out result','nDCG@10'],labels.map((label,i)=>[label,values[i].toFixed(5)]))+'<p><strong>Reported Δ −0.00408</strong><br>95% CI [−0.01072, +0.00262]. One exposed task, 5-fold cross-fit. Complementary selection remains untested.</p>');
   }
   function coverage(s) {
     const rows=[[.9,.2,.1],[.85,.25,.1],[.2,.8,.1],[.1,.2,.9]];
@@ -188,9 +191,9 @@
   }
   function closing(s) {
     let b='';
-    [['Established','Scores can guide','a query update.'],['Measured here','The SCIDOCS ReFIT','gap is unresolved.'],['To test','Coverage-aware feedback','for residual learning.']].forEach((r,i)=>{const x=i*410;b+=t(x,32,r[0].toUpperCase(),17,i===2?BLUE:GRAY,600)+line(x,58,x+365,58,i===2?BLUE:PALE,2)+t(x,119,r[1],29,i===2?BLUE:INK,500)+t(x,162,r[2],29,i===2?BLUE:INK,500);});
+    [['Established','Scores can guide','a query update.'],['Measured here','SCIDOCS and FiQA:','no reliable gain here.'],['To test','Coverage-aware feedback','for residual learning.']].forEach((r,i)=>{const x=i*410;b+=t(x,32,r[0].toUpperCase(),17,i===2?BLUE:GRAY,600)+line(x,58,x+365,58,i===2?BLUE:PALE,2)+t(x,119,r[1],29,i===2?BLUE:INK,500)+t(x,162,r[2],29,i===2?BLUE:INK,500);});
     b+=t(0,289,'Can each judgment teach us more?',54,BLUE,600)+t(0,340,'Queos Labs · IRE Project',22,GRAY);
-    return wrap('closing',svg(s.id,b,'Conclusion: query adaptation is established; the local reproduction gap remains unresolved; coverage-aware feedback is the hypothesis to test.'),'<p><strong>Established:</strong> scores can guide query adaptation.</p><p><strong>Measured here:</strong> the ReFIT gap is unresolved.</p><p><strong>To test:</strong> coverage-aware feedback for residual learning.</p>');
+    return wrap('closing',svg(s.id,b,'Conclusion: query adaptation is established; the reported SCIDOCS and FiQA runs show no reliable gains; coverage-aware feedback is the hypothesis to test.'),'<p><strong>Established:</strong> scores can guide query adaptation.</p><p><strong>Measured here:</strong> no reliable gain in the reported SCIDOCS and FiQA runs.</p><p><strong>To test:</strong> coverage-aware feedback for residual learning.</p>');
   }
   const renderers={cover,origin,access,bottleneck,'tour-loop':tourLoop,'hard-soft':hardSoft,'tour-chart':tourChart,'refit-loop':refitLoop,kl,'refit-chart':refitChart,'our-chart':ourChart,reuse,scopes,residual,'ttt-chart':tttChart,status,coverage,gradient,protocol,closing};
   window.renderVisual = s => (renderers[s.kind]||closing)(s);

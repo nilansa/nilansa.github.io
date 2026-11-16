@@ -237,7 +237,9 @@
     return grid;
   }
   function publishState() {
-    var state = {type:'slide', index:index, from:sourceId, timestamp:Date.now()};
+    var timestamp = Math.max(Date.now(), lastReceivedTimestamp + 1);
+    lastReceivedTimestamp = timestamp;
+    var state = {type:'slide', index:index, from:sourceId, timestamp:timestamp};
     if (channel) channel.postMessage(state);
     try { localStorage.setItem(storageKey, JSON.stringify(state)); } catch (e) { /* Private browsing may disable storage. */ }
   }
@@ -245,7 +247,7 @@
     if (!state || state.from === sourceId) return;
     if (state.type === 'requestState') { if (!presenter) publishState(); return; }
     if (state.type !== 'slide' || !Number.isInteger(state.index)) return;
-    if (state.timestamp && state.timestamp < lastReceivedTimestamp) return;
+    if (state.timestamp && state.timestamp <= lastReceivedTimestamp) return;
     lastReceivedTimestamp = state.timestamp || Date.now();
     navigate(state.index, false);
   }

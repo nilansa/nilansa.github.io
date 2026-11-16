@@ -12,7 +12,7 @@
     "date": "16 November 2026",
     "task": "ire-web-presentation-20261116",
     "version": "First review edition",
-    "sourceCutoff": "Project evidence checked 16 November 2026. TTT and complementary-feedback numerical results are not verified in this edition.",
+    "sourceCutoff": "Project evidence checked 16 November 2026, including the published FiQA task-wise TTT pilot. SCIDOCS and FiQA values are reported project measurements, not independently recomputed here; complementary selection remains untested.",
     "canonical": "https://nilansa.github.io/explainer/ire-presentation/"
   },
   "sources": {
@@ -116,10 +116,10 @@
       "url": "https://github.com/nilansa/ire-project-2026/issues/3#issuecomment-6909019011",
       "locator": "Final issue update: 5,000 paired bootstrap resamples, ReFIT−raw +.065 pp, CI [−.180,+.325]; 22 wins/19 losses/959 ties; 100 new IDs outside top125 across 68 queries, zero judged positive."
     },
-    "STATUS": {
-      "title": "Experiment status snapshot",
-      "url": "https://github.com/nilansa/nilansa.github.io/blob/ceb196e1cde8e259e694cf8a9b55ecb30a77fbc1/explainer/explainers/ire-retrieval-feedback-global-state-2026-11-16.html",
-      "locator": "Published study handover, 16 Nov 2026, plus 13 inspected comments in project issue #3. FiQA/TTT/H8 work is mentioned without a verified numeric result. This establishes only what is verified for this deck; it does not prove that no local run exists."
+    "FIQA_RUN": {
+      "title": "Our reported FiQA TTT pilot",
+      "url": "https://github.com/nilansa/ire-project-2026/blob/main/research/CEOUS_COMPLEMENTARY_FEEDBACK_2PAGE_WORKING_20261116.md#4-completed-ceous-measurements-not-directly-comparable",
+      "locator": "Ceous two-page working report, 16 Nov 2026, §4 table, FiQA task-wise TTT-Embed row, and paragraph immediately after the table. Git blob dfc022cf7b12af4e198f85def4411b91de7c8a03. 648 queries, full 57,638-document corpus; frozen Qwen3-Embedding-0.6B and Qwen3-Reranker-4B; five-fold cross-fit, 80% feedback/20% unscored evaluation, 10 pairs per feedback query. Held-out nDCG@10 .46722→.46313; source-reported delta −.00408, 95% CI [−.01072,+.00262]. Every fold improved in-sample; prior task exposure is disclosed. Selected references item 6 says the original FiQA run ledger is private. These reported values were not independently recomputed here. The displayed means subtract to −.00409; preserve the separately reported delta without inventing its underlying precision. Neither completed measurement tests complementary selection."
     },
     "PLAN": {
       "title": "Controlled project comparison",
@@ -139,7 +139,7 @@
     "HYPOTHESIS": {
       "title": "Our research hypothesis",
       "url": "#hypothesis",
-      "locator": "SOURCE_LEDGER.md, Hypothesis boundary. Coverage-aware selection may improve residual learning at fixed teacher budget. This combination is proposed here, not established by DISCo, TTT-Embed or our completed run."
+      "locator": "SOURCE_LEDGER.md, Hypothesis boundary. Coverage-aware selection may improve residual learning at fixed teacher budget. This combination is proposed here, not established by DISCo, TTT-Embed or our completed runs."
     },
     "DESIGN": {
       "title": "Our evaluation design",
@@ -203,13 +203,14 @@
         },
         {
           "id": "S01.05",
-          "text": "After the published evidence, we will inspect our completed SCIDOCS attempt and its unresolved reproduction gap.",
+          "text": "After the papers, we will inspect our SCIDOCS reproduction gap and the reported FiQA task-wise TTT pilot.",
           "refs": [
             "RUN",
-            "RUN-CI"
+            "RUN-CI",
+            "FIQA_RUN"
           ],
           "type": "Source-grounded paraphrase",
-          "exactLocation": "RUN: Completed run report, 16 Nov 2026 11:31 IST: 1,000 queries; 25,657 documents; 125,000 physical scores; metrics and frozen-checkpoint settings. Merged predictions SHA256 87a4c0fb58dcf15486ece6591a6a25c736171b2c918cc2b683cb5747c2976727; metrics SHA256 d480dd7d27925952b231cd00162adbab365d5e981a8c0d6567058987396cda8a. Values read from coordinator records, not recomputed in this presentation pass.; RUN-CI: Final issue update: 5,000 paired bootstrap resamples, ReFIT−raw +.065 pp, CI [−.180,+.325]; 22 wins/19 losses/959 ties; 100 new IDs outside top125 across 68 queries, zero judged positive."
+          "exactLocation": "RUN and RUN-CI: completed SCIDOCS report and bootstrap interval. FIQA_RUN: working report §4, FiQA task-wise TTT-Embed row; this is a reported project pilot, not independently recomputed evidence."
         },
         {
           "id": "S01.06",
@@ -218,7 +219,7 @@
             "HYPOTHESIS"
           ],
           "type": "Our hypothesis",
-          "exactLocation": "HYPOTHESIS: SOURCE_LEDGER.md, Hypothesis boundary. Coverage-aware selection may improve residual learning at fixed teacher budget. This combination is proposed here, not established by DISCo, TTT-Embed or our completed run."
+          "exactLocation": "HYPOTHESIS: SOURCE_LEDGER.md, Hypothesis boundary. Coverage-aware selection may improve residual learning at fixed teacher budget. This combination is proposed here, not established by DISCo, TTT-Embed or our completed runs."
         },
         {
           "id": "S01.07",
@@ -227,7 +228,7 @@
             "HYPOTHESIS"
           ],
           "type": "Claim boundary",
-          "exactLocation": "HYPOTHESIS: SOURCE_LEDGER.md, Hypothesis boundary. Coverage-aware selection may improve residual learning at fixed teacher budget. This combination is proposed here, not established by DISCo, TTT-Embed or our completed run."
+          "exactLocation": "HYPOTHESIS: SOURCE_LEDGER.md, Hypothesis boundary. Coverage-aware selection may improve residual learning at fixed teacher budget. This combination is proposed here, not established by DISCo, TTT-Embed or our completed runs."
         }
       ],
       "pointers": [
@@ -238,10 +239,11 @@
         "BRIEF",
         "TTT-I",
         "RUN",
+        "FIQA_RUN",
         "HYPOTHESIS"
       ],
       "caveat": "",
-      "wordCount": 125,
+      "wordCount": 126,
       "secondsAt130Wpm": 58
     },
     {
@@ -1579,12 +1581,13 @@
         },
         {
           "id": "S15.08",
-          "text": "These paper averages describe the tested regime; our smaller pilot cannot promise to match them.",
+          "text": "These paper averages describe another workload; our single-task, held-out pilot tests a narrower question.",
           "refs": [
-            "TTT-P"
+            "TTT-P",
+            "FIQA_RUN"
           ],
           "type": "Comparison boundary",
-          "exactLocation": "TTT-P: §3.1 and Appendix §12 specify the paper workload. Our statement limits extrapolation to a different pilot sample."
+          "exactLocation": "TTT-P: §3.1 and Appendix §12 specify the paper workload. FIQA_RUN: working report §4 FiQA row specifies one task and held-out cross-fitting; the pilot does not replicate the full paper workload."
         }
       ],
       "pointers": [
@@ -1594,111 +1597,120 @@
       ],
       "refs": [
         "TTT-B",
-        "TTT-P"
+        "TTT-P",
+        "FIQA_RUN"
       ],
       "caveat": "",
-      "wordCount": 128,
+      "wordCount": 127,
       "secondsAt130Wpm": 59
     },
     {
       "number": 16,
       "id": "s16",
       "chapter": "Our evidence",
-      "title": "Where does our\nevidence stop?",
-      "subtitle": "Verified results and pending results must stay distinct.",
+      "title": "Did the FiQA residual\nhelp held-out queries?",
+      "subtitle": "648 queries · all 57,638 documents · five-fold task-wise TTT pilot.",
       "kind": "status",
-      "evidence": "Evidence boundary",
-      "takeaway": "TTT-Embed and the complementary-feedback gain remain unverified here.",
-      "visual": {},
+      "evidence": "Reported project result",
+      "takeaway": "The pilot reports no reliable held-out gain. Coverage selection is still untested.",
+      "visual": {
+        "metric": "nDCG@10",
+        "raw": 0.46722,
+        "adapted": 0.46313,
+        "reportedDelta": -0.00408,
+        "ci95": [
+          -0.01072,
+          0.00262
+        ],
+        "sourceId": "FIQA_RUN"
+      },
       "notes": [
         {
           "id": "S16.01",
-          "text": "We currently have a completed SCIDOCS ReFIT attempt and an earlier exploratory SciFact query-update screen.",
+          "text": "Our reported FiQA pilot tests task-wise TTT on 648 queries and the full 57,638-document corpus.",
           "refs": [
-            "RUN",
-            "SCIFACT"
+            "FIQA_RUN"
           ],
           "type": "Source-grounded paraphrase",
-          "exactLocation": "RUN: completed SCIDOCS report. SCIFACT: pinned RESULTS.md, primary MedCPT screen and limitations."
+          "exactLocation": "FIQA_RUN: working report §4, table, FiQA task-wise TTT-Embed row, Dataset and feedback column: 648 queries and 57,638 documents. Exact report Git blob dfc022cf7b12af4e198f85def4411b91de7c8a03."
         },
         {
           "id": "S16.02",
-          "text": "The project handover mentions TTT-Embed and a coverage pilot, but the inspected records provide no verified numerical results.",
+          "text": "It uses frozen Qwen3-Embedding-0.6B and Qwen3-Reranker-4B.",
           "refs": [
-            "STATUS"
+            "FIQA_RUN"
           ],
           "type": "Source-grounded paraphrase",
-          "exactLocation": "STATUS: inspected published handover and issue3 comments at the stated snapshot; absence of a verified numeric result in those records only."
+          "exactLocation": "FIQA_RUN: §4 table, FiQA row, Experiment column names frozen Qwen3-Embedding-0.6B and Qwen3-Reranker-4B."
         },
         {
           "id": "S16.03",
-          "text": "That means this presentation should not say that TTT-Embed has been reproduced, beaten, or shown to fail.",
+          "text": "Five-fold cross-fitting uses eighty percent for feedback and twenty percent for unscored evaluation, with ten pairs per feedback query.",
           "refs": [
-            "STATUS"
+            "FIQA_RUN"
           ],
-          "type": "Evidence boundary",
-          "exactLocation": "STATUS: evidence boundary derived from the inspected snapshot, not a verdict on the underlying TTT method."
+          "type": "Source-grounded paraphrase",
+          "exactLocation": "FIQA_RUN: §4 table, FiQA row, Dataset and feedback column: 5 folds, 80% feedback/20% unscored evaluation and 10 rewarded pairs per training query."
         },
         {
           "id": "S16.04",
-          "text": "It also does not prove that no separate local experiment is running or has just finished.",
+          "text": "Held-out nDCG at ten moves from 0.46722 to 0.46313.",
           "refs": [
-            "STATUS"
+            "FIQA_RUN"
           ],
-          "type": "Access boundary",
-          "exactLocation": "STATUS: scope of access in this presentation pass; no claim that all local processes/artifacts were inspected."
+          "type": "Source-grounded paraphrase",
+          "exactLocation": "FIQA_RUN: §4 table, FiQA row, Raw → adapted column: held-out nDCG@10 .46722→.46313. Raw nDCG units, not percentages."
         },
         {
           "id": "S16.05",
-          "text": "We can update the marked result slot when its run identifier, settings and metrics become available.",
+          "text": "The source reports a change of minus 0.00408, with a ninety-five-percent interval from minus 0.01072 to plus 0.00262.",
           "refs": [
-            "DESIGN"
+            "FIQA_RUN"
           ],
-          "type": "Editorial decision",
-          "exactLocation": "DESIGN: editorial requirement for the replacement result page: identify the run, configuration and measured metrics."
+          "type": "Source-grounded paraphrase",
+          "exactLocation": "FIQA_RUN: §4 table, FiQA row, Raw → adapted column: separately reported delta −.00408 and 95% CI [−.01072,+.00262]. The displayed rounded means subtract to −.00409; preserve the source-reported delta without inventing hidden precision."
         },
         {
           "id": "S16.06",
-          "text": "A weak gain cannot be blamed simply on missing model-weight access, because the paper is designed for that exact interface.",
+          "text": "Every fold improved in-sample, but the held-out interval spans zero, providing no reliable evidence of transfer to unscored queries.",
           "refs": [
-            "TTT-I"
+            "FIQA_RUN"
           ],
-          "type": "Logical clarification",
-          "exactLocation": "TTT-I: §1 parameter-access premise and Appendix §8 final paragraph. Lack of weight access is part of the intended setting, not a diagnosed failure cause."
+          "type": "Reported result and bounded interpretation",
+          "exactLocation": "FIQA_RUN: §4 table, FiQA row, Interpretation column says every fold improved in-sample and no reliable held-out transfer. The adjacent interval crosses zero; its bounded interpretation is stated here."
         },
         {
           "id": "S16.07",
-          "text": "Before interpreting a discrepancy, we need the actual corpus, candidate selection, score calibration, scope and evaluation protocol.",
+          "text": "Prior task exposure is disclosed; the private raw artifacts were not independently recomputed for this presentation.",
           "refs": [
-            "TTT-M",
-            "TTT-P"
+            "FIQA_RUN"
           ],
-          "type": "Evaluation reasoning",
-          "exactLocation": "TTT-M: §2.2 distributions/objective. TTT-P: Appendix §12 evaluation and candidate construction. Our checklist follows the protocol dependencies."
+          "type": "Reported limitation and review boundary",
+          "exactLocation": "FIQA_RUN: §4 table, FiQA Interpretation column discloses one exposed task. Selected references item 6 identifies the original private FiQA cross-fit run ledger. This presentation read the report, not the private raw artifacts, and did not independently recompute the result."
         },
         {
           "id": "S16.08",
-          "text": "Those checks make the next comparison meaningful.",
+          "text": "One task does not replicate the full paper, and complementary selection remains untested.",
           "refs": [
-            "DESIGN"
+            "FIQA_RUN",
+            "TTT-P"
           ],
-          "type": "Evaluation reasoning",
-          "exactLocation": "DESIGN: SOURCE_LEDGER.md, Experiment design. Sampling, controls, cost accounting and evidence requirements are proposed protocol choices, not reported findings."
+          "type": "Evidence boundary",
+          "exactLocation": "FIQA_RUN: §4 table, FiQA Interpretation column distinguishes this one task from the paper’s 15-task replication; paragraph immediately after the table says neither experiment tests complementary pair selection. TTT-P: §3.1 and Appendix §12 define the paper’s 15-task workload."
         }
       ],
       "pointers": [
-        "Point first to the completed ReFIT row, then the two pending rows.",
-        "This is the replaceable result page for the next revision; do not read “pending” as “failed”."
+        "Read the y-axis as raw nDCG@10, not percent; compare raw .46722 with adapted .46313.",
+        "Point to the source-reported delta −.00408 and its 95% interval [−.01072,+.00262], which spans zero.",
+        "Explain that feedback-query improvement did not yield a reliable held-out gain. Prior task exposure is disclosed; the raw artifacts were not recomputed here."
       ],
       "refs": [
-        "RUN",
-        "SCIFACT",
-        "STATUS",
-        "TTT-I"
+        "FIQA_RUN",
+        "TTT-P"
       ],
-      "caveat": "",
-      "wordCount": 126,
-      "secondsAt130Wpm": 58
+      "caveat": "Source: working report §4, FiQA row. The displayed rounded means subtract to −.00409, while the report gives Δ−.00408; retain its reported delta and interval. This single exposed task is not the paper’s full replication and does not test complementary selection.",
+      "wordCount": 122,
+      "secondsAt130Wpm": 56
     },
     {
       "number": 17,
@@ -2028,7 +2040,7 @@
         },
         {
           "id": "S20.03",
-          "text": "Our completed SCIDOCS attempt matches the raw and reranking references, but leaves the ReFIT adaptation gain unresolved.",
+          "text": "Our SCIDOCS attempt matches the raw and reranking references, but leaves the ReFIT adaptation gain unresolved.",
           "refs": [
             "RUN",
             "REFIT-SCI"
@@ -2067,13 +2079,13 @@
         },
         {
           "id": "S20.07",
-          "text": "Until verified TTT and selection results arrive, this remains a hypothesis with a concrete evaluation plan.",
+          "text": "The FiQA pilot reports no reliable held-out gain, while coverage-aware selection still awaits a controlled test.",
           "refs": [
-            "STATUS",
+            "FIQA_RUN",
             "HYPOTHESIS"
           ],
           "type": "Claim boundary",
-          "exactLocation": "STATUS: no verified TTT/selection metrics in the inspected snapshot. HYPOTHESIS: current proposed conclusion."
+          "exactLocation": "FIQA_RUN: §4 table, FiQA Interpretation column reports no reliable held-out transfer; paragraph immediately after the table says neither completed measurement tests complementary selection. HYPOTHESIS: the controlled selection comparison remains proposed."
         },
         {
           "id": "S20.08",
@@ -2087,18 +2099,19 @@
       ],
       "pointers": [
         "Read the three evidence lines from established to measured to proposed.",
-        "Finish on the question and pause; do not announce an unverified win."
+        "Finish on the question and pause; do not announce a complementary-selection gain."
       ],
       "refs": [
         "TOUR-M",
         "REFIT-M",
         "TTT-S",
         "RUN",
+        "FIQA_RUN",
         "DISCO",
         "HYPOTHESIS"
       ],
       "caveat": "",
-      "wordCount": 130,
+      "wordCount": 129,
       "secondsAt130Wpm": 60
     }
   ]
