@@ -1,5 +1,27 @@
 [
   {
+    "id": "ire-retrieval-feedback-global-state-20261116",
+    "title": "IRE — From Query Feedback to a Global Retrieval State",
+    "description": "ASD-STE100 study of TOuR, ReFIT, TTT-Embed and DISCo: query-level adaptation, reusable global embedding-space state, collective query coverage, and the SCIDOCS reproduction with its limits.",
+    "project": "IRE Team Ceous — Part I",
+    "category": "Research explainer and project handover",
+    "tags": [
+      "ASD-STE100",
+      "IRE",
+      "dense retrieval",
+      "TOuR",
+      "ReFIT",
+      "TTT-Embed",
+      "DISCo",
+      "global vector",
+      "reranker feedback",
+      "SCIDOCS"
+    ],
+    "url": "./explainers/ire-retrieval-feedback-global-state-2026-11-16.html",
+    "date": "2026-11-16",
+    "indexed_at": "2026-11-16T12:27:16+05:30"
+  },
+  {
     "id": "india-fourier-visualizer-20261113",
     "title": "India Fourier Visualizer — Rotating Circles Draw a Country",
     "description": "Interactive Fourier-series demonstration: resample an India outline, recover discrete Fourier coefficients, change K from 1 to 128, scrub the angle, and watch the reconstructed border emerge.",
@@ -669,27 +691,5 @@
     "url": "https://nilansa.github.io/ire-project-2026/",
     "date": "2026-10-11",
     "indexed_at": "2026-10-16T12:42:57+05:30"
-  },
-  {
-    "id": "ire-retrieval-feedback-global-state-20261116",
-    "title": "IRE — From Query Feedback to a Global Retrieval State",
-    "description": "ASD-STE100 study of TOuR, ReFIT, TTT-Embed and DISCo: query-level adaptation, reusable global embedding-space state, collective query coverage, and the SCIDOCS reproduction with its limits.",
-    "project": "IRE Team Ceous — Part I",
-    "category": "Research explainer and project handover",
-    "tags": [
-      "ASD-STE100",
-      "IRE",
-      "dense retrieval",
-      "TOuR",
-      "ReFIT",
-      "TTT-Embed",
-      "DISCo",
-      "global vector",
-      "reranker feedback",
-      "SCIDOCS"
-    ],
-    "url": "./explainers/ire-retrieval-feedback-global-state-2026-11-16.html",
-    "date": "2026-11-16",
-    "indexed_at": "2026-11-16T12:27:16+05:30"
   }
 ]
