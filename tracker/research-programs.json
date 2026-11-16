@@ -1627,7 +1627,7 @@
       "action": "Confirm internship allowance and M2 enrollment/visa compatibility before preparing documents.",
       "review": "official",
       "opening": null,
-      "verifiedAt": "2026-11-08",
+      "verifiedAt": "2026-11-16",
       "deadlineTime": null,
       "deadlineTimezone": "Not published",
       "applicationDocuments": [
@@ -1638,7 +1638,8 @@
       "sourceUrls": [
         "https://jobs.inria.fr/public/classic/en/offres/2026-10607"
       ],
-      "openStatus": "Official organizer posting found on 8 Nov 2026; application completion not attempted"
+      "openStatus": "Official Inria page reverified 16 Nov: 13 Dec 2026 M2 research internship deadline; remuneration amount not stated.",
+      "fundingStatus": "unconfirmed-internship-allowance"
     },
     {
       "id": "inria-2026-10630",
@@ -1663,7 +1664,7 @@
       "action": "Pursue only if able to work full time in France with completed qualifying degree.",
       "review": "official",
       "opening": null,
-      "verifiedAt": "2026-11-08",
+      "verifiedAt": "2026-11-16",
       "deadlineTime": null,
       "deadlineTimezone": "Not published",
       "applicationDocuments": [
@@ -1674,7 +1675,8 @@
       "sourceUrls": [
         "https://jobs.inria.fr/public/classic/en/offres/2026-10630"
       ],
-      "openStatus": "Official organizer posting found on 8 Nov 2026; application completion not attempted"
+      "openStatus": "Official Inria page reverified 16 Nov: 30 Nov 2026 deadline; six-month full-time scientific engineer job, salary not posted.",
+      "fundingStatus": "salaried-amount-undisclosed"
     },
     {
       "id": "inria-2026-10667",
@@ -1700,7 +1702,7 @@
       "action": "Verify degree and immediate Dec 1 start before treating as feasible.",
       "review": "official",
       "opening": null,
-      "verifiedAt": "2026-11-08",
+      "verifiedAt": "2026-11-16",
       "deadlineTime": null,
       "deadlineTimezone": "Not published",
       "applicationDocuments": [
@@ -1711,7 +1713,8 @@
       "sourceUrls": [
         "https://jobs.inria.fr/public/classic/en/offres/2026-10667"
       ],
-      "openStatus": "Official organizer posting found on 8 Nov 2026; application completion not attempted"
+      "openStatus": "Official Inria page reverified 16 Nov: 30 Nov 2026 deadline, salary from €2,692 gross/month; listed start 1 Dec 2026 unusually close to cutoff.",
+      "fundingStatus": "salaried-monthly-gross-confirmed"
     },
     {
       "id": "inria-2026-10643",
@@ -3548,15 +3551,15 @@
       "inria-2026-10706"
     ],
     "materialChanges": [
-      "Discovered five additional Inria official research vacancies (three salaried research-engineering jobs, two MSc/MSc-adjacent internships). Full-time employment is strictly not treated as student research fellowship.",
-      "New: WILLOW multimodal video/3D spatial reasoning engineer 30 Nov 2026, salary not listed; MAASAI VLA prior-knowledge robotics engineer 30 Nov, from €2692 gross/month; TADAAM AI4Science workflow/infrastructure engineer 12 Dec, €2883–€3532 gross/month but demands 3–5 years of experience.",
-      "New provisional M2 neuroimaging statistics internship 13 Dec, allowance absent from job posting, not confirmed paid; new CortexLab ROS2 LiFi robot internship 14 Dec, €4.50/hour, start March 2026 conflicts with December 2026 closing date.",
-      "Rechecked CISPA, CERN openlab, CaCTüS, ETH SSRF SiROP, Aalto AScI, RC Trust and Summer@EPFL against current official pages. ETH 2027 SiROP vs stale generic ETH instructions conflict remains; EPFL annual deadline not a new confirmed 2027-specific cutoff.",
-      "CaCTüS deadline is TODAY 16 Nov 2026, closing time not published. Inria OCKHAM flow-matching MSc internship also closes today 16 Nov 2026. RC Trust application form still not confirmed live.",
-      "EUMETSAT undergraduate/Master internships require EUMETSAT Member/Cooperating-State nationality and university-recognized placement; not a general India-nationality opportunity despite third-party current AI internship advertisements.",
-      "ISTA 2027 central ISTernship remains paused; separate year-round PI-led scientific internships continue.",
-      "No applications, registrations, emails or personal information disclosed; HTML tracker files remain untouched. GitHub Pages site deployment not verified."
+      "Two NEW source-verified Inria catalog entries: TADAAM (2026-10700), a 12-month salaried €2,883–€3,532/month AI4Science computing-infrastructure engineer role, Dec 12 deadline, requiring degree and 3–5 years' experience; and CortexLab (2026-10706), five-month ROS2/LiFi robotics internship with €4.50/hour allowance, Dec 14 deadline BUT a stale March 2026 start date.",
+      "THREE PRE-EXISTING entries reverified, NOT newly added: WILLOW video/3D perspective-grounded multimodal LLM research engineer (2026-10630) deadline 30 Nov, salary undisclosed; MAASAI VLA robotics research engineer (2026-10667) deadline 30 Nov, €2,692+ gross/month; EMPENN M2 neuroimaging statistics internship (2026-10607) deadline 13 Dec, remuneration undisclosed.",
+      "All full-time research-engineering vacancies remain labeled employment rather than MSc research fellowship; M2 EMPENN remuneration unverified and CortexLab start date conflict explicit.",
+      "Official-source rechecks: CaCTüS deadline TODAY 16 Nov 2026 time TBA; CISPA 30 Nov 23:59 AoE; CERN openlab 21 Jan 2027 23:59 Geneva; ETH SSRF 2027 SiROP 16 Dec 13:00 CET vs outdated generic ETH instructions; Aalto AScI 7–31 Jan 2027; RC Trust 31 Dec 2026 form still 'coming soon'; Summer@EPFL 2027 exact cutoff not independently posted, annual rule only.",
+      "Inria OCKHAM flow-matching M2 internship also closes today 16 Nov 2026 (hour unpublished), with statutory €4.50/hour rather than full relocation funding.",
+      "Newly encountered EUMETSAT 2026 AI internships cannot be recommended to India-only nationality applicants: official internship rules require EUMETSAT Member/Cooperating-State nationality and compulsory university-recognized placement. Employer listing itself not individually confirmed.",
+      "ISTA 2027 central ISTernship fellowship remains paused; scientific PI-led year-round internships remain available.",
+      "Only two truly new records today. No applications, email, payments or applicant private data shared; no modifications to tracker HTML/navigation; GitHub Pages deployment not independently verified."
     ],
-    "scopeNote": "69 records with future 90-day posted/provisional application dates, 30 within 14 days, 9 past, 14 rolling or deadline not published. Counts include restricted eligibility, jobs, PhDs and unconfirmed salary/date items; NOT all 92+ opportunities were reverified on 2026-11-16. No confirmed applicant eligibility is implied."
+    "scopeNote": "69 records with future 90-day posted/provisional application dates, 30 within 14 days, 9 past, 14 rolling or deadline not published. Counts include restricted eligibility, jobs, PhDs and unconfirmed salary/date items; NOT all 94 opportunities were reverified on 2026-11-16. No confirmed applicant eligibility is implied."
   }
 }
