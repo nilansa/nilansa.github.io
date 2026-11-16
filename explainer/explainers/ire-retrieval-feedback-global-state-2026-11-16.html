@@ -181,7 +181,7 @@ footer { padding: 28px 0 50px; color: var(--muted); font: 12px/1.6 system-ui, sa
     <li>Fit a residual vector so the retriever's scores on those candidates match the reward model's ranking distribution.</li>
     <li>Add the learned vector to later query embeddings and search the unchanged document index again.</li>
   </ol>
-  <div class="formula">Teacher: pT = softmax(reward scores / teacher temperature)<br>Student: pS = softmax(query-vector similarity / student temperature)<br>Learn v by minimising KL(pT || pS) + λ ||v||²<br>Deploy: corrected query = unit(original query + α v)</div>
+  <div class="formula">Teacher: pT = softmax(reward scores / teacher temperature)<br>Student: pS = softmax(query-vector similarity / student temperature)<br>Learn v by minimising KL(pT || pS) + λ ||v||²<br>Deploy: corrected query = unit(original query + αg v)<br>Global/task scale: αg = ng / (ng + 1)</div>
   <p class="small">The loss uses the relative scores within each candidate list. It does not require ground-truth relevance labels for fitting. The paper uses those labels only to evaluate the final rankings.</p>
   <h3>Three ways to share the learned vector</h3>
   <table>
@@ -202,7 +202,7 @@ footer { padding: 28px 0 50px; color: var(--muted); font: 12px/1.6 system-ui, sa
     <div class="arrow">→</div>
     <div class="node"><strong>Unseen queries U_B</strong>Reuse the same vector</div>
   </div>
-  <p>The paper uses two strict checks. First, 80% of queries provide rewards and the vector is evaluated only on the remaining 20%. Second, leave-one-task-out evaluation learns the global vector on 14 tasks and applies it to the task that was not used for learning.</p>
+  <p>For the global state, the paper first averages rewarded queries within each task, then averages the tasks equally. This stops large tasks from dominating the shared vector. The paper uses two strict checks. First, 80% of queries provide rewards and the vector is evaluated only on the remaining 20%. Second, leave-one-task-out evaluation learns the global vector on 14 tasks and applies it to the task that was not used for learning.</p>
   <h3>Results reported by the TTT-Embed paper</h3>
   <p>These are the paper's results. They are not results from the Ceous SCIDOCS experiment.</p>
   <table>
@@ -229,7 +229,7 @@ footer { padding: 28px 0 50px; color: var(--muted); font: 12px/1.6 system-ui, sa
 <section id="disco">
   <div class="kicker">Division 2 · A separate retrieval problem</div>
   <h2>DISCo: choose documents that cover the query together</h2>
-  <p>DISCo starts from a different observation. For a complex question, one passage may not contain the full answer. Several passages may need to work together.</p>
+  <p>DISCo (Dense Index for Set Coverage) starts from a different observation. For a complex question, one passage may not contain the full answer. Several passages may need to work together.</p>
   <p>Ordinary top-K retrieval scores each document on its own. It can return several documents that repeat the same part of the query. A useful fact may remain uncovered.</p>
   <div class="grid">
     <div class="panel soft">
@@ -382,7 +382,7 @@ footer { padding: 28px 0 50px; color: var(--muted); font: 12px/1.6 system-ui, sa
   <ol class="refs">
     <li><strong>Microsoft Research.</strong> <a href="https://www.microsoft.com/en-us/research/academic-program/microsoft-research-fellowship/research-challenges/" target="_blank" rel="noopener">Efficient and accurate post-training of retrieval models</a>. The original challenge statement: data selection, loss formulation and computational efficiency.</li>
     <li><strong>Sung et al. (2023).</strong> <a href="https://aclanthology.org/2023.findings-acl.354/" target="_blank" rel="noopener">Optimizing Test-Time Query Representations for Dense Retrieval</a>. Findings of ACL.</li>
-    <li><strong>Reddy et al. (2023).</strong> <a href="https://arxiv.org/abs/2305.11744" target="_blank" rel="noopener">ReFIT: Relevance Feedback from a Reranker during Inference</a>. arXiv:2305.11744.</li>
+    <li><strong>Gangi Reddy et al. (2023).</strong> <a href="https://arxiv.org/abs/2305.11744" target="_blank" rel="noopener">ReFIT: Relevance Feedback from a Reranker during Inference</a>. arXiv:2305.11744.</li>
     <li><strong>Chen and Wu (2026).</strong> <a href="https://arxiv.org/abs/2608.12569" target="_blank" rel="noopener">Test-Time Optimization of Query Embeddings with Ranking Aware Reward Maximization</a>. TTT-Embed, arXiv:2608.12569.</li>
     <li><strong>Nair et al. (2026).</strong> <a href="https://openreview.net/pdf?id=cUdODCFjUM" target="_blank" rel="noopener">A Dense Subset Index for Collective Query Coverage</a>. ICLR 2026.</li>
     <li><strong>Gangi Reddy et al. (2025).</strong> <a href="https://research.ibm.com/publications/a-large-scale-study-of-reranker-relevance-feedback-at-inference" target="_blank" rel="noopener">A Large-Scale Study of Reranker Relevance Feedback at Inference</a>. SIGIR 2025.</li>
