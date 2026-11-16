@@ -1,5 +1,24 @@
 [
   {
+    "id": "ire-web-presentation-20261116",
+    "title": "IRE Presentation — Frozen models. Better retrieval?",
+    "description": "Twenty-page Queos Labs presentation on TOUR, ReFIT, TTT-Embed and coverage-aware feedback, with verified plots, one-minute speaker scripts and sentence-level sources.",
+    "project": "IRE Project — Ceous",
+    "category": "Research presentation",
+    "tags": [
+      "IRE",
+      "presentation",
+      "retrieval",
+      "TOUR",
+      "ReFIT",
+      "TTT-Embed",
+      "DISCo"
+    ],
+    "url": "./ire-presentation/index.html",
+    "date": "2026-11-16",
+    "indexed_at": "2026-11-16T14:02:01+05:30"
+  },
+  {
     "id": "ire-retrieval-feedback-global-state-20261116",
     "title": "IRE — From Query Feedback to a Global Retrieval State",
     "description": "ASD-STE100 study of TOuR, ReFIT, TTT-Embed and DISCo: query-level adaptation, reusable global embedding-space state, collective query coverage, and the SCIDOCS reproduction with its limits.",
