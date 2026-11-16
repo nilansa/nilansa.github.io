@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOf": "2026-11-15",
+  "asOf": "2026-11-16",
   "heading": "Europe-wide paid AI/ML research opportunities for international Master's students",
   "scope": "European universities and research institutes; paid employment, stipend or funded living costs; all AI/ML fields. Program admission and visa rules always prevail.",
   "safety": "Public program facts only. No applicant identity, application status, documents or private notes. A source-backed candidate is not an application or eligibility approval.",
@@ -11,7 +11,7 @@
     "sourcePrecedence": "Current official program page over aggregators; explicitly flag conflicts with old organizer portals and subpages",
     "eligibility": "conditional until graduation date, nationality, current enrolment and project rules are checked",
     "deadlineTimezone": "Exact time only when published; unknown remains null/TBA",
-    "verification": "2026-11-15: Fresh official-source checks of university/institute research programs across UK, Switzerland, Germany, Finland and Austria. Added separate Edinburgh MLSystems, Imperial PAIR, Oxford EIT Fundamentals of AI 2027 doctoral records (distinguishing conditional funding and applications not yet open). Updated ISTA scientific internships and confirmed central ISTernship fellowship PAUSED 2027. Rechecked CaCTüS, CISPA, CERN openlab, Aalto, RC Trust, EPFL Life Sciences, IMPRS and ISTA PhD. Existing other records retain their prior verifiedAt; counts should not be described as fully confirmed personal-eligibility matches. Oxford EIT portal remains Opening Soon; Edinburgh official max-international-seat statement conflicts with its published prior recruitment statistics."
+    "verification": "2026-11-16: Rechecked official organizer sources for CaCTüS, CISPA, CERN openlab, ETH SSRF 2027 SiROP, Aalto 2027 AScI, RC Trust and Summer@EPFL. Added five distinct Inria official employment/internship records with correct funding and eligibility cautions; French internship date mismatch and unverified stipend explicitly flagged. Other older catalog records retain their last verifiedAt."
   },
   "domains": [
     "Speech & audio",
@@ -53,7 +53,7 @@
       "action": "URGENT (16 Nov): official 2027-specific portal says open, but 2026 generic text remains on the site. Check project enrollment through Oct 2027, availability and correct official 2027 submission form. CV, transcripts and personal research statement needed.",
       "review": "recheck",
       "opening": "2026-10-21",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-16",
       "deadlineTime": null,
       "deadlineTimezone": "Not published",
       "fundingCaveats": "Housing is organized but paid from the salary, NOT free additional funding. Visa/embassy fees and related travel are NOT reimbursed. Exact net sum/tax/insurance terms must be confirmed.",
@@ -66,7 +66,7 @@
       "sourceUrls": [
         "https://projects.tuebingen.mpg.de/"
       ],
-      "openStatus": "Official 2027 timeline confirms application open through 16 Nov 2026; generic page continues to reference 2026 places."
+      "openStatus": "Official Max Planck 2027 timeline shows applications 21 Oct–16 Nov 2026; closing time unpublished. Generic text still refers to summer 2026."
     },
     {
       "id": "epfl-summer27",
@@ -130,10 +130,10 @@
       "action": "Applications OPEN. Prepare English transcripts, bachelor's certificate, 1–2 page CV and motivation, and an English assessment or statement. Check continued summer 2027 enrollment.",
       "review": "official",
       "opening": null,
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-16",
       "deadlineTime": "23:59",
       "deadlineTimezone": "AoE (UTC−12)",
-      "openStatus": "2027 call officially OPEN; applications close 30 Nov 2026 23:59 Anywhere on Earth.",
+      "openStatus": "Official CISPA 2027 summer research program OPEN through 30 November 2026, 23:59 Anywhere on Earth.",
       "fundingCaveats": "Gross before German taxes; travel, housing and visa cost coverage not published on main CSR page. Check net budget.",
       "applicationDocuments": [
         "1–2 page motivation letter",
@@ -173,7 +173,7 @@
       "action": "2027 cutoff recorded from earlier official organizer snapshot, but official how-to-apply fetch has stale 2025 dates. Verify live SiROP and graduation no earlier than spring 2028 before applying.",
       "review": "official",
       "opening": "2026-11-01",
-      "verifiedAt": "2026-11-08",
+      "verifiedAt": "2026-11-16",
       "deadlineTime": "13:00",
       "deadlineTimezone": "CET (UTC+1)",
       "fundingCaveats": "CHF 4,000 total intended for housing/living for 2 months; housing may be deducted; visa and travel costs reimbursed/covered per official ETH guidance.",
@@ -187,7 +187,7 @@
         "https://sirop.org/app/1535d3bf-c2ef-4c74-8870-cb5bc17cb4da",
         "https://inf.ethz.ch/studies/summer-research-fellowship.html"
       ],
-      "openStatus": "2027 official SiROP fellowship listing posted; submission portal access should be checked"
+      "openStatus": "Specific ETH SiROP 2027 listing announces 16 Dec 2026 13:00 CET deadline; generic ETH how-to-apply page still says CLOSED and gives 2025/2026 timeline. Graduation no earlier than spring 2028 required."
     },
     {
       "id": "rc-trust27",
@@ -212,10 +212,10 @@
       "action": "Check the actual online form before relying on availability; official parent text says under preparation and direct PHP backend returned 403 to automation. E-mail applications are NOT accepted.",
       "review": "recheck",
       "opening": null,
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-16",
       "deadlineTime": null,
       "deadlineTimezone": "Not stated",
-      "openStatus": "Official parent pages as of 15 Nov 2026 still say 2027 application form 'coming soon' / under preparation. 31 Dec closing date verified; submission readiness NOT verified.",
+      "openStatus": "Official RC Trust 2027 page still says online form is being prepared; 31 December 2026 deadline confirmed but submission readiness unverified.",
       "applicationDocuments": [
         "Online form only (details/document list not yet published)",
         "Group/research-interest choice likely required; confirm form once available"
@@ -252,10 +252,10 @@
       "action": "Request a reference letter early, review projects ~10 Dec 2026, apply Jan 7–31 (up to 3 projects; one combined PDF).",
       "review": "official",
       "opening": "2027-01-07",
-      "verifiedAt": "2026-11-15",
+      "verifiedAt": "2026-11-16",
       "deadlineTime": "23:59",
       "deadlineTimezone": "UTC+2 (Finland; as explicitly published for Jan 2027)",
-      "openStatus": "2027 application opens 7 Jan and closes 31 Jan 2027 at 23:59 UTC+2; projects expected mid December 2026.",
+      "openStatus": "2027 AScI applications will open 7 Jan 2027 and close 31 Jan 2027 at 23:59 UTC+2; projects posted mid-December; not yet open.",
       "fundingCaveats": "Travel bonus is limited to €400/€800, not guaranteed full airfare reimbursement. Housing is not free, and visa/insurance costs are not explicitly promised.",
       "applicationDocuments": [
         "Academic CV",
@@ -292,8 +292,8 @@
       "action": "NEW OPENING: prepare one recent referee letter, student certificate and complete official 2027 portal. Strong AI systems/ML for science opportunity.",
       "review": "official",
       "opening": "2026-11-06",
-      "verifiedAt": "2026-11-15",
-      "openStatus": "Official 2027 CERN openlab computing summer programme vacancy live, 21 Jan 2027 before 23:59 Geneva time; 94 CHF net/day, conditional travel help, enrollment throughout.",
+      "verifiedAt": "2026-11-16",
+      "openStatus": "Official 2027 CERN openlab summer posting OPEN, deadline 21 January 2027 23:59 Geneva time; full-time enrollment required throughout.",
       "fundingCaveats": "CHF 94 per calendar day net allowance with health cover; travel depends on circumstances, accommodation search assistance only (housing not included), requires 6 semesters completed and student enrollment throughout.",
       "applicationDocuments": [
         "CV",
@@ -3465,28 +3465,98 @@
       "officialUrl": "https://www.ox.ac.uk/admissions/graduate/courses/cdt-fundamentals-of-artificial-intelligence",
       "priority": "watch",
       "action": "Watch official 2027–28 admissions opening and current requirements; prepare academic research materials/references but do not treat course as accepting applications yet."
+    },
+    {
+      "id": "inria-2026-10700",
+      "name": "Inria TADAAM: AI Infrastructure for Scientific Computing and Multimodal Retrieval (Research Engineer)",
+      "host": "Inria Bordeaux / TADAAM, Talence",
+      "country": "France",
+      "type": "Twelve-month salaried ML-systems research engineer — employment, NOT MSc internship",
+      "domains": [
+        "Systems",
+        "AI for science",
+        "Foundation models",
+        "Data-centric ML"
+      ],
+      "deadline": "2026-12-12",
+      "deadlineTime": null,
+      "deadlineTimezone": "Not published",
+      "deadlineNote": "Official Inria vacancy 2026-10700 lists 12 Dec 2026, closing hour/timezone not supplied.",
+      "opening": null,
+      "period": "12-month renewable employment from 1 February 2027",
+      "funding": "€2,883–€3,532 gross monthly according to experience and qualifications.",
+      "fundingStatus": "salaried-monthly-gross-confirmed",
+      "fundingCaveats": "No international airfare, housing or immigration expenses confirmed; ZRR security authorization may apply.",
+      "eligibility": "Low for current student — graduate degree and 3–5 years' experience",
+      "eligibilityDetail": "Master's/Bac+5 in CS/software or equivalent; explicitly asks 3–5 years' experience, excellent Python, Linux, distributed systems, web APIs, ML frameworks, familiarity with PyTorch, Git and AI infrastructure. English good; French desirable. Full-time job, not internship; non-EU visa sponsorship unspecified.",
+      "officialUrl": "https://jobs.inria.fr/public/classic/en/offres/2026-10700",
+      "sourceUrls": [
+        "https://jobs.inria.fr/public/classic/en/offres/2026-10700"
+      ],
+      "applicationDocuments": [
+        "CV",
+        "Motivation letter",
+        "Apply through Inria online vacancy"
+      ],
+      "priority": "low",
+      "action": "Research-employment watchlist only; low immediate match for an enrolled MS student due to full-time role and experience requirement.",
+      "review": "official",
+      "verifiedAt": "2026-11-16",
+      "openStatus": "Official Inria page lists future 12 Dec 2026 application deadline."
+    },
+    {
+      "id": "inria-2026-10706",
+      "name": "Inria CortexLab: ROS2 Robot Control Using LiFi/Infrared Instead of Radio (Internship)",
+      "host": "Inria Lyon / SED-LYS, Villeurbanne",
+      "country": "France",
+      "type": "Paid Master's-adjacent robotics systems internship — dates conflict",
+      "domains": [
+        "Robotics",
+        "Systems",
+        "Interdisciplinary AI"
+      ],
+      "deadline": "2026-12-14",
+      "deadlineTime": null,
+      "deadlineTimezone": "Not published",
+      "deadlineNote": "Official Inria vacancy 2026-10706 lists 14 Dec 2026 deadline BUT a March 2 2026 start date, which is already past. Confirm current recruitment period before treating as actionable.",
+      "opening": null,
+      "period": "Five months; advertised start 2 March 2026 is inconsistent with 14 Dec 2026 deadline.",
+      "funding": "€4.50 per hour stated as 2026 statutory internship allowance; no full cost coverage.",
+      "fundingStatus": "partial-internship-allowance",
+      "fundingCaveats": "Inria does not guarantee accommodation, international travel or visa. Specialized restricted laboratory security (ZRR) screening possible. Incorrect/old start date requires organizer confirmation.",
+      "eligibility": "Conditional — software/electronics robotics internship",
+      "eligibilityDetail": "Needs C/Python, embedded microcontrollers, ROS2/REST and experimental robotics/optical communications; listed graduate-level internship agreement. Less direct ML modeling relevance. Non-EU eligibility and corrected start date unconfirmed.",
+      "officialUrl": "https://jobs.inria.fr/public/classic/en/offres/2026-10706",
+      "sourceUrls": [
+        "https://jobs.inria.fr/public/classic/en/offres/2026-10706"
+      ],
+      "applicationDocuments": [
+        "Submit on Inria online portal; required attachments not itemized",
+        "University internship agreement if required"
+      ],
+      "priority": "low",
+      "action": "Potentially stale vacancy: verify real start year/date, whether portal accepts applications and internship agreement before relying on it.",
+      "review": "official-conflict",
+      "verifiedAt": "2026-11-16",
+      "openStatus": "Official listing is online with future application deadline but inconsistent earlier start date."
     }
   ],
   "lastResearchSummary": {
-    "date": "2026-11-15",
+    "date": "2026-11-16",
     "newRecordIDs": [
-      "edinburgh-mlsystems-cdt27",
-      "imperial-pair-hri-phd27",
-      "oxford-eit-foai-cdt27-watch"
+      "inria-2026-10700",
+      "inria-2026-10706"
     ],
     "materialChanges": [
-      "Added Edinburgh Machine Learning Systems CDT: 2027 Round 1 open all nationalities; Stage 1 14 Dec 2026 23:59 (time zone not specified); Stage 2 invitation-only 21 Jan 2027. Covers international tuition + UKRI stipend + research costs, but not immigration, IHS or flights. Up to ~3 international offers per cohort under stated caps.",
-      "Added Imperial College PAIR lab 2027 HRI PhD: 3 advertised fully funded international/home openings, 1 Dec 2026; funding amount and actual award remain conditional per same lab page.",
-      "Added Oxford EIT Fundamentals of AI research-based DPhil 2027 watchlist: 6 Jan 2027 noon UK listed, 2027 course page says Opening Soon; majority but not all offers expected funded.",
-      "Official ISTA Summer ISTernship fellowship is paused for 2026 AND 2027 (one older section of the program page still mentions late 2026 future update); year-round scientific internships stay available, PI-led and subject to salary funds.",
-      "ISTA 2027 PhD officially open: 8 Jan 2027 at 15:00 CET, referees by 12 Jan 2027 at 23:59 CET.",
-      "Aalto 2027 AScI salaries confirmed from official page: €2,000+/month + limited €400/€800 travel bonus, not full relocation coverage; applications 7–31 Jan 2027.",
-      "EPFL Life Sciences applications close 15 Nov 2026 23:59 CET; for eligible LIFE SCIENCES applicants through first MSc year, not general CS-only applicants.",
-      "CaCTüS applications close 16 Nov 2026, exact time unpublished; generic site wording still says summer 2026 but 2027 timeline is clear.",
-      "CISPA 2027 and CERN openlab 2027 reverified open. RC Trust parent page still states application form coming soon despite 31 Dec 2026 deadline.",
-      "No application, email or personal information shared; GitHub Pages accessibility not confirmed.",
-      "Edinburgh MLSystems official 30% UKRI international cap (~3/cohort) conflicts with its own recruitment statistics showing seven international appointments in each of 2025 and 2026; future award allocation remains uncertain. Its published Stage-1 clock time does not label an explicit time zone."
+      "Discovered five additional Inria official research vacancies (three salaried research-engineering jobs, two MSc/MSc-adjacent internships). Full-time employment is strictly not treated as student research fellowship.",
+      "New: WILLOW multimodal video/3D spatial reasoning engineer 30 Nov 2026, salary not listed; MAASAI VLA prior-knowledge robotics engineer 30 Nov, from €2692 gross/month; TADAAM AI4Science workflow/infrastructure engineer 12 Dec, €2883–€3532 gross/month but demands 3–5 years of experience.",
+      "New provisional M2 neuroimaging statistics internship 13 Dec, allowance absent from job posting, not confirmed paid; new CortexLab ROS2 LiFi robot internship 14 Dec, €4.50/hour, start March 2026 conflicts with December 2026 closing date.",
+      "Rechecked CISPA, CERN openlab, CaCTüS, ETH SSRF SiROP, Aalto AScI, RC Trust and Summer@EPFL against current official pages. ETH 2027 SiROP vs stale generic ETH instructions conflict remains; EPFL annual deadline not a new confirmed 2027-specific cutoff.",
+      "CaCTüS deadline is TODAY 16 Nov 2026, closing time not published. Inria OCKHAM flow-matching MSc internship also closes today 16 Nov 2026. RC Trust application form still not confirmed live.",
+      "EUMETSAT undergraduate/Master internships require EUMETSAT Member/Cooperating-State nationality and university-recognized placement; not a general India-nationality opportunity despite third-party current AI internship advertisements.",
+      "ISTA 2027 central ISTernship remains paused; separate year-round PI-led scientific internships continue.",
+      "No applications, registrations, emails or personal information disclosed; HTML tracker files remain untouched. GitHub Pages site deployment not verified."
     ],
-    "scopeNote": "Evidence rechecked 2026-11-15 for the listed records; not all 92 entries were individually reverified today. 71 catalog entries have posted or provisional deadlines dated 2026-11-15 through 2027-02-13, 23 within 14 days, 5 past; totals include eligibility-restricted, salary-undisclosed and doctoral programs. Closed-by-date does not establish a disabled application portal."
+    "scopeNote": "69 records with future 90-day posted/provisional application dates, 30 within 14 days, 9 past, 14 rolling or deadline not published. Counts include restricted eligibility, jobs, PhDs and unconfirmed salary/date items; NOT all 92+ opportunities were reverified on 2026-11-16. No confirmed applicant eligibility is implied."
   }
 }
