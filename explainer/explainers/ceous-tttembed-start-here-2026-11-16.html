@@ -60,7 +60,7 @@ blockquote{border-left:3px solid var(--blue);margin:15px 0;padding:4px 20px;font
 <p class="lede">A complete teaching guide for a 10-minute research presentation. What is a query–document pair? What do a dense retriever, ColBERT, and a cross-encoder do? Why does TTT-Embed have global, task and query scopes? And where could complementary retrieval help?</p>
 <p class="eyebrow">16 November 2026 · Reading guide and research proposal, not a claim of a successful new experiment</p>
 <nav aria-label="Page sections">
-<a href="#basics">1. Basics</a><a href="#ttt">2. TTT-Embed</a><a href="#budgets">3. Budgets</a><a href="#benchmarks">4. Datasets</a><a href="#ours">5. Our experiments</a><a href="#idea">6. Proposed idea</a><a href="#kl-intuition">8. KL from zero</a><a href="#gradient-flow">9. Gradients</a><a href="#selection-math">10. Hypothesis math</a><a href="#ten-minute">11. 10-min slides</a><a href="#sources">Sources</a>
+<a href="#basics">1. Basics</a><a href="#ttt">2. TTT-Embed</a><a href="#budgets">3. Budgets</a><a href="#benchmarks">4. Datasets</a><a href="#ours">5. Our experiments</a><a href="./ceous-tttembed-fiqa200-baseline-2026-11-16.html">FiQA-200 measured baseline ↗</a><a href="#idea">6. Proposed idea</a><a href="#kl-intuition">8. KL from zero</a><a href="#gradient-flow">9. Gradients</a><a href="#selection-math">10. Hypothesis math</a><a href="#ten-minute">11. 10-min slides</a><a href="#sources">Sources</a>
 <a href="/explainer/">Explainer index</a>
 </nav>
 </header>
@@ -130,6 +130,7 @@ Next:       Search the FULL unchanged document index with x'q.</div>
 <p class="small">Source: TTT-Embed, Appendix 12/Table 6. HN means HardNegatives task revision. These paper-specific task versions matter: the same task name in a different evaluation package need not give identical numbers.</p></details>
 </section>
 <section id="ours">
+<div class="panel em" style="margin-bottom:22px"><div class="kicker">Completed follow-up · query-wise adaptation</div><h3>New FiQA-200 baseline: 0.46180 → 0.50596 nDCG@10</h3><p>The untouched frozen dense retriever scored <strong>46.18%</strong> and standard dense-top-10 feedback + query-wise TTT-Embed scored <strong>50.60%</strong> on 200 previously exposed FiQA queries, with all 57,638 documents searched. This is a different protocol from the 648-query <em>task-wise</em> cross-fit below.</p><p>Our DISCo-inspired coverage selector achieved 0.48070 and <strong>did not beat standard TTT</strong>. <a href="./ceous-tttembed-fiqa200-baseline-2026-11-16.html"><strong>Open the standalone professor-facing results page</strong></a> for the chart, exact optimizer, comparisons and limitations.</p></div>
 <div class="kicker">05 · Evidence versus hypothesis</div><h2>What Ceous actually ran</h2>
 <div class="grid">
 <div class="panel">
