@@ -20,8 +20,8 @@
     b += `<ellipse cx="785" cy="160" rx="130" ry="110" fill="none" stroke="${PALE}" stroke-width="2" stroke-dasharray="6 8"/>`;
     b += `<ellipse cx="985" cy="205" rx="150" ry="120" fill="none" stroke="${BLUE}" stroke-width="2"/>`;
     b += circle(740,175,11,INK)+circle(945,195,11,BLUE)+arr(s.id,755,175,928,194)+t(815,162,'+ v',36,BLUE,600)+t(708,214,'q',23,INK,500)+t(966,222,'q̃',23,BLUE,500);
-    b += t(0,90,'A small vector.',44,INK,500)+t(0,145,'A different search.',44,BLUE,500)+t(0,215,'Coeus',23)+t(0,253,'IIIT Hyderabad',22,GRAY)+t(0,305,'Coeus · IRE · 16 November 2026',20,GRAY);
-    return wrap('cover',svg(s.id,b,'Illustration: an external vector changes a query and its retrieved neighborhood, with document vectors fixed.'),'<p><strong>A small vector. A different search.</strong></p><p>Coeus<br>IIIT Hyderabad</p>');
+    b += t(0,90,'A small vector.',44,INK,500)+t(0,145,'A different search.',44,BLUE,500)+t(0,215,'Nilanjan Sarkar · Raman Rayaprolu',23)+t(0,253,'IIIT Hyderabad',22,GRAY)+t(0,305,'IRE Project · 16 November 2026',20,GRAY);
+    return wrap('cover',svg(s.id,b,'Illustration: an external vector changes a query and its retrieved neighborhood, with document vectors fixed.'),'<p><strong>A small vector. A different search.</strong></p><p>Nilanjan Sarkar · Raman Rayaprolu<br>IIIT Hyderabad</p>');
   }
   function origin(s) {
     let b='';
@@ -56,15 +56,26 @@
     return wrap('bottleneck',svg(s.id,b,'A relevant document outside the retrieved set cannot be recovered by reranking that same set.'),'<p>The retriever selects a candidate set from the corpus.</p><p>The reranker can improve the order inside that set.</p><p><strong>A missed document needs a new search.</strong></p>');
   }
   function tourLoop(s) {
-    const b = [
-      [10,'1  RETRIEVE','top-k from full index'], [320,'2  SCORE','fixed cross-encoder'],
-      [630,'3  UPDATE q','one gradient step'], [940,'4  RE-SEARCH','same full index']
-    ].map(([x,a,c],i)=>t(x,75,a,27,i===2?BLUE:INK,600)+t(x,115,c,20,GRAY)+(i<3?arr(s.id,x+250,72,x+300,72):'')).join('');
-    return wrap('method',svg(s.id,b,'TOUR retrieves, scores, updates the query vector, and retrieves again.',150)+
-      `<div class="equation-card"><div class="formula-label">TOUR · paper equations 1, 2 and 10</div>${math('sim(q,cᵢ) = qᵀcᵢ &nbsp; · &nbsp; C₁:ₖ(q) = top-k<sub>c ∈ C</sub> sim(q,c)')} ${math('q<sub>t+1</sub> = q<sub>t</sub> − η ∇<sub>q<sub>t</sub></sub> L(q<sub>t</sub>, C₁:ₖ(q<sub>t</sub>))')}<p><b>q, cᵢ ∈ ℝᵈ</b>: query and document vectors; <b>C</b>: indexed documents; <b>k</b>: shortlist size; <b>t</b>: iteration; <b>η &gt; 0</b>: step size; <b>L</b>: hard or soft feedback loss. The dot product returns one similarity score.</p><p>Change only the external query vector, then retrieve again. Encoder weights and document vectors remain fixed.</p></div>`);
+    let b='';
+    const xs=[0,320,640,960], labels=['Retrieve','Score','Move q','Retrieve again'], subs=['Fixed document index','Cross-encoder feedback','Vector-only gradient step','A new candidate set'];
+    xs.forEach((x,i)=>{b+=t(x,40,String(i+1).padStart(2,'0'),19,GRAY)+line(x,62,x+235,62,i===2?BLUE:PALE,2)+t(x,113,labels[i],30,i===2?BLUE:INK,600)+t(x,151,subs[i],18,GRAY);if(i<3)b+=arr(s.id,x+250,105,x+298,105);});
+    b+=line(20,315,500,315,PALE)+line(20,315,20,197,PALE);
+    [[75,235],[120,280],[160,215],[210,270],[290,225],[335,280],[395,210],[455,255]].forEach(([x,y],i)=>b+=circle(x,y,6,i>3?BLUE:PALE));
+    b+=circle(125,300,9,INK)+circle(355,253,9,BLUE)+arr(s.id,139,296,341,256)+t(108,342,'q₀',24)+t(348,292,'q₁',24,BLUE);
+    b+=`<path d="M1085 190 L1085 250 L705 250 L705 195" fill="none" stroke="${BLUE}" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#a-${s.id})"/>`;
+    b+=t(690,296,'Repeat as configured',24,BLUE,500)+t(690,330,'Cached scores and early stopping reduce repeated work.',18,GRAY);
+    return wrap('tour-loop',svg(s.id,b,'TOUR retrieves, scores candidates, takes a vector gradient step, and retrieves again. Document points remain fixed.'),'<ol><li>Retrieve with q₀.</li><li>Score candidates with the fixed teacher.</li><li>Take a gradient step on q.</li><li>Search the same full index with q₁.</li></ol>');
   }
   function hardSoft(s) {
-    return wrap('equations', `<div class="equation-card"><div class="formula-label">Teacher and student on the same k candidates</div>${math('aᵢ = exp(ϕ(q,cᵢ)/τ) / ∑ⱼ exp(ϕ(q,cⱼ)/τ) &nbsp; · &nbsp; pᵢ = exp(qᵀcᵢ) / ∑ⱼ exp(qᵀcⱼ)')}<p><b>ϕ(q,cᵢ)</b> is the teacher relevance score; <b>τ &gt; 0</b> is its temperature. Softmax turns each score list into probabilities that sum to one. <b>pᵢ</b> is the retriever probability.</p></div><div class="equation-columns"><div class="equation-card"><div class="formula-label">Hard · TOUR equations 8–9</div>${math('A = smallest set with ∑<sub>i ∈ A</sub> aᵢ ≥ ρ')} ${math('L<sub>hard</sub> = −log ∑<sub>i ∈ A</sub> pᵢ')}<p><b>A</b> is the teacher-selected pseudo-positive set; <b>ρ</b> is its probability threshold. Minimize the loss to increase the student's total probability on A.</p></div><div class="equation-card"><div class="formula-label">Soft · TOUR equations 12–13</div>${math('L<sub>soft</sub> = ∑ᵢ aᵢ log(aᵢ/pᵢ)')} ${math('q′ = q + η ∑ᵢ (aᵢ − pᵢ)cᵢ')}<p>The fixed teacher distribution <b>a</b> supplies graded targets. The update is the paper's dot-product gradient: teacher-weighted document mean minus student-weighted mean.</p></div></div>`+note('TOUR: Eqs. 8–13; the teacher is held fixed during each query-vector update.'));
+    const panel=(x,label,hard)=>{
+      let b=t(x,32,label,30,BLUE,600); const vals=[.6,.3,.1];
+      vals.forEach((v,i)=>{const bx=x+40+i*130;b+=rect(bx,210-v*210,65,v*210,i===2&&hard?PALE:BLUE,'none')+t(bx+32,195-v*210,v.toFixed(2),20,GRAY,500,'middle')+t(bx+32,244,['A','B','C'][i],22,INK,500,'middle');});
+      if(hard)b+=`<path d="M${x+30} 260 v14 h216 v-14" fill="none" stroke="${BLUE}" stroke-width="2"/>`+t(x+30,312,'A and B selected at example threshold 0.8',19,GRAY,400);
+      else b+=t(x+200,302,'Keep all three probability weights',21,GRAY,400,'middle');
+      return b;
+    };
+    const b=panel(30,'Hard · select a pseudo-positive set',true)+line(585,0,585,330,PALE)+panel(660,'Soft · match the distribution',false);
+    return wrap('hard-soft',svg(s.id,b,'Illustrative teacher probabilities .6, .3, .1. Hard feedback selects a set; soft feedback preserves all probability weights.')+`<div class="formula-pair"><div>${math('L<sub>hard</sub> = −log ∑<sub>i ∈ A</sub> p<sup>S</sup><sub>i</sub>')}<span>Increase the selected set’s probability.</span></div><div>${math('L<sub>soft</sub> = D<sub>KL</sub>(p<sup>T</sup> ∥ p<sup>S</sup>)')}<span>Match the teacher’s graded preferences.</span></div></div>`, '<p>Teacher probabilities: A .60, B .30, C .10.</p><p><strong>Hard:</strong> select A+B at illustrative threshold .8.</p><p><strong>Soft:</strong> fit all three probability weights.</p>');
   }
   function tourChart(s) {
     const a=[57.9,64.4,65.6,66.2],b=[70.8,70.8,71.9,72.5], names=['Retrieve','Rerank','TOUR hard','TOUR soft'];
@@ -77,10 +88,13 @@
   }
   function refitLoop(s) {
     let b='';
-    [[0,'1  Retrieve','100 candidates'],[320,'2  Score once','Cache teacher outputs'],[640,'3  Update q','100 vector steps'],[960,'4  Search again','Full document index']].forEach(([x,label,sub],i)=>{
-      b+=t(x,65,label,29,i===2?BLUE:INK,600)+t(x,105,sub,20,GRAY); if(i<3)b+=arr(s.id,x+245,65,x+300,65);
+    [[0,'Retrieve 100','From the full corpus'],[320,'Score once','Cache teacher outputs'],[640,'Update q','100 inexpensive steps'],[960,'Search again','Over the full corpus']].forEach(([x,label,sub],i)=>{
+      b+=t(x,85,label,29,i===2?BLUE:INK,600)+t(x,125,sub,20,GRAY)+line(x,155,x+232,155,i===2?BLUE:PALE,2);
+      if(i<3)b+=arr(s.id,x+245,89,x+300,89);
     });
-    return wrap('method',svg(s.id,b,'ReFIT retrieves and scores candidates once, updates only the query vector 100 times using cached teacher scores, then searches the full index.',145)+`<div class="equation-card"><div class="formula-label">ReFIT · algorithm 1 and equation 7</div>${math('q<sub>t+1</sub> = q<sub>t</sub> − η ∇<sub>q<sub>t</sub></sub> D<sub>KL</sub>(p<sup>T</sup> ∥ p<sup>S</sup>(q<sub>t</sub>))')}<p><b>q<sub>t</sub> ∈ ℝᵈ</b> is the current query vector; <b>η</b> is the step size; <b>p<sup>T</sup></b> is the fixed teacher distribution; <b>p<sup>S</sup></b> is the student distribution over the same cached candidates.</p><p>Paper setting: 100 vector updates, learning rate 0.005, teacher temperature 2. These are <b>not</b> 100 teacher calls. Then re-search the full index.</p></div>`);
+    b+=`<path d="M650 192 C650 255 875 255 875 192" fill="none" stroke="${BLUE}" stroke-width="3" marker-end="url(#a-${s.id})"/>`+t(762,217,'same scores',21,BLUE,500,'middle');
+    b+=t(0,275,'Expensive operation',19,GRAY)+t(0,319,'Teacher inference',29,INK,500)+t(500,275,'Cheap inner operation',19,GRAY)+t(500,319,'Vector optimization',29,BLUE,500);
+    return wrap('refit-loop',svg(s.id,b,'ReFIT scores 100 candidates once, performs 100 query-vector updates on cached scores, then searches the corpus again.'),'<ol><li>Retrieve 100 documents.</li><li>Score each once.</li><li>Use cached scores for 100 vector steps.</li><li>Search the full index again.</li></ol>');
   }
   function klPlot(s,after=false) {
     const target=[.6,.3,.1],student=after?[.5,.3,.2]:[.2,.3,.5];
@@ -93,7 +107,7 @@
     return svg(s.id,b,'Toy teacher-student probabilities. Blue is fixed teacher, gray is student; the closer-fit option is illustrative, not measured.',320);
   }
   function kl(s) {
-    return wrap('equations', `<div class="equation-card"><div class="formula-label">ReFIT · teacher and student distributions</div>${math('N(aᵢ) = (aᵢ − minⱼ aⱼ) / (maxⱼ aⱼ − minⱼ aⱼ)')} ${math('pᵀ = softmax(N(r) / 2) &nbsp; · &nbsp; pˢ(q) = softmax(N([qᵀzᵢ]ᵢ))')}<p><b>r</b>: cached teacher scores; <b>q,zᵢ ∈ ℝᵈ</b>: query and fixed candidate vectors. <b>N</b> independently min-max normalizes each score list; the denominator must be nonzero. The paper's teacher temperature is 2.</p></div><div class="equation-card"><div class="formula-label">Minimize with respect to the accessible query vector only</div>${math('min<sub>q</sub> D<sub>KL</sub>(pᵀ ∥ pˢ(q)) = min<sub>q</sub> ∑ᵢ pᵀᵢ log(pᵀᵢ / pˢᵢ(q))')}<p>The first distribution is the fixed teacher; the second is the student over the same candidates. With fixed teacher, minimizing KL is equivalent to maximizing <b>∑ᵢ pᵀᵢ log pˢᵢ(q)</b>: the teacher-weighted student log-likelihood. Score normalization affects the exact gradient.</p></div><details class="toy-details"><summary>Optional: inspect illustrative teacher and student probabilities</summary><div class="kl-plot">${klPlot(s)}</div><button type="button" class="viz-button" data-v-action="kl" data-slide="${s.id}" aria-pressed="false">Show closer fit <span aria-hidden="true">→</span></button></details>`+note('Source: ReFIT v2, §3.2 Eqs. 5–7 and §4.1.'));
+    return wrap('kl',`<div class="kl-plot">${klPlot(s)}</div><div class="kl-toolbar">${math('min<sub>q</sub> D<sub>KL</sub>(p<sup>T</sup> ∥ p<sup>S</sup>(q)) = min<sub>q</sub> ∑<sub>i</sub> p<sup>T</sup><sub>i</sub> log <span class="fraction"><span>p<sup>T</sup><sub>i</sub></span><span>p<sup>S</sup><sub>i</sub>(q)</span></span>')}<button type="button" class="viz-button" data-v-action="kl" data-slide="${s.id}" aria-pressed="false">Show closer fit <span aria-hidden="true">→</span></button></div>`+note('Equivalent for a fixed teacher: maximize ∑ pᵀᵢ log pˢᵢ. All probabilities shown are illustrative.'),'<p>Teacher: .60, .30, .10.<br>Student before: .20, .30, .50.</p><p><strong>Minimize KL(teacher ∥ student).</strong><br>The teacher is fixed; only the query vector changes.</p>');
   }
   function refitChart(s) {
     const names=['Retrieve','Rerank','TOUR hard','TOUR soft','ReFIT'],vals=[66.8,67.6,68.4,68.1,69.2];
@@ -105,7 +119,13 @@
     return wrap('chart',svg(s.id,b,'Published BEIR Recall100 from ReFIT Table6: 66.8,67.6,68.4,68.1,69.2. All bars start at zero.')+timing,smallTable(['Method','Recall@100'],names.map((n,i)=>[n,vals[i].toFixed(1)])));
   }
   function ourChart(s) {
-    return wrap('equations', `<div class="pilot-block"><div class="pilot-heading">Two completed measurements · neither tested complementary selection</div><div class="pilot-row"><div><b>SCIDOCS · Recall@100</b><p>Raw 37.8067 → ReFIT 37.8717; rerank-125 38.3450</p></div><div><b>+0.065 pp</b><p>95% interval [−0.180, +0.325]</p></div></div><div class="pilot-row"><div><b>FiQA · held-out nDCG@10</b><p>Raw .46722 → adapted .46313; prior task exposure</p></div><div><b>−0.00408</b><p>95% interval [−.01072, +.00262]</p></div></div><p class="pilot-footnote">SCIDOCS paper reference: 37.8 / 38.3 / 40.1. FiQA source-reported delta differs from subtraction of rounded endpoints. Both intervals include zero; see supplementary notes.</p></div>`);
+    const names=['Raw Contriever','Rerank 125','ReFIT attempt'],ours=[37.8067,38.3450,37.8717],paper=[37.8,38.3,40.1];
+    let b=t(55,22,'Recall@100 (%) · full SCIDOCS corpus',20,GRAY);
+    for(let tick=0;tick<=50;tick+=10){const y=275-tick*4.3;b+=line(70,y,870,y,PALE)+t(54,y+6,String(tick),17,GRAY,400,'end');}
+    names.forEach((n,i)=>{const x=135+i*253;b+=rect(x,275-ours[i]*4.3,70,ours[i]*4.3,BLUE,'none')+rect(x+82,275-paper[i]*4.3,70,paper[i]*4.3,'none',GRAY,2)+t(x+35,263-ours[i]*4.3,ours[i].toFixed(4),18,BLUE,600,'middle')+t(x+117,263-paper[i]*4.3,paper[i].toFixed(1),18,GRAY,500,'middle')+t(x+76,310,n,22,INK,500,'middle');});
+    b+=rect(920,50,15,15,BLUE,'none')+t(947,65,'Our recorded run',20)+rect(920,88,15,15,'none',GRAY,2)+t(947,103,'Paper v2 reference',20);
+    b+=t(918,175,'+0.065 pp',38,BLUE,600)+t(920,211,'ReFIT minus raw',20,GRAY)+t(920,253,'95% CI  −0.180 to +0.325',19,GRAY)+t(920,285,'The interval spans zero.',19,INK,500);
+    return wrap('chart',svg(s.id,b,'SCIDOCS recorded run versus ReFIT paper v2 reference. The local ReFIT gain over raw has a confidence interval spanning zero.',335)+note('Published reference: ReFIT v2 Table 2. Local values and 5,000-resample paired interval: recorded completed-run reports. Raw predictions not recomputed in this pass.'),smallTable(['Method','Our run','Paper v2'],names.map((n,i)=>[n,ours[i].toFixed(4),paper[i].toFixed(1)]))+'<p><strong>ReFIT − raw: +0.065 pp</strong><br>95% CI [−0.180, +0.325].</p>');
   }
   function reuse(s) {
     let b=t(0,50,'Query-private state',27,GRAY,500)+t(0,245,'Shared external state',27,BLUE,600);
@@ -126,7 +146,7 @@
     return wrap('scopes',svg(s.id,b,'Global shares one vector across tasks, task has one vector per task, query has one vector for each rewarded query.'),smallTable(['Scope','Learned state','Reuse'],[['Global','One per embedding model','Across tasks'],['Task','One per task','Within task'],['Query','One per rewarded query','Current query only']])+'<p>Unrewarded queries can use shared states, but have no query-private correction.</p>');
   }
   function residual(s) {
-    return wrap('equations', `<div class="equation-card"><div class="formula-label">TTT-Embed · learn a shared external residual</div>${math('v*<sub>g</sub> = arg min<sub>v ∈ ℝᵈ</sub> ∑<sub>q ∈ F<sub>g</sub></sub> w<sub>q</sub> D<sub>KL</sub>(pᵀ<sub>q</sub> ∥ pˢ<sub>q</sub>(v)) + λ‖v‖²')} ${math('pᵀ<sub>q</sub> = softmax([r<sub>qi</sub>/τ<sub>T</sub>]<sub>i</sub>) &nbsp; · &nbsp; pˢ<sub>q</sub>(v) = softmax([unit(x<sub>q</sub> + v)ᵀz<sub>qi</sub>/τ<sub>S</sub>]<sub>i</sub>)')}<p><b>v ∈ ℝᵈ</b>: learned residual; <b>F<sub>g</sub></b>: rewarded queries in sharing group g; <b>w<sub>q</sub></b>: nonnegative query weights summing to one; <b>λ ≥ 0</b>: ridge strength. <b>r</b> is teacher score; <b>τ<sub>T</sub>, τ<sub>S</sub> &gt; 0</b> are temperatures; <b>x, z ∈ ℝᵈ</b> are frozen query and document vectors. unit(a) = a/‖a‖ for nonzero a.</p></div><div class="equation-card"><div class="formula-label">Deploy after learning · paper equation 5</div>${math('α<sub>g</sub> = n<sub>g</sub> / (n<sub>g</sub> + 1) &nbsp; · &nbsp; x̃<sub>q</sub> = unit(x<sub>q</sub> + α<sub>g</sub>v*<sub>g</sub>)')}<p><b>n<sub>g</sub></b> counts distinct rewarded queries, not scored documents. Global shares across tasks; task shares within a task; query stays private. Search the unchanged full index with x̃.</p></div>`+note('Source: TTT-Embed §2.2–2.4, Eqs. 2–5. During fitting, use unit(x + v); apply α only after learning.'));
+    return wrap('residual',`<div class="residual-top"><div><div class="formula-label">Learn outside the model</div>${math('v<sub>g</sub><sup>*</sup> = arg min<sub>v</sub> <span class="sum">∑<sub>q ∈ F<sub>g</sub></sub></span> w<sub>q</sub> D<sub>KL</sub>(p<sub>q</sub><sup>T</sup> ∥ p<sub>q</sub><sup>S</sup>(v)) + λ‖v‖²')}<div class="formula-explainer"><span>Match the fixed teacher</span><span>Limit the correction</span></div></div></div><div class="residual-bottom"><div><div class="formula-label">Deploy the corrected query</div>${math('x̃<sub>q</sub> = unit(x<sub>q</sub> + <span class="math-blue">α<sub>g</sub>v<sub>g</sub><sup>*</sup></span>)')}<p>Search the same full document index.</p></div><div><div class="formula-label">Shrink with limited evidence</div>${math('α<sub>g</sub> = <span class="fraction"><span>n<sub>g</sub></span><span>n<sub>g</sub> + 1</span></span>')}<p>n = distinct rewarded queries<br>Query-private state: n = 1, α = 0.5</p></div></div>`+note('During fitting, pˢ uses unit(x + v). Deployment shrinkage is applied after learning. Teacher and student have their respective softmax temperatures.'));
   }
   function tttChart(s) {
     const vals=[1.23,6.36,8.36],base=[-.01,3.21,7.8],labs=['Global · b ≈ 0.01','Task · b = 10','Query · b = 100'];
@@ -136,14 +156,12 @@
     return wrap('chart',`<div class="chart-legend"><span><i style="background:${BLUE}"></i>TTT-Embed at the shown scope</span><span><i style="background:#AAABA5"></i>Direct reranking</span></div>`+svg(s.id,b,'TTT-Embed Table1 gains at three budgets: global1.23 versus rerank−.01, task6.36 versus3.21, query8.36 versus7.8.')+note('Three table entries, not a continuous curve. b = scored pairs per workload query. The left budget is exactly 150/12,263 ≈ 0.0122.'),smallTable(['Budget / scope','TTT gain','Rerank gain'],labs.map((n,i)=>[n,vals[i].toFixed(2),base[i].toFixed(2)])));
   }
   function status(s) {
-    let b=t(0,30,'SAME TEACHER BUDGET',20,GRAY,600);
-    b+=rect(0,75,255,180,PAPER,PALE,2)+t(25,120,'Candidate pool',27,INK,600)+t(25,160,'many possible',22,GRAY)+t(25,190,'query–document pairs',20,GRAY);
-    b+=arr(s.id,270,110,365,65)+arr(s.id,270,220,365,270);
-    b+=rect(380,20,300,100,PAPER,PALE,2)+t(405,65,'Top-ranked',27,INK,600)+t(405,98,'same pair count',20,GRAY);
-    b+=rect(380,225,300,100,PAPER,BLUE,2)+t(405,270,'Coverage-inspired',26,BLUE,600)+t(405,303,'same pair count',20,GRAY);
-    b+=arr(s.id,695,65,800,150)+arr(s.id,695,270,800,185);
-    b+=rect(815,105,365,120,BLUE,BLUE)+t(840,150,'Same residual learner',26,PAPER,600)+t(840,190,'Full-index evaluation',21,PAPER);
-    return wrap('method',svg(s.id,b,'Proposed matched-budget comparison: top-ranked and coverage-inspired candidate selectors use the same number of teacher scores and the same residual learner.',350)+note('Proposed experiment. Account separately for selection and extra search costs; shared-state evaluation uses held-out queries.'));
+    const labels=['Raw retrieval','Task residual'], values=[.46722,.46313];
+    let b=t(60,22,'Held-out nDCG@10 · full FiQA corpus',20,GRAY);
+    [0,.2,.4,.6].forEach(tick=>{const y=290-tick*390;b+=line(70,y,680,y,PALE)+t(55,y+7,tick.toFixed(1),18,GRAY,400,'end');});
+    values.forEach((v,i)=>{const x=165+i*260;b+=rect(x,290-v*390,130,v*390,i?BLUE:'#9A9B96','none')+t(x+65,278-v*390,v.toFixed(5),24,i?BLUE:INK,600,'middle')+t(x+65,325,labels[i],23,INK,500,'middle');});
+    b+=t(740,87,'−0.00408',52,BLUE,600)+t(740,127,'reported held-out ΔnDCG@10',20,GRAY)+t(740,176,'95% CI  −0.01072 to +0.00262',21,GRAY)+t(740,217,'The interval spans zero.',25,INK,500)+t(740,263,'648 queries · 57,638 documents',21,GRAY)+t(740,298,'5-fold cross-fit · one exposed task',20,GRAY);
+    return wrap('chart',svg(s.id,b,'Reported FiQA task-wise TTT-Embed pilot: raw nDCG10 .46722 and adapted .46313. Reported delta minus.00408 with interval minus.01072 to plus.00262. No reliable held-out gain.',340)+note('Ceous working report, §4. The source’s rounded endpoints and stated delta differ in the last digit. Raw predictions not recomputed here. Complementary selection remains untested.'),smallTable(['FiQA held-out result','nDCG@10'],labels.map((label,i)=>[label,values[i].toFixed(5)]))+'<p><strong>Reported Δ −0.00408</strong><br>95% CI [−0.01072, +0.00262]. One exposed task, 5-fold cross-fit. Complementary selection remains untested.</p>');
   }
   function coverage(s) {
     const rows=[[.9,.2,.1],[.85,.25,.1],[.2,.8,.1],[.1,.2,.9]];
@@ -174,7 +192,7 @@
   function closing(s) {
     let b='';
     [['Established','Scores can guide','a query update.'],['Measured here','SCIDOCS and FiQA:','no reliable gain here.'],['To test','Coverage-aware feedback','for residual learning.']].forEach((r,i)=>{const x=i*410;b+=t(x,32,r[0].toUpperCase(),17,i===2?BLUE:GRAY,600)+line(x,58,x+365,58,i===2?BLUE:PALE,2)+t(x,119,r[1],29,i===2?BLUE:INK,500)+t(x,162,r[2],29,i===2?BLUE:INK,500);});
-    b+=t(0,289,'Can each judgment teach us more?',54,BLUE,600)+t(0,340,'Coeus · IRE Project',22,GRAY);
+    b+=t(0,289,'Can each judgment teach us more?',54,BLUE,600)+t(0,340,'Queos Labs · IRE Project',22,GRAY);
     return wrap('closing',svg(s.id,b,'Conclusion: query adaptation is established; the reported SCIDOCS and FiQA runs show no reliable gains; coverage-aware feedback is the hypothesis to test.'),'<p><strong>Established:</strong> scores can guide query adaptation.</p><p><strong>Measured here:</strong> no reliable gain in the reported SCIDOCS and FiQA runs.</p><p><strong>To test:</strong> coverage-aware feedback for residual learning.</p>');
   }
   const renderers={cover,origin,access,bottleneck,'tour-loop':tourLoop,'hard-soft':hardSoft,'tour-chart':tourChart,'refit-loop':refitLoop,kl,'refit-chart':refitChart,'our-chart':ourChart,reuse,scopes,residual,'ttt-chart':tttChart,status,coverage,gradient,protocol,closing};
@@ -219,27 +237,10 @@
     .coverage-buttons{display:flex;gap:8px}.coverage-gain{font-size:clamp(48px,5vw,76px);letter-spacing:-.06em;font-weight:600;color:${BLUE};line-height:1.1;margin-top:12px}.coverage-insight p{font-size:17px;color:${GRAY};margin:0 0 12px}.coverage-total{font-size:20px;color:${INK}}.coverage-explain{font-size:16px;line-height:1.4;color:${GRAY};margin-top:12px;max-width:360px}.viz-coverage>.mathline{border-top:1px solid ${PALE};padding-top:12px;margin-top:15px;font-size:clamp(22px,1.9vw,32px)}
     .gradient-formula{display:flex;gap:30px;align-items:center;border-top:1px solid ${PALE};padding-top:10px}.gradient-formula>span{font-size:14px;color:${GRAY};max-width:220px}.gradient-formula .mathline{color:${BLUE}}
     .compact-table{width:100%;border-collapse:collapse;font-size:16px;line-height:1.4}.compact-table th{text-align:left;font-size:12px;font-weight:500;color:${GRAY};border-bottom:1px solid ${PALE};padding:8px 5px}.compact-table td{padding:10px 5px;border-bottom:1px solid ${PALE};font-variant-numeric:tabular-nums}.compact-table th:first-child,.compact-table td:first-child{padding-left:0}.compact-table td:not(:first-child){text-align:right}
-    .viz-method .diagram{flex:0 1 38%;min-height:0}.viz-method .equation-card{flex:0 1 auto}
-    .viz-equations{gap:clamp(8px,1.4vh,18px);justify-content:center}
-    .equation-card{border-top:2px solid ${BLUE};padding-top:clamp(6px,1vh,12px)}
-    .equation-card .formula-label{margin-bottom:clamp(3px,.5vh,8px)}
-    .equation-card .mathline{font-size:clamp(19px,2.05vw,39px);line-height:1.38}
-    .equation-card p{font-size:clamp(13px,1.03vw,19px);line-height:1.4;margin:clamp(4px,.7vh,8px) 0;color:${GRAY}}
-    .equation-card b{color:${INK};font-weight:600}.equation-columns{display:grid;grid-template-columns:1fr 1fr;gap:4%}
-    .pilot-block{border-top:2px solid ${BLUE};padding-top:12px}.pilot-heading{font-size:clamp(16px,1.5vw,26px);color:${BLUE};font-weight:600}
-    .pilot-row{display:grid;grid-template-columns:1.6fr 1fr;gap:3%;border-bottom:1px solid ${PALE};padding:clamp(12px,2.5vh,26px) 0;font-size:clamp(16px,1.5vw,27px)}
-    .pilot-row p,.pilot-footnote{font-size:clamp(12px,1vw,18px);line-height:1.4;color:${GRAY};margin:8px 0 0}
-    .toy-details{font-size:13px;color:${BLUE}}.toy-details summary{cursor:pointer}.toy-details .kl-plot{height:160px}
-    @media(max-height:520px) and (orientation:landscape){
-      .viz-equations{gap:5px}.equation-card{padding-top:3px;border-top-width:1px}.equation-card .formula-label{font-size:9px;margin-bottom:2px}
-      .equation-card .mathline{font-size:clamp(14px,2vw,19px);line-height:1.25}.equation-card p{font-size:clamp(9px,1.2vw,11px);line-height:1.25;margin:3px 0}
-      .pilot-heading{font-size:14px}.pilot-row{font-size:14px;padding:7px 0}.pilot-row p,.pilot-footnote{font-size:10px;margin:3px 0 0}
-      .viz-method .diagram{flex-basis:30%}.visual-caption{font-size:10px;padding-top:3px}
-    }
     @media(max-width:700px) and (orientation:portrait){
-      .viz .diagram{display:block;min-height:170px}.visual-brief{display:none}.viz{height:auto}.visual-caption{font-size:11px;padding-top:12px}.viz-chart .visual-caption{order:2}.viz-chart .timing-strip{order:3}
-      .formula-pair{display:grid}.kl-plot{display:flex}.kl-toolbar{flex-direction:column;align-items:flex-start;order:2}.viz-kl .visual-caption{order:3}
-      .timing-strip{grid-template-columns:1fr 1fr;gap:14px;font-size:12px;margin-top:15px}.timing-strip strong{font-size:20px}.chart-legend{display:flex}
+      .viz .diagram{display:none}.visual-brief{display:block}.viz{height:auto}.visual-caption{font-size:11px;padding-top:12px}.viz-chart .visual-caption{order:2}.viz-chart .visual-brief{order:1}.viz-chart .timing-strip{order:3}
+      .formula-pair{display:none}.kl-plot{display:none}.kl-toolbar{flex-direction:column;align-items:flex-start;order:2}.kl-toolbar .viz-button{display:none}.viz-kl .visual-caption{order:3}.viz-kl .visual-brief{order:1}
+      .timing-strip{grid-template-columns:1fr 1fr;gap:14px;font-size:12px;margin-top:15px}.timing-strip strong{font-size:20px}.chart-legend{display:none}
       .residual-top{padding-bottom:18px}.residual-top .mathline{font-size:24px}.formula-explainer{display:none}.residual-bottom{grid-template-columns:1fr;gap:24px;padding-top:20px}.residual-bottom .mathline{font-size:28px}.residual-bottom p{font-size:15px}
       .coverage-layout{grid-template-columns:1fr;gap:20px}.coverage-head,.coverage-row{grid-template-columns:48px repeat(3,1fr);gap:5px}.coverage-matrix{font-size:18px}.coverage-row>span{padding:8px 0}.coverage-row>strong{font-size:19px}.coverage-head{font-size:12px}.coverage-insight{display:grid;grid-template-columns:1fr 1fr;align-items:center}.coverage-insight .formula-label{grid-column:1}.coverage-buttons{grid-column:2;grid-row:1}.coverage-buttons .viz-button{padding:8px 12px;min-height:36px}.coverage-gain{font-size:44px;grid-column:1;grid-row:2}.coverage-insight p{grid-column:2;grid-row:2;font-size:14px}.coverage-total,.coverage-explain{grid-column:1/-1}.coverage-total{font-size:17px}.coverage-explain{font-size:14px;margin-top:7px}.viz-coverage>.mathline{font-size:20px}
       .gradient-formula{flex-direction:column;align-items:flex-start;gap:8px;order:2}.gradient-formula .mathline{font-size:24px}.viz-gradient .visual-caption{order:3}.viz-gradient .visual-brief{order:1}

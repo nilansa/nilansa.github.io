@@ -51,16 +51,6 @@ button { touch-action:manipulation; }
 .cover-slide .slide-subtitle { max-width:800px; }
 .cover-slide .slide-kicker { margin-bottom:16px; }
 .app-footer { display:flex; align-items:center; justify-content:space-between; padding:0 var(--page-gutter); border-top:1px solid var(--line); min-width:0; gap:24px; }
-/* In recording mode the slide gets the entire screen. Invisible edge controls
-   remain clickable and appear on hover or keyboard focus. */
-:fullscreen .app-shell { height:100vh; grid-template-rows:minmax(0,1fr); }
-:fullscreen .app-header, :fullscreen .progress-track, :fullscreen .footer-tools,
-:fullscreen .page-select-wrap { display:none; }
-:fullscreen .app-footer { position:fixed; inset:0; border:0; padding:0; pointer-events:none; z-index:5; }
-:fullscreen .navigation-controls { width:100%; height:100%; justify-content:space-between; }
-:fullscreen .navigation-controls .arrow-button { pointer-events:auto; width:48px; height:80px; opacity:0; background:var(--paper); }
-:fullscreen .navigation-controls .arrow-button:hover, :fullscreen .navigation-controls .arrow-button:focus-visible { opacity:.9; }
-:fullscreen .slide-source-button { display:none; }
 .navigation-controls { display:flex; align-items:center; gap:14px; }
 .arrow-button, .icon-button { display:inline-flex; align-items:center; justify-content:center; background:transparent; border:0; width:36px; height:36px; padding:6px; }
 .arrow-button svg, .icon-button svg { width:24px; height:24px; fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:square; stroke-linejoin:miter; }
@@ -355,7 +345,3 @@ body.presenter-mode .header-menu { margin-left:auto; }
   .print-slide .visual-region > svg { width:100%; height:100%; min-height:0; }
   * { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
 }
-
-/* Public report access. Presenter chrome remains minimal. */
-.public-report-link{display:inline-flex;align-items:center;gap:4px;color:var(--blue);text-decoration:none;white-space:nowrap;}
-@media(max-width:900px){.public-report-link{display:none;}}
