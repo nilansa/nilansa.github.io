@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FAFAF8">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="description" content="COEOUS presents test-time retrieval with frozen models, source-backed speaker notes, published evidence, and a complementary-feedback research hypothesis.">
+  <title>Inference-Time Retrieval Adaptation — COEOUS</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="recording_visuals.css">
+</head>
+<body>
+  <a class="skip-link" href="#stage">Skip to presentation</a>
+  <div id="app" class="app-shell">
+    <header class="app-header">
+      <span class="wordmark">COEOUS</span>
+      <nav id="chapters" class="chapters" aria-label="Presentation chapters"></nav>
+      <button id="slide-menu-button" class="quiet-button header-menu" type="button" aria-haspopup="dialog" aria-controls="overview-dialog">All pages <span aria-hidden="true">↗</span></button>
+    </header>
+    <main id="stage" class="stage" tabindex="-1" aria-label="Presentation"></main>
+    <footer class="app-footer">
+      <div class="navigation-controls">
+        <button id="previous" class="arrow-button" type="button" aria-label="Previous page" title="Previous page · Left arrow"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m6-6-6 6 6 6"/></svg></button>
+        <label class="page-select-wrap"><span class="sr-only">Choose a page</span><select id="page-select" aria-label="Choose a presentation page"></select><span id="page-count" aria-hidden="true"></span></label>
+        <button id="next" class="arrow-button" type="button" aria-label="Next page" title="Next page · Right arrow or Space"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></button>
+      </div>
+      <div class="footer-tools">
+        <button id="notes-button" class="quiet-button" type="button" aria-haspopup="dialog" aria-controls="notes-dialog" title="Speaker notes · N">Notes <span class="shortcut" aria-hidden="true">N</span></button>
+        <button id="sources-button" class="quiet-button" type="button" aria-haspopup="dialog" aria-controls="sources-dialog" title="Sentence sources · S">Sources <span class="shortcut" aria-hidden="true">S</span></button>
+        <button id="presenter-button" class="quiet-button" type="button" title="Open speaker view in a separate window">Presenter <span aria-hidden="true">↗</span></button>
+        <button id="fullscreen-button" class="icon-button" type="button" aria-label="Enter full screen" title="Full screen · F"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></button>
+      </div>
+    </footer>
+    <div class="progress-track" aria-hidden="true"><div id="progress"></div></div>
+  </div>
+
+  <dialog id="notes-dialog" class="drawer" aria-labelledby="notes-heading">
+    <div class="drawer-header"><div><p class="eyebrow">Speaker notes</p><h2 id="notes-heading">The script</h2></div><button class="close-button" type="button" data-close="notes-dialog" aria-label="Close speaker notes">×</button></div>
+    <div id="notes-content" class="drawer-content"></div>
+    <div class="drawer-footer"><a href="PRESENTATION_SCRIPT.md" download>Download full script <span aria-hidden="true">↓</span></a><button id="notes-presenter" class="text-button" type="button">Open presenter view ↗</button></div>
+  </dialog>
+
+  <dialog id="sources-dialog" class="drawer source-drawer" aria-labelledby="sources-heading">
+    <div class="drawer-header"><div><p class="eyebrow">Evidence and provenance</p><h2 id="sources-heading">Where each claim comes from</h2></div><button class="close-button" type="button" data-close="sources-dialog" aria-label="Close sources">×</button></div>
+    <div id="sources-content" class="drawer-content"></div>
+    <div class="drawer-footer"><a href="SOURCE_LEDGER.md" download>Source ledger · Markdown ↓</a></div>
+  </dialog>
+
+  <dialog id="overview-dialog" class="overview-dialog" aria-labelledby="overview-heading">
+    <div class="overview-header"><div><p class="eyebrow">The whole argument</p><h2 id="overview-heading">Choose a page.</h2></div><button class="close-button" type="button" data-close="overview-dialog" aria-label="Close page overview">×</button></div>
+    <nav id="overview-pages" class="overview-pages" aria-label="All presentation pages"></nav>
+    <p class="overview-hint">Arrow keys to move. Space to continue. N for notes. S for sources. F for full screen.</p>
+  </dialog>
+
+  <div id="live-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+  <div id="print-deck" aria-hidden="true"></div>
+  <noscript><p class="no-script">This presentation needs JavaScript. The complete <a href="PRESENTATION_SCRIPT.md">speaker script</a> and <a href="SOURCE_LEDGER.md">source ledger</a> are also available as text.</p></noscript>
+  <script src="content.js"></script>
+  <script src="visuals.js"></script>
+  <script src="recording_visuals.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

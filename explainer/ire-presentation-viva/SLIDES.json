@@ -1,0 +1,348 @@
+{
+  "title": "Test-time retrieval adaptation with frozen models",
+  "brand": "COEOUS",
+  "design_direction": "A24-inspired blue-white minimalism, generous whitespace, large readable mathematical typography, restrained blue and brown accents; illustrative visuals explicitly marked.",
+  "total_duration_seconds": 540,
+  "sources": {
+    "TOUR": "https://aclanthology.org/2023.findings-acl.354/",
+    "REFIT": "https://arxiv.org/html/2305.11744v2",
+    "TTT": "https://arxiv.org/html/2608.12569v1",
+    "DISCO": "https://proceedings.iclr.cc/paper_files/paper/2026/file/6ded182245f8e4db3963d2027174133d-Paper-Conference.pdf",
+    "FIQA": "/Users/nilan/.codex/scratch/cross-surface/ire-project/ire-disco-tttembed-selection-20261116-0700/shared/fiqa200-complementarity-v1/RESULTS.md",
+    "H8": "/Users/nilan/.codex/scratch/cross-surface/IRE/ceous-disco-ttt-20261116-0820/shared/H8_RESULTS_HOTPOTQA_HN.md",
+    "LEDGER": "/Users/nilan/.codex/scratch/cross-surface/ire-project/ire-codex-gui-handoff-20261116/shared/nilansa.github.io/explainer/ire-presentation/SOURCE_LEDGER.md"
+  },
+  "slides": [
+    {
+      "id": "s01",
+      "title": "Can retrieval improve with only black-box reranker feedback?",
+      "subtitle": "Problem: no encoder or reranker weight updates; we adapt only the query representation.",
+      "role": "opening",
+      "kind": "cover",
+      "kind_replacement": "Replace or rewrite the existing renderer for this kind; existing visuals.js contains hard-coded legacy copy, data, and branding. Use the diagram_spec and current values below.",
+      "slide_bullets": [
+        "Frozen dense retriever and reranker",
+        "Feedback: ten query–document scores",
+        "Optimize query state, then search the full corpus"
+      ],
+      "formula_latex": "",
+      "diagram_spec": "Spacious blue-white cover: a query point moves between two neighborhoods of document points. Mark movement as an illustrative diagram.",
+      "speaker_notes": "[Pointer: identify frozen models and query movement in the diagram.] We investigate whether a frozen dense retriever can improve at inference time using only black-box reranker scores. The retriever produces query and document vectors; the reranker evaluates a few query–document pairs. We do not have access to either model’s trainable parameters. The precise goal is to adapt the accessible query representation so that a second search can find better documents in the full corpus. This is different from Microsoft Research’s broader post-training research question. Our project COEOUS evaluates both established test-time adaptation and a complementary-feedback selection hypothesis, including negative results.",
+      "source_refs": [
+        {
+          "id": "FIQA",
+          "location": "/Users/nilan/.codex/scratch/cross-surface/ire-project/ire-disco-tttembed-selection-20261116-0700/shared/fiqa200-complementarity-v1/RESULTS.md"
+        }
+      ],
+      "duration_seconds": 25
+    },
+    {
+      "id": "s02",
+      "title": "Why reranking cannot recover missing documents",
+      "subtitle": "The shortlist determines which documents a reranker can consider.",
+      "role": "prior work",
+      "kind": "bottleneck",
+      "kind_replacement": "Replace or rewrite the existing renderer for this kind; existing visuals.js contains hard-coded legacy copy, data, and branding. Use the diagram_spec and current values below.",
+      "slide_bullets": [
+        "Dense retrieval gives a limited candidate set",
+        "Reranking reorders the set; it cannot expand it",
+        "Query adaptation enables a new full-corpus search"
+      ],
+      "formula_latex": "",
+      "diagram_spec": "Show a corpus of dots, the initial shortlist as a circle, and a relevant dot outside; arrows from shortlist to judge to moved query to full corpus. Label illustrative.",
+      "speaker_notes": "[Pointer: Follow the three steps from retrieval to the second search.]\n\nA dense retriever turns a query and documents into vectors, then uses similarity to find a shortlist. A reranker reads each query and candidate together and gives a relevance score. It can reorder that shortlist, but it cannot return a document that never entered it. Feedback offers another possibility: change the query representation and search the full collection again. The second search can reach a different neighborhood.",
+      "source_refs": [
+        {
+          "id": "REFIT",
+          "location": "https://arxiv.org/html/2305.11744v2"
+        },
+        {
+          "id": "TOUR",
+          "location": "https://aclanthology.org/2023.findings-acl.354/"
+        }
+      ],
+      "duration_seconds": 40
+    },
+    {
+      "id": "s03",
+      "title": "TOuR: optimize the query using reranker feedback",
+      "subtitle": "Hard and soft teacher feedback inform query-vector updates without weight changes.",
+      "role": "prior work",
+      "kind": "tour-loop",
+      "kind_replacement": "Replace or rewrite the existing renderer for this kind; existing visuals.js contains hard-coded legacy copy, data, and branding. Use the diagram_spec and current values below.",
+      "slide_bullets": [
+        "Hard: pseudo-relevant candidate labels",
+        "Soft: match the teacher ranking distribution",
+        "Take an embedding gradient step; retrieve again"
+      ],
+      "formula_latex": "q_{t+1}=q_t-\\eta\\nabla_{q_t}\\mathcal L_{\\mathrm{TOuR}}(q_t;S_t)",
+      "diagram_spec": "Show retrieve → reranker scores → query update → retrieve; frozen encoder and reranker icons; annotate the passage setting separately.",
+      "speaker_notes": "[Pointer: Follow the three stages from left to right.]\n\nTOuR turns that idea into a procedure. It retrieves candidates, asks a cross-encoder for scores, and uses those scores as pseudo-feedback to update the query vector. The query and document encoders stay fixed. The updated query then searches again. The paper uses different iteration settings for different tasks: its passage retrieval setting uses one step. This is test-time adaptation of a representation, not post-training the model weights.",
+      "source_refs": [
+        {
+          "id": "TOUR",
+          "location": "https://aclanthology.org/2023.findings-acl.354/"
+        },
+        {
+          "id": "LEDGER",
+          "location": "/Users/nilan/.codex/scratch/cross-surface/ire-project/ire-codex-gui-handoff-20261116/shared/nilansa.github.io/explainer/ire-presentation/SOURCE_LEDGER.md"
+        }
+      ],
+      "duration_seconds": 50
+    },
+    {
+      "id": "s04",
+      "title": "ReFIT: distill reranker scores into the query",
+      "subtitle": "Reuse one cached teacher-score set during repeated student-query optimization.",
+      "role": "prior work",
+      "kind": "refit-loop",
+      "kind_replacement": "Replace or rewrite the existing renderer for this kind; existing visuals.js contains hard-coded legacy copy, data, and branding. Use the diagram_spec and current values below.",
+      "slide_bullets": [
+        "Score candidates once with a fixed teacher",
+        "Minimize KL(teacher ∥ student) over the query",
+        "Reported setting: 100 inner steps, then full-index search"
+      ],
+      "formula_latex": "\\min_q D_{\\rm KL}(\\mathrm{softmax}(r/\\tau_T)\\Vert\\mathrm{softmax}(q^\\top Z/\\tau_S))",
+      "diagram_spec": "Display candidate list and one fixed set of teacher scores above a repeated query-vector update, then a full-index second search. Clearly separate 100 inner steps from retrieval rounds.",
+      "speaker_notes": "[Pointer: Point to the reused scores, then the second search.]\n\nReFIT also makes the reranker's preferences useful beyond the original shortlist. It scores the candidates once, then adjusts the query vector to make the retriever's candidate scores agree with the teacher. In the paper's experimental setting, it uses one hundred optimization steps on those scores before searching again. Those steps are not one hundred new teacher calls or searches. The point is to transfer information from a costly pairwise judge into a query that can be compared with every indexed document.",
+      "source_refs": [
+        {
+          "id": "REFIT",
+          "location": "https://arxiv.org/html/2305.11744v2"
+        },
+        {
+          "id": "LEDGER",
+          "location": "/Users/nilan/.codex/scratch/cross-surface/ire-project/ire-codex-gui-handoff-20261116/shared/nilansa.github.io/explainer/ire-presentation/SOURCE_LEDGER.md"
+        }
+      ],
+      "duration_seconds": 50
+    },
+    {
+      "id": "s05",
+      "title": "TTT-Embed: three scopes for residual adaptation",
+      "subtitle": "Global, task and query sharing determine how a correction vector is reused.",
+      "role": "TTT explanation",
+      "kind": "scopes",
+      "kind_replacement": "Replace or rewrite the existing renderer for this kind; existing visuals.js contains hard-coded legacy copy, data, and branding. Use the diagram_spec and current values below.",
+      "slide_bullets": [
+        "Global: shared across tasks",
+        "Task: shared across queries in a task",
+        "Query: one independently fitted vector per query"
+      ],
+      "formula_latex": "",
+      "diagram_spec": "Three horizontal lanes: global state to multiple tasks, task state to multiple queries in one task, query state to one query; frozen document index throughout.",
+      "speaker_notes": "[Pointer: Move down the three sharing lanes.]\n\nTTT-Embed asks how to reuse this kind of feedback. It learns an external residual: a vector added to an embedding, while the embedding model and document index remain fixed. The same idea can operate at three scopes. A global residual is shared across tasks; a task residual is shared within a task; and a query-wise residual belongs to one query. Our experiment uses the last one. The paper studies budgets that vary with scope, so its settings should not be collapsed into a single budget.",
+      "source_refs": [
+        {
+          "id": "TTT",
+          "location": "https://arxiv.org/html/2608.12569v1"
+        },
+        {
+          "id": "LEDGER",
+          "location": "/Users/nilan/.codex/scratch/cross-surface/ire-project/ire-codex-gui-handoff-20261116/shared/nilansa.github.io/explainer/ire-presentation/SOURCE_LEDGER.md"
+        }
+      ],
+      "duration_seconds": 50
+    },
+    {
+      "id": "s06",
+      "title": "TTT-Embed: the teacher–student KL objective",
+      "subtitle": "Probability matching is optimized over a separate residual, not the model weights.",
+      "role": "TTT explanation",
+      "kind": "kl",
+      "kind_replacement": "Replace or rewrite the existing renderer for this kind; existing visuals.js contains hard-coded legacy copy, data, and branding. Use the diagram_spec and current values below.",
+      "slide_bullets": [
+        "pT = softmax(r/0.02); pS = softmax(sim/0.05)",
+        "min_v KL(pT ∥ pS(v)) + 0.3‖v‖²",
+        "Every softmax uses the same ten scored documents"
+      ],
+      "formula_latex": "\\mathcal{L}(v)=D_{\\mathrm{KL}}(p_T\\Vert p_S(v)) + 0.3\\|v\\|_2^2",
+      "diagram_spec": "Show paired three-bar distributions, explicitly labeled toy teacher [0.6,0.3,0.1] and student [0.2,0.3,0.5]; Define v as the real-valued residual vector, lambda as a nonnegative scalar, KL as the scalar disagreement from teacher to student, and squared norm as the sum of squared residual coordinates. Show lambda = 0.3 for the local run.",
+      "speaker_notes": "[Pointer: Compare the blue teacher bars with the brown student bars.]\n\nHere is the learning signal. For the same candidate documents, turn the teacher's scores into a probability distribution: numbers that sum to one. Do the same with similarities from the current query vector. Imagine the teacher places sixty percent of its weight on the first candidate, while the student places only twenty percent there. The loss measures their disagreement using forward KL divergence, from teacher to student. A second term penalizes a large residual vector, so agreement must be balanced against moving too far. The teacher stays fixed; only the external vector is optimized.",
+      "source_refs": [
+        {
+          "id": "TTT",
+          "location": "https://arxiv.org/html/2608.12569v1"
+        },
+        {
+          "id": "LEDGER",
+          "location": "/Users/nilan/.codex/scratch/cross-surface/ire-project/ire-codex-gui-handoff-20261116/shared/nilansa.github.io/explainer/ire-presentation/SOURCE_LEDGER.md"
+        }
+      ],
+      "duration_seconds": 45
+    },
+    {
+      "id": "s07",
+      "title": "How the query residual is fitted with Adam",
+      "subtitle": "300 gradient steps; query and document encoders, reranker and index stay frozen.",
+      "role": "TTT explanation",
+      "kind": "residual",
+      "kind_replacement": "Replace or rewrite the existing renderer for this kind; existing visuals.js contains hard-coded legacy copy, data, and branding. Use the diagram_spec and current values below.",
+      "slide_bullets": [
+        "Compute ∇v of KL + 0.3‖v‖²",
+        "Adam updates 1,024-dimensional v from zero",
+        "Search with unit(x + 0.5v*) over 57,638 documents"
+      ],
+      "formula_latex": "m_t=\\beta_1m_{t-1}+(1-\\beta_1)g_t;\\;v_{t+1}=v_t-\\eta\\hat m_t/(\\sqrt{\\hat u_t}+\\epsilon)",
+      "diagram_spec": "Show x and v as same-length vectors, fit v, scale by 0.5, add, normalize, then full-corpus search. Caption unit(a)=a/||a|| for nonzero a.",
+      "speaker_notes": "[Pointer: move across the vector, the Adam update formula, then the full-corpus search.] For each query, we initialize a 1,024-dimensional correction vector v at zero. Ten Qwen3-reranked candidates provide a fixed teacher probability target. We minimize KL divergence from teacher to student, plus a squared-norm regularizer of strength 0.3. At each of 300 Adam steps we compute a gradient only with respect to v. Adam maintains moving first and second gradient moments and uses bias-corrected moment estimates to update the vector with learning rate 0.01. We finally use half the fitted vector, normalize x plus 0.5v, and perform the full 57,638-document similarity search. No encoder, reranker, or document parameters change.",
+      "source_refs": [
+        {
+          "id": "TTT",
+          "location": "https://arxiv.org/html/2608.12569v1"
+        },
+        {
+          "id": "FIQA",
+          "location": "/Users/nilan/.codex/scratch/cross-surface/ire-project/ire-disco-tttembed-selection-20261116-0700/shared/fiqa200-complementarity-v1/RESULTS.md"
+        }
+      ],
+      "duration_seconds": 40
+    },
+    {
+      "id": "s08",
+      "title": "Our FiQA-200 experiment: complete pipeline",
+      "subtitle": "Full corpus stays fixed; only the ten scored feedback documents vary.",
+      "role": "experiment and findings",
+      "kind": "protocol",
+      "kind_replacement": "Replace or rewrite the existing renderer for this kind; existing visuals.js contains hard-coded legacy copy, data, and branding. Use the diagram_spec and current values below.",
+      "slide_bullets": [
+        "Qwen3-Embedding-0.6B retrieves top 50 from 57,638",
+        "Select ten; Qwen3-Reranker-4B returns P(yes)",
+        "Fit independent query residual; full-corpus re-search"
+      ],
+      "formula_latex": "",
+      "diagram_spec": "A left-to-right labeled pipeline: FiQA query + 57,638-document Qwen3-Embedding-0.6B index → exact top 50 → selection of 10 → Qwen3-Reranker-4B Yes/No P(yes) → residual → full-index search. Frozen model weights.",
+      "speaker_notes": "[Pointer: Follow the pipeline and pause at selection.]\n\nNow to our experiment. We preselect two hundred FiQA queries without relevance labels and search all fifty-seven thousand, six hundred and thirty-eight documents using Qwen three embedding, zero point six billion. The first search gives a common pool of fifty. Each selection method chooses ten documents from that pool. Qwen three reranker, four billion, scores each query-document pair; a softmax over its Yes and No outputs gives the probability of Yes, which is our teacher score. We fit a separate residual for each query, search the full corpus again, and evaluate the returned ranking. Neither model's weights are fine-tuned.",
+      "source_refs": [
+        {
+          "id": "FIQA",
+          "location": "/Users/nilan/.codex/scratch/cross-surface/ire-project/ire-disco-tttembed-selection-20261116-0700/shared/fiqa200-complementarity-v1/RESULTS.md"
+        }
+      ],
+      "duration_seconds": 45
+    },
+    {
+      "id": "s09",
+      "title": "DISCo-inspired selection: collective query-token coverage",
+      "subtitle": "Select candidates by marginal coverage rather than by relevance or diversity alone.",
+      "role": "experiment and findings",
+      "kind": "coverage",
+      "kind_replacement": "Replace or rewrite the existing renderer for this kind; existing visuals.js contains hard-coded legacy copy, data, and branding. Use the diagram_spec and current values below.",
+      "slide_bullets": [
+        "Frozen BERT-base-uncased token matching",
+        "Greedy marginal coverage from the same top-50",
+        "A fixed-pool DISCo-inspired approximation, not DISCo indexing"
+      ],
+      "formula_latex": "F_q(S)=\\sum_j\\max\\{0,\\max_{d\\in S}\\max_{t\\in d}\\mathrm{sim}(u_j,t)\\}",
+      "diagram_spec": "Toy query with two tokens A and B; candidate 1 covers A, candidate 2 repeats A, candidate 3 covers B; greedy set selects 1 then 3. Mark illustrative; annotate BERT token cosine MaxSim, fixed Qwen pool.",
+      "speaker_notes": "[Pointer: show the query-token coverage formula, then the cells for A and C.] Our selection is inspired by the DISCo paper’s idea of collective contextual-token coverage. We use frozen BERT-base-uncased query and document token embeddings. For every query token, a candidate contributes its maximum contextual-token cosine similarity. Greedy selection chooses a document for the extra coverage it adds to the set already selected. ColBERT-style independent MaxSim ranks each document by its own score instead; MMR balances relevance and inter-document similarity. Our implementation applies coverage only inside the Qwen dense top-fifty pool, rather than implementing DISCo’s corpus-wide specialized indexing. Coverage alone is not a learning objective; the relevance scores must also produce informative gradients.",
+      "source_refs": [
+        {
+          "id": "DISCO",
+          "location": "https://proceedings.iclr.cc/paper_files/paper/2026/file/6ded182245f8e4db3963d2027174133d-Paper-Conference.pdf"
+        },
+        {
+          "id": "FIQA",
+          "location": "/Users/nilan/.codex/scratch/cross-surface/ire-project/ire-disco-tttembed-selection-20261116-0700/shared/fiqa200-complementarity-v1/RESULTS.md"
+        }
+      ],
+      "duration_seconds": 45
+    },
+    {
+      "id": "s10",
+      "title": "FiQA-200 results: dense feedback is strongest",
+      "subtitle": "Exploratory nDCG@10 on exactly the same 200 queries; higher is better.",
+      "role": "experiment and findings",
+      "kind": "our-chart",
+      "kind_replacement": "Replace or rewrite the existing renderer for this kind; existing visuals.js contains hard-coded legacy copy, data, and branding. Use the diagram_spec and current values below.",
+      "slide_bullets": [
+        "Untouched dense: 0.4618",
+        "Standard query-wise TTT: 0.5060",
+        "DISCo-style coverage + TTT: 0.4807"
+      ],
+      "formula_latex": "",
+      "diagram_spec": "Replacement bar chart; x-axis nDCG@10 from 0 to 0.55; raw .4618, standard dense10 .5060, coverage .4807, independent BERT MaxSim .4881, rank-matched mean-of-3 .4761. Highlight standard in blue, coverage in brown. Show exact values and exploratory label.",
+      "speaker_notes": "[Pointer: Point first to standard TTT, then coverage.]\n\nWe measure ranking quality with normalized discounted cumulative gain at ten, or nDCG at ten. It rewards placing judged relevant documents near the top. Raw dense retrieval scores point four six one eight. Standard query-wise adaptation, using the dense top ten for feedback, reaches point five zero six zero. Greedy coverage reaches point four eight zero seven. Independent BERT MaxSim selection reaches point four eight eight one, and the rank-matched control averages point four seven six one. The queries were previously exposed, so this is an exploratory comparison, not blind confirmation or a reproduction of the paper's aggregate.",
+      "source_refs": [
+        {
+          "id": "FIQA",
+          "location": "/Users/nilan/.codex/scratch/cross-surface/ire-project/ire-disco-tttembed-selection-20261116-0700/shared/fiqa200-complementarity-v1/RESULTS.md"
+        }
+      ],
+      "duration_seconds": 50
+    },
+    {
+      "id": "s11",
+      "title": "FiQA-200: complementary coverage did not help TTT",
+      "subtitle": "Paired comparison against the matched ten-score dense-feedback baseline.",
+      "role": "experiment and findings",
+      "kind": "status",
+      "kind_replacement": "Replace or rewrite the existing renderer for this kind; existing visuals.js contains hard-coded legacy copy, data, and branding. Use the diagram_spec and current values below.",
+      "slide_bullets": [
+        "Coverage − standard: −0.0253 nDCG@10",
+        "Paired 95% CI: [−0.0438, −0.0070]",
+        "Predefined improvement criterion failed: PARK"
+      ],
+      "formula_latex": "\\Delta=0.4807-0.5060=-0.0253",
+      "diagram_spec": "Horizontal interval plot: zero reference line, point −0.0253, endpoints −0.0438 and −0.0070; label paired bootstrap over 200 queries and PARK. Do not imply population-wide generalization.",
+      "speaker_notes": "[Pointer: Point to the difference and both negative interval bounds.]\n\nThe main comparison is coverage minus standard adaptation. The difference is minus point zero two five three. Its paired ninety-five percent bootstrap interval runs from minus point zero four three eight to minus point zero zero seven zero. Both ends are below zero in this sample. The planned improvement was not demonstrated, and this configuration is parked. Ten teacher scores were matched, but BERT encoding and selection add work; equal teacher calls do not mean equal total cost. The interval measures uncertainty under this resampling procedure, not a guarantee about other collections.",
+      "source_refs": [
+        {
+          "id": "FIQA",
+          "location": "/Users/nilan/.codex/scratch/cross-surface/ire-project/ire-disco-tttembed-selection-20261116-0700/shared/fiqa200-complementarity-v1/RESULTS.md"
+        }
+      ],
+      "duration_seconds": 45
+    },
+    {
+      "id": "s12",
+      "title": "Controls: coverage alone does not explain improvement",
+      "subtitle": "Other methods and HotpotQA narrow the interpretation.",
+      "role": "experiment and findings",
+      "kind": "our-chart",
+      "kind_replacement": "Replace or rewrite the existing renderer for this kind; existing visuals.js contains hard-coded legacy copy, data, and branding. Use the diagram_spec and current values below.",
+      "slide_bullets": [
+        "BERT MaxSim + TTT: 0.4881; rank-matched: 0.4761",
+        "HotpotQA pooled: 0.7346 → 0.7496 (descriptive)",
+        "HotpotQA DEV CI spans zero; no confirmed gain"
+      ],
+      "formula_latex": "",
+      "diagram_spec": "Replacement dot plot with two clearly separated panels: direct ten-document teacher-sorted lists dense .4856 and coverage .3857; TTT coverage minus rank-matched +.0046 CI [−.0134,.0224]. Label different candidates and different computation.",
+      "speaker_notes": "[Pointer: Point to the two direct-sort sets, then the interval.]\n\nThe controls help locate the uncertainty. Directly sorting the dense ten by teacher score gives point four eight five six; sorting the coverage-selected ten gives point three eight five seven. Those are different sets as well as different rankings, and each direct list contains only ten documents. Against the rank-matched adaptation control, coverage is higher by point zero zero four six, but the interval crosses zero. That comparison does not establish a coverage benefit.",
+      "source_refs": [
+        {
+          "id": "FIQA",
+          "location": "/Users/nilan/.codex/scratch/cross-surface/ire-project/ire-disco-tttembed-selection-20261116-0700/shared/fiqa200-complementarity-v1/RESULTS.md"
+        }
+      ],
+      "duration_seconds": 45
+    },
+    {
+      "id": "s13",
+      "title": "Conclusion: feedback quality matters, not coverage alone",
+      "subtitle": "Next question: which relevant and complementary documents improve the query gradient?",
+      "role": "closing",
+      "kind": "closing",
+      "kind_replacement": "Replace or rewrite the existing renderer for this kind; existing visuals.js contains hard-coded legacy copy, data, and branding. Use the diagram_spec and current values below.",
+      "slide_bullets": [
+        "Standard TTT improves FiQA dense retrieval",
+        "Naive DISCo-style selection underperforms standard TTT",
+        "Future tests need held-out data, matched ranks and total-cost controls"
+      ],
+      "formula_latex": "",
+      "diagram_spec": "Three-column close: FiQA negative; HotpotQA descriptive only; proposed fresh preregistered test with rank control and total cost. Footnote HotpotQA pooled 1000: .7346 → .7496, DEV400 CI crosses zero.",
+      "speaker_notes": "[Pointer: Point to the pooled values, then the failed development decision.]\n\nA separate HotpotQA analysis illustrates why we separate description from confirmation. Across one thousand queries and two hundred twenty-five thousand, six hundred twenty-one documents, with ten teacher pairs per query, standard adaptation scores point seven three four six and coverage adaptation scores point seven four nine six. This is descriptive; the preregistered development interval includes zero, so that decision is also park. A useful next test would preregister a fresh holdout, compare against a rank-matched selector and the standard baseline, and count BERT work as well as teacher calls.",
+      "source_refs": [
+        {
+          "id": "FIQA",
+          "location": "/Users/nilan/.codex/scratch/cross-surface/ire-project/ire-disco-tttembed-selection-20261116-0700/shared/fiqa200-complementarity-v1/RESULTS.md"
+        },
+        {
+          "id": "H8",
+          "location": "/Users/nilan/.codex/scratch/cross-surface/IRE/ceous-disco-ttt-20261116-0820/shared/H8_RESULTS_HOTPOTQA_HN.md"
+        }
+      ],
+      "duration_seconds": 42
+    }
+  ]
+}

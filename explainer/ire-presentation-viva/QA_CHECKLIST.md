@@ -1,0 +1,17 @@
+# COEOUS IRE Viva — Pre-publication checklist
+- [x] Project identity COEOUS only; Nilanjan Sarkar only
+- [x] No Queos Labs or Raman Rayaprolu in presentation/report
+- [x] No cinematic slogan, no provisional conclusion
+- [x] No visible top-left corporate wordmark or top-right chapter tabs
+- [x] Bottom-right Notes, Sources, Presenter, metadata hidden in slides
+- [x] Fullscreen hides chrome; left/right navigation and keyboard remain supported
+- [x] TOUR and ReFIT query-update mathematics figure-backed
+- [x] TTT teacher/student KL, 300 Adam steps, residual and shrinkage visible
+- [x] DISCo collective coverage equation and conceptual figure present
+- [x] FiQA numerical values and paired confidence interval present
+- [x] HotpotQA H8 is descriptive; DEV CI crosses zero; PARK
+- [x] No made-up positive results; exploratory scope disclosed
+- [x] Script regenerated from page-specific source
+- [x] PDF report generated; four pages with mathematical appendix
+- [ ] Live 1920x1080 browser screenshot after publication
+- [ ] Drive upload independently verified

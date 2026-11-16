@@ -1,0 +1,479 @@
+window.DECK = {
+  "meta": {
+    "title": "Test-time retrieval adaptation with frozen models",
+    "team": "COEOUS",
+    "project": "COEOUS · IRE",
+    "task": "coeus-recording-20261116"
+  },
+  "sources": {
+    "TOUR": {
+      "title": "TOuR · method",
+      "url": "https://aclanthology.org/2023.findings-acl.354/",
+      "locator": "https://aclanthology.org/2023.findings-acl.354/"
+    },
+    "REFIT": {
+      "title": "ReFIT · method",
+      "url": "https://arxiv.org/html/2305.11744v2",
+      "locator": "https://arxiv.org/html/2305.11744v2"
+    },
+    "TTT": {
+      "title": "TTT-Embed · method",
+      "url": "https://arxiv.org/html/2608.12569v1",
+      "locator": "https://arxiv.org/html/2608.12569v1"
+    },
+    "DISCO": {
+      "title": "DISCo · coverage",
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2026/file/6ded182245f8e4db3963d2027174133d-Paper-Conference.pdf",
+      "locator": "https://proceedings.iclr.cc/paper_files/paper/2026/file/6ded182245f8e4db3963d2027174133d-Paper-Conference.pdf"
+    },
+    "FIQA": {
+      "title": "FiQA · local report",
+      "url": "SOURCE_LEDGER.md",
+      "locator": "Local source record; see the source ledger."
+    },
+    "H8": {
+      "title": "HotpotQA H8 · local report",
+      "url": "SOURCE_LEDGER.md",
+      "locator": "Local source record; see the source ledger."
+    },
+    "LEDGER": {
+      "title": "Prior source ledger",
+      "url": "SOURCE_LEDGER.md",
+      "locator": "Local source record; see the source ledger."
+    }
+  },
+  "slides": [
+    {
+      "number": 1,
+      "id": "s01",
+      "kind": "recording",
+      "title": "Can retrieval improve with only black-box reranker feedback?",
+      "subtitle": "Problem: no encoder or reranker weight updates; we adapt only the query representation.",
+      "chapter": "Opening",
+      "evidence": "OPENING",
+      "takeaway": "Optimize query state, then search the full corpus",
+      "items": [
+        "Frozen dense retriever and reranker",
+        "Feedback: ten query–document scores",
+        "Optimize query state, then search the full corpus"
+      ],
+      "pointers": [
+        "identify frozen models and query movement in the diagram."
+      ],
+      "refs": [
+        "FIQA"
+      ],
+      "notes": [
+        {
+          "id": "S01.01",
+          "text": "We investigate whether a frozen dense retriever can improve at inference time using only black-box reranker scores. The retriever produces query and document vectors; the reranker evaluates a few query–document pairs. We do not have access to either model’s trainable parameters. The precise goal is to adapt the accessible query representation so that a second search can find better documents in the full corpus. This is different from Microsoft Research’s broader post-training research question. Our project COEOUS evaluates both established test-time adaptation and a complementary-feedback selection hypothesis, including negative results.",
+          "refs": [
+            "FIQA"
+          ]
+        }
+      ],
+      "wordCount": 90,
+      "secondsAt130Wpm": 25
+    },
+    {
+      "number": 2,
+      "id": "s02",
+      "kind": "recording",
+      "title": "Why reranking cannot recover missing documents",
+      "subtitle": "The shortlist determines which documents a reranker can consider.",
+      "chapter": "Prior Work",
+      "evidence": "PRIOR WORK",
+      "takeaway": "Query adaptation enables a new full-corpus search",
+      "items": [
+        "Dense retrieval gives a limited candidate set",
+        "Reranking reorders the set; it cannot expand it",
+        "Query adaptation enables a new full-corpus search"
+      ],
+      "pointers": [
+        "Follow the three steps from retrieval to the second search."
+      ],
+      "refs": [
+        "REFIT",
+        "TOUR"
+      ],
+      "notes": [
+        {
+          "id": "S02.01",
+          "text": "A dense retriever turns a query and documents into vectors, then uses similarity to find a shortlist. A reranker reads each query and candidate together and gives a relevance score. It can reorder that shortlist, but it cannot return a document that never entered it. Feedback offers another possibility: change the query representation and search the full collection again. The second search can reach a different neighborhood.",
+          "refs": [
+            "REFIT",
+            "TOUR"
+          ]
+        }
+      ],
+      "wordCount": 67,
+      "secondsAt130Wpm": 40
+    },
+    {
+      "number": 3,
+      "id": "s03",
+      "kind": "recording",
+      "title": "TOuR: optimize the query using reranker feedback",
+      "subtitle": "Hard and soft teacher feedback inform query-vector updates without weight changes.",
+      "chapter": "Prior Work",
+      "evidence": "PRIOR WORK",
+      "takeaway": "Take an embedding gradient step; retrieve again",
+      "items": [
+        "Hard: pseudo-relevant candidate labels",
+        "Soft: match the teacher ranking distribution",
+        "Take an embedding gradient step; retrieve again"
+      ],
+      "pointers": [
+        "Follow the three stages from left to right."
+      ],
+      "refs": [
+        "TOUR",
+        "LEDGER"
+      ],
+      "notes": [
+        {
+          "id": "S03.01",
+          "text": "TOuR turns that idea into a procedure. It retrieves candidates, asks a cross-encoder for scores, and uses those scores as pseudo-feedback to update the query vector. The query and document encoders stay fixed. The updated query then searches again. The paper uses different iteration settings for different tasks: its passage retrieval setting uses one step. This is test-time adaptation of a representation, not post-training the model weights.",
+          "refs": [
+            "TOUR",
+            "LEDGER"
+          ]
+        }
+      ],
+      "wordCount": 67,
+      "secondsAt130Wpm": 50
+    },
+    {
+      "number": 4,
+      "id": "s04",
+      "kind": "recording",
+      "title": "ReFIT: distill reranker scores into the query",
+      "subtitle": "Reuse one cached teacher-score set during repeated student-query optimization.",
+      "chapter": "Prior Work",
+      "evidence": "PRIOR WORK",
+      "takeaway": "Reported setting: 100 inner steps, then full-index search",
+      "items": [
+        "Score candidates once with a fixed teacher",
+        "Minimize KL(teacher ∥ student) over the query",
+        "Reported setting: 100 inner steps, then full-index search"
+      ],
+      "pointers": [
+        "Point to the reused scores, then the second search."
+      ],
+      "refs": [
+        "REFIT",
+        "LEDGER"
+      ],
+      "notes": [
+        {
+          "id": "S04.01",
+          "text": "ReFIT also makes the reranker's preferences useful beyond the original shortlist. It scores the candidates once, then adjusts the query vector to make the retriever's candidate scores agree with the teacher. In the paper's experimental setting, it uses one hundred optimization steps on those scores before searching again. Those steps are not one hundred new teacher calls or searches. The point is to transfer information from a costly pairwise judge into a query that can be compared with every indexed document.",
+          "refs": [
+            "REFIT",
+            "LEDGER"
+          ]
+        }
+      ],
+      "wordCount": 81,
+      "secondsAt130Wpm": 50
+    },
+    {
+      "number": 5,
+      "id": "s05",
+      "kind": "recording",
+      "title": "TTT-Embed: three scopes for residual adaptation",
+      "subtitle": "Global, task and query sharing determine how a correction vector is reused.",
+      "chapter": "Ttt Explanation",
+      "evidence": "TTT EXPLANATION",
+      "takeaway": "Query: one independently fitted vector per query",
+      "items": [
+        "Global: shared across tasks",
+        "Task: shared across queries in a task",
+        "Query: one independently fitted vector per query"
+      ],
+      "pointers": [
+        "Move down the three sharing lanes."
+      ],
+      "refs": [
+        "TTT",
+        "LEDGER"
+      ],
+      "notes": [
+        {
+          "id": "S05.01",
+          "text": "TTT-Embed asks how to reuse this kind of feedback. It learns an external residual: a vector added to an embedding, while the embedding model and document index remain fixed. The same idea can operate at three scopes. A global residual is shared across tasks; a task residual is shared within a task; and a query-wise residual belongs to one query. Our experiment uses the last one. The paper studies budgets that vary with scope, so its settings should not be collapsed into a single budget.",
+          "refs": [
+            "TTT",
+            "LEDGER"
+          ]
+        }
+      ],
+      "wordCount": 85,
+      "secondsAt130Wpm": 50
+    },
+    {
+      "number": 6,
+      "id": "s06",
+      "kind": "recording",
+      "title": "TTT-Embed: the teacher–student KL objective",
+      "subtitle": "Probability matching is optimized over a separate residual, not the model weights.",
+      "chapter": "Ttt Explanation",
+      "evidence": "TTT EXPLANATION",
+      "takeaway": "Every softmax uses the same ten scored documents",
+      "items": [
+        "pT = softmax(r/0.02); pS = softmax(sim/0.05)",
+        "min_v KL(pT ∥ pS(v)) + 0.3‖v‖²",
+        "Every softmax uses the same ten scored documents"
+      ],
+      "pointers": [
+        "Compare the blue teacher bars with the brown student bars."
+      ],
+      "refs": [
+        "TTT",
+        "LEDGER"
+      ],
+      "notes": [
+        {
+          "id": "S06.01",
+          "text": "Here is the learning signal. For the same candidate documents, turn the teacher's scores into a probability distribution: numbers that sum to one. Do the same with similarities from the current query vector. Imagine the teacher places sixty percent of its weight on the first candidate, while the student places only twenty percent there. The loss measures their disagreement using forward KL divergence, from teacher to student. A second term penalizes a large residual vector, so agreement must be balanced against moving too far. The teacher stays fixed; only the external vector is optimized.",
+          "refs": [
+            "TTT",
+            "LEDGER"
+          ]
+        }
+      ],
+      "wordCount": 94,
+      "secondsAt130Wpm": 45
+    },
+    {
+      "number": 7,
+      "id": "s07",
+      "kind": "recording",
+      "title": "How the query residual is fitted with Adam",
+      "subtitle": "300 gradient steps; query and document encoders, reranker and index stay frozen.",
+      "chapter": "Ttt Explanation",
+      "evidence": "TTT EXPLANATION",
+      "takeaway": "Search with unit(x + 0.5v*) over 57,638 documents",
+      "items": [
+        "Compute ∇v of KL + 0.3‖v‖²",
+        "Adam updates 1,024-dimensional v from zero",
+        "Search with unit(x + 0.5v*) over 57,638 documents"
+      ],
+      "pointers": [
+        "move across the vector, the Adam update formula, then the full-corpus search."
+      ],
+      "refs": [
+        "TTT",
+        "FIQA"
+      ],
+      "notes": [
+        {
+          "id": "S07.01",
+          "text": "For each query, we initialize a 1,024-dimensional correction vector v at zero. Ten Qwen3-reranked candidates provide a fixed teacher probability target. We minimize KL divergence from teacher to student, plus a squared-norm regularizer of strength 0.3. At each of 300 Adam steps we compute a gradient only with respect to v. Adam maintains moving first and second gradient moments and uses bias-corrected moment estimates to update the vector with learning rate 0.01. We finally use half the fitted vector, normalize x plus 0.5v, and perform the full 57,638-document similarity search. No encoder, reranker, or document parameters change.",
+          "refs": [
+            "TTT",
+            "FIQA"
+          ]
+        }
+      ],
+      "wordCount": 97,
+      "secondsAt130Wpm": 40
+    },
+    {
+      "number": 8,
+      "id": "s08",
+      "kind": "recording",
+      "title": "Our FiQA-200 experiment: complete pipeline",
+      "subtitle": "Full corpus stays fixed; only the ten scored feedback documents vary.",
+      "chapter": "Experiment And Findings",
+      "evidence": "EXPERIMENT AND FINDINGS",
+      "takeaway": "Fit independent query residual; full-corpus re-search",
+      "items": [
+        "Qwen3-Embedding-0.6B retrieves top 50 from 57,638",
+        "Select ten; Qwen3-Reranker-4B returns P(yes)",
+        "Fit independent query residual; full-corpus re-search"
+      ],
+      "pointers": [
+        "Follow the pipeline and pause at selection."
+      ],
+      "refs": [
+        "FIQA"
+      ],
+      "notes": [
+        {
+          "id": "S08.01",
+          "text": "Now to our experiment. We preselect two hundred FiQA queries without relevance labels and search all fifty-seven thousand, six hundred and thirty-eight documents using Qwen three embedding, zero point six billion. The first search gives a common pool of fifty. Each selection method chooses ten documents from that pool. Qwen three reranker, four billion, scores each query-document pair; a softmax over its Yes and No outputs gives the probability of Yes, which is our teacher score. We fit a separate residual for each query, search the full corpus again, and evaluate the returned ranking. Neither model's weights are fine-tuned.",
+          "refs": [
+            "FIQA"
+          ]
+        }
+      ],
+      "wordCount": 99,
+      "secondsAt130Wpm": 45
+    },
+    {
+      "number": 9,
+      "id": "s09",
+      "kind": "recording",
+      "title": "DISCo-inspired selection: collective query-token coverage",
+      "subtitle": "Select candidates by marginal coverage rather than by relevance or diversity alone.",
+      "chapter": "Experiment And Findings",
+      "evidence": "EXPERIMENT AND FINDINGS",
+      "takeaway": "A fixed-pool DISCo-inspired approximation, not DISCo indexing",
+      "items": [
+        "Frozen BERT-base-uncased token matching",
+        "Greedy marginal coverage from the same top-50",
+        "A fixed-pool DISCo-inspired approximation, not DISCo indexing"
+      ],
+      "pointers": [
+        "show the query-token coverage formula, then the cells for A and C."
+      ],
+      "refs": [
+        "DISCO",
+        "FIQA"
+      ],
+      "notes": [
+        {
+          "id": "S09.01",
+          "text": "Our selection is inspired by the DISCo paper’s idea of collective contextual-token coverage. We use frozen BERT-base-uncased query and document token embeddings. For every query token, a candidate contributes its maximum contextual-token cosine similarity. Greedy selection chooses a document for the extra coverage it adds to the set already selected. ColBERT-style independent MaxSim ranks each document by its own score instead; MMR balances relevance and inter-document similarity. Our implementation applies coverage only inside the Qwen dense top-fifty pool, rather than implementing DISCo’s corpus-wide specialized indexing. Coverage alone is not a learning objective; the relevance scores must also produce informative gradients.",
+          "refs": [
+            "DISCO",
+            "FIQA"
+          ]
+        }
+      ],
+      "wordCount": 100,
+      "secondsAt130Wpm": 45
+    },
+    {
+      "number": 10,
+      "id": "s10",
+      "kind": "recording",
+      "title": "FiQA-200 results: dense feedback is strongest",
+      "subtitle": "Exploratory nDCG@10 on exactly the same 200 queries; higher is better.",
+      "chapter": "Experiment And Findings",
+      "evidence": "EXPERIMENT AND FINDINGS",
+      "takeaway": "DISCo-style coverage + TTT: 0.4807",
+      "items": [
+        "Untouched dense: 0.4618",
+        "Standard query-wise TTT: 0.5060",
+        "DISCo-style coverage + TTT: 0.4807"
+      ],
+      "pointers": [
+        "Point first to standard TTT, then coverage."
+      ],
+      "refs": [
+        "FIQA"
+      ],
+      "notes": [
+        {
+          "id": "S10.01",
+          "text": "We measure ranking quality with normalized discounted cumulative gain at ten, or nDCG at ten. It rewards placing judged relevant documents near the top. Raw dense retrieval scores point four six one eight. Standard query-wise adaptation, using the dense top ten for feedback, reaches point five zero six zero. Greedy coverage reaches point four eight zero seven. Independent BERT MaxSim selection reaches point four eight eight one, and the rank-matched control averages point four seven six one. The queries were previously exposed, so this is an exploratory comparison, not blind confirmation or a reproduction of the paper's aggregate.",
+          "refs": [
+            "FIQA"
+          ]
+        }
+      ],
+      "wordCount": 98,
+      "secondsAt130Wpm": 50
+    },
+    {
+      "number": 11,
+      "id": "s11",
+      "kind": "recording",
+      "title": "FiQA-200: complementary coverage did not help TTT",
+      "subtitle": "Paired comparison against the matched ten-score dense-feedback baseline.",
+      "chapter": "Experiment And Findings",
+      "evidence": "EXPERIMENT AND FINDINGS",
+      "takeaway": "Predefined improvement criterion failed: PARK",
+      "items": [
+        "Coverage − standard: −0.0253 nDCG@10",
+        "Paired 95% CI: [−0.0438, −0.0070]",
+        "Predefined improvement criterion failed: PARK"
+      ],
+      "pointers": [
+        "Point to the difference and both negative interval bounds."
+      ],
+      "refs": [
+        "FIQA"
+      ],
+      "notes": [
+        {
+          "id": "S11.01",
+          "text": "The main comparison is coverage minus standard adaptation. The difference is minus point zero two five three. Its paired ninety-five percent bootstrap interval runs from minus point zero four three eight to minus point zero zero seven zero. Both ends are below zero in this sample. The planned improvement was not demonstrated, and this configuration is parked. Ten teacher scores were matched, but BERT encoding and selection add work; equal teacher calls do not mean equal total cost. The interval measures uncertainty under this resampling procedure, not a guarantee about other collections.",
+          "refs": [
+            "FIQA"
+          ]
+        }
+      ],
+      "wordCount": 92,
+      "secondsAt130Wpm": 45
+    },
+    {
+      "number": 12,
+      "id": "s12",
+      "kind": "recording",
+      "title": "Controls: coverage alone does not explain improvement",
+      "subtitle": "Other methods and HotpotQA narrow the interpretation.",
+      "chapter": "Experiment And Findings",
+      "evidence": "EXPERIMENT AND FINDINGS",
+      "takeaway": "HotpotQA DEV CI spans zero; no confirmed gain",
+      "items": [
+        "BERT MaxSim + TTT: 0.4881; rank-matched: 0.4761",
+        "HotpotQA pooled: 0.7346 → 0.7496 (descriptive)",
+        "HotpotQA DEV CI spans zero; no confirmed gain"
+      ],
+      "pointers": [
+        "Point to the two direct-sort sets, then the interval."
+      ],
+      "refs": [
+        "FIQA"
+      ],
+      "notes": [
+        {
+          "id": "S12.01",
+          "text": "The controls help locate the uncertainty. Directly sorting the dense ten by teacher score gives point four eight five six; sorting the coverage-selected ten gives point three eight five seven. Those are different sets as well as different rankings, and each direct list contains only ten documents. Against the rank-matched adaptation control, coverage is higher by point zero zero four six, but the interval crosses zero. That comparison does not establish a coverage benefit.",
+          "refs": [
+            "FIQA"
+          ]
+        }
+      ],
+      "wordCount": 74,
+      "secondsAt130Wpm": 45
+    },
+    {
+      "number": 13,
+      "id": "s13",
+      "kind": "recording",
+      "title": "Conclusion: feedback quality matters, not coverage alone",
+      "subtitle": "Next question: which relevant and complementary documents improve the query gradient?",
+      "chapter": "Closing",
+      "evidence": "CLOSING",
+      "takeaway": "Future tests need held-out data, matched ranks and total-cost controls",
+      "items": [
+        "Standard TTT improves FiQA dense retrieval",
+        "Naive DISCo-style selection underperforms standard TTT",
+        "Future tests need held-out data, matched ranks and total-cost controls"
+      ],
+      "pointers": [
+        "Point to the pooled values, then the failed development decision."
+      ],
+      "refs": [
+        "FIQA",
+        "H8"
+      ],
+      "notes": [
+        {
+          "id": "S13.01",
+          "text": "A separate HotpotQA analysis illustrates why we separate description from confirmation. Across one thousand queries and two hundred twenty-five thousand, six hundred twenty-one documents, with ten teacher pairs per query, standard adaptation scores point seven three four six and coverage adaptation scores point seven four nine six. This is descriptive; the preregistered development interval includes zero, so that decision is also park. A useful next test would preregister a fresh holdout, compare against a rank-matched selector and the standard baseline, and count BERT work as well as teacher calls.",
+          "refs": [
+            "FIQA",
+            "H8"
+          ]
+        }
+      ],
+      "wordCount": 89,
+      "secondsAt130Wpm": 42
+    }
+  ]
+};
