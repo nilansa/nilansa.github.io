@@ -20,8 +20,8 @@
     b += `<ellipse cx="785" cy="160" rx="130" ry="110" fill="none" stroke="${PALE}" stroke-width="2" stroke-dasharray="6 8"/>`;
     b += `<ellipse cx="985" cy="205" rx="150" ry="120" fill="none" stroke="${BLUE}" stroke-width="2"/>`;
     b += circle(740,175,11,INK)+circle(945,195,11,BLUE)+arr(s.id,755,175,928,194)+t(815,162,'+ v',36,BLUE,600)+t(708,214,'q',23,INK,500)+t(966,222,'q̃',23,BLUE,500);
-    b += t(0,90,'A small vector.',44,INK,500)+t(0,145,'A different search.',44,BLUE,500)+t(0,215,'Nilanjan Sarkar · Raman Rayaprolu',23)+t(0,253,'IIIT Hyderabad',22,GRAY)+t(0,305,'IRE Project · 16 November 2026',20,GRAY);
-    return wrap('cover',svg(s.id,b,'Illustration: an external vector changes a query and its retrieved neighborhood, with document vectors fixed.'),'<p><strong>A small vector. A different search.</strong></p><p>Nilanjan Sarkar · Raman Rayaprolu<br>IIIT Hyderabad</p>');
+    b += t(0,90,'A small vector.',44,INK,500)+t(0,145,'A different search.',44,BLUE,500)+t(0,215,'Nilanjan Sarkar',23)+t(0,253,'IIIT Hyderabad',22,GRAY)+t(0,305,'IRE Project · 16 November 2026',20,GRAY);
+    return wrap('cover',svg(s.id,b,'Illustration: an external vector changes a query and its retrieved neighborhood, with document vectors fixed.'),'<p><strong>A small vector. A different search.</strong></p><p>Nilanjan Sarkar<br>IIIT Hyderabad</p>');
   }
   function origin(s) {
     let b='';

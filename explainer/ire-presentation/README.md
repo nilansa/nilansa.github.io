@@ -4,7 +4,7 @@
 
 Test-time retrieval with black-box reranker feedback and no model weight updates.
 
-Queos Labs · Nilanjan Sarkar and Raman Rayaprolu · IIIT Hyderabad
+Queos Labs · Nilanjan Sarkar · IIIT Hyderabad
 
 ## Present
 

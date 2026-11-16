@@ -4,7 +4,7 @@ Test-time retrieval with black-box reranker feedback and no model weight updates
 
 **Queos Labs · IRE Project · IIIT Hyderabad**
 
-Nilanjan Sarkar, Raman Rayaprolu
+Nilanjan Sarkar
 
 16 November 2026 · First review edition
 
