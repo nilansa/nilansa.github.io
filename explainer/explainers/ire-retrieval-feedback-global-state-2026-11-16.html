@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="A guided study of TOuR, ReFIT, TTT-Embed and DISCo, with the Ceous SCIDOCS reproduction and its limits.">
+<title>IRE — From Query Feedback to a Global Retrieval State</title>
+<style>
+:root {
+  --ink: #17191f;
+  --muted: #5d6470;
+  --line: #dfe3eb;
+  --paper: #ffffff;
+  --wash: #f5f7fb;
+  --blue: #1e3af5;
+  --blue-soft: #eef1ff;
+  --green: #176b45;
+  --amber: #8a5b00;
+  --red: #9b3030;
+  --max: 1080px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font: 16px/1.65 Georgia, "Times New Roman", serif;
+}
+a { color: #1739c9; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: #0d237f; }
+.wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+header { padding: 58px 0 34px; border-bottom: 1px solid var(--line); }
+.kicker {
+  color: var(--blue); font: 700 12px/1.3 system-ui, sans-serif;
+  letter-spacing: .12em; text-transform: uppercase;
+}
+h1, h2, h3, h4, .sans, nav, table, .tag, .metric, .small, .callout, .flow, .timeline {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+h1 { max-width: 850px; margin: 14px 0 14px; font-size: clamp(2.2rem, 5vw, 4.1rem); line-height: 1.05; letter-spacing: -.045em; font-weight: 720; }
+.lede { max-width: 800px; color: #353b45; font-size: 1.18rem; line-height: 1.55; }
+.meta { margin-top: 18px; color: var(--muted); font: 13px/1.5 system-ui, sans-serif; }
+nav {
+  position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--line); backdrop-filter: blur(10px);
+}
+nav .wrap { display: flex; gap: 8px; padding: 10px 0; overflow-x: auto; }
+nav a {
+  flex: 0 0 auto; padding: 7px 11px; border: 1px solid var(--line); border-radius: 999px;
+  color: #303744; font-size: 12px; text-decoration: none;
+}
+nav a:hover { border-color: var(--blue); color: var(--blue); }
+main { padding: 34px 0 70px; }
+section { padding: 38px 0; border-bottom: 1px solid var(--line); scroll-margin-top: 68px; }
+h2 { margin: 0 0 14px; font-size: clamp(1.65rem, 3vw, 2.3rem); line-height: 1.15; letter-spacing: -.03em; }
+h3 { margin: 26px 0 8px; font-size: 1.15rem; line-height: 1.3; }
+h4 { margin: 0 0 8px; font-size: .98rem; }
+p { margin: 10px 0 14px; }
+.small { color: var(--muted); font-size: 13px; line-height: 1.55; }
+.tag {
+  display: inline-block; margin: 0 6px 7px 0; padding: 4px 8px; border: 1px solid var(--line);
+  border-radius: 999px; color: #4d5563; font-size: 11px; line-height: 1.2;
+}
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; }
+.grid.three { grid-template-columns: repeat(3, minmax(0,1fr)); }
+.panel { border: 1px solid var(--line); border-radius: 13px; padding: 17px 18px; background: #fff; }
+.panel.soft { background: var(--wash); }
+.panel.blue { border-color: #cbd3ff; background: var(--blue-soft); }
+.panel p:last-child { margin-bottom: 0; }
+.callout {
+  margin: 18px 0; padding: 16px 18px; border-left: 3px solid var(--blue);
+  background: var(--blue-soft); border-radius: 0 10px 10px 0;
+  font-size: 14px; line-height: 1.55;
+}
+.callout.warning { border-left-color: var(--amber); background: #fff8e9; }
+.callout.caution { border-left-color: var(--red); background: #fff2f2; }
+.flow { display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px; margin: 20px 0; }
+.flow .node {
+  flex: 1 1 145px; min-width: 125px; padding: 13px 12px; border: 1px solid var(--line);
+  border-radius: 10px; background: var(--wash); text-align: center; font-size: 13px; line-height: 1.4;
+}
+.flow .node strong { display: block; margin-bottom: 4px; color: #1d2430; }
+.flow .arrow { align-self: center; color: var(--blue); font: 700 20px system-ui, sans-serif; }
+.timeline { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 10px; margin: 22px 0; }
+.timeline .step { border-top: 3px solid var(--blue); padding: 12px 12px 10px; background: var(--wash); border-radius: 0 0 9px 9px; }
+.timeline .year { color: var(--blue); font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.timeline strong { display: block; margin: 5px 0; font-size: 14px; }
+.timeline span { display: block; color: var(--muted); font-size: 12px; line-height: 1.45; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; line-height: 1.5; }
+th, td { padding: 10px 11px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+th { background: var(--wash); color: #303744; font-weight: 650; }
+.metric { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin: 16px 0; }
+.metric > div { padding: 15px; border: 1px solid var(--line); border-radius: 11px; background: #fff; }
+.metric strong { display: block; font-size: clamp(1.4rem, 3vw, 2rem); letter-spacing: -.04em; }
+.metric span { color: var(--muted); font-size: 12px; }
+code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+.formula {
+  overflow-x: auto; padding: 14px 16px; border: 1px solid var(--line); border-radius: 10px;
+  background: #fafbfe; color: #202735; font: 14px/1.7 ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+details { margin: 12px 0; border: 1px solid var(--line); border-radius: 10px; padding: 11px 14px; }
+summary { cursor: pointer; font: 650 14px system-ui, sans-serif; }
+details p, details ul { margin-top: 12px; }
+ul, ol { padding-left: 1.25rem; }
+li { margin: 5px 0; }
+.refs li { margin: 10px 0; }
+footer { padding: 28px 0 50px; color: var(--muted); font: 12px/1.6 system-ui, sans-serif; }
+@media (max-width: 760px) {
+  .grid, .grid.three { grid-template-columns: 1fr; }
+  .timeline { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .metric { grid-template-columns: 1fr; }
+  header { padding-top: 38px; }
+  .wrap { width: min(var(--max), calc(100% - 28px)); }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="kicker">IRE · Ceous · Part I</div>
+    <h1>From query feedback to a global retrieval state</h1>
+    <p class="lede">A guided study of TOuR, ReFIT, TTT-Embed and DISCo. It explains why reranker feedback matters, how a query can change at inference time, and how one learned vector can be reused across many queries.</p>
+    <div class="meta">IIIT Hyderabad · 16 November 2026 · Study and handover edition</div>
+  </div>
+</header>
+<nav aria-label="Page sections">
+  <div class="wrap">
+    <a href="#map">The story</a>
+    <a href="#tttembed">1 · TTT-Embed</a>
+    <a href="#disco">2 · DISCo</a>
+    <a href="#tour-refit">3 · TOuR and ReFIT</a>
+    <a href="#ceous">Ceous experiment</a>
+    <a href="#handover">Handover</a>
+    <a href="#references">References</a>
+  </div>
+</nav>
+<main class="wrap">
+<section id="map">
+  <h2>Start with the problem</h2>
+  <p>A dense retriever is fast. It searches a large document collection and returns a short list. A stronger cross-encoder can then score the query and each document together. This second model is more expensive, so it normally sees only the first list.</p>
+  <p>That creates a limit. If a useful document is outside the first list, the reranker cannot promote it. It never sees that document.</p>
+  <div class="flow" aria-label="Retrieve and rerank pipeline">
+    <div class="node"><strong>Query</strong>What does the user need?</div>
+    <div class="arrow">→</div>
+    <div class="node"><strong>Dense retriever</strong>Search the full index</div>
+    <div class="arrow">→</div>
+    <div class="node"><strong>Top K</strong>A short candidate list</div>
+    <div class="arrow">→</div>
+    <div class="node"><strong>Reranker</strong>Score only these candidates</div>
+  </div>
+  <div class="callout"><strong>The question behind this project:</strong> Can we use the reranker's feedback to change the next retrieval, rather than only reorder the first list?</div>
+  <div class="timeline">
+    <div class="step"><div class="year">2023</div><strong>ReFIT</strong><span>Distil reranker scores into the current query and search again.</span></div>
+    <div class="step"><div class="year">2023</div><strong>TOuR</strong><span>Optimise each test query from cross-encoder feedback.</span></div>
+    <div class="step"><div class="year">2026</div><strong>TTT-Embed</strong><span>Keep the correction as a reusable vector, with global, task and query scopes.</span></div>
+    <div class="step"><div class="year">2026</div><strong>DISCo</strong><span>Select a set of documents for collective query coverage.</span></div>
+  </div>
+  <p class="small">This is a conceptual map, not a claim that the papers form one linear algorithm. TOuR and ReFIT are query-level feedback methods. TTT-Embed studies whether the learned state can be shared. DISCo solves a separate set-retrieval problem.</p>
+</section>
+
+<section id="tttembed">
+  <div class="kicker">Division 1 · Main focus</div>
+  <h2>TTT-Embed: learn a correction once, reuse it many times</h2>
+  <p>TTT-Embed asks a different question from query-by-query relevance feedback. Instead of learning a private correction for each query, can a small amount of ranking feedback teach a vector that many future queries can use?</p>
+  <div class="panel blue">
+    <h3>What stays fixed?</h3>
+    <div class="grid three">
+      <div><strong>Embedding model</strong><p class="small">Its parameters do not change.</p></div>
+      <div><strong>Document vectors</strong><p class="small">The stored corpus embeddings do not change.</p></div>
+      <div><strong>Search index</strong><p class="small">The existing ANN index stays in place.</p></div>
+    </div>
+    <p><strong>What is learned?</strong> A small residual vector in the output embedding space. It is stored outside the model.</p>
+  </div>
+  <h3>How the method works</h3>
+  <ol>
+    <li>Encode the query and documents with the frozen embedding model.</li>
+    <li>Choose a limited set of query-document pairs for reward scoring.</li>
+    <li>Ask a reranker or reward model to score those pairs. The output is a scalar score for each candidate.</li>
+    <li>Fit a residual vector so the retriever's scores on those candidates match the reward model's ranking distribution.</li>
+    <li>Add the learned vector to later query embeddings and search the unchanged document index again.</li>
+  </ol>
+  <div class="formula">Teacher: pT = softmax(reward scores / teacher temperature)<br>Student: pS = softmax(query-vector similarity / student temperature)<br>Learn v by minimising KL(pT || pS) + λ ||v||²<br>Deploy: corrected query = unit(original query + α v)</div>
+  <p class="small">The loss uses the relative scores within each candidate list. It does not require ground-truth relevance labels for fitting. The paper uses those labels only to evaluate the final rankings.</p>
+  <h3>Three ways to share the learned vector</h3>
+  <table>
+    <thead><tr><th>Scope</th><th>How many vectors?</th><th>Who uses the vector?</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Global-wise</strong></td><td>One vector for an embedding model</td><td>Every query served by that embedding model, across tasks</td></tr>
+      <tr><td><strong>Task-wise</strong></td><td>One vector for each retrieval task</td><td>Queries within that task</td></tr>
+      <tr><td><strong>Query-wise</strong></td><td>One vector for each rewarded query</td><td>Only that query</td></tr>
+    </tbody>
+  </table>
+  <div class="callout"><strong>The focus here is global-wise TTT-Embed.</strong> It does not learn one correction per query or one correction per task. It pools reward feedback across tasks, learns one shared vector for the embedding model, and applies that vector to later queries.</div>
+  <h3>What does “generalise” mean in this paper?</h3>
+  <p>The paper defines a workload <code>E</code>. A subset <code>S_B</code> receives reward scores under the available budget. The remaining queries are <code>U_B = E \ S_B</code>. The shared vector is learned from <code>S_B</code> and then tested on queries that did not receive reward scores.</p>
+  <div class="flow">
+    <div class="node"><strong>Rewarded queries S_B</strong>Examples from several tasks</div>
+    <div class="arrow">→</div>
+    <div class="node"><strong>One global vector v</strong>Learned outside the encoder</div>
+    <div class="arrow">→</div>
+    <div class="node"><strong>Unseen queries U_B</strong>Reuse the same vector</div>
+  </div>
+  <p>The paper uses two strict checks. First, 80% of queries provide rewards and the vector is evaluated only on the remaining 20%. Second, leave-one-task-out evaluation learns the global vector on 14 tasks and applies it to the task that was not used for learning.</p>
+  <h3>Results reported by the TTT-Embed paper</h3>
+  <p>These are the paper's results. They are not results from the Ceous SCIDOCS experiment.</p>
+  <table>
+    <thead><tr><th>Reward budget</th><th>Best sharing scope</th><th>Gain over raw retrieval</th><th>Direct reranking</th></tr></thead>
+    <tbody>
+      <tr><td>0.01 rewards per query</td><td><strong>Global</strong></td><td>+1.23 nDCG@10 points</td><td>−0.01 points</td></tr>
+      <tr><td>10 rewards per query</td><td><strong>Task</strong></td><td>+6.36 points</td><td>+3.21 points</td></tr>
+      <tr><td>100 rewards per query</td><td><strong>Query</strong></td><td>+8.36 points</td><td>+7.80 points</td></tr>
+    </tbody>
+  </table>
+  <div class="metric">
+    <div><strong>+4.02</strong><span>Global vector gain on unseen queries, averaged over five embedding models</span></div>
+    <div><strong>+3.09</strong><span>Global vector gain on held-out tasks in leave-one-task-out evaluation</span></div>
+    <div><strong>15</strong><span>MTEB retrieval tasks in the paper's main evaluation</span></div>
+  </div>
+  <p>The result is not that global sharing is always best. The best scope depends on the reward budget. Global sharing is best in the low-budget range tested by the paper. Task-wise sharing is stronger at moderate budgets. Query-wise adaptation is strongest at high budgets. The global result matters because it shows that a vector learned from some tasks can help queries and tasks that did not provide rewards.</p>
+  <details>
+    <summary>What can one global vector learn?</summary>
+    <p>For dot-product retrieval, adding the same vector to every query adds the same document-dependent term to every query's score. In simplified form, the score becomes the original query-document score plus a shared document preference. This gives the system a reusable global correction. It cannot express every query-specific preference. The paper's experiments test whether this shared signal is useful on average and on held-out tasks.</p>
+  </details>
+  <div class="callout warning"><strong>Important boundary:</strong> the positive global transfer numbers above belong to the TTT-Embed paper. They do not prove that Ceous has already learned a global vector that generalises. Our own FiQA task-wise cross-fit is a separate experiment and is not a global cross-task test.</div>
+</section>
+
+<section id="disco">
+  <div class="kicker">Division 2 · A separate retrieval problem</div>
+  <h2>DISCo: choose documents that cover the query together</h2>
+  <p>DISCo starts from a different observation. For a complex question, one passage may not contain the full answer. Several passages may need to work together.</p>
+  <p>Ordinary top-K retrieval scores each document on its own. It can return several documents that repeat the same part of the query. A useful fact may remain uncovered.</p>
+  <div class="grid">
+    <div class="panel soft">
+      <h4>Independent top-K</h4>
+      <p>Each document competes on its own score. The top results can repeat the same evidence.</p>
+      <div class="tag">Passage A: person</div><div class="tag">Passage B: person</div><div class="tag">Passage C: person</div>
+      <p class="small">The list may contain strong individual matches but leave one part of the question unanswered.</p>
+    </div>
+    <div class="panel blue">
+      <h4>Collective coverage</h4>
+      <p>The system scores the set. A new document is useful when it covers query information that the current set does not cover well.</p>
+      <div class="tag">Passage A: person</div><div class="tag">Passage B: place</div><div class="tag">Passage C: role</div>
+      <p class="small">The set covers more parts of the information need.</p>
+    </div>
+  </div>
+  <h3>The objective</h3>
+  <p>DISCo represents the query and each document as a set of contextual token vectors. For each query token, the set receives credit for its best match across all selected documents. Repeated coverage does not receive repeated credit.</p>
+  <div class="formula">F(S, Q) = sum over query tokens q of<br>max similarity(q, any token in any selected document in S)</div>
+  <p>The system builds the set one document at a time. At each round, it adds the document with the largest marginal gain in coverage. The objective is monotone and submodular, so the greedy method has a (1 − 1/e) approximation guarantee.</p>
+  <h3>Why DISCo needs a new index</h3>
+  <p>A direct greedy implementation would score every document at every selection round. That is too slow for a large corpus. DISCo rewrites the marginal-gain score using augmented vectors, then uses random projections and a multi-vector inverted-file index to support successive approximate-nearest-neighbour searches. The selected set grows after each round, and the next query representation reflects what is already covered.</p>
+  <div class="flow">
+    <div class="node"><strong>Query token vectors</strong>Represent the information need</div>
+    <div class="arrow">→</div>
+    <div class="node"><strong>Find largest marginal gain</strong>What does the current set still miss?</div>
+    <div class="arrow">→</div>
+    <div class="node"><strong>Add one document</strong>Update the covered set</div>
+    <div class="arrow">↻</div>
+    <div class="node"><strong>Repeat</strong>Stop when K items are selected</div>
+  </div>
+  <h3>How DISCo relates to TTT-Embed</h3>
+  <p>DISCo chooses a useful set of documents. TTT-Embed learns a reusable vector from reward scores on selected query-document pairs. They operate at different stages.</p>
+  <div class="callout"><strong>Possible connection, not a result:</strong> a coverage-based selector could choose which documents should receive expensive reranker feedback. TTT-Embed could then distil those scores into a shared vector. This page records the relationship between the methods. It does not claim that this combined system has been validated.</div>
+  <p class="small">Project boundary: the separate Ceous H8 pilot used a simplified greedy coverage selector over a fixed dense top-50 candidate pool. It was not an implementation of the official DISCo multi-vector index. Its experimental outcome is kept out of this paper-level explanation.</p>
+</section>
+
+<section id="tour-refit">
+  <div class="kicker">Division 3 · Query-level precursors</div>
+  <h2>TOuR and ReFIT: learn from feedback for the current query</h2>
+  <p>TOuR and ReFIT study how a reranker can help the retriever after the first retrieval. Both work on an individual test query. They do not learn one vector that is shared across tasks.</p>
+  <h3>TOuR: optimise the query itself</h3>
+  <p>TOuR obtains the top-K contexts for one test query. A cross-encoder scores those contexts. The method converts the scores into hard or soft pseudo-labels, then uses gradient descent to update the query representation. After each update, it retrieves again and scores the new candidate list. The query and context encoders stay fixed; the method changes only the current query vector.</p>
+  <div class="flow">
+    <div class="node"><strong>One test query</strong>Initial query vector</div>
+    <div class="arrow">→</div>
+    <div class="node"><strong>Top-K contexts</strong>Retrieve candidates</div>
+    <div class="arrow">→</div>
+    <div class="node"><strong>Cross-encoder</strong>Make pseudo-labels</div>
+    <div class="arrow">→</div>
+    <div class="node"><strong>Update query</strong>Gradient step, then retrieve again</div>
+  </div>
+  <p>TOuR showed that query-side optimisation can improve phrase retrieval and open-domain question answering. It also studied hard-label and soft-label versions. The update is private to the query being processed.</p>
+  <h3>ReFIT: distil the reranker's ranking, then search again</h3>
+  <p>ReFIT identifies a limit in the usual retrieve-and-rerank pipeline. The reranker can improve the order of the retrieved candidates, but it cannot improve Recall@K if it only sees the original top-K list.</p>
+  <p>ReFIT distils the reranker's predictions for the current query into the retriever's query representation. It then runs a second retrieval with the updated query vector. The second search can return documents that were not in the first candidate list.</p>
+  <div class="flow">
+    <div class="node"><strong>Initial retrieval</strong>Top-K candidates</div>
+    <div class="arrow">→</div>
+    <div class="node"><strong>Reranker feedback</strong>Scores for this query</div>
+    <div class="arrow">→</div>
+    <div class="node"><strong>Lightweight distillation</strong>Update this query vector</div>
+    <div class="arrow">→</div>
+    <div class="node"><strong>Second retrieval</strong>Search the full corpus</div>
+  </div>
+  <table>
+    <thead><tr><th>Method</th><th>Learned state</th><th>Feedback use</th><th>Search after update</th></tr></thead>
+    <tbody>
+      <tr><td>TOuR</td><td>One query vector per test query</td><td>Hard or soft pseudo-labels from a cross-encoder</td><td>Repeated retrieval during optimisation</td></tr>
+      <tr><td>ReFIT</td><td>One query vector per test query</td><td>Distil the reranker's candidate scores</td><td>Second retrieval over the corpus</td></tr>
+      <tr><td>TTT-Embed global</td><td>One shared vector per embedding model</td><td>Pool scores across rewarded queries and tasks</td><td>Every served query uses the same shared correction</td></tr>
+    </tbody>
+  </table>
+  <div class="callout"><strong>The change in scope:</strong> TOuR and ReFIT ask how to improve this query. Global TTT-Embed asks what the feedback from many queries can teach the system, so later queries can use it too.</div>
+</section>
+
+<section id="ceous">
+  <div class="kicker">Ceous · Completed reproduction attempt</div>
+  <h2>What we ran: ReFIT on SCIDOCS</h2>
+  <p>We ran the public ReFIT method on the original BEIR SCIDOCS test split. This is a reproduction attempt. It is not a new method.</p>
+  <div class="grid">
+    <div class="panel"><h4>Dataset</h4><p><strong>1,000</strong> test queries<br><strong>25,657</strong> documents<br><strong>4,928</strong> positive query-document judgments</p></div>
+    <div class="panel"><h4>Frozen models</h4><p>Retriever: <code>facebook/contriever-msmarco</code><br>Teacher: <code>cross-encoder/ms-marco-MiniLM-L6-v2</code></p></div>
+  </div>
+  <h3>Pipeline used in the run</h3>
+  <ol>
+    <li>Retrieve the first 125 candidates for each query.</li>
+    <li>Score those candidates with the frozen MiniLM cross-encoder.</li>
+    <li>For ReFIT, use the first 100 teacher scores for 100 KL updates. The learning rate is 0.005 and the teacher temperature is 2.</li>
+    <li>Search the full 25,657-document corpus again with the updated query vector.</li>
+    <li>Use qrels only after retrieval, to calculate Recall@100.</li>
+  </ol>
+  <p class="small">Four disjoint 250-query shards ran sequentially on Mac MPS. The run computed 125,000 teacher pair scores. ReFIT used 100,000 of them; the rerank-125 comparison used all 125,000.</p>
+  <h3>Results: Recall@100</h3>
+  <div class="metric">
+    <div><strong>37.8067%</strong><span>Raw Contriever · paper reference 37.8%</span></div>
+    <div><strong>38.3450%</strong><span>MiniLM rerank-125 comparator · paper reference 38.3%</span></div>
+    <div><strong>37.8717%</strong><span>Our ReFIT run · paper reference 40.1%</span></div>
+  </div>
+  <p>The rerank-125 result is a comparator. It is not a separate downstream ranking objective. All three values use the same Recall@100 metric and qrels.</p>
+  <h3>Query-level comparison</h3>
+  <p>In 5,000 paired bootstrap resamples, ReFIT minus raw Contriever was <strong>+0.065 percentage points</strong>, with a 95% interval from <strong>−0.180 to +0.325</strong>. There were 22 improved queries, 19 worsened queries and 959 ties.</p>
+  <p>The rerank-125 comparator was +0.538 points over raw retrieval, with a 95% interval from +0.070 to +1.003. ReFIT was −0.473 points below rerank-125, with a 95% interval from −0.912 to −0.037.</p>
+  <p>ReFIT returned 100 document IDs outside the initial top-125 lists across 68 queries. None of these newly retrieved documents was judged positive in the SCIDOCS qrels.</p>
+  <div class="callout warning"><strong>Interpretation:</strong> the run completed, but our ReFIT result does not reproduce the paper's 40.1%. The measured gain over raw retrieval is small, and its confidence interval includes zero. This is an unresolved reproduction gap. It is not evidence that ReFIT is ineffective, and it is not a Ceous improvement claim.</div>
+  <p>The next check for this reproduction is source fidelity: preprocessing, embedding pooling and normalisation, candidate depth, teacher-score normalisation, update objective and tie handling. We will not tune against the test qrels.</p>
+</section>
+
+<section id="handover">
+  <div class="kicker">Part I · Handover</div>
+  <h2>What this first part establishes</h2>
+  <div class="grid">
+    <div class="panel">
+      <h4>Established background</h4>
+      <ul>
+        <li>The Microsoft challenge asks how reward-model feedback can improve retrieval through post-training.</li>
+        <li>TOuR and ReFIT use feedback to update the current query.</li>
+        <li>TTT-Embed studies a reusable state, including a global vector.</li>
+        <li>DISCo selects document sets for collective query coverage.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h4>Completed Ceous work</h4>
+      <ul>
+        <li>A full 1,000-query SCIDOCS ReFIT reproduction attempt.</li>
+        <li>Raw, rerank-125 and ReFIT Recall@100 measurements.</li>
+        <li>Paired query bootstrap intervals and an honest report of the reproduction gap.</li>
+        <li>A clear boundary between the paper results and our own results.</li>
+      </ul>
+    </div>
+  </div>
+  <h3>Claims we should not make</h3>
+  <ul>
+    <li>Do not say that Ceous improved ReFIT or reproduced the paper's 40.1% result.</li>
+    <li>Do not describe the H8 coverage selector as an official DISCo implementation.</li>
+    <li>Do not present the TTT-Embed paper's global transfer numbers as our own experiment.</li>
+    <li>Do not say that global sharing is always best. The TTT-Embed paper shows that the best scope changes with the reward budget.</li>
+  </ul>
+  <h3>Suggested study order before recording</h3>
+  <ol>
+    <li>Read the global TTT-Embed section. Make sure the difference between a shared vector and a per-query vector is clear.</li>
+    <li>Read DISCo. Focus on why a set of documents can be better than the top-K individual documents.</li>
+    <li>Read TOuR and ReFIT. Focus on the problem with the first candidate list and why the second retrieval matters.</li>
+    <li>Review the SCIDOCS table. State the negative result exactly as measured.</li>
+  </ol>
+  <p class="small">This is Part I only. It records the background, methods and completed reproduction attempt. It does not propose the next research method or interpret separate exploratory signals.</p>
+</section>
+
+<section id="references">
+  <h2>References and source material</h2>
+  <ol class="refs">
+    <li><strong>Microsoft Research.</strong> <a href="https://www.microsoft.com/en-us/research/academic-program/microsoft-research-fellowship/research-challenges/" target="_blank" rel="noopener">Efficient and accurate post-training of retrieval models</a>. The original challenge statement: data selection, loss formulation and computational efficiency.</li>
+    <li><strong>Sung et al. (2023).</strong> <a href="https://aclanthology.org/2023.findings-acl.354/" target="_blank" rel="noopener">Optimizing Test-Time Query Representations for Dense Retrieval</a>. Findings of ACL.</li>
+    <li><strong>Reddy et al. (2023).</strong> <a href="https://arxiv.org/abs/2305.11744" target="_blank" rel="noopener">ReFIT: Relevance Feedback from a Reranker during Inference</a>. arXiv:2305.11744.</li>
+    <li><strong>Chen and Wu (2026).</strong> <a href="https://arxiv.org/abs/2608.12569" target="_blank" rel="noopener">Test-Time Optimization of Query Embeddings with Ranking Aware Reward Maximization</a>. TTT-Embed, arXiv:2608.12569.</li>
+    <li><strong>Nair et al. (2026).</strong> <a href="https://openreview.net/pdf?id=cUdODCFjUM" target="_blank" rel="noopener">A Dense Subset Index for Collective Query Coverage</a>. ICLR 2026.</li>
+    <li><strong>Reddy et al. (2025).</strong> <a href="https://research.ibm.com/publications/a-large-scale-study-of-reranker-relevance-feedback-at-inference" target="_blank" rel="noopener">A Large-Scale Study of Reranker Relevance Feedback at Inference</a>. SIGIR 2025.</li>
+  </ol>
+  <p class="small">The uploaded paper arXiv:2409.17424 and its companion slides concern the Big ANN practical vector search challenge. They are useful ANN background, but they are not the DISCo paper. The DISCo reference above is the ICLR 2026 paper.</p>
+</section>
+</main>
+<footer>
+  <div class="wrap">IRE · Ceous · Part I. Written as a study handover. Paper claims, project measurements and open limitations are labelled separately.</div>
+</footer>
+</body>
+</html>
