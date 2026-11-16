@@ -326,14 +326,14 @@ footer { padding: 28px 0 50px; color: var(--muted); font: 12px/1.6 system-ui, sa
   <div class="metric">
     <div><strong>37.8067%</strong><span>Raw Contriever · paper reference 37.8%</span></div>
     <div><strong>38.3450%</strong><span>MiniLM rerank-125 comparator · paper reference 38.3%</span></div>
-    <div><strong>37.8717%</strong><span>Our ReFIT run · paper reference 40.1%</span></div>
+    <div><strong>37.8717%</strong><span>Our ReFIT run · paper reference 40.1% at 100 updates</span></div>
   </div>
-  <p>The rerank-125 result is a comparator. It is not a separate downstream ranking objective. All three values use the same Recall@100 metric and qrels.</p>
+  <p>The 40.1% reference is the ReFIT appendix result at 100 updates. The paper's main setup uses 1,000 updates at learning rate 0.001 and reports 40.0%. Our run used 100 updates at learning rate 0.005. The update count matches the appendix setting, but the learning rate differs, so this is not a strict reproduction. The rerank-125 result is a comparator. It is not a separate downstream ranking objective. All three values use the same Recall@100 metric and qrels.</p>
   <h3>Query-level comparison</h3>
   <p>In 5,000 paired bootstrap resamples, ReFIT minus raw Contriever was <strong>+0.065 percentage points</strong>, with a 95% interval from <strong>−0.180 to +0.325</strong>. There were 22 improved queries, 19 worsened queries and 959 ties.</p>
   <p>The rerank-125 comparator was +0.538 points over raw retrieval, with a 95% interval from +0.070 to +1.003. ReFIT was −0.473 points below rerank-125, with a 95% interval from −0.912 to −0.037.</p>
   <p>ReFIT returned 100 document IDs outside the initial top-125 lists across 68 queries. None of these newly retrieved documents was judged positive in the SCIDOCS qrels.</p>
-  <div class="callout warning"><strong>Interpretation:</strong> the run completed, but our ReFIT result does not reproduce the paper's 40.1%. The measured gain over raw retrieval is small, and its confidence interval includes zero. This is an unresolved reproduction gap. It is not evidence that ReFIT is ineffective, and it is not a Ceous improvement claim.</div>
+  <div class="callout warning"><strong>Interpretation:</strong> the run completed, but our ReFIT result does not reproduce the paper's 40.1% at 100 updates. The measured gain over raw retrieval is small, and its confidence interval includes zero. This is an unresolved reproduction gap. It is not evidence that ReFIT is ineffective, and it is not a Ceous improvement claim.</div>
   <p>The next check for this reproduction is source fidelity: preprocessing, embedding pooling and normalisation, candidate depth, teacher-score normalisation, update objective and tie handling. We will not tune against the test qrels.</p>
 </section>
 
