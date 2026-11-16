@@ -36,16 +36,31 @@ summary{cursor:pointer;padding:14px 0;font-weight:700}details p{margin-bottom:12
 footer{padding-top:27px;padding-bottom:45px;color:var(--muted);font-size:12px}
 blockquote{border-left:3px solid var(--blue);margin:15px 0;padding:4px 20px;font-size:17px;color:#22334d}
 @media(max-width:650px){body{font-size:14px}header{padding-top:26px}section{padding:27px 0}nav a{font-size:11px}.diagram{display:block}.step{margin:8px 0}.arrow{display:none}}
+
+.deep-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:12px}
+.deep-list>div{background:#fafbfe;border:1px solid var(--line);border-radius:6px;padding:12px 15px}
+.deep-list strong{display:block}
+.example{border:1px solid #cbd7f4;border-radius:7px;padding:17px;margin:20px 0;background:#fbfcff}
+.ex-track{height:12px;border-radius:30px;background:#e8edf7;overflow:hidden}
+.ex-bar{background:var(--blue);height:100%;border-radius:30px;transition:width .12s}
+.number{font-variant-numeric:tabular-nums}
+.warning{border-left:3px solid #c58735;padding:9px 16px;background:#fff9f0;margin:13px 0}
+.deep-table th:nth-child(1){min-width:130px}
+.math-steps{counter-reset:mathstep;display:grid;gap:10px}
+.math-steps>div{border:1px solid var(--line);border-radius:6px;padding:12px 14px;position:relative}
+.math-steps>div:before{counter-increment:mathstep;content:counter(mathstep);float:right;color:var(--blue);font-size:12px;font-weight:800}
+@media (max-width:650px){.deep-list{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
 <header>
 <div class="kicker">CEOUS · IRE · START HERE</div>
 <h1>TTT-Embed, explained from zero</h1>
-<p class="lede">What is a query–document pair? What do a dense retriever, ColBERT, and a cross-encoder do? Why does TTT-Embed have global, task and query scopes? And where could complementary retrieval help?</p>
+<p class="lede">A complete teaching guide for a 10-minute research presentation. What is a query–document pair? What do a dense retriever, ColBERT, and a cross-encoder do? Why does TTT-Embed have global, task and query scopes? And where could complementary retrieval help?</p>
 <p class="eyebrow">16 November 2026 · Reading guide and research proposal, not a claim of a successful new experiment</p>
 <nav aria-label="Page sections">
-<a href="#basics">1. Basics</a><a href="#ttt">2. TTT-Embed</a><a href="#budgets">3. Budgets</a><a href="#benchmarks">4. Datasets</a><a href="#ours">5. Our experiments</a><a href="#idea">6. Proposed idea</a><a href="#sources">Sources</a>
+<a href="#basics">1. Basics</a><a href="#ttt">2. TTT-Embed</a><a href="#budgets">3. Budgets</a><a href="#benchmarks">4. Datasets</a><a href="#ours">5. Our experiments</a><a href="#idea">6. Proposed idea</a><a href="#kl-intuition">8. KL from zero</a><a href="#gradient-flow">9. Gradients</a><a href="#selection-math">10. Hypothesis math</a><a href="#ten-minute">11. 10-min slides</a><a href="#sources">Sources</a>
 <a href="/explainer/">Explainer index</a>
 </nav>
 </header>
@@ -161,6 +176,116 @@ H1: ΔnDCG@10(π_complementary − π_dense-top-k) &gt; 0 on unseen queries
 <p><strong>Novelty warning:</strong> combining methods is not automatically novel. GQR previously used a complementary retriever's scores in a different visual setting; Q-REACT already studies shared query-dependent residuals. The distinct hypothesis here concerns <em>source-aware acquisition of teacher-scored query–document pairs</em> for reusable TTT-Embed state under a fully matched budget.</p>
 <blockquote>Our question is not merely “can we move a query vector?” TTT-Embed already can. It is “which scarce feedback pairs should we buy so that a shared correction transfers to queries we did not score?”</blockquote>
 </section>
+
+<section id="kl-intuition">
+<div class="kicker">08 · Mathematics, explained</div>
+<h2>Why minimize KL divergence rather than just use the reranker's scores?</h2>
+<p><strong>Our target is not “make the reranker train itself.”</strong> It is “move the retriever's accessible query-side vector so its relative rankings imitate stronger teacher judgments.” The reranker is a fixed external scoring function that may be offered as an API. The learner can be a query vector or a small output-space residual. No teacher weights, activations, attention maps or backward pass are required.</p>
+<div class="deep-list">
+<div><strong>Vector</strong><p>A list of numbers, such as x = [0.3,0.7,…], representing a query in a common embedding space.</p></div>
+<div><strong>Dot product</strong><p>x·z = Σⱼ xⱼzⱼ. A fast similarity score between separately encoded query/document vectors. If both have length 1, it equals cosine similarity.</p></div>
+<div><strong>Logit / score</strong><p>A number aᵢ assigned to a candidate. It need not be a probability and can have a different numeric scale for the teacher and student.</p></div>
+<div><strong>Softmax</strong><p>Converts a list of scores into positive proportions adding up to 1, preserving their order.</p></div>
+<div><strong>Temperature τ</strong><p>Divides scores before softmax. Lower temperature = sharper preferences; larger temperature = softer, more even preferences.</p></div>
+<div><strong>Probability distribution</strong><p>Here: weights on the <em>same candidate slate</em>. They do not assert an 80% chance that a passage is factually correct.</p></div>
+<div><strong>log (natural logarithm)</strong><p>Measures ratios on a multiplicative scale. KL is measured in <em>nats</em> when the logarithm is natural.</p></div>
+<div><strong>KL divergence</strong><p>A nonnegative discrepancy between two distributions; KL(P‖Q)=0 when they are identical. It is asymmetric: KL(P‖Q) is generally not KL(Q‖P).</p></div>
+<div><strong>Gradient ∇</strong><p>A vector of derivatives: for each adjustable coordinate, how would a tiny change affect the loss?</p></div>
+<div><strong>Learning rate η</strong><p>The size of an update step. Gradient descent moves <em>against</em> the gradient to reduce the loss.</p></div>
+<div><strong>Regularizer λ‖v‖²</strong><p>A penalty for learning a very large residual vector; λ controls the penalty strength. It can reduce drift, not guarantee better retrieval.</p></div>
+<div><strong>Independent relevance labels</strong><p>Benchmark qrels are used to compute Recall and nDCG, not to supervise the test-query vector in these methods.</p></div>
+</div>
+<h3>Step 1 — Construct teacher and student preferences</h3>
+<p>For one query q, choose the same documents d₁, d₂, d₃. Let rᵢ = T(q,dᵢ) be the black-box teacher's scalar output and let aᵢ(x) = (x·zᵢ)/τ<sub>S</sub> be the student's temperature-scaled similarity.</p>
+<div class="math">Teacher: pᵀᵢ = exp(rᵢ / τᵀ) / Σⱼ exp(rⱼ / τᵀ)
+Student: pˢᵢ(x) = exp(aᵢ(x)) / Σⱼ exp(aⱼ(x))</div>
+<p>Applying separate softmax normalizations means the teacher and retriever can disagree about their raw numeric scales and still define comparable <strong>relative preferences on the same list</strong>.</p>
+<h3>Step 2 — Work through a three-document example</h3>
+<div class="tablewrap"><table><thead><tr><th>Candidate</th><th>Teacher target pᵀ</th><th>Retriever pˢ</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>d₁ — most useful</td><td>0.80</td><td>0.30</td><td>Student <strong>undervalues</strong> it</td></tr>
+<tr><td>d₂ — partly related</td><td>0.15</td><td>0.40</td><td>Student <strong>overvalues</strong> it</td></tr>
+<tr><td>d₃ — weakly related</td><td>0.05</td><td>0.30</td><td>Student <strong>overvalues</strong> it</td></tr>
+</tbody></table></div>
+<div class="math">KL(pᵀ‖pˢ) = 0.80 log(0.80/0.30)
+            + 0.15 log(0.15/0.40)
+            + 0.05 log(0.05/0.30)
+          ≈ 0.548 nats</div>
+<p>When the student matches [0.80, 0.15, 0.05] exactly, KL becomes 0. Each individual term need not be positive, but their weighted sum cannot be negative for valid probability distributions.</p>
+<div class="example" aria-label="Interactive KL divergence example">
+<strong>Try changing the student's probability on document 1.</strong>
+<p class="small">The teacher stays fixed at [0.80, 0.15, 0.05]. The other student probabilities divide the remaining mass in the fixed 4:3 ratio of the starting example. This is a <em>visual toy</em>, not the actual constrained embedding optimizer.</p>
+<label for="p1-slider">Student probability pˢ(d₁): <output id="p1-value" class="number">0.30</output></label>
+<input type="range" id="p1-slider" min="0.10" max="0.90" step="0.01" value="0.30" style="width:100%;accent-color:var(--blue)">
+<div class="grid">
+<div><span class="eyebrow">Teacher preference d₁</span><div class="ex-track"><div class="ex-bar" style="width:80%;background:#1e3af5"></div></div><p class="small">0.80, held fixed</p></div>
+<div><span class="eyebrow">Student preference d₁</span><div class="ex-track"><div id="p1-bar" class="ex-bar" style="width:30%"></div></div><p id="student-triplet" class="small number">[0.30, 0.40, 0.30]</p></div>
+</div>
+<p><strong>Current KL: <output id="kl-live" class="number">0.548</output> nats.</strong></p>
+<p class="small">The lowest KL reachable along this particular 4:3 slider path is not zero, because the remaining student weights cannot independently reach the teacher's 3:1 ratio. A learned embedding vector has its own geometric constraints too.</p>
+</div>
+<h3>Step 3 — Why KL instead of direct nDCG or recall?</h3>
+<p>nDCG and Recall depend on a discrete sorted list and independent relevance labels. They are not convenient smooth functions of query-vector coordinates. The teacher instead provides a dense signal for <em>every scored candidate</em>; KL is a differentiable <strong>listwise knowledge-distillation surrogate</strong> that uses all of those relative scores. For a fixed teacher target, minimizing forward KL(pᵀ‖pˢ) is equivalent, up to a constant, to minimizing the teacher-weighted cross-entropy −Σᵢpᵀᵢ log pˢᵢ.</p>
+<p>KL does not directly optimize the true retrieval utility and does not guarantee discovering new relevant documents. It can learn the wrong direction if teacher scores are biased, the selected slate has little useful contrast, or the accessible embedding geometry cannot express the desired ordering.</p>
+</section>
+<section id="gradient-flow">
+<div class="kicker">09 · Runtime optimization</div>
+<h2>Where exactly does SGD happen if the teacher is black-box?</h2>
+<p>“Black-box” describes our <strong>access to the reranker</strong>, not the entire retrieval pipeline. We only ask it for <em>r(q,d)</em>. The retriever-side dot products, candidate embeddings and loss function are accessible and differentiable.</p>
+<div class="math">Known frozen inputs: document vectors z₁,…,zₖ; teacher targets pᵀ
+Our variable:     x  (ReFIT / TOuR per-query) OR v (TTT-Embed residual)
+Student logits:  aᵢ = (x · zᵢ) / τˢ
+Loss:            L = KL(pᵀ ‖ softmax(a))
+Derivative:      ∂L/∂aᵢ = pˢᵢ − pᵀᵢ
+Query gradient:  ∇ₓL = (1/τˢ) Σᵢ (pˢᵢ−pᵀᵢ) zᵢ
+SGD update:      x_new = x_old − η ∇ₓL
+               = x_old + (η/τˢ) Σᵢ(pᵀᵢ−pˢᵢ)zᵢ</div>
+<p>With our toy distributions the three logit derivatives are <strong>[−0.50, +0.25, +0.25]</strong>. The loss decreases if we raise the first relative logit and lower the other two. This gradient is computed from <strong>the student distribution and known document vectors</strong>. The teacher never receives a backward pass.</p>
+<div class="math">Teacher(q,d₁..dₖ) ──score only──▶ pᵀ   [stop-gradient]
+                                             │
+x or v [editable] ──▶ similarities ──▶ pˢ ──▶ KL loss
+     ▲                                         │
+     └──────── SGD / Adam on x or v ◀─────────┘
+
+Frozen throughout: reranker θT, encoder θE, document vectors Z, corpus index.</div>
+<div class="warning"><strong>Important access assumption.</strong> A black-box teacher API returning scalar scores is enough <em>only if</em> we can also obtain the retriever's query/document vectors and issue a new vector search. A text-only search API that hides all embeddings and accepts only a string query does not automatically permit this update.</div>
+<div class="math">For TTT-Embed:
+x̂_q(v) = unit(x_q + v)
+L_g(v) = Σ_(q∈feedback group) w_q KL(pᵀ_q ‖ pˢ_q(v)) + λ‖v‖²
+v ← v − η ∇ᵥ L_g(v)     (or an optimizer such as Adam)
+Deploy x' = unit(x_q + α_g v*)</div>
+<p>With unit normalization, differentiating through <em>unit(x+v)</em> requires the chain rule; the simple formula for ∇ₓ above assumes directly optimized, unnormalized dot-product logits. The principle stays the same: gradients stop at the teacher scores, and only query-side state is updated.</p>
+<h3>Is this “training at runtime”?</h3>
+<p><strong>Yes, in a limited sense.</strong> We are performing genuine gradient-based <em>test-time optimization</em>. But we are <strong>not fine-tuning the neural weights</strong> of the encoder or reranker. For ReFIT, the updated query vector is typically discarded after that request. For TTT-Embed, task/global residual vectors persist and can serve subsequent unscored queries.</p>
+<div class="tablewrap"><table class="deep-table"><thead><tr><th>Question</th><th>TOuR-soft</th><th>ReFIT</th><th>TTT-Embed</th></tr></thead><tbody>
+<tr><td>What gets a gradient?</td><td>Current query representation</td><td>Current query representation</td><td>External residual vector v</td></tr>
+<tr><td>Loss</td><td>Soft teacher-label distillation; hard variant has another objective</td><td>KL between reranker and retriever distributions</td><td>KL + residual regularization on the chosen scope</td></tr>
+<tr><td>When is the teacher called?</td><td>Can score new documents across multiple retrieval-feedback rounds</td><td>Typically one initial feedback round; many cheap SGD steps reuse it</td><td>On rewarded training/acquisition pairs; task/global state can later serve unscored queries</td></tr>
+<tr><td>What stays frozen?</td><td>Base retriever weights/index, teacher weights</td><td>Base retriever weights/index, teacher weights</td><td>Base embedding model weights, document index, teacher weights</td></tr>
+<tr><td>What persists?</td><td>Per-query corrected representation</td><td>Per-query corrected representation</td><td>Per-query, task or global residual depending on scope</td></tr>
+</tbody></table></div>
+<p>In <a href="https://arxiv.org/html/2305.11744">ReFIT's original experimental setup</a>, the authors describe 100 vector updates at learning rate 0.005 and one teacher-feedback round. <strong>100 updates are not 100 reranker forward passes.</strong> In our separate FiQA task-wise TTT-Embed cross-fit we performed 300 full-batch Adam steps per fold over cached scores, without fresh teacher calls.</p>
+</section>
+<section id="selection-math">
+<div class="kicker">10 · Research hypothesis, not yet a result</div>
+<h2>How could complementary candidates change the gradient?</h2>
+<p>The teacher only scores the documents that we select. Look again at the gradient:</p>
+<div class="math">∇ₓL = (1/τˢ) Σ_(d∈S(q)) [pˢ(d) − pᵀ(d)] z_d</div>
+<p><strong>Every selected document contributes a weighted vector to the gradient.</strong> If the slate S(q) consists of near-duplicates, its document vectors may point in similar directions and offer limited independent contrasts. If S(q) includes different kinds of evidence, the gradient can involve different directions that the teacher approves or rejects. That is the mechanism behind our hypothesis; it is <em>not</em> a theorem that more diverse documents are always better.</p>
+<div class="math">Original acquisition: S_dense(q) ⊂ Top-B_dense(q), |S_dense(q)| = k
+Our proposed pool: U(q) = Top-B_dense(q) ∪ C_BM25(q) ∪ C_ColBERT(q)
+Proposed selector: S_comp(q) ⊆ U(q), |S_comp(q)| = k
+Compare:           v*(S_dense) vs v*(S_comp) using same KL, teacher, k and scope</div>
+<p>DISCo-style collective coverage may supply a <em>selection signal</em> that avoids repeatedly covering the same query token. Its native token vectors are not directly added to a Qwen3 single-vector residual; the extra retriever only proposes document IDs, which are then looked up in the frozen target retriever's own document embedding index.</p>
+<div class="math">F_coverage(S,q) = Σ_(query token i) max_(d∈S, token j∈d) sim(qᵢ, dⱼ)</div>
+<p>A meaningful result would be a controlled improvement in held-out nDCG@10, Recall@K, and judged-relevant documents recovered <em>outside the original pool</em>, while charging the additional BM25/ColBERT/DISCo retrieval work and exactly the same teacher-pair budget. Rank-stratified, random, MMR, direct reranking and deeper dense retrieval are necessary controls. Any gain from simply doing more search must not be falsely attributed to improved teacher supervision.</p>
+</section>
+<section id="ten-minute">
+<div class="kicker">11 · Record the presentation</div>
+<h2>This is a ten-minute presentation, not a one-minute summary</h2>
+<p><a href="./ceous-tttembed-10-minute-presentation-2026-11-16.html"><strong>Open the full-screen slide-by-slide presentation (10:00)</strong></a>. It includes every slide's actual spoken script, timing, forward/back navigation, a speaker-notes toggle (N), and fullscreen (F). The source narration lives in the Ceous repository.</p>
+<p>The 13-slide sequence teaches the two-stage pipeline, four retrieval models, rewards and budgets, softmax, a numerical KL example, exact gradient direction, TOuR/ReFIT/TTT differences, TTT's sharing scopes, benchmark datasets, our SCIDOCS and FiQA results, and the complementary-feedback hypothesis.</p>
+</section>
+
 <section id="sources">
 <div class="kicker">07 · Verify and prepare</div><h2>Read the sources, then record</h2>
 <ol>
@@ -175,4 +300,16 @@ H1: ΔnDCG@10(π_complementary − π_dense-top-k) &gt; 0 on unseen queries
 </section>
 </main>
 <footer>Ceous · IIIT Hyderabad · IRE M26CS4.406 · Evidence-led educational explainer. This page distinguishes authors' published numbers, our measured pilot outcomes, and untested research proposals. No external scripts or tracking.</footer>
-</body></html>
+<script>(function(){
+const slider=document.getElementById("p1-slider");if(!slider)return;
+const t=[0.8,0.15,0.05];
+const fmt=x=>Number(x).toFixed(2);
+function draw(){const a=Number(slider.value),s=[a,(1-a)*4/7,(1-a)*3/7];
+const kl=t.reduce((total,p,i)=>total+p*Math.log(p/s[i]),0);
+document.getElementById("p1-value").textContent=fmt(a);
+document.getElementById("p1-bar").style.width=(a*100).toFixed(1)+"%";
+document.getElementById("student-triplet").textContent="["+s.map(fmt).join(", ")+"]";
+document.getElementById("kl-live").textContent=kl.toFixed(3);
+}
+slider.addEventListener("input",draw);draw();
+})();</script></body></html>
