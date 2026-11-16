@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Ceous — TTT-Embed, explained from zero</title>
+<style>
+:root{color-scheme:light;--ink:#17202b;--muted:#526275;--line:#d9e1e8;--blue:#1e3af5;--light:#f6f8fb}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:var(--ink);font:15px/1.68 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+main,header,footer{max-width:1010px;margin:auto;padding:0 22px}
+header{padding-top:36px;padding-bottom:24px;border-bottom:1px solid var(--line)}
+.kicker{font-size:11px;letter-spacing:.13em;font-weight:800;text-transform:uppercase;color:var(--blue)}
+h1,h2,h3{line-height:1.23;letter-spacing:-.025em}h1{font-size:clamp(30px,5.2vw,53px);margin:10px 0 12px;max-width:820px}h2{font-size:25px;margin:0 0 16px}h3{font-size:17px;margin:0 0 10px}
+.lede{max-width:750px;font-size:18px;color:#3c4d61;margin:0 0 20px}
+nav{display:flex;flex-wrap:wrap;gap:8px}nav a{font-size:12px;text-decoration:none;border:1px solid var(--line);padding:7px 10px;border-radius:5px}
+a{color:#1437d9;text-underline-offset:3px}a:focus-visible,summary:focus-visible{outline:2px solid var(--blue)}
+section{padding:36px 0;border-bottom:1px solid var(--line)}
+p{margin:8px 0 15px}small,.small{font-size:12px;color:var(--muted)}.eyebrow{font-size:12px;color:var(--muted);font-weight:650}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:13px}
+.panel{padding:17px;border:1px solid var(--line);border-radius:7px;background:white}
+.panel.em{border-left:3px solid var(--blue)}.panel p:last-child{margin-bottom:0}
+.diagram{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch;margin:19px 0}
+.step{flex:1;min-width:140px;padding:13px;background:var(--light);border:1px solid var(--line);border-radius:5px}
+.arrow{align-self:center;color:#8290a0}
+.step strong{display:block;font-size:14px}.step span{display:block;font-size:12px;color:var(--muted)}
+.tablewrap{overflow-x:auto;margin:17px 0;border:1px solid var(--line);border-radius:6px}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:13px}
+th,td{text-align:left;vertical-align:top;padding:12px 11px;border-bottom:1px solid var(--line)}
+tr:last-child td{border-bottom:0}th{background:var(--light);font-size:12px}
+.math{margin:13px 0;padding:14px 15px;overflow-x:auto;background:#f5f7fc;border:1px solid var(--line);border-left:3px solid var(--blue);font:14px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere}
+.definition{border-left:3px solid #abb8c9;margin:12px 0;padding:2px 0 2px 15px;color:#405168}
+.result{font-size:28px;letter-spacing:-.02em;font-weight:750;margin:6px 0}
+.badge{display:inline-block;font-size:11px;border:1px solid var(--line);border-radius:3px;padding:1px 6px;color:#43536b;margin-left:4px}
+details{border:1px solid var(--line);border-radius:6px;margin-top:12px;padding:0 15px}
+summary{cursor:pointer;padding:14px 0;font-weight:700}details p{margin-bottom:12px}
+footer{padding-top:27px;padding-bottom:45px;color:var(--muted);font-size:12px}
+blockquote{border-left:3px solid var(--blue);margin:15px 0;padding:4px 20px;font-size:17px;color:#22334d}
+@media(max-width:650px){body{font-size:14px}header{padding-top:26px}section{padding:27px 0}nav a{font-size:11px}.diagram{display:block}.step{margin:8px 0}.arrow{display:none}}
+</style>
+</head>
+<body>
+<header>
+<div class="kicker">CEOUS · IRE · START HERE</div>
+<h1>TTT-Embed, explained from zero</h1>
+<p class="lede">What is a query–document pair? What do a dense retriever, ColBERT, and a cross-encoder do? Why does TTT-Embed have global, task and query scopes? And where could complementary retrieval help?</p>
+<p class="eyebrow">16 November 2026 · Reading guide and research proposal, not a claim of a successful new experiment</p>
+<nav aria-label="Page sections">
+<a href="#basics">1. Basics</a><a href="#ttt">2. TTT-Embed</a><a href="#budgets">3. Budgets</a><a href="#benchmarks">4. Datasets</a><a href="#ours">5. Our experiments</a><a href="#idea">6. Proposed idea</a><a href="#sources">Sources</a>
+<a href="/explainer/">Explainer index</a>
+</nav>
+</header>
+<main>
+<section id="basics">
+<div class="kicker">01 · Definitions</div>
+<h2>A query, a document, and one expensive judgment</h2>
+<p><strong>Query</strong> is what somebody asks (for example, “Which study explains why a medication affects sleep?”). A <strong>document</strong> is one possible answer source, such as a paper abstract or a passage. A <strong>query–document pair</strong> is the specific combination <em>(this query, this document)</em>. A reranker scores that pair to estimate relevance. Ten documents judged for one query = <strong>ten rewarded pairs</strong>, not ten queries.</p>
+<div class="diagram" aria-label="Retriever feedback loop">
+<div class="step"><strong>Query q</strong><span>Natural-language information need</span></div>
+<div class="arrow">→</div><div class="step"><strong>Retriever</strong><span>Finds candidates cheaply from a large corpus</span></div>
+<div class="arrow">→</div><div class="step"><strong>Teacher / reranker</strong><span>Scores a small selection of (q,d) pairs</span></div>
+<div class="arrow">→</div><div class="step"><strong>TTT-Embed</strong><span>Learns vector v from those scores</span></div>
+<div class="arrow">→</div><div class="step"><strong>Second search</strong><span>Searches the unchanged entire corpus again</span></div>
+</div>
+<div class="tablewrap"><table><thead><tr><th>Method</th><th>How it represents q and d</th><th>How it scores</th><th>Practical role</th></tr></thead><tbody>
+<tr><td><strong>BM25 (lexical)</strong></td><td>Term frequencies and word matching</td><td>Weighted lexical overlaps</td><td>Cheap complementary candidates; finds exact names/terms that embeddings may miss</td></tr>
+<tr><td><strong>Dense bi-encoder</strong></td><td>One vector for q; one vector per d, computed separately</td><td>Usually normalized dot product / cosine</td><td>Fast large-corpus search. TTT-Embed's five evaluated embedding models are of this single-vector family.</td></tr>
+<tr><td><strong>ColBERT (late interaction)</strong></td><td>Multiple contextual token vectors per q and d, encoded separately</td><td>For each query token, best matching document token, then sum (MaxSim)</td><td>Fine-grained complementary retrieval; larger index and different scoring than one-vector dense</td></tr>
+<tr><td><strong>Cross-encoder reranker</strong></td><td>Feeds q and d together into a joint model</td><td>One scalar relevance/ranking score per (q,d) inference</td><td>More expensive teacher; usually scores a shortlist, not the full index</td></tr>
+</tbody></table></div>
+<p><strong>Common confusion:</strong> ColBERT is <em>not</em> a cross-encoder. It is a <em>late-interaction retriever</em> with separately encoded documents. A cross-encoder jointly processes each query-document pair. “Cross-retriever” is not a standard model name here; use <strong>cross-encoder reranker</strong> for the expensive teacher and <strong>complementary retriever</strong> for a second retrieval system.</p>
+<p><strong>DISCo ≠ ColBERT ≠ cross-encoder.</strong> DISCo uses contextual token representations and a special index to select a <em>set</em> of documents with complementary query-token coverage. Ordinary ColBERT scores each document by MaxSim, while DISCo's set objective rewards information not yet covered by the selected set. Neither is automatically an expensive teacher score.</p>
+<div class="math">ColBERT score:  S(q,d) = Σᵢ maxⱼ ⟨Qᵢ, Dⱼ⟩
+DISCo coverage: F(S,q) = Σᵢ max {⟨Qᵢ,Dⱼ⟩ : d ∈ S, token j in d}</div>
+<p class="small">The formulas are schematic; DISCo applies additional transformations/indexing to accelerate successive coverage probes.</p>
+</section>
+<section id="ttt">
+<div class="kicker">02 · Main paper</div><h2>What TTT-Embed actually optimizes</h2>
+<p><a href="https://arxiv.org/abs/2608.12569">Chen &amp; Wu, TTT-Embed (2026)</a> keeps the <strong>retriever weights, document vectors, and index frozen</strong>. It takes scalar rewards from a teacher and learns only a small <strong>residual vector v</strong> in the existing embedding space. The vector modifies future query vectors, so the next retrieval may find documents outside the initially scored list.</p>
+<div class="math">Base:       xq = unit(encode_query(q));  zd = unit(encode_doc(d))
+            score(q,d) = xq · zd
+
+Teacher:    pT = softmax([r(q,d₁), …, r(q,dₖ)] / τT)
+Student:    pS(v) = softmax([unit(xq + v) · zdᵢ] / τS)
+
+Fit:        v*g = argmin_v Σ(q in feedback group g) wq KL(pT || pS(v)) + λ ||v||²
+Deploy:     x'q = unit(xq + αg v*g), where αg = ng/(ng+1)
+Next:       Search the FULL unchanged document index with x'q.</div>
+<p><strong>Interpretation:</strong> the teacher prefers some documents to others; fitting v makes the frozen retriever's scores on the same judged candidates better reflect that preference. Normalizing and adding v changes query-side geometry, not the stored documents. It may also change documents <em>not</em> previously scored, but that benefit must be measured with independent relevance judgments.</p>
+<div class="grid">
+<div class="panel em"><h3>Global-wise</h3><p><strong>One v for all tasks</strong> served by a given embedding model. Pool reward evidence across tasks, then apply the same learned state even to unscored future queries and unseen tasks.</p><p class="small">Broad sharing · best at very low average reward budgets in the paper.</p></div>
+<div class="panel em"><h3>Task-wise</h3><p><strong>One v per task</strong> (for example, one for FiQA2018). Reward some queries in that task, apply the vector to other, unscored queries in the same task.</p><p class="small">Intermediate sharing · strongest for the paper's medium-budget range.</p></div>
+<div class="panel em"><h3>Query-wise</h3><p><strong>One v per scored query</strong>. It needs teacher scores for each particular query to be adapted; unscored queries get no reused state.</p><p class="small">Most specific · strongest at the paper's high feedback budgets.</p></div>
+</div>
+<p><strong>Not three separate datasets:</strong> these are three <em>sharing scopes</em> for the same learning rule. The paper tests them on the same 15-task suite and matches the reward pairs within each budget comparison.</p>
+</section>
+<section id="budgets">
+<div class="kicker">03 · Scarce supervision</div><h2>What “budget 10” means</h2>
+<p>If there are <em>N</em> test queries and the teacher scores a total of <em>B</em> query–document pairs, the paper defines the <strong>normalized reward budget</strong> <em>b = B/N</em>. For example, a workload of 1,000 queries with b=10 permits 10,000 teacher scores overall. It does <em>not</em> require scoring exactly ten documents for each query: some queries can be unscored, with rewards pooled for shared scopes.</p>
+<div class="math">B = Σ(q rewarded) number_of_scored_documents(q)    ;    b = B / N</div>
+<p>Below are <strong>paper-reported</strong> gains in nDCG@10 <strong>percentage points</strong>, averaged equally over 15 MTEB tasks and five embedding models. They are <em>not</em> Ceous measurements. These are three representative operating points; the best scope changes along the full tested budget curve.</p>
+<div class="tablewrap"><table><thead><tr><th>Average rewards/query b</th><th>Paper's best scope</th><th>TTT-Embed gain vs raw</th><th>Direct reranking gain vs raw</th></tr></thead><tbody>
+<tr><td>0.01</td><td><strong>Global</strong></td><td>+1.23 points</td><td>−0.01 points</td></tr>
+<tr><td>10</td><td><strong>Task</strong></td><td>+6.36 points</td><td>+3.21 points</td></tr>
+<tr><td>100</td><td><strong>Query</strong></td><td>+8.36 points</td><td>+7.80 points</td></tr>
+</tbody></table></div>
+<p class="small">In the paper's discrete grid, global leads at b≈0.003–0.012, task at 0.024–10, and query at 30–100. Do not generalize those thresholds to every model/dataset. Importantly, query-wise is <em>not</em> generally weak: it is strongest at high budgets.</p>
+</section>
+<section id="benchmarks">
+<div class="kicker">04 · Original paper's setup</div><h2>Which data, retrievers and teacher?</h2>
+<p><strong>Embedding models (five):</strong> Qwen3-Embedding-0.6B, Qwen3-Embedding-4B, EmbeddingGemma-300M, Gemini Embedding 1, and Gemini Embedding 2. They differ in size, pretraining/family, and whether their weights are open (the first three) or accessed by API (the two Gemini models). All produce query/document embeddings; the experiments normalize and search with inner product/cosine. <strong>The main teacher</strong> is Qwen3-Reranker-4B, with relevance score <em>P(Yes | q,d)</em> calculated from Yes/No logits. The reranker is a feedback source, not one of the five retrievers.</p>
+<p><strong>Datasets:</strong> fifteen English MTEB retrieval tasks, 12,263 queries and 1,661,208 corpus entries aggregated across task-specific corpora. Categories include fact verification, scientific literature, finance, question answering and duplicates; the paper reports task-macro-averaged nDCG@10. SKILLRET (4,997 queries, 6,660 skill cards) is an <em>additional</em> specialization/forgetting benchmark, not one of the fifteen.</p>
+<details><summary>Show all 15 MTEB tasks and their sizes</summary>
+<div class="tablewrap"><table><thead><tr><th>Task</th><th>Test queries</th><th>Documents</th></tr></thead><tbody>
+<tr><td>ArguAna</td><td>1,406</td><td>8,674</td></tr><tr><td>CQADupstackGaming</td><td>1,595</td><td>45,301</td></tr><tr><td>CQADupstackUnix</td><td>1,072</td><td>47,382</td></tr><tr><td>ClimateFEVER-HN</td><td>1,000</td><td>47,416</td></tr><tr><td>DBPedia-HN</td><td>400</td><td>90,070</td></tr><tr><td>FEVER-HN</td><td>1,000</td><td>163,698</td></tr><tr><td>FiQA2018</td><td>648</td><td>57,638</td></tr><tr><td>HotpotQA-HN</td><td>1,000</td><td>225,621</td></tr><tr><td>MSMARCO-HN</td><td>43</td><td>8,812</td></tr><tr><td>NQ-HN</td><td>1,000</td><td>198,779</td></tr><tr><td>Quora-HN</td><td>1,000</td><td>177,163</td></tr><tr><td>SCIDOCS</td><td>1,000</td><td>25,657</td></tr><tr><td>TRECCOVID</td><td>50</td><td>171,332</td></tr><tr><td>TopiOCQA-HN</td><td>1,000</td><td>89,933</td></tr><tr><td>Touche2020 v3</td><td>49</td><td>303,732</td></tr></tbody></table></div>
+<p class="small">Source: TTT-Embed, Appendix 12/Table 6. HN means HardNegatives task revision. These paper-specific task versions matter: the same task name in a different evaluation package need not give identical numbers.</p></details>
+</section>
+<section id="ours">
+<div class="kicker">05 · Evidence versus hypothesis</div><h2>What Ceous actually ran</h2>
+<div class="grid">
+<div class="panel">
+<h3>A · SCIDOCS — query-wise ReFIT <span class="badge">completed reproduction attempt</span></h3>
+<p><strong>Dataset:</strong> 1,000 BEIR SCIDOCS test queries, 25,657 papers. <strong>Retriever:</strong> frozen Contriever-MSMARCO. <strong>Teacher:</strong> MiniLM-L6 cross-encoder. Each query physically scored 125 first-stage documents; 100 scores fed 100 ReFIT KL updates, then a second full search.</p>
+<p class="result">37.8067% → 37.8717%</p><p><strong>Metric:</strong> Recall@100. Difference +0.065 percentage points, paired 95% interval [−0.180, +0.325]. Our attempt did not reproduce the published ReFIT 40.1% reference, and detected no reliable improvement.</p>
+<p class="small">This is <strong>ReFIT, not query-wise TTT-Embed</strong>. Do not compare its Recall@100 numerically with the nDCG@10 paper table.</p>
+</div>
+<div class="panel">
+<h3>B · FiQA2018 — task-wise TTT-Embed <span class="badge">completed cross-fit</span></h3>
+<p><strong>Dataset:</strong> 648 FiQA test queries, all 57,638 documents. <strong>Retriever:</strong> frozen Qwen3-Embedding-0.6B (1,024-dimensional vectors). <strong>Teacher:</strong> cached Qwen3-Reranker-4B Yes probabilities, 10 scored top-ranked pairs per rewarded query.</p>
+<p><strong>Protocol:</strong> five folds; ~80% rewarded training queries and ~20% unscored held-out queries per fold; five task-wise vectors; all 648 held out once; full-index re-search.</p>
+<p class="result">0.46722 → 0.46313</p><p><strong>Metric:</strong> nDCG@10. Delta −0.00408; paired 95% interval [−0.01072, +0.00262]. Every fold improved in-sample, but no significant held-out gain occurred.</p>
+<p class="small">All queries had earlier exposure in development. This is a one-task adapted reproduction attempt, not paper's five-model/15-task average or a fresh blind confirmation.</p>
+</div>
+</div>
+<p><strong>Key lesson:</strong> weak held-out transfer in <em>our tested configuration</em> is a problem to investigate, not proof that task-sharing fails in general. Neither completed experiment tests our complementary feedback selector, and neither demonstrates a new algorithm.</p>
+</section>
+<section id="idea">
+<div class="kicker">06 · Proposed Ceous question</div><h2>Can complementary candidates teach a better residual?</h2>
+<p>TTT-Embed <em>does not optimize</em> which queries and documents are selected for expensive reward scoring; its controlled experiments hold scored pairs fixed across scope comparisons. Our proposed change happens <strong>before the teacher</strong>: expose different candidate evidence while keeping TTT-Embed's original optimization rule and the same teacher-pair budget.</p>
+<div class="diagram">
+<div class="step"><strong>Dense top-B</strong><span>One-vector cosine candidates</span></div><div class="arrow">+</div>
+<div class="step"><strong>Complementary pool</strong><span>BM25 exact terms, ColBERT token matching, or DISCo coverage</span></div><div class="arrow">→</div>
+<div class="step"><strong>Budgeted selector</strong><span>Choose k distinct documents per rewarded query using only pre-teacher signals</span></div><div class="arrow">→</div>
+<div class="step"><strong>Same reranker + TTT-Embed</strong><span>Score exactly k selected pairs; fit task/global/query vector as before</span></div>
+</div>
+<div class="math">U(q) = C_dense,B(q) ∪ C_complementary,B(q)
+Sπ(q) ⊆ U(q),   |Sπ(q)| = k
+Sπ(q) = argmax_S [ λc Coverage(S,q) + λd RetrieverDisagreement(S,q)
+                     + λn Nonredundancy(S) ]      (all pre-teacher)
+B_teacher = Σ_q |Sπ(q)|       [fixed across methods]
+
+v*g(π) = argmin_v Σ_(q rewarded) wq KL(pT(q,Sπ(q)) || pS(q,Sπ(q);v))
+                         + λ ||v||²
+H1: ΔnDCG@10(π_complementary − π_dense-top-k) &gt; 0 on unseen queries
+    at the same teacher budget and accounted search/index cost.</div>
+<p>The expression above is a <strong>proposed</strong> selection family, not a claimed implementation. When fitting, both teacher and student probabilities are normalized on the same selected slate; candidate pools are selected without reading unseen teacher scores or evaluation qrels. Teacher-score gradients can be inspected <em>afterward</em> to explain why selection helped or hurt, but cannot be used for free to choose which documents to score.</p>
+<p><strong>Why this might work:</strong> a dense top-10 may contain near-duplicates. A complementary retriever might expose a different concept, which gives the teacher a more informative ordering signal and changes the fitted v. <strong>Why it might fail:</strong> diverse candidates may be irrelevant; DISCo's token coverage is a set objective, not the same thing as teacher relevance; a single shared vector can express only a limited document-bias pattern.</p>
+<div class="grid">
+<div class="panel"><h3>Must-control baselines</h3><p>Dense top-k, rank-stratified/random, dense MMR, BM25/RRF, ColBERT candidates, DISCo-inspired coverage (clearly labeled if not official), plus original task-wise TTT-Embed. Compare matched reward pairs when testing optimizer changes; match <em>counts</em> and acquisition costs when testing which pairs to select.</p></div>
+<div class="panel"><h3>What would count as evidence?</h3><p>Hold out entirely new queries. Measure independent nDCG@10, Recall@K, docs gained outside original top-B, teacher scores acquired, unique pool size, full-index probes, CPU/GPU cost, latency and paired confidence intervals. First test one task (FiQA); then validate separately on a multi-evidence task such as HotpotQA-HN. No new result is asserted.</p></div>
+</div>
+<p><strong>Novelty warning:</strong> combining methods is not automatically novel. GQR previously used a complementary retriever's scores in a different visual setting; Q-REACT already studies shared query-dependent residuals. The distinct hypothesis here concerns <em>source-aware acquisition of teacher-scored query–document pairs</em> for reusable TTT-Embed state under a fully matched budget.</p>
+<blockquote>Our question is not merely “can we move a query vector?” TTT-Embed already can. It is “which scarce feedback pairs should we buy so that a shared correction transfers to queries we did not score?”</blockquote>
+</section>
+<section id="sources">
+<div class="kicker">07 · Verify and prepare</div><h2>Read the sources, then record</h2>
+<ol>
+<li><a href="https://arxiv.org/abs/2608.12569">TTT-Embed (Chen &amp; Wu, 2026)</a> — Sections 2–4 and Appendix 12, exact budgets, models, datasets and equations.</li>
+<li><a href="https://arxiv.org/abs/2004.12832">ColBERT (Khattab &amp; Zaharia, 2020)</a> — separately encoded tokens and MaxSim, not joint cross-encoding.</li>
+<li><a href="https://proceedings.iclr.cc/paper_files/paper/2026/hash/6ded182245f8e4db3963d2027174133d-Abstract-Conference.html">DISCo (Nair et al., ICLR 2026)</a> — collective dense token coverage and successive index probes.</li>
+<li><a href="https://arxiv.org/abs/2305.11744">ReFIT (Reddy et al., 2023)</a> and <a href="https://aclanthology.org/2023.findings-acl.354/">TOuR (Sung et al., 2023)</a> — existing per-query feedback/second-retrieval methods.</li>
+<li><a href="https://github.com/nilansa/ire-project-2026">Ceous research repository</a> — recorded SCIDOCS/ANN baselines and research-status documentation. The latest FiQA cross-fit artifact ledger is private and is not exposed by this public page.</li>
+</ol>
+<p><strong>One-minute presentation outline:</strong> (1) Why a reranker cannot recover unseen documents; (2) what TTT-Embed's v stores and why budget matters; (3) our negative/inconclusive ReFIT and FiQA replications; (4) complementary candidate selection as a precise next hypothesis; (5) matched-budget test and honest limitations.</p>
+</section>
+</main>
+<footer>Ceous · IIIT Hyderabad · IRE M26CS4.406 · Evidence-led educational explainer. This page distinguishes authors' published numbers, our measured pilot outcomes, and untested research proposals. No external scripts or tracking.</footer>
+</body></html>
