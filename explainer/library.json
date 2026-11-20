@@ -776,5 +776,44 @@
       "IRE",
       "ASD-STE100"
     ]
+  },
+  {
+    "id": "statistical-generalization-first-principles",
+    "title": "Statistical Generalization — First Principles",
+    "description": "Training versus future error, a worked generalization bound, model selection, VC dimension and a reading roadmap.",
+    "url": "./explainers/statistical-generalization-first-principles-2026-11-20.html",
+    "date": "2026-11-20",
+    "indexed_at": "2026-11-20T15:30:29.216Z",
+    "category": "Study explainer",
+    "tags": [
+      "ASD-STE100",
+      "Machine learning"
+    ]
+  },
+  {
+    "id": "fcv-distribution-transformers",
+    "title": "Foundations of Computer Vision — Chapters 13 and 26",
+    "description": "What layers do to a distribution of examples, and how that differs from attention and Transformer blocks.",
+    "url": "./explainers/fcv-distribution-transformers-2026-11-20.html",
+    "date": "2026-11-20",
+    "indexed_at": "2026-11-20T15:30:29.216Z",
+    "category": "Study explainer",
+    "tags": [
+      "ASD-STE100",
+      "Machine learning"
+    ]
+  },
+  {
+    "id": "residual-stacking-first-principles",
+    "title": "Residual Stacking — First Principles",
+    "description": "What x + F(x) adds, why order matters, and how residual blocks differ from boosting and a test-time query offset.",
+    "url": "./explainers/residual-stacking-first-principles-2026-11-20.html",
+    "date": "2026-11-20",
+    "indexed_at": "2026-11-20T15:30:29.216Z",
+    "category": "Study explainer",
+    "tags": [
+      "ASD-STE100",
+      "Machine learning"
+    ]
   }
 ]

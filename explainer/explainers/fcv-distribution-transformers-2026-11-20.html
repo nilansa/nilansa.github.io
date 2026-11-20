@@ -1,0 +1,85 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="referrer" content="no-referrer"><title>What a neural network transforms | Explainer</title><style>
+:root{color-scheme:light;--blue:#1e3af5;--ink:#131622;--muted:#495169;--line:#d7dcec;--wash:#f2f5ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:white;font:1.06rem/1.65 system-ui,-apple-system,sans-serif}
+a{color:#1932cb;text-underline-offset:.15em}a:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+header,footer{border-block-end:1px solid var(--line)}.shell{max-width:1010px;padding:0 clamp(19px,5vw,72px);margin:auto}.top{display:flex;gap:.8rem 1.5rem;flex-wrap:wrap;padding-block:.85rem;font-size:.91rem}
+.top a[aria-current]{font-weight:750;text-decoration-thickness:2px}.hero{padding:4.25rem 0 2.25rem;border-block-end:1px solid var(--line)}.eyebrow,.tag{color:#1932cb;font-weight:760;font-size:.88rem;letter-spacing:.085em;text-transform:uppercase}
+h1,h2,h3{font-family:Georgia,serif;line-height:1.13;text-wrap:balance}h1{font-size:clamp(2.45rem,5.5vw,5.15rem);letter-spacing:-.045em;margin:.42rem 0 .95rem;max-width:15ch}
+h2{font-size:clamp(1.7rem,4vw,2.7rem);margin:0 0 1rem;letter-spacing:-.02em}h3{font-size:1.42rem;margin-top:1.9rem}p,li,dd{max-width:75ch}.hero p{font-size:1.15rem;color:var(--muted);max-width:64ch}.toc{display:flex;gap:.55rem 1.2rem;flex-wrap:wrap;font-size:.91rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+section{padding:2.6rem 0;border-bottom:1px solid var(--line);scroll-margin-top:1.5rem}p{margin:.7rem 0 1rem}
+dt{font-weight:750;margin-top:.8rem}dd{margin-inline-start:0;color:#353d50}figure{margin:1.35rem 0}figcaption,caption{color:var(--muted);font-size:.94rem;text-align:start;padding:.5rem 0}
+.diagram,.callout,.formula,blockquote,.box{background:var(--wash);padding:1rem 1.2rem;border-inline-start:4px solid var(--blue);overflow-wrap:anywhere}.callout{font-size:1.1rem}
+.formula,code{font-family:ui-monospace,SFMono-Regular,monospace;font-size:.96em;overflow-wrap:anywhere}.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem;background:transparent;border:0;padding:0}
+.flow span{background:var(--wash);border:1px solid var(--line);padding:.6rem .75rem;color:#1932cb;min-width:0}.flow b{color:var(--ink)}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;font-variant-numeric:tabular-nums;max-width:100%}th,td{border:1px solid var(--line);padding:.5rem .7rem;text-align:left}thead{background:var(--wash)}
+details{border:1px solid var(--line);padding:.6rem .8rem;margin:.6rem 0}summary{cursor:pointer;color:#1932cb;font-weight:680}li+li{margin-top:.35rem}
+img,video,svg{display:block;max-width:100%;height:auto}video{background:#0d1524;margin-inline:auto;border:1px solid var(--line);width:min(100%,730px)}.picture{max-width:760px;border:1px solid var(--line)}
+footer{padding-block:1.7rem;color:var(--muted)}.skip{position:absolute;left:.5rem;top:-5rem;background:white;padding:.4rem;z-index:3}.skip:focus{top:.5rem}
+@media(max-width:570px){.hero{padding-top:2.5rem}.flow{grid-template-columns:repeat(2,1fr)}section{padding:1.8rem 0}th,td{padding:.35rem .45rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{.top,.toc,video{display:none}section{padding:1rem 0}h2{break-after:avoid}}
+</style></head><body><a class="skip" href="#main">Skip to lesson</a><header><nav class="shell top" aria-label="Study guides"><a href="../">Explainer index</a> · <a href="./statistical-generalization-first-principles-2026-11-20.html">Generalization</a> · <a href="./fcv-distribution-transformers-2026-11-20.html" aria-current="page">Chapter 13 + 26</a> · <a href="./residual-stacking-first-principles-2026-11-20.html">Residual stacking</a></nav></header><main class="shell" id="main"><div class="hero"><p class="eyebrow">05 / Foundations of Computer Vision</p><h1>What a neural network transforms</h1><p>Read Chapter 13 as a picture of how features change. Then use Chapter 26 to see what attention adds.</p></div><nav class="toc" aria-label="On this page"><a href="#book-map">Two meanings of “transformer” in the same book</a><a href="#chapter13-map">Chapter 13, section by section</a></nav><section id="book-map" aria-labelledby="fcv-map-title">
+  <h2 id="fcv-map-title">Two meanings of “transformer” in the same book</h2>
+  <p><cite>Foundations of Computer Vision</cite> is by Antonio Torralba, Phillip Isola, and William T. Freeman (MIT Press, 2024; print ISBN 9780262048972). In the authors’ online book, <a href="https://visionbook.mit.edu/neural_nets_as_distribution_transformers.html">Chapter 13</a> explains how an ordinary neural network <strong>transforms a distribution of examples</strong>. The attention-based architecture is <a href="https://visionbook.mit.edu/transformers.html">Chapter 26, Transformers</a>. The first idea helps build intuition for the second, but they are not the same chapter or claim.</p>
+
+  <h3>Chapter 13: What changes from layer to layer?</h3>
+  <p>Picture each example as a dot. Two measured features give each dot an <em>x</em> and a <em>y</em> coordinate. A learned linear layer can rotate or stretch this cloud; a nonlinear step can fold it. Repeat until a simple output layer can tell the classes apart. The examples have not changed. The network has changed the coordinates it uses to describe them.</p>
+  <figure>
+    <pre>Original features  →  learned representation  →  class probabilities
+raw coordinates      useful coordinates        compare with the true label</pre>
+    <figcaption>The same examples, at three points in the forward pass.</figcaption>
+  </figure>
+  <p><strong>Work a case.</strong> Suppose “same sign” is the positive class. Points (1, 1) and (−1, −1) are positive; (1, −1) and (−1, 1) are negative. No single straight line separates them. A hidden layer can compute <code>ReLU(x+y)</code> and <code>ReLU(−x−y)</code>, then add them. The new score is <code>|x+y|</code>: 2 for positives and 0 for negatives. A threshold at 1 now works. In a real net the optimizer learns useful transformations rather than being given these weights.</p>
+  <p><strong>Loss versus metrics.</strong> A classification loss gives the optimizer a score for each prediction. For example, cross-entropy penalizes assigning low probability to the true class. Precision and recall summarize decisions after selecting a threshold. Two models can have identical precision and recall but assign very different probabilities to those decisions. You can follow the forward pass now; Chapter 14 explains how backpropagation uses the chain rule to find how changing each weight would change the loss.</p>
+
+  <h3>Chapter 26: What does attention add?</h3>
+  <p>For an image, split the RGB grid into patches. Flatten each patch and project it to a learned feature vector, or <strong>token</strong>. Provide position information so the model can distinguish the same patch placed elsewhere. Each attention head makes three views of every token: a <strong>query</strong> says what it is looking for, a <strong>key</strong> says what it can match, and a <strong>value</strong> carries the information it can pass on. These are learned projections, not hand-written labels.</p>
+  <ol>
+    <li><strong>Mix across positions.</strong> For a query, compare its vector to all allowed keys using dot products. Scale the scores, turn them into weights with a softmax across keys, and average their value vectors using those weights. Different heads can learn different similarity rules, but do not assume that a head always has one human-readable job.</li>
+    <li><strong>Mix within a position.</strong> The same small feed-forward network (MLP) acts separately on each updated token. This changes its features without reading other tokens. Layer normalization rescales features within each token; it does not mix tokens across positions.</li>
+    <li><strong>Make a correction, not a replacement.</strong> A typical vision block adds the attention output back to its input, then adds the MLP output back to the resulting token. A branch can learn a small correction or nearly zero. The shortcut gives information and training signals a direct route, but it does not guarantee that no information is lost. Many vision blocks normalize before each branch. The original 2017 Transformer and modern variants may place normalization differently.</li>
+  </ol>
+  <p><strong>Why divide by the square root of key width?</strong> If the components are roughly independent, centered, and unit-scale, a dot product over <em>d</em><sub>k</sub> coordinates has variance about <em>d</em><sub>k</sub>. Its typical magnitude therefore grows like √<em>d</em><sub>k</sub>. Without scaling, higher-dimensional scores can push softmax toward a single winner before the model has learned a useful match. Dividing by √<em>d</em><sub>k</sub> keeps the typical score near a comparable scale. This is not cosine similarity: we do not divide by each vector’s own length.</p>
+
+  <h3>Trace the shapes with one image</h3>
+  <p>Ignore the batch dimension and use mean pooling rather than a class token. An 8 × 8 RGB image yields four 4 × 4 patches. Each patch has 48 numbers. Choose token width 8 and two heads of width 4.</p>
+  <div tabindex="0" role="region" aria-label="Transformer shape table">
+  <table>
+    <thead><tr><th scope="col">Step</th><th scope="col">Shape</th><th scope="col">Meaning</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Flatten patches</th><td>4 × 48</td><td>One row per patch.</td></tr>
+      <tr><th scope="row">Project and add positions</th><td>4 × 8</td><td>Learned feature vector per patch.</td></tr>
+      <tr><th scope="row">Make Q, K, V</th><td>4 × 4 each, per head</td><td>Four queries, keys or values in each head.</td></tr>
+      <tr><th scope="row">Score and weight</th><td>4 × 4 per head</td><td>Rows = queries; columns = allowed keys. Each weight row sums to 1.</td></tr>
+      <tr><th scope="row">Weight the values</th><td>4 × 4 per head</td><td>One new width-4 vector per query.</td></tr>
+      <tr><th scope="row">Join heads; project; add shortcut</th><td>4 × 8</td><td>Return to the input width so the addition fits.</td></tr>
+      <tr><th scope="row">Token MLP; add shortcut</th><td>4 × 8 → 4 × 16 → 4 × 8</td><td>Expand and contract each row independently.</td></tr>
+      <tr><th scope="row">Mean-pool; classify</th><td>4 × 8 → 8 → 2</td><td>One width-8 image summary, then two class scores.</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>One toy query sees raw scores <code>[4, 2, 0, 0]</code>. Here √4 = 2, so it uses <code>[2, 1, 0, 0]</code>, giving weights about <code>[0.61, 0.22, 0.08, 0.08]</code> after rounding. Those weights mix four <em>value</em> vectors, not the keys. In a usual image encoder, patches can read other patches in both directions; a next-token language decoder uses a mask to block future positions.</p>
+  <details><summary>Check yourself</summary><p>If you remove attention but keep the per-token MLP, features within a patch can still change. Before pooling, however, one patch cannot directly use the evidence from another. If you remove positions but retain ordinary unmasked attention, permuting input rows simply permutes output rows; with mean pooling the final representation cannot tell patch arrangements apart.</p></details>
+
+  <h3>Read next, in this order</h3>
+  <ol>
+    <li><a href="https://visionbook.mit.edu/neural_nets.html">Chapter 12: Neural Networks</a> for basic layers and normalization, then <a href="https://visionbook.mit.edu/neural_nets_as_distribution_transformers.html">Chapter 13</a> for the geometric view.</li>
+    <li><a href="https://visionbook.mit.edu/backpropagation.html">Chapter 14: Backpropagation</a> when ready to connect a loss to weight updates.</li>
+    <li><a href="https://visionbook.mit.edu/transformers.html">Chapter 26: Transformers</a>, especially the sections on self-attention, the full architecture, masks and positional encodings.</li>
+    <li><a href="https://arxiv.org/abs/1706.03762">Attention Is All You Need</a> for the original sequence architecture; <a href="https://arxiv.org/abs/2010.11929">An Image Is Worth 16×16 Words</a> for the original Vision Transformer.</li>
+  </ol>
+  <p><small>Book details: <a href="https://mitpress.mit.edu/9780262048972/foundations-of-computer-vision/">MIT Press edition record</a>. All examples above are original teaching examples, not experiments or adaptations of textbook figures.</small></p>
+</section>
+<section id="chapter13-map">
+<h2>Chapter 13, section by section</h2>
+<ol>
+<li><strong>13.1 · Change viewpoint.</strong> Follow a set of examples through one layer at a time, not just the output score for one image.</li>
+<li><strong>13.2 · Draw a mapping.</strong> Put input and output on separate number lines. The identity leaves every point where it was. ReLU sends every negative coordinate to zero; it can merge distinct inputs.</li>
+<li><strong>13.3 · Compose layers.</strong> An affine map can shift, stretch, or rotate points. A nonlinearity can collapse regions or bend the mapping. Stacking just affine maps would still give one affine map.</li>
+<li><strong>13.4 · Read a classifier geometrically.</strong> The model can transform a data distribution so a linear head works even when one straight line failed in the raw coordinates. Lower training loss is evidence of fitting, not a guarantee that separation transfers.</li>
+<li><strong>13.5 · Scale the mental model.</strong> Hidden representations are high-dimensional, but each image still has one coordinate vector at a layer. ReLU may make many coordinates zero. A two-dimensional projection can help you see a pattern without proving that it dominates every direction.</li>
+<li><strong>13.6 · Carry one idea forward.</strong> When reading a new architecture, ask what change each block can make to the features. An attention block can move them using information from other tokens; a per-token MLP acts on each token's features separately.</li>
+</ol>
+<p>Go back to the <a href="https://visionbook.mit.edu/neural_nets_as_distribution_transformers.html">authors’ figures and section links</a> after you can explain the four-point example above. Read <a href="./residual-stacking-first-principles-2026-11-20.html">residual stacking</a> for the shortcut around each block, or <a href="./statistical-generalization-first-principles-2026-11-20.html">generalization</a> for why fitting this geometry may not transfer.</p>
+</section>
+</main><footer><div class="shell">Read one section. Close it. Explain it without looking. <a href="../">Back to Explainer</a></div></footer></body></html>
