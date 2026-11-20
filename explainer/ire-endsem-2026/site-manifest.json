@@ -1,0 +1,435 @@
+{
+  "build_date": "2026-11-20",
+  "course": "CS4.406 / M26CS4.406",
+  "topic_count": 69,
+  "original_mcq_count": 118,
+  "short_answer_count": 69,
+  "mock_count": 3,
+  "topics": [
+    {
+      "n": 1,
+      "id": "01-ir-pipeline-and-the-two-stage-search-problem",
+      "group": "Systems & indexing",
+      "source": "M1 pp.11–21"
+    },
+    {
+      "n": 2,
+      "id": "02-head-torso-and-tail-queries",
+      "group": "Systems & indexing",
+      "source": "M1 p.13; M3 p.40"
+    },
+    {
+      "n": 3,
+      "id": "03-offline-versus-online-evaluation",
+      "group": "Systems & indexing",
+      "source": "M1 pp.16–19; Quiz-2 case 6"
+    },
+    {
+      "n": 4,
+      "id": "04-precision-recall-mrr-and-ndcg",
+      "group": "Systems & indexing",
+      "source": "M1 p.17; M3 pp.18–19"
+    },
+    {
+      "n": 5,
+      "id": "05-utilization-cliff-and-p99",
+      "group": "Systems & indexing",
+      "source": "M1 p.36; Quiz-2 case 1"
+    },
+    {
+      "n": 6,
+      "id": "06-little-s-law-and-boundaries",
+      "group": "Systems & indexing",
+      "source": "M1 p.35; Quiz-1 key p.2; Quiz-2 case 2"
+    },
+    {
+      "n": 7,
+      "id": "07-bottleneck-service-demand",
+      "group": "Systems & indexing",
+      "source": "M1 pp.33–34; Quiz-2 case 3"
+    },
+    {
+      "n": 8,
+      "id": "08-tail-at-scale-and-fan-out",
+      "group": "Systems & indexing",
+      "source": "M1 p.39; Quiz-2 case 4"
+    },
+    {
+      "n": 9,
+      "id": "09-batch-versus-serving",
+      "group": "Systems & indexing",
+      "source": "M1 p.37; Quiz-2 case 5"
+    },
+    {
+      "n": 10,
+      "id": "10-cap-during-a-partition",
+      "group": "Systems & indexing",
+      "source": "M1 pp.26–30; Quiz-1 key p.1; Quiz-2 case 8"
+    },
+    {
+      "n": 11,
+      "id": "11-pacelc-and-master-placement",
+      "group": "Systems & indexing",
+      "source": "M1 pp.29–30; Quiz-2 case 9"
+    },
+    {
+      "n": 12,
+      "id": "12-read-your-writes-consistency",
+      "group": "Systems & indexing",
+      "source": "Quiz-2 case 7; M1 pp.26–30"
+    },
+    {
+      "n": 13,
+      "id": "13-replication-sharding-and-hot-keys",
+      "group": "Systems & indexing",
+      "source": "M1 pp.25–28"
+    },
+    {
+      "n": 14,
+      "id": "14-b-tree-and-lsm-trade-offs",
+      "group": "Systems & indexing",
+      "source": "M1 pp.49–56; Quiz-1 key p.3"
+    },
+    {
+      "n": 15,
+      "id": "15-rum-conjecture",
+      "group": "Systems & indexing",
+      "source": "M1 p.55; Quiz-2 case 10"
+    },
+    {
+      "n": 16,
+      "id": "16-analyzer-contract-and-noisy-queries",
+      "group": "Systems & indexing",
+      "source": "M2 pp.4–5"
+    },
+    {
+      "n": 17,
+      "id": "17-zipf-and-heaps-laws",
+      "group": "Systems & indexing",
+      "source": "M2 pp.7–8; Quiz-2 note"
+    },
+    {
+      "n": 18,
+      "id": "18-dedup-exact-and-near",
+      "group": "Systems & indexing",
+      "source": "M2 pp.9–11"
+    },
+    {
+      "n": 19,
+      "id": "19-shingling-and-jaccard",
+      "group": "Systems & indexing",
+      "source": "M2 pp.10–11"
+    },
+    {
+      "n": 20,
+      "id": "20-minhash-signatures",
+      "group": "Systems & indexing",
+      "source": "M2 pp.12–14; MidSem key pp.1–2"
+    },
+    {
+      "n": 21,
+      "id": "21-lsh-banding-and-s-curve",
+      "group": "Systems & indexing",
+      "source": "M2 pp.15–16; MidSem key p.3"
+    },
+    {
+      "n": 22,
+      "id": "22-choosing-the-right-sketch",
+      "group": "Systems & indexing",
+      "source": "M2 pp.17–19; MidSem key p.5"
+    },
+    {
+      "n": 23,
+      "id": "23-inverted-index-anatomy",
+      "group": "Systems & indexing",
+      "source": "M2 pp.24–26"
+    },
+    {
+      "n": 24,
+      "id": "24-mapreduce-mechanics-and-retry-safety",
+      "group": "Systems & indexing",
+      "source": "M2 pp.27–28; MidSem key p.4"
+    },
+    {
+      "n": 25,
+      "id": "25-boolean-and-positional-query-processing",
+      "group": "Systems & indexing",
+      "source": "M2 p.29"
+    },
+    {
+      "n": 26,
+      "id": "26-compression-taat-daat-and-wand",
+      "group": "Systems & indexing",
+      "source": "M2 pp.30–31"
+    },
+    {
+      "n": 27,
+      "id": "27-freshness-autocomplete-and-serving-budget",
+      "group": "Systems & indexing",
+      "source": "M2 p.32"
+    },
+    {
+      "n": 28,
+      "id": "28-boolean-retrieval-versus-ranking",
+      "group": "Ranking & signals",
+      "source": "M3 pp.4–5"
+    },
+    {
+      "n": 29,
+      "id": "29-vector-space-and-cosine-similarity",
+      "group": "Ranking & signals",
+      "source": "M3 p.6"
+    },
+    {
+      "n": 30,
+      "id": "30-tf-idf-and-rarity-weighting",
+      "group": "Ranking & signals",
+      "source": "M3 p.7"
+    },
+    {
+      "n": 31,
+      "id": "31-term-frequency-saturation",
+      "group": "Ranking & signals",
+      "source": "M3 p.8"
+    },
+    {
+      "n": 32,
+      "id": "32-probabilistic-ranking-principle",
+      "group": "Ranking & signals",
+      "source": "M3 p.9"
+    },
+    {
+      "n": 33,
+      "id": "33-bm25-tf-rarity-and-length",
+      "group": "Ranking & signals",
+      "source": "M3 pp.10–11"
+    },
+    {
+      "n": 34,
+      "id": "34-bm25f-field-aware-evidence",
+      "group": "Ranking & signals",
+      "source": "M3 p.10; M2 p.6"
+    },
+    {
+      "n": 35,
+      "id": "35-query-likelihood-language-models",
+      "group": "Ranking & signals",
+      "source": "M3 p.12"
+    },
+    {
+      "n": 36,
+      "id": "36-compare-lexical-scoring-families",
+      "group": "Ranking & signals",
+      "source": "M3 p.13"
+    },
+    {
+      "n": 37,
+      "id": "37-pagerank-random-surfer-authority",
+      "group": "Ranking & signals",
+      "source": "M3 p.14"
+    },
+    {
+      "n": 38,
+      "id": "38-hits-hubs-and-authorities",
+      "group": "Ranking & signals",
+      "source": "M3 p.15"
+    },
+    {
+      "n": 39,
+      "id": "39-learning-to-rank-feature-formulation",
+      "group": "Ranking & signals",
+      "source": "M3 pp.16–17"
+    },
+    {
+      "n": 40,
+      "id": "40-pointwise-pairwise-and-listwise",
+      "group": "Ranking & signals",
+      "source": "M3 p.18"
+    },
+    {
+      "n": 41,
+      "id": "41-lambdamart-gradient-boosted-trees",
+      "group": "Ranking & signals",
+      "source": "M3 p.19"
+    },
+    {
+      "n": 42,
+      "id": "42-ranker-cascades-and-budgets",
+      "group": "Ranking & signals",
+      "source": "M3 p.21; M2 p.32"
+    },
+    {
+      "n": 43,
+      "id": "43-query-document-pair-and-context-features",
+      "group": "Ranking & signals",
+      "source": "M3 pp.26–27"
+    },
+    {
+      "n": 44,
+      "id": "44-behavioral-signals-and-feedback-loops",
+      "group": "Ranking & signals",
+      "source": "M3 pp.28–29"
+    },
+    {
+      "n": 45,
+      "id": "45-position-bias-and-confounding",
+      "group": "Ranking & signals",
+      "source": "M3 p.30"
+    },
+    {
+      "n": 46,
+      "id": "46-cascade-and-dbn-click-models",
+      "group": "Ranking & signals",
+      "source": "M3 p.31"
+    },
+    {
+      "n": 47,
+      "id": "47-inverse-propensity-weighting",
+      "group": "Ranking & signals",
+      "source": "M3 p.31; M3 pp.30–32"
+    },
+    {
+      "n": 48,
+      "id": "48-ctr-and-conversion-prediction",
+      "group": "Ranking & signals",
+      "source": "M3 p.33"
+    },
+    {
+      "n": 49,
+      "id": "49-logistic-regression-ftrl-and-hashing",
+      "group": "Ranking & signals",
+      "source": "M3 p.34"
+    },
+    {
+      "n": 50,
+      "id": "50-count-features-and-leakage-free-target-encoding",
+      "group": "Ranking & signals",
+      "source": "M3 p.35"
+    },
+    {
+      "n": 51,
+      "id": "51-factorization-machines",
+      "group": "Ranking & signals",
+      "source": "M3 p.36"
+    },
+    {
+      "n": 52,
+      "id": "52-wide-deep-and-deepfm",
+      "group": "Ranking & signals",
+      "source": "M3 p.37"
+    },
+    {
+      "n": 53,
+      "id": "53-calibration-and-probability-reliability",
+      "group": "Ranking & signals",
+      "source": "M3 p.38"
+    },
+    {
+      "n": 54,
+      "id": "54-offline-auc-versus-online-utility",
+      "group": "Ranking & signals",
+      "source": "M3 p.39; M1 pp.16–19"
+    },
+    {
+      "n": 55,
+      "id": "55-ranking-evidence-across-head-and-tail",
+      "group": "Ranking & signals",
+      "source": "M3 p.40"
+    },
+    {
+      "n": 56,
+      "id": "56-a-b-testing-random-assignment-and-causal-effect",
+      "group": "A/B testing",
+      "source": "End-sem announcement 14 Nov; A/B testing extension"
+    },
+    {
+      "n": 57,
+      "id": "57-unit-of-randomization-and-interference",
+      "group": "A/B testing",
+      "source": "End-sem announcement 14 Nov; A/B testing extension"
+    },
+    {
+      "n": 58,
+      "id": "58-primary-metrics-and-guardrails",
+      "group": "A/B testing",
+      "source": "End-sem announcement 14 Nov; A/B testing extension"
+    },
+    {
+      "n": 59,
+      "id": "59-p-value-conditional-probability",
+      "group": "A/B testing",
+      "source": "Goodman (2008) pp.135–136; Anil's linked reading"
+    },
+    {
+      "n": 60,
+      "id": "60-non-significant-is-not-equivalent-to-no-effect",
+      "group": "A/B testing",
+      "source": "Goodman (2008) p.136; Anil's linked reading"
+    },
+    {
+      "n": 61,
+      "id": "61-statistical-versus-practical-significance",
+      "group": "A/B testing",
+      "source": "Goodman (2008) p.136; Anil's linked reading"
+    },
+    {
+      "n": 62,
+      "id": "62-confidence-intervals-and-estimation",
+      "group": "A/B testing",
+      "source": "End-sem announcement 14 Nov; A/B testing extension"
+    },
+    {
+      "n": 63,
+      "id": "63-type-i-type-ii-errors-and-power",
+      "group": "A/B testing",
+      "source": "End-sem announcement 14 Nov; A/B testing extension"
+    },
+    {
+      "n": 64,
+      "id": "64-multiple-comparisons-and-selective-reporting",
+      "group": "A/B testing",
+      "source": "Goodman (2008) interpretation context; A/B testing extension"
+    },
+    {
+      "n": 65,
+      "id": "65-peeking-and-early-stopping",
+      "group": "A/B testing",
+      "source": "End-sem announcement 14 Nov; A/B testing extension"
+    },
+    {
+      "n": 66,
+      "id": "66-sample-ratio-mismatch-and-data-quality",
+      "group": "A/B testing",
+      "source": "End-sem announcement 14 Nov; A/B testing extension"
+    },
+    {
+      "n": 67,
+      "id": "67-variance-reduction-and-cuped",
+      "group": "A/B testing",
+      "source": "End-sem announcement 14 Nov; A/B testing extension"
+    },
+    {
+      "n": 68,
+      "id": "68-a-a-tests-logging-and-exposure",
+      "group": "A/B testing",
+      "source": "End-sem announcement 14 Nov; A/B testing extension"
+    },
+    {
+      "n": 69,
+      "id": "69-goodman-s-p-value-misconception-checklist",
+      "group": "A/B testing",
+      "source": "Goodman (2008) p.136 table 1; Anil's linked reading"
+    }
+  ],
+  "sources": [
+    "Module 1 / 59pp",
+    "Module 2 / 37pp",
+    "Module 3 / 45pp",
+    "Quiz1 QP + key",
+    "2026 midsem answer key",
+    "2025 midsem example",
+    "Quiz2 pre-reading",
+    "Nov14 final syllabus",
+    "Goodman 2008"
+  ]
+}

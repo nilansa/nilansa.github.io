@@ -815,5 +815,25 @@
       "ASD-STE100",
       "Machine learning"
     ]
+  },
+  {
+    "id": "ire-endsem-lab-20261120",
+    "title": "IRE End-Sem 2026 — ASD-STE100 Exam Lab (69 Topics, 118 MCQs)",
+    "description": "Source-grounded revision website with 69 individual lessons, 118 original short-scenario MCQs, three mock exams, past-paper reasoning, instructor-confirmed scope, ranking and A/B-testing traps.",
+    "project": "Information Retrieval and Extraction",
+    "category": "Exam preparation",
+    "tags": [
+      "IRE",
+      "CS4.406",
+      "ASD-STE100",
+      "exam",
+      "quiz",
+      "ranking",
+      "A/B testing",
+      "MinHash"
+    ],
+    "url": "./ire-endsem-2026/index.html",
+    "date": "2026-11-20",
+    "indexed_at": "2026-11-20T23:57:00+05:30"
   }
 ]
