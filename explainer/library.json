@@ -751,8 +751,8 @@
   },
   {
     "id": "ire-survey-presentation-v5",
-    "title": "IRE Survey — Learning to Rank From Clicks",
-    "description": "A ten-minute talk, worked IPS/SNIPS/DR example, original viva questions and a primary-source reading sequence.",
+    "title": "IRE Survey Hub — Learn to Rank From Clicks",
+    "description": "Search the study resources, play timestamped tutorial excerpts, preview the official slides, and rehearse ten-minute talk.",
     "url": "./explainers/ire-survey-presentation-2026-11-20.html",
     "date": "2026-11-20",
     "indexed_at": "2026-11-20T15:27:23.595Z",
@@ -792,8 +792,8 @@
   },
   {
     "id": "fcv-distribution-transformers",
-    "title": "Foundations of Computer Vision — Chapters 13 and 26",
-    "description": "What layers do to a distribution of examples, and how that differs from attention and Transformer blocks.",
+    "title": "Foundations of Computer Vision — Chapter 13: Distribution Transforms",
+    "description": "Three reading passes, a new Manim point-cloud animation, and a worked example of how a layer moves the same data points.",
     "url": "./explainers/fcv-distribution-transformers-2026-11-20.html",
     "date": "2026-11-20",
     "indexed_at": "2026-11-20T15:30:29.216Z",
@@ -805,8 +805,8 @@
   },
   {
     "id": "residual-stacking-first-principles",
-    "title": "Residual Stacking — First Principles",
-    "description": "What x + F(x) adds, why order matters, and how residual blocks differ from boosting and a test-time query offset.",
+    "title": "Residual Fitting — Stagewise Models and Gradient Boosting",
+    "description": "Fit what the previous model missed, change the learning rate, and compare the remaining training error with a validation stopping rule.",
     "url": "./explainers/residual-stacking-first-principles-2026-11-20.html",
     "date": "2026-11-20",
     "indexed_at": "2026-11-20T15:30:29.216Z",

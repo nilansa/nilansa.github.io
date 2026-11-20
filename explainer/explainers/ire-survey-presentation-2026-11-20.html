@@ -1,28 +1,59 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="referrer" content="no-referrer"><title>Learning to rank from clicks | Explainer</title><style>
-:root{color-scheme:light;--blue:#1e3af5;--ink:#131622;--muted:#495169;--line:#d7dcec;--wash:#f2f5ff}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:white;font:1.06rem/1.65 system-ui,-apple-system,sans-serif}
-a{color:#1932cb;text-underline-offset:.15em}a:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
-header,footer{border-block-end:1px solid var(--line)}.shell{max-width:1010px;padding:0 clamp(19px,5vw,72px);margin:auto}.top{display:flex;gap:.8rem 1.5rem;flex-wrap:wrap;padding-block:.85rem;font-size:.91rem}
-.top a[aria-current]{font-weight:750;text-decoration-thickness:2px}.hero{padding:4.25rem 0 2.25rem;border-block-end:1px solid var(--line)}.eyebrow,.tag{color:#1932cb;font-weight:760;font-size:.88rem;letter-spacing:.085em;text-transform:uppercase}
-h1,h2,h3{font-family:Georgia,serif;line-height:1.13;text-wrap:balance}h1{font-size:clamp(2.45rem,5.5vw,5.15rem);letter-spacing:-.045em;margin:.42rem 0 .95rem;max-width:15ch}
-h2{font-size:clamp(1.7rem,4vw,2.7rem);margin:0 0 1rem;letter-spacing:-.02em}h3{font-size:1.42rem;margin-top:1.9rem}p,li,dd{max-width:75ch}.hero p{font-size:1.15rem;color:var(--muted);max-width:64ch}.toc{display:flex;gap:.55rem 1.2rem;flex-wrap:wrap;font-size:.91rem;padding:1rem 0;border-bottom:1px solid var(--line)}
-section{padding:2.6rem 0;border-bottom:1px solid var(--line);scroll-margin-top:1.5rem}p{margin:.7rem 0 1rem}
-dt{font-weight:750;margin-top:.8rem}dd{margin-inline-start:0;color:#353d50}figure{margin:1.35rem 0}figcaption,caption{color:var(--muted);font-size:.94rem;text-align:start;padding:.5rem 0}
-.diagram,.callout,.formula,blockquote,.box{background:var(--wash);padding:1rem 1.2rem;border-inline-start:4px solid var(--blue);overflow-wrap:anywhere}.callout{font-size:1.1rem}
-.formula,code{font-family:ui-monospace,SFMono-Regular,monospace;font-size:.96em;overflow-wrap:anywhere}.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem;background:transparent;border:0;padding:0}
-.flow span{background:var(--wash);border:1px solid var(--line);padding:.6rem .75rem;color:#1932cb;min-width:0}.flow b{color:var(--ink)}
-.table-wrap{overflow-x:auto}table{border-collapse:collapse;font-variant-numeric:tabular-nums;max-width:100%}th,td{border:1px solid var(--line);padding:.5rem .7rem;text-align:left}thead{background:var(--wash)}
-details{border:1px solid var(--line);padding:.6rem .8rem;margin:.6rem 0}summary{cursor:pointer;color:#1932cb;font-weight:680}li+li{margin-top:.35rem}
-img,video,svg{display:block;max-width:100%;height:auto}video{background:#0d1524;margin-inline:auto;border:1px solid var(--line);width:min(100%,730px)}.picture{max-width:760px;border:1px solid var(--line)}
-footer{padding-block:1.7rem;color:var(--muted)}.skip{position:absolute;left:.5rem;top:-5rem;background:white;padding:.4rem;z-index:3}.skip:focus{top:.5rem}
-@media(max-width:570px){.hero{padding-top:2.5rem}.flow{grid-template-columns:repeat(2,1fr)}section{padding:1.8rem 0}th,td{padding:.35rem .45rem}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-@media print{.top,.toc,video{display:none}section{padding:1rem 0}h2{break-after:avoid}}
-</style></head><body><a class="skip" href="#main">Skip to lesson</a><header><nav class="shell top" aria-label="Study guides"><a href="../">Explainer index</a> · <a href="../ire-presentation-v5/">Ceous viva</a> · <a href="../explainers/ire-survey-presentation-2026-11-20.html" aria-current="page">Survey presentation</a> · <a href="../explainers/ire-endsem-practice-2026-11-20.html">Exam practice</a></nav></header><main class="shell" id="main"><div class="hero"><p class="eyebrow">02 / Individual research survey</p><h1>Learning to rank from clicks</h1><p>Turn biased interaction logs into a careful evaluation. Learn the math, then rehearse a ten-minute survey talk.</p></div><nav class="toc" aria-label="On this page"><a href="#start">Start here: what if the labels depend on the old model?</a><a href="#setup">Use a one-result ranking problem first</a><a href="#estimators">One worked example, three estimators</a><a href="#ranking">Back to rankings: three different kinds of propensity</a><a href="#diagnostics">What I would check before trusting a number</a><a href="#script">Suggested board talk: ten minutes, seven slides</a><a href="#viva">Likely questions, with concise answers</a><a href="#references">Primary readings in the order I would present them</a><a href="#next-reading">Prepare in three passes</a></nav><section id="start">
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="referrer" content="strict-origin-when-cross-origin"><title>Counterfactual Ranking Study Hub | Explainer</title><link rel="stylesheet" href="../assets/ire-revision/editorial.css"><script defer src="../assets/ire-revision/source-hub.js"></script></head><body>
+<a class="skip" href="#main">Skip to the lesson</a><header><nav class="shell top" aria-label="Study guides"><a href="../">Explainer</a> <a href="../ire-presentation-v5/">Ceous viva</a> <a href="./fcv-distribution-transformers-2026-11-20.html">Chapter 13</a><a href="./residual-stacking-first-principles-2026-11-20.html">Residual fitting</a><a href="./ire-survey-presentation-2026-11-20.html" aria-current="page">Survey hub</a></nav></header>
+<div class="hero"><div class="shell"><p class="eyebrow">03 / Individual research survey</p><h1>Learn from clicks</h1><p>Watch a short lesson. Find the matching slides. Work through one log by hand. Then practise your survey talk.</p></div></div>
+<main class="shell" id="main"><nav class="toc" aria-label="On this page"><a href="#start-short">The old ranker chose what people could see.</a><a href="#watch">Find a clip, slide, or paper.</a><a href="#start">Start here: what if the labels depend on the old model?</a><a href="#setup">Use a one-result ranking problem first</a><a href="#estimators">One example, three estimates.</a><a href="#ranking">Back to rankings: three different kinds of propensity</a><a href="#diagnostics">What I would check before trusting a number</a><a href="#script">Seven slides. One story.</a><a href="#viva">Likely questions, with concise answers</a><a href="#references">Primary readings in the order I would present them</a><a href="#next-reading">Prepare in three passes</a></nav><section id="start-short">
+<p class="eyebrow">Pass 1 · 30 seconds</p><h2>The old ranker chose what people could see.</h2>
+<p>Only a shown result can get a click. If the old ranker rarely showed a result, its small click count does not tell us that it was bad. We want to estimate how a new ranker would do using only the old log. First ask whether the log can answer that question.</p>
+<figure><div class="storyline" role="img" aria-label="The old ranker picks a result, a person may see it, then the system logs the outcome. The outcome under a different ranking is missing."><div><b>01</b> Old ranker picks</div><div><b>02</b> Person sees or skips</div><div><b>03</b> System logs the click</div></div><figcaption>One action is observed. The outcome under the alternative ranker is missing.</figcaption></figure>
+<figure class="frame"><video src="../assets/ire-revision/logged-feedback.mp4" controls playsinline preload="metadata" aria-label="Manim animation of four logged impressions and their IPS weights"></video><figcaption>Original Manim · four impressions, two policies. See the same numbers in the worked table below.</figcaption></figure>
+</section>
+
+<section id="watch">
+<p class="eyebrow">Pass 2 · watch in short pieces</p><h2>Find a clip, slide, or paper.</h2>
+<p>Start with <b>Why clicks are biased</b>, then <b>Inverse propensity scoring</b>. The first two buttons play five-minute excerpts from the authors’ longer tutorial. Open the paired slides for the definitions. Then close them and answer the practice question.</p>
+<form id="source-filter" role="search" aria-label="Search study resources">
+<label for="study-query">Find a topic or source</label><input id="study-query" type="search" placeholder="Try IPS, propensity, overlap, DR, or slides" autocomplete="off">
+<fieldset class="chips"><legend>Filter by resource type</legend><label><input name="kind" type="radio" value="all" checked> All</label><label><input name="kind" type="radio" value="video"> Video</label><label><input name="kind" type="radio" value="slides"> Slides</label><label><input name="kind" type="radio" value="paper"> Paper</label></fieldset>
+</form>
+<noscript><p>Search needs JavaScript. The source links and lesson still work below.</p></noscript>
+<p id="study-count" class="dim" role="status" aria-live="polite"></p>
+<div id="study-player" class="player" hidden><h3 id="study-playing" tabindex="-1"></h3><div id="study-video"></div><p><button id="study-close" type="button">Close player</button> <a id="study-direct" href="#">Open source</a></p></div>
+<div id="study-list" class="sourcelist">
+<article class="resource" data-kind="video slides" data-keys="bias clicks rank counterfactual exposure position trust syllabus subtitles captions">
+<p class="eyebrow">01 / Video + slides · 5-minute excerpt</p><h3>Why clicks are biased</h3>
+<p>Start at the counterfactual learning-to-rank chapter. Ask whether a low click rate came from the result itself or from where the old ranker put it.</p>
+<p class="resource-links"><button type="button" data-video="fcqCkjgOnJ8" data-start="538" data-end="838">Play 8:58–13:58</button> <a href="https://www.youtube.com/watch?v=fcqCkjgOnJ8&amp;t=538s">Watch on YouTube</a> <a href="https://drive.google.com/file/d/1-sRsFkG4juBHqqQ-ces3HRvtYHpR0l7U/view">WSDM slides · pp. 13–22</a> <button type="button" data-deck="wsdm">Preview slides</button></p>
+<details><summary>Study note and recall prompt</summary><p>The first position is easier to see. If you change the order, you change which outcomes can occur. <b>Recall:</b> Can you treat every item with no click as irrelevant? No. Some items were never seen.</p></details></article>
+<article class="resource" data-kind="video slides" data-keys="ips inverse propensity scoring probability weight logging target denominator overlap support exposure clicks">
+<p class="eyebrow">02 / Video + slides · 5-minute excerpt</p><h3>Inverse propensity scoring</h3>
+<p>Start at the authors’ IPS chapter. Focus on the denominator: how likely was the logged action under the old policy?</p>
+<p class="resource-links"><button type="button" data-video="fcqCkjgOnJ8" data-start="1115" data-end="1415">Play 18:35–23:35</button> <a href="https://www.youtube.com/watch?v=fcqCkjgOnJ8&amp;t=1115s">Watch on YouTube</a> <a href="https://ilps.github.io/webconf2020-tutorial-unbiased-ltr/WWW2020handout.pdf#page=37">WebConf slides · pp. 37–40</a> <button type="button" data-deck="webconf">Preview slides</button></p>
+<details><summary>Study note and recall prompt</summary><p>Divide target probability by logging probability. A matching but rare action has a large weight. <b>Recall:</b> What if the logger never shows an action the target needs? The log cannot identify that action's outcome.</p></details></article>
+<article class="resource" data-kind="video slides" data-keys="online evaluation learning webconf 2020 position propensity snoops tutorials full captions slides">
+<p class="eyebrow">03 / Full tutorial</p><h3>Offline logs versus online learning</h3>
+<p>The Web Conference 2020 tutorial compares learning from past interactions with learning by trying a ranking live. Use the handout when you want the complete argument.</p>
+<p class="resource-links"><button type="button" data-video="BEEfMrn9T9c">Play tutorial</button> <a href="https://www.youtube.com/watch?v=BEEfMrn9T9c">Watch on YouTube</a> <a href="https://ilps.github.io/webconf2020-tutorial-unbiased-ltr/WWW2020handout.pdf">Exact slide handout</a> <a href="https://ilps.github.io/webconf2020-tutorial-unbiased-ltr/">Source page</a></p></article>
+<article class="resource" data-kind="video paper" data-keys="dr doubly robust position bias click model prediction residual correction advanced">
+<p class="eyebrow">04 / Advanced video + paper</p><h3>Doubly robust correction for position bias</h3>
+<p>Use this after the four-impression method comparison below. It covers a particular click and position-bias setting. Do not assume that a ranking-specific correction has the same assumptions as the simple bandit example.</p>
+<p class="resource-links"><button type="button" data-video="bmhClxLzzxI">Play lecture</button> <a href="https://www.youtube.com/watch?v=bmhClxLzzxI">Watch on YouTube</a> <a href="https://harrieo.github.io/files/2023-doubly-robust.pdf#page=8">Paper · §§4.4 and 6</a> <a href="https://drive.google.com/file/d/1-sRsFkG4juBHqqQ-ces3HRvtYHpR0l7U/view">WSDM slides · pp. 107–123</a></p>
+<details><summary>Study note and recall prompt</summary><p>Start with a reward model. Correct it with errors observed in the log. <b>Recall:</b> What part of the correction still depends on how the data became observable?</p></details></article>
+<article class="resource" data-kind="slides video" data-keys="cornell joachims swaminathan sigir 2016 evaluation learning deck recordings retrieval ips importance sampling learning">
+<p class="eyebrow">05 / Four original decks + two recordings</p><h3>Counterfactual evaluation and learning</h3>
+<p>The Cornell tutorial separates estimating a fixed policy from choosing a new one. Use the Evaluation decks for the first problem. Use the Learning decks for the second.</p>
+<p class="resource-links"><a href="https://www.cs.cornell.edu/~adith/CfactSIGIR2016/">Slides and recordings at Cornell</a></p></article>
+<article class="resource" data-kind="paper" data-keys="snips self normalized normalization overlap ips offline risk minimizing policy learning clipping crm variance">
+<p class="eyebrow">06 / Study the equations</p><h3>From a fixed policy to a learned policy</h3>
+<p>Use the survey’s SNIPS example for the denominator. Then read the learning paper for what changes when you select a policy using the same kind of feedback.</p>
+<p class="resource-links"><a href="#estimators">Open the worked example</a> <a href="https://proceedings.mlr.press/v37/swaminathan15.html">Counterfactual Risk Minimization</a> <a href="https://icml.cc/2011/papers/554_icmlpaper.pdf">Generic doubly robust estimator</a></p></article>
+</div>
+<p class="dim"><b>Source notes:</b> The excerpts are bookmarks in longer public videos, not separate uploads. Playback loads YouTube only when you choose it. The slide page numbers count from the PDF cover. The notes are original and were checked against the linked slides and papers. Full transcripts and downloadable copies of the videos were not verified; use the creator’s transcript or CC on YouTube if shown.</p>
+</section>
+<section id="start"><span id="why-survey"></span>
 <h2>Start here: what if the labels depend on the old model?</h2>
 <p>In ordinary supervised learning, examples come with targets: a document and its relevance grade, for example. A ranker learns which documents to put first, then we can compare systems against the same held-out judgments. On a live search engine, however, we often have clicks rather than complete judgments. The old ranker decided what people saw and in what order. An unshown document cannot be clicked; an unclicked result might simply not have been seen.</p>
 <div class="diagram"><p><strong>Query + user context</strong> → old ranker displays results → user examines some positions → clicks are logged.</p><p><strong>What is missing?</strong> What this same user would have done under a different ranking.</p></div>
-<p><strong>Why I chose this topic:</strong> I wanted to understand when existing feedback actually lets us compare two rankers without deploying both, and when the data cannot answer that question. This connects familiar ranking and offline evaluation with a concrete statistical problem: the old system controls which outcomes become observable.</p>
+<p><strong>How to explain your choice:</strong> I wanted to understand when existing feedback actually lets us compare two rankers without deploying both, and when the data cannot answer that question. This connects familiar ranking and offline evaluation with a concrete statistical problem: the old system controls which outcomes become observable.</p>
 <p>Begin by naming the target. Expected clicks from a new display policy and relevance quality under complete editorial judgments are different quantities. Correcting which action was logged does not turn clicks into relevance labels.</p>
 </section>
 <section id="setup">
@@ -32,9 +63,9 @@ footer{padding-block:1.7rem;color:var(--muted)}.skip{position:absolute;left:.5re
 <div class="callout"><p><strong>What the denominator means.</strong> <var>μ(a|x)</var> is the logging policy's probability of selecting the observed action in its context, not the model's confidence, the observed click rate, or the fraction of all documents with that title.</p></div>
 </section>
 <section id="estimators">
-<h2>One worked example, three estimators</h2>
+<p class="eyebrow">Pass 3 · calculate it</p><h2>One example, three estimates.</h2>
 <p>Imagine four impressions of the same query. The old system shows A with probability ¾ and B with probability ¼; the new system would always show B. The logged impressions happen to have the following results. This is a teaching example, not experimental evidence.</p>
-<div class="table-wrap"><table>
+<div class="table-scroll"><table>
 <caption>Four historical impressions and their target-to-logging weights</caption>
 <thead><tr><th scope="col">Impression</th><th scope="col">Shown</th><th scope="col">Click</th><th scope="col">μ</th><th scope="col">π</th><th scope="col">Weight π/μ</th></tr></thead>
 <tbody><tr><th scope="row">1</th><td>A</td><td>1</td><td>¾</td><td>0</td><td>0</td></tr>
@@ -67,7 +98,7 @@ footer{padding-block:1.7rem;color:var(--muted)}.skip{position:absolute;left:.5re
 </ol>
 </section>
 <section id="script">
-<h2>Suggested board talk: ten minutes, seven slides</h2>
+<p class="eyebrow">Rehearse · ten minutes</p><h2>Seven slides. One story.</h2>
 <p>This timing and slide count are rehearsal choices, not official course rules. Shorten only after checking the allotted time.</p>
 <ol>
 <li><strong>0:00–1:00 · Why this topic.</strong> “A held-out labeled dataset lets us score two rankers against the same answers. A click log doesn't: the old ranker decides what could be clicked.” Draw two results with different display positions.</li>
@@ -107,4 +138,5 @@ footer{padding-block:1.7rem;color:var(--muted)}.skip{position:absolute;left:.5re
 <ol><li><strong>First:</strong> Read the replay and IPS setup. Do not move on until you can derive cancellation of the logging propensity on paper.</li><li><strong>Next:</strong> Read the DR and CRM papers for the difference between estimating a fixed policy and learning one. Compare assumptions and the evidence each paper provides.</li><li><strong>Last:</strong> Read the two ranking papers for examination bias and top-k exclusion. Use the <a href="./ire-counterfactual-ranking-survey-2026-10-31.html">full reading spine and tutorials</a> to choose the remaining sources. For each paper, record the estimand, log, assumptions, published result and failure mode.</li></ol>
 <p>Keep the short report and presentation as a survey of published work. The worked numbers above are teaching examples, not an experiment to report.</p>
 </section>
-</main><footer><div class="shell">Read one section. Close it. Explain it without looking. <a href="../">Back to Explainer</a></div></footer></body></html>
+</main>
+<footer class="shell"><p class="dim">Use the examples to explain the idea in your own words. <a href="../">Back to Explainer</a></p></footer></body></html>

@@ -1,67 +1,62 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="referrer" content="no-referrer"><title>Why stack residual blocks? | Explainer</title><style>
-:root{color-scheme:light;--blue:#1e3af5;--ink:#131622;--muted:#495169;--line:#d7dcec;--wash:#f2f5ff}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:white;font:1.06rem/1.65 system-ui,-apple-system,sans-serif}
-a{color:#1932cb;text-underline-offset:.15em}a:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
-header,footer{border-block-end:1px solid var(--line)}.shell{max-width:1010px;padding:0 clamp(19px,5vw,72px);margin:auto}.top{display:flex;gap:.8rem 1.5rem;flex-wrap:wrap;padding-block:.85rem;font-size:.91rem}
-.top a[aria-current]{font-weight:750;text-decoration-thickness:2px}.hero{padding:4.25rem 0 2.25rem;border-block-end:1px solid var(--line)}.eyebrow,.tag{color:#1932cb;font-weight:760;font-size:.88rem;letter-spacing:.085em;text-transform:uppercase}
-h1,h2,h3{font-family:Georgia,serif;line-height:1.13;text-wrap:balance}h1{font-size:clamp(2.45rem,5.5vw,5.15rem);letter-spacing:-.045em;margin:.42rem 0 .95rem;max-width:15ch}
-h2{font-size:clamp(1.7rem,4vw,2.7rem);margin:0 0 1rem;letter-spacing:-.02em}h3{font-size:1.42rem;margin-top:1.9rem}p,li,dd{max-width:75ch}.hero p{font-size:1.15rem;color:var(--muted);max-width:64ch}.toc{display:flex;gap:.55rem 1.2rem;flex-wrap:wrap;font-size:.91rem;padding:1rem 0;border-bottom:1px solid var(--line)}
-section{padding:2.6rem 0;border-bottom:1px solid var(--line);scroll-margin-top:1.5rem}p{margin:.7rem 0 1rem}
-dt{font-weight:750;margin-top:.8rem}dd{margin-inline-start:0;color:#353d50}figure{margin:1.35rem 0}figcaption,caption{color:var(--muted);font-size:.94rem;text-align:start;padding:.5rem 0}
-.diagram,.callout,.formula,blockquote,.box{background:var(--wash);padding:1rem 1.2rem;border-inline-start:4px solid var(--blue);overflow-wrap:anywhere}.callout{font-size:1.1rem}
-.formula,code{font-family:ui-monospace,SFMono-Regular,monospace;font-size:.96em;overflow-wrap:anywhere}.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem;background:transparent;border:0;padding:0}
-.flow span{background:var(--wash);border:1px solid var(--line);padding:.6rem .75rem;color:#1932cb;min-width:0}.flow b{color:var(--ink)}
-.table-wrap{overflow-x:auto}table{border-collapse:collapse;font-variant-numeric:tabular-nums;max-width:100%}th,td{border:1px solid var(--line);padding:.5rem .7rem;text-align:left}thead{background:var(--wash)}
-details{border:1px solid var(--line);padding:.6rem .8rem;margin:.6rem 0}summary{cursor:pointer;color:#1932cb;font-weight:680}li+li{margin-top:.35rem}
-img,video,svg{display:block;max-width:100%;height:auto}video{background:#0d1524;margin-inline:auto;border:1px solid var(--line);width:min(100%,730px)}.picture{max-width:760px;border:1px solid var(--line)}
-footer{padding-block:1.7rem;color:var(--muted)}.skip{position:absolute;left:.5rem;top:-5rem;background:white;padding:.4rem;z-index:3}.skip:focus{top:.5rem}
-@media(max-width:570px){.hero{padding-top:2.5rem}.flow{grid-template-columns:repeat(2,1fr)}section{padding:1.8rem 0}th,td{padding:.35rem .45rem}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-@media print{.top,.toc,video{display:none}section{padding:1rem 0}h2{break-after:avoid}}
-</style></head><body><a class="skip" href="#main">Skip to lesson</a><header><nav class="shell top" aria-label="Study guides"><a href="../">Explainer index</a> · <a href="./statistical-generalization-first-principles-2026-11-20.html">Generalization</a> · <a href="./fcv-distribution-transformers-2026-11-20.html">Chapter 13 + 26</a> · <a href="./residual-stacking-first-principles-2026-11-20.html" aria-current="page">Residual stacking</a></nav></header><main class="shell" id="main"><div class="hero"><p class="eyebrow">06 / Deep learning building blocks</p><h1>Why stack residual blocks?</h1><p>Keep what works, then learn an edit. See the arithmetic before the gradient, and the gradient before the architecture.</p></div><nav class="toc" aria-label="On this page"><a href="#residual-stacking">Residual stacking: keep the current representation, then edit it</a><a href="#compare-shapes">Use a residual on a real tensor shape</a></nav><section id="residual-stacking">
-  <h2>Residual stacking: keep the current representation, then edit it</h2>
-  <p>Suppose a model already has features <var>x</var>. A plain layer must learn the entire next representation, <var>H(x)</var>. What if the useful answer is “mostly keep what I have”? We can write the desired change as <var>F(x) = H(x) − x</var> and build the layer to return <strong><var>y = x + F(x)</var></strong>. During training, <var>F</var> is still learned from the model’s usual end-to-end loss. Nobody needs to supply a label for each layer’s “correct edit.” If the branch outputs zero, this block already knows how to copy.</p>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="referrer" content="strict-origin-when-cross-origin"><title>Stagewise Residual Fitting: Gradient Boosting | Explainer</title><link rel="stylesheet" href="../assets/ire-revision/editorial.css"><script defer src="../assets/ire-revision/boost-demo.js"></script></head><body>
+<a class="skip" href="#main">Skip to the lesson</a><header><nav class="shell top" aria-label="Study guides"><a href="../">Explainer</a> <a href="../ire-presentation-v5/">Ceous viva</a> <a href="./fcv-distribution-transformers-2026-11-20.html">Chapter 13</a><a href="./residual-stacking-first-principles-2026-11-20.html" aria-current="page">Residual fitting</a><a href="./ire-survey-presentation-2026-11-20.html">Survey hub</a></nav></header>
+<div class="hero"><div class="shell"><p class="eyebrow">02 / Additive models</p><h1>Fit what is left</h1><p>Find the errors. Fit a small correction. Add it to the current prediction. Repeat only while it helps on new data.</p></div></div>
+<main class="shell" id="main"><nav class="toc" aria-label="On this page"><a href="#stagewise-stacking">Start with one prediction. Fit what it missed.</a><a href="#boost-worked">Work through three training rows.</a><a href="#change-the-step">Change the size of each correction.</a><a href="#boost-formula">Which error does the next model learn?</a><a href="#boost-stop">Stop before it learns the noise.</a></nav><section id="stagewise-stacking">
+<span id="residual-stacking"></span><p class="eyebrow">Pass 1 · 30 seconds</p><h2>Start with one prediction. Fit what it missed.</h2>
+<p><strong>In 30 seconds.</strong> Start with a simple prediction. Find where it is wrong. Fit a small model to those errors. Add part of its prediction to the first prediction. Find the errors again. Each new model sees the errors left by the full stack, not just by the last model.</p>
 
-  <figure>
-    <pre aria-label="The input x travels along a shortcut and through a learned change branch. The two results are added.">           ┌──────── shortcut: x ────────┐
-input x ───┤                              ├─ add → next state
-           └──────── learned F(x) ────────┘</pre>
-    <figcaption>Two paths feeding one addition, not two separately supervised predictions. The terms are added coordinate by coordinate, not concatenated.</figcaption>
-  </figure>
+<figure class="frame"><video controls playsinline preload="metadata" src="../assets/ire-revision/residual-boost.mp4" aria-label="Manim animation: predictions, residuals, and training loss after each tree"></video><figcaption>New Manim scene. Read the residuals and training loss after each correction. <a href="../assets/ire-revision/residual_boost.py">Manim source</a>.</figcaption></figure><figure><div class="storyline" role="img" aria-label="Fit the current residuals, take a small step, and compute new errors."><div><b>01</b> Measure the errors</div><div><b>02</b> Fit a small model</div><div><b>03</b> Add a small step</div></div><figcaption>Repeat from step 1 using the full updated prediction.</figcaption></figure></section><section id="boost-worked"><p class="eyebrow">Pass 2 · 3 minutes</p><h2>Work through three training rows.</h2>
+<p>We want to predict the target <var>y</var> from the feature <var>x</var>. Use squared-error loss. Start with the mean target, 2. Find each residual: <strong>target minus current prediction</strong>. Use a tree with one split for each correction. A leaf of the tree predicts the mean residual of the rows in that leaf. Use a learning rate of 0.5: add only half of the tree output.</p>
+<div class="table-scroll"><table>
+  <caption>Toy data. Each (prediction, residual) pair uses the prediction after that round.</caption>
+  <thead><tr><th scope="col">Feature x</th><th scope="col">Target y</th><th scope="col">Start (ŷ, r)</th><th scope="col">After tree 1 (ŷ, r)</th><th scope="col">After tree 2 (ŷ, r)</th></tr></thead>
+  <tbody>
+    <tr><th scope="row">0</th><td>0</td><td>(2, −2)</td><td>(1, −1)</td><td>(0.625, −0.625)</td></tr>
+    <tr><th scope="row">1</th><td>2</td><td>(2, 0)</td><td>(2.5, −0.5)</td><td>(2.125, −0.125)</td></tr>
+    <tr><th scope="row">2</th><td>4</td><td>(2, +2)</td><td>(2.5, +1.5)</td><td>(3.25, +0.75)</td></tr>
+  </tbody>
+</table></div>
+<ol>
+  <li><strong>Tree 1:</strong> Split at <var>x &lt; 1</var>. The left leaf outputs −2. The right leaf outputs the mean of 0 and +2, which is +1. Add (−1, +0.5, +0.5). Find the new residuals.</li>
+  <li><strong>Tree 2:</strong> Use the new residuals. Split at <var>x &lt; 2</var>. The left leaf outputs the mean of −1 and −0.5, which is −0.75. The right leaf outputs +1.5. Add (−0.375, −0.375, +0.75).</li>
+</ol>
+<p>The sum of squared training errors is 8, then 3.5, then 0.96875. This is only a check on these three rows. It does not tell us how the stack works on new data.</p>
 
-  <h3>What stacks, and what cancels?</h3>
-  <p>Use two illustrative features with input <var>x₀ = (2, 1)</var>. Block 1 produces change <var>(+1, −0.5)</var>, giving <var>x₁ = (3, 0.5)</var>. Block 2 sees <em>that updated state</em> and produces <var>(−1, +0.25)</var>, giving <var>x₂ = (2, 0.75)</var>. The first-coordinate edits cancel; the net second-coordinate edit is <var>−0.25</var>. In an identity-skip stack, <var>x₂ = x₀ + F₁(x₀) + F₂(x₁)</var>. This is not the same as evaluating all edits on <var>x₀</var> independently.</p>
-  <p>Adding requires compatible shapes. If the block changes feature width or resolution, a shortcut can project the input, <var>y = P(x) + F(x)</var>, for example with a strided 1×1 convolution in a ResNet. Both paths must land in the same output shape. With <var>F(x)=0</var> this block returns <var>P(x)</var>, not necessarily <var>x</var>; projection can discard information.</p>
+<fieldset>
+  <legend>Try one row</legend>
+  <p>For <var>x = 1</var>, the second tree outputs −0.75. Will the next prediction go up or down? Will it reach the target 2?</p>
+  <details><summary>Show this step</summary><p>It goes down. Add <var>0.5 × (−0.75) = −0.375</var> to 2.5. The result is 2.125, so the new residual is −0.125. The tree uses the same correction for both rows in its left leaf.</p></details>
+  <p>Now try a learning rate of 1 for the second round only. What would happen to that same row?</p>
+  <details><summary>Compare the full step</summary><p>The prediction would be 1.75. It would cross the target and make the new residual +0.25. A full step can still reduce the total training loss across rows; it need not improve every row.</p></details>
+</fieldset>
 
-  <h3>Why the shortcut can help training</h3>
-  <p>In a plain stack, the gradient must traverse every learned transformation. In an identity-skip block without an after-addition transform, its local Jacobian is <var>I + J<sub>F</sub></var>: one gradient contribution comes through the identity, the other through the learned edit. With <var>F(x)=0.1x</var> the scalar local derivative is <var>1.1</var>, not <var>0.1</var>. This is a useful route, not a guarantee: <var>F(x)=−x</var> cancels it exactly, and gradients can still shrink or grow over many layers. Post-addition normalization or activation also changes the local derivative.</p>
-
-  <h3>Transformer sublayers: where does normalization go?</h3>
-  <p>Take <var>F</var> to be attention or a feed-forward network. For a <strong>pre-norm</strong> sublayer, <var>y = x + F(LN(x))</var>: normalize the branch input and add the result to the untouched shortcut. For a <strong>post-norm</strong> sublayer, <var>y = LN(x + F(x))</var>: normalize after adding, as in the original Transformer. With a zero branch, pre-norm returns <var>x</var> at this sublayer; post-norm generally returns <var>LN(x)</var>. A Transformer block usually applies the relevant pattern separately for attention and the feed-forward network; an implementation can also add a final output norm.</p>
-
-  <h3>Three different things called a “residual”</h3>
-  <dl>
-    <dt><strong>Residual neural block</strong></dt>
-    <dd>An internal feature update, <var>x + F(x)</var>. The branches are usually trained together; there is no explicit stage-by-stage target <var>y − ŷ</var>.</dd>
-    <dt><strong>Gradient boosting</strong></dt>
-    <dd>An update to the current prediction function. Fit a new learner to the negative gradient of the loss at the current predictions, then add a scaled version of that learner. For squared error this target is proportional to the familiar <var>y − ŷ</var>; for other losses it need not be that difference.</dd>
-    <dt><strong>Ceous test-time offset</strong></dt>
-    <dd>Think of a base representation plus a temporary correction, schematically <var>q′ = q + Δq</var>. This resembles the <em>form</em> of a residual update. It is a test-time change to a particular query representation, not a learned architectural shortcut in every layer and not a new weak learner fitted to training-label errors. The schematic does not specify how the offset is estimated or scored.</dd>
-  </dl>
-
-  <h3>Try it</h3>
-  <p>Start with <var>x₀ = (4, −1)</var>. Block 1 adds <var>(−1, +2)</var>. Block 2 adds <var>(+1, 0)</var> if its <em>current</em> second coordinate is positive, otherwise <var>(0, 0)</var>. What is the final state? What would you get if you incorrectly evaluated both branches on <var>x₀</var>?</p>
-  <details>
-    <summary>Show the reasoning</summary>
-    <p>Block 1 gives <var>x₁ = (3, 1)</var>; the second coordinate is now positive, so Block 2 gives <var>x₂ = (4, 1)</var>. If both branches saw <var>x₀</var>, the second branch would see <var>−1</var>, emit zero, and leave <var>(3, 1)</var>. Updating the state changed the next edit.</p>
-  </details>
-
-  <p><strong>Primary sources:</strong> <a href="https://arxiv.org/abs/1512.03385">He et al., ResNet</a>; <a href="https://arxiv.org/abs/1603.05027">He et al., identity mappings</a>; <a href="https://arxiv.org/abs/1706.03762">Vaswani et al., original Transformer (§3.1)</a>; <a href="https://proceedings.mlr.press/v119/xiong20b.html">Xiong et al., pre-norm vs. post-norm</a>; <a href="https://doi.org/10.1214/aos/1013203451">Friedman, gradient boosting</a>.</p>
+</section><section id="change-the-step"><p class="eyebrow">Try it · two rounds</p><h2>Change the size of each correction.</h2>
+<p>The next tree fits the errors that the first tree leaves. Change the learning rate and see the predictions update. The trees use the same two splits as the worked example. The loss is for these three training rows only.</p>
+<div class="board">
+<label for="learning-rate">Learning rate <output id="learning-value" for="learning-rate">0.50</output></label>
+<input id="learning-rate" type="range" min="0" max="1" step="0.05" value="0.5">
+<div class="table-scroll"><table><caption>Targets and fitted predictions</caption><thead><tr><th scope="col">x</th><th scope="col">Target</th><th scope="col">Start</th><th scope="col">After tree 1</th><th scope="col">After tree 2</th><th scope="col">Error left</th></tr></thead><tbody id="boost-results">
+<tr><th scope="row">0</th><td>0</td><td>2</td><td>1</td><td>0.625</td><td>−0.625</td></tr>
+<tr><th scope="row">1</th><td>2</td><td>2</td><td>2.5</td><td>2.125</td><td>−0.125</td></tr>
+<tr><th scope="row">2</th><td>4</td><td>2</td><td>2.5</td><td>3.25</td><td>0.75</td></tr>
+</tbody></table></div>
+<p id="boost-score" role="status" aria-live="polite">Squared error: 8 → 3.5 → 0.96875</p>
+</div>
+<details><summary>Predict what happens at learning rate zero</summary><p>No correction is added. Both trees can have nonzero outputs, but the prediction stays at the mean, and the loss stays at 8.</p></details>
 </section>
-<section id="compare-shapes">
-<h2>Use a residual on a real tensor shape</h2>
-<p>Four image patches with eight features each give a 4 × 8 matrix. Attention can mix information across the four rows; its output projection returns a 4 × 8 edit. Add it elementwise to the original 4 × 8 matrix. The later MLP may temporarily expand each row to 32 features, but projects back to eight before its own addition. The shortcut does not concatenate features and does not add more tokens.</p>
-<details><summary>Why are two residual edits not usually interchangeable?</summary><p>The second edit sees the state after the first edit. Starting with x = 2, let one edit add 1 and the other multiply the state by 2 by adding the current state. Add then double yields 6; double then add yields 5. Same ingredients, different order.</p></details>
-<p>See the full block in <a href="./fcv-distribution-transformers-2026-11-20.html">the Chapter 13 and Chapter 26 companion</a>. See <a href="../ire-presentation-v5/">Ceous viva V5</a> for a different use of a small offset.</p>
+<section id="boost-formula"><p class="eyebrow">Pass 3 · the formula</p><h2>Which error does the next model learn?</h2>
+<p>For half squared error, L(y, s) = ½(y − s)², the negative gradient with respect to the current score <var>s</var> is <var>y − s</var>. For another differentiable loss, compute <var>rᵢ = −∂L(yᵢ, sᵢ)/∂sᵢ</var> at the current scores. Fit the next learner <var>hₘ(x)</var> to these values. They are called <em>pseudo-residuals</em>: they describe which way the score should move. For binary logistic loss with a log-odds score, this value is <var>y − p</var>, where <var>p</var> is the current probability. Add the update to the log-odds, not to the probability.</p>
+<p>A <strong>line search</strong> can choose a scale <var>γ</var> that gives the lowest training loss along the direction of <var>hₘ</var>. In the simple version the update is <var>Fₘ(x) = Fₘ₋₁(x) + ηγhₘ(x)</var>. Here <var>η</var> is the learning rate. <strong>Shrinkage</strong> means use <var>0 &lt; η &lt; 1</var> to take only part of that step. The toy uses <var>γ = 1</var>; its trees already predict the mean squared-error residual in each leaf. Some tree methods choose a separate update for each leaf instead of one scale for the full tree.</p>
+<p>At prediction time, start with the base prediction and add the trained tree outputs. <strong>You do not need the true target to make that prediction.</strong> The target was used during training only. This is not a neural skip connection. In this example the learner at each stage corrects a prediction function; it does not edit an internal layer of a network.</p>
+
+</section><section id="boost-stop"><p class="eyebrow">Check your model</p><h2>Stop before it learns the noise.</h2>
+<ul>
+  <li><strong>Noise:</strong> If the remaining errors are mostly noise, more trees can learn noise. Stop at the round with the best held-out validation result, not at zero training error.</li>
+  <li><strong>A large step:</strong> A high learning rate can overshoot. A smaller rate often needs more rounds. Set the rate and number of rounds on validation data.</li>
+  <li><strong>A weak correction:</strong> A small tree cannot learn a pattern it cannot split on. A flat validation curve can mean that the features or the model lack the needed information.</li>
+  <li><strong>Data leakage:</strong> Keep validation and test targets out of tree fitting. If the base model was trained separately and you plan to fit a second-level correction on its outputs, use held-out or out-of-fold base predictions where appropriate. That is a different procedure from fitting all boosting stages on one training set.</li>
+</ul>
+<details><summary>What if the first model is already fitted?</summary><p>You can freeze it as F₀ and fit a sequence of corrections. If you calibrate on predictions from a base model you trained separately, make those predictions on held-out or out-of-fold rows where appropriate. A second model must learn a repeatable error, not the first model’s memorization. This is different from training standard gradient boosting stages on the same training set.</p></details><p><strong>Primary source:</strong> <a href="https://doi.org/10.1214/aos/1013203451">Jerome Friedman, <cite>Greedy Function Approximation: A Gradient Boosting Machine</cite> (2001)</a>.</p>
 </section>
-</main><footer><div class="shell">Read one section. Close it. Explain it without looking. <a href="../">Back to Explainer</a></div></footer></body></html>
+</main>
+<footer class="shell"><p class="dim">Use the examples to explain the idea in your own words. <a href="../">Back to Explainer</a></p></footer></body></html>
