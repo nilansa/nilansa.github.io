@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="405" viewBox="0 0 720 405" role="img" aria-labelledby="title desc">
+<title id="title">Toy example: retrieval similarity versus evidence coverage</title>
+<desc id="desc">Query: how a magnetic compass works. A and B repeat the same compass-needle evidence. Candidate C adds the Earth's magnetic field. The animation highlights A and B, followed by A and C. The numbers are illustrative similarity scores, not measured results.</desc>
+<style>
+svg{font-family:system-ui,sans-serif}
+.phase1{opacity:0;animation:phase1 12s linear infinite}
+.phase2{opacity:1;animation:phase2 12s linear infinite}
+@keyframes phase1{0%,8%{opacity:0} 12%,44%{opacity:1} 48%,100%{opacity:0}}
+@keyframes phase2{0%,47%{opacity:0} 52%,92%{opacity:1} 97%,100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){.phase1{animation:none;opacity:0}.phase2{animation:none;opacity:1}}
+</style>
+<rect width="720" height="405" rx="16" fill="#101921"/>
+<text x="41" y="50" fill="#f8fafc" font-size="27" font-weight="650">When good candidates repeat each other</text>
+<text x="42" y="84" fill="#93c5fd" font-size="20">Query: “how a magnetic compass works”</text>
+<g fill="#bfced8" font-size="13" font-weight="620">
+<text x="63" y="139">CANDIDATE</text><text x="235" y="139">EVIDENCE</text><text x="531" y="139">TOY SIMILARITY</text></g>
+<g fill="#192832" stroke="#446376">
+<rect x="44" y="155" width="630" height="42" rx="7" />
+<rect x="44" y="206" width="630" height="42" rx="7" />
+<rect x="44" y="257" width="630" height="42" rx="7" />
+</g>
+<g fill="#f0f6fa" font-size="18">
+<text x="63" y="182">A</text><text x="235" y="182">Compass needle</text><text x="586" y="182">0.95</text>
+<text x="63" y="233">B</text><text x="235" y="233">Compass needle</text><text x="586" y="233">0.92</text>
+<text x="63" y="284">C</text><text x="235" y="284">Earth’s magnetic field</text><text x="586" y="284">0.83</text>
+</g>
+<g class="phase1" fill="none" stroke="#fde68a" stroke-width="3">
+<rect x="44" y="155" width="630" height="42" rx="7" />
+<rect x="44" y="206" width="630" height="42" rx="7" />
+<text x="44" y="343" fill="#fde68a" stroke="none" font-size="20">Top 2 by similarity: A + B → one evidence type</text>
+</g>
+<g class="phase2" fill="none" stroke="#5eead4" stroke-width="3">
+<rect x="44" y="155" width="630" height="42" rx="7" />
+<rect x="44" y="257" width="630" height="42" rx="7" />
+<text x="44" y="343" fill="#5eead4" stroke="none" font-size="20">Coverage choice: A + C → two evidence types</text>
+</g>
+<text x="44" y="383" fill="#bfced8" font-size="14">Illustrative only · Diversity adds value only when new evidence is relevant.</text>
+</svg>

@@ -710,5 +710,71 @@
     "url": "https://nilansa.github.io/ire-project-2026/",
     "date": "2026-10-11",
     "indexed_at": "2026-10-16T12:42:57+05:30"
+  },
+  {
+    "id": "philips-interview-prep",
+    "title": "Philips Round 1 — Applied ML Interview Practice",
+    "description": "35-minute rehearsal, project-story prompts, mock technical questions and answer rubrics.",
+    "url": "./explainers/philips-interview-prep.html",
+    "date": "2026-11-20",
+    "indexed_at": "2026-11-20T13:56:55Z"
+  },
+  {
+    "id": "ceous-tttembed-fiqa200-baseline-2026-11-16",
+    "title": "Ceous — Standard TTT-Embed FiQA-200 baseline (46.18% → 50.60%)",
+    "description": "Professor-facing standalone results: full 57,638-document FiQA experiment, matched teacher budgets, query-wise test-time formula, negative DISCo-inspired coverage comparison and audit caveats.",
+    "url": "./explainers/ceous-tttembed-fiqa200-baseline-2026-11-16.html",
+    "date": "2026-11-16",
+    "indexed_at": "2026-11-16T12:55:43Z"
+  },
+  {
+    "id": "ceous-tttembed-10-minute-presentation-2026-11-16",
+    "title": "Ceous — Ten-minute IRE Presentation (13 Slides + Narration)",
+    "description": "Full-screen recording deck with timed speaker script for every slide: retrieval basics, softmax, worked KL example, gradient flow, TOuR/ReFIT, three TTT-Embed scopes, our actual results, and the complementary-feedback hypothesis.",
+    "url": "./explainers/ceous-tttembed-10-minute-presentation-2026-11-16.html",
+    "date": "2026-11-16",
+    "indexed_at": "2026-11-16T12:56:30Z"
+  },
+  {
+    "id": "ire-ceous-viva-v5",
+    "title": "Ceous Viva — Version 5",
+    "description": "One query from shortlist to second search; model roles, MMR, coverage, KL, animations and the honest experimental verdict.",
+    "url": "./ire-presentation-v5/index.html",
+    "date": "2026-11-20",
+    "indexed_at": "2026-11-20T15:27:23.595Z",
+    "project": "IRE study",
+    "category": "Explainer",
+    "tags": [
+      "IRE",
+      "ASD-STE100"
+    ]
+  },
+  {
+    "id": "ire-survey-presentation-v5",
+    "title": "IRE Survey — Learning to Rank From Clicks",
+    "description": "A ten-minute talk, worked IPS/SNIPS/DR example, original viva questions and a primary-source reading sequence.",
+    "url": "./explainers/ire-survey-presentation-2026-11-20.html",
+    "date": "2026-11-20",
+    "indexed_at": "2026-11-20T15:27:23.595Z",
+    "project": "IRE study",
+    "category": "Explainer",
+    "tags": [
+      "IRE",
+      "ASD-STE100"
+    ]
+  },
+  {
+    "id": "ire-final-exam-practice-v5",
+    "title": "IRE Final — Ranking, A/B Testing and Quiz 2 Foundations",
+    "description": "Confirmed scope, worked ranking and statistics examples, and original scenario questions.",
+    "url": "./explainers/ire-endsem-practice-2026-11-20.html",
+    "date": "2026-11-20",
+    "indexed_at": "2026-11-20T15:27:23.595Z",
+    "project": "IRE study",
+    "category": "Explainer",
+    "tags": [
+      "IRE",
+      "ASD-STE100"
+    ]
   }
 ]

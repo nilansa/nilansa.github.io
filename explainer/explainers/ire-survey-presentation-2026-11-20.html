@@ -1,0 +1,110 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="referrer" content="no-referrer"><title>Learning to rank from clicks | Explainer</title><style>
+:root{color-scheme:light;--blue:#1e3af5;--ink:#131622;--muted:#495169;--line:#d7dcec;--wash:#f2f5ff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:white;font:1.06rem/1.65 system-ui,-apple-system,sans-serif}
+a{color:#1932cb;text-underline-offset:.15em}a:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+header,footer{border-block-end:1px solid var(--line)}.shell{max-width:1010px;padding:0 clamp(19px,5vw,72px);margin:auto}.top{display:flex;gap:.8rem 1.5rem;flex-wrap:wrap;padding-block:.85rem;font-size:.91rem}
+.top a[aria-current]{font-weight:750;text-decoration-thickness:2px}.hero{padding:4.25rem 0 2.25rem;border-block-end:1px solid var(--line)}.eyebrow,.tag{color:#1932cb;font-weight:760;font-size:.88rem;letter-spacing:.085em;text-transform:uppercase}
+h1,h2,h3{font-family:Georgia,serif;line-height:1.13;text-wrap:balance}h1{font-size:clamp(2.45rem,5.5vw,5.15rem);letter-spacing:-.045em;margin:.42rem 0 .95rem;max-width:15ch}
+h2{font-size:clamp(1.7rem,4vw,2.7rem);margin:0 0 1rem;letter-spacing:-.02em}h3{font-size:1.42rem;margin-top:1.9rem}p,li,dd{max-width:75ch}.hero p{font-size:1.15rem;color:var(--muted);max-width:64ch}.toc{display:flex;gap:.55rem 1.2rem;flex-wrap:wrap;font-size:.91rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+section{padding:2.6rem 0;border-bottom:1px solid var(--line);scroll-margin-top:1.5rem}p{margin:.7rem 0 1rem}
+dt{font-weight:750;margin-top:.8rem}dd{margin-inline-start:0;color:#353d50}figure{margin:1.35rem 0}figcaption,caption{color:var(--muted);font-size:.94rem;text-align:start;padding:.5rem 0}
+.diagram,.callout,.formula,blockquote,.box{background:var(--wash);padding:1rem 1.2rem;border-inline-start:4px solid var(--blue);overflow-wrap:anywhere}.callout{font-size:1.1rem}
+.formula,code{font-family:ui-monospace,SFMono-Regular,monospace;font-size:.96em;overflow-wrap:anywhere}.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem;background:transparent;border:0;padding:0}
+.flow span{background:var(--wash);border:1px solid var(--line);padding:.6rem .75rem;color:#1932cb;min-width:0}.flow b{color:var(--ink)}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;font-variant-numeric:tabular-nums;max-width:100%}th,td{border:1px solid var(--line);padding:.5rem .7rem;text-align:left}thead{background:var(--wash)}
+details{border:1px solid var(--line);padding:.6rem .8rem;margin:.6rem 0}summary{cursor:pointer;color:#1932cb;font-weight:680}li+li{margin-top:.35rem}
+img,video,svg{display:block;max-width:100%;height:auto}video{background:#0d1524;margin-inline:auto;border:1px solid var(--line);width:min(100%,730px)}.picture{max-width:760px;border:1px solid var(--line)}
+footer{padding-block:1.7rem;color:var(--muted)}.skip{position:absolute;left:.5rem;top:-5rem;background:white;padding:.4rem;z-index:3}.skip:focus{top:.5rem}
+@media(max-width:570px){.hero{padding-top:2.5rem}.flow{grid-template-columns:repeat(2,1fr)}section{padding:1.8rem 0}th,td{padding:.35rem .45rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{.top,.toc,video{display:none}section{padding:1rem 0}h2{break-after:avoid}}
+</style></head><body><a class="skip" href="#main">Skip to lesson</a><header><nav class="shell top" aria-label="Study guides"><a href="../">Explainer index</a> · <a href="../ire-presentation-v5/">Ceous viva</a> · <a href="../explainers/ire-survey-presentation-2026-11-20.html" aria-current="page">Survey presentation</a> · <a href="../explainers/ire-endsem-practice-2026-11-20.html">Exam practice</a></nav></header><main class="shell" id="main"><div class="hero"><p class="eyebrow">02 / Individual research survey</p><h1>Learning to rank from clicks</h1><p>Turn biased interaction logs into a careful evaluation. Learn the math, then rehearse a ten-minute survey talk.</p></div><nav class="toc" aria-label="On this page"><a href="#start">Start here: what if the labels depend on the old model?</a><a href="#setup">Use a one-result ranking problem first</a><a href="#estimators">One worked example, three estimators</a><a href="#ranking">Back to rankings: three different kinds of propensity</a><a href="#diagnostics">What I would check before trusting a number</a><a href="#script">Suggested board talk: ten minutes, seven slides</a><a href="#viva">Likely questions, with concise answers</a><a href="#references">Primary readings in the order I would present them</a><a href="#next-reading">Prepare in three passes</a></nav><section id="start">
+<h2>Start here: what if the labels depend on the old model?</h2>
+<p>In ordinary supervised learning, examples come with targets: a document and its relevance grade, for example. A ranker learns which documents to put first, then we can compare systems against the same held-out judgments. On a live search engine, however, we often have clicks rather than complete judgments. The old ranker decided what people saw and in what order. An unshown document cannot be clicked; an unclicked result might simply not have been seen.</p>
+<div class="diagram"><p><strong>Query + user context</strong> → old ranker displays results → user examines some positions → clicks are logged.</p><p><strong>What is missing?</strong> What this same user would have done under a different ranking.</p></div>
+<p><strong>Why I chose this topic:</strong> I wanted to understand when existing feedback actually lets us compare two rankers without deploying both, and when the data cannot answer that question. This connects familiar ranking and offline evaluation with a concrete statistical problem: the old system controls which outcomes become observable.</p>
+<p>Begin by naming the target. Expected clicks from a new display policy and relevance quality under complete editorial judgments are different quantities. Correcting which action was logged does not turn clicks into relevance labels.</p>
+</section>
+<section id="setup">
+<h2>Use a one-result ranking problem first</h2>
+<p>Let <var>x</var> be the query and any recorded context, <var>a</var> the action (which result to display), and <var>r</var> the reward (for example, one for a click and zero otherwise). The historical policy <var>μ(a|x)</var> is the probability the old system displays that result. The target policy <var>π(a|x)</var> is the probability the new system would display it. We log <var>x</var>, the chosen <var>a</var>, its propensity, and the reward for that action—not rewards for alternatives.</p>
+<p>The target value is the average reward if we drew each action from the <em>target</em> policy, under the same context distribution and response process. This requires action overlap: whenever <var>π(a|x)</var> is positive, <var>μ(a|x)</var> must also be positive. It also requires that the historical action assignment is randomized or otherwise ignorable given the context that is recorded, and that the same action has the same reward meaning under either policy.</p>
+<div class="callout"><p><strong>What the denominator means.</strong> <var>μ(a|x)</var> is the logging policy's probability of selecting the observed action in its context, not the model's confidence, the observed click rate, or the fraction of all documents with that title.</p></div>
+</section>
+<section id="estimators">
+<h2>One worked example, three estimators</h2>
+<p>Imagine four impressions of the same query. The old system shows A with probability ¾ and B with probability ¼; the new system would always show B. The logged impressions happen to have the following results. This is a teaching example, not experimental evidence.</p>
+<div class="table-wrap"><table>
+<caption>Four historical impressions and their target-to-logging weights</caption>
+<thead><tr><th scope="col">Impression</th><th scope="col">Shown</th><th scope="col">Click</th><th scope="col">μ</th><th scope="col">π</th><th scope="col">Weight π/μ</th></tr></thead>
+<tbody><tr><th scope="row">1</th><td>A</td><td>1</td><td>¾</td><td>0</td><td>0</td></tr>
+<tr><th scope="row">2</th><td>A</td><td>0</td><td>¾</td><td>0</td><td>0</td></tr>
+<tr><th scope="row">3</th><td>B</td><td>1</td><td>¼</td><td>1</td><td>4</td></tr>
+<tr><th scope="row">4</th><td>B</td><td>0</td><td>¼</td><td>1</td><td>4</td></tr></tbody></table></div>
+<p><strong>IPS (inverse propensity scoring).</strong> Multiply each observed reward by its weight, sum, then divide by <em>all</em> logged impressions: (0 + 0 + 4 + 0)/4 = <strong>1</strong>. Intuition: each rare match stands in for four expected opportunities. A non-click after a matching display still belongs in the sample. The arithmetic proof is short: conditioning on the query, sum over actions; the logging probability in the sum cancels the one in the weight, leaving target probabilities times expected rewards. With correct propensities and the assumptions above, that gives unbiasedness in expectation, not accuracy on every small sample. The estimate can even exceed one if several rare matches click.</p>
+<p><strong>SNIPS (self-normalized IPS).</strong> Divide the same numerator by <em>total observed weight</em>, not the total impression count: 4/(0 + 0 + 4 + 4) = <strong>½</strong>. This makes the estimate a weighted mean and keeps it within the reward range when weights are nonnegative and their sum is positive. It is generally biased at finite sample sizes, but consistent under suitable sampling, support and moment conditions. If no B appeared, the denominator is zero and this estimate is undefined.</p>
+<p><strong>Doubly robust (DR).</strong> Start with a fitted reward model's prediction under the target policy, then correct its error on the logged action. If the model predicts a B click probability of 0.60, the estimate is 0.60 + [0 + 0 + 4(1 − 0.60) + 4(0 − 0.60)]/4 = <strong>0.40</strong>. In general, the first term averages the prediction over target actions; the residual uses the prediction for the <em>logged</em> action. With suitable nuisance fitting, overlap and identifiability, the correction is unbiased under standard fixed-nuisance conditions if either the propensity model or reward model is correct. Neither assumption rescues an unsupported action without additional modeling assumptions. Use held-out predictions or cross-fitting when appropriate; do not tune and certify on the same data.</p>
+<div class="callout"><p><strong>Three quantities to remember:</strong> IPS divides by the number of impressions, SNIPS divides by the sum of weights, and DR adds a weighted prediction-error average to a target-policy model prediction. The three answers differ because four observations give us very little information.</p></div>
+</section>
+<section id="ranking">
+<h2>Back to rankings: three different kinds of propensity</h2>
+<ul>
+<li><strong>Action/slate propensity:</strong> probability the logger displayed the exact ordered list. This targets a list-level outcome such as total clicks; rarely repeated long lists lead to poor overlap and noisy weights.</li>
+<li><strong>Examination propensity:</strong> probability a user examines a result at a given position under a click model. If click requires both examination and relevance, dividing clicks by estimated examination propensity can correct position-dependent missingness under that model. It is not the same as the probability the ranker displayed the list.</li>
+<li><strong>Top-k exposure:</strong> a result can be excluded from the displayed prefix altogether. A policy-aware correction can integrate over rankings the logger might show to account for both display and examination under the paper’s assumptions. A document that is never exposed remains unsupported.</li>
+</ul>
+<p>Whole-list IPS can be statistically costly. Item-level or sequential estimators may use more observations by exploiting assumptions about reward structure or interactions. They are not interchangeable with full-slate IPS: one click can affect whether a user examines later results. A trust-biased click may also occur on a poor result because it appears high in the list; a simple examination correction does not remove that effect.</p>
+<p>For <strong>evaluation</strong>, ask how well a fixed target policy would do. For <strong>learning</strong>, use a counterfactual objective to choose a policy, then evaluate it on separate data. Counterfactual risk minimization adds a variance-aware term to discourage solutions that look good only because a few large weights dominate.</p>
+</section>
+<section id="diagnostics">
+<h2>What I would check before trusting a number</h2>
+<ol>
+<li>Compare policies on the same reward definition and say whether it is clicks or relevance.</li>
+<li>Check support by action/context and inspect propensity logging before trusting reported uncertainty.</li>
+<li>Plot the weight distribution, its largest values, and effective sample size, (sum of weights)<sup>2</sup> / sum of squared weights. For this example the effective sample size is 64/32 = <strong>2</strong>, not four.</li>
+<li>Compare IPS, SNIPS and DR; report uncertainty. If clipping large weights, show sensitivity and explain the bias–variance trade-off. Clipping is not an overlap fix.</li>
+<li>State the click-model and interaction assumptions. If the logger never shows a candidate, say where the data cannot identify the target. If feasible later, collect randomized exposure or check against an online experiment.</li>
+</ol>
+</section>
+<section id="script">
+<h2>Suggested board talk: ten minutes, seven slides</h2>
+<p>This timing and slide count are rehearsal choices, not official course rules. Shorten only after checking the allotted time.</p>
+<ol>
+<li><strong>0:00–1:00 · Why this topic.</strong> “A held-out labeled dataset lets us score two rankers against the same answers. A click log doesn't: the old ranker decides what could be clicked.” Draw two results with different display positions.</li>
+<li><strong>1:00–2:15 · Define the question.</strong> “We want mean reward if the new policy chose the actions. We record the old policy's probabilities and observe only one outcome per impression.” Label context, action, reward, logging propensity, and target probability.</li>
+<li><strong>2:15–4:15 · IPS on the board.</strong> Draw the four-row example. Explain why B gets weight four and why the IPS denominator is four impressions. Write the cancellation of μ; finish with the support condition.</li>
+<li><strong>4:15–5:45 · SNIPS and DR.</strong> Use the same four rows. Circle total realized weight eight for SNIPS; for DR, draw model prediction plus a residual correction. Explain why their answers differ rather than naming a winner.</li>
+<li><strong>5:45–7:10 · A real results page.</strong> Go from picking one document to choosing a slate. Contrast selection, examination and exclusion from the top-k list. Draw two overlapping slates and explain why item-wise correction needs assumptions.</li>
+<li><strong>7:10–8:50 · Follow the papers.</strong> “Replay establishes the randomized logging case. DR blends prediction and correction. CRM moves from evaluation to learning. Ranking papers deal with position and top-k exposure.” Compare estimands and assumptions, not just abstract summaries.</li>
+<li><strong>8:50–10:00 · Takeaway and limits.</strong> “Reweighting fixes known selection under overlap. It cannot invent unobserved outcomes, and it doesn't make clicks into relevance.” State what you would log or randomize next.</li>
+</ol>
+</section>
+<section id="viva">
+<h2>Likely questions, with concise answers</h2>
+<dl>
+<dt>Why not average the clicks in the historical log?</dt><dd>That estimates the old policy's reward, not the new policy's reward unless the policies agree or another special condition holds.</dd>
+<dt>Why is the IPS denominator not the number of matching actions?</dt><dd>Its weights undo the probability of the logger's action over all impressions. Dividing by the number of matches after already reweighting is not the IPS estimand. SNIPS explicitly normalizes by the sum of weights.</dd>
+<dt>When does simple replay work?</dt><dd>With uniform randomized logging of a fixed number of actions, matching the target action selects a representative stream. With unequal probabilities, unweighted matching generally favors contexts/actions with more opportunities to match.</dd>
+<dt>How do you explain “doubly robust” in one sentence?</dt><dd>A correct reward model makes the mean residual zero, while correct logging propensities make the residual correct the reward model's error in expectation, provided the identification assumptions hold.</dd>
+<dt>Can a deterministic logger support evaluation of any new ranker?</dt><dd>No. At a fixed context it exposes only its own action. If the target differs there, the logs cannot identify that action's outcome without new data or extra assumptions.</dd>
+<dt>If the lowest position gets examined 25% of the time, what does one observed click contribute?</dt><dd>A weight of four in a simple examination correction, only if that probability and the click model apply. It does not mean four people clicked or that the whole slate had propensity 25%.</dd>
+<dt>What can go wrong if most weight sits on one impression?</dt><dd>The answer becomes very sensitive to one reward. Report overlap and effective sample size; normalization or clipping may stabilize it but adds trade-offs.</dd>
+<dt>What is new about the survey?</dt><dd>Its contribution is a synthesis linking evaluation and learning to ranking-specific observation assumptions. The toy example explains the differences; it is not a new benchmark or empirical result.</dd>
+</dl>
+</section>
+<section id="references">
+<h2>Primary readings in the order I would present them</h2>
+<ol>
+<li>Li, Chu, Langford and Wang, <a href="https://arxiv.org/abs/1003.5956">Unbiased Offline Evaluation of Contextual-bandit-based News Article Recommendation Algorithms</a> (WSDM 2011): offline replay from randomized logs.</li>
+<li>Dudík, Langford and Li, <a href="https://arxiv.org/abs/1103.4601">Doubly Robust Policy Evaluation and Learning</a> (ICML 2011): model prediction plus importance-weighted residual.</li>
+<li>Swaminathan and Joachims, <a href="https://proceedings.mlr.press/v37/swaminathan15.html">Counterfactual Risk Minimization: Learning from Logged Bandit Feedback</a> (ICML 2015): policy learning with variance control.</li>
+<li>Joachims, Swaminathan and Schnabel, <a href="https://arxiv.org/abs/1608.04468">Unbiased Learning-to-Rank with Biased Feedback</a> (WSDM 2017): click-based ranking under propensity assumptions.</li>
+<li>Oosterhuis and de Rijke, <a href="https://arxiv.org/abs/2005.09035">Policy-Aware Unbiased Learning to Rank for Top-k Rankings</a> (SIGIR 2020): top-k selection and examination.</li>
+</ol>
+</section>
+<section id="next-reading">
+<h2>Prepare in three passes</h2>
+<ol><li><strong>First:</strong> Read the replay and IPS setup. Do not move on until you can derive cancellation of the logging propensity on paper.</li><li><strong>Next:</strong> Read the DR and CRM papers for the difference between estimating a fixed policy and learning one. Compare assumptions and the evidence each paper provides.</li><li><strong>Last:</strong> Read the two ranking papers for examination bias and top-k exclusion. Use the <a href="./ire-counterfactual-ranking-survey-2026-10-31.html">full reading spine and tutorials</a> to choose the remaining sources. For each paper, record the estimand, log, assumptions, published result and failure mode.</li></ol>
+<p>Keep the short report and presentation as a survey of published work. The worked numbers above are teaching examples, not an experiment to report.</p>
+</section>
+</main><footer><div class="shell">Read one section. Close it. Explain it without looking. <a href="../">Back to Explainer</a></div></footer></body></html>
